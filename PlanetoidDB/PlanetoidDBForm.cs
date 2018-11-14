@@ -59,6 +59,8 @@ namespace PlanetoidDB
       labelFlags.Text = arrFlags[cp].ToString();
       labelDesgnName.Text = arrDesgnName[cp].ToString();
       labelObsLastDate.Text = arrObsLastDate[cp].ToString();
+
+      labelIndexPos.Text = "Index: " + (intCurrentPosition+1).ToString() + " / " + arrIndex.Count;
     }
 
     public PlanetoidDBForm()
@@ -132,7 +134,7 @@ namespace PlanetoidDB
             arrRef.Add(strRef);
             arrNumbObs.Add(strNumbObs);
             arrNumbOppos.Add(strNumbOppos);
-            arrObsSpan.Add(strObsLastDate);
+            arrObsSpan.Add(strObsSpan);
             arrRmsResdiual.Add(strRmsResiual);
             arrComputerName.Add(strComputerName);
             arrFlags.Add(strFlags);
@@ -145,6 +147,8 @@ namespace PlanetoidDB
       sr.Close();
       formSplashScreen.Close();
 
+      numericUpDownGotoIndex.Minimum = 1;
+      numericUpDownGotoIndex.Maximum = arrIndex.Count;
       intCurrentPosition = 0;
       GotoCurrentPosition(intCurrentPosition);      
     }
@@ -178,6 +182,12 @@ namespace PlanetoidDB
     private void buttonStepToEnd_Click(object sender, EventArgs e)
     {
       intCurrentPosition = arrDesgnName.Count - 1;
+      GotoCurrentPosition(intCurrentPosition);
+    }
+
+    private void buttonGotoIndex_Click(object sender, EventArgs e)
+    {
+      intCurrentPosition = (int)numericUpDownGotoIndex.Value - 1;
       GotoCurrentPosition(intCurrentPosition);
     }
 

@@ -90,16 +90,21 @@
       this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.homepagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+      this.labelIndexPos = new System.Windows.Forms.Label();
+      this.labelGottoIndex = new System.Windows.Forms.Label();
+      this.numericUpDownGotoIndex = new System.Windows.Forms.NumericUpDown();
+      this.buttonGotoIndex = new System.Windows.Forms.Button();
       this.tableLayoutPanel1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGotoIndex)).BeginInit();
       this.SuspendLayout();
       // 
       // buttonStepToBegin
       // 
       this.buttonStepToBegin.Image = global::PlanetoidDB.Properties.Resources.previous_green;
-      this.buttonStepToBegin.Location = new System.Drawing.Point(20, 29);
+      this.buttonStepToBegin.Location = new System.Drawing.Point(12, 32);
       this.buttonStepToBegin.Name = "buttonStepToBegin";
-      this.buttonStepToBegin.Size = new System.Drawing.Size(29, 29);
+      this.buttonStepToBegin.Size = new System.Drawing.Size(29, 26);
       this.buttonStepToBegin.TabIndex = 0;
       this.buttonStepToBegin.UseVisualStyleBackColor = true;
       this.buttonStepToBegin.Click += new System.EventHandler(this.buttonStepToBegin_Click);
@@ -107,9 +112,9 @@
       // buttonStepBackward
       // 
       this.buttonStepBackward.Image = global::PlanetoidDB.Properties.Resources.rewind_green;
-      this.buttonStepBackward.Location = new System.Drawing.Point(56, 29);
+      this.buttonStepBackward.Location = new System.Drawing.Point(47, 32);
       this.buttonStepBackward.Name = "buttonStepBackward";
-      this.buttonStepBackward.Size = new System.Drawing.Size(29, 29);
+      this.buttonStepBackward.Size = new System.Drawing.Size(29, 26);
       this.buttonStepBackward.TabIndex = 1;
       this.buttonStepBackward.UseVisualStyleBackColor = true;
       this.buttonStepBackward.Click += new System.EventHandler(this.buttonStepBackward_Click);
@@ -117,9 +122,9 @@
       // buttonStepBackward1
       // 
       this.buttonStepBackward1.Image = global::PlanetoidDB.Properties.Resources.reverse_green;
-      this.buttonStepBackward1.Location = new System.Drawing.Point(92, 29);
+      this.buttonStepBackward1.Location = new System.Drawing.Point(82, 32);
       this.buttonStepBackward1.Name = "buttonStepBackward1";
-      this.buttonStepBackward1.Size = new System.Drawing.Size(29, 29);
+      this.buttonStepBackward1.Size = new System.Drawing.Size(29, 26);
       this.buttonStepBackward1.TabIndex = 2;
       this.buttonStepBackward1.UseVisualStyleBackColor = true;
       this.buttonStepBackward1.Click += new System.EventHandler(this.buttonStepBackward1_Click);
@@ -127,9 +132,9 @@
       // buttonStepForward1
       // 
       this.buttonStepForward1.Image = global::PlanetoidDB.Properties.Resources.play_green;
-      this.buttonStepForward1.Location = new System.Drawing.Point(128, 29);
+      this.buttonStepForward1.Location = new System.Drawing.Point(117, 32);
       this.buttonStepForward1.Name = "buttonStepForward1";
-      this.buttonStepForward1.Size = new System.Drawing.Size(29, 29);
+      this.buttonStepForward1.Size = new System.Drawing.Size(29, 26);
       this.buttonStepForward1.TabIndex = 3;
       this.buttonStepForward1.UseVisualStyleBackColor = true;
       this.buttonStepForward1.Click += new System.EventHandler(this.buttonStepForward1_Click);
@@ -137,9 +142,9 @@
       // buttonStepForward
       // 
       this.buttonStepForward.Image = global::PlanetoidDB.Properties.Resources.forward_green;
-      this.buttonStepForward.Location = new System.Drawing.Point(164, 29);
+      this.buttonStepForward.Location = new System.Drawing.Point(152, 32);
       this.buttonStepForward.Name = "buttonStepForward";
-      this.buttonStepForward.Size = new System.Drawing.Size(29, 29);
+      this.buttonStepForward.Size = new System.Drawing.Size(29, 26);
       this.buttonStepForward.TabIndex = 4;
       this.buttonStepForward.UseVisualStyleBackColor = true;
       this.buttonStepForward.Click += new System.EventHandler(this.buttonStepForward_Click);
@@ -147,9 +152,9 @@
       // buttonStepToEnd
       // 
       this.buttonStepToEnd.Image = global::PlanetoidDB.Properties.Resources.next_green;
-      this.buttonStepToEnd.Location = new System.Drawing.Point(201, 29);
+      this.buttonStepToEnd.Location = new System.Drawing.Point(187, 32);
       this.buttonStepToEnd.Name = "buttonStepToEnd";
-      this.buttonStepToEnd.Size = new System.Drawing.Size(29, 29);
+      this.buttonStepToEnd.Size = new System.Drawing.Size(29, 26);
       this.buttonStepToEnd.TabIndex = 5;
       this.buttonStepToEnd.UseVisualStyleBackColor = true;
       this.buttonStepToEnd.Click += new System.EventHandler(this.buttonStepToEnd_Click);
@@ -717,20 +722,59 @@
       this.statusStrip1.TabIndex = 29;
       this.statusStrip1.Text = "statusStrip1";
       // 
+      // labelIndexPos
+      // 
+      this.labelIndexPos.AutoSize = true;
+      this.labelIndexPos.Location = new System.Drawing.Point(222, 39);
+      this.labelIndexPos.Name = "labelIndexPos";
+      this.labelIndexPos.Size = new System.Drawing.Size(52, 15);
+      this.labelIndexPos.TabIndex = 30;
+      this.labelIndexPos.Text = "Index: ...";
+      // 
+      // labelGottoIndex
+      // 
+      this.labelGottoIndex.AutoSize = true;
+      this.labelGottoIndex.Location = new System.Drawing.Point(371, 38);
+      this.labelGottoIndex.Name = "labelGottoIndex";
+      this.labelGottoIndex.Size = new System.Drawing.Size(72, 15);
+      this.labelGottoIndex.TabIndex = 31;
+      this.labelGottoIndex.Text = "Go to Index:";
+      // 
+      // numericUpDownGotoIndex
+      // 
+      this.numericUpDownGotoIndex.Location = new System.Drawing.Point(449, 36);
+      this.numericUpDownGotoIndex.Name = "numericUpDownGotoIndex";
+      this.numericUpDownGotoIndex.Size = new System.Drawing.Size(78, 23);
+      this.numericUpDownGotoIndex.TabIndex = 32;
+      // 
+      // buttonGotoIndex
+      // 
+      this.buttonGotoIndex.Image = global::PlanetoidDB.Properties.Resources.bullet_go;
+      this.buttonGotoIndex.Location = new System.Drawing.Point(533, 33);
+      this.buttonGotoIndex.Name = "buttonGotoIndex";
+      this.buttonGotoIndex.Size = new System.Drawing.Size(29, 26);
+      this.buttonGotoIndex.TabIndex = 33;
+      this.buttonGotoIndex.UseVisualStyleBackColor = true;
+      this.buttonGotoIndex.Click += new System.EventHandler(this.buttonGotoIndex_Click);
+      // 
       // PlanetoidDBForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(745, 352);
-      this.Controls.Add(this.statusStrip1);
-      this.Controls.Add(this.tableLayoutPanel1);
+      this.Controls.Add(this.buttonGotoIndex);
+      this.Controls.Add(this.numericUpDownGotoIndex);
+      this.Controls.Add(this.labelGottoIndex);
+      this.Controls.Add(this.labelIndexPos);
       this.Controls.Add(this.buttonStepToEnd);
       this.Controls.Add(this.buttonStepForward);
+      this.Controls.Add(this.statusStrip1);
       this.Controls.Add(this.buttonStepForward1);
+      this.Controls.Add(this.tableLayoutPanel1);
       this.Controls.Add(this.buttonStepBackward1);
+      this.Controls.Add(this.menuStrip1);
       this.Controls.Add(this.buttonStepBackward);
       this.Controls.Add(this.buttonStepToBegin);
-      this.Controls.Add(this.menuStrip1);
       this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MainMenuStrip = this.menuStrip1;
@@ -743,6 +787,7 @@
       this.tableLayoutPanel1.PerformLayout();
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGotoIndex)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -811,6 +856,10 @@
     private System.Windows.Forms.ToolStripMenuItem homepagToolStripMenuItem;
     private System.Windows.Forms.StatusStrip statusStrip1;
     private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+    private System.Windows.Forms.Label labelIndexPos;
+    private System.Windows.Forms.Label labelGottoIndex;
+    private System.Windows.Forms.NumericUpDown numericUpDownGotoIndex;
+    private System.Windows.Forms.Button buttonGotoIndex;
 
   }
 }
