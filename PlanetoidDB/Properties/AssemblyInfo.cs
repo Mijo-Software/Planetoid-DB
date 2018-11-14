@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("PlanetoidDB")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Viewer zum komfortablen Betrachten der Planetoiden-Datenbank MPCORB.DAT des Minor Planet Centers (MPC) am Smithsonian Astrophysical Observatory (SAO) des Smithsonian Institution in Cambridge (Massachusetts), USA.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("Michael Johne, http.//www.planetoiddb.micjoe.de")]
 [assembly: AssemblyProduct("PlanetoidDB")]
 [assembly: AssemblyCopyright("2010 Michael Johne <michael-johne@gmx.de>")]
 [assembly: AssemblyTrademark("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.5.10")]
-[assembly: AssemblyFileVersion("0.0.5.10")]
+[assembly: AssemblyVersion("0.0.6.11")]
+[assembly: AssemblyFileVersion("0.0.6.11")]

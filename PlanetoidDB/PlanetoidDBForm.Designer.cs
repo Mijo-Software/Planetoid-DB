@@ -95,6 +95,8 @@
       this.labelGottoIndex = new System.Windows.Forms.Label();
       this.numericUpDownGotoIndex = new System.Windows.Forms.NumericUpDown();
       this.buttonGotoIndex = new System.Windows.Forms.Button();
+      this.ofd = new System.Windows.Forms.OpenFileDialog();
+      this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
       this.tableLayoutPanel1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGotoIndex)).BeginInit();
@@ -758,6 +760,12 @@
       this.buttonGotoIndex.UseVisualStyleBackColor = true;
       this.buttonGotoIndex.Click += new System.EventHandler(this.buttonGotoIndex_Click);
       // 
+      // ofd
+      // 
+      this.ofd.DefaultExt = "dat";
+      this.ofd.FileName = "mpcorb.dat";
+      this.ofd.Filter = "DAT-Datei|*.dat|Alle Dateien|*.*";
+      // 
       // PlanetoidDBForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -862,6 +870,8 @@
     private System.Windows.Forms.Label labelGottoIndex;
     private System.Windows.Forms.NumericUpDown numericUpDownGotoIndex;
     private System.Windows.Forms.Button buttonGotoIndex;
+    private System.Windows.Forms.OpenFileDialog ofd;
+    private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 
   }
 }
