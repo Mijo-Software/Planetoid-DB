@@ -15,6 +15,8 @@ namespace PlanetoidDB
   public partial class PlanetoidDBForm : Form
   {
     int intCurrentPosition = 0;
+
+    ArrayList arrDB = new ArrayList(0);
     
     ArrayList arrIndex = new ArrayList();
     ArrayList arrMagAbs = new ArrayList();
@@ -39,49 +41,6 @@ namespace PlanetoidDB
 
     private void GotoCurrentPosition(int cp)
     {
-      labelIndex.Text = arrIndex[cp].ToString();
-      labelMagAbs.Text = arrMagAbs[cp].ToString();
-      labelSlopeParam.Text = arrSlopeParam[cp].ToString();
-      labelEpoch.Text = arrEpoch[cp].ToString();
-      labelMeanAnomaly.Text = arrMeanAnomaly[cp].ToString();
-      labelArgPeri.Text = arrArgPeri[cp].ToString();
-      labelLongAscNode.Text = arrLongAscNode[cp].ToString();
-      labelIncl.Text = arrIncl[cp].ToString();
-      labelOrbEcc.Text = arrOrbEcc[cp].ToString();
-      labelMotion.Text = arrMotion[cp].ToString();
-      labelSemiMajorAxis.Text = arrSemiMajorAxis[cp].ToString();
-      labelRef.Text = arrRef[cp].ToString();
-      labelNumbObs.Text = arrNumbObs[cp].ToString();
-      labelNumbOppos.Text = arrNumbOppos[cp].ToString();
-      labelObsSpan.Text = arrObsSpan[cp].ToString();
-      labelRmsResidual.Text = arrRmsResdiual[cp].ToString();
-      labelComputerName.Text = arrComputerName[cp].ToString();
-      labelFlags.Text = arrFlags[cp].ToString();
-      labelDesgnName.Text = arrDesgnName[cp].ToString();
-      labelObsLastDate.Text = arrObsLastDate[cp].ToString();
-
-      labelIndexPos.Text = "Index: " + (intCurrentPosition+1).ToString() + " / " + arrIndex.Count;
-    }
-
-    public PlanetoidDBForm()
-    {
-      InitializeComponent();
-    }
-
-    private void PlanetoidDBForm_Load(object sender, EventArgs e)
-    {
-      SplashScreenForm formSplashScreen = new SplashScreenForm();
-      formSplashScreen.Show();
-      formSplashScreen.Update();
-
-      string fileName = "mpcorb.dat";
-      FileInfo fi = new FileInfo(fileName);
-      long fileSize = fi.Length, fileSizeReaded = 0;
-      int step = 0, lineNum = 0;
-      FileStream fs;
-      StreamReader sr;
-      string readLine;
-
       string strIndex,
       strMagAbs,
       strSlopeParam,
@@ -116,7 +75,159 @@ namespace PlanetoidDB
       doubleRmsResdiual,
       doubleObsLastDate;
 
-      ArrayList arrDB = new ArrayList(0);
+      strIndex = arrDB[cp].ToString().Substring(0, 7); strIndex = strIndex.Trim();
+      labelIndex.Text = strIndex;
+      strMagAbs = arrDB[cp].ToString().Substring(8, 5); strMagAbs = strMagAbs.Trim();
+      if (strMagAbs == "") doubleMagAbs = 0; else doubleMagAbs = Convert.ToDouble(strMagAbs);
+      labelMagAbs.Text = strMagAbs;
+      strSlopeParam = arrDB[cp].ToString().Substring(14, 5); strSlopeParam = strSlopeParam.Trim();
+      if (strSlopeParam == "") doubleSlopeParam = 0; else doubleSlopeParam = Convert.ToDouble(strSlopeParam);
+      labelSlopeParam.Text = strSlopeParam;
+      strEpoch = arrDB[cp].ToString().Substring(20, 5); strEpoch = strEpoch.Trim();
+      labelEpoch.Text = strEpoch;
+      strMeanAnomaly = arrDB[cp].ToString().Substring(26, 9); strMeanAnomaly = strMeanAnomaly.Trim();
+      if (strMeanAnomaly == "") doubleMeanAnomaly = 0; else doubleMeanAnomaly = Convert.ToDouble(strMeanAnomaly);
+      labelMeanAnomaly.Text = strMeanAnomaly;
+      strArgPeri = arrDB[cp].ToString().Substring(37, 9); strArgPeri = strArgPeri.Trim();
+      if (strArgPeri == "") doubleArgPeri = 0; else doubleArgPeri = Convert.ToDouble(strArgPeri);
+      labelArgPeri.Text = strArgPeri;
+      strLongAscNode = arrDB[cp].ToString().Substring(48, 9); strLongAscNode = strLongAscNode.Trim();
+      if (strLongAscNode == "") doubleLongAscNode = 0; else doubleLongAscNode = Convert.ToDouble(strLongAscNode);
+      labelLongAscNode.Text = strLongAscNode;
+      strIncl = arrDB[cp].ToString().Substring(59, 9); strIncl = strIncl.Trim();
+      if (strIncl == "") doubleIncl = 0; else doubleIncl = Convert.ToDouble(strIncl);
+      labelIncl.Text = strIncl;
+      strOrbEcc = arrDB[cp].ToString().Substring(70, 9); strOrbEcc = strOrbEcc.Trim();
+      if (strOrbEcc == "") doubleOrbEcc = 0; else doubleOrbEcc = Convert.ToDouble(strOrbEcc);
+      labelOrbEcc.Text = strOrbEcc;
+      strMotion = arrDB[cp].ToString().Substring(80, 11); strMotion = strMotion.Trim();
+      if (strMotion == "") doubleMotion = 0; else doubleMotion = Convert.ToDouble(strMotion);
+      labelMotion.Text = strMotion;
+      strSemiMajorAxis = arrDB[cp].ToString().Substring(92, 11); strSemiMajorAxis = strSemiMajorAxis.Trim();
+      if (strSemiMajorAxis == "") doubleSemiMajorAxis = 0; else doubleSemiMajorAxis = Convert.ToDouble(strSemiMajorAxis);
+      labelSemiMajorAxis.Text = strSemiMajorAxis;
+      strRef = arrDB[cp].ToString().Substring(107, 9); strRef = strRef.Trim();
+      labelRef.Text = strRef;
+      strNumbObs = arrDB[cp].ToString().Substring(117, 5); strNumbObs = strNumbObs.Trim();
+      if (strNumbObs == "") doubleNumbObs = 0; else doubleNumbObs = Convert.ToDouble(strNumbObs);
+      labelNumbObs.Text = strNumbObs;
+      strNumbOppos = arrDB[cp].ToString().Substring(123, 3); strNumbOppos = strNumbOppos.Trim();
+      if (strNumbOppos == "") doubleNumbOppos = 0; else doubleNumbOppos = Convert.ToDouble(strNumbOppos);
+      labelNumbOppos.Text = strNumbOppos;
+      strObsSpan = arrDB[cp].ToString().Substring(127, 9); strObsSpan = strObsSpan.Trim();
+      labelObsSpan.Text = strObsSpan;
+      strRmsResdiual = arrDB[cp].ToString().Substring(137, 4); strRmsResdiual = strRmsResdiual.Trim();
+      if (strRmsResdiual == "") doubleRmsResdiual = 0; else doubleRmsResdiual = Convert.ToDouble(strRmsResdiual);
+      labelRmsResidual.Text = strRmsResdiual;
+      strComputerName = arrDB[cp].ToString().Substring(150, 10); strComputerName = strComputerName.Trim();
+      labelComputerName.Text = strComputerName;
+      strFlags = arrDB[cp].ToString().Substring(161, 4); strFlags = strFlags.Trim();
+      labelFlags.Text = strFlags;
+      strDesgnName = arrDB[cp].ToString().Substring(166, 28); strDesgnName = strDesgnName.Trim();
+      labelDesgnName.Text = strDesgnName;
+      strObsLastDate = arrDB[cp].ToString().Substring(194, 8); strObsLastDate = strObsLastDate.Trim();
+      if (strObsLastDate == "") doubleObsLastDate = 0; else doubleObsLastDate = Convert.ToDouble(strObsLastDate);
+      labelObsLastDate.Text = strObsLastDate;
+
+      /*arrIndex.Add(strIndex);
+      arrMagAbs.Add(strMagAbs);
+      arrSlopeParam.Add(strSlopeParam);
+      arrEpoch.Add(strEpoch);
+      arrMeanAnomaly.Add(strMeanAnomaly);
+      arrArgPeri.Add(strArgPeri);
+      arrLongAscNode.Add(strLongAscNode);
+      arrIncl.Add(strIncl);
+      arrOrbEcc.Add(strOrbEcc);
+      arrMotion.Add(strMotion);
+      arrSemiMajorAxis.Add(strSemiMajorAxis);
+      arrRef.Add(strRef);
+      arrNumbObs.Add(strNumbObs);
+      arrNumbOppos.Add(strNumbOppos);
+      arrObsSpan.Add(strObsSpan);
+      arrRmsResdiual.Add(strRmsResdiual);
+      arrComputerName.Add(strComputerName);
+      arrFlags.Add(strFlags);
+      arrDesgnName.Add(strDesgnName);
+      arrObsLastDate.Add(strObsLastDate);
+
+      labelIndex.Text = arrIndex[cp].ToString();
+      labelMagAbs.Text = arrMagAbs[cp].ToString();
+      labelSlopeParam.Text = arrSlopeParam[cp].ToString();
+      labelEpoch.Text = arrEpoch[cp].ToString();
+      labelMeanAnomaly.Text = arrMeanAnomaly[cp].ToString();
+      labelArgPeri.Text = arrArgPeri[cp].ToString();
+      labelLongAscNode.Text = arrLongAscNode[cp].ToString();
+      labelIncl.Text = arrIncl[cp].ToString();
+      labelOrbEcc.Text = arrOrbEcc[cp].ToString();
+      labelMotion.Text = arrMotion[cp].ToString();
+      labelSemiMajorAxis.Text = arrSemiMajorAxis[cp].ToString();
+      labelRef.Text = arrRef[cp].ToString();
+      labelNumbObs.Text = arrNumbObs[cp].ToString();
+      labelNumbOppos.Text = arrNumbOppos[cp].ToString();
+      labelObsSpan.Text = arrObsSpan[cp].ToString();
+      labelRmsResidual.Text = arrRmsResdiual[cp].ToString();
+      labelComputerName.Text = arrComputerName[cp].ToString();
+      labelFlags.Text = arrFlags[cp].ToString();
+      labelDesgnName.Text = arrDesgnName[cp].ToString();
+      labelObsLastDate.Text = arrObsLastDate[cp].ToString();*/
+
+      labelIndexPos.Text = "Index: " + (cp+1).ToString() + " / " + (arrDB.Count).ToString();
+    }
+
+    public PlanetoidDBForm()
+    {
+      InitializeComponent();
+    }
+
+    private void PlanetoidDBForm_Load(object sender, EventArgs e)
+    {
+      SplashScreenForm formSplashScreen = new SplashScreenForm();
+      formSplashScreen.Show();
+      formSplashScreen.Update();
+
+      string fileName = "mpcorb.dat";
+      FileInfo fi = new FileInfo(fileName);
+      long fileSize = fi.Length, fileSizeReaded = 0;
+      int step = 0, lineNum = 0;
+      FileStream fs;
+      StreamReader sr;
+      string readLine;
+
+      /*string strIndex,
+      strMagAbs,
+      strSlopeParam,
+      strEpoch,
+      strMeanAnomaly,
+      strArgPeri,
+      strLongAscNode,
+      strIncl,
+      strOrbEcc,
+      strMotion,
+      strSemiMajorAxis,
+      strRef,
+      strNumbObs,
+      strNumbOppos,
+      strObsSpan,
+      strRmsResdiual,
+      strComputerName,
+      strFlags,
+      strDesgnName,
+      strObsLastDate;
+      double doubleMagAbs,
+      doubleSlopeParam,
+      doubleMeanAnomaly,
+      doubleArgPeri,
+      doubleLongAscNode,
+      doubleIncl,
+      doubleOrbEcc,
+      doubleMotion,
+      doubleSemiMajorAxis,
+      doubleNumbObs,
+      doubleNumbOppos,
+      doubleRmsResdiual,
+      doubleObsLastDate;
+
+      ArrayList arrDB = new ArrayList(0);*/
       
       fs = new FileStream(fileName, FileMode.Open);
       sr = new StreamReader(fs);
@@ -151,7 +262,7 @@ namespace PlanetoidDB
             strOrbEcc = readLine.Substring(70, 9); strOrbEcc = strOrbEcc.Trim();
             if (strOrbEcc == "") doubleOrbEcc = 0; else doubleOrbEcc = Convert.ToDouble(strOrbEcc);
             strMotion = readLine.Substring(80, 11); strMotion = strMotion.Trim();
-            if (strSlopeParam == "") doubleMotion = 0; else doubleMotion = Convert.ToDouble(strMotion);
+            if (strMotion == "") doubleMotion = 0; else doubleMotion = Convert.ToDouble(strMotion);
             strSemiMajorAxis = readLine.Substring(92, 11); strSemiMajorAxis = strSemiMajorAxis.Trim();
             if (strSemiMajorAxis == "") doubleSemiMajorAxis = 0; else doubleSemiMajorAxis = Convert.ToDouble(strSemiMajorAxis);
             strRef = readLine.Substring(107, 9); strRef = strRef.Trim();
@@ -193,8 +304,9 @@ namespace PlanetoidDB
         }
       }
       sr.Close();
+      formSplashScreen.Close();
 
-      for (int i = 0; i < arrDB.Count; i++)
+      /*for (int i = 0; i < arrDB.Count; i++)
       {
         strIndex = arrDB[i].ToString().Substring(0, 7); strIndex = strIndex.Trim();
         strMagAbs = arrDB[i].ToString().Substring(8, 5); strMagAbs = strMagAbs.Trim();
@@ -256,12 +368,13 @@ namespace PlanetoidDB
         formSplashScreen.setProgressbar(step);
       }
 
-      formSplashScreen.Close();
+      
       arrDB.Clear();
+       */
 
 
       numericUpDownGotoIndex.Minimum = 1;
-      numericUpDownGotoIndex.Maximum = arrIndex.Count;
+      numericUpDownGotoIndex.Maximum = arrDB.Count;
       intCurrentPosition = 0;
       GotoCurrentPosition(intCurrentPosition);      
     }
@@ -278,13 +391,13 @@ namespace PlanetoidDB
 
     private void buttonStepBackward1_Click(object sender, EventArgs e)
     {
-      if (intCurrentPosition == 0) intCurrentPosition = arrDesgnName.Count - 1; else intCurrentPosition--;
+      if (intCurrentPosition == 0) intCurrentPosition = arrDB.Count - 1; else intCurrentPosition--;
       GotoCurrentPosition(intCurrentPosition);
     }
     
     private void buttonStepForward1_Click(object sender, EventArgs e)
     {
-      if (intCurrentPosition == arrDesgnName.Count - 1) intCurrentPosition = 0; else intCurrentPosition++;
+      if (intCurrentPosition == arrDB.Count - 1) intCurrentPosition = 0; else intCurrentPosition++;
       GotoCurrentPosition(intCurrentPosition);
     }
 
@@ -294,7 +407,7 @@ namespace PlanetoidDB
 
     private void buttonStepToEnd_Click(object sender, EventArgs e)
     {
-      intCurrentPosition = arrDesgnName.Count - 1;
+      intCurrentPosition = arrDB.Count - 1;
       GotoCurrentPosition(intCurrentPosition);
     }
 
