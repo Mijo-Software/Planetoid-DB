@@ -7,6 +7,7 @@ using System.Net;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -15,7 +16,7 @@ namespace PlanetoidDB
     
     bool isDownloadCancelled = true;
     Uri uriMPCORB = new Uri("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT");
-    //for local only: Uri uriMPCORB = new Uri("http://localhost/MPCORB.DAT");
+    //Uri uriMPCORB = new Uri("http://localhost/MPCORB.DAT");
     string
       strFilenameMPCORB = "mpcorb.dat",
       strFilenameMPCORBtemp = "_";
@@ -28,6 +29,7 @@ namespace PlanetoidDB
 
     private void DownloadUpdateForm_Load(object sender, EventArgs e)
     {
+      //ToolStripManager.Renderer = new Office2007Renderer();
       strFilenameMPCORBtemp = "_" + strFilenameMPCORB;
       labelStatus.Text = "Status: nothing to do...";
       labelDate.Text = ""; labelDate.Visible = false;
@@ -44,6 +46,7 @@ namespace PlanetoidDB
     {
       progressBarDownload.Value = e.ProgressPercentage;
       labelDownload.Text = e.ProgressPercentage.ToString() + " %";
+      TaskbarProgress.SetValue(this.Handle, e.ProgressPercentage, 100);
     }
 
     private void Completed(object sender, AsyncCompletedEventArgs e)
@@ -69,6 +72,7 @@ namespace PlanetoidDB
         progressBarDownload.Value = 0;
         labelDownload.Text = progressBarDownload.Value.ToString() + " %";
       }
+      TaskbarProgress.SetValue(this.Handle, 0, 100);
     }
 
     private void buttonDownload_Click(object sender, EventArgs e)
@@ -172,7 +176,7 @@ namespace PlanetoidDB
 
     private void DownloadUpdateForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Dispose();
+      this.Dispose();
     }
   }
 }

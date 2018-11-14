@@ -41,9 +41,9 @@
       this.progressBarSplash.AccessibleName = "Progress Bar";
       this.progressBarSplash.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
       this.progressBarSplash.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.progressBarSplash.Location = new System.Drawing.Point(0, 319);
+      this.progressBarSplash.Location = new System.Drawing.Point(0, 312);
       this.progressBarSplash.Name = "progressBarSplash";
-      this.progressBarSplash.Size = new System.Drawing.Size(518, 16);
+      this.progressBarSplash.Size = new System.Drawing.Size(518, 23);
       this.progressBarSplash.Step = 1;
       this.progressBarSplash.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
       this.progressBarSplash.TabIndex = 3;
@@ -116,7 +116,6 @@
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "SplashScreenForm";
-      this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "SplashScreen";
       this.TopMost = true;

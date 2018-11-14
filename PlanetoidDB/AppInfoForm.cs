@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -18,6 +19,7 @@ namespace PlanetoidDB
 
     private void AppInfoForm_Load(object sender, EventArgs e)
     {
+      //ToolStripManager.Renderer = new Office2007Renderer();
       labelTitle.Text = AssemblyProduct;
       labelVersion.Text = String.Format("Version: {0}", AssemblyVersion);
       linkLabelCopyright.Text = AssemblyCopyright;
@@ -119,7 +121,7 @@ namespace PlanetoidDB
 
     private void AppInfoForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Dispose();
+      this.Dispose();
     }
   }
 }

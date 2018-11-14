@@ -197,7 +197,6 @@
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "AppInfoForm";
-      this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Program information";
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppInfoForm_FormClosed);

@@ -14,6 +14,21 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationVersion>0.3.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -37,7 +52,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>PlanetoidDB.ico</ApplicationIcon>
+    <ApplicationIcon>PlanetoidDB2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +71,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>PlanetoidDB.Program</StartupObject>
@@ -75,12 +91,16 @@
     <Compile Include="AppInfoForm.Designer.cs">
       <DependentUpon>AppInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="clsColor.cs" />
     <Compile Include="DownloadUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DownloadUpdateForm.Designer.cs">
       <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Office2007ColorTable.cs" />
+    <Compile Include="Office2007Helpers.cs" />
+    <Compile Include="Office2007Renderer.cs" />
     <Compile Include="PlanetoidDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +115,24 @@
     <Compile Include="SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableModeForm.Designer.cs">
+      <DependentUpon>TableModeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskbarProgress.cs" />
+    <Compile Include="VS2008MenuRenderer.cs" />
+    <Compile Include="VS2008MenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2008ToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2008ToolStripContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2008ToolStripRenderer.cs" />
     <EmbeddedResource Include="AppInfoForm.resx">
       <DependentUpon>AppInfoForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -120,6 +158,9 @@
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableModeForm.resx">
+      <DependentUpon>TableModeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -167,6 +208,71 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
+    <Content Include="PlanetoidDB2.ico" />
+    <None Include="Resources\silk_theme.png" />
+    <None Include="Resources\theme.png" />
+    <None Include="Resources\silk_error.png" />
+    <None Include="Resources\silk_magnifier.png" />
+    <None Include="Resources\silk_zoom_in.png" />
+    <None Include="Resources\silk_zoom.png" />
+    <None Include="Resources\silk_wrench_orange.png" />
+    <None Include="Resources\silk_wrench.png" />
+    <None Include="Resources\silk_world_night.png" />
+    <None Include="Resources\silk_time.png" />
+    <None Include="Resources\silk_tick.png" />
+    <None Include="Resources\silk_section_expanded.png" />
+    <None Include="Resources\silk_section_collapsed.png" />
+    <None Include="Resources\silk_report.png" />
+    <None Include="Resources\silk_reload.png" />
+    <None Include="Resources\silk_printer.png" />
+    <None Include="Resources\silk_page_white_text.png" />
+    <None Include="Resources\silk_page_white_compressed.png" />
+    <None Include="Resources\silk_page_copy.png" />
+    <None Include="Resources\silk_page.png" />
+    <None Include="Resources\silk_note.png" />
+    <None Include="Resources\silk_new.png" />
+    <None Include="Resources\silk_lightbulb_off.png" />
+    <None Include="Resources\silk_lightbulb.png" />
+    <None Include="Resources\silk_image.png" />
+    <None Include="Resources\silk_house.png" />
+    <None Include="Resources\silk_forward-end_blue.png" />
+    <None Include="Resources\silk_forward-1_blue.png" />
+    <None Include="Resources\silk_forward_blue.png" />
+    <None Include="Resources\silk_database_lightning.png" />
+    <None Include="Resources\silk_database_copy.png" />
+    <None Include="Resources\silk_database.png" />
+    <None Include="Resources\silk_cross.png" />
+    <None Include="Resources\silk_control_stop_blue.png" />
+    <None Include="Resources\silk_control_stop.png" />
+    <None Include="Resources\silk_control_forward-end_blue.png" />
+    <None Include="Resources\silk_control_forward-end.png" />
+    <None Include="Resources\silk_control_forward-1_blue.png" />
+    <None Include="Resources\silk_control_forward-1.png" />
+    <None Include="Resources\silk_control_forward_blue.png" />
+    <None Include="Resources\silk_control_forward.png" />
+    <None Include="Resources\silk_control_backward-end_blue.png" />
+    <None Include="Resources\silk_control_backward-end.png" />
+    <None Include="Resources\silk_control_backward-1_blue.png" />
+    <None Include="Resources\silk_control_backward-1.png" />
+    <None Include="Resources\silk_control_backward_blue.png" />
+    <None Include="Resources\silk_control_backward.png" />
+    <None Include="Resources\silk_compress.png" />
+    <None Include="Resources\silk_cog.png" />
+    <None Include="Resources\silk_clipboard.png" />
+    <None Include="Resources\silk_chart_pie.png" />
+    <None Include="Resources\silk_chart_organisation.png" />
+    <None Include="Resources\silk_chart_line.png" />
+    <None Include="Resources\silk_chart_curve.png" />
+    <None Include="Resources\silk_chart_bar.png" />
+    <None Include="Resources\silk_calculator.png" />
+    <None Include="Resources\silk_book.png" />
+    <None Include="Resources\silk_backward-end_blue.png" />
+    <None Include="Resources\silk_backward-1_blue.png" />
+    <None Include="Resources\silk_backward_blue.png" />
+    <None Include="Resources\silk_asterisk_yellow.png" />
+    <None Include="Resources\silk_zoom_out.png" />
+    <None Include="Resources\silk_asterisk_orange.png" />
+    <None Include="Resources\silk_table.png" />
     <None Include="Resources\silk_lightning.png" />
     <None Include="Resources\silk_arrow-switch.png" />
     <None Include="Resources\silk_application-put.png" />
@@ -179,6 +285,18 @@
     <None Include="Resources\silk_backward-end.png" />
     <None Include="Resources\silk_backward-1.png" />
     <None Include="Resources\silk_backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

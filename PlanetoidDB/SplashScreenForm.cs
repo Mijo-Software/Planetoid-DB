@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -29,6 +30,7 @@ namespace PlanetoidDB
 
     private void SplashScreenForm_Load(object sender, EventArgs e)
     {
+      //ToolStripManager.Renderer = new Office2007Renderer();
       labelDataLoading.Text = "Loading data...";
       labelTitle.Text = AssemblyProduct;
       labelVersion.Text = String.Format("Version: {0}", AssemblyVersion);
@@ -116,7 +118,7 @@ namespace PlanetoidDB
 
     private void SplashScreenForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Dispose();
+      this.Dispose();
     }
   }
 }
