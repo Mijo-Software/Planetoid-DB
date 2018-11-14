@@ -81,6 +81,42 @@
       this.numericUpDownGotoIndex = new System.Windows.Forms.NumericUpDown();
       this.labelIndexPos = new System.Windows.Forms.Label();
       this.trackBarIndex = new System.Windows.Forms.TrackBar();
+      this.statusBar = new System.Windows.Forms.StatusStrip();
+      this.toolStripProgressBarBackgroundDownload = new System.Windows.Forms.ToolStripProgressBar();
+      this.menu = new System.Windows.Forms.MenuStrip();
+      this.menuitemFile = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemEdit = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemOptions = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparatorOptions1 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparatorOptions2 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparatorOptions3 = new System.Windows.Forms.ToolStripSeparator();
+      this.menuitemQuest = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparatorMisc = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripIcons = new System.Windows.Forms.ToolStrip();
+      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
+      this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+      this.labelGottoIndex = new System.Windows.Forms.Label();
+      this.ofd = new System.Windows.Forms.OpenFileDialog();
+      this.bwLoadingDB = new System.ComponentModel.BackgroundWorker();
+      this.timerUpdateBlink = new System.Windows.Forms.Timer(this.components);
+      this.toolStripNavigation = new System.Windows.Forms.ToolStrip();
+      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+      this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+      this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+      this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+      this.timerUpdate = new System.Windows.Forms.Timer(this.components);
+      this.notifyIconUpdate = new System.Windows.Forms.NotifyIcon(this.components);
+      this.contextMenuNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.toolStripStatusLabelUpdate = new System.Windows.Forms.ToolStripStatusLabel();
+      this.toolStripStatusLabelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
+      this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
       this.buttonGotoIndex = new System.Windows.Forms.Button();
       this.buttonStepForward = new System.Windows.Forms.Button();
       this.buttonStepToEnd = new System.Windows.Forms.Button();
@@ -88,81 +124,45 @@
       this.buttonStepBackward1 = new System.Windows.Forms.Button();
       this.buttonStepBackward = new System.Windows.Forms.Button();
       this.buttonStepToBegin = new System.Windows.Forms.Button();
-      this.statusBar = new System.Windows.Forms.StatusStrip();
-      this.toolStripStatusLabelUpdate = new System.Windows.Forms.ToolStripStatusLabel();
-      this.toolStripStatusLabelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
-      this.toolStripProgressBarBackgroundDownload = new System.Windows.Forms.ToolStripProgressBar();
-      this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
-      this.menu = new System.Windows.Forms.MenuStrip();
-      this.menuitemFile = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemPrint = new System.Windows.Forms.ToolStripMenuItem();
       this.menuitemExit = new System.Windows.Forms.ToolStripMenuItem();
-      this.menuitemEdit = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemCopytoClipboard = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemSearch = new System.Windows.Forms.ToolStripMenuItem();
-      this.menuitemOptions = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemDatabaseInformation = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemTableMode = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparatorOptions1 = new System.Windows.Forms.ToolStripSeparator();
       this.chartBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.chartCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.chartPieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparatorOptions2 = new System.Windows.Forms.ToolStripSeparator();
       this.menuitemCheckMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
       this.menuitemDownloadMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparatorOptions3 = new System.Windows.Forms.ToolStripSeparator();
       this.ToolStripMenuItemStyle = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemStyleProfessional = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemStyleOffice2007 = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemStyleSystem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemStyleVs2008 = new System.Windows.Forms.ToolStripMenuItem();
-      this.menuitemQuest = new System.Windows.Forms.ToolStripMenuItem();
       this.menuitemAbout = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparatorMisc = new System.Windows.Forms.ToolStripSeparator();
       this.menuitemOpenWebsitePDB = new System.Windows.Forms.ToolStripMenuItem();
       this.menuitemOpenWebsiteMPC = new System.Windows.Forms.ToolStripMenuItem();
       this.menuitemOpenMPCORBWebsite = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripIcons = new System.Windows.Forms.ToolStrip();
       this.toolStripButtonPrint = new System.Windows.Forms.ToolStripButton();
       this.toolStripButtonCopyToClipboard = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripButtonDatabaseInformation = new System.Windows.Forms.ToolStripButton();
       this.toolStripButtonTableMode = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
       this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
       this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
-      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripButtonCheckMpcorbDat = new System.Windows.Forms.ToolStripButton();
       this.toolStripButtonDownloadMpcorbDat = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
       this.toolStripButtonOpenWebsitePDB = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripLabelSearch = new System.Windows.Forms.ToolStripLabel();
-      this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
       this.toolStripButtonSearch = new System.Windows.Forms.ToolStripButton();
-      this.labelGottoIndex = new System.Windows.Forms.Label();
-      this.ofd = new System.Windows.Forms.OpenFileDialog();
-      this.bwLoadingDB = new System.ComponentModel.BackgroundWorker();
-      this.timerUpdateBlink = new System.Windows.Forms.Timer(this.components);
-      this.toolStripNavigation = new System.Windows.Forms.ToolStrip();
       this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
       this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
       this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
       this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
       this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
       this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-      this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-      this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
       this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
-      this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-      this.timerUpdate = new System.Windows.Forms.Timer(this.components);
-      this.notifyIconUpdate = new System.Windows.Forms.NotifyIcon(this.components);
-      this.contextMenuNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.checkMPCORBDATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.downloadMPCORBDATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.contextMenuNavigationStep.SuspendLayout();
@@ -1062,6 +1062,444 @@
       this.trackBarIndex.MouseEnter += new System.EventHandler(this.trackBarIndex_MouseEnter);
       this.trackBarIndex.MouseLeave += new System.EventHandler(this.trackBarIndex_MouseLeave);
       // 
+      // statusBar
+      // 
+      this.statusBar.AccessibleDescription = "Shows some information";
+      this.statusBar.AccessibleName = "Status bar of some inforamt";
+      this.statusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
+      this.statusBar.Dock = System.Windows.Forms.DockStyle.None;
+      this.statusBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+      this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelUpdate,
+            this.toolStripStatusLabelBackgroundDownload,
+            this.toolStripProgressBarBackgroundDownload,
+            this.labelHelp});
+      this.statusBar.Location = new System.Drawing.Point(0, 0);
+      this.statusBar.Name = "statusBar";
+      this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+      this.statusBar.ShowItemToolTips = true;
+      this.statusBar.Size = new System.Drawing.Size(744, 22);
+      this.statusBar.SizingGrip = false;
+      this.statusBar.TabIndex = 13;
+      this.statusBar.TabStop = true;
+      this.statusBar.Text = "statusStrip";
+      // 
+      // toolStripProgressBarBackgroundDownload
+      // 
+      this.toolStripProgressBarBackgroundDownload.AccessibleDescription = "Show the download progres";
+      this.toolStripProgressBarBackgroundDownload.AccessibleName = "Download progress";
+      this.toolStripProgressBarBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
+      this.toolStripProgressBarBackgroundDownload.Enabled = false;
+      this.toolStripProgressBarBackgroundDownload.Name = "toolStripProgressBarBackgroundDownload";
+      this.toolStripProgressBarBackgroundDownload.Size = new System.Drawing.Size(100, 16);
+      this.toolStripProgressBarBackgroundDownload.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+      this.toolStripProgressBarBackgroundDownload.ToolTipText = "Show the download progres";
+      this.toolStripProgressBarBackgroundDownload.DoubleClick += new System.EventHandler(this.toolStripProgressBarBackgroundDownload_DoubleClick);
+      this.toolStripProgressBarBackgroundDownload.MouseEnter += new System.EventHandler(this.toolStripProgressBarBackgroundDownload_MouseEnter);
+      this.toolStripProgressBarBackgroundDownload.MouseLeave += new System.EventHandler(this.toolStripProgressBarBackgroundDownload_MouseLeave);
+      // 
+      // menu
+      // 
+      this.menu.AccessibleDescription = "Show the menubar";
+      this.menu.AccessibleName = "menu";
+      this.menu.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
+      this.menu.Dock = System.Windows.Forms.DockStyle.None;
+      this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemFile,
+            this.menuitemEdit,
+            this.menuitemOptions,
+            this.menuitemQuest});
+      this.menu.Location = new System.Drawing.Point(0, 0);
+      this.menu.Name = "menu";
+      this.menu.Size = new System.Drawing.Size(744, 24);
+      this.menu.TabIndex = 0;
+      this.menu.Text = "menu";
+      // 
+      // menuitemFile
+      // 
+      this.menuitemFile.AccessibleDescription = "Open the menu \"file\"";
+      this.menuitemFile.AccessibleName = "File";
+      this.menuitemFile.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+      this.menuitemFile.AutoToolTip = true;
+      this.menuitemFile.DoubleClickEnabled = true;
+      this.menuitemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemPrint,
+            this.menuitemExit});
+      this.menuitemFile.Name = "menuitemFile";
+      this.menuitemFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+      this.menuitemFile.Size = new System.Drawing.Size(37, 20);
+      this.menuitemFile.Text = "&File";
+      this.menuitemFile.ToolTipText = "Open the menu \"file\"";
+      this.menuitemFile.MouseEnter += new System.EventHandler(this.menuitemFile_MouseEnter);
+      this.menuitemFile.MouseLeave += new System.EventHandler(this.menuitemFile_MouseLeave);
+      // 
+      // menuitemEdit
+      // 
+      this.menuitemEdit.AccessibleDescription = "Open the menu \"edit\"";
+      this.menuitemEdit.AccessibleName = "Edit";
+      this.menuitemEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+      this.menuitemEdit.AutoToolTip = true;
+      this.menuitemEdit.DoubleClickEnabled = true;
+      this.menuitemEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCopytoClipboard,
+            this.toolStripMenuItemSearch});
+      this.menuitemEdit.Name = "menuitemEdit";
+      this.menuitemEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+      this.menuitemEdit.Size = new System.Drawing.Size(39, 20);
+      this.menuitemEdit.Text = "&Edit";
+      this.menuitemEdit.ToolTipText = "Open the menu \"edit\"";
+      this.menuitemEdit.MouseEnter += new System.EventHandler(this.menuitemEdit_MouseEnter);
+      this.menuitemEdit.MouseLeave += new System.EventHandler(this.menuitemEdit_MouseLeave);
+      // 
+      // menuitemOptions
+      // 
+      this.menuitemOptions.AccessibleDescription = "Open the menu \"options\"";
+      this.menuitemOptions.AccessibleName = "Options";
+      this.menuitemOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+      this.menuitemOptions.AutoToolTip = true;
+      this.menuitemOptions.DoubleClickEnabled = true;
+      this.menuitemOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemDatabaseInformation,
+            this.toolStripMenuItemTableMode,
+            this.toolStripSeparatorOptions1,
+            this.chartBarToolStripMenuItem,
+            this.chartCurveToolStripMenuItem,
+            this.chartPieToolStripMenuItem,
+            this.toolStripSeparatorOptions2,
+            this.menuitemCheckMpcorbDat,
+            this.menuitemDownloadMpcorbDat,
+            this.toolStripSeparatorOptions3,
+            this.ToolStripMenuItemStyle});
+      this.menuitemOptions.Name = "menuitemOptions";
+      this.menuitemOptions.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
+      this.menuitemOptions.Size = new System.Drawing.Size(61, 20);
+      this.menuitemOptions.Text = "&Options";
+      this.menuitemOptions.ToolTipText = "Open the menu \"options\"";
+      this.menuitemOptions.MouseEnter += new System.EventHandler(this.menuitemOptions_MouseEnter);
+      this.menuitemOptions.MouseLeave += new System.EventHandler(this.menuitemOptions_MouseLeave);
+      // 
+      // toolStripSeparatorOptions1
+      // 
+      this.toolStripSeparatorOptions1.Name = "toolStripSeparatorOptions1";
+      this.toolStripSeparatorOptions1.Size = new System.Drawing.Size(240, 6);
+      // 
+      // toolStripSeparatorOptions2
+      // 
+      this.toolStripSeparatorOptions2.Name = "toolStripSeparatorOptions2";
+      this.toolStripSeparatorOptions2.Size = new System.Drawing.Size(240, 6);
+      // 
+      // toolStripSeparatorOptions3
+      // 
+      this.toolStripSeparatorOptions3.Name = "toolStripSeparatorOptions3";
+      this.toolStripSeparatorOptions3.Size = new System.Drawing.Size(240, 6);
+      // 
+      // menuitemQuest
+      // 
+      this.menuitemQuest.AccessibleDescription = "Open the menu \"?\"";
+      this.menuitemQuest.AccessibleName = "?";
+      this.menuitemQuest.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+      this.menuitemQuest.AutoToolTip = true;
+      this.menuitemQuest.DoubleClickEnabled = true;
+      this.menuitemQuest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemAbout,
+            this.toolStripSeparatorMisc,
+            this.menuitemOpenWebsitePDB,
+            this.menuitemOpenWebsiteMPC,
+            this.menuitemOpenMPCORBWebsite});
+      this.menuitemQuest.Name = "menuitemQuest";
+      this.menuitemQuest.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.OemQuestion)));
+      this.menuitemQuest.Size = new System.Drawing.Size(24, 20);
+      this.menuitemQuest.Text = "&?";
+      this.menuitemQuest.ToolTipText = "Open the menu \"?\"";
+      this.menuitemQuest.MouseEnter += new System.EventHandler(this.menuitemQuest_MouseEnter);
+      this.menuitemQuest.MouseLeave += new System.EventHandler(this.menuitemQuest_MouseLeave);
+      // 
+      // toolStripSeparatorMisc
+      // 
+      this.toolStripSeparatorMisc.AccessibleDescription = "There is an easter egg in it. Find out how to get!";
+      this.toolStripSeparatorMisc.AccessibleName = "Separator";
+      this.toolStripSeparatorMisc.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+      this.toolStripSeparatorMisc.Name = "toolStripSeparatorMisc";
+      this.toolStripSeparatorMisc.Size = new System.Drawing.Size(228, 6);
+      this.toolStripSeparatorMisc.Click += new System.EventHandler(this.toolStripSeparatorMisc_Click);
+      this.toolStripSeparatorMisc.MouseEnter += new System.EventHandler(this.toolStripSeparatorMisc_MouseEnter);
+      this.toolStripSeparatorMisc.MouseLeave += new System.EventHandler(this.toolStripSeparatorMisc_MouseLeave);
+      // 
+      // toolStripIcons
+      // 
+      this.toolStripIcons.AccessibleName = "Toolbar of main functions";
+      this.toolStripIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+      this.toolStripIcons.Dock = System.Windows.Forms.DockStyle.None;
+      this.toolStripIcons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonPrint,
+            this.toolStripButtonCopyToClipboard,
+            this.toolStripSeparator4,
+            this.toolStripButtonDatabaseInformation,
+            this.toolStripButtonTableMode,
+            this.toolStripSeparator3,
+            this.toolStripSplitButton1,
+            this.toolStripSplitButton2,
+            this.toolStripSplitButton3,
+            this.toolStripSeparator5,
+            this.toolStripButtonCheckMpcorbDat,
+            this.toolStripButtonDownloadMpcorbDat,
+            this.toolStripSeparator1,
+            this.toolStripButtonAbout,
+            this.toolStripButtonOpenWebsitePDB,
+            this.toolStripSeparator2,
+            this.toolStripLabelSearch,
+            this.toolStripTextBoxSearch,
+            this.toolStripButtonSearch});
+      this.toolStripIcons.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+      this.toolStripIcons.Location = new System.Drawing.Point(0, 24);
+      this.toolStripIcons.Name = "toolStripIcons";
+      this.toolStripIcons.Size = new System.Drawing.Size(744, 25);
+      this.toolStripIcons.Stretch = true;
+      this.toolStripIcons.TabIndex = 14;
+      this.toolStripIcons.TabStop = true;
+      this.toolStripIcons.Text = "Toolbar of main functions";
+      // 
+      // toolStripSeparator4
+      // 
+      this.toolStripSeparator4.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+      this.toolStripSeparator4.Name = "toolStripSeparator4";
+      this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripSeparator3
+      // 
+      this.toolStripSeparator3.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+      this.toolStripSeparator3.Name = "toolStripSeparator3";
+      this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripSeparator2
+      // 
+      this.toolStripSeparator2.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+      this.toolStripSeparator2.Name = "toolStripSeparator2";
+      this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripLabelSearch
+      // 
+      this.toolStripLabelSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+      this.toolStripLabelSearch.DoubleClickEnabled = true;
+      this.toolStripLabelSearch.Enabled = false;
+      this.toolStripLabelSearch.Name = "toolStripLabelSearch";
+      this.toolStripLabelSearch.Size = new System.Drawing.Size(45, 22);
+      this.toolStripLabelSearch.Text = "Search:";
+      // 
+      // toolStripTextBoxSearch
+      // 
+      this.toolStripTextBoxSearch.AccessibleDescription = "Enter the search term";
+      this.toolStripTextBoxSearch.AccessibleName = "Seach field";
+      this.toolStripTextBoxSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+      this.toolStripTextBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+      this.toolStripTextBoxSearch.AutoToolTip = true;
+      this.toolStripTextBoxSearch.Enabled = false;
+      this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
+      this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
+      this.toolStripTextBoxSearch.ToolTipText = "Search";
+      this.toolStripTextBoxSearch.MouseEnter += new System.EventHandler(this.toolStripTextBoxSearch_MouseEnter);
+      this.toolStripTextBoxSearch.MouseLeave += new System.EventHandler(this.toolStripTextBoxSearch_MouseLeave);
+      // 
+      // labelGottoIndex
+      // 
+      this.labelGottoIndex.AccessibleDescription = "Go to index";
+      this.labelGottoIndex.AccessibleName = "Index";
+      this.labelGottoIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Table;
+      this.labelGottoIndex.AutoSize = true;
+      this.labelGottoIndex.BackColor = System.Drawing.Color.Transparent;
+      this.labelGottoIndex.Location = new System.Drawing.Point(542, 9);
+      this.labelGottoIndex.Name = "labelGottoIndex";
+      this.labelGottoIndex.Size = new System.Drawing.Size(72, 15);
+      this.labelGottoIndex.TabIndex = 8;
+      this.labelGottoIndex.Text = "Go to Index:";
+      // 
+      // ofd
+      // 
+      this.ofd.DefaultExt = "dat";
+      this.ofd.FileName = "mpcorb.dat";
+      this.ofd.Filter = "DAT-Datei|*.dat|Alle Dateien|*.*";
+      // 
+      // bwLoadingDB
+      // 
+      this.bwLoadingDB.WorkerReportsProgress = true;
+      this.bwLoadingDB.WorkerSupportsCancellation = true;
+      this.bwLoadingDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadingDB_DoWork);
+      this.bwLoadingDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerLoadingDB_ProgressChanged);
+      this.bwLoadingDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadingDB_RunWorkerCompleted);
+      // 
+      // timerUpdateBlink
+      // 
+      this.timerUpdateBlink.Interval = 500;
+      this.timerUpdateBlink.Tick += new System.EventHandler(this.timerUpdateBlink_Tick);
+      // 
+      // toolStripNavigation
+      // 
+      this.toolStripNavigation.Dock = System.Windows.Forms.DockStyle.None;
+      this.toolStripNavigation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripButton11,
+            this.toolStripButton12,
+            this.toolStripButton13,
+            this.toolStripButton14,
+            this.toolStripSeparator6,
+            this.toolStripLabel2,
+            this.toolStripSeparator7,
+            this.toolStripLabel3,
+            this.toolStripTextBox2,
+            this.toolStripButton15});
+      this.toolStripNavigation.Location = new System.Drawing.Point(0, 49);
+      this.toolStripNavigation.Name = "toolStripNavigation";
+      this.toolStripNavigation.Size = new System.Drawing.Size(478, 25);
+      this.toolStripNavigation.Stretch = true;
+      this.toolStripNavigation.TabIndex = 15;
+      this.toolStripNavigation.Text = "Navigation";
+      this.toolStripNavigation.Visible = false;
+      // 
+      // toolStripSeparator6
+      // 
+      this.toolStripSeparator6.Name = "toolStripSeparator6";
+      this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripLabel2
+      // 
+      this.toolStripLabel2.Name = "toolStripLabel2";
+      this.toolStripLabel2.Size = new System.Drawing.Size(121, 22);
+      this.toolStripLabel2.Text = "Index 123456 / 999999";
+      // 
+      // toolStripSeparator7
+      // 
+      this.toolStripSeparator7.Name = "toolStripSeparator7";
+      this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+      // 
+      // toolStripLabel3
+      // 
+      this.toolStripLabel3.Name = "toolStripLabel3";
+      this.toolStripLabel3.Size = new System.Drawing.Size(70, 22);
+      this.toolStripLabel3.Text = "Go to index:";
+      // 
+      // toolStripTextBox2
+      // 
+      this.toolStripTextBox2.Name = "toolStripTextBox2";
+      this.toolStripTextBox2.Size = new System.Drawing.Size(100, 25);
+      // 
+      // toolStripContainer1
+      // 
+      // 
+      // toolStripContainer1.BottomToolStripPanel
+      // 
+      this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.statusBar);
+      // 
+      // toolStripContainer1.ContentPanel
+      // 
+      this.toolStripContainer1.ContentPanel.AutoScroll = true;
+      this.toolStripContainer1.ContentPanel.BackColor = System.Drawing.Color.Transparent;
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.trackBarIndex);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonGotoIndex);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.numericUpDownGotoIndex);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.labelGottoIndex);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.labelIndexPos);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepForward);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepToEnd);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepForward1);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanelData);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepBackward1);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepBackward);
+      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepToBegin);
+      this.toolStripContainer1.ContentPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+      this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(744, 330);
+      this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+      this.toolStripContainer1.Name = "toolStripContainer1";
+      this.toolStripContainer1.Size = new System.Drawing.Size(744, 401);
+      this.toolStripContainer1.TabIndex = 16;
+      this.toolStripContainer1.Text = "toolStripContainer1";
+      // 
+      // toolStripContainer1.TopToolStripPanel
+      // 
+      this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menu);
+      this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripIcons);
+      this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripNavigation);
+      // 
+      // timerUpdate
+      // 
+      this.timerUpdate.Enabled = true;
+      this.timerUpdate.Interval = 1440000;
+      this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+      // 
+      // notifyIconUpdate
+      // 
+      this.notifyIconUpdate.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconUpdate.Icon")));
+      this.notifyIconUpdate.Text = "PlanetoidDB";
+      this.notifyIconUpdate.Click += new System.EventHandler(this.notifyIconUpdate_Click);
+      // 
+      // contextMenuNotifyIcon
+      // 
+      this.contextMenuNotifyIcon.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+      this.contextMenuNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkMPCORBDATToolStripMenuItem,
+            this.downloadMPCORBDATToolStripMenuItem});
+      this.contextMenuNotifyIcon.Name = "contextMenuNotifyIcon";
+      this.contextMenuNotifyIcon.Size = new System.Drawing.Size(206, 48);
+      // 
+      // toolStripStatusLabelUpdate
+      // 
+      this.toolStripStatusLabelUpdate.AccessibleDescription = "Show that an MPCORB.DAT update is aviable";
+      this.toolStripStatusLabelUpdate.AccessibleName = "Update information";
+      this.toolStripStatusLabelUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+      this.toolStripStatusLabelUpdate.DoubleClickEnabled = true;
+      this.toolStripStatusLabelUpdate.Image = global::PlanetoidDB.Properties.Resources.silk_database_lightning;
+      this.toolStripStatusLabelUpdate.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+      this.toolStripStatusLabelUpdate.Name = "toolStripStatusLabelUpdate";
+      this.toolStripStatusLabelUpdate.Size = new System.Drawing.Size(137, 17);
+      this.toolStripStatusLabelUpdate.Text = "MPCORB.DAT update";
+      this.toolStripStatusLabelUpdate.ToolTipText = "MPCORB.DAT update aviable";
+      this.toolStripStatusLabelUpdate.Click += new System.EventHandler(this.toolStripStatusLabelUpdate_Click);
+      this.toolStripStatusLabelUpdate.DoubleClick += new System.EventHandler(this.toolStripStatusLabelUpdate_DoubleClick);
+      this.toolStripStatusLabelUpdate.MouseEnter += new System.EventHandler(this.toolStripStatusLabelUpdate_MouseEnter);
+      this.toolStripStatusLabelUpdate.MouseLeave += new System.EventHandler(this.toolStripStatusLabelUpdate_MouseLeave);
+      // 
+      // toolStripStatusLabelBackgroundDownload
+      // 
+      this.toolStripStatusLabelBackgroundDownload.AccessibleDescription = "Show the download progres";
+      this.toolStripStatusLabelBackgroundDownload.AccessibleName = "Download progress";
+      this.toolStripStatusLabelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+      this.toolStripStatusLabelBackgroundDownload.DoubleClickEnabled = true;
+      this.toolStripStatusLabelBackgroundDownload.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
+      this.toolStripStatusLabelBackgroundDownload.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+      this.toolStripStatusLabelBackgroundDownload.Name = "toolStripStatusLabelBackgroundDownload";
+      this.toolStripStatusLabelBackgroundDownload.Size = new System.Drawing.Size(80, 17);
+      this.toolStripStatusLabelBackgroundDownload.Text = "Download:";
+      this.toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progres";
+      this.toolStripStatusLabelBackgroundDownload.DoubleClick += new System.EventHandler(this.toolStripStatusLabelBackgroundDownload_DoubleClick);
+      this.toolStripStatusLabelBackgroundDownload.MouseEnter += new System.EventHandler(this.toolStripStatusLabelBackgroundDownload_MouseEnter);
+      this.toolStripStatusLabelBackgroundDownload.MouseLeave += new System.EventHandler(this.toolStripStatusLabelBackgroundDownload_MouseLeave);
+      // 
+      // labelHelp
+      // 
+      this.labelHelp.AccessibleDescription = "Show some information";
+      this.labelHelp.AccessibleName = "Show some information";
+      this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+      this.labelHelp.DoubleClickEnabled = true;
+      this.labelHelp.Image = global::PlanetoidDB.Properties.Resources.silk_lightbulb;
+      this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+      this.labelHelp.Name = "labelHelp";
+      this.labelHelp.Size = new System.Drawing.Size(116, 17);
+      this.labelHelp.Text = "Show tooltip here";
+      this.labelHelp.ToolTipText = "Show some information";
+      // 
       // buttonGotoIndex
       // 
       this.buttonGotoIndex.AccessibleDescription = "Click to show the data of the planetoid";
@@ -1176,123 +1614,6 @@
       this.buttonStepToBegin.MouseEnter += new System.EventHandler(this.buttonStepToBegin_MouseEnter);
       this.buttonStepToBegin.MouseLeave += new System.EventHandler(this.buttonStepToBegin_MouseLeave);
       // 
-      // statusBar
-      // 
-      this.statusBar.AccessibleDescription = "Shows some information";
-      this.statusBar.AccessibleName = "Status bar of some inforamt";
-      this.statusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-      this.statusBar.Dock = System.Windows.Forms.DockStyle.None;
-      this.statusBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-      this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelUpdate,
-            this.toolStripStatusLabelBackgroundDownload,
-            this.toolStripProgressBarBackgroundDownload,
-            this.labelHelp});
-      this.statusBar.Location = new System.Drawing.Point(0, 0);
-      this.statusBar.Name = "statusBar";
-      this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-      this.statusBar.ShowItemToolTips = true;
-      this.statusBar.Size = new System.Drawing.Size(744, 22);
-      this.statusBar.SizingGrip = false;
-      this.statusBar.TabIndex = 13;
-      this.statusBar.TabStop = true;
-      this.statusBar.Text = "statusStrip";
-      // 
-      // toolStripStatusLabelUpdate
-      // 
-      this.toolStripStatusLabelUpdate.AccessibleDescription = "Show that an MPCORB.DAT update is aviable";
-      this.toolStripStatusLabelUpdate.AccessibleName = "Update information";
-      this.toolStripStatusLabelUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-      this.toolStripStatusLabelUpdate.DoubleClickEnabled = true;
-      this.toolStripStatusLabelUpdate.Image = global::PlanetoidDB.Properties.Resources.silk_database_lightning;
-      this.toolStripStatusLabelUpdate.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
-      this.toolStripStatusLabelUpdate.Name = "toolStripStatusLabelUpdate";
-      this.toolStripStatusLabelUpdate.Size = new System.Drawing.Size(137, 17);
-      this.toolStripStatusLabelUpdate.Text = "MPCORB.DAT update";
-      this.toolStripStatusLabelUpdate.ToolTipText = "MPCORB.DAT update aviable";
-      this.toolStripStatusLabelUpdate.Click += new System.EventHandler(this.toolStripStatusLabelUpdate_Click);
-      this.toolStripStatusLabelUpdate.DoubleClick += new System.EventHandler(this.toolStripStatusLabelUpdate_DoubleClick);
-      this.toolStripStatusLabelUpdate.MouseEnter += new System.EventHandler(this.toolStripStatusLabelUpdate_MouseEnter);
-      this.toolStripStatusLabelUpdate.MouseLeave += new System.EventHandler(this.toolStripStatusLabelUpdate_MouseLeave);
-      // 
-      // toolStripStatusLabelBackgroundDownload
-      // 
-      this.toolStripStatusLabelBackgroundDownload.AccessibleDescription = "Show the download progres";
-      this.toolStripStatusLabelBackgroundDownload.AccessibleName = "Download progress";
-      this.toolStripStatusLabelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-      this.toolStripStatusLabelBackgroundDownload.DoubleClickEnabled = true;
-      this.toolStripStatusLabelBackgroundDownload.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
-      this.toolStripStatusLabelBackgroundDownload.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
-      this.toolStripStatusLabelBackgroundDownload.Name = "toolStripStatusLabelBackgroundDownload";
-      this.toolStripStatusLabelBackgroundDownload.Size = new System.Drawing.Size(80, 17);
-      this.toolStripStatusLabelBackgroundDownload.Text = "Download:";
-      this.toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progres";
-      this.toolStripStatusLabelBackgroundDownload.DoubleClick += new System.EventHandler(this.toolStripStatusLabelBackgroundDownload_DoubleClick);
-      this.toolStripStatusLabelBackgroundDownload.MouseEnter += new System.EventHandler(this.toolStripStatusLabelBackgroundDownload_MouseEnter);
-      this.toolStripStatusLabelBackgroundDownload.MouseLeave += new System.EventHandler(this.toolStripStatusLabelBackgroundDownload_MouseLeave);
-      // 
-      // toolStripProgressBarBackgroundDownload
-      // 
-      this.toolStripProgressBarBackgroundDownload.AccessibleDescription = "Show the download progres";
-      this.toolStripProgressBarBackgroundDownload.AccessibleName = "Download progress";
-      this.toolStripProgressBarBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
-      this.toolStripProgressBarBackgroundDownload.Enabled = false;
-      this.toolStripProgressBarBackgroundDownload.Name = "toolStripProgressBarBackgroundDownload";
-      this.toolStripProgressBarBackgroundDownload.Size = new System.Drawing.Size(100, 16);
-      this.toolStripProgressBarBackgroundDownload.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-      this.toolStripProgressBarBackgroundDownload.ToolTipText = "Show the download progres";
-      this.toolStripProgressBarBackgroundDownload.DoubleClick += new System.EventHandler(this.toolStripProgressBarBackgroundDownload_DoubleClick);
-      this.toolStripProgressBarBackgroundDownload.MouseEnter += new System.EventHandler(this.toolStripProgressBarBackgroundDownload_MouseEnter);
-      this.toolStripProgressBarBackgroundDownload.MouseLeave += new System.EventHandler(this.toolStripProgressBarBackgroundDownload_MouseLeave);
-      // 
-      // labelHelp
-      // 
-      this.labelHelp.AccessibleDescription = "Show some information";
-      this.labelHelp.AccessibleName = "Show some information";
-      this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-      this.labelHelp.DoubleClickEnabled = true;
-      this.labelHelp.Image = global::PlanetoidDB.Properties.Resources.silk_lightbulb;
-      this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
-      this.labelHelp.Name = "labelHelp";
-      this.labelHelp.Size = new System.Drawing.Size(116, 17);
-      this.labelHelp.Text = "Show tooltip here";
-      this.labelHelp.ToolTipText = "Show some information";
-      // 
-      // menu
-      // 
-      this.menu.AccessibleDescription = "Show the menubar";
-      this.menu.AccessibleName = "menu";
-      this.menu.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-      this.menu.Dock = System.Windows.Forms.DockStyle.None;
-      this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuitemFile,
-            this.menuitemEdit,
-            this.menuitemOptions,
-            this.menuitemQuest});
-      this.menu.Location = new System.Drawing.Point(0, 0);
-      this.menu.Name = "menu";
-      this.menu.Size = new System.Drawing.Size(744, 24);
-      this.menu.TabIndex = 0;
-      this.menu.Text = "menu";
-      // 
-      // menuitemFile
-      // 
-      this.menuitemFile.AccessibleDescription = "Open the menu \"file\"";
-      this.menuitemFile.AccessibleName = "File";
-      this.menuitemFile.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
-      this.menuitemFile.AutoToolTip = true;
-      this.menuitemFile.DoubleClickEnabled = true;
-      this.menuitemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemPrint,
-            this.menuitemExit});
-      this.menuitemFile.Name = "menuitemFile";
-      this.menuitemFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
-      this.menuitemFile.Size = new System.Drawing.Size(37, 20);
-      this.menuitemFile.Text = "&File";
-      this.menuitemFile.ToolTipText = "Open the menu \"file\"";
-      this.menuitemFile.MouseEnter += new System.EventHandler(this.menuitemFile_MouseEnter);
-      this.menuitemFile.MouseLeave += new System.EventHandler(this.menuitemFile_MouseLeave);
-      // 
       // toolStripMenuItemPrint
       // 
       this.toolStripMenuItemPrint.AccessibleDescription = "Print the information";
@@ -1326,24 +1647,6 @@
       this.menuitemExit.Click += new System.EventHandler(this.menuitemExit_Click);
       this.menuitemExit.MouseEnter += new System.EventHandler(this.menuitemExit_MouseEnter);
       this.menuitemExit.MouseLeave += new System.EventHandler(this.menuitemExit_MouseLeave);
-      // 
-      // menuitemEdit
-      // 
-      this.menuitemEdit.AccessibleDescription = "Open the menu \"edit\"";
-      this.menuitemEdit.AccessibleName = "Edit";
-      this.menuitemEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
-      this.menuitemEdit.AutoToolTip = true;
-      this.menuitemEdit.DoubleClickEnabled = true;
-      this.menuitemEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemCopytoClipboard,
-            this.toolStripMenuItemSearch});
-      this.menuitemEdit.Name = "menuitemEdit";
-      this.menuitemEdit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
-      this.menuitemEdit.Size = new System.Drawing.Size(39, 20);
-      this.menuitemEdit.Text = "&Edit";
-      this.menuitemEdit.ToolTipText = "Open the menu \"edit\"";
-      this.menuitemEdit.MouseEnter += new System.EventHandler(this.menuitemEdit_MouseEnter);
-      this.menuitemEdit.MouseLeave += new System.EventHandler(this.menuitemEdit_MouseLeave);
       // 
       // toolStripMenuItemCopytoClipboard
       // 
@@ -1379,33 +1682,6 @@
       this.toolStripMenuItemSearch.MouseEnter += new System.EventHandler(this.toolStripMenuItemSearch_MouseEnter);
       this.toolStripMenuItemSearch.MouseLeave += new System.EventHandler(this.toolStripMenuItemSearch_MouseLeave);
       // 
-      // menuitemOptions
-      // 
-      this.menuitemOptions.AccessibleDescription = "Open the menu \"options\"";
-      this.menuitemOptions.AccessibleName = "Options";
-      this.menuitemOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
-      this.menuitemOptions.AutoToolTip = true;
-      this.menuitemOptions.DoubleClickEnabled = true;
-      this.menuitemOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemDatabaseInformation,
-            this.toolStripMenuItemTableMode,
-            this.toolStripSeparatorOptions1,
-            this.chartBarToolStripMenuItem,
-            this.chartCurveToolStripMenuItem,
-            this.chartPieToolStripMenuItem,
-            this.toolStripSeparatorOptions2,
-            this.menuitemCheckMpcorbDat,
-            this.menuitemDownloadMpcorbDat,
-            this.toolStripSeparatorOptions3,
-            this.ToolStripMenuItemStyle});
-      this.menuitemOptions.Name = "menuitemOptions";
-      this.menuitemOptions.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
-      this.menuitemOptions.Size = new System.Drawing.Size(61, 20);
-      this.menuitemOptions.Text = "&Options";
-      this.menuitemOptions.ToolTipText = "Open the menu \"options\"";
-      this.menuitemOptions.MouseEnter += new System.EventHandler(this.menuitemOptions_MouseEnter);
-      this.menuitemOptions.MouseLeave += new System.EventHandler(this.menuitemOptions_MouseLeave);
-      // 
       // toolStripMenuItemDatabaseInformation
       // 
       this.toolStripMenuItemDatabaseInformation.AccessibleDescription = "Show the information of the MPCORB.DAT databbase";
@@ -1413,7 +1689,6 @@
       this.toolStripMenuItemDatabaseInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.toolStripMenuItemDatabaseInformation.AutoToolTip = true;
       this.toolStripMenuItemDatabaseInformation.DoubleClickEnabled = true;
-      this.toolStripMenuItemDatabaseInformation.Enabled = false;
       this.toolStripMenuItemDatabaseInformation.Image = global::PlanetoidDB.Properties.Resources.silk_database;
       this.toolStripMenuItemDatabaseInformation.Name = "toolStripMenuItemDatabaseInformation";
       this.toolStripMenuItemDatabaseInformation.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
@@ -1439,11 +1714,6 @@
       this.toolStripMenuItemTableMode.Click += new System.EventHandler(this.toolStripMenuItemTableMode_Click);
       this.toolStripMenuItemTableMode.MouseEnter += new System.EventHandler(this.toolStripMenuItemTableMode_MouseEnter);
       this.toolStripMenuItemTableMode.MouseLeave += new System.EventHandler(this.toolStripMenuItemTableMode_MouseLeave);
-      // 
-      // toolStripSeparatorOptions1
-      // 
-      this.toolStripSeparatorOptions1.Name = "toolStripSeparatorOptions1";
-      this.toolStripSeparatorOptions1.Size = new System.Drawing.Size(240, 6);
       // 
       // chartBarToolStripMenuItem
       // 
@@ -1474,11 +1744,6 @@
       this.chartPieToolStripMenuItem.Name = "chartPieToolStripMenuItem";
       this.chartPieToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
       this.chartPieToolStripMenuItem.Text = "Chart pie";
-      // 
-      // toolStripSeparatorOptions2
-      // 
-      this.toolStripSeparatorOptions2.Name = "toolStripSeparatorOptions2";
-      this.toolStripSeparatorOptions2.Size = new System.Drawing.Size(240, 6);
       // 
       // menuitemCheckMpcorbDat
       // 
@@ -1514,18 +1779,12 @@
       this.menuitemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.menuitemDownloadMpcorbDat_MouseEnter);
       this.menuitemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.menuitemDownloadMpcorbDat_MouseLeave);
       // 
-      // toolStripSeparatorOptions3
-      // 
-      this.toolStripSeparatorOptions3.Name = "toolStripSeparatorOptions3";
-      this.toolStripSeparatorOptions3.Size = new System.Drawing.Size(240, 6);
-      // 
       // ToolStripMenuItemStyle
       // 
       this.ToolStripMenuItemStyle.AccessibleDescription = "Change the style";
       this.ToolStripMenuItemStyle.AccessibleName = "Look and Feel";
       this.ToolStripMenuItemStyle.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.ToolStripMenuItemStyle.AutoToolTip = true;
-      this.ToolStripMenuItemStyle.CheckOnClick = true;
       this.ToolStripMenuItemStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemStyleProfessional,
             this.toolStripMenuItemStyleOffice2007,
@@ -1602,27 +1861,6 @@
       this.toolStripMenuItemStyleVs2008.MouseEnter += new System.EventHandler(this.toolStripMenuItemVs2008_MouseEnter);
       this.toolStripMenuItemStyleVs2008.MouseLeave += new System.EventHandler(this.toolStripMenuItemVs2008_MouseLeave);
       // 
-      // menuitemQuest
-      // 
-      this.menuitemQuest.AccessibleDescription = "Open the menu \"?\"";
-      this.menuitemQuest.AccessibleName = "?";
-      this.menuitemQuest.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
-      this.menuitemQuest.AutoToolTip = true;
-      this.menuitemQuest.DoubleClickEnabled = true;
-      this.menuitemQuest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuitemAbout,
-            this.toolStripSeparatorMisc,
-            this.menuitemOpenWebsitePDB,
-            this.menuitemOpenWebsiteMPC,
-            this.menuitemOpenMPCORBWebsite});
-      this.menuitemQuest.Name = "menuitemQuest";
-      this.menuitemQuest.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.OemQuestion)));
-      this.menuitemQuest.Size = new System.Drawing.Size(24, 20);
-      this.menuitemQuest.Text = "&?";
-      this.menuitemQuest.ToolTipText = "Open the menu \"?\"";
-      this.menuitemQuest.MouseEnter += new System.EventHandler(this.menuitemQuest_MouseEnter);
-      this.menuitemQuest.MouseLeave += new System.EventHandler(this.menuitemQuest_MouseLeave);
-      // 
       // menuitemAbout
       // 
       this.menuitemAbout.AccessibleDescription = "More information about the application";
@@ -1639,17 +1877,6 @@
       this.menuitemAbout.Click += new System.EventHandler(this.menuitemAbout_Click);
       this.menuitemAbout.MouseEnter += new System.EventHandler(this.menuitemAbout_MouseEnter);
       this.menuitemAbout.MouseLeave += new System.EventHandler(this.menuitemAbout_MouseLeave);
-      // 
-      // toolStripSeparatorMisc
-      // 
-      this.toolStripSeparatorMisc.AccessibleDescription = "There is an easter egg in it. Find out how to get!";
-      this.toolStripSeparatorMisc.AccessibleName = "Separator";
-      this.toolStripSeparatorMisc.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-      this.toolStripSeparatorMisc.Name = "toolStripSeparatorMisc";
-      this.toolStripSeparatorMisc.Size = new System.Drawing.Size(228, 6);
-      this.toolStripSeparatorMisc.Click += new System.EventHandler(this.toolStripSeparatorMisc_Click);
-      this.toolStripSeparatorMisc.MouseEnter += new System.EventHandler(this.toolStripSeparatorMisc_MouseEnter);
-      this.toolStripSeparatorMisc.MouseLeave += new System.EventHandler(this.toolStripSeparatorMisc_MouseLeave);
       // 
       // menuitemOpenWebsitePDB
       // 
@@ -1699,40 +1926,6 @@
       this.menuitemOpenMPCORBWebsite.MouseEnter += new System.EventHandler(this.menuitemOpenMPCORBWebsite_MouseEnter);
       this.menuitemOpenMPCORBWebsite.MouseLeave += new System.EventHandler(this.menuitemOpenMPCORBWebsite_MouseLeave);
       // 
-      // toolStripIcons
-      // 
-      this.toolStripIcons.AccessibleName = "Toolbar of main functions";
-      this.toolStripIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-      this.toolStripIcons.Dock = System.Windows.Forms.DockStyle.None;
-      this.toolStripIcons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonPrint,
-            this.toolStripButtonCopyToClipboard,
-            this.toolStripSeparator4,
-            this.toolStripButtonDatabaseInformation,
-            this.toolStripButtonTableMode,
-            this.toolStripSeparator3,
-            this.toolStripSplitButton1,
-            this.toolStripSplitButton2,
-            this.toolStripSplitButton3,
-            this.toolStripSeparator5,
-            this.toolStripButtonCheckMpcorbDat,
-            this.toolStripButtonDownloadMpcorbDat,
-            this.toolStripSeparator1,
-            this.toolStripButtonAbout,
-            this.toolStripButtonOpenWebsitePDB,
-            this.toolStripSeparator2,
-            this.toolStripLabelSearch,
-            this.toolStripTextBoxSearch,
-            this.toolStripButtonSearch});
-      this.toolStripIcons.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-      this.toolStripIcons.Location = new System.Drawing.Point(0, 24);
-      this.toolStripIcons.Name = "toolStripIcons";
-      this.toolStripIcons.Size = new System.Drawing.Size(744, 25);
-      this.toolStripIcons.Stretch = true;
-      this.toolStripIcons.TabIndex = 14;
-      this.toolStripIcons.TabStop = true;
-      this.toolStripIcons.Text = "Toolbar of main functions";
-      // 
       // toolStripButtonPrint
       // 
       this.toolStripButtonPrint.AccessibleDescription = "Print the information";
@@ -1768,12 +1961,6 @@
       this.toolStripButtonCopyToClipboard.MouseEnter += new System.EventHandler(this.toolStripButtonCopyToClipboard_MouseEnter);
       this.toolStripButtonCopyToClipboard.MouseLeave += new System.EventHandler(this.toolStripButtonCopyToClipboard_MouseLeave);
       // 
-      // toolStripSeparator4
-      // 
-      this.toolStripSeparator4.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-      this.toolStripSeparator4.Name = "toolStripSeparator4";
-      this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-      // 
       // toolStripButtonDatabaseInformation
       // 
       this.toolStripButtonDatabaseInformation.AccessibleDescription = "Show some information of the MPCORB.DAT database";
@@ -1781,7 +1968,6 @@
       this.toolStripButtonDatabaseInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonDatabaseInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonDatabaseInformation.DoubleClickEnabled = true;
-      this.toolStripButtonDatabaseInformation.Enabled = false;
       this.toolStripButtonDatabaseInformation.Image = global::PlanetoidDB.Properties.Resources.silk_database;
       this.toolStripButtonDatabaseInformation.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonDatabaseInformation.Name = "toolStripButtonDatabaseInformation";
@@ -1807,12 +1993,6 @@
       this.toolStripButtonTableMode.Click += new System.EventHandler(this.toolStripButtonTableMode_Click);
       this.toolStripButtonTableMode.MouseEnter += new System.EventHandler(this.toolStripButtonTableMode_MouseEnter);
       this.toolStripButtonTableMode.MouseLeave += new System.EventHandler(this.toolStripButtonTableMode_MouseLeave);
-      // 
-      // toolStripSeparator3
-      // 
-      this.toolStripSeparator3.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-      this.toolStripSeparator3.Name = "toolStripSeparator3";
-      this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
       // 
       // toolStripSplitButton1
       // 
@@ -1856,12 +2036,6 @@
       this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
       this.toolStripSplitButton3.Text = "Chart pie";
       // 
-      // toolStripSeparator5
-      // 
-      this.toolStripSeparator5.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-      this.toolStripSeparator5.Name = "toolStripSeparator5";
-      this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-      // 
       // toolStripButtonCheckMpcorbDat
       // 
       this.toolStripButtonCheckMpcorbDat.AccessibleDescription = "Check for updates of the database";
@@ -1895,12 +2069,6 @@
       this.toolStripButtonDownloadMpcorbDat.Click += new System.EventHandler(this.toolStripButtonDownloadMpcorbDat_Click);
       this.toolStripButtonDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.toolStripButtonDownloadMpcorbDat_MouseEnter);
       this.toolStripButtonDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.toolStripButtonDownloadMpcorbDat_MouseLeave);
-      // 
-      // toolStripSeparator1
-      // 
-      this.toolStripSeparator1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
       // 
       // toolStripButtonAbout
       // 
@@ -1936,35 +2104,6 @@
       this.toolStripButtonOpenWebsitePDB.MouseEnter += new System.EventHandler(this.toolStripButtonOpenWebsitePDB_MouseEnter);
       this.toolStripButtonOpenWebsitePDB.MouseLeave += new System.EventHandler(this.toolStripButtonOpenWebsitePDB_MouseLeave);
       // 
-      // toolStripSeparator2
-      // 
-      this.toolStripSeparator2.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-      this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-      // 
-      // toolStripLabelSearch
-      // 
-      this.toolStripLabelSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-      this.toolStripLabelSearch.DoubleClickEnabled = true;
-      this.toolStripLabelSearch.Enabled = false;
-      this.toolStripLabelSearch.Name = "toolStripLabelSearch";
-      this.toolStripLabelSearch.Size = new System.Drawing.Size(45, 22);
-      this.toolStripLabelSearch.Text = "Search:";
-      // 
-      // toolStripTextBoxSearch
-      // 
-      this.toolStripTextBoxSearch.AccessibleDescription = "Enter the search term";
-      this.toolStripTextBoxSearch.AccessibleName = "Seach field";
-      this.toolStripTextBoxSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-      this.toolStripTextBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-      this.toolStripTextBoxSearch.AutoToolTip = true;
-      this.toolStripTextBoxSearch.Enabled = false;
-      this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
-      this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
-      this.toolStripTextBoxSearch.ToolTipText = "Search";
-      this.toolStripTextBoxSearch.MouseEnter += new System.EventHandler(this.toolStripTextBoxSearch_MouseEnter);
-      this.toolStripTextBoxSearch.MouseLeave += new System.EventHandler(this.toolStripTextBoxSearch_MouseLeave);
-      // 
       // toolStripButtonSearch
       // 
       this.toolStripButtonSearch.AccessibleDescription = "Search";
@@ -1981,62 +2120,6 @@
       this.toolStripButtonSearch.Click += new System.EventHandler(this.toolStripButtonSearch_Click);
       this.toolStripButtonSearch.MouseEnter += new System.EventHandler(this.toolStripButtonSearch_MouseEnter);
       this.toolStripButtonSearch.MouseLeave += new System.EventHandler(this.toolStripButtonSearch_MouseLeave);
-      // 
-      // labelGottoIndex
-      // 
-      this.labelGottoIndex.AccessibleDescription = "Go to index";
-      this.labelGottoIndex.AccessibleName = "Index";
-      this.labelGottoIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Table;
-      this.labelGottoIndex.AutoSize = true;
-      this.labelGottoIndex.BackColor = System.Drawing.Color.Transparent;
-      this.labelGottoIndex.Location = new System.Drawing.Point(542, 9);
-      this.labelGottoIndex.Name = "labelGottoIndex";
-      this.labelGottoIndex.Size = new System.Drawing.Size(72, 15);
-      this.labelGottoIndex.TabIndex = 8;
-      this.labelGottoIndex.Text = "Go to Index:";
-      // 
-      // ofd
-      // 
-      this.ofd.DefaultExt = "dat";
-      this.ofd.FileName = "mpcorb.dat";
-      this.ofd.Filter = "DAT-Datei|*.dat|Alle Dateien|*.*";
-      // 
-      // bwLoadingDB
-      // 
-      this.bwLoadingDB.WorkerReportsProgress = true;
-      this.bwLoadingDB.WorkerSupportsCancellation = true;
-      this.bwLoadingDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadingDB_DoWork);
-      this.bwLoadingDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerLoadingDB_ProgressChanged);
-      this.bwLoadingDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadingDB_RunWorkerCompleted);
-      // 
-      // timerUpdateBlink
-      // 
-      this.timerUpdateBlink.Interval = 500;
-      this.timerUpdateBlink.Tick += new System.EventHandler(this.timerUpdateBlink_Tick);
-      // 
-      // toolStripNavigation
-      // 
-      this.toolStripNavigation.Dock = System.Windows.Forms.DockStyle.None;
-      this.toolStripNavigation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton9,
-            this.toolStripButton10,
-            this.toolStripButton11,
-            this.toolStripButton12,
-            this.toolStripButton13,
-            this.toolStripButton14,
-            this.toolStripSeparator6,
-            this.toolStripLabel2,
-            this.toolStripSeparator7,
-            this.toolStripLabel3,
-            this.toolStripTextBox2,
-            this.toolStripButton15});
-      this.toolStripNavigation.Location = new System.Drawing.Point(0, 49);
-      this.toolStripNavigation.Name = "toolStripNavigation";
-      this.toolStripNavigation.Size = new System.Drawing.Size(478, 25);
-      this.toolStripNavigation.Stretch = true;
-      this.toolStripNavigation.TabIndex = 15;
-      this.toolStripNavigation.Text = "Navigation";
-      this.toolStripNavigation.Visible = false;
       // 
       // toolStripButton9
       // 
@@ -2092,33 +2175,6 @@
       this.toolStripButton14.Size = new System.Drawing.Size(23, 22);
       this.toolStripButton14.Text = "toolStripButton14";
       // 
-      // toolStripSeparator6
-      // 
-      this.toolStripSeparator6.Name = "toolStripSeparator6";
-      this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-      // 
-      // toolStripLabel2
-      // 
-      this.toolStripLabel2.Name = "toolStripLabel2";
-      this.toolStripLabel2.Size = new System.Drawing.Size(121, 22);
-      this.toolStripLabel2.Text = "Index 123456 / 999999";
-      // 
-      // toolStripSeparator7
-      // 
-      this.toolStripSeparator7.Name = "toolStripSeparator7";
-      this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-      // 
-      // toolStripLabel3
-      // 
-      this.toolStripLabel3.Name = "toolStripLabel3";
-      this.toolStripLabel3.Size = new System.Drawing.Size(70, 22);
-      this.toolStripLabel3.Text = "Go to index:";
-      // 
-      // toolStripTextBox2
-      // 
-      this.toolStripTextBox2.Name = "toolStripTextBox2";
-      this.toolStripTextBox2.Size = new System.Drawing.Size(100, 25);
-      // 
       // toolStripButton15
       // 
       this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -2127,65 +2183,6 @@
       this.toolStripButton15.Name = "toolStripButton15";
       this.toolStripButton15.Size = new System.Drawing.Size(23, 22);
       this.toolStripButton15.Text = "toolStripButton15";
-      // 
-      // toolStripContainer1
-      // 
-      // 
-      // toolStripContainer1.BottomToolStripPanel
-      // 
-      this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.statusBar);
-      // 
-      // toolStripContainer1.ContentPanel
-      // 
-      this.toolStripContainer1.ContentPanel.AutoScroll = true;
-      this.toolStripContainer1.ContentPanel.BackColor = System.Drawing.Color.Transparent;
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.trackBarIndex);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonGotoIndex);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.numericUpDownGotoIndex);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.labelGottoIndex);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.labelIndexPos);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepForward);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepToEnd);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepForward1);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanelData);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepBackward1);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepBackward);
-      this.toolStripContainer1.ContentPanel.Controls.Add(this.buttonStepToBegin);
-      this.toolStripContainer1.ContentPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-      this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(744, 330);
-      this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-      this.toolStripContainer1.Name = "toolStripContainer1";
-      this.toolStripContainer1.Size = new System.Drawing.Size(744, 401);
-      this.toolStripContainer1.TabIndex = 16;
-      this.toolStripContainer1.Text = "toolStripContainer1";
-      // 
-      // toolStripContainer1.TopToolStripPanel
-      // 
-      this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menu);
-      this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripIcons);
-      this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripNavigation);
-      // 
-      // timerUpdate
-      // 
-      this.timerUpdate.Enabled = true;
-      this.timerUpdate.Interval = 1440000;
-      this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
-      // 
-      // notifyIconUpdate
-      // 
-      this.notifyIconUpdate.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconUpdate.Icon")));
-      this.notifyIconUpdate.Text = "PlanetoidDB";
-      this.notifyIconUpdate.Click += new System.EventHandler(this.notifyIconUpdate_Click);
-      // 
-      // contextMenuNotifyIcon
-      // 
-      this.contextMenuNotifyIcon.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
-      this.contextMenuNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkMPCORBDATToolStripMenuItem,
-            this.downloadMPCORBDATToolStripMenuItem});
-      this.contextMenuNotifyIcon.Name = "contextMenuNotifyIcon";
-      this.contextMenuNotifyIcon.Size = new System.Drawing.Size(206, 48);
       // 
       // checkMPCORBDATToolStripMenuItem
       // 

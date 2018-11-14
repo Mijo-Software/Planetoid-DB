@@ -1589,6 +1589,8 @@ namespace PlanetoidDB
 
     private void toolStripButtonDatabaseInformation_Click(object sender, EventArgs e)
     {
+      DatabaseInformationForm formDatabaseInformation = new DatabaseInformationForm();
+      formDatabaseInformation.ShowDialog();
     }
 
     private void toolStripButtonTableMode_MouseLeave(object sender, EventArgs e)
@@ -1795,6 +1797,8 @@ namespace PlanetoidDB
 
     private void toolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e)
     {
+      DatabaseInformationForm formDatabaseInformation = new DatabaseInformationForm();
+      formDatabaseInformation.ShowDialog();
     }
 
     private void toolStripMenuItemDatabaseInformation_MouseEnter(object sender, EventArgs e)

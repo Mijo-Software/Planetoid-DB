@@ -103,7 +103,7 @@
       this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
       this.buttonOK.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonOK.Image = global::PlanetoidDB.Properties.Resources.silk_accept;
+      this.buttonOK.Image = global::PlanetoidDB.Properties.Resources.silk_tick;
       this.buttonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonOK.Location = new System.Drawing.Point(400, 185);
       this.buttonOK.Name = "buttonOK";
