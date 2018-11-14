@@ -133,8 +133,8 @@ namespace PlanetoidDB
         {
           if (readLine != "")
           {
-            //arrDB.Add(readLine);
-            strIndex = readLine.Substring(0, 7); strIndex = strIndex.Trim();
+            arrDB.Add(readLine);
+            /*strIndex = readLine.Substring(0, 7); strIndex = strIndex.Trim();
             strMagAbs = readLine.Substring(8, 5); strMagAbs = strMagAbs.Trim();
             if (strMagAbs == "") doubleMagAbs = 0; else doubleMagAbs = Convert.ToDouble(strMagAbs);
             strSlopeParam = readLine.Substring(14, 5); strSlopeParam = strSlopeParam.Trim();
@@ -187,17 +187,14 @@ namespace PlanetoidDB
             arrComputerName.Add(strComputerName);
             arrFlags.Add(strFlags);
             arrDesgnName.Add(strDesgnName);
-            arrObsLastDate.Add(doubleObsLastDate);
+            arrObsLastDate.Add(doubleObsLastDate);*/
 
           }
         }
       }
       sr.Close();
-      formSplashScreen.Close();
 
-      
-
-      /*for (int i = 0; i < arrDB.Count; i++)
+      for (int i = 0; i < arrDB.Count; i++)
       {
         strIndex = arrDB[i].ToString().Substring(0, 7); strIndex = strIndex.Trim();
         strMagAbs = arrDB[i].ToString().Substring(8, 5); strMagAbs = strMagAbs.Trim();
@@ -253,7 +250,15 @@ namespace PlanetoidDB
         arrFlags.Add(strFlags);
         arrDesgnName.Add(strDesgnName);
         arrObsLastDate.Add(strObsLastDate);
-      }*/
+
+        float percent = 100 * i / (arrDB.Count - 1);
+        step = (int)percent;
+        formSplashScreen.setProgressbar(step);
+      }
+
+      formSplashScreen.Close();
+      arrDB.Clear();
+
 
       numericUpDownGotoIndex.Minimum = 1;
       numericUpDownGotoIndex.Maximum = arrIndex.Count;
