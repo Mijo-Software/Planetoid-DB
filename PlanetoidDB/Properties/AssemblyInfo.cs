@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PlanetoidDB")]
 [assembly: AssemblyDescription("Viewer for the MPC Orbit (MPCORB) Database")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Michael Johne, http.//www.planetoiddb.micjoe.de")]
+[assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("PlanetoidDB")]
-[assembly: AssemblyCopyright("2010 Michael Johne <michael-johne@gmx.de>")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("2010-2015 Michael Johne <michael-johne@gmx.de>")]
+[assembly: AssemblyTrademark("PlanetoidDB")]
 [assembly: AssemblyCulture("")]
 
 // Durch Festlegen von ComVisible auf "false" werden die Typen in dieser Assembly unsichtbar 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.0.14")]
-[assembly: AssemblyFileVersion("0.2.0.14")]
+[assembly: AssemblyVersion("0.2.2.16")]
+[assembly: AssemblyFileVersion("0.2.2.16")]

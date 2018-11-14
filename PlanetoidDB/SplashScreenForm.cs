@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace PlanetoidDB
 {
   public partial class SplashScreenForm : Form
   {
+
     public SplashScreenForm()
     {
       InitializeComponent();
@@ -18,8 +23,8 @@ namespace PlanetoidDB
 
     public void setProgressbar(int value)
     {
-      labelDataLoading.Text = "Loading data... " + value + "%";
       progressBarSplash.Value = value;
+      //labelDataLoading.Text = "Loading data... " + value + "%";
     }
 
     private void SplashScreenForm_Load(object sender, EventArgs e)

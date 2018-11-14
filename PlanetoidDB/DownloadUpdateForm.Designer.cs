@@ -34,40 +34,44 @@
         this.buttonClose = new System.Windows.Forms.Button();
         this.buttonCancelDownload = new System.Windows.Forms.Button();
         this.buttonDownload = new System.Windows.Forms.Button();
+        this.labelSource = new System.Windows.Forms.Label();
+        this.buttonCheckForUpdate = new System.Windows.Forms.Button();
+        this.labelDate = new System.Windows.Forms.Label();
+        this.labelSize = new System.Windows.Forms.Label();
         this.SuspendLayout();
         // 
         // progressBarDownload
         // 
-        this.progressBarDownload.Location = new System.Drawing.Point(12, 40);
+        this.progressBarDownload.Location = new System.Drawing.Point(15, 57);
         this.progressBarDownload.Name = "progressBarDownload";
-        this.progressBarDownload.Size = new System.Drawing.Size(332, 21);
-        this.progressBarDownload.TabIndex = 1;
+        this.progressBarDownload.Size = new System.Drawing.Size(405, 21);
+        this.progressBarDownload.TabIndex = 4;
         // 
         // labelStatus
         // 
         this.labelStatus.AutoSize = true;
         this.labelStatus.Location = new System.Drawing.Point(12, 9);
         this.labelStatus.Name = "labelStatus";
-        this.labelStatus.Size = new System.Drawing.Size(196, 15);
-        this.labelStatus.TabIndex = 2;
-        this.labelStatus.Text = "Status: [Is Busy... | Downloading...]";
+        this.labelStatus.Size = new System.Drawing.Size(96, 15);
+        this.labelStatus.TabIndex = 0;
+        this.labelStatus.Text = "Status: [Busy?...]";
         // 
         // labelDownload
         // 
         this.labelDownload.AutoSize = true;
-        this.labelDownload.Location = new System.Drawing.Point(350, 46);
+        this.labelDownload.Location = new System.Drawing.Point(426, 63);
         this.labelDownload.Name = "labelDownload";
         this.labelDownload.Size = new System.Drawing.Size(37, 15);
-        this.labelDownload.TabIndex = 3;
+        this.labelDownload.TabIndex = 5;
         this.labelDownload.Text = "xxx %";
         // 
         // buttonClose
         // 
         this.buttonClose.Image = global::PlanetoidDB.Properties.Resources.silk_application_put;
-        this.buttonClose.Location = new System.Drawing.Point(353, 80);
+        this.buttonClose.Location = new System.Drawing.Point(374, 9);
         this.buttonClose.Name = "buttonClose";
         this.buttonClose.Size = new System.Drawing.Size(159, 41);
-        this.buttonClose.TabIndex = 5;
+        this.buttonClose.TabIndex = 9;
         this.buttonClose.Text = "Close && Downloading in Background";
         this.buttonClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
         this.buttonClose.UseVisualStyleBackColor = true;
@@ -77,10 +81,10 @@
         // buttonCancelDownload
         // 
         this.buttonCancelDownload.Image = global::PlanetoidDB.Properties.Resources.silk_cancel;
-        this.buttonCancelDownload.Location = new System.Drawing.Point(205, 79);
+        this.buttonCancelDownload.Location = new System.Drawing.Point(340, 84);
         this.buttonCancelDownload.Name = "buttonCancelDownload";
         this.buttonCancelDownload.Size = new System.Drawing.Size(139, 41);
-        this.buttonCancelDownload.TabIndex = 4;
+        this.buttonCancelDownload.TabIndex = 8;
         this.buttonCancelDownload.Text = "Cancel Download";
         this.buttonCancelDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
         this.buttonCancelDownload.UseVisualStyleBackColor = true;
@@ -89,20 +93,63 @@
         // buttonDownload
         // 
         this.buttonDownload.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
-        this.buttonDownload.Location = new System.Drawing.Point(12, 79);
+        this.buttonDownload.Location = new System.Drawing.Point(156, 84);
         this.buttonDownload.Name = "buttonDownload";
         this.buttonDownload.Size = new System.Drawing.Size(178, 41);
-        this.buttonDownload.TabIndex = 0;
+        this.buttonDownload.TabIndex = 7;
         this.buttonDownload.Text = "Download MPCORB.DAT";
         this.buttonDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
         this.buttonDownload.UseVisualStyleBackColor = true;
         this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
         // 
+        // labelSource
+        // 
+        this.labelSource.AutoSize = true;
+        this.labelSource.Location = new System.Drawing.Point(153, 9);
+        this.labelSource.Name = "labelSource";
+        this.labelSource.Size = new System.Drawing.Size(165, 15);
+        this.labelSource.TabIndex = 1;
+        this.labelSource.Text = "Source: [where ist MPCORB?]";
+        // 
+        // buttonCheckForUpdate
+        // 
+        this.buttonCheckForUpdate.Image = global::PlanetoidDB.Properties.Resources.lightning;
+        this.buttonCheckForUpdate.Location = new System.Drawing.Point(15, 84);
+        this.buttonCheckForUpdate.Name = "buttonCheckForUpdate";
+        this.buttonCheckForUpdate.Size = new System.Drawing.Size(135, 41);
+        this.buttonCheckForUpdate.TabIndex = 6;
+        this.buttonCheckForUpdate.Text = "Check for Update";
+        this.buttonCheckForUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+        this.buttonCheckForUpdate.UseVisualStyleBackColor = true;
+        this.buttonCheckForUpdate.Click += new System.EventHandler(this.buttonCheckForUpdate_Click);
+        // 
+        // labelDate
+        // 
+        this.labelDate.AutoSize = true;
+        this.labelDate.Location = new System.Drawing.Point(153, 24);
+        this.labelDate.Name = "labelDate";
+        this.labelDate.Size = new System.Drawing.Size(159, 15);
+        this.labelDate.TabIndex = 2;
+        this.labelDate.Text = "date: [how old is MPCORB?]";
+        // 
+        // labelSize
+        // 
+        this.labelSize.AutoSize = true;
+        this.labelSize.Location = new System.Drawing.Point(153, 39);
+        this.labelSize.Name = "labelSize";
+        this.labelSize.Size = new System.Drawing.Size(157, 15);
+        this.labelSize.TabIndex = 3;
+        this.labelSize.Text = "size: [is MPCORB a fat file?]";
+        // 
         // DownloadUpdateForm
         // 
         this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(402, 133);
+        this.ClientSize = new System.Drawing.Size(488, 139);
+        this.Controls.Add(this.labelSize);
+        this.Controls.Add(this.labelDate);
+        this.Controls.Add(this.buttonCheckForUpdate);
+        this.Controls.Add(this.labelSource);
         this.Controls.Add(this.buttonDownload);
         this.Controls.Add(this.buttonCancelDownload);
         this.Controls.Add(this.labelDownload);
@@ -133,5 +180,9 @@
     private System.Windows.Forms.Label labelDownload;
     private System.Windows.Forms.Button buttonCancelDownload;
     private System.Windows.Forms.Button buttonClose;
+    private System.Windows.Forms.Label labelSource;
+    private System.Windows.Forms.Button buttonCheckForUpdate;
+    private System.Windows.Forms.Label labelDate;
+    private System.Windows.Forms.Label labelSize;
   }
 }

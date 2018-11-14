@@ -21,7 +21,7 @@ namespace PlanetoidDB
       labelTitle.Text = AssemblyProduct;
       labelVersion.Text = String.Format("Version: {0}", AssemblyVersion);
       linkLabelCopyright.Text = AssemblyCopyright;
-      linkLabelCopyright.Links.Add(19, 22, "mailto:michael-johne@gmx.de");
+      linkLabelCopyright.Links.Add(24, "mailto:michael-johne@gmx.de".Length, "mailto:michael-johne@gmx.de");
       labelDescription.Text = AssemblyDescription;
       linkLabelWWW.Text = "WWW: http://www.planetoiddb.micjoh.de";
       linkLabelWWW.Links.Add(5, "http://www.planetoiddb.micjoh.de".Length, "http://www.planetoiddb.micjoh.de");
