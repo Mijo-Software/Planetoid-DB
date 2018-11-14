@@ -151,14 +151,23 @@
   <data name="silk_information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_information.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="silk_package-go" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_package-go.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="silk_backward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_backward.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="silk_world" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_world.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="silk_backward-end" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_backward-end.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_package" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_package.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_forward.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,7 +178,10 @@
   <data name="silk_backward-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_backward-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_world" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_world.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="silk_application-put" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_application-put.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_arrow-switch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_arrow-switch.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

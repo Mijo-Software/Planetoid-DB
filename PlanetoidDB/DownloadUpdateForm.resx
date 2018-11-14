@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,68 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>354, 9</value>
-  </metadata>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>92, 8</value>
-  </metadata>
-  <metadata name="statusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>183, 9</value>
-  </metadata>
-  <metadata name="ofd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>284, 9</value>
-  </metadata>
-  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>10, 9</value>
-  </metadata>
-  <metadata name="backgroundWorkerLoadingDB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>469, 9</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>49</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAICAAAAEACACoCAAAFgAAACgAAAAgAAAAQAAAAAEACAAAAAAAgAQAAAAAAAAAAAAAAAEAAAAA
-        AAAAAABDAACATwCAAE8AgIBMgAAALYAAgFeAgABFwMDAQsDcwC7wyqZEzP//RZn//wBm//8AM///AP/M
-        /wDMzP8Amcz/Q2bM/08zzP9PAMz/TP+Z/y3Mmf9XmZn/RWaZ/0Izmf8uAJn/RP9m/0XMZv8AmWb/AGZm
-        /wAzZv8AAGb/AP8z/0PMM/9PmTP/T2Yz/0wzM/8tADP/V8wA/0WZAP9CZgD/LjMA/0T//8xFzP/MAJn/
-        zABm/8wAZv/MADP/zAAA/8xD/8zMT8zMzE+ZzMxMZszMLTPMzFcAzMxF/5nMQsyZzC6ZmcxEZpnMRTOZ
-        zAAAmcwA/2bMAMxmzACZZswAZmbMQzNmzE8AZsxP/zPMTMwzzC2ZM8xXZjPMRTMzzEIAM8wu/wDMRMwA
-        zEWZAMwAZgDMADMAzAAAAMwA//+ZAMz/mUOZ/5lPZv+ZTzP/mUwA/5kt/8yZV8zMmUWZzJlCZsyZLjPM
-        mUQAzJlF/5mZAMyZmQCZmZkAZpmZADOZmQAAmZlD/2aZT8xmmU+ZZplMZmaZLTNmmVcAZplF/zOZQswz
-        mS6ZM5lEZjOZRTMzmQAAM5kA/wCZAMwAmQCZAJkAZgCZQzMAmU8AAJlP//9mTMz/Zi2Z/2ZXZv9mRTP/
-        ZkIA/2Yu/8xmRMzMZkWZzGYAZsxmADPMZgAAzGYA/5lmAMyZZkOZmWZPZplmTzOZZkwAmWYt/2ZmV8xm
-        ZkWZZmZCZmZmLjNmZkQAZmZF/zNmAMwzZgCZM2YAZjNmADMzZgAAM2ZD/wBmT8wAZk+ZAGZMZgBmLTMA
-        ZlcAAGZF//8zQsz/My6Z/zNEZv8zRTP/MwAA/zMA/8wzAMzMMwCZzDMAZswzQzPMM08AzDNP/5kzTMyZ
-        My2ZmTNXZpkzRTOZM0IAmTMu/2YzRMxmM0WZZjMAZmYzADNmMwAAZjMA/zMzAMwzM0OZMzNPZjMzTzMz
-        M0wAMzMt/wAzV8wAM0WZADNCZgAzLjMAM0QAADNFzP8AAJn/AABm/wAAM/8AAP/MAADMzABDmcwAT2bM
-        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
-        ///+B////4//////////////
-</value>
-  </data>
 </root>

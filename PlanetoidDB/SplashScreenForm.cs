@@ -18,7 +18,7 @@ namespace PlanetoidDB
 
     public void setProgressbar(int value)
     {
-      labelDataLoading.Text = "Loading data..." + value + "%";
+      labelDataLoading.Text = "Loading data... " + value + "%";
       progressBarSplash.Value = value;
     }
 
@@ -108,5 +108,6 @@ namespace PlanetoidDB
       }
     }
     #endregion
+
   }
 }

@@ -74,6 +74,20 @@ namespace PlanetoidDB.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap silk_application_put {
+            get {
+                object obj = ResourceManager.GetObject("silk_application-put", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap silk_arrow_switch {
+            get {
+                object obj = ResourceManager.GetObject("silk_arrow-switch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap silk_backward {
             get {
                 object obj = ResourceManager.GetObject("silk_backward", resourceCulture);
@@ -175,6 +189,20 @@ namespace PlanetoidDB.Properties {
         internal static System.Drawing.Bitmap silk_information {
             get {
                 object obj = ResourceManager.GetObject("silk_information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap silk_package {
+            get {
+                object obj = ResourceManager.GetObject("silk_package", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap silk_package_go {
+            get {
+                object obj = ResourceManager.GetObject("silk_package-go", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

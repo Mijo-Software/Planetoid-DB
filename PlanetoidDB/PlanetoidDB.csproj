@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanetoidDB</RootNamespace>
     <AssemblyName>PlanetoidDB</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,6 +51,12 @@
     <Compile Include="AppInfoForm.Designer.cs">
       <DependentUpon>AppInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DownloadUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownloadUpdateForm.Designer.cs">
+      <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlanetoidDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,10 @@
     </Compile>
     <EmbeddedResource Include="AppInfoForm.resx">
       <DependentUpon>AppInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloadUpdateForm.resx">
+      <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PlanetoidDBForm.resx">
@@ -133,6 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
+    <None Include="Resources\silk_arrow-switch.png" />
+    <None Include="Resources\silk_application-put.png" />
+    <None Include="Resources\silk_package-go.png" />
+    <None Include="Resources\silk_package.png" />
     <None Include="Resources\silk_world.png" />
     <None Include="Resources\silk_forward-end.png" />
     <None Include="Resources\silk_forward-1.png" />

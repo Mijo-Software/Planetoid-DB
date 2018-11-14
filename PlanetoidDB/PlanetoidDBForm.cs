@@ -14,9 +14,22 @@ namespace PlanetoidDB
   public partial class PlanetoidDBForm : Form
   {
     int currentPosition = 0, stepPosition = 0;
+    string defaultFileName = "mpcorb.dat";
 
     ArrayList arrDB = new ArrayList(0);
-    
+
+    public void VisibleBackgroundDownload(bool visible)
+    {
+      toolStripProgressBarBackgroundDownload.Visible = visible;
+      labelBackgroundDownload.Visible = visible;
+    }
+
+    public void Download(int i)
+    {
+      toolStripProgressBarBackgroundDownload.Visible = true;
+      labelBackgroundDownload.Visible = true;
+    }
+
     private void GotoCurrentPosition(int cp)
     {
       string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
@@ -65,69 +78,79 @@ namespace PlanetoidDB
       labelObsLastDate.Text = strObsLastDate;
 
       labelIndexPos.Text = "Index: " + (cp+1).ToString() + " / " + (arrDB.Count).ToString();
+      trackBar1.Value = currentPosition;
     }
 
     public PlanetoidDBForm()
     {
       InitializeComponent();
+      VisibleBackgroundDownload(false);
     }
 
     private void PlanetoidDBForm_Load(object sender, EventArgs e)
     {
-      string defaultFileName = "mpcorb.dat", fileName = defaultFileName;
+        //backgroundWorkerLoadingDB.RunWorkerAsync();
+        string fileName = defaultFileName;
 
-      SplashScreenForm formSplashScreen = new SplashScreenForm();
-      formSplashScreen.Show();
-      formSplashScreen.Update();
+        SplashScreenForm formSplashScreen = new SplashScreenForm();
+        formSplashScreen.Show();
+        formSplashScreen.Update();
 
-      if (!File.Exists(fileName))
-      {
-        if (ofd.ShowDialog() == DialogResult.OK) 
+        if (!File.Exists(fileName))
         {
-          fileName = Path.GetFullPath(ofd.FileName);
-        } else {
-          MessageBox.Show(defaultFileName.ToUpper() + " couldn't found!", defaultFileName.ToUpper() + " missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
-          formSplashScreen.Close();
-          this.Close();
-        }          
-      }
-
-      FileInfo fi = new FileInfo(fileName);
-      long fileSize = fi.Length, fileSizeReaded = 0;
-      int step = 0, lineNum = 0;
-      FileStream fs;
-      StreamReader sr;
-      string readLine;
-
-      fs = new FileStream(fileName, FileMode.Open);
-      sr = new StreamReader(fs);
-
-      while (sr.Peek() != -1)
-      {
-        readLine = sr.ReadLine();
-        fileSizeReaded = fileSizeReaded + readLine.Length;
-        float percent = 100 * fileSizeReaded / fileSize;
-        step = (int)percent;
-        formSplashScreen.setProgressbar(step);
-        lineNum++;
-        if (lineNum >= 42)
-        {
-          if (readLine != "")
-          {
-            arrDB.Add(readLine);
-          }
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                fileName = Path.GetFullPath(ofd.FileName);
+            }
+            else
+            {
+                MessageBox.Show(defaultFileName.ToUpper() + " couldn't found!", defaultFileName.ToUpper() + " missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                formSplashScreen.Close();
+                this.Close();
+            }
         }
-      }
-      
-      fs.Close();
-      sr.Close();      
-      formSplashScreen.Close();
 
-      numericUpDownGotoIndex.Minimum = 1;
-      numericUpDownGotoIndex.Maximum = arrDB.Count;
-      currentPosition = 0;
-      stepPosition = 100;
-      GotoCurrentPosition(currentPosition);
+        FileInfo fi = new FileInfo(fileName);
+        long fileSize = fi.Length, fileSizeReaded = 0;
+        int step = 0, lineNum = 0;
+        FileStream fs;
+        StreamReader sr;
+        string readLine;
+
+        fs = new FileStream(fileName, FileMode.Open);
+        sr = new StreamReader(fs);
+
+        while (sr.Peek() != -1)
+        {
+            readLine = sr.ReadLine();
+            fileSizeReaded = fileSizeReaded + readLine.Length;
+            float percent = 100 * fileSizeReaded / fileSize;
+            step = (int)percent;
+            formSplashScreen.setProgressbar(step);
+            formSplashScreen.Update();
+
+            lineNum++;
+            if (lineNum >= 42)
+            {
+                if (readLine != "")
+                {
+                    arrDB.Add(readLine);
+                }
+            }
+        }
+
+        fs.Close();
+        sr.Close();
+        formSplashScreen.Close();
+
+        numericUpDownGotoIndex.Minimum = 1;
+        numericUpDownGotoIndex.Maximum = arrDB.Count;
+        currentPosition = 0;
+        stepPosition = 100;
+        GotoCurrentPosition(currentPosition);
+        trackBar1.Value = 1;
+        trackBar1.Maximum = arrDB.Count - 1;
+        trackBar1.TickFrequency = (int)trackBar1.Maximum / 10;
     }
 
     private void buttonStepToBegin_Click(object sender, EventArgs e)
@@ -250,5 +273,81 @@ namespace PlanetoidDB
       System.Diagnostics.Process.Start("http://www.minorplanetcenter.org/iau/MPCORB.html");
     }
 
+    private void menuitemDownloadMpcorbDat_Click(object sender, EventArgs e)
+    {
+      DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm(this);
+      formDownloaderForMpcorbDat.ShowDialog();
+    }
+
+    private void trackBar1_Scroll(object sender, EventArgs e)
+    {
+      currentPosition = trackBar1.Value;
+      GotoCurrentPosition(currentPosition);
+    }
+
+    private void backgroundWorkerLoadingDB_DoWork(object sender, DoWorkEventArgs e)
+    {
+        string fileName = defaultFileName;
+
+        SplashScreenForm formSplashScreen = new SplashScreenForm();
+        formSplashScreen.Show();
+        formSplashScreen.Update();
+
+        if (!File.Exists(fileName))
+        {
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                fileName = Path.GetFullPath(ofd.FileName);
+            }
+            else
+            {
+                MessageBox.Show(defaultFileName.ToUpper() + " couldn't found!", defaultFileName.ToUpper() + " missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                formSplashScreen.Close();
+                this.Close();
+            }
+        }
+
+        FileInfo fi = new FileInfo(fileName);
+        long fileSize = fi.Length, fileSizeReaded = 0;
+        int step = 0, lineNum = 0;
+        FileStream fs;
+        StreamReader sr;
+        string readLine;
+
+        fs = new FileStream(fileName, FileMode.Open);
+        sr = new StreamReader(fs);
+
+        while (sr.Peek() != -1)
+        {
+            readLine = sr.ReadLine();
+            fileSizeReaded = fileSizeReaded + readLine.Length;
+            float percent = 100 * fileSizeReaded / fileSize;
+            step = (int)percent;
+            formSplashScreen.setProgressbar(step);
+            formSplashScreen.Update();
+
+            lineNum++;
+            if (lineNum >= 42)
+            {
+                if (readLine != "")
+                {
+                    arrDB.Add(readLine);
+                }
+            }
+        }
+
+        fs.Close();
+        sr.Close();
+        formSplashScreen.Close();
+
+        numericUpDownGotoIndex.Minimum = 1;
+        numericUpDownGotoIndex.Maximum = arrDB.Count;
+        currentPosition = 0;
+        stepPosition = 100;
+        GotoCurrentPosition(currentPosition);
+        trackBar1.Value = 1;
+        trackBar1.Maximum = arrDB.Count - 1;
+        trackBar1.TickFrequency = (int)trackBar1.Maximum / 10;
+    }
   }
 }
