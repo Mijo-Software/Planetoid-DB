@@ -23,8 +23,8 @@ namespace PlanetoidDB
       linkLabelCopyright.Text = AssemblyCopyright;
       linkLabelCopyright.Links.Add(19, 22, "mailto:michael-johne@gmx.de");
       labelDescription.Text = AssemblyDescription;
-      linkLabelWWW.Text = "WWW: http://www.planetoiddb.micjoe.de";
-      linkLabelWWW.Links.Add(5, "http://www.planetoiddb.micjoe.de".Length, "http://www.planetoiddb.micjoe.de");
+      linkLabelWWW.Text = "WWW: http://www.planetoiddb.micjoh.de";
+      linkLabelWWW.Links.Add(5, "http://www.planetoiddb.micjoh.de".Length, "http://www.planetoiddb.micjoh.de");
     }
 
     private void linkLabelCopyright_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

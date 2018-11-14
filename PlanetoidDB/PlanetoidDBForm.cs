@@ -237,7 +237,7 @@ namespace PlanetoidDB
 
     private void menuitemOpenWebsitePDB_Click(object sender, EventArgs e)
     {
-      System.Diagnostics.Process.Start("http://www.planetoiddb.micjoe.de");
+      System.Diagnostics.Process.Start("http://www.planetoiddb.micjoh.de");
     }
 
     private void menuitemOpenWebsiteMPC_Click(object sender, EventArgs e)
