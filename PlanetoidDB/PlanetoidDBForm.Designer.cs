@@ -29,6 +29,7 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanetoidDBForm));
       this.buttonStepToBegin = new System.Windows.Forms.Button();
       this.buttonStepBackward = new System.Windows.Forms.Button();
       this.buttonStepBackward1 = new System.Windows.Forms.Button();
@@ -777,6 +778,7 @@
       this.Controls.Add(this.buttonStepToBegin);
       this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MainMenuStrip = this.menuStrip1;
       this.MaximizeBox = false;
       this.Name = "PlanetoidDBForm";
