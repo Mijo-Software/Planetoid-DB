@@ -120,6 +120,7 @@
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "SplashScreen";
       this.TopMost = true;
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SplashScreenForm_FormClosed);
       this.Load += new System.EventHandler(this.SplashScreenForm_Load);
       this.ResumeLayout(false);
       this.PerformLayout();

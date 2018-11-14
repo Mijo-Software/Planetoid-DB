@@ -117,5 +117,9 @@ namespace PlanetoidDB
       System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
     }
 
+    private void AppInfoForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      Dispose();
+    }
   }
 }

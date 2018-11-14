@@ -63,16 +63,6 @@ namespace PlanetoidDB.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap lightning {
-            get {
-                object obj = ResourceManager.GetObject("lightning", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap silk_accept {
             get {
                 object obj = ResourceManager.GetObject("silk_accept", resourceCulture);
@@ -256,6 +246,16 @@ namespace PlanetoidDB.Properties {
         internal static System.Drawing.Bitmap silk_information {
             get {
                 object obj = ResourceManager.GetObject("silk_information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silk_lightning {
+            get {
+                object obj = ResourceManager.GetObject("silk_lightning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

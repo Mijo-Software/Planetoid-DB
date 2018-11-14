@@ -57,7 +57,7 @@
       this.pictureBoxBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.pictureBoxBanner.TabIndex = 0;
       this.pictureBoxBanner.TabStop = false;
-      this.toolTip.SetToolTip(this.pictureBoxBanner, "On the graphic you see the planetiod \"(951) Gaspra\".");
+      this.toolTip.SetToolTip(this.pictureBoxBanner, "On the graphic you see the planetiod \"(243) Ida \".");
       // 
       // labelVersion
       // 
@@ -103,6 +103,8 @@
       this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
       this.buttonOK.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonOK.Image = global::PlanetoidDB.Properties.Resources.silk_accept;
+      this.buttonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonOK.Location = new System.Drawing.Point(400, 185);
       this.buttonOK.Name = "buttonOK";
       this.buttonOK.Size = new System.Drawing.Size(75, 23);
@@ -196,8 +198,9 @@
       this.MinimizeBox = false;
       this.Name = "AppInfoForm";
       this.ShowInTaskbar = false;
-      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Program information";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppInfoForm_FormClosed);
       this.Load += new System.EventHandler(this.AppInfoForm_Load);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBanner)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

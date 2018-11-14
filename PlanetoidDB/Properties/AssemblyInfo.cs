@@ -7,7 +7,11 @@ using System.Runtime.InteropServices;
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("PlanetoidDB")]
 [assembly: AssemblyDescription("Viewer for the MPC Orbit (MPCORB) Database")]
-[assembly: AssemblyConfiguration("")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
 [assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("PlanetoidDB")]
 [assembly: AssemblyCopyright("2010-2015 Michael Johne <michael-johne@gmx.de>")]
@@ -32,5 +36,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.2.16")]
-[assembly: AssemblyFileVersion("0.2.2.16")]
+[assembly: AssemblyVersion("0.2.3.17")]
+[assembly: AssemblyFileVersion("0.2.3.17")]

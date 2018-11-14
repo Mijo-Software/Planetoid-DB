@@ -57,6 +57,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PlanetoidDB.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -164,7 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
-    <None Include="Resources\lightning.png" />
+    <None Include="Resources\silk_lightning.png" />
     <None Include="Resources\silk_arrow-switch.png" />
     <None Include="Resources\silk_application-put.png" />
     <None Include="Resources\silk_package-go.png" />

@@ -114,5 +114,9 @@ namespace PlanetoidDB
     }
     #endregion
 
+    private void SplashScreenForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      Dispose();
+    }
   }
 }

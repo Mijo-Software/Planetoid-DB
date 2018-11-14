@@ -23,6 +23,12 @@ namespace PlanetoidDB
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
+      string strFilenameMPCORB = "mpcorb.dat";
+      if (!File.Exists(strFilenameMPCORB))
+      {
+        DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
+        formDownloaderForMpcorbDat.ShowDialog();
+      }
       Application.Run(new PlanetoidDBForm());
     }
   }
