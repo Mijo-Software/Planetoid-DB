@@ -13,31 +13,10 @@ namespace PlanetoidDB
 {
   public partial class PlanetoidDBForm : Form
   {
-    int currentPosition = 0;
+    int currentPosition = 0, stepPosition = 0;
 
     ArrayList arrDB = new ArrayList(0);
     
-    ArrayList arrIndex = new ArrayList();
-    ArrayList arrMagAbs = new ArrayList();
-    ArrayList arrSlopeParam = new ArrayList();
-    ArrayList arrEpoch = new ArrayList();
-    ArrayList arrMeanAnomaly = new ArrayList();
-    ArrayList arrArgPeri = new ArrayList();
-    ArrayList arrLongAscNode = new ArrayList();
-    ArrayList arrIncl = new ArrayList();
-    ArrayList arrOrbEcc = new ArrayList();
-    ArrayList arrMotion = new ArrayList();
-    ArrayList arrSemiMajorAxis = new ArrayList();
-    ArrayList arrRef = new ArrayList();
-    ArrayList arrNumbObs = new ArrayList();
-    ArrayList arrNumbOppos = new ArrayList();
-    ArrayList arrObsSpan = new ArrayList();
-    ArrayList arrRmsResdiual = new ArrayList();
-    ArrayList arrComputerName = new ArrayList();
-    ArrayList arrFlags = new ArrayList();
-    ArrayList arrDesgnName = new ArrayList();
-    ArrayList arrObsLastDate = new ArrayList();
-
     private void GotoCurrentPosition(int cp)
     {
       string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
@@ -147,6 +126,7 @@ namespace PlanetoidDB
       numericUpDownGotoIndex.Minimum = 1;
       numericUpDownGotoIndex.Maximum = arrDB.Count;
       currentPosition = 0;
+      stepPosition = 100;
       GotoCurrentPosition(currentPosition);
     }
 
@@ -158,6 +138,9 @@ namespace PlanetoidDB
 
     private void buttonStepBackward_Click(object sender, EventArgs e)
     {
+      currentPosition = currentPosition - stepPosition;
+      if (currentPosition < 1) currentPosition = arrDB.Count + currentPosition;
+      GotoCurrentPosition(currentPosition);
     }
 
     private void buttonStepBackward1_Click(object sender, EventArgs e)
@@ -174,6 +157,9 @@ namespace PlanetoidDB
 
     private void buttonStepForward_Click(object sender, EventArgs e)
     {
+      currentPosition = currentPosition + stepPosition;
+      if (currentPosition > arrDB.Count) currentPosition = currentPosition - arrDB.Count;
+      GotoCurrentPosition(currentPosition);
     }
 
     private void buttonStepToEnd_Click(object sender, EventArgs e)
@@ -186,6 +172,82 @@ namespace PlanetoidDB
     {
       currentPosition = (int)numericUpDownGotoIndex.Value - 1;
       GotoCurrentPosition(currentPosition);
+    }
+
+    private void toolStripMenuItem10_Click(object sender, EventArgs e)
+    {
+      stepPosition = 10;
+      toolStripMenuItem10.Checked = true;
+      toolStripMenuItem100.Checked = false;
+      toolStripMenuItem1000.Checked = false;
+      toolStripMenuItem10000.Checked = false;
+      toolStripMenuItem100000.Checked = false;
+    }
+
+    private void toolStripMenuItem100_Click(object sender, EventArgs e)
+    {
+      stepPosition = 100;
+      toolStripMenuItem10.Checked = false;
+      toolStripMenuItem100.Checked = true;
+      toolStripMenuItem1000.Checked = false;
+      toolStripMenuItem10000.Checked = false;
+      toolStripMenuItem100000.Checked = false;
+    }
+
+    private void toolStripMenuItem1000_Click(object sender, EventArgs e)
+    {
+      stepPosition = 1000;
+      toolStripMenuItem10.Checked = false;
+      toolStripMenuItem100.Checked = false;
+      toolStripMenuItem1000.Checked = true;
+      toolStripMenuItem10000.Checked = false;
+      toolStripMenuItem100000.Checked = false;
+    }
+
+    private void toolStripMenuItem10000_Click(object sender, EventArgs e)
+    {
+      stepPosition = 10000;
+      toolStripMenuItem10.Checked = false;
+      toolStripMenuItem100.Checked = false;
+      toolStripMenuItem1000.Checked = false;
+      toolStripMenuItem10000.Checked = true;
+      toolStripMenuItem100000.Checked = false;
+    }
+
+    private void toolStripMenuItem100000_Click(object sender, EventArgs e)
+    {
+      stepPosition = 100000;
+      toolStripMenuItem10.Checked = false;
+      toolStripMenuItem100.Checked = false;
+      toolStripMenuItem1000.Checked = false;
+      toolStripMenuItem10000.Checked = false;
+      toolStripMenuItem100000.Checked = true;
+    }
+
+    private void menuitemExit_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    private void menuitemAbout_Click(object sender, EventArgs e)
+    {
+      AppInfoForm formAppInfo = new AppInfoForm();
+      formAppInfo.ShowDialog();
+    }
+
+    private void menuitemOpenWebsitePDB_Click(object sender, EventArgs e)
+    {
+      System.Diagnostics.Process.Start("http://www.planetoiddb.micjoe.de");
+    }
+
+    private void menuitemOpenWebsiteMPC_Click(object sender, EventArgs e)
+    {
+      System.Diagnostics.Process.Start("http://www.minorplanetcenter.org/iau/mpc.html");
+    }
+
+    private void menuitemOpenMPCORBWebsite_Click(object sender, EventArgs e)
+    {
+      System.Diagnostics.Process.Start("http://www.minorplanetcenter.org/iau/MPCORB.html");
     }
 
   }

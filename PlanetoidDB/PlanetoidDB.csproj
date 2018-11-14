@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppInfoForm.Designer.cs">
+      <DependentUpon>AppInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlanetoidDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,10 @@
     <Compile Include="SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppInfoForm.resx">
+      <DependentUpon>AppInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlanetoidDBForm.resx">
       <DependentUpon>PlanetoidDBForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -89,85 +99,47 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\accept.png" />
+    <None Include="Resources\silk_accept.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\add.png" />
+    <None Include="Resources\silk_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bullet_go.png" />
+    <None Include="Resources\silk_go.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cancel.png" />
+    <None Include="Resources\silk_cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\decline.png" />
+    <None Include="Resources\silk_decline.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete.png" />
+    <None Include="Resources\silk_delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\disk.png" />
+    <None Include="Resources\silk_disk.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\door_in.png" />
+    <None Include="Resources\silk_door-in.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\forward_blue.png" />
+    <None Include="Resources\silk_help.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\forward_green.png" />
+    <None Include="Resources\silk_hourglass.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\help.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hourglass.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\information.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\next_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\next_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\play_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\play_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\previous-green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\resultset_first.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\resultset_last.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\resultset_next.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\resultset_previous.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reverse_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reverse_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rewind_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rewind_green.png" />
+    <None Include="Resources\silk_information.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
+    <None Include="Resources\silk_world.png" />
+    <None Include="Resources\silk_forward-end.png" />
+    <None Include="Resources\silk_forward-1.png" />
+    <None Include="Resources\silk_forward.png" />
+    <None Include="Resources\silk_backward-end.png" />
+    <None Include="Resources\silk_backward-1.png" />
+    <None Include="Resources\silk_backward.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

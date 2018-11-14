@@ -9,24 +9,27 @@ using System.Windows.Forms;
 
 namespace PlanetoidDB
 {
-  public partial class SplashScreenForm : Form
+  public partial class AppInfoForm : Form
   {
-    public SplashScreenForm()
+    public AppInfoForm()
     {
       InitializeComponent();
     }
 
-    public void setProgressbar(int value)
+    private void AppInfoForm_Load(object sender, EventArgs e)
     {
-      labelDataLoading.Text = "Loading data..." + value + "%";
-      progressBarSplash.Value = value;
-    }
-
-    private void SplashScreenForm_Load(object sender, EventArgs e)
-    {
-      labelDataLoading.Text = "Loading data...";
       labelTitle.Text = AssemblyProduct;
       labelVersion.Text = String.Format("Version: {0}", AssemblyVersion);
+      linkLabelCopyright.Text = AssemblyCopyright;
+      linkLabelCopyright.Links.Add(19, 22, "mailto:michael-johne@gmx.de");
+      labelDescription.Text = AssemblyDescription;
+      linkLabelWWW.Text = "WWW: http://www.planetoiddb.micjoe.de";
+      linkLabelWWW.Links.Add(5, "http://www.planetoiddb.micjoe.de".Length, "http://www.planetoiddb.micjoe.de");
+    }
+
+    private void linkLabelCopyright_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
     }
 
     #region Assemblyattributaccessoren
@@ -108,5 +111,11 @@ namespace PlanetoidDB
       }
     }
     #endregion
+
+    private void linkLabelWWW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+    }
+
   }
 }

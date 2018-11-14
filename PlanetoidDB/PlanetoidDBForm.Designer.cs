@@ -30,12 +30,12 @@
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanetoidDBForm));
-      this.buttonStepToBegin = new System.Windows.Forms.Button();
-      this.buttonStepBackward = new System.Windows.Forms.Button();
-      this.buttonStepBackward1 = new System.Windows.Forms.Button();
-      this.buttonStepForward1 = new System.Windows.Forms.Button();
-      this.buttonStepForward = new System.Windows.Forms.Button();
-      this.buttonStepToEnd = new System.Windows.Forms.Button();
+      this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem100 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem1000 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem10000 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem100000 = new System.Windows.Forms.ToolStripMenuItem();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
@@ -77,90 +77,81 @@
       this.labelComputerName = new System.Windows.Forms.Label();
       this.labelFlags = new System.Windows.Forms.Label();
       this.labelObsLastDate = new System.Windows.Forms.Label();
-      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.openMPCORBDATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.oPtionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.updatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.homepagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+      this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+      this.statusBar = new System.Windows.Forms.StatusStrip();
+      this.buttonStepToEnd = new System.Windows.Forms.Button();
+      this.buttonStepForward = new System.Windows.Forms.Button();
+      this.buttonStepForward1 = new System.Windows.Forms.Button();
+      this.buttonStepBackward1 = new System.Windows.Forms.Button();
+      this.buttonStepBackward = new System.Windows.Forms.Button();
+      this.buttonStepToBegin = new System.Windows.Forms.Button();
       this.labelIndexPos = new System.Windows.Forms.Label();
       this.labelGottoIndex = new System.Windows.Forms.Label();
       this.numericUpDownGotoIndex = new System.Windows.Forms.NumericUpDown();
-      this.buttonGotoIndex = new System.Windows.Forms.Button();
       this.ofd = new System.Windows.Forms.OpenFileDialog();
-      this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+      this.menu = new System.Windows.Forms.MenuStrip();
+      this.menuitemFile = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemExit = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemQuest = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemAbout = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.menuitemOpenWebsitePDB = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemOpenWebsiteMPC = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuitemOpenMPCORBWebsite = new System.Windows.Forms.ToolStripMenuItem();
+      this.buttonGotoIndex = new System.Windows.Forms.Button();
+      this.contextMenu.SuspendLayout();
       this.tableLayoutPanel1.SuspendLayout();
-      this.menuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGotoIndex)).BeginInit();
+      this.menu.SuspendLayout();
       this.SuspendLayout();
       // 
-      // buttonStepToBegin
+      // contextMenu
       // 
-      this.buttonStepToBegin.Image = global::PlanetoidDB.Properties.Resources.previous_green;
-      this.buttonStepToBegin.Location = new System.Drawing.Point(12, 32);
-      this.buttonStepToBegin.Name = "buttonStepToBegin";
-      this.buttonStepToBegin.Size = new System.Drawing.Size(29, 26);
-      this.buttonStepToBegin.TabIndex = 0;
-      this.buttonStepToBegin.UseVisualStyleBackColor = true;
-      this.buttonStepToBegin.Click += new System.EventHandler(this.buttonStepToBegin_Click);
+      this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem100,
+            this.toolStripMenuItem1000,
+            this.toolStripMenuItem10000,
+            this.toolStripMenuItem100000});
+      this.contextMenu.Name = "contextMenu";
+      this.contextMenu.Size = new System.Drawing.Size(111, 114);
       // 
-      // buttonStepBackward
+      // toolStripMenuItem10
       // 
-      this.buttonStepBackward.Image = global::PlanetoidDB.Properties.Resources.rewind_green;
-      this.buttonStepBackward.Location = new System.Drawing.Point(47, 32);
-      this.buttonStepBackward.Name = "buttonStepBackward";
-      this.buttonStepBackward.Size = new System.Drawing.Size(29, 26);
-      this.buttonStepBackward.TabIndex = 1;
-      this.buttonStepBackward.UseVisualStyleBackColor = true;
-      this.buttonStepBackward.Click += new System.EventHandler(this.buttonStepBackward_Click);
+      this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+      this.toolStripMenuItem10.Size = new System.Drawing.Size(110, 22);
+      this.toolStripMenuItem10.Text = "10";
+      this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
       // 
-      // buttonStepBackward1
+      // toolStripMenuItem100
       // 
-      this.buttonStepBackward1.Image = global::PlanetoidDB.Properties.Resources.reverse_green;
-      this.buttonStepBackward1.Location = new System.Drawing.Point(82, 32);
-      this.buttonStepBackward1.Name = "buttonStepBackward1";
-      this.buttonStepBackward1.Size = new System.Drawing.Size(29, 26);
-      this.buttonStepBackward1.TabIndex = 2;
-      this.buttonStepBackward1.UseVisualStyleBackColor = true;
-      this.buttonStepBackward1.Click += new System.EventHandler(this.buttonStepBackward1_Click);
+      this.toolStripMenuItem100.Checked = true;
+      this.toolStripMenuItem100.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.toolStripMenuItem100.Name = "toolStripMenuItem100";
+      this.toolStripMenuItem100.Size = new System.Drawing.Size(110, 22);
+      this.toolStripMenuItem100.Text = "100";
+      this.toolStripMenuItem100.Click += new System.EventHandler(this.toolStripMenuItem100_Click);
       // 
-      // buttonStepForward1
+      // toolStripMenuItem1000
       // 
-      this.buttonStepForward1.Image = global::PlanetoidDB.Properties.Resources.play_green;
-      this.buttonStepForward1.Location = new System.Drawing.Point(117, 32);
-      this.buttonStepForward1.Name = "buttonStepForward1";
-      this.buttonStepForward1.Size = new System.Drawing.Size(29, 26);
-      this.buttonStepForward1.TabIndex = 3;
-      this.buttonStepForward1.UseVisualStyleBackColor = true;
-      this.buttonStepForward1.Click += new System.EventHandler(this.buttonStepForward1_Click);
+      this.toolStripMenuItem1000.Name = "toolStripMenuItem1000";
+      this.toolStripMenuItem1000.Size = new System.Drawing.Size(110, 22);
+      this.toolStripMenuItem1000.Text = "1000";
+      this.toolStripMenuItem1000.Click += new System.EventHandler(this.toolStripMenuItem1000_Click);
       // 
-      // buttonStepForward
+      // toolStripMenuItem10000
       // 
-      this.buttonStepForward.Image = global::PlanetoidDB.Properties.Resources.forward_green;
-      this.buttonStepForward.Location = new System.Drawing.Point(152, 32);
-      this.buttonStepForward.Name = "buttonStepForward";
-      this.buttonStepForward.Size = new System.Drawing.Size(29, 26);
-      this.buttonStepForward.TabIndex = 4;
-      this.buttonStepForward.UseVisualStyleBackColor = true;
-      this.buttonStepForward.Click += new System.EventHandler(this.buttonStepForward_Click);
+      this.toolStripMenuItem10000.Name = "toolStripMenuItem10000";
+      this.toolStripMenuItem10000.Size = new System.Drawing.Size(110, 22);
+      this.toolStripMenuItem10000.Text = "10000";
+      this.toolStripMenuItem10000.Click += new System.EventHandler(this.toolStripMenuItem10000_Click);
       // 
-      // buttonStepToEnd
+      // toolStripMenuItem100000
       // 
-      this.buttonStepToEnd.Image = global::PlanetoidDB.Properties.Resources.next_green;
-      this.buttonStepToEnd.Location = new System.Drawing.Point(187, 32);
-      this.buttonStepToEnd.Name = "buttonStepToEnd";
-      this.buttonStepToEnd.Size = new System.Drawing.Size(29, 26);
-      this.buttonStepToEnd.TabIndex = 5;
-      this.buttonStepToEnd.UseVisualStyleBackColor = true;
-      this.buttonStepToEnd.Click += new System.EventHandler(this.buttonStepToEnd_Click);
+      this.toolStripMenuItem100000.Name = "toolStripMenuItem100000";
+      this.toolStripMenuItem100000.Size = new System.Drawing.Size(110, 22);
+      this.toolStripMenuItem100000.Text = "100000";
+      this.toolStripMenuItem100000.Click += new System.EventHandler(this.toolStripMenuItem100000_Click);
       // 
       // label1
       // 
@@ -169,7 +160,7 @@
       this.label1.Name = "label1";
       this.label1.Padding = new System.Windows.Forms.Padding(3);
       this.label1.Size = new System.Drawing.Size(64, 21);
-      this.label1.TabIndex = 6;
+      this.label1.TabIndex = 0;
       this.label1.Text = "Index No.";
       // 
       // label2
@@ -179,7 +170,7 @@
       this.label2.Name = "label2";
       this.label2.Padding = new System.Windows.Forms.Padding(3);
       this.label2.Size = new System.Drawing.Size(136, 21);
-      this.label2.TabIndex = 7;
+      this.label2.TabIndex = 20;
       this.label2.Text = "Absolute magnitude, H";
       // 
       // label3
@@ -189,7 +180,7 @@
       this.label3.Name = "label3";
       this.label3.Padding = new System.Windows.Forms.Padding(3);
       this.label3.Size = new System.Drawing.Size(116, 21);
-      this.label3.TabIndex = 8;
+      this.label3.TabIndex = 22;
       this.label3.Text = "Slope parameter, G";
       // 
       // label4
@@ -199,7 +190,7 @@
       this.label4.Name = "label4";
       this.label4.Padding = new System.Windows.Forms.Padding(3);
       this.label4.Size = new System.Drawing.Size(170, 21);
-      this.label4.TabIndex = 9;
+      this.label4.TabIndex = 4;
       this.label4.Text = "Epoch (in packed form, .0 TT)";
       // 
       // label5
@@ -209,7 +200,7 @@
       this.label5.Name = "label5";
       this.label5.Padding = new System.Windows.Forms.Padding(3);
       this.label5.Size = new System.Drawing.Size(227, 21);
-      this.label5.TabIndex = 10;
+      this.label5.TabIndex = 6;
       this.label5.Text = "Mean anomaly at the epoch, in degrees";
       // 
       // label6
@@ -219,7 +210,7 @@
       this.label6.Name = "label6";
       this.label6.Padding = new System.Windows.Forms.Padding(3);
       this.label6.Size = new System.Drawing.Size(240, 21);
-      this.label6.TabIndex = 11;
+      this.label6.TabIndex = 8;
       this.label6.Text = "Argument of perihelion, J2000.0 (degrees)";
       // 
       // label7
@@ -229,7 +220,7 @@
       this.label7.Name = "label7";
       this.label7.Padding = new System.Windows.Forms.Padding(3);
       this.label7.Size = new System.Drawing.Size(237, 21);
-      this.label7.TabIndex = 12;
+      this.label7.TabIndex = 10;
       this.label7.Text = "Longitude of the ascending node, J2000.0";
       // 
       // label8
@@ -239,7 +230,7 @@
       this.label8.Name = "label8";
       this.label8.Padding = new System.Windows.Forms.Padding(3);
       this.label8.Size = new System.Drawing.Size(251, 21);
-      this.label8.TabIndex = 13;
+      this.label8.TabIndex = 12;
       this.label8.Text = "Inclination to the ecliptic, J2000.0 (degrees)";
       // 
       // label9
@@ -259,7 +250,7 @@
       this.label10.Name = "label10";
       this.label10.Padding = new System.Windows.Forms.Padding(3);
       this.label10.Size = new System.Drawing.Size(213, 21);
-      this.label10.TabIndex = 15;
+      this.label10.TabIndex = 16;
       this.label10.Text = "Mean daily motion (degrees per day)";
       // 
       // label11
@@ -269,7 +260,7 @@
       this.label11.Name = "label11";
       this.label11.Padding = new System.Windows.Forms.Padding(3);
       this.label11.Size = new System.Drawing.Size(124, 21);
-      this.label11.TabIndex = 16;
+      this.label11.TabIndex = 18;
       this.label11.Text = "Semimajor axis (AU)";
       // 
       // label12
@@ -279,7 +270,7 @@
       this.label12.Name = "label12";
       this.label12.Padding = new System.Windows.Forms.Padding(3);
       this.label12.Size = new System.Drawing.Size(66, 21);
-      this.label12.TabIndex = 17;
+      this.label12.TabIndex = 24;
       this.label12.Text = "Reference";
       // 
       // label13
@@ -289,7 +280,7 @@
       this.label13.Name = "label13";
       this.label13.Padding = new System.Windows.Forms.Padding(3);
       this.label13.Size = new System.Drawing.Size(144, 21);
-      this.label13.TabIndex = 18;
+      this.label13.TabIndex = 28;
       this.label13.Text = "Number of observations";
       // 
       // label14
@@ -299,7 +290,7 @@
       this.label14.Name = "label14";
       this.label14.Padding = new System.Windows.Forms.Padding(3);
       this.label14.Size = new System.Drawing.Size(138, 21);
-      this.label14.TabIndex = 19;
+      this.label14.TabIndex = 26;
       this.label14.Text = "Number of oppositions";
       // 
       // label15
@@ -309,7 +300,7 @@
       this.label15.Name = "label15";
       this.label15.Padding = new System.Windows.Forms.Padding(3);
       this.label15.Size = new System.Drawing.Size(108, 21);
-      this.label15.TabIndex = 20;
+      this.label15.TabIndex = 30;
       this.label15.Text = "observation span";
       // 
       // label16
@@ -319,7 +310,7 @@
       this.label16.Name = "label16";
       this.label16.Padding = new System.Windows.Forms.Padding(3);
       this.label16.Size = new System.Drawing.Size(104, 21);
-      this.label16.TabIndex = 21;
+      this.label16.TabIndex = 32;
       this.label16.Text = "r.m.s residual (\")";
       // 
       // label17
@@ -329,7 +320,7 @@
       this.label17.Name = "label17";
       this.label17.Padding = new System.Windows.Forms.Padding(3);
       this.label17.Size = new System.Drawing.Size(99, 21);
-      this.label17.TabIndex = 22;
+      this.label17.TabIndex = 34;
       this.label17.Text = "Computer name";
       // 
       // label19
@@ -339,7 +330,7 @@
       this.label19.Name = "label19";
       this.label19.Padding = new System.Windows.Forms.Padding(3);
       this.label19.Size = new System.Drawing.Size(131, 21);
-      this.label19.TabIndex = 24;
+      this.label19.TabIndex = 2;
       this.label19.Text = "Readable designation";
       // 
       // label20
@@ -349,7 +340,7 @@
       this.label20.Name = "label20";
       this.label20.Padding = new System.Windows.Forms.Padding(3);
       this.label20.Size = new System.Drawing.Size(144, 21);
-      this.label20.TabIndex = 25;
+      this.label20.TabIndex = 38;
       this.label20.Text = "Date of last observation";
       // 
       // label21
@@ -359,7 +350,7 @@
       this.label21.Name = "label21";
       this.label21.Padding = new System.Windows.Forms.Padding(3);
       this.label21.Size = new System.Drawing.Size(97, 21);
-      this.label21.TabIndex = 26;
+      this.label21.TabIndex = 36;
       this.label21.Text = "4-hexdigit flags";
       // 
       // tableLayoutPanel1
@@ -433,7 +424,7 @@
       this.labelDesgnName.Name = "labelDesgnName";
       this.labelDesgnName.Padding = new System.Windows.Forms.Padding(3);
       this.labelDesgnName.Size = new System.Drawing.Size(22, 21);
-      this.labelDesgnName.TabIndex = 27;
+      this.labelDesgnName.TabIndex = 3;
       this.labelDesgnName.Text = "...";
       // 
       // labelEpoch
@@ -443,7 +434,7 @@
       this.labelEpoch.Name = "labelEpoch";
       this.labelEpoch.Padding = new System.Windows.Forms.Padding(3);
       this.labelEpoch.Size = new System.Drawing.Size(22, 21);
-      this.labelEpoch.TabIndex = 28;
+      this.labelEpoch.TabIndex = 5;
       this.labelEpoch.Text = "...";
       // 
       // labelMeanAnomaly
@@ -453,7 +444,7 @@
       this.labelMeanAnomaly.Name = "labelMeanAnomaly";
       this.labelMeanAnomaly.Padding = new System.Windows.Forms.Padding(3);
       this.labelMeanAnomaly.Size = new System.Drawing.Size(22, 21);
-      this.labelMeanAnomaly.TabIndex = 29;
+      this.labelMeanAnomaly.TabIndex = 7;
       this.labelMeanAnomaly.Text = "...";
       // 
       // labelArgPeri
@@ -463,7 +454,7 @@
       this.labelArgPeri.Name = "labelArgPeri";
       this.labelArgPeri.Padding = new System.Windows.Forms.Padding(3);
       this.labelArgPeri.Size = new System.Drawing.Size(22, 21);
-      this.labelArgPeri.TabIndex = 30;
+      this.labelArgPeri.TabIndex = 9;
       this.labelArgPeri.Text = "...";
       // 
       // labelLongAscNode
@@ -473,7 +464,7 @@
       this.labelLongAscNode.Name = "labelLongAscNode";
       this.labelLongAscNode.Padding = new System.Windows.Forms.Padding(3);
       this.labelLongAscNode.Size = new System.Drawing.Size(22, 21);
-      this.labelLongAscNode.TabIndex = 31;
+      this.labelLongAscNode.TabIndex = 11;
       this.labelLongAscNode.Text = "...";
       // 
       // labelIncl
@@ -483,7 +474,7 @@
       this.labelIncl.Name = "labelIncl";
       this.labelIncl.Padding = new System.Windows.Forms.Padding(3);
       this.labelIncl.Size = new System.Drawing.Size(22, 21);
-      this.labelIncl.TabIndex = 32;
+      this.labelIncl.TabIndex = 13;
       this.labelIncl.Text = "...";
       // 
       // labelOrbEcc
@@ -493,7 +484,7 @@
       this.labelOrbEcc.Name = "labelOrbEcc";
       this.labelOrbEcc.Padding = new System.Windows.Forms.Padding(3);
       this.labelOrbEcc.Size = new System.Drawing.Size(22, 21);
-      this.labelOrbEcc.TabIndex = 33;
+      this.labelOrbEcc.TabIndex = 15;
       this.labelOrbEcc.Text = "...";
       // 
       // labelMotion
@@ -503,7 +494,7 @@
       this.labelMotion.Name = "labelMotion";
       this.labelMotion.Padding = new System.Windows.Forms.Padding(3);
       this.labelMotion.Size = new System.Drawing.Size(22, 21);
-      this.labelMotion.TabIndex = 34;
+      this.labelMotion.TabIndex = 17;
       this.labelMotion.Text = "...";
       // 
       // labelSemiMajorAxis
@@ -513,7 +504,7 @@
       this.labelSemiMajorAxis.Name = "labelSemiMajorAxis";
       this.labelSemiMajorAxis.Padding = new System.Windows.Forms.Padding(3);
       this.labelSemiMajorAxis.Size = new System.Drawing.Size(22, 21);
-      this.labelSemiMajorAxis.TabIndex = 35;
+      this.labelSemiMajorAxis.TabIndex = 19;
       this.labelSemiMajorAxis.Text = "...";
       // 
       // labelSlopeParam
@@ -523,7 +514,7 @@
       this.labelSlopeParam.Name = "labelSlopeParam";
       this.labelSlopeParam.Padding = new System.Windows.Forms.Padding(3);
       this.labelSlopeParam.Size = new System.Drawing.Size(22, 21);
-      this.labelSlopeParam.TabIndex = 36;
+      this.labelSlopeParam.TabIndex = 23;
       this.labelSlopeParam.Text = "...";
       // 
       // labelIndex
@@ -533,7 +524,7 @@
       this.labelIndex.Name = "labelIndex";
       this.labelIndex.Padding = new System.Windows.Forms.Padding(3);
       this.labelIndex.Size = new System.Drawing.Size(22, 21);
-      this.labelIndex.TabIndex = 44;
+      this.labelIndex.TabIndex = 1;
       this.labelIndex.Text = "...";
       // 
       // labelMagAbs
@@ -543,7 +534,7 @@
       this.labelMagAbs.Name = "labelMagAbs";
       this.labelMagAbs.Padding = new System.Windows.Forms.Padding(3);
       this.labelMagAbs.Size = new System.Drawing.Size(22, 21);
-      this.labelMagAbs.TabIndex = 45;
+      this.labelMagAbs.TabIndex = 21;
       this.labelMagAbs.Text = "...";
       // 
       // labelRef
@@ -553,7 +544,7 @@
       this.labelRef.Name = "labelRef";
       this.labelRef.Padding = new System.Windows.Forms.Padding(3);
       this.labelRef.Size = new System.Drawing.Size(22, 21);
-      this.labelRef.TabIndex = 28;
+      this.labelRef.TabIndex = 25;
       this.labelRef.Text = "...";
       // 
       // labelNumbOppos
@@ -563,7 +554,7 @@
       this.labelNumbOppos.Name = "labelNumbOppos";
       this.labelNumbOppos.Padding = new System.Windows.Forms.Padding(3);
       this.labelNumbOppos.Size = new System.Drawing.Size(22, 21);
-      this.labelNumbOppos.TabIndex = 38;
+      this.labelNumbOppos.TabIndex = 27;
       this.labelNumbOppos.Text = "...";
       // 
       // labelNumbObs
@@ -573,7 +564,7 @@
       this.labelNumbObs.Name = "labelNumbObs";
       this.labelNumbObs.Padding = new System.Windows.Forms.Padding(3);
       this.labelNumbObs.Size = new System.Drawing.Size(22, 21);
-      this.labelNumbObs.TabIndex = 39;
+      this.labelNumbObs.TabIndex = 29;
       this.labelNumbObs.Text = "...";
       // 
       // labelObsSpan
@@ -583,7 +574,7 @@
       this.labelObsSpan.Name = "labelObsSpan";
       this.labelObsSpan.Padding = new System.Windows.Forms.Padding(3);
       this.labelObsSpan.Size = new System.Drawing.Size(22, 21);
-      this.labelObsSpan.TabIndex = 40;
+      this.labelObsSpan.TabIndex = 31;
       this.labelObsSpan.Text = "...";
       // 
       // labelRmsResidual
@@ -593,7 +584,7 @@
       this.labelRmsResidual.Name = "labelRmsResidual";
       this.labelRmsResidual.Padding = new System.Windows.Forms.Padding(3);
       this.labelRmsResidual.Size = new System.Drawing.Size(22, 21);
-      this.labelRmsResidual.TabIndex = 41;
+      this.labelRmsResidual.TabIndex = 33;
       this.labelRmsResidual.Text = "...";
       // 
       // labelComputerName
@@ -603,7 +594,7 @@
       this.labelComputerName.Name = "labelComputerName";
       this.labelComputerName.Padding = new System.Windows.Forms.Padding(3);
       this.labelComputerName.Size = new System.Drawing.Size(22, 21);
-      this.labelComputerName.TabIndex = 42;
+      this.labelComputerName.TabIndex = 35;
       this.labelComputerName.Text = "...";
       // 
       // labelFlags
@@ -613,7 +604,7 @@
       this.labelFlags.Name = "labelFlags";
       this.labelFlags.Padding = new System.Windows.Forms.Padding(3);
       this.labelFlags.Size = new System.Drawing.Size(22, 21);
-      this.labelFlags.TabIndex = 28;
+      this.labelFlags.TabIndex = 37;
       this.labelFlags.Text = "...";
       // 
       // labelObsLastDate
@@ -623,107 +614,88 @@
       this.labelObsLastDate.Name = "labelObsLastDate";
       this.labelObsLastDate.Padding = new System.Windows.Forms.Padding(3);
       this.labelObsLastDate.Size = new System.Drawing.Size(22, 21);
-      this.labelObsLastDate.TabIndex = 43;
+      this.labelObsLastDate.TabIndex = 39;
       this.labelObsLastDate.Text = "...";
       // 
-      // menuStrip1
+      // statusBar
       // 
-      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.oPtionsToolStripMenuItem,
-            this.toolStripMenuItem1});
-      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-      this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(745, 24);
-      this.menuStrip1.TabIndex = 28;
-      this.menuStrip1.Text = "menuStrip1";
+      this.statusBar.Location = new System.Drawing.Point(0, 330);
+      this.statusBar.Name = "statusBar";
+      this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+      this.statusBar.ShowItemToolTips = true;
+      this.statusBar.Size = new System.Drawing.Size(745, 22);
+      this.statusBar.SizingGrip = false;
+      this.statusBar.TabIndex = 11;
+      this.statusBar.Text = "statusStrip1";
+      this.toolTip.SetToolTip(this.statusBar, "Shows some information");
       // 
-      // fileToolStripMenuItem
+      // buttonStepToEnd
       // 
-      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openMPCORBDATToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-      this.fileToolStripMenuItem.Text = "File";
+      this.buttonStepToEnd.Image = global::PlanetoidDB.Properties.Resources.silk_forward_end;
+      this.buttonStepToEnd.Location = new System.Drawing.Point(187, 32);
+      this.buttonStepToEnd.Name = "buttonStepToEnd";
+      this.buttonStepToEnd.Size = new System.Drawing.Size(29, 26);
+      this.buttonStepToEnd.TabIndex = 6;
+      this.toolTip.SetToolTip(this.buttonStepToEnd, "Navigate to the end of the dataset");
+      this.buttonStepToEnd.UseVisualStyleBackColor = true;
+      this.buttonStepToEnd.Click += new System.EventHandler(this.buttonStepToEnd_Click);
       // 
-      // openMPCORBDATToolStripMenuItem
+      // buttonStepForward
       // 
-      this.openMPCORBDATToolStripMenuItem.Name = "openMPCORBDATToolStripMenuItem";
-      this.openMPCORBDATToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-      this.openMPCORBDATToolStripMenuItem.Text = "Open MPCORB.DAT locally";
+      this.buttonStepForward.ContextMenuStrip = this.contextMenu;
+      this.buttonStepForward.Image = global::PlanetoidDB.Properties.Resources.silk_forward;
+      this.buttonStepForward.Location = new System.Drawing.Point(152, 32);
+      this.buttonStepForward.Name = "buttonStepForward";
+      this.buttonStepForward.Size = new System.Drawing.Size(29, 26);
+      this.buttonStepForward.TabIndex = 5;
+      this.toolTip.SetToolTip(this.buttonStepForward, "Navigate some data after");
+      this.buttonStepForward.UseVisualStyleBackColor = true;
+      this.buttonStepForward.Click += new System.EventHandler(this.buttonStepForward_Click);
       // 
-      // toolStripSeparator1
+      // buttonStepForward1
       // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(215, 6);
+      this.buttonStepForward1.Image = global::PlanetoidDB.Properties.Resources.silk_forward_1;
+      this.buttonStepForward1.Location = new System.Drawing.Point(117, 32);
+      this.buttonStepForward1.Name = "buttonStepForward1";
+      this.buttonStepForward1.Size = new System.Drawing.Size(29, 26);
+      this.buttonStepForward1.TabIndex = 4;
+      this.toolTip.SetToolTip(this.buttonStepForward1, "Navigate to the next data");
+      this.buttonStepForward1.UseVisualStyleBackColor = true;
+      this.buttonStepForward1.Click += new System.EventHandler(this.buttonStepForward1_Click);
       // 
-      // exitToolStripMenuItem
+      // buttonStepBackward1
       // 
-      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-      this.exitToolStripMenuItem.Text = "Exit";
+      this.buttonStepBackward1.Image = global::PlanetoidDB.Properties.Resources.silk_backward_1;
+      this.buttonStepBackward1.Location = new System.Drawing.Point(82, 32);
+      this.buttonStepBackward1.Name = "buttonStepBackward1";
+      this.buttonStepBackward1.Size = new System.Drawing.Size(29, 26);
+      this.buttonStepBackward1.TabIndex = 3;
+      this.toolTip.SetToolTip(this.buttonStepBackward1, "Navigate to the previous data");
+      this.buttonStepBackward1.UseVisualStyleBackColor = true;
+      this.buttonStepBackward1.Click += new System.EventHandler(this.buttonStepBackward1_Click);
       // 
-      // oPtionsToolStripMenuItem
+      // buttonStepBackward
       // 
-      this.oPtionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updatesToolStripMenuItem,
-            this.searchToolStripMenuItem});
-      this.oPtionsToolStripMenuItem.Name = "oPtionsToolStripMenuItem";
-      this.oPtionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-      this.oPtionsToolStripMenuItem.Text = "Options";
+      this.buttonStepBackward.ContextMenuStrip = this.contextMenu;
+      this.buttonStepBackward.Image = global::PlanetoidDB.Properties.Resources.silk_backward;
+      this.buttonStepBackward.Location = new System.Drawing.Point(47, 32);
+      this.buttonStepBackward.Name = "buttonStepBackward";
+      this.buttonStepBackward.Size = new System.Drawing.Size(29, 26);
+      this.buttonStepBackward.TabIndex = 2;
+      this.toolTip.SetToolTip(this.buttonStepBackward, "Navigate some data before");
+      this.buttonStepBackward.UseVisualStyleBackColor = true;
+      this.buttonStepBackward.Click += new System.EventHandler(this.buttonStepBackward_Click);
       // 
-      // updatesToolStripMenuItem
+      // buttonStepToBegin
       // 
-      this.updatesToolStripMenuItem.Name = "updatesToolStripMenuItem";
-      this.updatesToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-      this.updatesToolStripMenuItem.Text = "Check for Updates";
-      // 
-      // searchToolStripMenuItem
-      // 
-      this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-      this.searchToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-      this.searchToolStripMenuItem.Text = "Search";
-      // 
-      // toolStripMenuItem1
-      // 
-      this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.homepagToolStripMenuItem});
-      this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-      this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
-      this.toolStripMenuItem1.Text = "?";
-      // 
-      // aboutToolStripMenuItem
-      // 
-      this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-      this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-      this.aboutToolStripMenuItem.Text = "About";
-      // 
-      // helpToolStripMenuItem
-      // 
-      this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-      this.helpToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-      this.helpToolStripMenuItem.Text = "Help";
-      // 
-      // homepagToolStripMenuItem
-      // 
-      this.homepagToolStripMenuItem.Name = "homepagToolStripMenuItem";
-      this.homepagToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-      this.homepagToolStripMenuItem.Text = "Homepage";
-      // 
-      // statusStrip1
-      // 
-      this.statusStrip1.Location = new System.Drawing.Point(0, 330);
-      this.statusStrip1.Name = "statusStrip1";
-      this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-      this.statusStrip1.ShowItemToolTips = true;
-      this.statusStrip1.Size = new System.Drawing.Size(745, 22);
-      this.statusStrip1.SizingGrip = false;
-      this.statusStrip1.TabIndex = 29;
-      this.statusStrip1.Text = "statusStrip1";
+      this.buttonStepToBegin.Image = global::PlanetoidDB.Properties.Resources.silk_backward_end;
+      this.buttonStepToBegin.Location = new System.Drawing.Point(12, 32);
+      this.buttonStepToBegin.Name = "buttonStepToBegin";
+      this.buttonStepToBegin.Size = new System.Drawing.Size(29, 26);
+      this.buttonStepToBegin.TabIndex = 1;
+      this.toolTip.SetToolTip(this.buttonStepToBegin, "Navigate to the begin of the dataset");
+      this.buttonStepToBegin.UseVisualStyleBackColor = true;
+      this.buttonStepToBegin.Click += new System.EventHandler(this.buttonStepToBegin_Click);
       // 
       // labelIndexPos
       // 
@@ -731,7 +703,7 @@
       this.labelIndexPos.Location = new System.Drawing.Point(222, 39);
       this.labelIndexPos.Name = "labelIndexPos";
       this.labelIndexPos.Size = new System.Drawing.Size(52, 15);
-      this.labelIndexPos.TabIndex = 30;
+      this.labelIndexPos.TabIndex = 7;
       this.labelIndexPos.Text = "Index: ...";
       // 
       // labelGottoIndex
@@ -740,7 +712,7 @@
       this.labelGottoIndex.Location = new System.Drawing.Point(371, 38);
       this.labelGottoIndex.Name = "labelGottoIndex";
       this.labelGottoIndex.Size = new System.Drawing.Size(72, 15);
-      this.labelGottoIndex.TabIndex = 31;
+      this.labelGottoIndex.TabIndex = 8;
       this.labelGottoIndex.Text = "Go to Index:";
       // 
       // numericUpDownGotoIndex
@@ -748,23 +720,108 @@
       this.numericUpDownGotoIndex.Location = new System.Drawing.Point(449, 36);
       this.numericUpDownGotoIndex.Name = "numericUpDownGotoIndex";
       this.numericUpDownGotoIndex.Size = new System.Drawing.Size(78, 23);
-      this.numericUpDownGotoIndex.TabIndex = 32;
-      // 
-      // buttonGotoIndex
-      // 
-      this.buttonGotoIndex.Image = global::PlanetoidDB.Properties.Resources.bullet_go;
-      this.buttonGotoIndex.Location = new System.Drawing.Point(533, 33);
-      this.buttonGotoIndex.Name = "buttonGotoIndex";
-      this.buttonGotoIndex.Size = new System.Drawing.Size(29, 26);
-      this.buttonGotoIndex.TabIndex = 33;
-      this.buttonGotoIndex.UseVisualStyleBackColor = true;
-      this.buttonGotoIndex.Click += new System.EventHandler(this.buttonGotoIndex_Click);
+      this.numericUpDownGotoIndex.TabIndex = 9;
+      this.toolTip.SetToolTip(this.numericUpDownGotoIndex, "Enter the index no. of the planetoid");
       // 
       // ofd
       // 
       this.ofd.DefaultExt = "dat";
       this.ofd.FileName = "mpcorb.dat";
       this.ofd.Filter = "DAT-Datei|*.dat|Alle Dateien|*.*";
+      // 
+      // menu
+      // 
+      this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemFile,
+            this.menuitemQuest});
+      this.menu.Location = new System.Drawing.Point(0, 0);
+      this.menu.Name = "menu";
+      this.menu.Size = new System.Drawing.Size(745, 24);
+      this.menu.TabIndex = 28;
+      this.menu.Text = "menu";
+      // 
+      // menuitemFile
+      // 
+      this.menuitemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemExit});
+      this.menuitemFile.Name = "menuitemFile";
+      this.menuitemFile.Size = new System.Drawing.Size(37, 20);
+      this.menuitemFile.Text = "&File";
+      // 
+      // menuitemExit
+      // 
+      this.menuitemExit.Image = global::PlanetoidDB.Properties.Resources.silk_door_in;
+      this.menuitemExit.Name = "menuitemExit";
+      this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+      this.menuitemExit.Size = new System.Drawing.Size(152, 22);
+      this.menuitemExit.Text = "E&xit";
+      this.menuitemExit.ToolTipText = "Exit the program";
+      this.menuitemExit.Click += new System.EventHandler(this.menuitemExit_Click);
+      // 
+      // menuitemQuest
+      // 
+      this.menuitemQuest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemAbout,
+            this.toolStripSeparator1,
+            this.menuitemOpenWebsitePDB,
+            this.menuitemOpenWebsiteMPC,
+            this.menuitemOpenMPCORBWebsite});
+      this.menuitemQuest.Name = "menuitemQuest";
+      this.menuitemQuest.Size = new System.Drawing.Size(24, 20);
+      this.menuitemQuest.Text = "&?";
+      // 
+      // menuitemAbout
+      // 
+      this.menuitemAbout.Image = global::PlanetoidDB.Properties.Resources.silk_information;
+      this.menuitemAbout.Name = "menuitemAbout";
+      this.menuitemAbout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+      this.menuitemAbout.Size = new System.Drawing.Size(231, 22);
+      this.menuitemAbout.Text = "&About";
+      this.menuitemAbout.ToolTipText = "Shows some information";
+      this.menuitemAbout.Click += new System.EventHandler(this.menuitemAbout_Click);
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(228, 6);
+      // 
+      // menuitemOpenWebsitePDB
+      // 
+      this.menuitemOpenWebsitePDB.Image = global::PlanetoidDB.Properties.Resources.silk_world;
+      this.menuitemOpenWebsitePDB.Name = "menuitemOpenWebsitePDB";
+      this.menuitemOpenWebsitePDB.Size = new System.Drawing.Size(231, 22);
+      this.menuitemOpenWebsitePDB.Text = "Open PlanetoidDB homepage";
+      this.menuitemOpenWebsitePDB.ToolTipText = "Opens the PlanetoidDB homepage";
+      this.menuitemOpenWebsitePDB.Click += new System.EventHandler(this.menuitemOpenWebsitePDB_Click);
+      // 
+      // menuitemOpenWebsiteMPC
+      // 
+      this.menuitemOpenWebsiteMPC.Image = global::PlanetoidDB.Properties.Resources.silk_world;
+      this.menuitemOpenWebsiteMPC.Name = "menuitemOpenWebsiteMPC";
+      this.menuitemOpenWebsiteMPC.Size = new System.Drawing.Size(231, 22);
+      this.menuitemOpenWebsiteMPC.Text = "Open MPC homepage";
+      this.menuitemOpenWebsiteMPC.ToolTipText = "Opens the MPC homepage";
+      this.menuitemOpenWebsiteMPC.Click += new System.EventHandler(this.menuitemOpenWebsiteMPC_Click);
+      // 
+      // menuitemOpenMPCORBWebsite
+      // 
+      this.menuitemOpenMPCORBWebsite.Image = global::PlanetoidDB.Properties.Resources.silk_world;
+      this.menuitemOpenMPCORBWebsite.Name = "menuitemOpenMPCORBWebsite";
+      this.menuitemOpenMPCORBWebsite.Size = new System.Drawing.Size(231, 22);
+      this.menuitemOpenMPCORBWebsite.Text = "Open MPCORB website";
+      this.menuitemOpenMPCORBWebsite.ToolTipText = "Opens the MPCORB website";
+      this.menuitemOpenMPCORBWebsite.Click += new System.EventHandler(this.menuitemOpenMPCORBWebsite_Click);
+      // 
+      // buttonGotoIndex
+      // 
+      this.buttonGotoIndex.Image = global::PlanetoidDB.Properties.Resources.silk_go;
+      this.buttonGotoIndex.Location = new System.Drawing.Point(533, 33);
+      this.buttonGotoIndex.Name = "buttonGotoIndex";
+      this.buttonGotoIndex.Size = new System.Drawing.Size(29, 26);
+      this.buttonGotoIndex.TabIndex = 10;
+      this.toolTip.SetToolTip(this.buttonGotoIndex, "Click to show the data of the planetoid");
+      this.buttonGotoIndex.UseVisualStyleBackColor = true;
+      this.buttonGotoIndex.Click += new System.EventHandler(this.buttonGotoIndex_Click);
       // 
       // PlanetoidDBForm
       // 
@@ -777,27 +834,28 @@
       this.Controls.Add(this.labelIndexPos);
       this.Controls.Add(this.buttonStepToEnd);
       this.Controls.Add(this.buttonStepForward);
-      this.Controls.Add(this.statusStrip1);
+      this.Controls.Add(this.statusBar);
+      this.Controls.Add(this.menu);
       this.Controls.Add(this.buttonStepForward1);
       this.Controls.Add(this.tableLayoutPanel1);
       this.Controls.Add(this.buttonStepBackward1);
-      this.Controls.Add(this.menuStrip1);
       this.Controls.Add(this.buttonStepBackward);
       this.Controls.Add(this.buttonStepToBegin);
       this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-      this.MainMenuStrip = this.menuStrip1;
+      this.MainMenuStrip = this.menu;
       this.MaximizeBox = false;
       this.Name = "PlanetoidDBForm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "PlanetoidDB";
       this.Load += new System.EventHandler(this.PlanetoidDBForm_Load);
+      this.contextMenu.ResumeLayout(false);
       this.tableLayoutPanel1.ResumeLayout(false);
       this.tableLayoutPanel1.PerformLayout();
-      this.menuStrip1.ResumeLayout(false);
-      this.menuStrip1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGotoIndex)).EndInit();
+      this.menu.ResumeLayout(false);
+      this.menu.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -852,27 +910,28 @@
     private System.Windows.Forms.Label labelObsLastDate;
     private System.Windows.Forms.Label labelIndex;
     private System.Windows.Forms.Label labelMagAbs;
-    private System.Windows.Forms.ToolTip toolTip1;
-    private System.Windows.Forms.MenuStrip menuStrip1;
-    private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem openMPCORBDATToolStripMenuItem;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-    private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem oPtionsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem updatesToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-    private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem homepagToolStripMenuItem;
-    private System.Windows.Forms.StatusStrip statusStrip1;
-    private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+    private System.Windows.Forms.ToolTip toolTip;
+    private System.Windows.Forms.StatusStrip statusBar;
     private System.Windows.Forms.Label labelIndexPos;
     private System.Windows.Forms.Label labelGottoIndex;
     private System.Windows.Forms.NumericUpDown numericUpDownGotoIndex;
     private System.Windows.Forms.Button buttonGotoIndex;
     private System.Windows.Forms.OpenFileDialog ofd;
-    private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-
+    private System.Windows.Forms.ContextMenuStrip contextMenu;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem100;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1000;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10000;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem100000;
+    private System.Windows.Forms.MenuStrip menu;
+    private System.Windows.Forms.ToolStripMenuItem menuitemFile;
+    private System.Windows.Forms.ToolStripMenuItem menuitemExit;
+    private System.Windows.Forms.ToolStripMenuItem menuitemQuest;
+    private System.Windows.Forms.ToolStripMenuItem menuitemAbout;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripMenuItem menuitemOpenWebsitePDB;
+    private System.Windows.Forms.ToolStripMenuItem menuitemOpenWebsiteMPC;
+    private System.Windows.Forms.ToolStripMenuItem menuitemOpenMPCORBWebsite;
   }
 }
 
