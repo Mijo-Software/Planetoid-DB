@@ -370,4 +370,22 @@
   <data name="silk_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="strFilenameMPCORB" xml:space="preserve">
+    <value>mpcorb.dat</value>
+  </data>
+  <data name="strFilenameMPCORBtemp" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="strHomepage" xml:space="preserve">
+    <value>https://planetoid-db.de</value>
+  </data>
+  <data name="strMpcorbUrl" xml:space="preserve">
+    <value>http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT</value>
+  </data>
+  <data name="strWebsiteMpc" xml:space="preserve">
+    <value>http://www.minorplanetcenter.org/iau/mpc.html</value>
+  </data>
+  <data name="strWebsiteMpcorb" xml:space="preserve">
+    <value>http://www.minorplanetcenter.org/iau/MPCORB.html</value>
+  </data>
 </root>

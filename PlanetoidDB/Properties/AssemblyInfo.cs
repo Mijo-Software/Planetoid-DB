@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("PlanetoidDB")]
+[assembly: AssemblyTitle("Planetoid-DB")]
 [assembly: AssemblyDescription("Viewer for the MPC Orbit (MPCORB) Database")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
@@ -13,9 +13,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Release")]
 #endif
 [assembly: AssemblyCompany("Mijo Software")]
-[assembly: AssemblyProduct("PlanetoidDB")]
-[assembly: AssemblyCopyright("2010-2015 Michael Johne <michael-johne@gmx.de>")]
-[assembly: AssemblyTrademark("PlanetoidDB")]
+[assembly: AssemblyProduct("Planetoid-DB")]
+[assembly: AssemblyCopyright("2010-2018 Michael Johne <michael-johne@gmx.de>")]
+[assembly: AssemblyTrademark("Planetoid-DB")]
 [assembly: AssemblyCulture("")]
 
 // Durch Festlegen von ComVisible auf "false" werden die Typen in dieser Assembly unsichtbar 
@@ -36,5 +36,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.1.19")]
-[assembly: AssemblyFileVersion("0.3.1.19")]
+[assembly: AssemblyVersion("0.3.2.20")]
+[assembly: AssemblyFileVersion("0.3.2.20")]

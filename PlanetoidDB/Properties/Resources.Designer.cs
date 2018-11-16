@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlanetoidDB.Properties {
+namespace Planetoid_DB.Properties {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace PlanetoidDB.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -39,7 +39,7 @@ namespace PlanetoidDB.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PlanetoidDB.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Planetoid_DB.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -897,6 +897,60 @@ namespace PlanetoidDB.Properties {
             get {
                 object obj = ResourceManager.GetObject("silk_zoom_out", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die mpcorb.dat ähnelt.
+        /// </summary>
+        internal static string strFilenameMPCORB {
+            get {
+                return ResourceManager.GetString("strFilenameMPCORB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die _ ähnelt.
+        /// </summary>
+        internal static string strFilenameMPCORBtemp {
+            get {
+                return ResourceManager.GetString("strFilenameMPCORBtemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die https://planetoid-db.de ähnelt.
+        /// </summary>
+        internal static string strHomepage {
+            get {
+                return ResourceManager.GetString("strHomepage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT ähnelt.
+        /// </summary>
+        internal static string strMpcorbUrl {
+            get {
+                return ResourceManager.GetString("strMpcorbUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/mpc.html ähnelt.
+        /// </summary>
+        internal static string strWebsiteMpc {
+            get {
+                return ResourceManager.GetString("strWebsiteMpc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB.html ähnelt.
+        /// </summary>
+        internal static string strWebsiteMpcorb {
+            get {
+                return ResourceManager.GetString("strWebsiteMpcorb", resourceCulture);
             }
         }
     }
