@@ -1,94 +1,62 @@
-﻿using Office2007Rendering;
-using VS2008StripRenderingLibrary;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
+using Office2007Rendering;
+using VS2008StripRenderingLibrary;
 
 namespace PlanetoidDB
 {
-
-  public partial class PlanetoidDBForm : Form
+	public partial class PlanetoidDBForm : Form
   {
-    int currentPosition = 0, stepPosition = 0;
-    Uri uriMPCORB = new Uri("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT");
-    //For local only: Uri uriMPCORB = new Uri("http://localhost/MPCORB.DAT");
-    string
-      strFilenameMPCORB = "mpcorb.dat",
-      strFilenameMPCORBtemp = "_",
-      strHomepage= "http://www.planetoiddb.micjoh.de";
+		bool isDownloadCancelled = false;
+		int currentPosition = 0, stepPosition = 0;
+		ArrayList arrDB = new ArrayList(0);
     SplashScreenForm formSplashScreen = new SplashScreenForm();
     WebClient webClient = new WebClient();
-    bool isDownloadCancelled = false;
+		Uri uriMPCORB = new Uri(Planetoid_DB.Properties.Resources.strMpcorbUrl);
 
-    ArrayList arrDB = new ArrayList(0);
-
-    public void Download(int i)
+		private void Download(int i)
     {
       toolStripProgressBarBackgroundDownload.Visible = true;
       toolStripStatusLabelBackgroundDownload.Visible = true;
     }
 
-    private void GotoCurrentPosition(int cp)
+    private void GotoCurrentPosition(int currentPosition)
     {
-      string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
       //Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
       // if (teilstring == "0") zahl = 0; ...
-      strIndex = arrDB[cp].ToString().Substring(0, 7); strIndex = strIndex.Trim();
-      labelIndexValue.Text = strIndex;
-      strMagAbs = arrDB[cp].ToString().Substring(8, 5); strMagAbs = strMagAbs.Trim();
-      labelMagAbsValue.Text = strMagAbs;
-      strSlopeParam = arrDB[cp].ToString().Substring(14, 5); strSlopeParam = strSlopeParam.Trim();
-      labelSlopeParamValue.Text = strSlopeParam;
-      strEpoch = arrDB[cp].ToString().Substring(20, 5); strEpoch = strEpoch.Trim();
-      labelEpochValue.Text = strEpoch;
-      strMeanAnomaly = arrDB[cp].ToString().Substring(26, 9); strMeanAnomaly = strMeanAnomaly.Trim();
-      labelMeanAnomalyValue.Text = strMeanAnomaly;
-      strArgPeri = arrDB[cp].ToString().Substring(37, 9); strArgPeri = strArgPeri.Trim();
-      labelArgPeriValue.Text = strArgPeri;
-      strLongAscNode = arrDB[cp].ToString().Substring(48, 9); strLongAscNode = strLongAscNode.Trim();
-      labelLongAscNodeValue.Text = strLongAscNode;
-      strIncl = arrDB[cp].ToString().Substring(59, 9); strIncl = strIncl.Trim();
-      labelInclValue.Text = strIncl;
-      strOrbEcc = arrDB[cp].ToString().Substring(70, 9); strOrbEcc = strOrbEcc.Trim();
-      labelOrbEccValue.Text = strOrbEcc;
-      strMotion = arrDB[cp].ToString().Substring(80, 11); strMotion = strMotion.Trim();
-      labelMotionValue.Text = strMotion;
-      strSemiMajorAxis = arrDB[cp].ToString().Substring(92, 11); strSemiMajorAxis = strSemiMajorAxis.Trim();
-      labelSemiMajorAxisValue.Text = strSemiMajorAxis;
-      strRef = arrDB[cp].ToString().Substring(107, 9); strRef = strRef.Trim();
-      labelRefValue.Text = strRef;
-      strNumbObs = arrDB[cp].ToString().Substring(117, 5); strNumbObs = strNumbObs.Trim();
-      labelNumbObsValue.Text = strNumbObs;
-      strNumbOppos = arrDB[cp].ToString().Substring(123, 3); strNumbOppos = strNumbOppos.Trim();
-      labelNumbOpposValue.Text = strNumbOppos;
-      strObsSpan = arrDB[cp].ToString().Substring(127, 9); strObsSpan = strObsSpan.Trim();
-      labelObsSpanValue.Text = strObsSpan;
-      strRmsResdiual = arrDB[cp].ToString().Substring(137, 4); strRmsResdiual = strRmsResdiual.Trim();
-      labelRmsResidualValue.Text = strRmsResdiual;
-      strComputerName = arrDB[cp].ToString().Substring(150, 10); strComputerName = strComputerName.Trim();
-      labelComputerNameValue.Text = strComputerName;
-      strFlags = arrDB[cp].ToString().Substring(161, 4); strFlags = strFlags.Trim();
-      labelFlagsValue.Text = strFlags;
-      strDesgnName = arrDB[cp].ToString().Substring(166, 28); strDesgnName = strDesgnName.Trim();
-      labelDesgnNameValue.Text = strDesgnName;
-      strObsLastDate = arrDB[cp].ToString().Substring(194, 8); strObsLastDate = strObsLastDate.Trim();
-      labelObsLastDateValue.Text = strObsLastDate;
-
-      labelIndexPos.Text = "Index: " + (cp+1).ToString() + " / " + (arrDB.Count).ToString();
-      trackBarIndex.Value = currentPosition;
+			labelIndexValue.Text = arrDB[index: currentPosition].ToString().Substring(0, 7).Trim();
+			labelMagAbsValue.Text = arrDB[index: currentPosition].ToString().Substring(8, 5).Trim();
+			labelSlopeParamValue.Text = arrDB[index: currentPosition].ToString().Substring(14, 5).Trim();
+      labelEpochValue.Text = arrDB[index: currentPosition].ToString().Substring(20, 5).Trim();
+			labelMeanAnomalyValue.Text = arrDB[index: currentPosition].ToString().Substring(26, 9).Trim();
+      labelArgPeriValue.Text = arrDB[index: currentPosition].ToString().Substring(37, 9).Trim();
+      labelLongAscNodeValue.Text = arrDB[index: currentPosition].ToString().Substring(48, 9).Trim();
+      labelInclValue.Text = arrDB[index: currentPosition].ToString().Substring(59, 9).Trim();
+      labelOrbEccValue.Text = arrDB[index: currentPosition].ToString().Substring(70, 9).Trim();
+      labelMotionValue.Text = arrDB[index: currentPosition].ToString().Substring(80, 11).Trim();
+			labelSemiMajorAxisValue.Text = arrDB[index: currentPosition].ToString().Substring(92, 11).Trim();
+			labelRefValue.Text = arrDB[index: currentPosition].ToString().Substring(107, 9).Trim();
+			labelNumbObsValue.Text = arrDB[index: currentPosition].ToString().Substring(117, 5).Trim();
+      labelNumbOpposValue.Text = arrDB[index: currentPosition].ToString().Substring(123, 3).Trim();
+			labelObsSpanValue.Text = arrDB[index: currentPosition].ToString().Substring(127, 9).Trim();
+			labelRmsResidualValue.Text = arrDB[index: currentPosition].ToString().Substring(137, 4).Trim();
+      labelComputerNameValue.Text = arrDB[index: currentPosition].ToString().Substring(150, 10).Trim();
+			labelFlagsValue.Text = arrDB[index: currentPosition].ToString().Substring(161, 4).Trim();
+      labelDesgnNameValue.Text = arrDB[index: currentPosition].ToString().Substring(166, 28).Trim();
+			labelObsLastDateValue.Text = arrDB[index: currentPosition].ToString().Substring(194, 8).Trim();
+			labelIndexPos.Text = "Index: " + (currentPosition+1).ToString() + " / " + (arrDB.Count).ToString();
+			trackBarIndex.Value = this.currentPosition;
     }
 
-    public PlanetoidDBForm()
+    /// <summary>
+		/// 
+		/// </summary>
+		public PlanetoidDBForm()
     {
       InitializeComponent();
       this.Text = this.Text + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -100,8 +68,8 @@ namespace PlanetoidDB
       ToolStripManager.Renderer = new Office2007Renderer();
       bwLoadingDB.WorkerReportsProgress = true;
       bwLoadingDB.WorkerSupportsCancellation = true;
-      bwLoadingDB.ProgressChanged += new ProgressChangedEventHandler(backgroundWorkerLoadingDB_ProgressChanged);
-      bwLoadingDB.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorkerLoadingDB_RunWorkerCompleted);
+      bwLoadingDB.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDB_ProgressChanged);
+      bwLoadingDB.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDB_RunWorkerCompleted);
       bwLoadingDB.RunWorkerAsync();
       formSplashScreen.Show();
       formSplashScreen.Update();
@@ -111,7 +79,7 @@ namespace PlanetoidDB
     {
       toolStripStatusLabelBackgroundDownload.Enabled = false;
       toolStripProgressBarBackgroundDownload.Enabled = false;
-      if (isMpcorbDatUpdateAviable() == true)
+      if (IsMpcorbDatUpdateAviable() == true)
       {
         timerUpdateBlink.Enabled = true;
         toolStripStatusLabelUpdate.Enabled = true;
@@ -123,51 +91,51 @@ namespace PlanetoidDB
       }
     }
 
-    private void buttonStepToBegin_Click(object sender, EventArgs e)
+    private void ButtonStepToBegin_Click(object sender, EventArgs e)
     {
       currentPosition = 0;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void buttonStepBackward_Click(object sender, EventArgs e)
+    private void ButtonStepBackward_Click(object sender, EventArgs e)
     {
       currentPosition = currentPosition - stepPosition;
       if (currentPosition < 1) currentPosition = arrDB.Count + currentPosition;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void buttonStepBackward1_Click(object sender, EventArgs e)
+    private void ButtonStepBackward1_Click(object sender, EventArgs e)
     {
       if (currentPosition == 0) currentPosition = arrDB.Count - 1; else currentPosition--;
       GotoCurrentPosition(currentPosition);
     }
     
-    private void buttonStepForward1_Click(object sender, EventArgs e)
+    private void ButtonStepForward1_Click(object sender, EventArgs e)
     {
       if (currentPosition == arrDB.Count - 1) currentPosition = 0; else currentPosition++;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void buttonStepForward_Click(object sender, EventArgs e)
+    private void ButtonStepForward_Click(object sender, EventArgs e)
     {
       currentPosition = currentPosition + stepPosition;
       if (currentPosition > arrDB.Count) currentPosition = currentPosition - arrDB.Count;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void buttonStepToEnd_Click(object sender, EventArgs e)
+    private void ButtonStepToEnd_Click(object sender, EventArgs e)
     {
       currentPosition = arrDB.Count - 1;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void buttonGotoIndex_Click(object sender, EventArgs e)
+    private void ButtonGotoIndex_Click(object sender, EventArgs e)
     {
       currentPosition = (int)numericUpDownGotoIndex.Value - 1;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void toolStripMenuItem_Clear()
+    private void ToolStripMenuItem_Clear()
     {
       toolStripMenuItem10.Checked = false;
       toolStripMenuItem100.Checked = false;
@@ -176,83 +144,71 @@ namespace PlanetoidDB
       toolStripMenuItem100000.Checked = false;
     }
 
-    private void toolStripMenuItem10_Click(object sender, EventArgs e)
+    private void ToolStripMenuItem10_Click(object sender, EventArgs e)
     {
       stepPosition = 10;
-      toolStripMenuItem_Clear();
+      ToolStripMenuItem_Clear();
       toolStripMenuItem10.Checked = true;
     }
 
-    private void toolStripMenuItem100_Click(object sender, EventArgs e)
+    private void ToolStripMenuItem100_Click(object sender, EventArgs e)
     {
       stepPosition = 100;
-      toolStripMenuItem_Clear();
+      ToolStripMenuItem_Clear();
       toolStripMenuItem100.Checked = true;
     }
 
-    private void toolStripMenuItem1000_Click(object sender, EventArgs e)
+    private void ToolStripMenuItem1000_Click(object sender, EventArgs e)
     {
       stepPosition = 1000;
-      toolStripMenuItem_Clear();
+      ToolStripMenuItem_Clear();
       toolStripMenuItem1000.Checked = true;
     }
 
-    private void toolStripMenuItem10000_Click(object sender, EventArgs e)
+    private void ToolStripMenuItem10000_Click(object sender, EventArgs e)
     {
       stepPosition = 10000;
-      toolStripMenuItem_Clear();
+      ToolStripMenuItem_Clear();
       toolStripMenuItem10000.Checked = true;
     }
 
-    private void toolStripMenuItem100000_Click(object sender, EventArgs e)
+    private void ToolStripMenuItem100000_Click(object sender, EventArgs e)
     {
       stepPosition = 100000;
-      toolStripMenuItem_Clear();
+      ToolStripMenuItem_Clear();
       toolStripMenuItem100000.Checked = true;
     }
 
-    private void menuitemExit_Click(object sender, EventArgs e)
-    {
-      Close();
-    }
+		private void MenuitemExit_Click(object sender, EventArgs e) => Close();
 
-    private void menuitemAbout_Click(object sender, EventArgs e)
+		private void MenuitemAbout_Click(object sender, EventArgs e)
     {
       AppInfoForm formAppInfo = new AppInfoForm();
       formAppInfo.ShowDialog();
     }
 
-    private void menuitemOpenWebsitePDB_Click(object sender, EventArgs e)
-    {
-      System.Diagnostics.Process.Start(strHomepage);
-    }
+		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(Planetoid_DB.Properties.Resources.strHomepage);
 
-    private void menuitemOpenWebsiteMPC_Click(object sender, EventArgs e)
-    {
-      System.Diagnostics.Process.Start("http://www.minorplanetcenter.org/iau/mpc.html");
-    }
+		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(Planetoid_DB.Properties.Resources.strWebsiteMpc);
 
-    private void menuitemOpenMPCORBWebsite_Click(object sender, EventArgs e)
-    {
-      System.Diagnostics.Process.Start("http://www.minorplanetcenter.org/iau/MPCORB.html");
-    }
+		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(Planetoid_DB.Properties.Resources.strWebsiteMpcorb);
 
-    private void menuitemDownloadMpcorbDat_Click(object sender, EventArgs e)
+		private void MenuitemDownloadMpcorbDat_Click(object sender, EventArgs e)
     {
       DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
       formDownloaderForMpcorbDat.ShowDialog();
     }
 
-    private void trackBarIndex_Scroll(object sender, EventArgs e)
+    private void TrackBarIndex_Scroll(object sender, EventArgs e)
     {
       currentPosition = trackBarIndex.Value;
       GotoCurrentPosition(currentPosition);
     }
 
-    private void backgroundWorkerLoadingDB_DoWork(object sender, DoWorkEventArgs e)
+    private void BackgroundWorkerLoadingDB_DoWork(object sender, DoWorkEventArgs e)
     {
       this.Enabled = false;
-      string fileName = strFilenameMPCORB;
+      string fileName = Planetoid_DB.Properties.Resources.strFilenameMPCORB;
 
       if (!File.Exists(fileName))
       {
@@ -280,18 +236,9 @@ namespace PlanetoidDB
         fileSizeReaded = fileSizeReaded + readLine.Length;
         float percent = 100 * fileSizeReaded / fileSize;
         step = (int)percent;
-
-        //bwLoadingDB.ReportProgress(step);
         formSplashScreen.setProgressbar(step);
-
         lineNum++;
-        if (lineNum >= 42)
-        {
-          if (readLine != "")
-          {
-            arrDB.Add(readLine);
-          }
-        }
+        if ((lineNum >= 44) && (readLine != "")) { arrDB.Add(readLine); }
       }
 
       fs.Close();
@@ -300,13 +247,13 @@ namespace PlanetoidDB
       formSplashScreen.Dispose();
     }
 
-    void backgroundWorkerLoadingDB_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		private void BackgroundWorkerLoadingDB_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
       //formSplashScreen.setProgressbar(e.ProgressPercentage);
       //TaskbarProgress.SetValue(this.Handle, e.ProgressPercentage, 100);
     }
 
-    void backgroundWorkerLoadingDB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		private void BackgroundWorkerLoadingDB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
       numericUpDownGotoIndex.Minimum = 1;
       numericUpDownGotoIndex.Maximum = arrDB.Count;
@@ -319,585 +266,432 @@ namespace PlanetoidDB
       trackBarIndex.TickFrequency = (int)trackBarIndex.Maximum;
       this.Enabled = true;
       TaskbarProgress.SetValue(this.Handle, 0, 100);
-      //MessageBox.Show("Asynchroner Thread kam bis zum Wert: " + e.Result.ToString());
-    }
+			#if DEBUG
+				Console.Write("Asynchroner Thread kam bis zum Wert: " + e.Result.ToString());
+			#endif
+		}
 
-    private void menuitemCheckMpcorbDat_Click(object sender, EventArgs e)
-    {
-      checkMpcorbDat();
-    }
+		private void MenuitemCheckMpcorbDat_Click(object sender, EventArgs e) => checkMpcorbDat();
 
-    private DateTime getLastModified(Uri uriLastModiefied)
+		private DateTime GetLastModified(Uri uriLastModiefied)
     {
-      HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uriLastModiefied);
+      HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uriLastModiefied);
       HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
       return resp.LastModified;
     }
 
-    private Int64 getContentLength(Uri uriContentLength)
+    private long GetContentLength(Uri uriContentLength)
     {
-      HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uriContentLength);
+      HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uriContentLength);
       HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-      Int64 bytesTotal = Convert.ToInt64(resp.ContentLength);
+			long bytesTotal = Convert.ToInt64(resp.ContentLength);
       //webClient.OpenRead(uriContentLength);
       //Int64 bytesTotal = Convert.ToInt64(webClient.ResponseHeaders["Content-Length"]);
       return bytesTotal;
     }
 
-    private bool isMpcorbDatUpdateAviable()
+    private bool IsMpcorbDatUpdateAviable()
     {
-      FileInfo fi = new FileInfo(strFilenameMPCORB);
+      FileInfo fi = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
       long fileSize = fi.Length;
       DateTime datetimeFileLocal = fi.CreationTime;
-      DateTime datetimeFileOnline = getLastModified(uriMPCORB);
+      DateTime datetimeFileOnline = GetLastModified(uriLastModiefied: uriMPCORB);
       if (datetimeFileOnline > datetimeFileLocal) return true; else return false;
     }
 
-    private void labelIndexValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelIndexValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void CopyToClipboad(string text)
+		{
+			Clipboard.SetText(text);
+			MessageBox.Show("Copied to clipboard.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
 
-    private void labelDesgnNameValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDesgnNameValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelIndexValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelIndexValue.Text);
 
-    private void labelEpochValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelEpochValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelDesgnNameValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelDesgnNameValue.Text);
 
-    private void labelMeanAnomalyValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelMeanAnomalyValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelEpochValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelEpochValue.Text);
 
-    private void labelArgPeriValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelArgPeriValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelMeanAnomalyValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelMeanAnomalyValue.Text);
 
-    private void labelLongAscNodeValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelLongAscNodeValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelArgPeriValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelArgPeriValue.Text);
 
-    private void labelInclValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelInclValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelLongAscNodeValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelLongAscNodeValue.Text);
 
-    private void labelOrbEccValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelOrbEccValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelInclValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelLongAscNodeValue.Text);
 
-    private void labelMotionValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelMotionValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelOrbEccValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelOrbEccValue.Text);
 
-    private void labelSemiMajorAxisValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSemiMajorAxisValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelMotionValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelMotionValue.Text);
 
-    private void labelMagAbsValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelMagAbsValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelSemiMajorAxisValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelSemiMajorAxisValue.Text);
 
-    private void labelSlopeParamValue_Click(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSlopeParamValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelMagAbsValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelMagAbsValue.Text);
 
-    private void labelSlopeParamValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSlopeParamValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelSlopeParamValue_Click(object sender, EventArgs e) => CopyToClipboad(labelSlopeParamValue.Text);
 
-    private void labelRefValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelRefValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelSlopeParamValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelSlopeParamValue.Text);
 
-    private void labelNumbOpposValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelNumbOpposValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelRefValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelRefValue.Text);
 
-    private void labelNumbObsValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelNumbObsValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelNumbOpposValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelNumbOpposValue.Text);
 
-    private void labelObsSpanValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelObsSpanValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelNumbObsValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelNumbObsValue.Text);
 
-    private void labelRmsResidualValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelRmsResidualValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelObsSpanValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelObsSpanValue.Text);
 
-    private void labelComputerNameValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelComputerNameValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelRmsResidualValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelRmsResidualValue.Text);
 
-    private void labelFlagsValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelFlagsValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelComputerNameValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelComputerNameValue.Text);
 
-    private void labelObsLastDateValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelObsLastDateValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		private void LabelFlagsValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelFlagsValue.Text);
 
-    private void buttonStepToBegin_MouseEnter(object sender, EventArgs e)
+		private void LabelObsLastDateValue_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelObsLastDateValue.Text);
+
+		private void LabelIndex_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelIndex.Text);
+
+		private void LabelDesgnName_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelDesgnName.Text);
+
+		private void LabelEpoch_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelEpoch.Text);
+
+		private void LabelMeanAnomaly_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelMeanAnomaly.Text);
+
+		private void LabelArgPeri_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelArgPeri.Text);
+
+		private void LabelLongAscNode_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelLongAscNode.Text);
+
+		private void LabelIncl_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelIncl.Text);
+
+		private void LabelOrbEcc_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelOrbEcc.Text);
+
+		private void LabelMotion_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelMotion.Text);
+
+		private void LabelSemiMajorAxis_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelSemiMajorAxis.Text);
+
+		private void LabelMagAbs_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelMagAbs.Text);
+
+		private void LabelSlopeParam_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelSlopeParam.Text);
+
+		private void LabelRef_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelRef.Text);
+
+		private void LabelNumbOppos_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelNumbOppos.Text);
+
+		private void LabelNumbObs_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelNumbObs.Text);
+
+		private void LabelObsSpan_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelObsSpan.Text);
+
+		private void LabelRmsResidual_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelRmsResidual.Text);
+
+		private void LabelObsLastDate_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelObsLastDate.Text);
+
+		private void LabelComputerName_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelComputerName.Text);
+
+		private void LabelFlags_DoubleClick(object sender, EventArgs e) => CopyToClipboad(labelFlags.Text);
+
+		private void ButtonStepToBegin_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = buttonStepToBegin.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonStepToBegin_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void ButtonStepToBegin_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void buttonStepBackward_MouseEnter(object sender, EventArgs e)
+		private void ButtonStepBackward_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = buttonStepBackward.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonStepBackward_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void ButtonStepBackward_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void buttonStepBackward1_MouseEnter(object sender, EventArgs e)
-    {
+		private void buttonStepBackward1_MouseEnter(object sender, EventArgs e)
+    {h
       labelHelp.Text = buttonStepBackward1.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonStepBackward1_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void buttonStepBackward1_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void buttonStepForward1_MouseEnter(object sender, EventArgs e)
+		private void buttonStepForward1_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = buttonStepForward1.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonStepForward1_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void buttonStepForward1_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void buttonStepForward_MouseEnter(object sender, EventArgs e)
+		private void buttonStepForward_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = buttonStepForward.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonStepForward_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void buttonStepForward_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void buttonStepToEnd_MouseEnter(object sender, EventArgs e)
+		private void buttonStepToEnd_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = buttonStepToEnd.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonStepToEnd_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void buttonStepToEnd_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void buttonGotoIndex_MouseEnter(object sender, EventArgs e)
+		private void buttonGotoIndex_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = buttonGotoIndex.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void buttonGotoIndex_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void buttonGotoIndex_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void trackBarIndex_MouseEnter(object sender, EventArgs e)
+		private void trackBarIndex_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = trackBarIndex.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void trackBarIndex_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void trackBarIndex_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemFile_MouseEnter(object sender, EventArgs e)
+		private void menuitemFile_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemFile.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemFile_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemFile_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemExit_MouseEnter(object sender, EventArgs e)
+		private void menuitemExit_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemExit.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemExit_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemExit_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemOptions_MouseEnter(object sender, EventArgs e)
+		private void menuitemOptions_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemOptions.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemOptions_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemOptions_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemCheckMpcorbDat_MouseEnter(object sender, EventArgs e)
+		private void menuitemCheckMpcorbDat_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemCheckMpcorbDat.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemCheckMpcorbDat_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemCheckMpcorbDat_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemDownloadMpcorbDat_MouseEnter(object sender, EventArgs e)
+		private void menuitemDownloadMpcorbDat_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemDownloadMpcorbDat.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemDownloadMpcorbDat_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemDownloadMpcorbDat_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemQuest_MouseEnter(object sender, EventArgs e)
+		private void menuitemQuest_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemQuest.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemQuest_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemQuest_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemOpenWebsitePDB_MouseEnter(object sender, EventArgs e)
+		private void menuitemOpenWebsitePDB_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemOpenWebsitePDB.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemOpenWebsitePDB_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemOpenWebsitePDB_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemOpenWebsiteMPC_MouseEnter(object sender, EventArgs e)
+		private void menuitemOpenWebsiteMPC_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemOpenWebsiteMPC.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemOpenWebsiteMPC_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemOpenWebsiteMPC_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemOpenMPCORBWebsite_MouseEnter(object sender, EventArgs e)
+		private void menuitemOpenMPCORBWebsite_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemOpenMPCORBWebsite.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemOpenMPCORBWebsite_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemOpenMPCORBWebsite_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelIndexValue_MouseEnter(object sender, EventArgs e)
+		private void labelIndexValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelIndexValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelIndexValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelIndexValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelDesgnNameValue_MouseEnter(object sender, EventArgs e)
+		private void labelDesgnNameValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelDesgnNameValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelDesgnNameValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelDesgnNameValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelEpochValue_MouseEnter(object sender, EventArgs e)
+		private void labelEpochValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelEpochValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelEpochValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelEpochValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelMeanAnomalyValue_MouseEnter(object sender, EventArgs e)
+		private void labelMeanAnomalyValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelMeanAnomalyValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelMeanAnomalyValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelMeanAnomalyValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelArgPeriValue_MouseEnter(object sender, EventArgs e)
+		private void labelArgPeriValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelArgPeriValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelArgPeriValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelArgPeriValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelLongAscNodeValue_MouseEnter(object sender, EventArgs e)
+		private void labelLongAscNodeValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelLongAscNodeValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelLongAscNodeValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelLongAscNodeValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelInclValue_MouseEnter(object sender, EventArgs e)
+		private void labelInclValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelInclValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelInclValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelInclValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelOrbEccValue_MouseEnter(object sender, EventArgs e)
+		private void labelOrbEccValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelOrbEccValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelOrbEccValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelOrbEccValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelMotionValue_MouseEnter(object sender, EventArgs e)
+		private void labelMotionValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelMotionValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelMotionValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelMotionValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelSemiMajorAxisValue_MouseEnter(object sender, EventArgs e)
+		private void labelSemiMajorAxisValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelSemiMajorAxisValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelSemiMajorAxisValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelSemiMajorAxisValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelMagAbsValue_MouseEnter(object sender, EventArgs e)
+		private void labelMagAbsValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelMagAbsValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelMagAbsValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelMagAbsValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelSlopeParamValue_MouseEnter(object sender, EventArgs e)
+		private void labelSlopeParamValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelSlopeParamValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelSlopeParamValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelSlopeParamValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelRefValue_MouseEnter(object sender, EventArgs e)
+		private void labelRefValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelRefValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelRefValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelRefValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelNumbOpposValue_MouseEnter(object sender, EventArgs e)
+		private void labelNumbOpposValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelNumbOpposValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelNumbOpposValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelNumbOpposValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelNumbObsValue_MouseEnter(object sender, EventArgs e)
+		private void labelNumbObsValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelNumbObsValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelNumbObsValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelNumbObsValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelObsSpanValue_MouseEnter(object sender, EventArgs e)
+		private void labelObsSpanValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelObsSpanValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelObsSpanValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelObsSpanValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelRmsResidualValue_MouseEnter(object sender, EventArgs e)
+		private void labelRmsResidualValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelRmsResidualValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelRmsResidualValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelRmsResidualValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelComputerNameValue_MouseEnter(object sender, EventArgs e)
+		private void labelComputerNameValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelComputerNameValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelComputerNameValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelComputerNameValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelFlagsValue_MouseEnter(object sender, EventArgs e)
+		private void labelFlagsValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelFlagsValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelFlagsValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelFlagsValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelObsLastDateValue_MouseEnter(object sender, EventArgs e)
+		private void labelObsLastDateValue_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelObsLastDateValue.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelObsLastDateValue_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelObsLastDateValue_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemAbout_MouseEnter(object sender, EventArgs e)
+		private void menuitemAbout_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemAbout.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemAbout_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemAbout_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripSeparatorMisc_Click(object sender, EventArgs e)
+		private void toolStripSeparatorMisc_Click(object sender, EventArgs e)
     {
       //Reserved for later: easter egg
     }
@@ -918,329 +712,161 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void labelIndex_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelIndex_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelDesgnName_MouseEnter(object sender, EventArgs e)
+		private void labelDesgnName_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelDesgnName.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelDesgnName_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelDesgnName_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelEpoch_MouseEnter(object sender, EventArgs e)
+		private void labelEpoch_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelEpoch.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelEpoch_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelEpoch_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelMeanAnomaly_MouseEnter(object sender, EventArgs e)
+		private void labelMeanAnomaly_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelMeanAnomaly.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelMeanAnomaly_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelMeanAnomaly_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelArgPeri_MouseEnter(object sender, EventArgs e)
+		private void labelArgPeri_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelArgPeri.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelArgPeri_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelArgPeri_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelLongAscNode_MouseEnter(object sender, EventArgs e)
+		private void labelLongAscNode_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelLongAscNode.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelLongAscNode_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelLongAscNode_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelIncl_MouseEnter(object sender, EventArgs e)
+		private void labelIncl_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelIncl.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelIncl_MouseMove(object sender, MouseEventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelIncl_MouseMove(object sender, MouseEventArgs e) => clearLabelHelp();
 
-    private void labelOrbEcc_MouseEnter(object sender, EventArgs e)
+		private void labelOrbEcc_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelOrbEcc.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelOrbEcc_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelOrbEcc_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelMotion_MouseEnter(object sender, EventArgs e)
+		private void labelMotion_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelMotion.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelMotion_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelMotion_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelSemiMajorAxis_MouseEnter(object sender, EventArgs e)
+		private void labelSemiMajorAxis_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelSemiMajorAxis.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelSemiMajorAxis_MouseMove(object sender, MouseEventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelSemiMajorAxis_MouseMove(object sender, MouseEventArgs e) => clearLabelHelp();
 
-    private void labelMagAbs_MouseEnter(object sender, EventArgs e)
+		private void labelMagAbs_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelMagAbs.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelMagAbs_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelMagAbs_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelSlopeParam_MouseEnter(object sender, EventArgs e)
+		private void labelSlopeParam_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelSlopeParam.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelSlopeParam_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelSlopeParam_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelRef_MouseEnter(object sender, EventArgs e)
+		private void labelRef_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelRef.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelRef_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelRef_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelNumbOppos_MouseEnter(object sender, EventArgs e)
+		private void labelNumbOppos_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelNumbOppos.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelNumbOppos_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelNumbOppos_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelNumbObs_MouseEnter(object sender, EventArgs e)
+		private void labelNumbObs_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelNumbObs.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelNumbObs_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelNumbObs_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelObsSpan_MouseEnter(object sender, EventArgs e)
+		private void labelObsSpan_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelObsSpan.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelObsSpan_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelObsSpan_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelRmsResidual_MouseEnter(object sender, EventArgs e)
+		private void labelRmsResidual_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelRmsResidual.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelRmsResidual_MouseMove(object sender, MouseEventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelRmsResidual_MouseMove(object sender, MouseEventArgs e) => clearLabelHelp();
 
-    private void labelComputerName_MouseEnter(object sender, EventArgs e)
+		private void labelComputerName_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelComputerName.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelComputerName_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelComputerName_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelFlags_MouseEnter(object sender, EventArgs e)
+		private void labelFlags_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelFlags.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelFlags_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelFlags_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelObsLastDate_MouseEnter(object sender, EventArgs e)
+		private void labelObsLastDate_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelObsLastDate.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelObsLastDate_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelObsLastDate_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelIndex_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelIndex.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelDesgnName_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDesgnName.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelEpoch_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelEpoch.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelMeanAnomaly_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelMeanAnomaly.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelArgPeri_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelArgPeri.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelLongAscNode_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelLongAscNode.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelIncl_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelIncl.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelOrbEcc_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelOrbEcc.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelMotion_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelMotion.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelSemiMajorAxis_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSemiMajorAxis.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelMagAbs_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelMagAbs.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelSlopeParam_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSlopeParam.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelRef_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelRef.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelNumbOppos_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelNumbOppos.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelNumbObs_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelNumbObs.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelObsSpan_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelObsSpan.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelRmsResidual_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelRmsResidual.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelObsLastDate_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelObsLastDate.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelIndex_Click(object sender, EventArgs e)
+		private void labelIndex_Click(object sender, EventArgs e)
     {
       //Reserved für later: add a short message, what is; definition
     }
@@ -1356,13 +982,13 @@ namespace PlanetoidDB
     {
       if (isDownloadCancelled == false)
       {
-        File.Delete(strFilenameMPCORB);
-        File.Copy(strFilenameMPCORBtemp, strFilenameMPCORB);
-        File.Delete(strFilenameMPCORBtemp);
+        File.Delete(Planetoid_DB.Properties.Resources.strFilenameMPCORB);
+        File.Copy(Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp, Planetoid_DB.Properties.Resources.strFilenameMPCORB);
+        File.Delete(Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
         MessageBox.Show("Download complete! You must restart the program to apply the update of the database!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
       } else {
         MessageBox.Show("Download cancelled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        File.Delete(strFilenameMPCORBtemp);
+        File.Delete(Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
       }
       toolStripStatusLabelBackgroundDownload.Enabled = false;
       toolStripProgressBarBackgroundDownload.Enabled = false;
@@ -1387,7 +1013,7 @@ namespace PlanetoidDB
         webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
         try
         {
-          webClient.DownloadFileAsync(uriMPCORB, @strFilenameMPCORBtemp);
+          webClient.DownloadFileAsync(uriMPCORB, @Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
         }
         catch (Exception ex)
         {
@@ -1441,49 +1067,35 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripStatusLabelBackgroundDownload_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
-    private void toolStripProgressBarBackgroundDownload_MouseEnter(object sender, EventArgs e)
+		private void toolStripStatusLabelBackgroundDownload_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
+
+		private void toolStripProgressBarBackgroundDownload_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = toolStripProgressBarBackgroundDownload.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void toolStripProgressBarBackgroundDownload_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripProgressBarBackgroundDownload_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void labelIndexPos_MouseEnter(object sender, EventArgs e)
+		private void labelIndexPos_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = labelIndexPos.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void labelIndexPos_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void labelIndexPos_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonCheckMpcorbDat_Click(object sender, EventArgs e)
-    {
-      checkMpcorbDat();
-    }
+		private void toolStripButtonCheckMpcorbDat_Click(object sender, EventArgs e) => checkMpcorbDat();
 
-    private void toolStripButtonCheckMpcorbDat_MouseEnter(object sender, EventArgs e)
+		private void toolStripButtonCheckMpcorbDat_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = toolStripButtonCheckMpcorbDat.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonCheckMpcorbDat_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonCheckMpcorbDat_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonDownloadMpcorbDat_Click(object sender, EventArgs e)
+		private void toolStripButtonDownloadMpcorbDat_Click(object sender, EventArgs e)
     {
       DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
       formDownloaderForMpcorbDat.ShowDialog();
@@ -1495,12 +1107,9 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonDownloadMpcorbDat_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonDownloadMpcorbDat_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonAbout_Click(object sender, EventArgs e)
+		private void toolStripButtonAbout_Click(object sender, EventArgs e)
     {
       AppInfoForm formAppInfo = new AppInfoForm();
       formAppInfo.ShowDialog();
@@ -1512,14 +1121,11 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonAbout_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonAbout_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e)
+		private void toolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e)
     {
-      System.Diagnostics.Process.Start(strHomepage);
+      System.Diagnostics.Process.Start(Planetoid_DB.Properties.Resources.strHomepage);
     }
 
     private void toolStripButtonOpenWebsitePDB_MouseEnter(object sender, EventArgs e)
@@ -1528,23 +1134,17 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonOpenWebsitePDB_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonOpenWebsitePDB_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void menuitemEdit_MouseEnter(object sender, EventArgs e)
+		private void menuitemEdit_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = menuitemEdit.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void menuitemEdit_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void menuitemEdit_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonTableMode_Click(object sender, EventArgs e)
+		private void toolStripButtonTableMode_Click(object sender, EventArgs e)
     {
       TableModeForm formTableMode = new TableModeForm();
       formTableMode.fillArray(arrDB);
@@ -1557,12 +1157,9 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripMenuItemTableMode_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripMenuItemTableMode_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemTableMode_Click(object sender, EventArgs e)
+		private void toolStripMenuItemTableMode_Click(object sender, EventArgs e)
     {
       TableModeForm formTableMode = new TableModeForm();
       formTableMode.fillArray(arrDB);
@@ -1575,41 +1172,23 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void labelComputerName_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelComputerName.Text);
-      showMessageCopiedToClipboad();
-    }
-
-    private void labelFlags_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelFlags.Text);
-      showMessageCopiedToClipboad();
-    }
-
     private void toolStripButtonDatabaseInformation_Click(object sender, EventArgs e)
     {
       DatabaseInformationForm formDatabaseInformation = new DatabaseInformationForm();
       formDatabaseInformation.ShowDialog();
     }
 
-    private void toolStripButtonTableMode_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonTableMode_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void ToolStripMenuItemStyle_MouseEnter(object sender, EventArgs e)
+		private void ToolStripMenuItemStyle_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = ToolStripMenuItemStyle.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void ToolStripMenuItemStyle_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void ToolStripMenuItemStyle_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void ToolStripMenuItemStyleOffice2007_Click(object sender, EventArgs e)
+		private void ToolStripMenuItemStyleOffice2007_Click(object sender, EventArgs e)
     {
       ToolStripManager.Renderer = new Office2007Renderer();
       toolStripMenuItemStyleProfessional.Checked = false;
@@ -1651,34 +1230,25 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void ToolStripMenuItemStyleProfessionell_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void ToolStripMenuItemStyleProfessionell_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void ToolStripMenuItemSystem_MouseEnter(object sender, EventArgs e)
+		private void ToolStripMenuItemSystem_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = toolStripMenuItemStyleSystem.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void ToolStripMenuItemSystem_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void ToolStripMenuItemSystem_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemVs2008_MouseEnter(object sender, EventArgs e)
+		private void toolStripMenuItemVs2008_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = toolStripMenuItemStyleVs2008.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void timerUpdate_Tick(object sender, EventArgs e)
-    {
-      PlanetoidDBForm_Shown(sender, e);
-    }
+		private void timerUpdate_Tick(object sender, EventArgs e) => PlanetoidDBForm_Shown(sender, e);
 
-    private void notifyIconUpdate_Click(object sender, EventArgs e)
+		private void notifyIconUpdate_Click(object sender, EventArgs e)
     {
       //contextMenuNotifyIcon.Show(notifyIconUpdate, 0, 100);
     }
@@ -1693,12 +1263,9 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonPrint_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonPrint_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonCopyToClipboard_Click(object sender, EventArgs e)
+		private void toolStripButtonCopyToClipboard_Click(object sender, EventArgs e)
     {
     }
 
@@ -1708,23 +1275,17 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonCopyToClipboard_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonCopyToClipboard_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonDatabaseInformation_MouseEnter(object sender, EventArgs e)
+		private void toolStripButtonDatabaseInformation_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = toolStripButtonDatabaseInformation.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonDatabaseInformation_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonDatabaseInformation_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemPrint_Click(object sender, EventArgs e)
+		private void toolStripMenuItemPrint_Click(object sender, EventArgs e)
     {
     }
 
@@ -1734,23 +1295,17 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripMenuItemPrint_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripMenuItemPrint_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripTextBoxSearch_MouseEnter(object sender, EventArgs e)
+		private void toolStripTextBoxSearch_MouseEnter(object sender, EventArgs e)
     {
       labelHelp.Text = toolStripTextBoxSearch.AccessibleDescription;
       labelHelp.Enabled = true;
     }
 
-    private void toolStripTextBoxSearch_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripTextBoxSearch_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripButtonSearch_Click(object sender, EventArgs e)
+		private void toolStripButtonSearch_Click(object sender, EventArgs e)
     {
     }
 
@@ -1760,12 +1315,9 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripButtonSearch_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripButtonSearch_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemCopytoClipboard_Click(object sender, EventArgs e)
+		private void toolStripMenuItemCopytoClipboard_Click(object sender, EventArgs e)
     {
     }
 
@@ -1775,12 +1327,9 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripMenuItemCopytoClipboard_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripMenuItemCopytoClipboard_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemSearch_Click(object sender, EventArgs e)
+		private void toolStripMenuItemSearch_Click(object sender, EventArgs e)
     {
     }
 
@@ -1790,12 +1339,9 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripMenuItemSearch_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripMenuItemSearch_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e)
+		private void toolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e)
     {
       DatabaseInformationForm formDatabaseInformation = new DatabaseInformationForm();
       formDatabaseInformation.ShowDialog();
@@ -1807,30 +1353,19 @@ namespace PlanetoidDB
       labelHelp.Enabled = true;
     }
 
-    private void toolStripMenuItemVs2008_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
+		private void toolStripMenuItemVs2008_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void toolStripMenuItemDatabaseInformation_MouseLeave(object sender, EventArgs e)
-    {
-      clearLabelHelp();
-    }
-    
-    private void showMessageCopiedToClipboad()
-    {
-      MessageBox.Show("Copied to clipboard.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    }
+		private void toolStripMenuItemDatabaseInformation_MouseLeave(object sender, EventArgs e) => clearLabelHelp();
 
-    private void checkMpcorbDat()
+		private void checkMpcorbDat()
     {
-      FileInfo fi = new FileInfo(strFilenameMPCORB);
+      FileInfo fi = new FileInfo(Planetoid_DB.Properties.Resources.strFilenameMPCORB);
       long fileSize = fi.Length;
       DateTime datetimeFileLocal = fi.CreationTime;
-      DateTime datetimeFileOnline = getLastModified(uriMPCORB);
+      DateTime datetimeFileOnline = GetLastModified(uriMPCORB);
 
       string strInfoMpcorbDatLocal = "MPCORB.DAT local:\n\r\n\r";
-      if (File.Exists(strFilenameMPCORB))
+      if (File.Exists(Planetoid_DB.Properties.Resources.strFilenameMPCORB))
       {
         strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "     URL: " + fi.FullName;
         strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r     Content Length: " + fileSize.ToString() + " Bytes";
@@ -1843,7 +1378,7 @@ namespace PlanetoidDB
 
       string strInfoMpcorbDatOnline = "MPCORB.DAT online:\n\r\n\r";
       strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "     URL: " + uriMPCORB;
-      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Content Length: " + getContentLength(uriMPCORB).ToString() + " Bytes";
+      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Content Length: " + GetContentLength(uriMPCORB).ToString() + " Bytes";
       strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Last modified: " + datetimeFileOnline;
 
       string strUpdate = "";

@@ -57,7 +57,7 @@
       this.buttonOK.AccessibleDescription = "Close the application form";
       this.buttonOK.AccessibleName = "Okay";
       this.buttonOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonOK.Image = global::PlanetoidDB.Properties.Resources.silk_tick;
+      this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
       this.buttonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonOK.Location = new System.Drawing.Point(203, 170);
       this.buttonOK.Name = "buttonOK";
@@ -73,7 +73,7 @@
       this.pictureBoxInformation.AccessibleDescription = "This is a information sign";
       this.pictureBoxInformation.AccessibleName = "Information";
       this.pictureBoxInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
-      this.pictureBoxInformation.Image = global::PlanetoidDB.Properties.Resources.silk_information;
+      this.pictureBoxInformation.Image = global::Planetoid_DB.Properties.Resources.silk_information;
       this.pictureBoxInformation.Location = new System.Drawing.Point(13, 13);
       this.pictureBoxInformation.Name = "pictureBoxInformation";
       this.pictureBoxInformation.Size = new System.Drawing.Size(16, 16);

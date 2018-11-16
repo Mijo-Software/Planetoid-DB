@@ -84,7 +84,7 @@
       this.buttonCancelDownload.AccessibleDescription = "Cancel the download";
       this.buttonCancelDownload.AccessibleName = "Cancel download";
       this.buttonCancelDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonCancelDownload.Image = global::PlanetoidDB.Properties.Resources.silk_cancel;
+      this.buttonCancelDownload.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
       this.buttonCancelDownload.Location = new System.Drawing.Point(337, 90);
       this.buttonCancelDownload.Name = "buttonCancelDownload";
       this.buttonCancelDownload.Size = new System.Drawing.Size(139, 41);
@@ -100,7 +100,7 @@
       this.buttonDownload.AccessibleDescription = "Download the database";
       this.buttonDownload.AccessibleName = "Download MPCORB.DAT";
       this.buttonDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonDownload.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
+      this.buttonDownload.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
       this.buttonDownload.Location = new System.Drawing.Point(153, 90);
       this.buttonDownload.Name = "buttonDownload";
       this.buttonDownload.Size = new System.Drawing.Size(178, 41);
@@ -129,7 +129,7 @@
       this.buttonCheckForUpdate.AccessibleDescription = "Check for updates of the database";
       this.buttonCheckForUpdate.AccessibleName = "Check for update";
       this.buttonCheckForUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonCheckForUpdate.Image = global::PlanetoidDB.Properties.Resources.silk_lightning;
+      this.buttonCheckForUpdate.Image = global::Planetoid_DB.Properties.Resources.silk_lightning;
       this.buttonCheckForUpdate.Location = new System.Drawing.Point(12, 90);
       this.buttonCheckForUpdate.Name = "buttonCheckForUpdate";
       this.buttonCheckForUpdate.Size = new System.Drawing.Size(135, 41);

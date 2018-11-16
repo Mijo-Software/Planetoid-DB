@@ -30,7 +30,7 @@ namespace PlanetoidDB
 
     private void SplashScreenForm_Load(object sender, EventArgs e)
     {
-      //ToolStripManager.Renderer = new Office2007Renderer();
+      ToolStripManager.Renderer = new Office2007Renderer();
       labelDataLoading.Text = "Loading data...";
       labelTitle.Text = AssemblyProduct;
       labelVersion.Text = String.Format("Version: {0}", AssemblyVersion);

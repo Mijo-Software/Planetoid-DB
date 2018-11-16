@@ -206,7 +206,7 @@
       this.toolStripMenuItem10.Size = new System.Drawing.Size(110, 22);
       this.toolStripMenuItem10.Text = "10";
       this.toolStripMenuItem10.ToolTipText = "Jump 10 items backward/forward";
-      this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+      this.toolStripMenuItem10.Click += new System.EventHandler(this.ToolStripMenuItem10_Click);
       // 
       // toolStripMenuItem100
       // 
@@ -217,7 +217,7 @@
       this.toolStripMenuItem100.Size = new System.Drawing.Size(110, 22);
       this.toolStripMenuItem100.Text = "100";
       this.toolStripMenuItem100.ToolTipText = "Jump 100 items backward/forward";
-      this.toolStripMenuItem100.Click += new System.EventHandler(this.toolStripMenuItem100_Click);
+      this.toolStripMenuItem100.Click += new System.EventHandler(this.ToolStripMenuItem100_Click);
       // 
       // toolStripMenuItem1000
       // 
@@ -226,7 +226,7 @@
       this.toolStripMenuItem1000.Size = new System.Drawing.Size(110, 22);
       this.toolStripMenuItem1000.Text = "1000";
       this.toolStripMenuItem1000.ToolTipText = "Jump 1000 items backward/forward";
-      this.toolStripMenuItem1000.Click += new System.EventHandler(this.toolStripMenuItem1000_Click);
+      this.toolStripMenuItem1000.Click += new System.EventHandler(this.ToolStripMenuItem1000_Click);
       // 
       // toolStripMenuItem10000
       // 
@@ -235,7 +235,7 @@
       this.toolStripMenuItem10000.Size = new System.Drawing.Size(110, 22);
       this.toolStripMenuItem10000.Text = "10000";
       this.toolStripMenuItem10000.ToolTipText = "Jump 10000 items backward/forward";
-      this.toolStripMenuItem10000.Click += new System.EventHandler(this.toolStripMenuItem10000_Click);
+      this.toolStripMenuItem10000.Click += new System.EventHandler(this.ToolStripMenuItem10000_Click);
       // 
       // toolStripMenuItem100000
       // 
@@ -244,7 +244,7 @@
       this.toolStripMenuItem100000.Size = new System.Drawing.Size(110, 22);
       this.toolStripMenuItem100000.Text = "100000";
       this.toolStripMenuItem100000.ToolTipText = "Jump 100000 items backward/forward";
-      this.toolStripMenuItem100000.Click += new System.EventHandler(this.toolStripMenuItem100000_Click);
+      this.toolStripMenuItem100000.Click += new System.EventHandler(this.ToolStripMenuItem100000_Click);
       // 
       // labelIndex
       // 
@@ -260,7 +260,7 @@
       this.labelIndex.Text = "Index No.";
       this.toolTip.SetToolTip(this.labelIndex, "Index No.");
       this.labelIndex.Click += new System.EventHandler(this.labelIndex_Click);
-      this.labelIndex.DoubleClick += new System.EventHandler(this.labelIndex_DoubleClick);
+      this.labelIndex.DoubleClick += new System.EventHandler(this.LabelIndex_DoubleClick);
       this.labelIndex.MouseEnter += new System.EventHandler(this.labelIndex_MouseEnter);
       this.labelIndex.MouseLeave += new System.EventHandler(this.labelIndex_MouseLeave);
       // 
@@ -278,7 +278,7 @@
       this.labelMagAbs.Text = "Absolute magnitude, H";
       this.toolTip.SetToolTip(this.labelMagAbs, "Absolute magnitude, H");
       this.labelMagAbs.Click += new System.EventHandler(this.labelMagAbs_Click);
-      this.labelMagAbs.DoubleClick += new System.EventHandler(this.labelMagAbs_DoubleClick);
+      this.labelMagAbs.DoubleClick += new System.EventHandler(this.LabelMagAbs_DoubleClick);
       this.labelMagAbs.MouseEnter += new System.EventHandler(this.labelMagAbs_MouseEnter);
       this.labelMagAbs.MouseLeave += new System.EventHandler(this.labelMagAbs_MouseLeave);
       // 
@@ -296,7 +296,7 @@
       this.labelSlopeParam.Text = "Slope parameter, G";
       this.toolTip.SetToolTip(this.labelSlopeParam, "Slope parameter, G");
       this.labelSlopeParam.Click += new System.EventHandler(this.labelSlopeParam_Click);
-      this.labelSlopeParam.DoubleClick += new System.EventHandler(this.labelSlopeParam_DoubleClick);
+      this.labelSlopeParam.DoubleClick += new System.EventHandler(this.LabelSlopeParam_DoubleClick);
       this.labelSlopeParam.MouseEnter += new System.EventHandler(this.labelSlopeParam_MouseEnter);
       this.labelSlopeParam.MouseLeave += new System.EventHandler(this.labelSlopeParam_MouseLeave);
       // 
@@ -314,7 +314,7 @@
       this.labelEpoch.Text = "Epoch (in packed form, .0 TT)";
       this.toolTip.SetToolTip(this.labelEpoch, "Epoch (in packed form, .0 TT)");
       this.labelEpoch.Click += new System.EventHandler(this.labelEpoch_Click);
-      this.labelEpoch.DoubleClick += new System.EventHandler(this.labelEpoch_DoubleClick);
+      this.labelEpoch.DoubleClick += new System.EventHandler(this.LabelEpoch_DoubleClick);
       this.labelEpoch.MouseEnter += new System.EventHandler(this.labelEpoch_MouseEnter);
       this.labelEpoch.MouseLeave += new System.EventHandler(this.labelEpoch_MouseLeave);
       // 
@@ -332,7 +332,7 @@
       this.labelMeanAnomaly.Text = "Mean anomaly at the epoch, in degrees";
       this.toolTip.SetToolTip(this.labelMeanAnomaly, "Mean anomaly at the epoch, in degrees");
       this.labelMeanAnomaly.Click += new System.EventHandler(this.labelMeanAnomaly_Click);
-      this.labelMeanAnomaly.DoubleClick += new System.EventHandler(this.labelMeanAnomaly_DoubleClick);
+      this.labelMeanAnomaly.DoubleClick += new System.EventHandler(this.LabelMeanAnomaly_DoubleClick);
       this.labelMeanAnomaly.MouseEnter += new System.EventHandler(this.labelMeanAnomaly_MouseEnter);
       this.labelMeanAnomaly.MouseLeave += new System.EventHandler(this.labelMeanAnomaly_MouseLeave);
       // 
@@ -350,7 +350,7 @@
       this.labelArgPeri.Text = "Argument of perihelion, J2000.0 (degrees)";
       this.toolTip.SetToolTip(this.labelArgPeri, "Argument of perihelion, J2000.0 (degrees)");
       this.labelArgPeri.Click += new System.EventHandler(this.labelArgPeri_Click);
-      this.labelArgPeri.DoubleClick += new System.EventHandler(this.labelArgPeri_DoubleClick);
+      this.labelArgPeri.DoubleClick += new System.EventHandler(this.LabelArgPeri_DoubleClick);
       this.labelArgPeri.MouseEnter += new System.EventHandler(this.labelArgPeri_MouseEnter);
       this.labelArgPeri.MouseLeave += new System.EventHandler(this.labelArgPeri_MouseLeave);
       // 
@@ -368,7 +368,7 @@
       this.labelLongAscNode.Text = "Longitude of the ascending node, J2000.0";
       this.toolTip.SetToolTip(this.labelLongAscNode, "Longitude of the ascending node, J2000.0");
       this.labelLongAscNode.Click += new System.EventHandler(this.labelLongAscNode_Click);
-      this.labelLongAscNode.DoubleClick += new System.EventHandler(this.labelLongAscNode_DoubleClick);
+      this.labelLongAscNode.DoubleClick += new System.EventHandler(this.LabelLongAscNode_DoubleClick);
       this.labelLongAscNode.MouseEnter += new System.EventHandler(this.labelLongAscNode_MouseEnter);
       this.labelLongAscNode.MouseLeave += new System.EventHandler(this.labelLongAscNode_MouseLeave);
       // 
@@ -386,7 +386,7 @@
       this.labelIncl.Text = "Inclination to the ecliptic, J2000.0 (degrees)";
       this.toolTip.SetToolTip(this.labelIncl, "Inclination to the ecliptic, J2000.0 (degrees)");
       this.labelIncl.Click += new System.EventHandler(this.labelIncl_Click);
-      this.labelIncl.DoubleClick += new System.EventHandler(this.labelIncl_DoubleClick);
+      this.labelIncl.DoubleClick += new System.EventHandler(this.LabelIncl_DoubleClick);
       this.labelIncl.MouseEnter += new System.EventHandler(this.labelIncl_MouseEnter);
       this.labelIncl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelIncl_MouseMove);
       // 
@@ -404,7 +404,7 @@
       this.labelOrbEcc.Text = "Orbital eccentricity";
       this.toolTip.SetToolTip(this.labelOrbEcc, "Orbital eccentricity");
       this.labelOrbEcc.Click += new System.EventHandler(this.labelOrbEcc_Click);
-      this.labelOrbEcc.DoubleClick += new System.EventHandler(this.labelOrbEcc_DoubleClick);
+      this.labelOrbEcc.DoubleClick += new System.EventHandler(this.LabelOrbEcc_DoubleClick);
       this.labelOrbEcc.MouseEnter += new System.EventHandler(this.labelOrbEcc_MouseEnter);
       this.labelOrbEcc.MouseLeave += new System.EventHandler(this.labelOrbEcc_MouseLeave);
       // 
@@ -422,7 +422,7 @@
       this.labelMotion.Text = "Mean daily motion (degrees per day)";
       this.toolTip.SetToolTip(this.labelMotion, "Mean daily motion (degrees per day)");
       this.labelMotion.Click += new System.EventHandler(this.labelMotion_Click);
-      this.labelMotion.DoubleClick += new System.EventHandler(this.labelMotion_DoubleClick);
+      this.labelMotion.DoubleClick += new System.EventHandler(this.LabelMotion_DoubleClick);
       this.labelMotion.MouseEnter += new System.EventHandler(this.labelMotion_MouseEnter);
       this.labelMotion.MouseLeave += new System.EventHandler(this.labelMotion_MouseLeave);
       // 
@@ -440,7 +440,7 @@
       this.labelSemiMajorAxis.Text = "Semimajor axis (AU)";
       this.toolTip.SetToolTip(this.labelSemiMajorAxis, "Semimajor axis (AU)");
       this.labelSemiMajorAxis.Click += new System.EventHandler(this.labelSemiMajorAxis_Click);
-      this.labelSemiMajorAxis.DoubleClick += new System.EventHandler(this.labelSemiMajorAxis_DoubleClick);
+      this.labelSemiMajorAxis.DoubleClick += new System.EventHandler(this.LabelSemiMajorAxis_DoubleClick);
       this.labelSemiMajorAxis.MouseEnter += new System.EventHandler(this.labelSemiMajorAxis_MouseEnter);
       this.labelSemiMajorAxis.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelSemiMajorAxis_MouseMove);
       // 
@@ -458,7 +458,7 @@
       this.labelRef.Text = "Reference";
       this.toolTip.SetToolTip(this.labelRef, "Reference");
       this.labelRef.Click += new System.EventHandler(this.labelRef_Click);
-      this.labelRef.DoubleClick += new System.EventHandler(this.labelRef_DoubleClick);
+      this.labelRef.DoubleClick += new System.EventHandler(this.LabelRef_DoubleClick);
       this.labelRef.MouseEnter += new System.EventHandler(this.labelRef_MouseEnter);
       this.labelRef.MouseLeave += new System.EventHandler(this.labelRef_MouseLeave);
       // 
@@ -476,7 +476,7 @@
       this.labelNumbObs.Text = "Number of observations";
       this.toolTip.SetToolTip(this.labelNumbObs, "Number of observations");
       this.labelNumbObs.Click += new System.EventHandler(this.labelNumbObs_Click);
-      this.labelNumbObs.DoubleClick += new System.EventHandler(this.labelNumbObs_DoubleClick);
+      this.labelNumbObs.DoubleClick += new System.EventHandler(this.LabelNumbObs_DoubleClick);
       this.labelNumbObs.MouseEnter += new System.EventHandler(this.labelNumbObs_MouseEnter);
       this.labelNumbObs.MouseLeave += new System.EventHandler(this.labelNumbObs_MouseLeave);
       // 
@@ -494,7 +494,7 @@
       this.labelNumbOppos.Text = "Number of oppositions";
       this.toolTip.SetToolTip(this.labelNumbOppos, "Number of oppositions");
       this.labelNumbOppos.Click += new System.EventHandler(this.labelNumbOppos_Click);
-      this.labelNumbOppos.DoubleClick += new System.EventHandler(this.labelNumbOppos_DoubleClick);
+      this.labelNumbOppos.DoubleClick += new System.EventHandler(this.LabelNumbOppos_DoubleClick);
       this.labelNumbOppos.MouseEnter += new System.EventHandler(this.labelNumbOppos_MouseEnter);
       this.labelNumbOppos.MouseLeave += new System.EventHandler(this.labelNumbOppos_MouseLeave);
       // 
@@ -512,7 +512,7 @@
       this.labelObsSpan.Text = "Observation span";
       this.toolTip.SetToolTip(this.labelObsSpan, "Observation span");
       this.labelObsSpan.Click += new System.EventHandler(this.labelObsSpan_Click);
-      this.labelObsSpan.DoubleClick += new System.EventHandler(this.labelObsSpan_DoubleClick);
+      this.labelObsSpan.DoubleClick += new System.EventHandler(this.LabelObsSpan_DoubleClick);
       this.labelObsSpan.MouseEnter += new System.EventHandler(this.labelObsSpan_MouseEnter);
       this.labelObsSpan.MouseLeave += new System.EventHandler(this.labelObsSpan_MouseLeave);
       // 
@@ -530,7 +530,7 @@
       this.labelRmsResidual.Text = "r.m.s. residual (\")";
       this.toolTip.SetToolTip(this.labelRmsResidual, "r.m.s residual (\")");
       this.labelRmsResidual.Click += new System.EventHandler(this.labelRmsResidual_Click);
-      this.labelRmsResidual.DoubleClick += new System.EventHandler(this.labelRmsResidual_DoubleClick);
+      this.labelRmsResidual.DoubleClick += new System.EventHandler(this.LabelRmsResidual_DoubleClick);
       this.labelRmsResidual.MouseEnter += new System.EventHandler(this.labelRmsResidual_MouseEnter);
       this.labelRmsResidual.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelRmsResidual_MouseMove);
       // 
@@ -548,7 +548,7 @@
       this.labelComputerName.Text = "Computer name";
       this.toolTip.SetToolTip(this.labelComputerName, "Computer name");
       this.labelComputerName.Click += new System.EventHandler(this.labelComputerName_Click);
-      this.labelComputerName.DoubleClick += new System.EventHandler(this.labelComputerName_DoubleClick);
+      this.labelComputerName.DoubleClick += new System.EventHandler(this.LabelComputerName_DoubleClick);
       this.labelComputerName.MouseEnter += new System.EventHandler(this.labelComputerName_MouseEnter);
       this.labelComputerName.MouseLeave += new System.EventHandler(this.labelComputerName_MouseLeave);
       // 
@@ -566,7 +566,7 @@
       this.labelDesgnName.Text = "Readable designation";
       this.toolTip.SetToolTip(this.labelDesgnName, "Readable designation");
       this.labelDesgnName.Click += new System.EventHandler(this.labelDesgnName_Click);
-      this.labelDesgnName.DoubleClick += new System.EventHandler(this.labelDesgnName_DoubleClick);
+      this.labelDesgnName.DoubleClick += new System.EventHandler(this.LabelDesgnName_DoubleClick);
       this.labelDesgnName.MouseEnter += new System.EventHandler(this.labelDesgnName_MouseEnter);
       this.labelDesgnName.MouseLeave += new System.EventHandler(this.labelDesgnName_MouseLeave);
       // 
@@ -584,7 +584,7 @@
       this.labelObsLastDate.Text = "Date of last observation";
       this.toolTip.SetToolTip(this.labelObsLastDate, "Date of last observation");
       this.labelObsLastDate.Click += new System.EventHandler(this.labelObsLastDate_Click);
-      this.labelObsLastDate.DoubleClick += new System.EventHandler(this.labelObsLastDate_DoubleClick);
+      this.labelObsLastDate.DoubleClick += new System.EventHandler(this.LabelObsLastDate_DoubleClick);
       this.labelObsLastDate.MouseEnter += new System.EventHandler(this.labelObsLastDate_MouseEnter);
       this.labelObsLastDate.MouseLeave += new System.EventHandler(this.labelObsLastDate_MouseLeave);
       // 
@@ -602,7 +602,7 @@
       this.labelFlags.Text = "4-hexdigit flags";
       this.toolTip.SetToolTip(this.labelFlags, "4-hexdigit flags");
       this.labelFlags.Click += new System.EventHandler(this.labelFlags_Click);
-      this.labelFlags.DoubleClick += new System.EventHandler(this.labelFlags_DoubleClick);
+      this.labelFlags.DoubleClick += new System.EventHandler(this.LabelFlags_DoubleClick);
       this.labelFlags.MouseEnter += new System.EventHandler(this.labelFlags_MouseEnter);
       this.labelFlags.MouseLeave += new System.EventHandler(this.labelFlags_MouseLeave);
       // 
@@ -688,7 +688,7 @@
       this.labelDesgnNameValue.TabIndex = 3;
       this.labelDesgnNameValue.Text = "...";
       this.toolTip.SetToolTip(this.labelDesgnNameValue, "Show the information of  \"Readable designation\"");
-      this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.labelDesgnNameValue_DoubleClick);
+      this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.LabelDesgnNameValue_DoubleClick);
       this.labelDesgnNameValue.MouseEnter += new System.EventHandler(this.labelDesgnNameValue_MouseEnter);
       this.labelDesgnNameValue.MouseLeave += new System.EventHandler(this.labelDesgnNameValue_MouseLeave);
       // 
@@ -705,7 +705,7 @@
       this.labelEpochValue.TabIndex = 7;
       this.labelEpochValue.Text = "...";
       this.toolTip.SetToolTip(this.labelEpochValue, "Show the information of \"Epoch (in packed form, .0 TT)\"");
-      this.labelEpochValue.DoubleClick += new System.EventHandler(this.labelEpochValue_DoubleClick);
+      this.labelEpochValue.DoubleClick += new System.EventHandler(this.LabelEpochValue_DoubleClick);
       this.labelEpochValue.MouseEnter += new System.EventHandler(this.labelEpochValue_MouseEnter);
       this.labelEpochValue.MouseLeave += new System.EventHandler(this.labelEpochValue_MouseLeave);
       // 
@@ -722,7 +722,7 @@
       this.labelMeanAnomalyValue.TabIndex = 11;
       this.labelMeanAnomalyValue.Text = "...";
       this.toolTip.SetToolTip(this.labelMeanAnomalyValue, "Show the information of \"Mean anomaly at the epoch, in degrees\"");
-      this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.labelMeanAnomalyValue_DoubleClick);
+      this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.LabelMeanAnomalyValue_DoubleClick);
       this.labelMeanAnomalyValue.MouseEnter += new System.EventHandler(this.labelMeanAnomalyValue_MouseEnter);
       this.labelMeanAnomalyValue.MouseLeave += new System.EventHandler(this.labelMeanAnomalyValue_MouseLeave);
       // 
@@ -739,7 +739,7 @@
       this.labelArgPeriValue.TabIndex = 15;
       this.labelArgPeriValue.Text = "...";
       this.toolTip.SetToolTip(this.labelArgPeriValue, "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"");
-      this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.labelArgPeriValue_DoubleClick);
+      this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.LabelArgPeriValue_DoubleClick);
       this.labelArgPeriValue.MouseEnter += new System.EventHandler(this.labelArgPeriValue_MouseEnter);
       this.labelArgPeriValue.MouseLeave += new System.EventHandler(this.labelArgPeriValue_MouseLeave);
       // 
@@ -756,7 +756,7 @@
       this.labelLongAscNodeValue.TabIndex = 19;
       this.labelLongAscNodeValue.Text = "...";
       this.toolTip.SetToolTip(this.labelLongAscNodeValue, "Show the information of \"Longitude of the ascending node, J2000.0\"");
-      this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.labelLongAscNodeValue_DoubleClick);
+      this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.LabelLongAscNodeValue_DoubleClick);
       this.labelLongAscNodeValue.MouseEnter += new System.EventHandler(this.labelLongAscNodeValue_MouseEnter);
       this.labelLongAscNodeValue.MouseLeave += new System.EventHandler(this.labelLongAscNodeValue_MouseLeave);
       // 
@@ -773,7 +773,7 @@
       this.labelInclValue.TabIndex = 23;
       this.labelInclValue.Text = "...";
       this.toolTip.SetToolTip(this.labelInclValue, "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"");
-      this.labelInclValue.DoubleClick += new System.EventHandler(this.labelInclValue_DoubleClick);
+      this.labelInclValue.DoubleClick += new System.EventHandler(this.LabelInclValue_DoubleClick);
       this.labelInclValue.MouseEnter += new System.EventHandler(this.labelInclValue_MouseEnter);
       this.labelInclValue.MouseLeave += new System.EventHandler(this.labelInclValue_MouseLeave);
       // 
@@ -790,7 +790,7 @@
       this.labelOrbEccValue.TabIndex = 27;
       this.labelOrbEccValue.Text = "...";
       this.toolTip.SetToolTip(this.labelOrbEccValue, "Show the information of \"Orbital eccentricity\"");
-      this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.labelOrbEccValue_DoubleClick);
+      this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.LabelOrbEccValue_DoubleClick);
       this.labelOrbEccValue.MouseEnter += new System.EventHandler(this.labelOrbEccValue_MouseEnter);
       this.labelOrbEccValue.MouseLeave += new System.EventHandler(this.labelOrbEccValue_MouseLeave);
       // 
@@ -807,7 +807,7 @@
       this.labelMotionValue.TabIndex = 31;
       this.labelMotionValue.Text = "...";
       this.toolTip.SetToolTip(this.labelMotionValue, "Show the information of \"Mean daily motion (degrees per day)\"");
-      this.labelMotionValue.DoubleClick += new System.EventHandler(this.labelMotionValue_DoubleClick);
+      this.labelMotionValue.DoubleClick += new System.EventHandler(this.LabelMotionValue_DoubleClick);
       this.labelMotionValue.MouseEnter += new System.EventHandler(this.labelMotionValue_MouseEnter);
       this.labelMotionValue.MouseLeave += new System.EventHandler(this.labelMotionValue_MouseLeave);
       // 
@@ -824,7 +824,7 @@
       this.labelSemiMajorAxisValue.TabIndex = 35;
       this.labelSemiMajorAxisValue.Text = "...";
       this.toolTip.SetToolTip(this.labelSemiMajorAxisValue, "Show the information of \"Semimajor axis (AU)\"");
-      this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.labelSemiMajorAxisValue_DoubleClick);
+      this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.LabelSemiMajorAxisValue_DoubleClick);
       this.labelSemiMajorAxisValue.MouseEnter += new System.EventHandler(this.labelSemiMajorAxisValue_MouseEnter);
       this.labelSemiMajorAxisValue.MouseLeave += new System.EventHandler(this.labelSemiMajorAxisValue_MouseLeave);
       // 
@@ -841,7 +841,7 @@
       this.labelSlopeParamValue.TabIndex = 5;
       this.labelSlopeParamValue.Text = "...";
       this.toolTip.SetToolTip(this.labelSlopeParamValue, "Show the information of \"Slope parameter, G\"");
-      this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.labelSlopeParamValue_DoubleClick);
+      this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.LabelSlopeParamValue_DoubleClick);
       this.labelSlopeParamValue.MouseEnter += new System.EventHandler(this.labelSlopeParamValue_MouseEnter);
       this.labelSlopeParamValue.MouseLeave += new System.EventHandler(this.labelSlopeParamValue_MouseLeave);
       // 
@@ -858,7 +858,7 @@
       this.labelIndexValue.TabIndex = 1;
       this.labelIndexValue.Text = "...";
       this.toolTip.SetToolTip(this.labelIndexValue, "Show the information of \"Index No.\"");
-      this.labelIndexValue.DoubleClick += new System.EventHandler(this.labelIndexValue_DoubleClick);
+      this.labelIndexValue.DoubleClick += new System.EventHandler(this.LabelIndexValue_DoubleClick);
       this.labelIndexValue.MouseEnter += new System.EventHandler(this.labelIndexValue_MouseEnter);
       this.labelIndexValue.MouseLeave += new System.EventHandler(this.labelIndexValue_MouseLeave);
       // 
@@ -875,7 +875,7 @@
       this.labelMagAbsValue.TabIndex = 39;
       this.labelMagAbsValue.Text = "...";
       this.toolTip.SetToolTip(this.labelMagAbsValue, "Show the information of \"Absolute magnitude, H\"");
-      this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.labelMagAbsValue_DoubleClick);
+      this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.LabelMagAbsValue_DoubleClick);
       this.labelMagAbsValue.MouseEnter += new System.EventHandler(this.labelMagAbsValue_MouseEnter);
       this.labelMagAbsValue.MouseLeave += new System.EventHandler(this.labelMagAbsValue_MouseLeave);
       // 
@@ -892,7 +892,7 @@
       this.labelRefValue.TabIndex = 9;
       this.labelRefValue.Text = "...";
       this.toolTip.SetToolTip(this.labelRefValue, "Show the information of \"Reference\"");
-      this.labelRefValue.DoubleClick += new System.EventHandler(this.labelRefValue_DoubleClick);
+      this.labelRefValue.DoubleClick += new System.EventHandler(this.LabelRefValue_DoubleClick);
       this.labelRefValue.MouseEnter += new System.EventHandler(this.labelRefValue_MouseEnter);
       this.labelRefValue.MouseLeave += new System.EventHandler(this.labelRefValue_MouseLeave);
       // 
@@ -909,7 +909,7 @@
       this.labelNumbOpposValue.TabIndex = 13;
       this.labelNumbOpposValue.Text = "...";
       this.toolTip.SetToolTip(this.labelNumbOpposValue, "Show the information of \"Number of oppositions\"");
-      this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.labelNumbOpposValue_DoubleClick);
+      this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.LabelNumbOpposValue_DoubleClick);
       this.labelNumbOpposValue.MouseEnter += new System.EventHandler(this.labelNumbOpposValue_MouseEnter);
       this.labelNumbOpposValue.MouseLeave += new System.EventHandler(this.labelNumbOpposValue_MouseLeave);
       // 
@@ -926,7 +926,7 @@
       this.labelNumbObsValue.TabIndex = 17;
       this.labelNumbObsValue.Text = "...";
       this.toolTip.SetToolTip(this.labelNumbObsValue, "Show the information of \"Number of observations\"");
-      this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.labelNumbObsValue_DoubleClick);
+      this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.LabelNumbObsValue_DoubleClick);
       this.labelNumbObsValue.MouseEnter += new System.EventHandler(this.labelNumbObsValue_MouseEnter);
       this.labelNumbObsValue.MouseLeave += new System.EventHandler(this.labelNumbObsValue_MouseLeave);
       // 
@@ -943,7 +943,7 @@
       this.labelObsSpanValue.TabIndex = 21;
       this.labelObsSpanValue.Text = "...";
       this.toolTip.SetToolTip(this.labelObsSpanValue, "Show the information of \"Observation span\"");
-      this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.labelObsSpanValue_DoubleClick);
+      this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.LabelObsSpanValue_DoubleClick);
       this.labelObsSpanValue.MouseEnter += new System.EventHandler(this.labelObsSpanValue_MouseEnter);
       this.labelObsSpanValue.MouseLeave += new System.EventHandler(this.labelObsSpanValue_MouseLeave);
       // 
@@ -960,7 +960,7 @@
       this.labelRmsResidualValue.TabIndex = 25;
       this.labelRmsResidualValue.Text = "...";
       this.toolTip.SetToolTip(this.labelRmsResidualValue, "Show the information of \"r.m.s residual (\")\"");
-      this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.labelRmsResidualValue_DoubleClick);
+      this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.LabelRmsResidualValue_DoubleClick);
       this.labelRmsResidualValue.MouseEnter += new System.EventHandler(this.labelRmsResidualValue_MouseEnter);
       this.labelRmsResidualValue.MouseLeave += new System.EventHandler(this.labelRmsResidualValue_MouseLeave);
       // 
@@ -977,7 +977,7 @@
       this.labelComputerNameValue.TabIndex = 29;
       this.labelComputerNameValue.Text = "...";
       this.toolTip.SetToolTip(this.labelComputerNameValue, "Show the information of \"Computer name\"");
-      this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.labelComputerNameValue_DoubleClick);
+      this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.LabelComputerNameValue_DoubleClick);
       this.labelComputerNameValue.MouseEnter += new System.EventHandler(this.labelComputerNameValue_MouseEnter);
       this.labelComputerNameValue.MouseLeave += new System.EventHandler(this.labelComputerNameValue_MouseLeave);
       // 
@@ -994,7 +994,7 @@
       this.labelFlagsValue.TabIndex = 33;
       this.labelFlagsValue.Text = "...";
       this.toolTip.SetToolTip(this.labelFlagsValue, "Show the information of \"4-hexdigit flags\"");
-      this.labelFlagsValue.DoubleClick += new System.EventHandler(this.labelFlagsValue_DoubleClick);
+      this.labelFlagsValue.DoubleClick += new System.EventHandler(this.LabelFlagsValue_DoubleClick);
       this.labelFlagsValue.MouseEnter += new System.EventHandler(this.labelFlagsValue_MouseEnter);
       this.labelFlagsValue.MouseLeave += new System.EventHandler(this.labelFlagsValue_MouseLeave);
       // 
@@ -1011,7 +1011,7 @@
       this.labelObsLastDateValue.TabIndex = 37;
       this.labelObsLastDateValue.Text = "...";
       this.toolTip.SetToolTip(this.labelObsLastDateValue, "Show the information of \"Date of last observation\"");
-      this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.labelObsLastDateValue_DoubleClick);
+      this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.LabelObsLastDateValue_DoubleClick);
       this.labelObsLastDateValue.MouseEnter += new System.EventHandler(this.labelObsLastDateValue_MouseEnter);
       this.labelObsLastDateValue.MouseLeave += new System.EventHandler(this.labelObsLastDateValue_MouseLeave);
       // 
@@ -1058,7 +1058,7 @@
       this.trackBarIndex.TickStyle = System.Windows.Forms.TickStyle.Both;
       this.toolTip.SetToolTip(this.trackBarIndex, "Shift to navigate in the data");
       this.trackBarIndex.Value = 1;
-      this.trackBarIndex.Scroll += new System.EventHandler(this.trackBarIndex_Scroll);
+      this.trackBarIndex.Scroll += new System.EventHandler(this.TrackBarIndex_Scroll);
       this.trackBarIndex.MouseEnter += new System.EventHandler(this.trackBarIndex_MouseEnter);
       this.trackBarIndex.MouseLeave += new System.EventHandler(this.trackBarIndex_MouseLeave);
       // 
@@ -1335,9 +1335,9 @@
       // 
       this.bwLoadingDB.WorkerReportsProgress = true;
       this.bwLoadingDB.WorkerSupportsCancellation = true;
-      this.bwLoadingDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerLoadingDB_DoWork);
-      this.bwLoadingDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerLoadingDB_ProgressChanged);
-      this.bwLoadingDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerLoadingDB_RunWorkerCompleted);
+      this.bwLoadingDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerLoadingDB_DoWork);
+      this.bwLoadingDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerLoadingDB_ProgressChanged);
+      this.bwLoadingDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerLoadingDB_RunWorkerCompleted);
       // 
       // timerUpdateBlink
       // 
@@ -1460,7 +1460,7 @@
       this.toolStripStatusLabelUpdate.AccessibleName = "Update information";
       this.toolStripStatusLabelUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
       this.toolStripStatusLabelUpdate.DoubleClickEnabled = true;
-      this.toolStripStatusLabelUpdate.Image = global::PlanetoidDB.Properties.Resources.silk_database_lightning;
+      this.toolStripStatusLabelUpdate.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
       this.toolStripStatusLabelUpdate.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
       this.toolStripStatusLabelUpdate.Name = "toolStripStatusLabelUpdate";
       this.toolStripStatusLabelUpdate.Size = new System.Drawing.Size(137, 17);
@@ -1477,7 +1477,7 @@
       this.toolStripStatusLabelBackgroundDownload.AccessibleName = "Download progress";
       this.toolStripStatusLabelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
       this.toolStripStatusLabelBackgroundDownload.DoubleClickEnabled = true;
-      this.toolStripStatusLabelBackgroundDownload.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
+      this.toolStripStatusLabelBackgroundDownload.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
       this.toolStripStatusLabelBackgroundDownload.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
       this.toolStripStatusLabelBackgroundDownload.Name = "toolStripStatusLabelBackgroundDownload";
       this.toolStripStatusLabelBackgroundDownload.Size = new System.Drawing.Size(80, 17);
@@ -1493,7 +1493,7 @@
       this.labelHelp.AccessibleName = "Show some information";
       this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
       this.labelHelp.DoubleClickEnabled = true;
-      this.labelHelp.Image = global::PlanetoidDB.Properties.Resources.silk_lightbulb;
+      this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
       this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
       this.labelHelp.Name = "labelHelp";
       this.labelHelp.Size = new System.Drawing.Size(116, 17);
@@ -1505,14 +1505,14 @@
       this.buttonGotoIndex.AccessibleDescription = "Click to show the data of the planetoid";
       this.buttonGotoIndex.AccessibleName = "Go to index";
       this.buttonGotoIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonGotoIndex.Image = global::PlanetoidDB.Properties.Resources.silk_go;
+      this.buttonGotoIndex.Image = global::Planetoid_DB.Properties.Resources.silk_go;
       this.buttonGotoIndex.Location = new System.Drawing.Point(704, 3);
       this.buttonGotoIndex.Name = "buttonGotoIndex";
       this.buttonGotoIndex.Size = new System.Drawing.Size(29, 26);
       this.buttonGotoIndex.TabIndex = 10;
       this.toolTip.SetToolTip(this.buttonGotoIndex, "Click to show the data of the planetoid");
       this.buttonGotoIndex.UseVisualStyleBackColor = true;
-      this.buttonGotoIndex.Click += new System.EventHandler(this.buttonGotoIndex_Click);
+      this.buttonGotoIndex.Click += new System.EventHandler(this.ButtonGotoIndex_Click);
       this.buttonGotoIndex.MouseEnter += new System.EventHandler(this.buttonGotoIndex_MouseEnter);
       this.buttonGotoIndex.MouseLeave += new System.EventHandler(this.buttonGotoIndex_MouseLeave);
       // 
@@ -1522,14 +1522,14 @@
       this.buttonStepForward.AccessibleName = "Navigate some data after";
       this.buttonStepForward.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.buttonStepForward.ContextMenuStrip = this.contextMenuNavigationStep;
-      this.buttonStepForward.Image = global::PlanetoidDB.Properties.Resources.silk_forward_green;
+      this.buttonStepForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
       this.buttonStepForward.Location = new System.Drawing.Point(152, 3);
       this.buttonStepForward.Name = "buttonStepForward";
       this.buttonStepForward.Size = new System.Drawing.Size(29, 26);
       this.buttonStepForward.TabIndex = 5;
       this.toolTip.SetToolTip(this.buttonStepForward, "Navigate some data after");
       this.buttonStepForward.UseVisualStyleBackColor = true;
-      this.buttonStepForward.Click += new System.EventHandler(this.buttonStepForward_Click);
+      this.buttonStepForward.Click += new System.EventHandler(this.ButtonStepForward_Click);
       this.buttonStepForward.MouseEnter += new System.EventHandler(this.buttonStepForward_MouseEnter);
       this.buttonStepForward.MouseLeave += new System.EventHandler(this.buttonStepForward_MouseLeave);
       // 
@@ -1538,14 +1538,14 @@
       this.buttonStepToEnd.AccessibleDescription = "Navigate to the end of the data";
       this.buttonStepToEnd.AccessibleName = "End of the data";
       this.buttonStepToEnd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonStepToEnd.Image = global::PlanetoidDB.Properties.Resources.silk_forward_end_green;
+      this.buttonStepToEnd.Image = global::Planetoid_DB.Properties.Resources.silk_forward_end_green;
       this.buttonStepToEnd.Location = new System.Drawing.Point(187, 3);
       this.buttonStepToEnd.Name = "buttonStepToEnd";
       this.buttonStepToEnd.Size = new System.Drawing.Size(29, 26);
       this.buttonStepToEnd.TabIndex = 6;
       this.toolTip.SetToolTip(this.buttonStepToEnd, "Navigate to the end of the dataset");
       this.buttonStepToEnd.UseVisualStyleBackColor = true;
-      this.buttonStepToEnd.Click += new System.EventHandler(this.buttonStepToEnd_Click);
+      this.buttonStepToEnd.Click += new System.EventHandler(this.ButtonStepToEnd_Click);
       this.buttonStepToEnd.MouseEnter += new System.EventHandler(this.buttonStepToEnd_MouseEnter);
       this.buttonStepToEnd.MouseLeave += new System.EventHandler(this.buttonStepToEnd_MouseLeave);
       // 
@@ -1554,14 +1554,14 @@
       this.buttonStepForward1.AccessibleDescription = "Navigate to the next datafield";
       this.buttonStepForward1.AccessibleName = "Navigate to the next datafield";
       this.buttonStepForward1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonStepForward1.Image = global::PlanetoidDB.Properties.Resources.silk_forward_1_green;
+      this.buttonStepForward1.Image = global::Planetoid_DB.Properties.Resources.silk_forward_1_green;
       this.buttonStepForward1.Location = new System.Drawing.Point(117, 3);
       this.buttonStepForward1.Name = "buttonStepForward1";
       this.buttonStepForward1.Size = new System.Drawing.Size(29, 26);
       this.buttonStepForward1.TabIndex = 4;
       this.toolTip.SetToolTip(this.buttonStepForward1, "Navigate to the next datafield");
       this.buttonStepForward1.UseVisualStyleBackColor = true;
-      this.buttonStepForward1.Click += new System.EventHandler(this.buttonStepForward1_Click);
+      this.buttonStepForward1.Click += new System.EventHandler(this.ButtonStepForward1_Click);
       this.buttonStepForward1.MouseEnter += new System.EventHandler(this.buttonStepForward1_MouseEnter);
       this.buttonStepForward1.MouseLeave += new System.EventHandler(this.buttonStepForward1_MouseLeave);
       // 
@@ -1570,14 +1570,14 @@
       this.buttonStepBackward1.AccessibleDescription = "Navigate to the previous datafield";
       this.buttonStepBackward1.AccessibleName = "Navigate to the previous datafield";
       this.buttonStepBackward1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonStepBackward1.Image = global::PlanetoidDB.Properties.Resources.silk_backward_1_green;
+      this.buttonStepBackward1.Image = global::Planetoid_DB.Properties.Resources.silk_backward_1_green;
       this.buttonStepBackward1.Location = new System.Drawing.Point(82, 3);
       this.buttonStepBackward1.Name = "buttonStepBackward1";
       this.buttonStepBackward1.Size = new System.Drawing.Size(29, 26);
       this.buttonStepBackward1.TabIndex = 3;
       this.toolTip.SetToolTip(this.buttonStepBackward1, "Navigate to the previous datafield");
       this.buttonStepBackward1.UseVisualStyleBackColor = true;
-      this.buttonStepBackward1.Click += new System.EventHandler(this.buttonStepBackward1_Click);
+      this.buttonStepBackward1.Click += new System.EventHandler(this.ButtonStepBackward1_Click);
       this.buttonStepBackward1.MouseEnter += new System.EventHandler(this.buttonStepBackward1_MouseEnter);
       this.buttonStepBackward1.MouseLeave += new System.EventHandler(this.buttonStepBackward1_MouseLeave);
       // 
@@ -1587,32 +1587,32 @@
       this.buttonStepBackward.AccessibleName = "Navigate some data before";
       this.buttonStepBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.buttonStepBackward.ContextMenuStrip = this.contextMenuNavigationStep;
-      this.buttonStepBackward.Image = global::PlanetoidDB.Properties.Resources.silk_backward_green;
+      this.buttonStepBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
       this.buttonStepBackward.Location = new System.Drawing.Point(47, 3);
       this.buttonStepBackward.Name = "buttonStepBackward";
       this.buttonStepBackward.Size = new System.Drawing.Size(29, 26);
       this.buttonStepBackward.TabIndex = 2;
       this.toolTip.SetToolTip(this.buttonStepBackward, "Navigate some data before");
       this.buttonStepBackward.UseVisualStyleBackColor = true;
-      this.buttonStepBackward.Click += new System.EventHandler(this.buttonStepBackward_Click);
-      this.buttonStepBackward.MouseEnter += new System.EventHandler(this.buttonStepBackward_MouseEnter);
-      this.buttonStepBackward.MouseLeave += new System.EventHandler(this.buttonStepBackward_MouseLeave);
+      this.buttonStepBackward.Click += new System.EventHandler(this.ButtonStepBackward_Click);
+      this.buttonStepBackward.MouseEnter += new System.EventHandler(this.ButtonStepBackward_MouseEnter);
+      this.buttonStepBackward.MouseLeave += new System.EventHandler(this.ButtonStepBackward_MouseLeave);
       // 
       // buttonStepToBegin
       // 
       this.buttonStepToBegin.AccessibleDescription = "Navigate to the begin of the data";
       this.buttonStepToBegin.AccessibleName = "Begin of the data";
       this.buttonStepToBegin.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonStepToBegin.Image = global::PlanetoidDB.Properties.Resources.silk_backward_end_green;
+      this.buttonStepToBegin.Image = global::Planetoid_DB.Properties.Resources.silk_backward_end_green;
       this.buttonStepToBegin.Location = new System.Drawing.Point(12, 3);
       this.buttonStepToBegin.Name = "buttonStepToBegin";
       this.buttonStepToBegin.Size = new System.Drawing.Size(29, 26);
       this.buttonStepToBegin.TabIndex = 1;
       this.toolTip.SetToolTip(this.buttonStepToBegin, "Navigate to the begin of the data");
       this.buttonStepToBegin.UseVisualStyleBackColor = true;
-      this.buttonStepToBegin.Click += new System.EventHandler(this.buttonStepToBegin_Click);
-      this.buttonStepToBegin.MouseEnter += new System.EventHandler(this.buttonStepToBegin_MouseEnter);
-      this.buttonStepToBegin.MouseLeave += new System.EventHandler(this.buttonStepToBegin_MouseLeave);
+      this.buttonStepToBegin.Click += new System.EventHandler(this.ButtonStepToBegin_Click);
+      this.buttonStepToBegin.MouseEnter += new System.EventHandler(this.ButtonStepToBegin_MouseEnter);
+      this.buttonStepToBegin.MouseLeave += new System.EventHandler(this.ButtonStepToBegin_MouseLeave);
       // 
       // toolStripMenuItemPrint
       // 
@@ -1622,7 +1622,7 @@
       this.toolStripMenuItemPrint.AutoToolTip = true;
       this.toolStripMenuItemPrint.DoubleClickEnabled = true;
       this.toolStripMenuItemPrint.Enabled = false;
-      this.toolStripMenuItemPrint.Image = global::PlanetoidDB.Properties.Resources.silk_printer;
+      this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
       this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
       this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
       this.toolStripMenuItemPrint.Size = new System.Drawing.Size(136, 22);
@@ -1638,13 +1638,13 @@
       this.menuitemExit.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemExit.AutoToolTip = true;
       this.menuitemExit.DoubleClickEnabled = true;
-      this.menuitemExit.Image = global::PlanetoidDB.Properties.Resources.silk_door_in;
+      this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
       this.menuitemExit.Name = "menuitemExit";
       this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
       this.menuitemExit.Size = new System.Drawing.Size(136, 22);
       this.menuitemExit.Text = "E&xit";
       this.menuitemExit.ToolTipText = "Exit the application";
-      this.menuitemExit.Click += new System.EventHandler(this.menuitemExit_Click);
+      this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
       this.menuitemExit.MouseEnter += new System.EventHandler(this.menuitemExit_MouseEnter);
       this.menuitemExit.MouseLeave += new System.EventHandler(this.menuitemExit_MouseLeave);
       // 
@@ -1656,7 +1656,7 @@
       this.toolStripMenuItemCopytoClipboard.AutoToolTip = true;
       this.toolStripMenuItemCopytoClipboard.DoubleClickEnabled = true;
       this.toolStripMenuItemCopytoClipboard.Enabled = false;
-      this.toolStripMenuItemCopytoClipboard.Image = global::PlanetoidDB.Properties.Resources.silk_page_copy;
+      this.toolStripMenuItemCopytoClipboard.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
       this.toolStripMenuItemCopytoClipboard.Name = "toolStripMenuItemCopytoClipboard";
       this.toolStripMenuItemCopytoClipboard.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
       this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(140, 22);
@@ -1674,7 +1674,7 @@
       this.toolStripMenuItemSearch.AutoToolTip = true;
       this.toolStripMenuItemSearch.DoubleClickEnabled = true;
       this.toolStripMenuItemSearch.Enabled = false;
-      this.toolStripMenuItemSearch.Image = global::PlanetoidDB.Properties.Resources.silk_magnifier;
+      this.toolStripMenuItemSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
       this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
       this.toolStripMenuItemSearch.Size = new System.Drawing.Size(140, 22);
       this.toolStripMenuItemSearch.Text = "Search";
@@ -1689,7 +1689,7 @@
       this.toolStripMenuItemDatabaseInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.toolStripMenuItemDatabaseInformation.AutoToolTip = true;
       this.toolStripMenuItemDatabaseInformation.DoubleClickEnabled = true;
-      this.toolStripMenuItemDatabaseInformation.Image = global::PlanetoidDB.Properties.Resources.silk_database;
+      this.toolStripMenuItemDatabaseInformation.Image = global::Planetoid_DB.Properties.Resources.silk_database;
       this.toolStripMenuItemDatabaseInformation.Name = "toolStripMenuItemDatabaseInformation";
       this.toolStripMenuItemDatabaseInformation.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
       this.toolStripMenuItemDatabaseInformation.Size = new System.Drawing.Size(243, 22);
@@ -1705,7 +1705,7 @@
       this.toolStripMenuItemTableMode.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.toolStripMenuItemTableMode.AutoToolTip = true;
       this.toolStripMenuItemTableMode.DoubleClickEnabled = true;
-      this.toolStripMenuItemTableMode.Image = global::PlanetoidDB.Properties.Resources.silk_table;
+      this.toolStripMenuItemTableMode.Image = global::Planetoid_DB.Properties.Resources.silk_table;
       this.toolStripMenuItemTableMode.Name = "toolStripMenuItemTableMode";
       this.toolStripMenuItemTableMode.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
       this.toolStripMenuItemTableMode.Size = new System.Drawing.Size(243, 22);
@@ -1720,7 +1720,7 @@
       this.chartBarToolStripMenuItem.AutoToolTip = true;
       this.chartBarToolStripMenuItem.DoubleClickEnabled = true;
       this.chartBarToolStripMenuItem.Enabled = false;
-      this.chartBarToolStripMenuItem.Image = global::PlanetoidDB.Properties.Resources.silk_chart_bar;
+      this.chartBarToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_chart_bar;
       this.chartBarToolStripMenuItem.Name = "chartBarToolStripMenuItem";
       this.chartBarToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
       this.chartBarToolStripMenuItem.Text = "Chart bar";
@@ -1730,7 +1730,7 @@
       this.chartCurveToolStripMenuItem.AutoToolTip = true;
       this.chartCurveToolStripMenuItem.DoubleClickEnabled = true;
       this.chartCurveToolStripMenuItem.Enabled = false;
-      this.chartCurveToolStripMenuItem.Image = global::PlanetoidDB.Properties.Resources.silk_chart_curve;
+      this.chartCurveToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_chart_curve;
       this.chartCurveToolStripMenuItem.Name = "chartCurveToolStripMenuItem";
       this.chartCurveToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
       this.chartCurveToolStripMenuItem.Text = "Chart curve";
@@ -1740,7 +1740,7 @@
       this.chartPieToolStripMenuItem.AutoToolTip = true;
       this.chartPieToolStripMenuItem.DoubleClickEnabled = true;
       this.chartPieToolStripMenuItem.Enabled = false;
-      this.chartPieToolStripMenuItem.Image = global::PlanetoidDB.Properties.Resources.silk_chart_pie;
+      this.chartPieToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_chart_pie;
       this.chartPieToolStripMenuItem.Name = "chartPieToolStripMenuItem";
       this.chartPieToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
       this.chartPieToolStripMenuItem.Text = "Chart pie";
@@ -1752,13 +1752,13 @@
       this.menuitemCheckMpcorbDat.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemCheckMpcorbDat.AutoToolTip = true;
       this.menuitemCheckMpcorbDat.DoubleClickEnabled = true;
-      this.menuitemCheckMpcorbDat.Image = global::PlanetoidDB.Properties.Resources.silk_database_lightning;
+      this.menuitemCheckMpcorbDat.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
       this.menuitemCheckMpcorbDat.Name = "menuitemCheckMpcorbDat";
       this.menuitemCheckMpcorbDat.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
       this.menuitemCheckMpcorbDat.Size = new System.Drawing.Size(243, 22);
       this.menuitemCheckMpcorbDat.Text = "&Check MPCORB.DAT";
       this.menuitemCheckMpcorbDat.ToolTipText = "Check for updates of the database";
-      this.menuitemCheckMpcorbDat.Click += new System.EventHandler(this.menuitemCheckMpcorbDat_Click);
+      this.menuitemCheckMpcorbDat.Click += new System.EventHandler(this.MenuitemCheckMpcorbDat_Click);
       this.menuitemCheckMpcorbDat.MouseEnter += new System.EventHandler(this.menuitemCheckMpcorbDat_MouseEnter);
       this.menuitemCheckMpcorbDat.MouseLeave += new System.EventHandler(this.menuitemCheckMpcorbDat_MouseLeave);
       // 
@@ -1769,13 +1769,13 @@
       this.menuitemDownloadMpcorbDat.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemDownloadMpcorbDat.AutoToolTip = true;
       this.menuitemDownloadMpcorbDat.DoubleClickEnabled = true;
-      this.menuitemDownloadMpcorbDat.Image = global::PlanetoidDB.Properties.Resources.silk_package;
+      this.menuitemDownloadMpcorbDat.Image = global::Planetoid_DB.Properties.Resources.silk_package;
       this.menuitemDownloadMpcorbDat.Name = "menuitemDownloadMpcorbDat";
       this.menuitemDownloadMpcorbDat.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
       this.menuitemDownloadMpcorbDat.Size = new System.Drawing.Size(243, 22);
       this.menuitemDownloadMpcorbDat.Text = "&Download MPCORB.DAT";
       this.menuitemDownloadMpcorbDat.ToolTipText = "Download the database";
-      this.menuitemDownloadMpcorbDat.Click += new System.EventHandler(this.menuitemDownloadMpcorbDat_Click);
+      this.menuitemDownloadMpcorbDat.Click += new System.EventHandler(this.MenuitemDownloadMpcorbDat_Click);
       this.menuitemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.menuitemDownloadMpcorbDat_MouseEnter);
       this.menuitemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.menuitemDownloadMpcorbDat_MouseLeave);
       // 
@@ -1790,7 +1790,7 @@
             this.toolStripMenuItemStyleOffice2007,
             this.toolStripMenuItemStyleSystem,
             this.toolStripMenuItemStyleVs2008});
-      this.ToolStripMenuItemStyle.Image = global::PlanetoidDB.Properties.Resources.silk_theme;
+      this.ToolStripMenuItemStyle.Image = global::Planetoid_DB.Properties.Resources.silk_theme;
       this.ToolStripMenuItemStyle.Name = "ToolStripMenuItemStyle";
       this.ToolStripMenuItemStyle.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
       this.ToolStripMenuItemStyle.Size = new System.Drawing.Size(243, 22);
@@ -1868,13 +1868,13 @@
       this.menuitemAbout.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemAbout.AutoToolTip = true;
       this.menuitemAbout.DoubleClickEnabled = true;
-      this.menuitemAbout.Image = global::PlanetoidDB.Properties.Resources.silk_information;
+      this.menuitemAbout.Image = global::Planetoid_DB.Properties.Resources.silk_information;
       this.menuitemAbout.Name = "menuitemAbout";
       this.menuitemAbout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
       this.menuitemAbout.Size = new System.Drawing.Size(231, 22);
       this.menuitemAbout.Text = "&About";
       this.menuitemAbout.ToolTipText = "More information about the application";
-      this.menuitemAbout.Click += new System.EventHandler(this.menuitemAbout_Click);
+      this.menuitemAbout.Click += new System.EventHandler(this.MenuitemAbout_Click);
       this.menuitemAbout.MouseEnter += new System.EventHandler(this.menuitemAbout_MouseEnter);
       this.menuitemAbout.MouseLeave += new System.EventHandler(this.menuitemAbout_MouseLeave);
       // 
@@ -1885,12 +1885,12 @@
       this.menuitemOpenWebsitePDB.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemOpenWebsitePDB.AutoToolTip = true;
       this.menuitemOpenWebsitePDB.DoubleClickEnabled = true;
-      this.menuitemOpenWebsitePDB.Image = global::PlanetoidDB.Properties.Resources.silk_house;
+      this.menuitemOpenWebsitePDB.Image = global::Planetoid_DB.Properties.Resources.silk_house;
       this.menuitemOpenWebsitePDB.Name = "menuitemOpenWebsitePDB";
       this.menuitemOpenWebsitePDB.Size = new System.Drawing.Size(231, 22);
       this.menuitemOpenWebsitePDB.Text = "Open PlanetoidDB homepage";
       this.menuitemOpenWebsitePDB.ToolTipText = "Opens the PlanetoidDB homepage";
-      this.menuitemOpenWebsitePDB.Click += new System.EventHandler(this.menuitemOpenWebsitePDB_Click);
+      this.menuitemOpenWebsitePDB.Click += new System.EventHandler(this.MenuitemOpenWebsitePDB_Click);
       this.menuitemOpenWebsitePDB.MouseEnter += new System.EventHandler(this.menuitemOpenWebsitePDB_MouseEnter);
       this.menuitemOpenWebsitePDB.MouseLeave += new System.EventHandler(this.menuitemOpenWebsitePDB_MouseLeave);
       // 
@@ -1901,12 +1901,12 @@
       this.menuitemOpenWebsiteMPC.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemOpenWebsiteMPC.AutoToolTip = true;
       this.menuitemOpenWebsiteMPC.DoubleClickEnabled = true;
-      this.menuitemOpenWebsiteMPC.Image = global::PlanetoidDB.Properties.Resources.silk_world;
+      this.menuitemOpenWebsiteMPC.Image = global::Planetoid_DB.Properties.Resources.silk_world;
       this.menuitemOpenWebsiteMPC.Name = "menuitemOpenWebsiteMPC";
       this.menuitemOpenWebsiteMPC.Size = new System.Drawing.Size(231, 22);
       this.menuitemOpenWebsiteMPC.Text = "Open MPC homepage";
       this.menuitemOpenWebsiteMPC.ToolTipText = "Opens the MPC homepage";
-      this.menuitemOpenWebsiteMPC.Click += new System.EventHandler(this.menuitemOpenWebsiteMPC_Click);
+      this.menuitemOpenWebsiteMPC.Click += new System.EventHandler(this.MenuitemOpenWebsiteMPC_Click);
       this.menuitemOpenWebsiteMPC.MouseEnter += new System.EventHandler(this.menuitemOpenWebsiteMPC_MouseEnter);
       this.menuitemOpenWebsiteMPC.MouseLeave += new System.EventHandler(this.menuitemOpenWebsiteMPC_MouseLeave);
       // 
@@ -1917,12 +1917,12 @@
       this.menuitemOpenMPCORBWebsite.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
       this.menuitemOpenMPCORBWebsite.AutoToolTip = true;
       this.menuitemOpenMPCORBWebsite.DoubleClickEnabled = true;
-      this.menuitemOpenMPCORBWebsite.Image = global::PlanetoidDB.Properties.Resources.silk_world;
+      this.menuitemOpenMPCORBWebsite.Image = global::Planetoid_DB.Properties.Resources.silk_world;
       this.menuitemOpenMPCORBWebsite.Name = "menuitemOpenMPCORBWebsite";
       this.menuitemOpenMPCORBWebsite.Size = new System.Drawing.Size(231, 22);
       this.menuitemOpenMPCORBWebsite.Text = "Open MPCORB website";
       this.menuitemOpenMPCORBWebsite.ToolTipText = "Opens the MPCORB website";
-      this.menuitemOpenMPCORBWebsite.Click += new System.EventHandler(this.menuitemOpenMPCORBWebsite_Click);
+      this.menuitemOpenMPCORBWebsite.Click += new System.EventHandler(this.MenuitemOpenMPCORBWebsite_Click);
       this.menuitemOpenMPCORBWebsite.MouseEnter += new System.EventHandler(this.menuitemOpenMPCORBWebsite_MouseEnter);
       this.menuitemOpenMPCORBWebsite.MouseLeave += new System.EventHandler(this.menuitemOpenMPCORBWebsite_MouseLeave);
       // 
@@ -1934,7 +1934,7 @@
       this.toolStripButtonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonPrint.DoubleClickEnabled = true;
       this.toolStripButtonPrint.Enabled = false;
-      this.toolStripButtonPrint.Image = global::PlanetoidDB.Properties.Resources.silk_printer;
+      this.toolStripButtonPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
       this.toolStripButtonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonPrint.Name = "toolStripButtonPrint";
       this.toolStripButtonPrint.Size = new System.Drawing.Size(23, 22);
@@ -1951,7 +1951,7 @@
       this.toolStripButtonCopyToClipboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonCopyToClipboard.DoubleClickEnabled = true;
       this.toolStripButtonCopyToClipboard.Enabled = false;
-      this.toolStripButtonCopyToClipboard.Image = global::PlanetoidDB.Properties.Resources.silk_page_copy;
+      this.toolStripButtonCopyToClipboard.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
       this.toolStripButtonCopyToClipboard.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonCopyToClipboard.Name = "toolStripButtonCopyToClipboard";
       this.toolStripButtonCopyToClipboard.Size = new System.Drawing.Size(23, 22);
@@ -1968,7 +1968,7 @@
       this.toolStripButtonDatabaseInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonDatabaseInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonDatabaseInformation.DoubleClickEnabled = true;
-      this.toolStripButtonDatabaseInformation.Image = global::PlanetoidDB.Properties.Resources.silk_database;
+      this.toolStripButtonDatabaseInformation.Image = global::Planetoid_DB.Properties.Resources.silk_database;
       this.toolStripButtonDatabaseInformation.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonDatabaseInformation.Name = "toolStripButtonDatabaseInformation";
       this.toolStripButtonDatabaseInformation.Size = new System.Drawing.Size(23, 22);
@@ -1984,7 +1984,7 @@
       this.toolStripButtonTableMode.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonTableMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonTableMode.DoubleClickEnabled = true;
-      this.toolStripButtonTableMode.Image = global::PlanetoidDB.Properties.Resources.silk_table;
+      this.toolStripButtonTableMode.Image = global::Planetoid_DB.Properties.Resources.silk_table;
       this.toolStripButtonTableMode.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonTableMode.Name = "toolStripButtonTableMode";
       this.toolStripButtonTableMode.Size = new System.Drawing.Size(23, 22);
@@ -2002,7 +2002,7 @@
       this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripSplitButton1.DoubleClickEnabled = true;
       this.toolStripSplitButton1.Enabled = false;
-      this.toolStripSplitButton1.Image = global::PlanetoidDB.Properties.Resources.silk_chart_bar;
+      this.toolStripSplitButton1.Image = global::Planetoid_DB.Properties.Resources.silk_chart_bar;
       this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripSplitButton1.Name = "toolStripSplitButton1";
       this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
@@ -2016,7 +2016,7 @@
       this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripSplitButton2.DoubleClickEnabled = true;
       this.toolStripSplitButton2.Enabled = false;
-      this.toolStripSplitButton2.Image = global::PlanetoidDB.Properties.Resources.silk_chart_curve;
+      this.toolStripSplitButton2.Image = global::Planetoid_DB.Properties.Resources.silk_chart_curve;
       this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripSplitButton2.Name = "toolStripSplitButton2";
       this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
@@ -2030,7 +2030,7 @@
       this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripSplitButton3.DoubleClickEnabled = true;
       this.toolStripSplitButton3.Enabled = false;
-      this.toolStripSplitButton3.Image = global::PlanetoidDB.Properties.Resources.silk_chart_pie;
+      this.toolStripSplitButton3.Image = global::Planetoid_DB.Properties.Resources.silk_chart_pie;
       this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripSplitButton3.Name = "toolStripSplitButton3";
       this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
@@ -2043,7 +2043,7 @@
       this.toolStripButtonCheckMpcorbDat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonCheckMpcorbDat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonCheckMpcorbDat.DoubleClickEnabled = true;
-      this.toolStripButtonCheckMpcorbDat.Image = global::PlanetoidDB.Properties.Resources.silk_database_lightning;
+      this.toolStripButtonCheckMpcorbDat.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
       this.toolStripButtonCheckMpcorbDat.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonCheckMpcorbDat.Name = "toolStripButtonCheckMpcorbDat";
       this.toolStripButtonCheckMpcorbDat.Size = new System.Drawing.Size(23, 22);
@@ -2060,7 +2060,7 @@
       this.toolStripButtonDownloadMpcorbDat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonDownloadMpcorbDat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonDownloadMpcorbDat.DoubleClickEnabled = true;
-      this.toolStripButtonDownloadMpcorbDat.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
+      this.toolStripButtonDownloadMpcorbDat.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
       this.toolStripButtonDownloadMpcorbDat.ImageTransparentColor = System.Drawing.Color.Transparent;
       this.toolStripButtonDownloadMpcorbDat.Name = "toolStripButtonDownloadMpcorbDat";
       this.toolStripButtonDownloadMpcorbDat.Size = new System.Drawing.Size(23, 22);
@@ -2077,7 +2077,7 @@
       this.toolStripButtonAbout.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonAbout.DoubleClickEnabled = true;
-      this.toolStripButtonAbout.Image = global::PlanetoidDB.Properties.Resources.silk_information;
+      this.toolStripButtonAbout.Image = global::Planetoid_DB.Properties.Resources.silk_information;
       this.toolStripButtonAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonAbout.Name = "toolStripButtonAbout";
       this.toolStripButtonAbout.Size = new System.Drawing.Size(23, 22);
@@ -2094,7 +2094,7 @@
       this.toolStripButtonOpenWebsitePDB.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
       this.toolStripButtonOpenWebsitePDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonOpenWebsitePDB.DoubleClickEnabled = true;
-      this.toolStripButtonOpenWebsitePDB.Image = global::PlanetoidDB.Properties.Resources.silk_house;
+      this.toolStripButtonOpenWebsitePDB.Image = global::Planetoid_DB.Properties.Resources.silk_house;
       this.toolStripButtonOpenWebsitePDB.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonOpenWebsitePDB.Name = "toolStripButtonOpenWebsitePDB";
       this.toolStripButtonOpenWebsitePDB.Size = new System.Drawing.Size(23, 22);
@@ -2112,7 +2112,7 @@
       this.toolStripButtonSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.toolStripButtonSearch.DoubleClickEnabled = true;
       this.toolStripButtonSearch.Enabled = false;
-      this.toolStripButtonSearch.Image = global::PlanetoidDB.Properties.Resources.silk_magnifier;
+      this.toolStripButtonSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
       this.toolStripButtonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButtonSearch.Name = "toolStripButtonSearch";
       this.toolStripButtonSearch.Size = new System.Drawing.Size(23, 22);
@@ -2124,7 +2124,7 @@
       // toolStripButton9
       // 
       this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton9.Image = global::PlanetoidDB.Properties.Resources.silk_backward_end_blue;
+      this.toolStripButton9.Image = global::Planetoid_DB.Properties.Resources.silk_backward_end_blue;
       this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton9.Name = "toolStripButton9";
       this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
@@ -2133,7 +2133,7 @@
       // toolStripButton10
       // 
       this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton10.Image = global::PlanetoidDB.Properties.Resources.silk_backward_1_blue;
+      this.toolStripButton10.Image = global::Planetoid_DB.Properties.Resources.silk_backward_1_blue;
       this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton10.Name = "toolStripButton10";
       this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
@@ -2142,7 +2142,7 @@
       // toolStripButton11
       // 
       this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton11.Image = global::PlanetoidDB.Properties.Resources.silk_backward_blue;
+      this.toolStripButton11.Image = global::Planetoid_DB.Properties.Resources.silk_backward_blue;
       this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton11.Name = "toolStripButton11";
       this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
@@ -2151,7 +2151,7 @@
       // toolStripButton12
       // 
       this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton12.Image = global::PlanetoidDB.Properties.Resources.silk_forward_blue;
+      this.toolStripButton12.Image = global::Planetoid_DB.Properties.Resources.silk_forward_blue;
       this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton12.Name = "toolStripButton12";
       this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
@@ -2160,7 +2160,7 @@
       // toolStripButton13
       // 
       this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton13.Image = global::PlanetoidDB.Properties.Resources.silk_forward_1_blue;
+      this.toolStripButton13.Image = global::Planetoid_DB.Properties.Resources.silk_forward_1_blue;
       this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton13.Name = "toolStripButton13";
       this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
@@ -2169,7 +2169,7 @@
       // toolStripButton14
       // 
       this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton14.Image = global::PlanetoidDB.Properties.Resources.silk_forward_end_blue;
+      this.toolStripButton14.Image = global::Planetoid_DB.Properties.Resources.silk_forward_end_blue;
       this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton14.Name = "toolStripButton14";
       this.toolStripButton14.Size = new System.Drawing.Size(23, 22);
@@ -2178,7 +2178,7 @@
       // toolStripButton15
       // 
       this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton15.Image = global::PlanetoidDB.Properties.Resources.silk_go;
+      this.toolStripButton15.Image = global::Planetoid_DB.Properties.Resources.silk_go;
       this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.toolStripButton15.Name = "toolStripButton15";
       this.toolStripButton15.Size = new System.Drawing.Size(23, 22);
@@ -2186,14 +2186,14 @@
       // 
       // checkMPCORBDATToolStripMenuItem
       // 
-      this.checkMPCORBDATToolStripMenuItem.Image = global::PlanetoidDB.Properties.Resources.silk_database_lightning;
+      this.checkMPCORBDATToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
       this.checkMPCORBDATToolStripMenuItem.Name = "checkMPCORBDATToolStripMenuItem";
       this.checkMPCORBDATToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.checkMPCORBDATToolStripMenuItem.Text = "Check MPCORB.DAT";
       // 
       // downloadMPCORBDATToolStripMenuItem
       // 
-      this.downloadMPCORBDATToolStripMenuItem.Image = global::PlanetoidDB.Properties.Resources.silk_package_go;
+      this.downloadMPCORBDATToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
       this.downloadMPCORBDATToolStripMenuItem.Name = "downloadMPCORBDATToolStripMenuItem";
       this.downloadMPCORBDATToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.downloadMPCORBDATToolStripMenuItem.Text = "Download MPCORB.DAT";

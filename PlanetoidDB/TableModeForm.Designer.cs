@@ -147,7 +147,7 @@
       this.pictureBoxWarning.AccessibleDescription = "It\'s a warning sign.";
       this.pictureBoxWarning.AccessibleName = "Warning sign";
       this.pictureBoxWarning.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
-      this.pictureBoxWarning.Image = global::PlanetoidDB.Properties.Resources.silk_error;
+      this.pictureBoxWarning.Image = global::Planetoid_DB.Properties.Resources.silk_error;
       this.pictureBoxWarning.Location = new System.Drawing.Point(406, 13);
       this.pictureBoxWarning.Name = "pictureBoxWarning";
       this.pictureBoxWarning.Size = new System.Drawing.Size(16, 16);
@@ -164,7 +164,7 @@
       this.buttonList.AccessibleDescription = "Start the progress and list";
       this.buttonList.AccessibleName = "List";
       this.buttonList.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonList.Image = global::PlanetoidDB.Properties.Resources.silk_go;
+      this.buttonList.Image = global::Planetoid_DB.Properties.Resources.silk_go;
       this.buttonList.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
       this.buttonList.Location = new System.Drawing.Point(266, 9);
       this.buttonList.Name = "buttonList";
@@ -215,7 +215,7 @@
       this.buttonCancel.AccessibleDescription = "Cancel the progress";
       this.buttonCancel.AccessibleName = "Cancel";
       this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-      this.buttonCancel.Image = global::PlanetoidDB.Properties.Resources.silk_cancel;
+      this.buttonCancel.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
       this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
       this.buttonCancel.Location = new System.Drawing.Point(319, 8);
       this.buttonCancel.Name = "buttonCancel";
@@ -406,7 +406,7 @@
       this.labelStatus.AccessibleDescription = "Show some important informations";
       this.labelStatus.AccessibleName = "Information field";
       this.labelStatus.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-      this.labelStatus.Image = global::PlanetoidDB.Properties.Resources.silk_lightbulb;
+      this.labelStatus.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
       this.labelStatus.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
       this.labelStatus.Name = "labelStatus";
       this.labelStatus.Size = new System.Drawing.Size(170, 17);
