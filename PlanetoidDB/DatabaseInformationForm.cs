@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-
+using Office2007Rendering;
 
 namespace PlanetoidDB
 {
-  public partial class DatabaseInformationForm : Form
+	public partial class DatabaseInformationForm : Form
   {
     public DatabaseInformationForm()
     {
@@ -29,7 +19,8 @@ namespace PlanetoidDB
 
     private void DatabaseInformationForm_Load(object sender, EventArgs e)
     {
-      FileInfo fi = new FileInfo("mpcorb.dat");
+			ToolStripManager.Renderer = new Office2007Renderer();
+			FileInfo fi = new FileInfo("mpcorb.dat");
       labelNameValue.Text = fi.Name;
       labelDirectoryValue.Text = fi.DirectoryName;
       labelSizeValue.Text = fi.Length.ToString() + " Bytes";
@@ -46,7 +37,6 @@ namespace PlanetoidDB
 
     private void pictureBoxInformation_Click(object sender, EventArgs e)
     {
-
     }
 
     private void buttonOK_Click(object sender, EventArgs e)

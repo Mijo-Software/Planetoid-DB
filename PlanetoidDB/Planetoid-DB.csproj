@@ -224,8 +224,8 @@
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
     <Content Include="PlanetoidDB2.ico" />
+    <None Include="Resources\strk1-alertsnd.wav" />
     <None Include="Resources\silk_theme.png" />
-    <None Include="Resources\theme.png" />
     <None Include="Resources\silk_error.png" />
     <None Include="Resources\silk_magnifier.png" />
     <None Include="Resources\silk_zoom_in.png" />

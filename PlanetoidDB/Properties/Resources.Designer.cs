@@ -928,6 +928,15 @@ namespace Planetoid_DB.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die mailto:michael-johne@gmx.de ähnelt.
+        /// </summary>
+        internal static string strHomepageMail {
+            get {
+                return ResourceManager.GetString("strHomepageMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT ähnelt.
         /// </summary>
         internal static string strMpcorbUrl {
@@ -951,6 +960,15 @@ namespace Planetoid_DB.Properties {
         internal static string strWebsiteMpcorb {
             get {
                 return ResourceManager.GetString("strWebsiteMpcorb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.IO.UnmanagedMemoryStream ähnlich wie System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream wav_redalert {
+            get {
+                return ResourceManager.GetStream("wav_redalert", resourceCulture);
             }
         }
     }

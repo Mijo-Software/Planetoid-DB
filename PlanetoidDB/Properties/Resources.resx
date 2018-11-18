@@ -388,4 +388,10 @@
   <data name="strWebsiteMpcorb" xml:space="preserve">
     <value>http://www.minorplanetcenter.org/iau/MPCORB.html</value>
   </data>
+  <data name="wav_redalert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\strk1-alertsnd.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="strHomepageMail" xml:space="preserve">
+    <value>mailto:michael-johne@gmx.de</value>
+  </data>
 </root>

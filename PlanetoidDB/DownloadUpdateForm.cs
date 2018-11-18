@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Net;
 using System.IO;
-using System.Text;
+using System.Net;
 using System.Windows.Forms;
 using Office2007Rendering;
 
 namespace PlanetoidDB
 {
-  public partial class DownloadUpdateForm : Form
+	public partial class DownloadUpdateForm : Form
   {
     
     bool isDownloadCancelled = true;
     Uri uriMPCORB = new Uri("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT");
-    //Uri uriMPCORB = new Uri("http://localhost/MPCORB.DAT");
     string
       strFilenameMPCORB = "mpcorb.dat",
       strFilenameMPCORBtemp = "_";
@@ -29,7 +24,7 @@ namespace PlanetoidDB
 
     private void DownloadUpdateForm_Load(object sender, EventArgs e)
     {
-      //ToolStripManager.Renderer = new Office2007Renderer();
+      ToolStripManager.Renderer = new Office2007Renderer();
       strFilenameMPCORBtemp = "_" + strFilenameMPCORB;
       labelStatus.Text = "Status: nothing to do...";
       labelDate.Text = ""; labelDate.Visible = false;

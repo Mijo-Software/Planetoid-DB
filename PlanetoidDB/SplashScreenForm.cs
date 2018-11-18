@@ -1,34 +1,30 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
+
 using Office2007Rendering;
 
 namespace PlanetoidDB
 {
-  public partial class SplashScreenForm : Form
+	public partial class SplashScreenForm : Form
   {
+		/// <summary>
+		/// 
+		/// </summary>
+		public SplashScreenForm() => InitializeComponent();
 
-    public SplashScreenForm()
-    {
-      InitializeComponent();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		public void SetProgressbar(int value) => progressBarSplash.Value = value;
 
-    public void setProgressbar(int value)
-    {
-      progressBarSplash.Value = value;
-      //labelDataLoading.Text = "Loading data... " + value + "%";
-    }
-
-    private void SplashScreenForm_Load(object sender, EventArgs e)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SplashScreenForm_Load(object sender, EventArgs e)
     {
       ToolStripManager.Renderer = new Office2007Renderer();
       labelDataLoading.Text = "Loading data...";
@@ -38,7 +34,10 @@ namespace PlanetoidDB
 
     #region Assemblyattributaccessoren
 
-    public string AssemblyTitle
+    /// <summary>
+		/// 
+		/// </summary>
+		public string AssemblyTitle
     {
       get
       {
@@ -55,7 +54,10 @@ namespace PlanetoidDB
       }
     }
 
-    public string AssemblyVersion
+    /// <summary>
+		/// 
+		/// </summary>
+		public string AssemblyVersion
     {
       get
       {
@@ -63,7 +65,10 @@ namespace PlanetoidDB
       }
     }
 
-    public string AssemblyDescription
+    /// <summary>
+		/// 
+		/// </summary>
+		public string AssemblyDescription
     {
       get
       {
@@ -76,7 +81,10 @@ namespace PlanetoidDB
       }
     }
 
-    public string AssemblyProduct
+    /// <summary>
+		/// 
+		/// </summary>
+		public string AssemblyProduct
     {
       get
       {
@@ -89,7 +97,10 @@ namespace PlanetoidDB
       }
     }
 
-    public string AssemblyCopyright
+    /// <summary>
+		/// 
+		/// </summary>
+		public string AssemblyCopyright
     {
       get
       {
@@ -102,7 +113,10 @@ namespace PlanetoidDB
       }
     }
 
-    public string AssemblyCompany
+    /// <summary>
+		/// 
+		/// </summary>
+		private string AssemblyCompany
     {
       get
       {
@@ -114,11 +128,14 @@ namespace PlanetoidDB
         return ((AssemblyCompanyAttribute)attributes[0]).Company;
       }
     }
-    #endregion
 
-    private void SplashScreenForm_FormClosed(object sender, FormClosedEventArgs e)
-    {
-      this.Dispose();
-    }
-  }
+		#endregion
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SplashScreenForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+	}
 }
