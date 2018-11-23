@@ -5,6 +5,9 @@ using Office2007Rendering;
 
 namespace PlanetoidDB
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public partial class AppInfoForm : Form
   {
 		/// <summary>
@@ -21,21 +24,15 @@ namespace PlanetoidDB
     {
       ToolStripManager.Renderer = new Office2007Renderer();
       labelTitle.Text = GetAssemblyProduct();
-      labelVersion.Text = String.Format(format: "Version: {0}", arg0: GetAssemblyVersion());
+      labelVersion.Text = String.Format(format: Planetoid_DB.I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
       linkLabelCopyright.Text = GetAssemblyCopyright();
       linkLabelCopyright.Links.Add(start: 24, length: Planetoid_DB.Properties.Resources.strHomepageMail.Length, linkData: Planetoid_DB.Properties.Resources.strHomepageMail);
       labelDescription.Text = GetAssemblyDescription();
-			linkLabelWWW.Text = $"WWW: {Planetoid_DB.Properties.Resources.strHomepage}";
+			linkLabelWWW.Text = Planetoid_DB.I10nStrings.strWww + ": " + Planetoid_DB.Properties.Resources.strHomepage;
 			linkLabelWWW.Links.Add(start: 5, length: Planetoid_DB.Properties.Resources.strHomepage.Length, linkData: Planetoid_DB.Properties.Resources.strHomepage);
     }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LinkLabelCopyright_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
-
+	
 		#region Assemblyattributaccessoren
 
 		/// <summary>
@@ -115,6 +112,13 @@ namespace PlanetoidDB
 			return ((AssemblyCompanyAttribute)attributes[0]).Company;
 		}
 		#endregion
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelCopyright_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
 
 		/// <summary>
 		/// 

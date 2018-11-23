@@ -47,9 +47,9 @@
 			this.progressBarDownload.AccessibleDescription = "Show the progress of the download";
 			this.progressBarDownload.AccessibleName = "Progress of the download";
 			this.progressBarDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
-			this.progressBarDownload.Location = new System.Drawing.Point(12, 63);
+			this.progressBarDownload.Location = new System.Drawing.Point(15, 83);
 			this.progressBarDownload.Name = "progressBarDownload";
-			this.progressBarDownload.Size = new System.Drawing.Size(421, 21);
+			this.progressBarDownload.Size = new System.Drawing.Size(400, 18);
 			this.progressBarDownload.TabIndex = 4;
 			this.toolTip.SetToolTip(this.progressBarDownload, "Show the progress of the download");
 			// 
@@ -59,9 +59,10 @@
 			this.labelStatus.AccessibleName = "Status of the download";
 			this.labelStatus.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelStatus.AutoSize = true;
-			this.labelStatus.Location = new System.Drawing.Point(9, 9);
+			this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelStatus.Location = new System.Drawing.Point(12, 9);
 			this.labelStatus.Name = "labelStatus";
-			this.labelStatus.Size = new System.Drawing.Size(96, 15);
+			this.labelStatus.Size = new System.Drawing.Size(92, 15);
 			this.labelStatus.TabIndex = 0;
 			this.labelStatus.Text = "Status: [Busy?...]";
 			this.toolTip.SetToolTip(this.labelStatus, "Show the status of the download");
@@ -72,9 +73,10 @@
 			this.labelDownload.AccessibleName = "Download in percent";
 			this.labelDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDownload.AutoSize = true;
-			this.labelDownload.Location = new System.Drawing.Point(439, 69);
+			this.labelDownload.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelDownload.Location = new System.Drawing.Point(421, 86);
 			this.labelDownload.Name = "labelDownload";
-			this.labelDownload.Size = new System.Drawing.Size(37, 15);
+			this.labelDownload.Size = new System.Drawing.Size(35, 15);
 			this.labelDownload.TabIndex = 5;
 			this.labelDownload.Text = "xxx %";
 			this.toolTip.SetToolTip(this.labelDownload, "Show the percent of the downloaded bytes");
@@ -84,34 +86,36 @@
 			this.buttonCancelDownload.AccessibleDescription = "Cancel the download";
 			this.buttonCancelDownload.AccessibleName = "Cancel download";
 			this.buttonCancelDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonCancelDownload.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonCancelDownload.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
-			this.buttonCancelDownload.Location = new System.Drawing.Point(337, 90);
+			this.buttonCancelDownload.Location = new System.Drawing.Point(328, 117);
 			this.buttonCancelDownload.Name = "buttonCancelDownload";
-			this.buttonCancelDownload.Size = new System.Drawing.Size(139, 41);
+			this.buttonCancelDownload.Size = new System.Drawing.Size(128, 36);
 			this.buttonCancelDownload.TabIndex = 8;
 			this.buttonCancelDownload.Text = "Cancel download";
 			this.buttonCancelDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonCancelDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonCancelDownload, "Cancel the download");
 			this.buttonCancelDownload.UseVisualStyleBackColor = true;
-			this.buttonCancelDownload.Click += new System.EventHandler(this.buttonCancelDownload_Click);
+			this.buttonCancelDownload.Click += new System.EventHandler(this.ButtonCancelDownload_Click);
 			// 
 			// buttonDownload
 			// 
 			this.buttonDownload.AccessibleDescription = "Download the database";
 			this.buttonDownload.AccessibleName = "Download MPCORB.DAT";
 			this.buttonDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonDownload.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonDownload.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
-			this.buttonDownload.Location = new System.Drawing.Point(153, 90);
+			this.buttonDownload.Location = new System.Drawing.Point(153, 117);
 			this.buttonDownload.Name = "buttonDownload";
-			this.buttonDownload.Size = new System.Drawing.Size(178, 41);
+			this.buttonDownload.Size = new System.Drawing.Size(169, 36);
 			this.buttonDownload.TabIndex = 7;
 			this.buttonDownload.Text = "Download MPCORB.DAT";
 			this.buttonDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonDownload, "Download the database");
 			this.buttonDownload.UseVisualStyleBackColor = true;
-			this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
+			this.buttonDownload.Click += new System.EventHandler(this.ButtonDownload_Click);
 			// 
 			// labelSource
 			// 
@@ -119,9 +123,10 @@
 			this.labelSource.AccessibleName = "Source of the download";
 			this.labelSource.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSource.AutoSize = true;
-			this.labelSource.Location = new System.Drawing.Point(153, 9);
+			this.labelSource.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelSource.Location = new System.Drawing.Point(12, 39);
 			this.labelSource.Name = "labelSource";
-			this.labelSource.Size = new System.Drawing.Size(165, 15);
+			this.labelSource.Size = new System.Drawing.Size(161, 15);
 			this.labelSource.TabIndex = 1;
 			this.labelSource.Text = "Source: [where ist MPCORB?]";
 			this.toolTip.SetToolTip(this.labelSource, "Show the download source");
@@ -131,17 +136,18 @@
 			this.buttonCheckForUpdate.AccessibleDescription = "Check for updates of the database";
 			this.buttonCheckForUpdate.AccessibleName = "Check for update";
 			this.buttonCheckForUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonCheckForUpdate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonCheckForUpdate.Image = global::Planetoid_DB.Properties.Resources.silk_lightning;
-			this.buttonCheckForUpdate.Location = new System.Drawing.Point(12, 90);
+			this.buttonCheckForUpdate.Location = new System.Drawing.Point(15, 117);
 			this.buttonCheckForUpdate.Name = "buttonCheckForUpdate";
-			this.buttonCheckForUpdate.Size = new System.Drawing.Size(135, 41);
+			this.buttonCheckForUpdate.Size = new System.Drawing.Size(132, 36);
 			this.buttonCheckForUpdate.TabIndex = 6;
 			this.buttonCheckForUpdate.Text = "Check for update";
 			this.buttonCheckForUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonCheckForUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonCheckForUpdate, "Check for updates of the database");
 			this.buttonCheckForUpdate.UseVisualStyleBackColor = true;
-			this.buttonCheckForUpdate.Click += new System.EventHandler(this.buttonCheckForUpdate_Click);
+			this.buttonCheckForUpdate.Click += new System.EventHandler(this.ButtonCheckForUpdate_Click);
 			// 
 			// labelDate
 			// 
@@ -149,9 +155,10 @@
 			this.labelDate.AccessibleName = "Date of the download";
 			this.labelDate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDate.AutoSize = true;
-			this.labelDate.Location = new System.Drawing.Point(153, 24);
+			this.labelDate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelDate.Location = new System.Drawing.Point(12, 24);
 			this.labelDate.Name = "labelDate";
-			this.labelDate.Size = new System.Drawing.Size(159, 15);
+			this.labelDate.Size = new System.Drawing.Size(155, 15);
 			this.labelDate.TabIndex = 2;
 			this.labelDate.Text = "date: [how old is MPCORB?]";
 			this.toolTip.SetToolTip(this.labelDate, "Show the last modified date of the download");
@@ -162,9 +169,10 @@
 			this.labelSize.AccessibleName = "Size of the dowload";
 			this.labelSize.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSize.AutoSize = true;
-			this.labelSize.Location = new System.Drawing.Point(153, 39);
+			this.labelSize.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelSize.Location = new System.Drawing.Point(12, 54);
 			this.labelSize.Name = "labelSize";
-			this.labelSize.Size = new System.Drawing.Size(157, 15);
+			this.labelSize.Size = new System.Drawing.Size(150, 15);
 			this.labelSize.TabIndex = 3;
 			this.labelSize.Text = "size: [is MPCORB a fat file?]";
 			this.toolTip.SetToolTip(this.labelSize, "Show the file size of the download");
@@ -174,9 +182,9 @@
 			this.AccessibleDescription = "Download the MPCORB.DAT";
 			this.AccessibleName = "Download Dialog";
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(488, 144);
+			this.ClientSize = new System.Drawing.Size(473, 170);
 			this.Controls.Add(this.labelSize);
 			this.Controls.Add(this.labelDate);
 			this.Controls.Add(this.buttonCheckForUpdate);
@@ -186,7 +194,7 @@
 			this.Controls.Add(this.labelDownload);
 			this.Controls.Add(this.labelStatus);
 			this.Controls.Add(this.progressBarDownload);
-			this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;

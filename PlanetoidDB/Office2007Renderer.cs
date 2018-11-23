@@ -121,7 +121,7 @@ namespace Office2007Rendering
 		private static readonly float _cutContextMenu = 0f;
 		private static readonly float _cutMenuItemBack = 1.2f;
 		private static readonly float _contextCheckTickThickness = 1.6f;
-		private static Blend _statusStripBlend;
+		private static readonly Blend _statusStripBlend;
 		#endregion
 
 		#region Static Colors
@@ -344,9 +344,9 @@ namespace Office2007Rendering
 						CheckState checkState = CheckState.Unchecked;
 
 						// Extract the check state from the item
-						if (e.Item is ToolStripMenuItem)
+						if (e.Item is ToolStripMenuItem item) // old if (e.Item is ToolStripMenuItem)
 						{
-							ToolStripMenuItem item = (ToolStripMenuItem)e.Item;
+							//old: ToolStripMenuItem item = (ToolStripMenuItem)e.Item;
 							checkState = item.CheckState;
 						}
 

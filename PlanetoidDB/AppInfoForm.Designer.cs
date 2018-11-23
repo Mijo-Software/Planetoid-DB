@@ -1,6 +1,9 @@
 ﻿namespace PlanetoidDB
 {
-  partial class AppInfoForm
+  /// <summary>
+	/// 
+	/// </summary>
+	partial class AppInfoForm
   {
     /// <summary>
     /// Required designer variable.
@@ -67,7 +70,7 @@
 			this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelVersion.BackColor = System.Drawing.Color.Black;
-			this.labelVersion.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelVersion.ForeColor = System.Drawing.Color.White;
 			this.labelVersion.Location = new System.Drawing.Point(30, 71);
 			this.labelVersion.Name = "labelVersion";
@@ -86,13 +89,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelTitle.AutoSize = true;
 			this.labelTitle.BackColor = System.Drawing.Color.Black;
-			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
 			this.labelTitle.ForeColor = System.Drawing.Color.LightCyan;
-			this.labelTitle.Location = new System.Drawing.Point(26, 32);
+			this.labelTitle.Location = new System.Drawing.Point(12, 26);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(182, 39);
+			this.labelTitle.Size = new System.Drawing.Size(221, 45);
 			this.labelTitle.TabIndex = 0;
-			this.labelTitle.Text = "PlanetoidDB";
+			this.labelTitle.Text = "Planetoid-DB";
 			this.toolTip.SetToolTip(this.labelTitle, "Show the applicatiopn name");
 			// 
 			// buttonOK
@@ -102,7 +105,7 @@
 			this.buttonOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonOK.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
 			this.buttonOK.Location = new System.Drawing.Point(400, 185);
 			this.buttonOK.Name = "buttonOK";
@@ -122,10 +125,10 @@
 			this.labelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.labelDescription.AutoSize = true;
-			this.labelDescription.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelDescription.Location = new System.Drawing.Point(12, 162);
+			this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelDescription.Location = new System.Drawing.Point(9, 161);
 			this.labelDescription.Name = "labelDescription";
-			this.labelDescription.Size = new System.Drawing.Size(78, 15);
+			this.labelDescription.Size = new System.Drawing.Size(75, 15);
 			this.labelDescription.TabIndex = 3;
 			this.labelDescription.Text = "[Description]";
 			this.toolTip.SetToolTip(this.labelDescription, "Show the program description");
@@ -136,10 +139,10 @@
 			this.linkLabelCopyright.AccessibleName = "Copyright";
 			this.linkLabelCopyright.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelCopyright.AutoSize = true;
-			this.linkLabelCopyright.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.linkLabelCopyright.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelCopyright.Location = new System.Drawing.Point(12, 141);
 			this.linkLabelCopyright.Name = "linkLabelCopyright";
-			this.linkLabelCopyright.Size = new System.Drawing.Size(106, 21);
+			this.linkLabelCopyright.Size = new System.Drawing.Size(100, 20);
 			this.linkLabelCopyright.TabIndex = 2;
 			this.linkLabelCopyright.TabStop = true;
 			this.linkLabelCopyright.Text = "linkLabelCopyright";
@@ -167,10 +170,10 @@
 			this.linkLabelWWW.AccessibleName = "Website";
 			this.linkLabelWWW.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelWWW.AutoSize = true;
-			this.linkLabelWWW.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.linkLabelWWW.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelWWW.Location = new System.Drawing.Point(37, 191);
 			this.linkLabelWWW.Name = "linkLabelWWW";
-			this.linkLabelWWW.Size = new System.Drawing.Size(60, 15);
+			this.linkLabelWWW.Size = new System.Drawing.Size(57, 15);
 			this.linkLabelWWW.TabIndex = 4;
 			this.linkLabelWWW.TabStop = true;
 			this.linkLabelWWW.Text = "[Website]";

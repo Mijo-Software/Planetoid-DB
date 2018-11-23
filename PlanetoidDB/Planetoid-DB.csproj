@@ -110,6 +110,11 @@
     <Compile Include="DownloadUpdateForm.Designer.cs">
       <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="I10nStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>I10nStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Office2007ColorTable.cs" />
     <Compile Include="Office2007Helpers.cs" />
     <Compile Include="Office2007Renderer.cs" />
@@ -155,6 +160,10 @@
     <EmbeddedResource Include="DownloadUpdateForm.resx">
       <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I10nStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>I10nStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PlanetoidDBForm.resx">
       <DependentUpon>PlanetoidDBForm.cs</DependentUpon>

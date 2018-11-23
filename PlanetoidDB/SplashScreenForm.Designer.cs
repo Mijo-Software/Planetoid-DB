@@ -56,11 +56,11 @@
 			this.labelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelTitle.AutoSize = true;
 			this.labelTitle.BackColor = System.Drawing.Color.Transparent;
-			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
 			this.labelTitle.ForeColor = System.Drawing.Color.LightCyan;
-			this.labelTitle.Location = new System.Drawing.Point(290, 56);
+			this.labelTitle.Location = new System.Drawing.Point(285, 50);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(192, 39);
+			this.labelTitle.Size = new System.Drawing.Size(221, 45);
 			this.labelTitle.TabIndex = 0;
 			this.labelTitle.Text = "Planetoid-DB";
 			// 
@@ -71,7 +71,7 @@
 			this.labelVersion.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelVersion.BackColor = System.Drawing.Color.Transparent;
-			this.labelVersion.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelVersion.ForeColor = System.Drawing.Color.White;
 			this.labelVersion.Location = new System.Drawing.Point(294, 95);
 			this.labelVersion.Name = "labelVersion";
@@ -88,10 +88,11 @@
 			this.labelDataLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.labelDataLoading.AutoSize = true;
 			this.labelDataLoading.BackColor = System.Drawing.Color.Transparent;
+			this.labelDataLoading.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelDataLoading.ForeColor = System.Drawing.Color.White;
 			this.labelDataLoading.Location = new System.Drawing.Point(12, 294);
 			this.labelDataLoading.Name = "labelDataLoading";
-			this.labelDataLoading.Size = new System.Drawing.Size(92, 15);
+			this.labelDataLoading.Size = new System.Drawing.Size(89, 15);
 			this.labelDataLoading.TabIndex = 2;
 			this.labelDataLoading.Text = "[ProcessAsText]";
 			// 

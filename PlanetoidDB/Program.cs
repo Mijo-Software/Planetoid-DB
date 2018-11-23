@@ -1,35 +1,48 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace PlanetoidDB
 {
-  static class Program
+	/// <summary>
+	/// 
+	/// </summary>
+	internal static class Program
   {
     /// <summary>
     /// Der Haupteinstiegspunkt für die Anwendung.
     /// </summary>
     [STAThread]
-
-    static void Main()
+		private static void Main()
     {
       Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
-      string strFilenameMPCORB = "mpcorb.dat";
-      if (!File.Exists(strFilenameMPCORB))
-      {
-        DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
-        formDownloaderForMpcorbDat.ShowDialog();
-      }
-      Application.Run(new PlanetoidDBForm());
+      Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+			if (!File.Exists(path: Planetoid_DB.Properties.Resources.strFilenameMPCORB))
+			{
+				if (MessageBox.Show(text: Planetoid_DB.I10nStrings.strMpcorbDatNotFoundText, caption: Planetoid_DB.I10nStrings.strMpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+				{
+					if (!NetworkInterface.GetIsNetworkAvailable())
+					{
+						MessageBox.Show(text: Planetoid_DB.I10nStrings.StrNoInternetConnectionText, caption: Planetoid_DB.I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+						Application.Exit();
+					}
+					else
+					{
+						DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
+						formDownloaderForMpcorbDat.ShowDialog();
+						Application.Run(mainForm: new PlanetoidDBForm());
+					}
+				}
+				else
+				{
+					Application.Exit();
+				}
+			}
+			else
+			{
+				Application.Run(mainForm: new PlanetoidDBForm());
+			}
     }
   }
 }

@@ -92,39 +92,48 @@
 			this.labelMinimum.AccessibleName = "Minimum";
 			this.labelMinimum.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMinimum.AutoSize = true;
+			this.labelMinimum.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelMinimum.Location = new System.Drawing.Point(12, 17);
 			this.labelMinimum.Name = "labelMinimum";
-			this.labelMinimum.Size = new System.Drawing.Size(51, 13);
+			this.labelMinimum.Size = new System.Drawing.Size(63, 15);
 			this.labelMinimum.TabIndex = 0;
 			this.labelMinimum.Text = "Minimum:";
 			this.toolTip.SetToolTip(this.labelMinimum, "Minimum");
 			this.labelMinimum.DoubleClick += new System.EventHandler(this.LabelMinimum_DoubleClick);
-			this.labelMinimum.MouseEnter += new System.EventHandler(this.LabelMinimum_MouseEnter);
-			this.labelMinimum.MouseLeave += new System.EventHandler(this.LabelMinimum_MouseLeave);
+			this.labelMinimum.Enter += new System.EventHandler(this.LabelMinimum_Enter);
+			this.labelMinimum.Leave += new System.EventHandler(this.LabelMinimum_Leave);
+			this.labelMinimum.MouseEnter += new System.EventHandler(this.LabelMinimum_Enter);
+			this.labelMinimum.MouseLeave += new System.EventHandler(this.LabelMinimum_Leave);
 			// 
 			// numericUpDownMinimum
 			// 
 			this.numericUpDownMinimum.AccessibleDescription = "Show the minimum value";
 			this.numericUpDownMinimum.AccessibleName = "Minimum value";
 			this.numericUpDownMinimum.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
-			this.numericUpDownMinimum.Location = new System.Drawing.Point(66, 14);
+			this.numericUpDownMinimum.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.numericUpDownMinimum.Location = new System.Drawing.Point(81, 14);
 			this.numericUpDownMinimum.Name = "numericUpDownMinimum";
-			this.numericUpDownMinimum.Size = new System.Drawing.Size(64, 20);
+			this.numericUpDownMinimum.Size = new System.Drawing.Size(64, 23);
 			this.numericUpDownMinimum.TabIndex = 1;
 			this.numericUpDownMinimum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.numericUpDownMinimum, "Minimum value for the list");
+			this.numericUpDownMinimum.Enter += new System.EventHandler(this.NumericUpDownMinimum_Enter);
+			this.numericUpDownMinimum.Leave += new System.EventHandler(this.NumericUpDownMinimum_Leave);
 			// 
 			// numericUpDownMaximum
 			// 
 			this.numericUpDownMaximum.AccessibleDescription = "Show the maximum value";
 			this.numericUpDownMaximum.AccessibleName = "Maximum value";
 			this.numericUpDownMaximum.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
-			this.numericUpDownMaximum.Location = new System.Drawing.Point(196, 14);
+			this.numericUpDownMaximum.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.numericUpDownMaximum.Location = new System.Drawing.Point(221, 14);
 			this.numericUpDownMaximum.Name = "numericUpDownMaximum";
-			this.numericUpDownMaximum.Size = new System.Drawing.Size(64, 20);
+			this.numericUpDownMaximum.Size = new System.Drawing.Size(64, 23);
 			this.numericUpDownMaximum.TabIndex = 3;
 			this.numericUpDownMaximum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.numericUpDownMaximum, "Maximum value for the list");
+			this.numericUpDownMaximum.Enter += new System.EventHandler(this.NumericUpDownMaximum_Enter);
+			this.numericUpDownMaximum.Leave += new System.EventHandler(this.NumericUpDownMaximum_Leave);
 			// 
 			// labelMaximum
 			// 
@@ -132,15 +141,18 @@
 			this.labelMaximum.AccessibleName = "Maximum";
 			this.labelMaximum.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMaximum.AutoSize = true;
-			this.labelMaximum.Location = new System.Drawing.Point(136, 17);
+			this.labelMaximum.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.labelMaximum.Location = new System.Drawing.Point(151, 17);
 			this.labelMaximum.Name = "labelMaximum";
-			this.labelMaximum.Size = new System.Drawing.Size(54, 13);
+			this.labelMaximum.Size = new System.Drawing.Size(64, 15);
 			this.labelMaximum.TabIndex = 2;
 			this.labelMaximum.Text = "Maximum:";
 			this.toolTip.SetToolTip(this.labelMaximum, "Maximum");
 			this.labelMaximum.DoubleClick += new System.EventHandler(this.LabelMaximum_DoubleClick);
-			this.labelMaximum.MouseEnter += new System.EventHandler(this.LabelMaximum_MouseEnter);
-			this.labelMaximum.MouseLeave += new System.EventHandler(this.LabelMaximum_MouseLeave);
+			this.labelMaximum.Enter += new System.EventHandler(this.LabelMaximum_Enter);
+			this.labelMaximum.Leave += new System.EventHandler(this.LabelMaximum_Leave);
+			this.labelMaximum.MouseEnter += new System.EventHandler(this.LabelMaximum_Enter);
+			this.labelMaximum.MouseLeave += new System.EventHandler(this.LabelMaximum_Leave);
 			// 
 			// pictureBoxWarning
 			// 
@@ -148,7 +160,7 @@
 			this.pictureBoxWarning.AccessibleName = "Warning sign";
 			this.pictureBoxWarning.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
 			this.pictureBoxWarning.Image = global::Planetoid_DB.Properties.Resources.silk_error;
-			this.pictureBoxWarning.Location = new System.Drawing.Point(406, 13);
+			this.pictureBoxWarning.Location = new System.Drawing.Point(424, 10);
 			this.pictureBoxWarning.Name = "pictureBoxWarning";
 			this.pictureBoxWarning.Size = new System.Drawing.Size(16, 16);
 			this.pictureBoxWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -164,11 +176,12 @@
 			this.buttonList.AccessibleDescription = "Start the progress and list";
 			this.buttonList.AccessibleName = "List";
 			this.buttonList.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonList.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonList.Image = global::Planetoid_DB.Properties.Resources.silk_go;
 			this.buttonList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonList.Location = new System.Drawing.Point(266, 8);
+			this.buttonList.Location = new System.Drawing.Point(291, 10);
 			this.buttonList.Name = "buttonList";
-			this.buttonList.Size = new System.Drawing.Size(47, 31);
+			this.buttonList.Size = new System.Drawing.Size(52, 31);
 			this.buttonList.TabIndex = 4;
 			this.buttonList.Text = "List";
 			this.buttonList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -176,8 +189,10 @@
 			this.toolTip.SetToolTip(this.buttonList, "Start the progress and list");
 			this.buttonList.UseVisualStyleBackColor = true;
 			this.buttonList.Click += new System.EventHandler(this.ButtonList_Click);
-			this.buttonList.MouseEnter += new System.EventHandler(this.ButtonList_MouseEnter);
-			this.buttonList.MouseLeave += new System.EventHandler(this.ButtonList_MouseLeave);
+			this.buttonList.Enter += new System.EventHandler(this.ButtonList_Enter);
+			this.buttonList.Leave += new System.EventHandler(this.ButtonList_Leave);
+			this.buttonList.MouseEnter += new System.EventHandler(this.ButtonList_Enter);
+			this.buttonList.MouseLeave += new System.EventHandler(this.ButtonList_Leave);
 			// 
 			// labelWarning1
 			// 
@@ -185,15 +200,18 @@
 			this.labelWarning1.AccessibleName = "Warning message 1";
 			this.labelWarning1.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelWarning1.AutoSize = true;
-			this.labelWarning1.Location = new System.Drawing.Point(428, 13);
+			this.labelWarning1.Font = new System.Drawing.Font("Segoe UI", 7F);
+			this.labelWarning1.Location = new System.Drawing.Point(443, 14);
 			this.labelWarning1.Name = "labelWarning1";
-			this.labelWarning1.Size = new System.Drawing.Size(315, 13);
+			this.labelWarning1.Size = new System.Drawing.Size(301, 12);
 			this.labelWarning1.TabIndex = 6;
 			this.labelWarning1.Text = "Be careful: Don\'t use a big span between minimum and maximum!";
 			this.toolTip.SetToolTip(this.labelWarning1, "Be careful: Don\'t use a big span between minimum and maximum!");
 			this.labelWarning1.DoubleClick += new System.EventHandler(this.LabelWarning1_DoubleClick);
-			this.labelWarning1.MouseEnter += new System.EventHandler(this.LabelWarning1_MouseEnter);
-			this.labelWarning1.MouseLeave += new System.EventHandler(this.LabelWarning1_MouseLeave);
+			this.labelWarning1.Enter += new System.EventHandler(this.LabelWarning1_Enter);
+			this.labelWarning1.Leave += new System.EventHandler(this.LabelWarning1_Leave);
+			this.labelWarning1.MouseEnter += new System.EventHandler(this.LabelWarning1_Enter);
+			this.labelWarning1.MouseLeave += new System.EventHandler(this.LabelWarning1_Leave);
 			// 
 			// labelWarning2
 			// 
@@ -201,26 +219,30 @@
 			this.labelWarning2.AccessibleName = "Warning message 2";
 			this.labelWarning2.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelWarning2.AutoSize = true;
-			this.labelWarning2.Location = new System.Drawing.Point(428, 26);
+			this.labelWarning2.Font = new System.Drawing.Font("Segoe UI", 7F);
+			this.labelWarning2.Location = new System.Drawing.Point(443, 29);
 			this.labelWarning2.Name = "labelWarning2";
-			this.labelWarning2.Size = new System.Drawing.Size(291, 13);
+			this.labelWarning2.Size = new System.Drawing.Size(271, 12);
 			this.labelWarning2.TabIndex = 7;
 			this.labelWarning2.Text = "The loading time and the memory increase. Use small spans!";
 			this.toolTip.SetToolTip(this.labelWarning2, "The loading time and the memory increase. Use small spans!");
 			this.labelWarning2.DoubleClick += new System.EventHandler(this.LabelWarning2_DoubleClick);
-			this.labelWarning2.MouseEnter += new System.EventHandler(this.LabelWarning2_MouseEnter);
-			this.labelWarning2.MouseLeave += new System.EventHandler(this.LabelWarning2_MouseLeave);
+			this.labelWarning2.Enter += new System.EventHandler(this.LabelWarning2_Enter);
+			this.labelWarning2.Leave += new System.EventHandler(this.LabelWarning2_Leave);
+			this.labelWarning2.MouseEnter += new System.EventHandler(this.LabelWarning2_Enter);
+			this.labelWarning2.MouseLeave += new System.EventHandler(this.LabelWarning2_Leave);
 			// 
 			// buttonCancel
 			// 
 			this.buttonCancel.AccessibleDescription = "Cancel the progress";
 			this.buttonCancel.AccessibleName = "Cancel";
 			this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonCancel.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
 			this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.buttonCancel.Location = new System.Drawing.Point(319, 8);
+			this.buttonCancel.Location = new System.Drawing.Point(349, 10);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(64, 31);
+			this.buttonCancel.Size = new System.Drawing.Size(69, 31);
 			this.buttonCancel.TabIndex = 5;
 			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -228,8 +250,10 @@
 			this.toolTip.SetToolTip(this.buttonCancel, "Cancel the progress");
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
-			this.buttonCancel.MouseEnter += new System.EventHandler(this.ButtonCancel_MouseEnter);
-			this.buttonCancel.MouseLeave += new System.EventHandler(this.ButtonCancel_MouseLeave);
+			this.buttonCancel.Enter += new System.EventHandler(this.ButtonCancel_Enter);
+			this.buttonCancel.Leave += new System.EventHandler(this.ButtonCancel_Leave);
+			this.buttonCancel.MouseEnter += new System.EventHandler(this.ButtonCancel_Enter);
+			this.buttonCancel.MouseLeave += new System.EventHandler(this.ButtonCancel_Leave);
 			// 
 			// listViewTableMode
 			// 
@@ -259,6 +283,7 @@
             this.columnHeaderComputerName,
             this.columnHeaderFlags,
             this.columnHeaderDateLastObservation});
+			this.listViewTableMode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.listViewTableMode.FullRowSelect = true;
 			this.listViewTableMode.GridLines = true;
 			this.listViewTableMode.Location = new System.Drawing.Point(12, 77);
@@ -268,8 +293,10 @@
 			this.listViewTableMode.UseCompatibleStateImageBehavior = false;
 			this.listViewTableMode.View = System.Windows.Forms.View.Details;
 			this.listViewTableMode.SelectedIndexChanged += new System.EventHandler(this.ListViewTableMode_SelectedIndexChanged);
-			this.listViewTableMode.MouseEnter += new System.EventHandler(this.ListViewTableMode_MouseEnter);
-			this.listViewTableMode.MouseLeave += new System.EventHandler(this.ListViewTableMode_MouseLeave);
+			this.listViewTableMode.Enter += new System.EventHandler(this.ListViewTableMode_Enter);
+			this.listViewTableMode.Leave += new System.EventHandler(this.ListViewTableMode_Leave);
+			this.listViewTableMode.MouseEnter += new System.EventHandler(this.ListViewTableMode_Enter);
+			this.listViewTableMode.MouseLeave += new System.EventHandler(this.ListViewTableMode_Leave);
 			// 
 			// columnHeaderIndex
 			// 

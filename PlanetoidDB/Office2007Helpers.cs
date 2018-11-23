@@ -25,7 +25,7 @@ namespace Office2007Rendering
 	{
 		#region Instance Fields
 		private Graphics _g;
-		private SmoothingMode _old;
+		private readonly SmoothingMode _old;
 		#endregion
 
 		#region Identity
@@ -57,7 +57,7 @@ namespace Office2007Rendering
 	{
 		#region Instance Fields
 		private Graphics _g;
-		private TextRenderingHint _old;
+		private readonly TextRenderingHint _old;
 		#endregion
 
 		#region Identity

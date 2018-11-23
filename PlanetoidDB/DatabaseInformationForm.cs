@@ -5,127 +5,172 @@ using Office2007Rendering;
 
 namespace PlanetoidDB
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public partial class DatabaseInformationForm : Form
   {
-    public DatabaseInformationForm()
-    {
-      InitializeComponent();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		public DatabaseInformationForm() => InitializeComponent();
 
-    private void showMessageCopiedToClipboad()
-    {
-      MessageBox.Show("Copied to clipboard.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void CopyToClipboard(string text)
+		{
+			Clipboard.SetText(text);
+			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: "", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		}
 
-    private void DatabaseInformationForm_Load(object sender, EventArgs e)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DatabaseInformationForm_Load(object sender, EventArgs e)
     {
 			ToolStripManager.Renderer = new Office2007Renderer();
-			FileInfo fi = new FileInfo("mpcorb.dat");
+			FileInfo fi = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
       labelNameValue.Text = fi.Name;
       labelDirectoryValue.Text = fi.DirectoryName;
-      labelSizeValue.Text = fi.Length.ToString() + " Bytes";
+      labelSizeValue.Text = fi.Length.ToString() + " " + Planetoid_DB.I10nStrings.strBytes;
       labelDateCreatedValue.Text = fi.CreationTime.ToString();
       labelDateAccessedValue.Text = fi.LastAccessTime.ToString();
       labelDateWritedValue.Text = fi.LastWriteTime.ToString();
       labelAttributesValue.Text = fi.Attributes.ToString();
     }
 
-    private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+
+		#region Click-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxInformation_Click(object sender, EventArgs e)
     {
-      this.Dispose();
+			//todo: add something here
     }
 
-    private void pictureBoxInformation_Click(object sender, EventArgs e)
-    {
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonOK_Click(object sender, EventArgs e) => this.Close();
 
-    private void buttonOK_Click(object sender, EventArgs e)
-    {
-      this.Close();
-    }
+		#endregion
 
-    private void labelName_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelName.Text);
-      showMessageCopiedToClipboad();
-    }
+		#region DoubleClick-Handler
 
-    private void labelDirectory_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDirectory.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelName_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelName.Text);
 
-    private void labelSize_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSize.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDirectory_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDirectory.Text);
 
-    private void labelDateCreated_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDateCreated.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSize_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSize.Text);
 
-    private void labelDateAccessed_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDateAccessed.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateCreated_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateCreated.Text);
 
-    private void labelDateWrited_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDateWrited.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateAccessed_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateAccessed.Text);
 
-    private void labelAttributes_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelAttributes.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateWrited_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateWrited.Text);
 
-    private void labelNameValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelNameValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAttributes_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelAttributes.Text);
 
-    private void labelDirectoryValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDirectoryValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelNameValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelNameValue.Text);
 
-    private void labelSizeValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelSizeValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDirectoryValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDirectoryValue.Text);
 
-    private void labelDateCreatedValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDateCreatedValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSizeValue.Text);
 
-    private void labelDateAccessedValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDateAccessedValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateCreatedValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateCreatedValue.Text);
 
-    private void labelDateWritedValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelDateWritedValue.Text);
-      showMessageCopiedToClipboad();
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateAccessedValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateAccessedValue.Text);
 
-    private void labelAttributesValue_DoubleClick(object sender, EventArgs e)
-    {
-      Clipboard.SetText(labelAttributesValue.Text);
-      showMessageCopiedToClipboad();
-    }
-  }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateWritedValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateWritedValue.Text);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAttributesValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelAttributesValue.Text);
+
+		#endregion
+	}
 }
