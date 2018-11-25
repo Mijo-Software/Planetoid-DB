@@ -95,6 +95,7 @@
 			this.toolStripStatusLabelUpdate = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBarBackgroundDownload = new System.Windows.Forms.ToolStripProgressBar();
+			this.toolStripStatusLabelCancelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
 			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
 			this.menu = new System.Windows.Forms.MenuStrip();
 			this.menuitemFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,9 +147,8 @@
 			this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
 			this.toolStripButtonSearch = new System.Windows.Forms.ToolStripButton();
 			this.labelGottoIndex = new System.Windows.Forms.Label();
-			this.ofd = new System.Windows.Forms.OpenFileDialog();
-			this.bwLoadingDB = new System.ComponentModel.BackgroundWorker();
-			this.timerUpdateBlink = new System.Windows.Forms.Timer(this.components);
+			this.backgroundWorkerLoadingDatabase = new System.ComponentModel.BackgroundWorker();
+			this.timerBlinkForUpdateAvailable = new System.Windows.Forms.Timer(this.components);
 			this.toolStripNavigation = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
@@ -163,7 +163,7 @@
 			this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
 			this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-			this.timerUpdate = new System.Windows.Forms.Timer(this.components);
+			this.timerCheckForNewMpcorbDatFile = new System.Windows.Forms.Timer(this.components);
 			this.notifyIconUpdate = new System.Windows.Forms.NotifyIcon(this.components);
 			this.contextMenuNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.checkMPCORBDATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1139,7 +1139,7 @@
 			this.trackBarIndex.Name = "trackBarIndex";
 			this.trackBarIndex.Size = new System.Drawing.Size(723, 45);
 			this.trackBarIndex.TabIndex = 11;
-			this.trackBarIndex.TickFrequency = 100;
+			this.trackBarIndex.TickFrequency = 1000;
 			this.trackBarIndex.TickStyle = System.Windows.Forms.TickStyle.Both;
 			this.toolTip.SetToolTip(this.trackBarIndex, "Shift to navigate in the data");
 			this.trackBarIndex.Value = 1;
@@ -1280,7 +1280,7 @@
 			// statusBar
 			// 
 			this.statusBar.AccessibleDescription = "Shows some information";
-			this.statusBar.AccessibleName = "Status bar of some inforamt";
+			this.statusBar.AccessibleName = "Status bar of some information";
 			this.statusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.statusBar.Dock = System.Windows.Forms.DockStyle.None;
 			this.statusBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
@@ -1288,7 +1288,9 @@
             this.toolStripStatusLabelUpdate,
             this.toolStripStatusLabelBackgroundDownload,
             this.toolStripProgressBarBackgroundDownload,
+            this.toolStripStatusLabelCancelBackgroundDownload,
             this.labelHelp});
+			this.statusBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.statusBar.Location = new System.Drawing.Point(0, 0);
 			this.statusBar.Name = "statusBar";
 			this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
@@ -1304,15 +1306,14 @@
 			this.toolStripStatusLabelUpdate.AccessibleDescription = "Show that an MPCORB.DAT update is aviable";
 			this.toolStripStatusLabelUpdate.AccessibleName = "Update information";
 			this.toolStripStatusLabelUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.toolStripStatusLabelUpdate.DoubleClickEnabled = true;
+			this.toolStripStatusLabelUpdate.AutoToolTip = true;
 			this.toolStripStatusLabelUpdate.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
 			this.toolStripStatusLabelUpdate.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
 			this.toolStripStatusLabelUpdate.Name = "toolStripStatusLabelUpdate";
-			this.toolStripStatusLabelUpdate.Size = new System.Drawing.Size(137, 17);
-			this.toolStripStatusLabelUpdate.Text = "MPCORB.DAT update";
+			this.toolStripStatusLabelUpdate.Size = new System.Drawing.Size(186, 16);
+			this.toolStripStatusLabelUpdate.Text = "MPCORB.DAT update available";
 			this.toolStripStatusLabelUpdate.ToolTipText = "MPCORB.DAT update aviable";
 			this.toolStripStatusLabelUpdate.Click += new System.EventHandler(this.ToolStripStatusLabelUpdate_Click);
-			this.toolStripStatusLabelUpdate.DoubleClick += new System.EventHandler(this.ToolStripStatusLabelUpdate_DoubleClick);
 			this.toolStripStatusLabelUpdate.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelUpdate_MouseEnter);
 			this.toolStripStatusLabelUpdate.MouseLeave += new System.EventHandler(this.ToolStripStatusLabelUpdate_MouseLeave);
 			// 
@@ -1321,11 +1322,11 @@
 			this.toolStripStatusLabelBackgroundDownload.AccessibleDescription = "Show the download progres";
 			this.toolStripStatusLabelBackgroundDownload.AccessibleName = "Download progress";
 			this.toolStripStatusLabelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.toolStripStatusLabelBackgroundDownload.DoubleClickEnabled = true;
+			this.toolStripStatusLabelBackgroundDownload.AutoToolTip = true;
 			this.toolStripStatusLabelBackgroundDownload.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
 			this.toolStripStatusLabelBackgroundDownload.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
 			this.toolStripStatusLabelBackgroundDownload.Name = "toolStripStatusLabelBackgroundDownload";
-			this.toolStripStatusLabelBackgroundDownload.Size = new System.Drawing.Size(80, 17);
+			this.toolStripStatusLabelBackgroundDownload.Size = new System.Drawing.Size(80, 16);
 			this.toolStripStatusLabelBackgroundDownload.Text = "Download:";
 			this.toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progres";
 			this.toolStripStatusLabelBackgroundDownload.DoubleClick += new System.EventHandler(this.ToolStripStatusLabelBackgroundDownload_DoubleClick);
@@ -1337,6 +1338,7 @@
 			this.toolStripProgressBarBackgroundDownload.AccessibleDescription = "Show the download progres";
 			this.toolStripProgressBarBackgroundDownload.AccessibleName = "Download progress";
 			this.toolStripProgressBarBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
+			this.toolStripProgressBarBackgroundDownload.AutoToolTip = true;
 			this.toolStripProgressBarBackgroundDownload.Enabled = false;
 			this.toolStripProgressBarBackgroundDownload.Name = "toolStripProgressBarBackgroundDownload";
 			this.toolStripProgressBarBackgroundDownload.Size = new System.Drawing.Size(100, 16);
@@ -1346,16 +1348,31 @@
 			this.toolStripProgressBarBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripProgressBarBackgroundDownload_MouseEnter);
 			this.toolStripProgressBarBackgroundDownload.MouseLeave += new System.EventHandler(this.ToolStripProgressBarBackgroundDownload_MouseLeave);
 			// 
+			// toolStripStatusLabelCancelBackgroundDownload
+			// 
+			this.toolStripStatusLabelCancelBackgroundDownload.AccessibleDescription = "Cancel the background download";
+			this.toolStripStatusLabelCancelBackgroundDownload.AccessibleName = "Cancel download";
+			this.toolStripStatusLabelCancelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
+			this.toolStripStatusLabelCancelBackgroundDownload.AutoToolTip = true;
+			this.toolStripStatusLabelCancelBackgroundDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripStatusLabelCancelBackgroundDownload.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
+			this.toolStripStatusLabelCancelBackgroundDownload.Name = "toolStripStatusLabelCancelBackgroundDownload";
+			this.toolStripStatusLabelCancelBackgroundDownload.Size = new System.Drawing.Size(16, 16);
+			this.toolStripStatusLabelCancelBackgroundDownload.Text = "Cancel background download";
+			this.toolStripStatusLabelCancelBackgroundDownload.Click += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_Click);
+			this.toolStripStatusLabelCancelBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_MouseEnter);
+			this.toolStripStatusLabelCancelBackgroundDownload.MouseLeave += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_MouseLeave);
+			// 
 			// labelHelp
 			// 
 			this.labelHelp.AccessibleDescription = "Show some information";
 			this.labelHelp.AccessibleName = "Show some information";
 			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelHelp.DoubleClickEnabled = true;
+			this.labelHelp.AutoToolTip = true;
 			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
 			this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
 			this.labelHelp.Name = "labelHelp";
-			this.labelHelp.Size = new System.Drawing.Size(116, 17);
+			this.labelHelp.Size = new System.Drawing.Size(116, 16);
 			this.labelHelp.Text = "Show tooltip here";
 			this.labelHelp.ToolTipText = "Show some information";
 			// 
@@ -2093,24 +2110,18 @@
 			this.labelGottoIndex.TabIndex = 7;
 			this.labelGottoIndex.Text = "Go to Index:";
 			// 
-			// ofd
+			// backgroundWorkerLoadingDatabase
 			// 
-			this.ofd.DefaultExt = "dat";
-			this.ofd.FileName = "mpcorb.dat";
-			this.ofd.Filter = "DAT-Datei|*.dat|Alle Dateien|*.*";
+			this.backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
+			this.backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
+			this.backgroundWorkerLoadingDatabase.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerLoadingDatabase_DoWork);
+			this.backgroundWorkerLoadingDatabase.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerLoadingDatabase_ProgressChanged);
+			this.backgroundWorkerLoadingDatabase.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerLoadingDatabase_RunWorkerCompleted);
 			// 
-			// bwLoadingDB
+			// timerBlinkForUpdateAvailable
 			// 
-			this.bwLoadingDB.WorkerReportsProgress = true;
-			this.bwLoadingDB.WorkerSupportsCancellation = true;
-			this.bwLoadingDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerLoadingDB_DoWork);
-			this.bwLoadingDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerLoadingDB_ProgressChanged);
-			this.bwLoadingDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerLoadingDB_RunWorkerCompleted);
-			// 
-			// timerUpdateBlink
-			// 
-			this.timerUpdateBlink.Interval = 500;
-			this.timerUpdateBlink.Tick += new System.EventHandler(this.TimerUpdateBlink_Tick);
+			this.timerBlinkForUpdateAvailable.Interval = 500;
+			this.timerBlinkForUpdateAvailable.Tick += new System.EventHandler(this.TimerBlinkForUpdateAvailable_Tick);
 			// 
 			// toolStripNavigation
 			// 
@@ -2264,11 +2275,11 @@
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripIcons);
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripNavigation);
 			// 
-			// timerUpdate
+			// timerCheckForNewMpcorbDatFile
 			// 
-			this.timerUpdate.Enabled = true;
-			this.timerUpdate.Interval = 1440000;
-			this.timerUpdate.Tick += new System.EventHandler(this.TimerUpdate_Tick);
+			this.timerCheckForNewMpcorbDatFile.Enabled = true;
+			this.timerCheckForNewMpcorbDatFile.Interval = 1440000;
+			this.timerCheckForNewMpcorbDatFile.Tick += new System.EventHandler(this.TimerCheckForNewMpcorbDatFile_Tick);
 			// 
 			// notifyIconUpdate
 			// 
@@ -2400,7 +2411,6 @@
     private System.Windows.Forms.Label labelGottoIndex;
     private System.Windows.Forms.NumericUpDown numericUpDownGotoIndex;
     private System.Windows.Forms.Button buttonGotoIndex;
-    private System.Windows.Forms.OpenFileDialog ofd;
     private System.Windows.Forms.ContextMenuStrip contextMenuNavigationStep;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem100;
@@ -2420,12 +2430,12 @@
     private System.Windows.Forms.ToolStripMenuItem menuitemDownloadMpcorbDat;
     private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarBackgroundDownload;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelBackgroundDownload;
-    private System.ComponentModel.BackgroundWorker bwLoadingDB;
+    private System.ComponentModel.BackgroundWorker backgroundWorkerLoadingDatabase;
     private System.Windows.Forms.TrackBar trackBarIndex;
     private System.Windows.Forms.ToolStripMenuItem menuitemCheckMpcorbDat;
     private System.Windows.Forms.ToolStripStatusLabel labelHelp;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUpdate;
-    private System.Windows.Forms.Timer timerUpdateBlink;
+    private System.Windows.Forms.Timer timerBlinkForUpdateAvailable;
     private System.Windows.Forms.ToolStrip toolStripIcons;
     private System.Windows.Forms.ToolStripButton toolStripButtonCheckMpcorbDat;
     private System.Windows.Forms.ToolStripButton toolStripButtonDownloadMpcorbDat;
@@ -2477,11 +2487,12 @@
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStyleProfessional;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStyleSystem;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStyleVs2008;
-    private System.Windows.Forms.Timer timerUpdate;
+    private System.Windows.Forms.Timer timerCheckForNewMpcorbDatFile;
     private System.Windows.Forms.NotifyIcon notifyIconUpdate;
     private System.Windows.Forms.ContextMenuStrip contextMenuNotifyIcon;
     private System.Windows.Forms.ToolStripMenuItem checkMPCORBDATToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem downloadMPCORBDATToolStripMenuItem;
-  }
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCancelBackgroundDownload;
+	}
 }
 

@@ -30,8 +30,14 @@ namespace PlanetoidDB
 					else
 					{
 						DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
-						formDownloaderForMpcorbDat.ShowDialog();
-						Application.Run(mainForm: new PlanetoidDBForm());
+						if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
+						{
+							Application.Run(mainForm: new PlanetoidDBForm());
+						}
+						else
+						{
+							Application.Exit();
+						}
 					}
 				}
 				else

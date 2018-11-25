@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -22,7 +21,6 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void AppInfoForm_Load(object sender, EventArgs e)
     {
-      ToolStripManager.Renderer = new Office2007Renderer();
       labelTitle.Text = GetAssemblyProduct();
       labelVersion.Text = String.Format(format: Planetoid_DB.I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
       linkLabelCopyright.Text = GetAssemblyCopyright();
@@ -76,6 +74,7 @@ namespace PlanetoidDB
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <returns></returns>
 		public string GetAssemblyProduct()
 		{
 			object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyProductAttribute), inherit: false);
@@ -89,6 +88,7 @@ namespace PlanetoidDB
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <returns></returns>
 		public string GetAssemblyCopyright()
 		{
 			object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyCopyrightAttribute), inherit: false);
@@ -102,6 +102,7 @@ namespace PlanetoidDB
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <returns></returns>
 		public string GetAssemblyCompany()
 		{
 			object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyCompanyAttribute), inherit: false);

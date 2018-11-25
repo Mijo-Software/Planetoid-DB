@@ -3,7 +3,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.Media;
 using System.Windows.Forms;
-using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -29,7 +28,6 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void TableModeForm_Load(object sender, EventArgs e)
 		{
-			ToolStripManager.Renderer = new Office2007Renderer();
 			labelHelp.Text = "";
 			labelHelp.Enabled = false;
 			listViewTableMode.Visible = false;

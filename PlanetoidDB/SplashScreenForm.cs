@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -28,7 +27,6 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void SplashScreenForm_Load(object sender, EventArgs e)
     {
-			ToolStripManager.Renderer = new Office2007Renderer();
       labelDataLoading.Text = Planetoid_DB.I10nStrings.strDataLoading;
       labelTitle.Text = GetAssemblyProduct();
       labelVersion.Text = string.Format(format: Planetoid_DB.I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());

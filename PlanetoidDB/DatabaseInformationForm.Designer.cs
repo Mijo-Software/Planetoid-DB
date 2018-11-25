@@ -59,7 +59,7 @@
 			this.buttonOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
-			this.buttonOK.Location = new System.Drawing.Point(203, 170);
+			this.buttonOK.Location = new System.Drawing.Point(186, 170);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 23);
 			this.buttonOK.TabIndex = 0;

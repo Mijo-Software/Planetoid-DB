@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
-using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -12,10 +11,10 @@ namespace PlanetoidDB
 	/// </summary>
 	public partial class DownloadUpdateForm : Form
   {
-		private Uri uriMPCORB = new Uri(uriString: Planetoid_DB.Properties.Resources.strMpcorbUrl);
 		private string
 			strFilenameMPCORB = Planetoid_DB.Properties.Resources.strFilenameMPCORB,
 			strFilenameMPCORBtemp = Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp;
+		private Uri uriMPCORB = new Uri(uriString: Planetoid_DB.Properties.Resources.strMpcorbUrl);
 		private WebClient webClient = new WebClient();
 
 		/// <summary>
@@ -30,19 +29,25 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void DownloadUpdateForm_Load(object sender, EventArgs e)
     {
-      ToolStripManager.Renderer = new Office2007Renderer();
-      labelStatus.Text = "Status: nothing to do...";
-      labelDate.Text = ""; labelDate.Visible = false;
-      labelSize.Text = ""; labelSize.Visible = false;
-      labelSource.Text = ""; labelSource.Visible = false;
-      labelDownload.Text = "0 %";
+      labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusNothingToDoText;
+      labelDateValue.Text = ""; labelDateValue.Visible = false;
+      labelSizeValue.Text = ""; labelSizeValue.Visible = false;
+      labelSourceValue.Text = ""; labelSourceValue.Visible = false;
+      labelDownload.Text = Planetoid_DB.I10nStrings.strNumberZero + Planetoid_DB.I10nStrings.strPercentSign;
       buttonCancelDownload.Enabled = false;
       webClient.Proxy = null;
       webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
       webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
     }
 
-    /// <summary>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void DownloadUpdateForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
@@ -50,7 +55,7 @@ namespace PlanetoidDB
 		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
     {
       progressBarDownload.Value = e.ProgressPercentage;
-      labelDownload.Text = e.ProgressPercentage.ToString() + " %";
+      labelDownload.Text = e.ProgressPercentage.ToString() + Planetoid_DB.I10nStrings.strPercentSign;
       TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: e.ProgressPercentage, progressMax: 100);
     }
 
@@ -61,69 +66,367 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void Completed(object sender, AsyncCompletedEventArgs e)
     {
+			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
 			if (e.Error == null)
 			{
-				labelStatus.Text = "Status: Updating database...";
+				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusRefreshingDatabaseText;
 				File.Delete(path: strFilenameMPCORB);
 				File.Copy(sourceFileName: strFilenameMPCORBtemp, destFileName: strFilenameMPCORB);
-				labelStatus.Text = "Status: Download complete";
-				MessageBox.Show(text: "Download completed!", caption: "Complete", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusDownloadCompleteText;
+				MessageBox.Show(text: Planetoid_DB.I10nStrings.strDownloadCompleteText, caption: Planetoid_DB.I10nStrings.strCompleteCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
+				DialogResult = DialogResult.OK;
 				this.Close();
 			}
 			else
 			{
 				if (e.Cancelled)
 				{
-					labelStatus.Text = "Status: Cancelled...";
+					labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusDownloadCancelled;
 				}
 				else
 				{
-					labelStatus.Text = "Status: Unknown error... " + e.Error;
+					labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusUnknownError + " " + e.Error;
 				}
-				labelSource.Text = "";
-				labelDate.Text = "";
-				labelSize.Text = "";
+				labelSourceValue.Text = "";
+				labelDateValue.Text = "";
+				labelSizeValue.Text = "";
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
 				buttonCancelDownload.Enabled = false;
 				progressBarDownload.Value = 0;
-				labelDownload.Text = progressBarDownload.Value.ToString() + " %";
+				labelDownload.Text = progressBarDownload.Value.ToString() + Planetoid_DB.I10nStrings.strPercentSign;
 			}
-      TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
+    }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void CheckMpcorbDat()
+		{
+			DateTime datetimeFileLocal = DateTime.MinValue;
+			DateTime datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+			string strInfoMpcorbDatLocal = Planetoid_DB.I10nStrings.strInfoMpcorbDatLocal + ":\n\r\n\r";
+			if (File.Exists(path: strFilenameMPCORB))
+			{
+				FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
+				long fileSize = fileInfo.Length;
+				datetimeFileLocal = fileInfo.CreationTime;
+				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + Planetoid_DB.I10nStrings.strUrlText + ": " + fileInfo.FullName;
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + Planetoid_DB.I10nStrings.strContenLenghtText + ": " + fileSize.ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + Planetoid_DB.I10nStrings.strLastModifiedText + ": " + datetimeFileLocal;
+			}
+			else
+			{
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + Planetoid_DB.I10nStrings.strNoFileFoundText;
+			}
+
+			string strInfoMpcorbDatOnline = Planetoid_DB.I10nStrings.strInfoMpcorbDatOnline + ":\n\r\n\r";
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "  " + Planetoid_DB.I10nStrings.strUrlText + ": " + uriMPCORB;
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + Planetoid_DB.I10nStrings.strContenLenghtText + ": " + GetContentLength(uri: uriMPCORB).ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + Planetoid_DB.I10nStrings.strLastModifiedText + ": " + datetimeFileOnline;
+
+			string strUpdate = "";
+			MessageBoxIcon mbi = MessageBoxIcon.None;
+			if (datetimeFileOnline > datetimeFileLocal)
+			{
+				strUpdate = Planetoid_DB.I10nStrings.strUpdateAvailabletText;
+				mbi = MessageBoxIcon.Warning;
+			}
+			else
+			{
+				strUpdate = Planetoid_DB.I10nStrings.strNoUpdateNeededText;
+				mbi = MessageBoxIcon.Information;
+			}
+			MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: Planetoid_DB.I10nStrings.strMpcorbDatInformationCaption, buttons: MessageBoxButtons.OK, icon: mbi);
+		}
+
+    /// <summary>
+		/// 
+		/// </summary>
+		/// <param name="uri"></param>
+		/// <returns></returns>
+		private DateTime GetLastModified(Uri uri)
+    {
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+      HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+			resp.Close();
+      return resp.LastModified;
     }
 
     /// <summary>
 		/// 
 		/// </summary>
+		/// <param name="uri"></param>
+		/// <returns></returns>
+		private long GetContentLength(Uri uri)
+    {
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+			resp.Close();
+			return Convert.ToInt64(value: resp.ContentLength);
+    }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void CopyToClipboard(string text)
+		{
+			Clipboard.SetText(text: text);
+			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: "", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void SetLabelText(string text)
+		{
+			if (text == "")
+			{
+				labelHelp.Enabled = false;
+			}
+			else
+			{
+				labelHelp.Enabled = true;
+			}
+			labelHelp.Text = text;
+		}
+
+		#region Enter-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStatusText_Enter(object sender, EventArgs e) => SetLabelText(text: labelStatusText.AccessibleDescription);
+
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateText_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateText.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSourceText_Enter(object sender, EventArgs e) => SetLabelText(text: labelSourceText.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeText_Enter(object sender, EventArgs e) => SetLabelText(text: labelSizeText.AccessibleDescription);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStatusValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelStatusValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSourceValue_Enter(object sender, EventArgs e) => SetLabelText(text: progressBarDownload.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelSizeValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDownload_Enter(object sender, EventArgs e) => SetLabelText(text: labelDownload.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonCheckForUpdate_Enter(object sender, EventArgs e) => SetLabelText(text: buttonCheckForUpdate.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonDownload_Enter(object sender, EventArgs e) => SetLabelText(text: buttonDownload.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonCancelDownload_Enter(object sender, EventArgs e) => SetLabelText(text: buttonCancelDownload.AccessibleDescription);
+
+		#endregion
+
+		#region Leave-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStatusText_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateText_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSourceText_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeText_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStatusValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSourceValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDownload_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonCheckForUpdate_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonDownload_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonCancelDownload_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		#endregion
+
+		#region MouseEnter-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ProgressBarDownload_MouseEnter(object sender, EventArgs e) => SetLabelText(text: progressBarDownload.AccessibleDescription);
+
+		#endregion
+
+		#region MouseLeave-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ProgressBarDownload_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		#endregion
+
+		#region Click-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void ButtonDownload_Click(object sender, EventArgs e)
-    {
-      buttonDownload.Enabled = false;
-      buttonCancelDownload.Enabled = true;
-      buttonCheckForUpdate.Enabled = false;
-      labelSource.Text = "Source: " + uriMPCORB.AbsoluteUri;
-      labelSource.Visible = true;
-      //labelDate.Text = "date: " + GetLastModified(uriLastModiefied: uriMPCORB);
-      labelDate.Visible = true;
-      //labelSize.Text = "size: " + GetContentLength(uri: uriMPCORB).ToString() + " Bytes";
-      labelSize.Visible = true;
-      labelStatus.Text = "Status: Try to connect...";
-      try
-      {
-        labelStatus.Text = "Status: Downloading...";
-        webClient.DownloadFileAsync(address: uriMPCORB, fileName: @strFilenameMPCORBtemp);
-      }
-      catch(Exception ex)
-      {
-        labelStatus.Text = "Status: An error occured...";
-        buttonDownload.Enabled = true;
-        buttonCheckForUpdate.Enabled = true;
-        MessageBox.Show(text: ex.Message);
-      }
-    }
+		{
+			buttonDownload.Enabled = false;
+			buttonCancelDownload.Enabled = true;
+			buttonCheckForUpdate.Enabled = false;
+			labelSourceValue.Text = uriMPCORB.AbsoluteUri;
+			labelSourceValue.Visible = true;
+			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToString();
+			labelDateValue.Visible = true;
+			labelSizeValue.Text = GetContentLength(uri: uriMPCORB).ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+			labelSizeValue.Visible = true;
+			labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusTryToConnect;
+			try
+			{
+				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusDownloading;
+				webClient.DownloadFileAsync(address: uriMPCORB, fileName: @strFilenameMPCORBtemp);
+			}
+			catch (Exception ex)
+			{
+				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusUnknownError + " " + ex.Message;
+				buttonDownload.Enabled = true;
+				buttonCheckForUpdate.Enabled = true;
+				MessageBox.Show(text: ex.Message);
+			}
+		}
 
 		/// <summary>
 		/// 
@@ -138,96 +441,54 @@ namespace PlanetoidDB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void DownloadUpdateForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-      if (File.Exists(path: strFilenameMPCORBtemp))
+		{
+			webClient.CancelAsync();
+			if (File.Exists(path: strFilenameMPCORBtemp))
 			{
 				File.Delete(path: strFilenameMPCORBtemp);
 			}
 		}
-
-    /// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonCheckForUpdate_Click(object sender, EventArgs e)
-    {
-      FileInfo fi;
-      long fileSize = 0;
-      DateTime datetimeFileLocal = DateTime.MinValue;
-      DateTime datetimeFileOnline = GetLastModified(uriLastModiefied: uriMPCORB);
-      string strInfoMpcorbDatLocal = "MPCORB.DAT local:\n\r\n\r";
-      if (File.Exists(path: strFilenameMPCORB))
-      {
-        fi = new FileInfo(strFilenameMPCORB);
-        fileSize = fi.Length;
-        datetimeFileLocal = fi.CreationTime;
-        datetimeFileOnline = GetLastModified(uriLastModiefied: uriMPCORB);
-        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "     URL: " + fi.FullName;
-        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r     Content Length: " + fileSize.ToString() + " Bytes";
-        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r     Last modified: " + datetimeFileLocal;
-      }
-      else
-      {
-        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "     no file found";
-      }
-
-      string strInfoMpcorbDatOnline = "MPCORB.DAT online:\n\r\n\r";
-      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "     URL: " + uriMPCORB;
-      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Content Length: " + GetContentLength(uri: uriMPCORB).ToString() + " Bytes";
-      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Last modified: " + datetimeFileOnline;
-
-      string strUpdate = "";
-      MessageBoxIcon mbi = MessageBoxIcon.None;
-      if (datetimeFileOnline > datetimeFileLocal)
-      {
-        strUpdate = "Update aviable!";
-        mbi = MessageBoxIcon.Warning;
-      }
-      else
-      {
-        strUpdate = "No update needed!";
-        mbi = MessageBoxIcon.Information;
-      }
-      MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: "MPCORB.DAT infomations", buttons: MessageBoxButtons.OK, icon: mbi);
-    }
-
-    /// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uriLastModiefied"></param>
-		/// <returns></returns>
-		private DateTime GetLastModified(Uri uriLastModiefied)
-    {
-			/*
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uriLastModiefied);
-      HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-      return resp.LastModified;
-			*/
-			return new DateTime();
-    }
-
-    /// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>
-		private long GetContentLength(Uri uri)
-    {
-			//HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uriContentLength);
-			//HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			//long bytesTotal = Convert.ToInt64(value: resp.ContentLength);
-
-			webClient.OpenRead(address: uri);
-			long bytesTotal = Convert.ToInt64(value: webClient.ResponseHeaders["Content-Length"]);
-      return bytesTotal;
-    }
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DownloadUpdateForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void ButtonCheckForUpdate_Click(object sender, EventArgs e) => CheckMpcorbDat();
+
+		#endregion
+
+		#region DoubleClick-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStatusValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelStatusValue.Text);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateValue.Text);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSourceValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSourceValue.Text);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSizeValue.Text);
+
+		#endregion
+
 	}
 }

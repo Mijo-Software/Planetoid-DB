@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Office2007Rendering;
 
 namespace PlanetoidDB
 {
@@ -32,15 +31,14 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
     {
-			ToolStripManager.Renderer = new Office2007Renderer();
-			FileInfo fi = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
-      labelNameValue.Text = fi.Name;
-      labelDirectoryValue.Text = fi.DirectoryName;
-      labelSizeValue.Text = fi.Length.ToString() + " " + Planetoid_DB.I10nStrings.strBytes;
-      labelDateCreatedValue.Text = fi.CreationTime.ToString();
-      labelDateAccessedValue.Text = fi.LastAccessTime.ToString();
-      labelDateWritedValue.Text = fi.LastWriteTime.ToString();
-      labelAttributesValue.Text = fi.Attributes.ToString();
+			FileInfo fileInfo = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
+      labelNameValue.Text = fileInfo.Name;
+      labelDirectoryValue.Text = fileInfo.DirectoryName;
+      labelSizeValue.Text = fileInfo.Length.ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+      labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
+      labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
+      labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
+      labelAttributesValue.Text = fileInfo.Attributes.ToString();
     }
 
 		/// <summary>

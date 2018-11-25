@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -16,11 +17,13 @@ namespace PlanetoidDB
 	/// </summary>
 	public partial class PlanetoidDBForm : Form
 	{
-		private bool isDownloadCancelled = false;
 		private int currentPosition = 0, stepPosition = 0;
 		private ArrayList arrDB = new ArrayList(capacity: 0);
 		private SplashScreenForm formSplashScreen = new SplashScreenForm();
 		private WebClient webClient = new WebClient();
+		private string
+			strFilenameMPCORB = Planetoid_DB.Properties.Resources.strFilenameMPCORB,
+			strFilenameMPCORBtemp = Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp;
 		private Uri uriMPCORB = new Uri(uriString: Planetoid_DB.Properties.Resources.strMpcorbUrl);
 
 		#region Constructor and FormEvent-Handlers
@@ -43,11 +46,11 @@ namespace PlanetoidDB
 		private void PlanetoidDBForm_Load(object sender, EventArgs e)
 		{
 			ToolStripManager.Renderer = new Office2007Renderer();
-			bwLoadingDB.WorkerReportsProgress = true;
-			bwLoadingDB.WorkerSupportsCancellation = true;
-			bwLoadingDB.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDB_ProgressChanged);
-			bwLoadingDB.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDB_RunWorkerCompleted);
-			bwLoadingDB.RunWorkerAsync();
+			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
+			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
+			backgroundWorkerLoadingDatabase.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDatabase_ProgressChanged);
+			backgroundWorkerLoadingDatabase.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDatabase_RunWorkerCompleted);
+			backgroundWorkerLoadingDatabase.RunWorkerAsync();
 			formSplashScreen.Show();
 		}
 
@@ -60,15 +63,20 @@ namespace PlanetoidDB
 		{
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Enabled = false;
-			if (IsMpcorbDatUpdateAviable() == true)
+			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
+			toolStripStatusLabelBackgroundDownload.Visible = false;
+			toolStripProgressBarBackgroundDownload.Visible = false;
+			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+			if (IsMpcorbDatUpdateAvailable())
 			{
-				timerUpdateBlink.Enabled = true;
+				timerBlinkForUpdateAvailable.Enabled = true;
 				toolStripStatusLabelUpdate.Enabled = true;
 			}
 			else
 			{
-				timerUpdateBlink.Enabled = false;
+				timerBlinkForUpdateAvailable.Enabled = false;
 				toolStripStatusLabelUpdate.Enabled = false;
+				toolStripStatusLabelUpdate.Visible = false;
 			}
 		}
 
@@ -76,78 +84,95 @@ namespace PlanetoidDB
 
 		#region main functions
 
-		private void Download(int i)
+		/// <summary>
+		/// 
+		/// </summary>
+		private void Restart()
 		{
-			toolStripProgressBarBackgroundDownload.Visible = true;
-			toolStripStatusLabelBackgroundDownload.Visible = true;
+			Process.Start(fileName: Application.ExecutablePath);
+			this.Close();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		private void AskForRestartAfterDownloadingDatabase()
+		{
+			if (MessageBox.Show(text: Planetoid_DB.I10nStrings.strDownloadCompleteAndRestartQuestionText, caption: Planetoid_DB.I10nStrings.strInformationCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+			{
+				Restart();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currentPosition"></param>
 		private void GotoCurrentPosition(int currentPosition)
 		{
 			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
 			// if (teilstring == "0") zahl = 0; ...
-			labelIndexValue.Text = arrDB[index: currentPosition].ToString().Substring(0, 7).Trim();
-			labelMagAbsValue.Text = arrDB[index: currentPosition].ToString().Substring(8, 5).Trim();
-			labelSlopeParamValue.Text = arrDB[index: currentPosition].ToString().Substring(14, 5).Trim();
-			labelEpochValue.Text = arrDB[index: currentPosition].ToString().Substring(20, 5).Trim();
-			labelMeanAnomalyValue.Text = arrDB[index: currentPosition].ToString().Substring(26, 9).Trim();
-			labelArgPeriValue.Text = arrDB[index: currentPosition].ToString().Substring(37, 9).Trim();
-			labelLongAscNodeValue.Text = arrDB[index: currentPosition].ToString().Substring(48, 9).Trim();
-			labelInclValue.Text = arrDB[index: currentPosition].ToString().Substring(59, 9).Trim();
-			labelOrbEccValue.Text = arrDB[index: currentPosition].ToString().Substring(70, 9).Trim();
-			labelMotionValue.Text = arrDB[index: currentPosition].ToString().Substring(80, 11).Trim();
-			labelSemiMajorAxisValue.Text = arrDB[index: currentPosition].ToString().Substring(92, 11).Trim();
-			labelRefValue.Text = arrDB[index: currentPosition].ToString().Substring(107, 9).Trim();
-			labelNumbObsValue.Text = arrDB[index: currentPosition].ToString().Substring(117, 5).Trim();
-			labelNumbOpposValue.Text = arrDB[index: currentPosition].ToString().Substring(123, 3).Trim();
-			labelObsSpanValue.Text = arrDB[index: currentPosition].ToString().Substring(127, 9).Trim();
-			labelRmsResidualValue.Text = arrDB[index: currentPosition].ToString().Substring(137, 4).Trim();
-			labelComputerNameValue.Text = arrDB[index: currentPosition].ToString().Substring(150, 10).Trim();
-			labelFlagsValue.Text = arrDB[index: currentPosition].ToString().Substring(161, 4).Trim();
-			labelDesgnNameValue.Text = arrDB[index: currentPosition].ToString().Substring(166, 28).Trim();
-			labelObsLastDateValue.Text = arrDB[index: currentPosition].ToString().Substring(194, 8).Trim();
-			labelIndexPos.Text = Planetoid_DB.I10nStrings.strIndex + ": " + (currentPosition + 1).ToString() + " / " + (arrDB.Count).ToString();
+			labelIndexValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			labelMagAbsValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			labelSlopeParamValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			labelEpochValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			labelMeanAnomalyValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			labelArgPeriValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			labelLongAscNodeValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			labelInclValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			labelOrbEccValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			labelMotionValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			labelSemiMajorAxisValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			labelRefValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			labelNumbObsValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			labelNumbOpposValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			labelObsSpanValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			labelRmsResidualValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			labelComputerNameValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			labelFlagsValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			labelDesgnNameValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			labelObsLastDateValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+			labelIndexPos.Text = Planetoid_DB.I10nStrings.strIndex + ": " + (currentPosition + 1).ToString() + " / " + arrDB.Count.ToString();
 			trackBarIndex.Value = this.currentPosition;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="uriLastModiefied"></param>
+		/// <param name="uri"></param>
 		/// <returns></returns>
-		private DateTime GetLastModified(Uri uriLastModiefied)
+		private DateTime GetLastModified(Uri uri)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uriLastModiefied);
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+			resp.Close();
 			return resp.LastModified;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="uriContentLength"></param>
+		/// <param name="uri"></param>
 		/// <returns></returns>
-		private long GetContentLength(Uri uriContentLength)
+		private long GetContentLength(Uri uri)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uriContentLength);
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			long bytesTotal = Convert.ToInt64(value: resp.ContentLength);
-			//webClient.OpenRead(uriContentLength);
-			//Int64 bytesTotal = Convert.ToInt64(webClient.ResponseHeaders["Content-Length"]);
-			return bytesTotal;
+			resp.Close();
+			return Convert.ToInt64(value: resp.ContentLength);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <returns></returns>
-		private bool IsMpcorbDatUpdateAviable()
+		private bool IsMpcorbDatUpdateAvailable()
 		{
-			FileInfo fi = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
-			long fileSize = fi.Length;
-			DateTime datetimeFileLocal = fi.CreationTime;
-			DateTime datetimeFileOnline = GetLastModified(uriLastModiefied: uriMPCORB);
-			if (datetimeFileOnline > datetimeFileLocal) return true; else return false;
+			FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
+			long fileSize = fileInfo.Length;
+			DateTime datetimeFileLocal = fileInfo.CreationTime;
+			DateTime datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+			return datetimeFileOnline > datetimeFileLocal ? true : false;
 		}
 
 		/// <summary>
@@ -157,7 +182,7 @@ namespace PlanetoidDB
 		private void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: "", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: Planetoid_DB.I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -191,7 +216,10 @@ namespace PlanetoidDB
 			else
 			{
 				DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
-				formDownloaderForMpcorbDat.ShowDialog();
+				if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
+				{
+					AskForRestartAfterDownloadingDatabase();
+				}
 			}
 		}
 
@@ -210,14 +238,7 @@ namespace PlanetoidDB
 		/// <param name="text"></param>
 		private void SetLabelText(string text)
 		{
-			if (text == "")
-			{
-				labelHelp.Enabled = false;
-			}
-			else
-			{
-				labelHelp.Enabled = true;
-			}
+			labelHelp.Enabled = text == "" ? false : true;
 			labelHelp.Text = text;
 		}
 
@@ -226,88 +247,77 @@ namespace PlanetoidDB
 		/// </summary>
 		private void CheckMpcorbDat()
 		{
-			FileInfo fi = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
-			long fileSize = fi.Length;
-			DateTime datetimeFileLocal = fi.CreationTime;
-			DateTime datetimeFileOnline = GetLastModified(uriLastModiefied: uriMPCORB);
+			DateTime
+				datetimeFileLocal = DateTime.MinValue.Date,
+				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+      string strInfoMpcorbDatLocal = Planetoid_DB.I10nStrings.strInfoMpcorbDatLocal + ":\n\r\n\r";
+      if (File.Exists(path: strFilenameMPCORB))
+      {
+				FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
+				long fileSize = fileInfo.Length;
+				datetimeFileLocal = fileInfo.CreationTime;
+        datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + Planetoid_DB.I10nStrings.strUrlText + ": " + fileInfo.FullName;
+        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + Planetoid_DB.I10nStrings.strContenLenghtText + ": " + fileSize.ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + Planetoid_DB.I10nStrings.strLastModifiedText + ": " + datetimeFileLocal;
+      }
+      else
+      {
+        strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + Planetoid_DB.I10nStrings.strNoFileFoundText;
+      }
 
-			string strInfoMpcorbDatLocal = "MPCORB.DAT local:\n\r\n\r";
-			if (File.Exists(path: Planetoid_DB.Properties.Resources.strFilenameMPCORB))
-			{
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "     URL: " + fi.FullName;
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r     Content Length: " + fileSize.ToString() + " Bytes";
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r     Last modified: " + datetimeFileLocal;
-			}
-			else
-			{
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "no file found";
-			}
+      string strInfoMpcorbDatOnline = Planetoid_DB.I10nStrings.strInfoMpcorbDatOnline + ":\n\r\n\r";
+      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "  " + Planetoid_DB.I10nStrings.strUrlText + ": " + uriMPCORB;
+      strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + Planetoid_DB.I10nStrings.strContenLenghtText + ": " + GetContentLength(uri: uriMPCORB).ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + Planetoid_DB.I10nStrings.strLastModifiedText + ": " + datetimeFileOnline;
 
-			string strInfoMpcorbDatOnline = "MPCORB.DAT online:\n\r\n\r";
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "     URL: " + uriMPCORB;
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Content Length: " + GetContentLength(uriMPCORB).ToString() + " Bytes";
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r     Last modified: " + datetimeFileOnline;
-
-			string strUpdate = "";
-			MessageBoxIcon mbi = MessageBoxIcon.None;
-			if (datetimeFileOnline > datetimeFileLocal)
-			{
-				strUpdate = "Update aviable!";
-				mbi = MessageBoxIcon.Warning;
-			}
-			else
-			{
-				strUpdate = "No update needed!";
-				mbi = MessageBoxIcon.Information;
-			}
-
-			MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: "MPCORB.DAT infomations", buttons: MessageBoxButtons.OK, icon: mbi);
+      string strUpdate = "";
+      MessageBoxIcon mbi = MessageBoxIcon.None;
+      if (datetimeFileOnline > datetimeFileLocal)
+      {
+        strUpdate = Planetoid_DB.I10nStrings.strUpdateAvailabletText;
+        mbi = MessageBoxIcon.Warning;
+      }
+      else
+      {
+        strUpdate = Planetoid_DB.I10nStrings.strNoUpdateNeededText;
+        mbi = MessageBoxIcon.Information;
+      }
+      MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: Planetoid_DB.I10nStrings.strMpcorbDatInformationCaption, buttons: MessageBoxButtons.OK, icon: mbi);
 		}
 
 		#endregion
 
-		#region BackgroundWorker
+		#region BackgroundWorker for database loading on start up
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorkerLoadingDB_DoWork(object sender, DoWorkEventArgs e)
+		private void BackgroundWorkerLoadingDatabase_DoWork(object sender, DoWorkEventArgs e)
 		{
 			this.Enabled = false;
-			string fileName = Planetoid_DB.Properties.Resources.strFilenameMPCORB;
-
-			if (!File.Exists(path: fileName))
+			int step = 0, lineNum = 0;
+			FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
+			long fileSize = fileInfo.Length, fileSizeReaded = 0;
+			FileStream fileStream = new FileStream(path: strFilenameMPCORB, mode: FileMode.Open);
+			StreamReader streamReader = new StreamReader(stream: fileStream);
+			string readLine = "";
+			formSplashScreen.Show();
+			while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
 			{
-				this.Hide();
-				formSplashScreen.Close();
-				MessageBox.Show("No file found. Program is quitting!\n\r\n\r1. Download \"" + uriMPCORB.ToString() + "\"!\n\r\n\r2. Copy it into \"" + Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName) + "\"!\n\r\n\r3. Restart!", "No file found", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-				this.Close();
-			} else {
-				formSplashScreen.Show();
-				FileInfo fi = new FileInfo(fileName: fileName);
-				long fileSize = fi.Length, fileSizeReaded = 0;
-				int step = 0, lineNum = 0;
-				FileStream fileStream = new FileStream(path: fileName, mode: FileMode.Open);
-				StreamReader streamReader = new StreamReader(stream: fileStream);
-				string readLine;
-
-				while (streamReader.Peek() != -1 && !bwLoadingDB.CancellationPending)
-				{
-					readLine = streamReader.ReadLine();
-					fileSizeReaded = fileSizeReaded + readLine.Length;
-					float percent = 100 * fileSizeReaded / fileSize;
-					step = (int)percent;
-					formSplashScreen.SetProgressbar(value: step);
-					lineNum++;
-					if ((lineNum >= 44) && (readLine != "")) { arrDB.Add(value: readLine); }
-				}
-
-				fileStream.Close();
-				streamReader.Close();
-				formSplashScreen.Close();
+				readLine = streamReader.ReadLine();
+				fileSizeReaded = fileSizeReaded + readLine.Length;
+				float percent = 100 * fileSizeReaded / fileSize;
+				step = (int)percent;
+				formSplashScreen.SetProgressbar(value: step);
+				lineNum++;
+				if ((lineNum >= 44) && (readLine != "")) { arrDB.Add(value: readLine); }
 			}
+			fileStream.Close();
+			streamReader.Close();
+			formSplashScreen.Close();
 		}
 
 		/// <summary>
@@ -315,7 +325,7 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorkerLoadingDB_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		private void BackgroundWorkerLoadingDatabase_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 		}
 
@@ -324,7 +334,7 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorkerLoadingDB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		private void BackgroundWorkerLoadingDatabase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			numericUpDownGotoIndex.Minimum = 1;
 			numericUpDownGotoIndex.Maximum = arrDB.Count;
@@ -333,40 +343,57 @@ namespace PlanetoidDB
 			GotoCurrentPosition(currentPosition);
 			trackBarIndex.Value = 1;
 			trackBarIndex.Maximum = arrDB.Count - 1;
-			trackBarIndex.TickFrequency = 1;
 			trackBarIndex.TickFrequency = (int)trackBarIndex.Maximum;
 			this.Enabled = true;
-#if DEBUG
+			#if DEBUG
 			Console.Write("Asynchroner Thread kam bis zum Wert: " + e.Result.ToString());
-#endif
+			#endif
 		}
 
 		#endregion
 
-		#region Download and DB update
+		#region Download and update database
 
 		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
 		{
 			toolStripProgressBarBackgroundDownload.Value = e.ProgressPercentage;
-			TaskbarProgress.SetValue(this.Handle, 0, 100);
+			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
 		}
 
 		private void Completed(object sender, AsyncCompletedEventArgs e)
 		{
-			if (isDownloadCancelled == false)
+			if (e.Error == null)
 			{
-				File.Delete(Planetoid_DB.Properties.Resources.strFilenameMPCORB);
-				File.Copy(Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp, Planetoid_DB.Properties.Resources.strFilenameMPCORB);
-				File.Delete(Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
-				MessageBox.Show("Download complete! You must restart the program to apply the update of the database!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			} else {
-				MessageBox.Show("Download cancelled!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				File.Delete(Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
+				File.Delete(path: strFilenameMPCORB);
+				File.Copy(sourceFileName: strFilenameMPCORBtemp, destFileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
+				File.Delete(path: strFilenameMPCORBtemp);
+				AskForRestartAfterDownloadingDatabase();
 			}
+			else
+			{
+				if (e.Cancelled)
+				{
+					MessageBox.Show(text: Planetoid_DB.I10nStrings.strDownloadCancelledText, caption: Planetoid_DB.I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+				}
+				else
+				{
+					MessageBox.Show(text: Planetoid_DB.I10nStrings.strDownloadUnknownError + "\n\r" + e.Error, caption: Planetoid_DB.I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				File.Delete(path: strFilenameMPCORBtemp);
+			}
+			webClient.Dispose();
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Enabled = false;
+			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
+			toolStripStatusLabelBackgroundDownload.Visible = false;
+			toolStripProgressBarBackgroundDownload.Visible = false;
+			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+			toolStripStatusLabelUpdate.IsLink = false;
+			toolStripStatusLabelUpdate.Enabled = false;
+			toolStripStatusLabelUpdate.Visible = false;
+			timerBlinkForUpdateAvailable.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Value = toolStripProgressBarBackgroundDownload.Minimum;
-			TaskbarProgress.SetValue(this.Handle, 0, 100);
+			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
 		}
 
 		#endregion
@@ -378,9 +405,14 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TimerUpdate_Tick(object sender, EventArgs e) => PlanetoidDBForm_Shown(sender: sender, e: e);
+		private void TimerCheckForNewMpcorbDatFile_Tick(object sender, EventArgs e) => PlanetoidDBForm_Shown(sender: sender, e: e);
 
-		private void TimerUpdateBlink_Tick(object sender, EventArgs e)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TimerBlinkForUpdateAvailable_Tick(object sender, EventArgs e)
 		{
 			if (toolStripStatusLabelUpdate.ForeColor == System.Drawing.SystemColors.HotTrack)
 			{
@@ -772,6 +804,13 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripStatusLabelCancelBackgroundDownload_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripStatusLabelCancelBackgroundDownload.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void TrackBarIndex_MouseEnter(object sender, EventArgs e) => SetLabelText(text: trackBarIndex.AccessibleDescription);
 		
 		/// <summary>
@@ -854,7 +893,7 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelUpdate_MouseEnter(object sender, EventArgs e)
 		{
-			if (timerUpdateBlink.Enabled) toolStripStatusLabelUpdate.IsLink = true;
+			if (timerBlinkForUpdateAvailable.Enabled) toolStripStatusLabelUpdate.IsLink = true;
 			SetLabelText(text: toolStripStatusLabelUpdate.AccessibleDescription);
 		}
 
@@ -1382,6 +1421,13 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripStatusLabelCancelBackgroundDownload_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void TrackBarIndex_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		/// <summary>
@@ -1471,7 +1517,7 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelUpdate_MouseLeave(object sender, EventArgs e)
 		{
-			if (timerUpdateBlink.Enabled) toolStripStatusLabelUpdate.IsLink = false;
+			if (timerBlinkForUpdateAvailable.Enabled) toolStripStatusLabelUpdate.IsLink = false;
 			SetLabelText(text: "");
 		}
 
@@ -1638,6 +1684,22 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripStatusLabelCancelBackgroundDownload_Click(object sender, EventArgs e)
+		{
+			toolStripStatusLabelBackgroundDownload.Enabled = false;
+			toolStripProgressBarBackgroundDownload.Enabled = false;
+			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
+			toolStripStatusLabelBackgroundDownload.Visible = false;
+			toolStripProgressBarBackgroundDownload.Visible = false;
+			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+			webClient.CancelAsync();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ButtonStepToBegin_Click(object sender, EventArgs e)
 		{
 			currentPosition = 0;
@@ -1795,21 +1857,21 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(fileName: Planetoid_DB.Properties.Resources.strHomepage);
+		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Planetoid_DB.Properties.Resources.strHomepage);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(fileName: Planetoid_DB.Properties.Resources.strWebsiteMpc);
+		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Planetoid_DB.Properties.Resources.strWebsiteMpc);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(fileName: Planetoid_DB.Properties.Resources.strWebsiteMpcorb);
+		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Planetoid_DB.Properties.Resources.strWebsiteMpcorb);
 
 		/// <summary>
 		/// 
@@ -2080,25 +2142,40 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelUpdate_Click(object sender, EventArgs e)
 		{
-			timerUpdateBlink.Enabled = false;
-			if (MessageBox.Show(text: "Do you want download the lastest MPCORB.DAT file?", caption: "Download MPCORB.DAT?", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show(text: Planetoid_DB.I10nStrings.strAskForDownloadingLastestMpcorbDatFile, caption: Planetoid_DB.I10nStrings.strAskForDownloadingLastestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question) == DialogResult.Yes)
 			{
+				toolStripStatusLabelUpdate.IsLink = false;
+				toolStripStatusLabelUpdate.Enabled = false;
+				toolStripStatusLabelUpdate.Visible = false;
+				timerBlinkForUpdateAvailable.Enabled = false;
+				toolStripStatusLabelBackgroundDownload.Visible = true;
+				toolStripProgressBarBackgroundDownload.Visible = true;
+				toolStripStatusLabelCancelBackgroundDownload.Visible = true;
 				toolStripStatusLabelBackgroundDownload.Enabled = true;
 				toolStripProgressBarBackgroundDownload.Enabled = true;
+				toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
 				webClient.Proxy = null;
 				webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
 				webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 				try
 				{
-					webClient.DownloadFileAsync(address: uriMPCORB, fileName: @Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
+					webClient.DownloadFileAsync(address: uriMPCORB, fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp);
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show(text: ex.Message);
+					MessageBox.Show(text: ex.Message, caption: Planetoid_DB.I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+					toolStripStatusLabelUpdate.IsLink = true;
+					toolStripStatusLabelUpdate.Enabled = true;
+					toolStripStatusLabelUpdate.Visible = true;
+					timerBlinkForUpdateAvailable.Enabled = true;
+					toolStripStatusLabelBackgroundDownload.Visible = false;
+					toolStripProgressBarBackgroundDownload.Visible = false;
+					toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+					toolStripStatusLabelBackgroundDownload.Enabled = false;
+					toolStripProgressBarBackgroundDownload.Enabled = false;
+					toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
 				}
 			}
-			toolStripStatusLabelUpdate.Enabled = false;
-			toolStripStatusLabelUpdate.IsLink = false;
 		}
 
 		/// <summary>
@@ -2137,7 +2214,7 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start(fileName: Planetoid_DB.Properties.Resources.strHomepage);
+		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Planetoid_DB.Properties.Resources.strHomepage);
 
 		/// <summary>
 		/// 
@@ -2590,21 +2667,8 @@ namespace PlanetoidDB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripStatusLabelUpdate_DoubleClick(object sender, EventArgs e)
-		{
-			timerUpdateBlink.Enabled = false;
-			toolStripStatusLabelUpdate.Enabled = false;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ToolStripStatusLabelBackgroundDownload_DoubleClick(object sender, EventArgs e)
 		{
-			isDownloadCancelled = true;
-			webClient.CancelAsync();
 		}
 
 		/// <summary>
@@ -2614,8 +2678,6 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void ToolStripProgressBarBackgroundDownload_DoubleClick(object sender, EventArgs e)
 		{
-			isDownloadCancelled = true;
-			webClient.CancelAsync();
 		}
 
 		#endregion

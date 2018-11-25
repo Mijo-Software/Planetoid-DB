@@ -420,11 +420,12 @@
 			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelHelp});
-			this.statusStrip.Location = new System.Drawing.Point(0, 379);
+			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+			this.statusStrip.Location = new System.Drawing.Point(0, 380);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			this.statusStrip.ShowItemToolTips = true;
-			this.statusStrip.Size = new System.Drawing.Size(744, 22);
+			this.statusStrip.Size = new System.Drawing.Size(744, 21);
 			this.statusStrip.SizingGrip = false;
 			this.statusStrip.TabIndex = 10;
 			this.statusStrip.TabStop = true;
@@ -438,7 +439,7 @@
 			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
 			this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
 			this.labelHelp.Name = "labelHelp";
-			this.labelHelp.Size = new System.Drawing.Size(170, 17);
+			this.labelHelp.Size = new System.Drawing.Size(170, 16);
 			this.labelHelp.Text = "Show informative messages";
 			this.labelHelp.ToolTipText = "Show informative messages";
 			this.labelHelp.MouseEnter += new System.EventHandler(this.LabelStatus_MouseEnter);
