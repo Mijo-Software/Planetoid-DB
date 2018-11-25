@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Media;
 using System.Windows.Forms;
 
-namespace PlanetoidDB
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -79,7 +79,7 @@ namespace PlanetoidDB
 		private void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: "", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -152,7 +152,6 @@ namespace PlanetoidDB
     }
 
 		#endregion
-
 
 		#region BackgroundWorker
 
@@ -275,7 +274,7 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void PictureBoxWarning_DoubleClick(object sender, EventArgs e)
 		{
-			SoundPlayer sound = new SoundPlayer(stream: Planetoid_DB.Properties.Resources.wav_redalert);
+			SoundPlayer sound = new SoundPlayer(stream: Properties.Resources.wav_redalert);
 			sound.Play();
 		}
 
@@ -498,7 +497,7 @@ namespace PlanetoidDB
 				intselectedIndex = listViewTableMode.SelectedIndices[index: 0];
 				if (intselectedIndex >= 0)
 				{
-					SetLabelText(text: Planetoid_DB.I10nStrings.strIndex + ": " + listViewTableMode.Items[intselectedIndex].Text + " - " + listViewTableMode.Items[intselectedIndex].SubItems[1].Text);
+					SetLabelText(text: I10nStrings.strIndex + ": " + listViewTableMode.Items[intselectedIndex].Text + " - " + listViewTableMode.Items[intselectedIndex].SubItems[1].Text);
 				}
 			}
 		}

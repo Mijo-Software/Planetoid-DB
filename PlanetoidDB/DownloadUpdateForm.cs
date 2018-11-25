@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 
-namespace PlanetoidDB
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -12,10 +12,11 @@ namespace PlanetoidDB
 	public partial class DownloadUpdateForm : Form
   {
 		private string
-			strFilenameMPCORB = Planetoid_DB.Properties.Resources.strFilenameMPCORB,
-			strFilenameMPCORBtemp = Planetoid_DB.Properties.Resources.strFilenameMPCORBtemp;
-		private Uri uriMPCORB = new Uri(uriString: Planetoid_DB.Properties.Resources.strMpcorbUrl);
+			strFilenameMPCORB = Properties.Resources.strFilenameMPCORB,
+			strFilenameMPCORBtemp = Properties.Resources.strFilenameMPCORBtemp;
+		private Uri uriMPCORB = new Uri(uriString: Properties.Resources.strMpcorbUrl);
 		private WebClient webClient = new WebClient();
+
 
 		/// <summary>
 		/// 
@@ -29,11 +30,11 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void DownloadUpdateForm_Load(object sender, EventArgs e)
     {
-      labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusNothingToDoText;
+      labelStatusValue.Text = I10nStrings.strStatusNothingToDoText;
       labelDateValue.Text = ""; labelDateValue.Visible = false;
       labelSizeValue.Text = ""; labelSizeValue.Visible = false;
       labelSourceValue.Text = ""; labelSourceValue.Visible = false;
-      labelDownload.Text = Planetoid_DB.I10nStrings.strNumberZero + Planetoid_DB.I10nStrings.strPercentSign;
+      labelDownload.Text = I10nStrings.strNumberZero + I10nStrings.strPercentSign;
       buttonCancelDownload.Enabled = false;
       webClient.Proxy = null;
       webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
@@ -55,7 +56,7 @@ namespace PlanetoidDB
 		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
     {
       progressBarDownload.Value = e.ProgressPercentage;
-      labelDownload.Text = e.ProgressPercentage.ToString() + Planetoid_DB.I10nStrings.strPercentSign;
+      labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.strPercentSign;
       TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: e.ProgressPercentage, progressMax: 100);
     }
 
@@ -69,25 +70,23 @@ namespace PlanetoidDB
 			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
 			if (e.Error == null)
 			{
-				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusRefreshingDatabaseText;
+				labelStatusValue.Text = I10nStrings.strStatusRefreshingDatabaseText;
 				File.Delete(path: strFilenameMPCORB);
 				File.Copy(sourceFileName: strFilenameMPCORBtemp, destFileName: strFilenameMPCORB);
-				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusDownloadCompleteText;
-				MessageBox.Show(text: Planetoid_DB.I10nStrings.strDownloadCompleteText, caption: Planetoid_DB.I10nStrings.strCompleteCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+				labelStatusValue.Text = I10nStrings.strStatusDownloadCompleteText;
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
 				DialogResult = DialogResult.OK;
-				this.Close();
 			}
 			else
 			{
 				if (e.Cancelled)
 				{
-					labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusDownloadCancelled;
+					labelStatusValue.Text = I10nStrings.strStatusDownloadCancelled;
 				}
 				else
 				{
-					labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusUnknownError + " " + e.Error;
+					labelStatusValue.Text = I10nStrings.strStatusUnknownError + " " + e.Error;
 				}
 				labelSourceValue.Text = "";
 				labelDateValue.Text = "";
@@ -96,7 +95,7 @@ namespace PlanetoidDB
 				buttonCheckForUpdate.Enabled = true;
 				buttonCancelDownload.Enabled = false;
 				progressBarDownload.Value = 0;
-				labelDownload.Text = progressBarDownload.Value.ToString() + Planetoid_DB.I10nStrings.strPercentSign;
+				labelDownload.Text = progressBarDownload.Value.ToString() + I10nStrings.strPercentSign;
 			}
     }
 
@@ -107,40 +106,40 @@ namespace PlanetoidDB
 		{
 			DateTime datetimeFileLocal = DateTime.MinValue;
 			DateTime datetimeFileOnline = GetLastModified(uri: uriMPCORB);
-			string strInfoMpcorbDatLocal = Planetoid_DB.I10nStrings.strInfoMpcorbDatLocal + ":\n\r\n\r";
+			string strInfoMpcorbDatLocal = I10nStrings.strInfoMpcorbDatLocal + ":\n\r\n\r";
 			if (File.Exists(path: strFilenameMPCORB))
 			{
 				FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
 				long fileSize = fileInfo.Length;
-				datetimeFileLocal = fileInfo.CreationTime;
+				datetimeFileLocal = fileInfo.LastWriteTime;
 				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + Planetoid_DB.I10nStrings.strUrlText + ": " + fileInfo.FullName;
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + Planetoid_DB.I10nStrings.strContenLenghtText + ": " + fileSize.ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + Planetoid_DB.I10nStrings.strLastModifiedText + ": " + datetimeFileLocal;
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + I10nStrings.strUrlText + ": " + fileInfo.FullName;
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + I10nStrings.strContenLenghtText + ": " + fileSize.ToString() + " " + I10nStrings.strBytesText;
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + I10nStrings.strLastModifiedText + ": " + datetimeFileLocal;
 			}
 			else
 			{
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + Planetoid_DB.I10nStrings.strNoFileFoundText;
+				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + I10nStrings.strNoFileFoundText;
 			}
 
-			string strInfoMpcorbDatOnline = Planetoid_DB.I10nStrings.strInfoMpcorbDatOnline + ":\n\r\n\r";
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "  " + Planetoid_DB.I10nStrings.strUrlText + ": " + uriMPCORB;
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + Planetoid_DB.I10nStrings.strContenLenghtText + ": " + GetContentLength(uri: uriMPCORB).ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + Planetoid_DB.I10nStrings.strLastModifiedText + ": " + datetimeFileOnline;
+			string strInfoMpcorbDatOnline = I10nStrings.strInfoMpcorbDatOnline + ":\n\r\n\r";
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "  " + I10nStrings.strUrlText + ": " + uriMPCORB;
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + I10nStrings.strContenLenghtText + ": " + GetContentLength(uri: uriMPCORB).ToString() + " " + I10nStrings.strBytesText;
+			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + I10nStrings.strLastModifiedText + ": " + datetimeFileOnline;
 
 			string strUpdate = "";
 			MessageBoxIcon mbi = MessageBoxIcon.None;
 			if (datetimeFileOnline > datetimeFileLocal)
 			{
-				strUpdate = Planetoid_DB.I10nStrings.strUpdateAvailabletText;
+				strUpdate = I10nStrings.strUpdateAvailabletText;
 				mbi = MessageBoxIcon.Warning;
 			}
 			else
 			{
-				strUpdate = Planetoid_DB.I10nStrings.strNoUpdateNeededText;
+				strUpdate = I10nStrings.strNoUpdateNeededText;
 				mbi = MessageBoxIcon.Information;
 			}
-			MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: Planetoid_DB.I10nStrings.strMpcorbDatInformationCaption, buttons: MessageBoxButtons.OK, icon: mbi);
+			MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: I10nStrings.strMpcorbDatInformationCaption, buttons: MessageBoxButtons.OK, icon: mbi);
 		}
 
     /// <summary>
@@ -176,7 +175,7 @@ namespace PlanetoidDB
 		private void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: "", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -411,20 +410,20 @@ namespace PlanetoidDB
 			labelSourceValue.Visible = true;
 			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToString();
 			labelDateValue.Visible = true;
-			labelSizeValue.Text = GetContentLength(uri: uriMPCORB).ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+			labelSizeValue.Text = GetContentLength(uri: uriMPCORB).ToString() + " " + I10nStrings.strBytesText;
 			labelSizeValue.Visible = true;
-			labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusTryToConnect;
+			labelStatusValue.Text = I10nStrings.strStatusTryToConnect;
 			try
 			{
-				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusDownloading;
-				webClient.DownloadFileAsync(address: uriMPCORB, fileName: @strFilenameMPCORBtemp);
+				labelStatusValue.Text = I10nStrings.strStatusDownloading;
+				webClient.DownloadFileAsync(address: uriMPCORB, fileName: strFilenameMPCORBtemp);
 			}
 			catch (Exception ex)
 			{
-				labelStatusValue.Text = Planetoid_DB.I10nStrings.strStatusUnknownError + " " + ex.Message;
+				labelStatusValue.Text = I10nStrings.strStatusUnknownError + " " + ex.Message;
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
-				MessageBox.Show(text: ex.Message);
+				MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
 			}
 		}
 

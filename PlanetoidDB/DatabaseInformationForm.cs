@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace PlanetoidDB
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -17,24 +17,14 @@ namespace PlanetoidDB
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="text"></param>
-		private void CopyToClipboard(string text)
-		{
-			Clipboard.SetText(text);
-			MessageBox.Show(text: Planetoid_DB.I10nStrings.strCopiedToClipboard, caption: "", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
     {
-			FileInfo fileInfo = new FileInfo(fileName: Planetoid_DB.Properties.Resources.strFilenameMPCORB);
+			FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.strFilenameMPCORB);
       labelNameValue.Text = fileInfo.Name;
       labelDirectoryValue.Text = fileInfo.DirectoryName;
-      labelSizeValue.Text = fileInfo.Length.ToString() + " " + Planetoid_DB.I10nStrings.strBytesText;
+      labelSizeValue.Text = fileInfo.Length.ToString() + " " + I10nStrings.strBytesText;
       labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
       labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
       labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
@@ -47,6 +37,33 @@ namespace PlanetoidDB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void CopyToClipboard(string text)
+		{
+			Clipboard.SetText(text: text);
+			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void SetLabelText(string text)
+		{
+			if (text == "")
+			{
+				labelHelp.Enabled = false;
+			}
+			else
+			{
+				labelHelp.Enabled = true;
+			}
+			labelHelp.Text = text;
+		}
 
 		#region Click-Handler
 
@@ -168,6 +185,246 @@ namespace PlanetoidDB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelAttributesValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelAttributesValue.Text);
+
+		#endregion
+
+		#region Enter-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelName_Enter(object sender, EventArgs e) => SetLabelText(text: labelName.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDirectory_Enter(object sender, EventArgs e) => SetLabelText(text: labelDirectory.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSize_Enter(object sender, EventArgs e) => SetLabelText(text: labelSize.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateCreated_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateCreated.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateAccessed_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateAccessed.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateWrited_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateWrited.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAttributes_Enter(object sender, EventArgs e) => SetLabelText(text: labelAttributes.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelNameValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelNameValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDirectoryValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDirectoryValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelSizeValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateCreatedValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateCreatedValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateAccessedValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateAccessedValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateWritedValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateWritedValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAttributesValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelAttributesValue.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonOK_Enter(object sender, EventArgs e) => SetLabelText(text: buttonOK.AccessibleDescription);
+
+		#endregion
+
+		#region Leave-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelName_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDirectory_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSize_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateCreated_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateAccessed_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateWrited_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAttributes_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelNameValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDirectoryValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSizeValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateCreatedValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateAccessedValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDateWritedValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAttributesValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonOK_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		#endregion
+
+		#region MouseEnter-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxInformation_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxInformation.AccessibleDescription);
+
+		#endregion
+
+		#region MouseLeave-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxInformation_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		#endregion
 	}

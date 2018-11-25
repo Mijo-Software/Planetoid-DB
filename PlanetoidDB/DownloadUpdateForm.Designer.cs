@@ -1,4 +1,4 @@
-﻿namespace PlanetoidDB
+﻿namespace Planetoid_DB
 {
   partial class DownloadUpdateForm
   {
@@ -112,7 +112,7 @@
 			this.buttonCancelDownload.Name = "buttonCancelDownload";
 			this.buttonCancelDownload.Size = new System.Drawing.Size(128, 36);
 			this.buttonCancelDownload.TabIndex = 5;
-			this.buttonCancelDownload.Text = "Cancel download";
+			this.buttonCancelDownload.Text = "&Cancel download";
 			this.buttonCancelDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonCancelDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonCancelDownload, "Cancel the download");
@@ -134,7 +134,7 @@
 			this.buttonDownload.Name = "buttonDownload";
 			this.buttonDownload.Size = new System.Drawing.Size(177, 36);
 			this.buttonDownload.TabIndex = 4;
-			this.buttonDownload.Text = "Download MPCORB.DAT";
+			this.buttonDownload.Text = "&Download MPCORB.DAT";
 			this.buttonDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonDownload, "Download the database");
@@ -175,7 +175,7 @@
 			this.buttonCheckForUpdate.Name = "buttonCheckForUpdate";
 			this.buttonCheckForUpdate.Size = new System.Drawing.Size(132, 36);
 			this.buttonCheckForUpdate.TabIndex = 3;
-			this.buttonCheckForUpdate.Text = "Check for update";
+			this.buttonCheckForUpdate.Text = "C&heck for update";
 			this.buttonCheckForUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonCheckForUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonCheckForUpdate, "Check for updates of the database");

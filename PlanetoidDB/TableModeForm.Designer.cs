@@ -1,4 +1,4 @@
-﻿namespace PlanetoidDB
+﻿namespace Planetoid_DB
 {
   partial class TableModeForm
   {
@@ -97,7 +97,7 @@
 			this.labelMinimum.Name = "labelMinimum";
 			this.labelMinimum.Size = new System.Drawing.Size(63, 15);
 			this.labelMinimum.TabIndex = 0;
-			this.labelMinimum.Text = "Minimum:";
+			this.labelMinimum.Text = "M&inimum:";
 			this.toolTip.SetToolTip(this.labelMinimum, "Minimum");
 			this.labelMinimum.DoubleClick += new System.EventHandler(this.LabelMinimum_DoubleClick);
 			this.labelMinimum.Enter += new System.EventHandler(this.LabelMinimum_Enter);
@@ -146,7 +146,7 @@
 			this.labelMaximum.Name = "labelMaximum";
 			this.labelMaximum.Size = new System.Drawing.Size(64, 15);
 			this.labelMaximum.TabIndex = 2;
-			this.labelMaximum.Text = "Maximum:";
+			this.labelMaximum.Text = "M&aximum:";
 			this.toolTip.SetToolTip(this.labelMaximum, "Maximum");
 			this.labelMaximum.DoubleClick += new System.EventHandler(this.LabelMaximum_DoubleClick);
 			this.labelMaximum.Enter += new System.EventHandler(this.LabelMaximum_Enter);
@@ -183,7 +183,7 @@
 			this.buttonList.Name = "buttonList";
 			this.buttonList.Size = new System.Drawing.Size(52, 31);
 			this.buttonList.TabIndex = 4;
-			this.buttonList.Text = "List";
+			this.buttonList.Text = "&List";
 			this.buttonList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonList, "Start the progress and list");
@@ -244,7 +244,7 @@
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(69, 31);
 			this.buttonCancel.TabIndex = 5;
-			this.buttonCancel.Text = "Cancel";
+			this.buttonCancel.Text = "&Cancel";
 			this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonCancel, "Cancel the progress");

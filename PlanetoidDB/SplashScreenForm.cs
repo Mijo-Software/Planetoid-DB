@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace PlanetoidDB
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -27,9 +27,9 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void SplashScreenForm_Load(object sender, EventArgs e)
     {
-      labelDataLoading.Text = Planetoid_DB.I10nStrings.strDataLoading;
+      labelDataLoading.Text = I10nStrings.strDataLoading;
       labelTitle.Text = GetAssemblyProduct();
-      labelVersion.Text = string.Format(format: Planetoid_DB.I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
+      labelVersion.Text = string.Format(format: I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
     }
 
 		/// <summary>

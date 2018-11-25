@@ -3,7 +3,7 @@ using System.IO;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
-namespace PlanetoidDB
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -18,13 +18,13 @@ namespace PlanetoidDB
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(defaultValue: false);
-			if (!File.Exists(path: Planetoid_DB.Properties.Resources.strFilenameMPCORB))
+			if (!File.Exists(path: Properties.Resources.strFilenameMPCORB))
 			{
-				if (MessageBox.Show(text: Planetoid_DB.I10nStrings.strMpcorbDatNotFoundText, caption: Planetoid_DB.I10nStrings.strMpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+				if (MessageBox.Show(text: I10nStrings.strMpcorbDatNotFoundText, caption: I10nStrings.strMpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 				{
 					if (!NetworkInterface.GetIsNetworkAvailable())
 					{
-						MessageBox.Show(text: Planetoid_DB.I10nStrings.StrNoInternetConnectionText, caption: Planetoid_DB.I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+						MessageBox.Show(text: I10nStrings.StrNoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 						Application.Exit();
 					}
 					else

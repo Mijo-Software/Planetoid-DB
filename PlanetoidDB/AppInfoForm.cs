@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace PlanetoidDB
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -22,15 +22,48 @@ namespace PlanetoidDB
 		private void AppInfoForm_Load(object sender, EventArgs e)
     {
       labelTitle.Text = GetAssemblyProduct();
-      labelVersion.Text = String.Format(format: Planetoid_DB.I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
+      labelVersion.Text = String.Format(format: I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
       linkLabelCopyright.Text = GetAssemblyCopyright();
-      linkLabelCopyright.Links.Add(start: 24, length: Planetoid_DB.Properties.Resources.strHomepageMail.Length, linkData: Planetoid_DB.Properties.Resources.strHomepageMail);
+      linkLabelCopyright.Links.Add(start: 24, length: Properties.Resources.strHomepageMail.Length, linkData: Properties.Resources.strHomepageMail);
       labelDescription.Text = GetAssemblyDescription();
-			linkLabelWWW.Text = Planetoid_DB.I10nStrings.strWww + ": " + Planetoid_DB.Properties.Resources.strHomepage;
-			linkLabelWWW.Links.Add(start: 5, length: Planetoid_DB.Properties.Resources.strHomepage.Length, linkData: Planetoid_DB.Properties.Resources.strHomepage);
+			linkLabelWWW.Text = I10nStrings.strWww + ": " + Properties.Resources.strHomepage;
+			linkLabelWWW.Links.Add(start: 5, length: Properties.Resources.strHomepage.Length, linkData: Properties.Resources.strHomepage);
     }
 
-	
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void AppInfoForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void CopyToClipboard(string text)
+		{
+			Clipboard.SetText(text: text);
+			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void SetLabelText(string text)
+		{
+			if (text == "")
+			{
+				labelHelp.Enabled = false;
+			}
+			else
+			{
+				labelHelp.Enabled = true;
+			}
+			labelHelp.Text = text;
+		}
+
 		#region Assemblyattributaccessoren
 
 		/// <summary>
@@ -114,6 +147,8 @@ namespace PlanetoidDB
 		}
 		#endregion
 
+		#region LinkClicked-Eventhandler
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -128,11 +163,134 @@ namespace PlanetoidDB
 		/// <param name="e"></param>
 		private void LinkLabelWWW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
 
+		#endregion
+
+		#region Enter-Eventhandler
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void AppInfoForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void LinkLabelCopyright_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelCopyright.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDescription_Enter(object sender, EventArgs e) => SetLabelText(text: labelDescription.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelWWW_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelWWW.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonOK_Enter(object sender, EventArgs e) => SetLabelText(text: buttonOK.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelTitle_Enter(object sender, EventArgs e) => SetLabelText(text: labelTitle.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelVersion_Enter(object sender, EventArgs e) => SetLabelText(text: labelVersion.AccessibleDescription);
+
+		#endregion
+
+		#region Leave-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelTitle_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelVersion_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelCopyright_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelDescription_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelWWW_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonOK_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		#endregion
+
+		#region MouseEnter-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxBanner_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxBanner.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxWorld_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxWorld.AccessibleDescription);
+
+		#endregion
+
+		#region MouseLeave-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxBanner_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PictureBoxWorld_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		#endregion
 	}
 }

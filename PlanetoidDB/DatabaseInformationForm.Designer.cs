@@ -1,4 +1,4 @@
-﻿namespace PlanetoidDB
+﻿namespace Planetoid_DB
 {
   partial class DatabaseInformationForm
   {
@@ -48,8 +48,11 @@
 			this.labelDateWritedValue = new System.Windows.Forms.Label();
 			this.labelAttributesValue = new System.Windows.Forms.Label();
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
+			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxInformation)).BeginInit();
 			this.tableLayoutPanel.SuspendLayout();
+			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// buttonOK
@@ -57,9 +60,10 @@
 			this.buttonOK.AccessibleDescription = "Close the application form";
 			this.buttonOK.AccessibleName = "Okay";
 			this.buttonOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
-			this.buttonOK.Location = new System.Drawing.Point(186, 170);
+			this.buttonOK.Location = new System.Drawing.Point(185, 177);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 23);
 			this.buttonOK.TabIndex = 0;
@@ -69,6 +73,10 @@
 			this.toolTip.SetToolTip(this.buttonOK, "Okay");
 			this.buttonOK.UseVisualStyleBackColor = true;
 			this.buttonOK.Click += new System.EventHandler(this.ButtonOK_Click);
+			this.buttonOK.Enter += new System.EventHandler(this.ButtonOK_Enter);
+			this.buttonOK.Leave += new System.EventHandler(this.ButtonOK_Leave);
+			this.buttonOK.MouseEnter += new System.EventHandler(this.ButtonOK_Enter);
+			this.buttonOK.MouseLeave += new System.EventHandler(this.ButtonOK_Leave);
 			// 
 			// pictureBoxInformation
 			// 
@@ -84,6 +92,8 @@
 			this.pictureBoxInformation.TabStop = false;
 			this.toolTip.SetToolTip(this.pictureBoxInformation, "Information");
 			this.pictureBoxInformation.Click += new System.EventHandler(this.PictureBoxInformation_Click);
+			this.pictureBoxInformation.MouseEnter += new System.EventHandler(this.PictureBoxInformation_MouseEnter);
+			this.pictureBoxInformation.MouseLeave += new System.EventHandler(this.PictureBoxInformation_MouseLeave);
 			// 
 			// labelName
 			// 
@@ -99,6 +109,10 @@
 			this.labelName.Text = "Name";
 			this.toolTip.SetToolTip(this.labelName, "Name");
 			this.labelName.DoubleClick += new System.EventHandler(this.LabelName_DoubleClick);
+			this.labelName.Enter += new System.EventHandler(this.LabelName_Enter);
+			this.labelName.Leave += new System.EventHandler(this.LabelName_Leave);
+			this.labelName.MouseEnter += new System.EventHandler(this.LabelName_Enter);
+			this.labelName.MouseLeave += new System.EventHandler(this.LabelName_Leave);
 			// 
 			// labelDirectory
 			// 
@@ -114,6 +128,9 @@
 			this.labelDirectory.Text = "Directory";
 			this.toolTip.SetToolTip(this.labelDirectory, "Directory");
 			this.labelDirectory.DoubleClick += new System.EventHandler(this.LabelDirectory_DoubleClick);
+			this.labelDirectory.Enter += new System.EventHandler(this.LabelDirectory_Enter);
+			this.labelDirectory.Leave += new System.EventHandler(this.LabelDirectory_Leave);
+			this.labelDirectory.MouseEnter += new System.EventHandler(this.LabelDirectory_Enter);
 			// 
 			// labelSize
 			// 
@@ -129,6 +146,8 @@
 			this.labelSize.Text = "Size";
 			this.toolTip.SetToolTip(this.labelSize, "Size");
 			this.labelSize.DoubleClick += new System.EventHandler(this.LabelSize_DoubleClick);
+			this.labelSize.Enter += new System.EventHandler(this.LabelSize_Enter);
+			this.labelSize.Leave += new System.EventHandler(this.LabelSize_Leave);
 			// 
 			// labelDateCreated
 			// 
@@ -144,6 +163,10 @@
 			this.labelDateCreated.Text = "Creation date";
 			this.toolTip.SetToolTip(this.labelDateCreated, "Creation date");
 			this.labelDateCreated.DoubleClick += new System.EventHandler(this.LabelDateCreated_DoubleClick);
+			this.labelDateCreated.Enter += new System.EventHandler(this.LabelDateCreated_Enter);
+			this.labelDateCreated.Leave += new System.EventHandler(this.LabelDateCreated_Leave);
+			this.labelDateCreated.MouseEnter += new System.EventHandler(this.LabelDateCreated_Enter);
+			this.labelDateCreated.MouseLeave += new System.EventHandler(this.LabelDateCreated_Leave);
 			// 
 			// labelDateAccessed
 			// 
@@ -159,6 +182,10 @@
 			this.labelDateAccessed.Text = "Last access date";
 			this.toolTip.SetToolTip(this.labelDateAccessed, "Last access date");
 			this.labelDateAccessed.DoubleClick += new System.EventHandler(this.LabelDateAccessed_DoubleClick);
+			this.labelDateAccessed.Enter += new System.EventHandler(this.LabelDateAccessed_Enter);
+			this.labelDateAccessed.Leave += new System.EventHandler(this.LabelDateAccessed_Leave);
+			this.labelDateAccessed.MouseEnter += new System.EventHandler(this.LabelDateAccessed_Enter);
+			this.labelDateAccessed.MouseLeave += new System.EventHandler(this.LabelDateAccessed_Leave);
 			// 
 			// labelDateWrited
 			// 
@@ -174,6 +201,10 @@
 			this.labelDateWrited.Text = "Last write date";
 			this.toolTip.SetToolTip(this.labelDateWrited, "Last write date");
 			this.labelDateWrited.DoubleClick += new System.EventHandler(this.LabelDateWrited_DoubleClick);
+			this.labelDateWrited.Enter += new System.EventHandler(this.LabelDateWrited_Enter);
+			this.labelDateWrited.Leave += new System.EventHandler(this.LabelDateWrited_Leave);
+			this.labelDateWrited.MouseEnter += new System.EventHandler(this.LabelDateWrited_Enter);
+			this.labelDateWrited.MouseLeave += new System.EventHandler(this.LabelDateWrited_Leave);
 			// 
 			// labelAttributes
 			// 
@@ -189,6 +220,10 @@
 			this.labelAttributes.Text = "Attributes";
 			this.toolTip.SetToolTip(this.labelAttributes, "Attributes");
 			this.labelAttributes.DoubleClick += new System.EventHandler(this.LabelAttributes_DoubleClick);
+			this.labelAttributes.Enter += new System.EventHandler(this.LabelAttributes_Enter);
+			this.labelAttributes.Leave += new System.EventHandler(this.LabelAttributes_Leave);
+			this.labelAttributes.MouseEnter += new System.EventHandler(this.LabelAttributes_Enter);
+			this.labelAttributes.MouseLeave += new System.EventHandler(this.LabelAttributes_Leave);
 			// 
 			// labelNameValue
 			// 
@@ -204,6 +239,10 @@
 			this.labelNameValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelNameValue, "Name");
 			this.labelNameValue.DoubleClick += new System.EventHandler(this.LabelNameValue_DoubleClick);
+			this.labelNameValue.Enter += new System.EventHandler(this.LabelNameValue_Enter);
+			this.labelNameValue.Leave += new System.EventHandler(this.LabelNameValue_Leave);
+			this.labelNameValue.MouseEnter += new System.EventHandler(this.LabelNameValue_Enter);
+			this.labelNameValue.MouseLeave += new System.EventHandler(this.LabelNameValue_Leave);
 			// 
 			// labelDirectoryValue
 			// 
@@ -219,6 +258,10 @@
 			this.labelDirectoryValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelDirectoryValue, "Directory");
 			this.labelDirectoryValue.DoubleClick += new System.EventHandler(this.LabelDirectoryValue_DoubleClick);
+			this.labelDirectoryValue.Enter += new System.EventHandler(this.LabelDirectoryValue_Enter);
+			this.labelDirectoryValue.Leave += new System.EventHandler(this.LabelDirectoryValue_Leave);
+			this.labelDirectoryValue.MouseEnter += new System.EventHandler(this.LabelDirectoryValue_Enter);
+			this.labelDirectoryValue.MouseLeave += new System.EventHandler(this.LabelDirectoryValue_Leave);
 			// 
 			// labelSizeValue
 			// 
@@ -234,6 +277,10 @@
 			this.labelSizeValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelSizeValue, "Size");
 			this.labelSizeValue.DoubleClick += new System.EventHandler(this.LabelSizeValue_DoubleClick);
+			this.labelSizeValue.Enter += new System.EventHandler(this.LabelSizeValue_Enter);
+			this.labelSizeValue.Leave += new System.EventHandler(this.LabelSizeValue_Leave);
+			this.labelSizeValue.MouseEnter += new System.EventHandler(this.LabelSizeValue_Enter);
+			this.labelSizeValue.MouseLeave += new System.EventHandler(this.LabelSizeValue_Leave);
 			// 
 			// labelDateCreatedValue
 			// 
@@ -249,6 +296,10 @@
 			this.labelDateCreatedValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelDateCreatedValue, "Creation date");
 			this.labelDateCreatedValue.DoubleClick += new System.EventHandler(this.LabelDateCreatedValue_DoubleClick);
+			this.labelDateCreatedValue.Enter += new System.EventHandler(this.LabelDateCreatedValue_Enter);
+			this.labelDateCreatedValue.Leave += new System.EventHandler(this.LabelDateCreatedValue_Leave);
+			this.labelDateCreatedValue.MouseEnter += new System.EventHandler(this.LabelDateCreatedValue_Enter);
+			this.labelDateCreatedValue.MouseLeave += new System.EventHandler(this.LabelDateCreatedValue_Leave);
 			// 
 			// labelDateAccessedValue
 			// 
@@ -264,6 +315,10 @@
 			this.labelDateAccessedValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelDateAccessedValue, "Last access date");
 			this.labelDateAccessedValue.DoubleClick += new System.EventHandler(this.LabelDateAccessedValue_DoubleClick);
+			this.labelDateAccessedValue.Enter += new System.EventHandler(this.LabelDateAccessedValue_Enter);
+			this.labelDateAccessedValue.Leave += new System.EventHandler(this.LabelDateAccessedValue_Leave);
+			this.labelDateAccessedValue.MouseEnter += new System.EventHandler(this.LabelDateAccessedValue_Enter);
+			this.labelDateAccessedValue.MouseLeave += new System.EventHandler(this.LabelDateAccessedValue_Leave);
 			// 
 			// labelDateWritedValue
 			// 
@@ -279,6 +334,10 @@
 			this.labelDateWritedValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelDateWritedValue, "Last write date");
 			this.labelDateWritedValue.DoubleClick += new System.EventHandler(this.LabelDateWritedValue_DoubleClick);
+			this.labelDateWritedValue.Enter += new System.EventHandler(this.LabelDateWritedValue_Enter);
+			this.labelDateWritedValue.Leave += new System.EventHandler(this.LabelDateWritedValue_Leave);
+			this.labelDateWritedValue.MouseEnter += new System.EventHandler(this.LabelDateWritedValue_Enter);
+			this.labelDateWritedValue.MouseLeave += new System.EventHandler(this.LabelDateWritedValue_Leave);
 			// 
 			// labelAttributesValue
 			// 
@@ -294,6 +353,10 @@
 			this.labelAttributesValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelAttributesValue, "Attributes");
 			this.labelAttributesValue.DoubleClick += new System.EventHandler(this.LabelAttributesValue_DoubleClick);
+			this.labelAttributesValue.Enter += new System.EventHandler(this.LabelAttributesValue_Enter);
+			this.labelAttributesValue.Leave += new System.EventHandler(this.LabelAttributesValue_Leave);
+			this.labelAttributesValue.MouseEnter += new System.EventHandler(this.LabelAttributesValue_Enter);
+			this.labelAttributesValue.MouseLeave += new System.EventHandler(this.LabelAttributesValue_Leave);
 			// 
 			// tableLayoutPanel
 			// 
@@ -330,6 +393,37 @@
 			this.tableLayoutPanel.Size = new System.Drawing.Size(379, 151);
 			this.tableLayoutPanel.TabIndex = 2;
 			// 
+			// statusStrip
+			// 
+			this.statusStrip.AccessibleDescription = "Show the status";
+			this.statusStrip.AccessibleName = "Status bar";
+			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
+			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelHelp});
+			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+			this.statusStrip.Location = new System.Drawing.Point(0, 210);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+			this.statusStrip.ShowItemToolTips = true;
+			this.statusStrip.Size = new System.Drawing.Size(444, 21);
+			this.statusStrip.SizingGrip = false;
+			this.statusStrip.TabIndex = 12;
+			this.statusStrip.TabStop = true;
+			this.statusStrip.Text = "statusStrip";
+			// 
+			// labelHelp
+			// 
+			this.labelHelp.AccessibleDescription = "Show some important informations";
+			this.labelHelp.AccessibleName = "Information field";
+			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+			this.labelHelp.Name = "labelHelp";
+			this.labelHelp.Size = new System.Drawing.Size(170, 16);
+			this.labelHelp.Text = "Show informative messages";
+			this.labelHelp.ToolTipText = "Show informative messages";
+			// 
 			// DatabaseInformationForm
 			// 
 			this.AccessibleDescription = "Show the informations about the MPCORB.DAT database";
@@ -337,7 +431,8 @@
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(444, 203);
+			this.ClientSize = new System.Drawing.Size(444, 231);
+			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.tableLayoutPanel);
 			this.Controls.Add(this.pictureBoxInformation);
 			this.Controls.Add(this.buttonOK);
@@ -352,6 +447,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxInformation)).EndInit();
 			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel.PerformLayout();
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -377,5 +474,7 @@
     private System.Windows.Forms.Label labelDateAccessedValue;
     private System.Windows.Forms.Label labelDateWritedValue;
     private System.Windows.Forms.Label labelAttributesValue;
-  }
+		private System.Windows.Forms.StatusStrip statusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel labelHelp;
+	}
 }

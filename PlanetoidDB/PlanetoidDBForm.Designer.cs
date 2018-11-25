@@ -1,4 +1,4 @@
-﻿namespace PlanetoidDB
+﻿namespace Planetoid_DB
 {
   /// <summary>
 	/// 

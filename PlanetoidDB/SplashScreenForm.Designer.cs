@@ -1,4 +1,4 @@
-﻿namespace PlanetoidDB
+﻿namespace Planetoid_DB
 {
   partial class SplashScreenForm
   {
@@ -73,9 +73,9 @@
 			this.labelVersion.BackColor = System.Drawing.Color.Transparent;
 			this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelVersion.ForeColor = System.Drawing.Color.White;
-			this.labelVersion.Location = new System.Drawing.Point(294, 95);
+			this.labelVersion.Location = new System.Drawing.Point(282, 95);
 			this.labelVersion.Name = "labelVersion";
-			this.labelVersion.Size = new System.Drawing.Size(178, 25);
+			this.labelVersion.Size = new System.Drawing.Size(224, 25);
 			this.labelVersion.TabIndex = 1;
 			this.labelVersion.Text = "Version: X.X.X.X";
 			this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
