@@ -1,2 +1,2 @@
 # Planetoid-DB
-Viewer for the MPCORB file
+Viewer for the MPCORB.DAT file
