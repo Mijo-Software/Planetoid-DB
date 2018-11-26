@@ -138,7 +138,7 @@
   <data name="strMpcorbDatNotFoundText" xml:space="preserve">
     <value>The file MPCORB.DAT was not found. You need it to run the application. The file has a size of about 150-200 MB. Do you want to download the MPCORB.DAT file from the MPC website?</value>
   </data>
-  <data name="StrNoInternetConnectionText" xml:space="preserve">
+  <data name="strNoInternetConnectionText" xml:space="preserve">
     <value>No internet connection available!</value>
   </data>
   <data name="strVersionTemplate" xml:space="preserve">
@@ -147,29 +147,14 @@
   <data name="strWww" xml:space="preserve">
     <value>WWW</value>
   </data>
-  <data name="strContenLenghtText" xml:space="preserve">
-    <value>Content length</value>
-  </data>
-  <data name="strInfoMpcorbDatLocal" xml:space="preserve">
-    <value>MPCORB.DAT local</value>
-  </data>
-  <data name="strLastModifiedText" xml:space="preserve">
-    <value>Last modified</value>
-  </data>
   <data name="strNoFileFoundText" xml:space="preserve">
     <value>no file found</value>
-  </data>
-  <data name="strUrlText" xml:space="preserve">
-    <value>URL</value>
   </data>
   <data name="strCompleteCaption" xml:space="preserve">
     <value>Complete</value>
   </data>
   <data name="strDownloadCompleteText" xml:space="preserve">
     <value>Download completed!</value>
-  </data>
-  <data name="strInfoMpcorbDatOnline" xml:space="preserve">
-    <value>MPCORB.DAT online</value>
   </data>
   <data name="strMpcorbDatInformationCaption" xml:space="preserve">
     <value>MPCORB.DAT infomation</value>
@@ -204,8 +189,8 @@
   <data name="strStatusUnknownError" xml:space="preserve">
     <value>Unknown error...</value>
   </data>
-  <data name="strUpdateAvailabletText" xml:space="preserve">
-    <value>Update available!</value>
+  <data name="strUpdateRecommendedText" xml:space="preserve">
+    <value>Update recommended</value>
   </data>
   <data name="strAskForDownloadingLastestMpcorbDatFile" xml:space="preserve">
     <value>Do you want download the lastest MPCORB.DAT file?</value>

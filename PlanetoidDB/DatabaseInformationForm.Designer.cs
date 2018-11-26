@@ -63,7 +63,7 @@
 			this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
-			this.buttonOK.Location = new System.Drawing.Point(185, 177);
+			this.buttonOK.Location = new System.Drawing.Point(185, 131);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 23);
 			this.buttonOK.TabIndex = 0;
@@ -121,7 +121,7 @@
 			this.labelDirectory.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDirectory.AutoSize = true;
 			this.labelDirectory.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDirectory.Location = new System.Drawing.Point(3, 21);
+			this.labelDirectory.Location = new System.Drawing.Point(3, 15);
 			this.labelDirectory.Name = "labelDirectory";
 			this.labelDirectory.Size = new System.Drawing.Size(55, 15);
 			this.labelDirectory.TabIndex = 2;
@@ -139,7 +139,7 @@
 			this.labelSize.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSize.AutoSize = true;
 			this.labelSize.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelSize.Location = new System.Drawing.Point(3, 42);
+			this.labelSize.Location = new System.Drawing.Point(3, 30);
 			this.labelSize.Name = "labelSize";
 			this.labelSize.Size = new System.Drawing.Size(27, 15);
 			this.labelSize.TabIndex = 4;
@@ -156,7 +156,7 @@
 			this.labelDateCreated.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateCreated.AutoSize = true;
 			this.labelDateCreated.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateCreated.Location = new System.Drawing.Point(3, 63);
+			this.labelDateCreated.Location = new System.Drawing.Point(3, 45);
 			this.labelDateCreated.Name = "labelDateCreated";
 			this.labelDateCreated.Size = new System.Drawing.Size(78, 15);
 			this.labelDateCreated.TabIndex = 6;
@@ -175,7 +175,7 @@
 			this.labelDateAccessed.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateAccessed.AutoSize = true;
 			this.labelDateAccessed.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateAccessed.Location = new System.Drawing.Point(3, 84);
+			this.labelDateAccessed.Location = new System.Drawing.Point(3, 60);
 			this.labelDateAccessed.Name = "labelDateAccessed";
 			this.labelDateAccessed.Size = new System.Drawing.Size(91, 15);
 			this.labelDateAccessed.TabIndex = 8;
@@ -194,7 +194,7 @@
 			this.labelDateWrited.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateWrited.AutoSize = true;
 			this.labelDateWrited.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateWrited.Location = new System.Drawing.Point(3, 105);
+			this.labelDateWrited.Location = new System.Drawing.Point(3, 75);
 			this.labelDateWrited.Name = "labelDateWrited";
 			this.labelDateWrited.Size = new System.Drawing.Size(83, 15);
 			this.labelDateWrited.TabIndex = 10;
@@ -213,7 +213,7 @@
 			this.labelAttributes.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelAttributes.AutoSize = true;
 			this.labelAttributes.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelAttributes.Location = new System.Drawing.Point(3, 126);
+			this.labelAttributes.Location = new System.Drawing.Point(3, 90);
 			this.labelAttributes.Name = "labelAttributes";
 			this.labelAttributes.Size = new System.Drawing.Size(59, 15);
 			this.labelAttributes.TabIndex = 12;
@@ -237,7 +237,7 @@
 			this.labelNameValue.Size = new System.Drawing.Size(16, 15);
 			this.labelNameValue.TabIndex = 1;
 			this.labelNameValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelNameValue, "Name");
+			this.toolTip.SetToolTip(this.labelNameValue, "Show the name of the database");
 			this.labelNameValue.DoubleClick += new System.EventHandler(this.LabelNameValue_DoubleClick);
 			this.labelNameValue.Enter += new System.EventHandler(this.LabelNameValue_Enter);
 			this.labelNameValue.Leave += new System.EventHandler(this.LabelNameValue_Leave);
@@ -251,12 +251,12 @@
 			this.labelDirectoryValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDirectoryValue.AutoSize = true;
 			this.labelDirectoryValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDirectoryValue.Location = new System.Drawing.Point(100, 21);
+			this.labelDirectoryValue.Location = new System.Drawing.Point(100, 15);
 			this.labelDirectoryValue.Name = "labelDirectoryValue";
 			this.labelDirectoryValue.Size = new System.Drawing.Size(16, 15);
 			this.labelDirectoryValue.TabIndex = 3;
 			this.labelDirectoryValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelDirectoryValue, "Directory");
+			this.toolTip.SetToolTip(this.labelDirectoryValue, "Show the directory of the database");
 			this.labelDirectoryValue.DoubleClick += new System.EventHandler(this.LabelDirectoryValue_DoubleClick);
 			this.labelDirectoryValue.Enter += new System.EventHandler(this.LabelDirectoryValue_Enter);
 			this.labelDirectoryValue.Leave += new System.EventHandler(this.LabelDirectoryValue_Leave);
@@ -270,12 +270,12 @@
 			this.labelSizeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSizeValue.AutoSize = true;
 			this.labelSizeValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelSizeValue.Location = new System.Drawing.Point(100, 42);
+			this.labelSizeValue.Location = new System.Drawing.Point(100, 30);
 			this.labelSizeValue.Name = "labelSizeValue";
 			this.labelSizeValue.Size = new System.Drawing.Size(16, 15);
 			this.labelSizeValue.TabIndex = 5;
 			this.labelSizeValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelSizeValue, "Size");
+			this.toolTip.SetToolTip(this.labelSizeValue, "Show the size of the database");
 			this.labelSizeValue.DoubleClick += new System.EventHandler(this.LabelSizeValue_DoubleClick);
 			this.labelSizeValue.Enter += new System.EventHandler(this.LabelSizeValue_Enter);
 			this.labelSizeValue.Leave += new System.EventHandler(this.LabelSizeValue_Leave);
@@ -289,12 +289,12 @@
 			this.labelDateCreatedValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateCreatedValue.AutoSize = true;
 			this.labelDateCreatedValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateCreatedValue.Location = new System.Drawing.Point(100, 63);
+			this.labelDateCreatedValue.Location = new System.Drawing.Point(100, 45);
 			this.labelDateCreatedValue.Name = "labelDateCreatedValue";
 			this.labelDateCreatedValue.Size = new System.Drawing.Size(16, 15);
 			this.labelDateCreatedValue.TabIndex = 7;
 			this.labelDateCreatedValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelDateCreatedValue, "Creation date");
+			this.toolTip.SetToolTip(this.labelDateCreatedValue, "Show the creation date of the database");
 			this.labelDateCreatedValue.DoubleClick += new System.EventHandler(this.LabelDateCreatedValue_DoubleClick);
 			this.labelDateCreatedValue.Enter += new System.EventHandler(this.LabelDateCreatedValue_Enter);
 			this.labelDateCreatedValue.Leave += new System.EventHandler(this.LabelDateCreatedValue_Leave);
@@ -308,12 +308,12 @@
 			this.labelDateAccessedValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateAccessedValue.AutoSize = true;
 			this.labelDateAccessedValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateAccessedValue.Location = new System.Drawing.Point(100, 84);
+			this.labelDateAccessedValue.Location = new System.Drawing.Point(100, 60);
 			this.labelDateAccessedValue.Name = "labelDateAccessedValue";
 			this.labelDateAccessedValue.Size = new System.Drawing.Size(16, 15);
 			this.labelDateAccessedValue.TabIndex = 9;
 			this.labelDateAccessedValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelDateAccessedValue, "Last access date");
+			this.toolTip.SetToolTip(this.labelDateAccessedValue, "Show the last access date of the database");
 			this.labelDateAccessedValue.DoubleClick += new System.EventHandler(this.LabelDateAccessedValue_DoubleClick);
 			this.labelDateAccessedValue.Enter += new System.EventHandler(this.LabelDateAccessedValue_Enter);
 			this.labelDateAccessedValue.Leave += new System.EventHandler(this.LabelDateAccessedValue_Leave);
@@ -327,12 +327,12 @@
 			this.labelDateWritedValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateWritedValue.AutoSize = true;
 			this.labelDateWritedValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateWritedValue.Location = new System.Drawing.Point(100, 105);
+			this.labelDateWritedValue.Location = new System.Drawing.Point(100, 75);
 			this.labelDateWritedValue.Name = "labelDateWritedValue";
 			this.labelDateWritedValue.Size = new System.Drawing.Size(16, 15);
 			this.labelDateWritedValue.TabIndex = 11;
 			this.labelDateWritedValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelDateWritedValue, "Last write date");
+			this.toolTip.SetToolTip(this.labelDateWritedValue, "Show the last write date of the database");
 			this.labelDateWritedValue.DoubleClick += new System.EventHandler(this.LabelDateWritedValue_DoubleClick);
 			this.labelDateWritedValue.Enter += new System.EventHandler(this.LabelDateWritedValue_Enter);
 			this.labelDateWritedValue.Leave += new System.EventHandler(this.LabelDateWritedValue_Leave);
@@ -346,12 +346,12 @@
 			this.labelAttributesValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelAttributesValue.AutoSize = true;
 			this.labelAttributesValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelAttributesValue.Location = new System.Drawing.Point(100, 126);
+			this.labelAttributesValue.Location = new System.Drawing.Point(100, 90);
 			this.labelAttributesValue.Name = "labelAttributesValue";
 			this.labelAttributesValue.Size = new System.Drawing.Size(16, 15);
 			this.labelAttributesValue.TabIndex = 13;
 			this.labelAttributesValue.Text = "...";
-			this.toolTip.SetToolTip(this.labelAttributesValue, "Attributes");
+			this.toolTip.SetToolTip(this.labelAttributesValue, "Show the attributes of the database");
 			this.labelAttributesValue.DoubleClick += new System.EventHandler(this.LabelAttributesValue_DoubleClick);
 			this.labelAttributesValue.Enter += new System.EventHandler(this.LabelAttributesValue_Enter);
 			this.labelAttributesValue.Leave += new System.EventHandler(this.LabelAttributesValue_Leave);
@@ -383,14 +383,14 @@
 			this.tableLayoutPanel.Location = new System.Drawing.Point(35, 13);
 			this.tableLayoutPanel.Name = "tableLayoutPanel";
 			this.tableLayoutPanel.RowCount = 7;
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel.Size = new System.Drawing.Size(379, 151);
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.Size = new System.Drawing.Size(379, 110);
 			this.tableLayoutPanel.TabIndex = 2;
 			// 
 			// statusStrip
@@ -402,7 +402,7 @@
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelHelp});
 			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-			this.statusStrip.Location = new System.Drawing.Point(0, 210);
+			this.statusStrip.Location = new System.Drawing.Point(0, 164);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			this.statusStrip.ShowItemToolTips = true;
@@ -431,7 +431,7 @@
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(444, 231);
+			this.ClientSize = new System.Drawing.Size(444, 185);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.tableLayoutPanel);
 			this.Controls.Add(this.pictureBoxInformation);

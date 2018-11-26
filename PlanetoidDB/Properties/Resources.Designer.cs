@@ -962,14 +962,5 @@ namespace Planetoid_DB.Properties {
                 return ResourceManager.GetString("strWebsiteMpcorb", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.IO.UnmanagedMemoryStream ähnlich wie System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream wav_redalert {
-            get {
-                return ResourceManager.GetStream("wav_redalert", resourceCulture);
-            }
-        }
     }
 }

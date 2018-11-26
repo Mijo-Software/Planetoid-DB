@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -22,7 +24,25 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void CheckMpcorbDatForm_Load(object sender, EventArgs e)
 		{
-
+			Uri uriMPCORB = new Uri(uriString: Properties.Resources.strMpcorbUrl);
+			DateTime
+				datetimeFileLocal = DateTime.MinValue,
+				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+			if (!File.Exists(path: Properties.Resources.strFilenameMPCORB))
+			{
+				labelContentLengthValueLocal.Text = I10nStrings.strNoFileFoundText;
+				labelModifiedDateValueLocal.Text = I10nStrings.strNoFileFoundText;
+			}
+			else
+			{
+				FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.strFilenameMPCORB);
+				datetimeFileLocal = fileInfo.LastWriteTime;
+				labelContentLengthValueLocal.Text = fileInfo.Length.ToString() + " " + I10nStrings.strBytesText;
+				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
+			}
+			labelContentLengthValueOnline.Text = GetContentLength(uri: uriMPCORB).ToString() + " " + I10nStrings.strBytesText;
+			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
+			labelIsUpdateNeeded.Text = datetimeFileOnline > datetimeFileLocal ? I10nStrings.strUpdateRecommendedText : I10nStrings.strNoUpdateNeededText;
 		}
 
 		/// <summary>
@@ -61,6 +81,32 @@ namespace Planetoid_DB
 				labelHelp.Enabled = true;
 			}
 			labelHelp.Text = text;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="uri"></param>
+		/// <returns></returns>
+		private DateTime GetLastModified(Uri uri)
+		{
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+			resp.Close();
+			return resp.LastModified;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="uri"></param>
+		/// <returns></returns>
+		private long GetContentLength(Uri uri)
+		{
+			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+			resp.Close();
+			return Convert.ToInt64(value: resp.ContentLength);
 		}
 
 		#endregion

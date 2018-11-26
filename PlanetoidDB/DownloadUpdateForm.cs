@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -46,7 +47,12 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DownloadUpdateForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void DownloadUpdateForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			webClient.CancelAsync();
+			webClient.Dispose();
+			this.Dispose();
+		}
 
 		/// <summary>
 		/// 
@@ -99,49 +105,6 @@ namespace Planetoid_DB
 			}
     }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void CheckMpcorbDat()
-		{
-			DateTime datetimeFileLocal = DateTime.MinValue;
-			DateTime datetimeFileOnline = GetLastModified(uri: uriMPCORB);
-			string strInfoMpcorbDatLocal = I10nStrings.strInfoMpcorbDatLocal + ":\n\r\n\r";
-			if (File.Exists(path: strFilenameMPCORB))
-			{
-				FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
-				long fileSize = fileInfo.Length;
-				datetimeFileLocal = fileInfo.LastWriteTime;
-				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + I10nStrings.strUrlText + ": " + fileInfo.FullName;
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + I10nStrings.strContenLenghtText + ": " + fileSize.ToString() + " " + I10nStrings.strBytesText;
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "\n\r  " + I10nStrings.strLastModifiedText + ": " + datetimeFileLocal;
-			}
-			else
-			{
-				strInfoMpcorbDatLocal = strInfoMpcorbDatLocal + "  " + I10nStrings.strNoFileFoundText;
-			}
-
-			string strInfoMpcorbDatOnline = I10nStrings.strInfoMpcorbDatOnline + ":\n\r\n\r";
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "  " + I10nStrings.strUrlText + ": " + uriMPCORB;
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + I10nStrings.strContenLenghtText + ": " + GetContentLength(uri: uriMPCORB).ToString() + " " + I10nStrings.strBytesText;
-			strInfoMpcorbDatOnline = strInfoMpcorbDatOnline + "\n\r  " + I10nStrings.strLastModifiedText + ": " + datetimeFileOnline;
-
-			string strUpdate = "";
-			MessageBoxIcon mbi = MessageBoxIcon.None;
-			if (datetimeFileOnline > datetimeFileLocal)
-			{
-				strUpdate = I10nStrings.strUpdateAvailabletText;
-				mbi = MessageBoxIcon.Warning;
-			}
-			else
-			{
-				strUpdate = I10nStrings.strNoUpdateNeededText;
-				mbi = MessageBoxIcon.Information;
-			}
-			MessageBox.Show(text: strInfoMpcorbDatLocal + "\n\r\n\r" + strInfoMpcorbDatOnline + "\n\r\n\r" + strUpdate, caption: I10nStrings.strMpcorbDatInformationCaption, buttons: MessageBoxButtons.OK, icon: mbi);
-		}
-
     /// <summary>
 		/// 
 		/// </summary>
@@ -193,6 +156,22 @@ namespace Planetoid_DB
 				labelHelp.Enabled = true;
 			}
 			labelHelp.Text = text;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ShowMpcorbDatCheck()
+		{
+			if (!NetworkInterface.GetIsNetworkAvailable())
+			{
+				MessageBox.Show(text: I10nStrings.strNoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			else
+			{
+				CheckMpcorbDatForm formCeckMpcorbDat = new CheckMpcorbDatForm();
+				formCeckMpcorbDat.ShowDialog();
+			}
 		}
 
 		#region Enter-Eventhandler
@@ -453,7 +432,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonCheckForUpdate_Click(object sender, EventArgs e) => CheckMpcorbDat();
+		private void ButtonCheckForUpdate_Click(object sender, EventArgs e) => ShowMpcorbDatCheck();
 
 		#endregion
 

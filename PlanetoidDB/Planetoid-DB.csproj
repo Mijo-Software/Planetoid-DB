@@ -207,6 +207,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\alarm.ogg" />
     <None Include="Resources\silk_accept.png" />
   </ItemGroup>
   <ItemGroup>
@@ -242,7 +243,6 @@
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
     <Content Include="PlanetoidDB2.ico" />
-    <None Include="Resources\strk1-alertsnd.wav" />
     <None Include="Resources\silk_theme.png" />
     <None Include="Resources\silk_error.png" />
     <None Include="Resources\silk_magnifier.png" />
@@ -331,6 +331,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

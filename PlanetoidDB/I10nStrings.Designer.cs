@@ -97,15 +97,6 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Content length ähnelt.
-        /// </summary>
-        internal static string strContenLenghtText {
-            get {
-                return ResourceManager.GetString("strContenLenghtText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Copied to clipboard. ähnelt.
         /// </summary>
         internal static string strCopiedToClipboard {
@@ -178,38 +169,11 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT local ähnelt.
-        /// </summary>
-        internal static string strInfoMpcorbDatLocal {
-            get {
-                return ResourceManager.GetString("strInfoMpcorbDatLocal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT online ähnelt.
-        /// </summary>
-        internal static string strInfoMpcorbDatOnline {
-            get {
-                return ResourceManager.GetString("strInfoMpcorbDatOnline", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Information ähnelt.
         /// </summary>
         internal static string strInformationCaption {
             get {
                 return ResourceManager.GetString("strInformationCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Last modified ähnelt.
-        /// </summary>
-        internal static string strLastModifiedText {
-            get {
-                return ResourceManager.GetString("strLastModifiedText", resourceCulture);
             }
         }
         
@@ -252,9 +216,9 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die No internet connection available! ähnelt.
         /// </summary>
-        internal static string StrNoInternetConnectionText {
+        internal static string strNoInternetConnectionText {
             get {
-                return ResourceManager.GetString("StrNoInternetConnectionText", resourceCulture);
+                return ResourceManager.GetString("strNoInternetConnectionText", resourceCulture);
             }
         }
         
@@ -349,20 +313,11 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Update available! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update recommended ähnelt.
         /// </summary>
-        internal static string strUpdateAvailabletText {
+        internal static string strUpdateRecommendedText {
             get {
-                return ResourceManager.GetString("strUpdateAvailabletText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die URL ähnelt.
-        /// </summary>
-        internal static string strUrlText {
-            get {
-                return ResourceManager.GetString("strUrlText", resourceCulture);
+                return ResourceManager.GetString("strUpdateRecommendedText", resourceCulture);
             }
         }
         

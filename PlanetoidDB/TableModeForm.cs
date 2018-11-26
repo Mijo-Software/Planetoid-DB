@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
+using System.IO;
 using System.Media;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -267,6 +269,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelMaximum_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMaximum.Text);
 
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -274,8 +277,8 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void PictureBoxWarning_DoubleClick(object sender, EventArgs e)
 		{
-			SoundPlayer sound = new SoundPlayer(stream: Properties.Resources.wav_redalert);
-			sound.Play();
+			//SoundPlayer sound = new SoundPlayer(stream: Properties.Resources.wav_redalert);
+			//sound.Play();
 		}
 
 		/// <summary>

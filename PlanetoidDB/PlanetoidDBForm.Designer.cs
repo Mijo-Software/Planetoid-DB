@@ -1422,7 +1422,7 @@
 			this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
 			this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
 			this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemPrint.Text = "&Print";
 			this.toolStripMenuItemPrint.Click += new System.EventHandler(this.ToolStripMenuItemPrint_Click);
 			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.ToolStripMenuItemPrint_MouseEnter);
@@ -1438,7 +1438,7 @@
 			this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
 			this.menuitemExit.Name = "menuitemExit";
 			this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-			this.menuitemExit.Size = new System.Drawing.Size(136, 22);
+			this.menuitemExit.Size = new System.Drawing.Size(180, 22);
 			this.menuitemExit.Text = "E&xit";
 			this.menuitemExit.ToolTipText = "Exit the application";
 			this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
@@ -2141,7 +2141,7 @@
             this.toolStripButton15});
 			this.toolStripNavigation.Location = new System.Drawing.Point(0, 49);
 			this.toolStripNavigation.Name = "toolStripNavigation";
-			this.toolStripNavigation.Size = new System.Drawing.Size(478, 25);
+			this.toolStripNavigation.Size = new System.Drawing.Size(744, 25);
 			this.toolStripNavigation.Stretch = true;
 			this.toolStripNavigation.TabIndex = 15;
 			this.toolStripNavigation.Text = "Navigation";
