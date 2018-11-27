@@ -338,5 +338,445 @@ namespace Planetoid_DB {
                 return ResourceManager.GetString("strWww", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Argument of perihelion, J2000.0 (degrees)&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Argument of perihelion, J2000.0 (degrees)&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusa [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_ArgPeri {
+            get {
+                return ResourceManager.GetString("terminology_ArgPeri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Computer name&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Computer name&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gube [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_ComputerName {
+            get {
+                return ResourceManager.GetString("terminology_ComputerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Terminology: Readable designation&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Readable designation&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_DesgnName {
+            get {
+                return ResourceManager.GetString("terminology_DesgnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Terminology: Epoch (in packed form, .0 TT)&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Epoch (in packed form, .0 TT)&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_Epoch {
+            get {
+                return ResourceManager.GetString("terminology_Epoch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;4-hexdigit flags&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;4-hexdigit flags&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_Flags {
+            get {
+                return ResourceManager.GetString("terminology_Flags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Inclination to the ecliptic, J2000.0 (degrees)&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Inclination to the ecliptic, J2000.0 (degrees)&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_Incl {
+            get {
+                return ResourceManager.GetString("terminology_Incl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Terminology: Index No.&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Index No.&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_IndexNo {
+            get {
+                return ResourceManager.GetString("terminology_IndexNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Longitude of the ascending node, J2000.0&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Longitude of the ascending node, J2000.0&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_LongAscNode {
+            get {
+                return ResourceManager.GetString("terminology_LongAscNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Absolute magnitude, H&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Absolute magnitude, H&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_MagAbs {
+            get {
+                return ResourceManager.GetString("terminology_MagAbs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Terminology: Mean anomaly at the epoch, in degrees&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Mean anomaly at the epoch, in degrees&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et a [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_MeanAnomaly {
+            get {
+                return ResourceManager.GetString("terminology_MeanAnomaly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Mean daily motion (degrees per day)&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Mean daily motion (degrees per day)&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo d [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_Motion {
+            get {
+                return ResourceManager.GetString("terminology_Motion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Number of observations&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Number of observations&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. St [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_NumbObs {
+            get {
+                return ResourceManager.GetString("terminology_NumbObs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Number of oppositions&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Number of oppositions&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_NumbOppos {
+            get {
+                return ResourceManager.GetString("terminology_NumbOppos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Date of last observation&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Date of last observation&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_ObsLastDate {
+            get {
+                return ResourceManager.GetString("terminology_ObsLastDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Observation span&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Observation span&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_ObsSpan {
+            get {
+                return ResourceManager.GetString("terminology_ObsSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Orbital eccentricity&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Orbital eccentricity&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet c [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_OrbEcc {
+            get {
+                return ResourceManager.GetString("terminology_OrbEcc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Reference&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Reference&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, n [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_Ref {
+            get {
+                return ResourceManager.GetString("terminology_Ref", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;r.m.s. residual (&quot;)&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;r.m.s. residual (&quot;)&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet cli [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_RmsResidual {
+            get {
+                return ResourceManager.GetString("terminology_RmsResidual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Semimajor axis (AU)&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Semimajor axis (AU)&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet cli [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_SemiMajorAxis {
+            get {
+                return ResourceManager.GetString("terminology_SemiMajorAxis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///  &lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
+        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///    &lt;title&gt;Slope parameter, G&lt;/title&gt;
+        ///	&lt;style&gt;
+        ///		* {font-family:sans-serif;}
+        ///	&lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///  	&lt;h1&gt;Slope parameter, G&lt;/h1&gt;
+        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string terminology_SlopeParam {
+            get {
+                return ResourceManager.GetString("terminology_SlopeParam", resourceCulture);
+            }
+        }
     }
 }

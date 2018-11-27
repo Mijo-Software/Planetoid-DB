@@ -188,6 +188,38 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+		private void OpenTerminology(uint index)
+		{
+			TerminologyForm formTerminology = new TerminologyForm();
+			switch (index)
+			{
+				case 0: formTerminology.SetLabelIndexActive(sender: null, e: null); break;
+				case 1: formTerminology.SetLabelDesgnNameActive(sender: null, e: null); break;
+				case 2: formTerminology.SetLabelEpochActive(sender: null, e: null); break;
+				case 3: formTerminology.SetLabelMeanAnomalyActive(sender: null, e: null); break;
+				case 4: formTerminology.SetLabelArgPeriActive(sender: null, e: null); break;
+				case 5: formTerminology.SetLabelLongAscNodeActive(sender: null, e: null); break;
+				case 6: formTerminology.SetLabelInclActive(sender: null, e: null); break;
+				case 7: formTerminology.SetLabelOrbEccActive(sender: null, e: null); break;
+				case 8: formTerminology.SetLabelMotionActive(sender: null, e: null); break;
+				case 9: formTerminology.SetLabelSemiMajorAxisActive(sender: null, e: null); break;
+				case 10: formTerminology.SetLabelMagAbsActive(sender: null, e: null); break;
+				case 11: formTerminology.SetLabelSlopeParamActive(sender: null, e: null); break;
+				case 12: formTerminology.SetLabelRefActive(sender: null, e: null); break;
+				case 13: formTerminology.SetLabelNumbOpposActive(sender: null, e: null); break;
+				case 14: formTerminology.SetLabelNumbObsActive(sender: null, e: null); break;
+				case 15: formTerminology.SetLabelObsSpanActive(sender: null, e: null); break;
+				case 16: formTerminology.SetLabelRmsResidualActive(sender: null, e: null); break;
+				case 17: formTerminology.SetLabelComputerNameActive(sender: null, e: null); break;
+				case 18: formTerminology.SetLabelFlagsActive(sender: null, e: null); break;
+				case 19: formTerminology.SetLabelObsLastDateActive(sender: null, e: null); break;
+			}
+			formTerminology.ShowDialog();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		private void OpenTableMode()
 		{
 			TableModeForm formTableMode = new TableModeForm();
@@ -770,6 +802,20 @@ namespace Planetoid_DB
 		#endregion
 
 		#region MouseEnter-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemTerminology_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripMenuItemTerminology.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonTerminology_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonTerminology.AccessibleDescription);
 
 		/// <summary>
 		/// 
@@ -1393,6 +1439,20 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripMenuItemTerminology_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonTerminology_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToolStripStatusLabelCancelBackgroundDownload_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		/// <summary>
@@ -1656,6 +1716,20 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripMenuItemTerminology_Click(object sender, EventArgs e) => OpenTerminology(index: 0);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonTerminology_Click(object sender, EventArgs e) => OpenTerminology(index: 0);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToolStripStatusLabelCancelBackgroundDownload_Click(object sender, EventArgs e)
 		{
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
@@ -1874,7 +1948,6 @@ namespace Planetoid_DB
 		private void ToolStripSeparatorMisc_Click(object sender, EventArgs e)
 		{
 			//todo: easter egg
-
 		}
 
 		/// <summary>
@@ -1882,176 +1955,112 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelIndex_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelIndex_Click(object sender, EventArgs e) => OpenTerminology(index: 0);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelDesgnName_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelDesgnName_Click(object sender, EventArgs e) => OpenTerminology(index: 1);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelEpoch_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelEpoch_Click(object sender, EventArgs e) => OpenTerminology(index: 2);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMeanAnomaly_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelMeanAnomaly_Click(object sender, EventArgs e) => OpenTerminology(index: 3);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelArgPeri_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelArgPeri_Click(object sender, EventArgs e) => OpenTerminology(index: 4);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelLongAscNode_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelLongAscNode_Click(object sender, EventArgs e) => OpenTerminology(index: 5);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelIncl_Click(object sender, EventArgs e)
-		{
-			//v: add a short message, what is; definition
-
-		}
+		private void LabelIncl_Click(object sender, EventArgs e) => OpenTerminology(index: 6);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelOrbEcc_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelOrbEcc_Click(object sender, EventArgs e) => OpenTerminology(index: 7);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMotion_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelMotion_Click(object sender, EventArgs e) => OpenTerminology(index: 8);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelSemiMajorAxis_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelSemiMajorAxis_Click(object sender, EventArgs e) => OpenTerminology(index: 9);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMagAbs_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelMagAbs_Click(object sender, EventArgs e) => OpenTerminology(index: 10);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelSlopeParam_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelSlopeParam_Click(object sender, EventArgs e) => OpenTerminology(index: 11);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelRef_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelRef_Click(object sender, EventArgs e) => OpenTerminology(index: 12);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelNumbOppos_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelNumbOppos_Click(object sender, EventArgs e) => OpenTerminology(index: 13);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelNumbObs_Click(object sender, EventArgs e)
-		{
-
-			//todo: add a short message, what is; definition
-		}
+		private void LabelNumbObs_Click(object sender, EventArgs e) => OpenTerminology(index: 14);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelObsSpan_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelObsSpan_Click(object sender, EventArgs e) => OpenTerminology(index: 15);
 
 		/// <summary>
 		/// 
@@ -2060,8 +2069,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelRmsResidual_Click(object sender, EventArgs e)
 		{
-			//todo: add a short message, what is; definition
-
+			OpenTerminology(index: 16);
 		}
 
 		/// <summary>
@@ -2069,33 +2077,21 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelComputerName_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelComputerName_Click(object sender, EventArgs e) => OpenTerminology(index: 17);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelFlags_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelFlags_Click(object sender, EventArgs e) => OpenTerminology(index: 18);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelObsLastDate_Click(object sender, EventArgs e)
-		{
-			//todo: add a short message, what is; definition
-
-		}
+		private void LabelObsLastDate_Click(object sender, EventArgs e) => OpenTerminology(index: 19);
 
 		/// <summary>
 		/// 
@@ -2474,146 +2470,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelObsLastDateValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsLastDateValue.Text);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndex_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelIndex.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDesgnName_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDesgnName.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelEpoch_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelEpoch.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMeanAnomaly_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMeanAnomaly.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelArgPeri_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelArgPeri.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelLongAscNode_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelLongAscNode.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIncl_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelIncl.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelOrbEcc_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelOrbEcc.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMotion_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMotion.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSemiMajorAxis_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSemiMajorAxis.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMagAbs_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMagAbs.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSlopeParam_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSlopeParam.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRef_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelRef.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbOppos_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelNumbOppos.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbObs_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelNumbObs.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsSpan_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsSpan.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidual_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelRmsResidual.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsLastDate_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsLastDate.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelComputerName_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelComputerName.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelFlags_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelFlags.Text);
-
+		
 		/// <summary>
 		/// 
 		/// </summary>

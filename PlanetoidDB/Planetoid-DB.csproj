@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>20</ApplicationRevision>
-    <ApplicationVersion>0.3.2.%2a</ApplicationVersion>
+    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationVersion>0.4.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -145,6 +145,12 @@
       <DependentUpon>TableModeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TaskbarProgress.cs" />
+    <Compile Include="TerminologyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TerminologyForm.Designer.cs">
+      <DependentUpon>TerminologyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VS2008MenuRenderer.cs" />
     <Compile Include="VS2008MenuStrip.cs">
       <SubType>Component</SubType>
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="TableModeForm.resx">
       <DependentUpon>TableModeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TerminologyForm.resx">
+      <DependentUpon>TerminologyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -207,13 +216,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\alarm.ogg" />
     <None Include="Resources\silk_accept.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\silk_add.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\silk_backward-1_blue.png" />
+    <None Include="Resources\silk_backward-end_blue.png" />
+    <None Include="Resources\silk_backward-end_green.png" />
+    <None Include="Resources\silk_backward_blue.png" />
+    <None Include="Resources\silk_forward-1_blue.png" />
+    <None Include="Resources\silk_forward-end_green.png" />
+    <None Include="Resources\silk_forward-end_blue.png" />
+    <None Include="Resources\silk_forward_blue.png" />
     <None Include="Resources\silk_go.png" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +259,70 @@
   <ItemGroup>
     <Content Include="PlanetoidDB.ico" />
     <Content Include="PlanetoidDB2.ico" />
+    <None Include="Resources\silk_forward-1_green.png" />
+    <None Include="Resources\silk_forward_green.png" />
+    <None Include="Resources\silk_backward-1_green.png" />
+    <None Include="Resources\silk_backward_green.png" />
+    <None Include="Resources\silk_script.png" />
+    <None Include="Resources\silk_ruler.png" />
+    <None Include="Resources\silk_picture.png" />
+    <None Include="Resources\silk_pencil.png" />
+    <None Include="Resources\silk_pan.png" />
+    <None Include="Resources\silk_page_white_word.png" />
+    <None Include="Resources\silk_page_white_excel.png" />
+    <None Include="Resources\silk_page_white_database.png" />
+    <None Include="Resources\silk_page_white_code.png" />
+    <None Include="Resources\silk_page_white_acrobat.png" />
+    <None Include="Resources\silk_page_paste.png" />
+    <None Include="Resources\silk_folder.png" />
+    <None Include="Resources\silk_flag_it.png" />
+    <None Include="Resources\silk_flag_gb.png" />
+    <None Include="Resources\silk_flag_fr.png" />
+    <None Include="Resources\silk_flag_es.png" />
+    <None Include="Resources\silk_flag_de.png" />
+    <None Include="Resources\silk_email.png" />
+    <None Include="Resources\silk_disconnect.png" />
+    <None Include="Resources\silk_date.png" />
+    <None Include="Resources\silk_control_remove_blue.png" />
+    <None Include="Resources\silk_control_remove.png" />
+    <None Include="Resources\silk_control_blank_blue.png" />
+    <None Include="Resources\silk_control_blank.png" />
+    <None Include="Resources\silk_control_add_blue.png" />
+    <None Include="Resources\silk_control_add.png" />
+    <None Include="Resources\silk_contrast.png" />
+    <None Include="Resources\silk_connect.png" />
+    <None Include="Resources\silk_computer.png" />
+    <None Include="Resources\silk_clock.png" />
+    <None Include="Resources\silk_calendar.png" />
+    <None Include="Resources\silk_text_list_bullets.png" />
+    <None Include="Resources\silk_tag_blue.png" />
+    <None Include="Resources\silk_tag.png" />
+    <None Include="Resources\silk_style.png" />
+    <None Include="Resources\silk_bullet_goback.png" />
+    <None Include="Resources\silk_bullet_arrow_up.png" />
+    <None Include="Resources\silk_bullet_arrow_right.png" />
+    <None Include="Resources\silk_bullet_arrow_left.png" />
+    <None Include="Resources\silk_bullet_arrow_down.png" />
+    <None Include="Resources\terminology_SlopeParam.html" />
+    <None Include="Resources\terminology_SemiMajorAxis.html" />
+    <None Include="Resources\terminology_RmsResidual.html" />
+    <None Include="Resources\terminology_Ref.html" />
+    <None Include="Resources\terminology_OrbEcc.html" />
+    <None Include="Resources\terminology_ObsSpan.html" />
+    <None Include="Resources\terminology_ObsLastDate.html" />
+    <None Include="Resources\terminology_NumbOppos.html" />
+    <None Include="Resources\terminology_NumbObs.html" />
+    <None Include="Resources\terminology_Motion.html" />
+    <None Include="Resources\terminology_MeanAnomaly.html" />
+    <None Include="Resources\terminology_MagAbs.html" />
+    <None Include="Resources\terminology_LongAscNode.html" />
+    <None Include="Resources\terminology_IndexNo.html" />
+    <None Include="Resources\terminology_Incl.html" />
+    <None Include="Resources\terminology_Flags.html" />
+    <None Include="Resources\terminology_Epoch.html" />
+    <None Include="Resources\terminology_DesgnName.html" />
+    <None Include="Resources\terminology_ComputerName.html" />
+    <None Include="Resources\terminology_ArgPeri.html" />
     <None Include="Resources\silk_theme.png" />
     <None Include="Resources\silk_error.png" />
     <None Include="Resources\silk_magnifier.png" />
@@ -268,9 +348,6 @@
     <None Include="Resources\silk_lightbulb.png" />
     <None Include="Resources\silk_image.png" />
     <None Include="Resources\silk_house.png" />
-    <None Include="Resources\silk_forward-end_blue.png" />
-    <None Include="Resources\silk_forward-1_blue.png" />
-    <None Include="Resources\silk_forward_blue.png" />
     <None Include="Resources\silk_database_lightning.png" />
     <None Include="Resources\silk_database_copy.png" />
     <None Include="Resources\silk_database.png" />
@@ -299,9 +376,6 @@
     <None Include="Resources\silk_chart_bar.png" />
     <None Include="Resources\silk_calculator.png" />
     <None Include="Resources\silk_book.png" />
-    <None Include="Resources\silk_backward-end_blue.png" />
-    <None Include="Resources\silk_backward-1_blue.png" />
-    <None Include="Resources\silk_backward_blue.png" />
     <None Include="Resources\silk_asterisk_yellow.png" />
     <None Include="Resources\silk_zoom_out.png" />
     <None Include="Resources\silk_asterisk_orange.png" />
@@ -312,12 +386,6 @@
     <None Include="Resources\silk_package-go.png" />
     <None Include="Resources\silk_package.png" />
     <None Include="Resources\silk_world.png" />
-    <None Include="Resources\silk_forward-end.png" />
-    <None Include="Resources\silk_forward-1.png" />
-    <None Include="Resources\silk_forward.png" />
-    <None Include="Resources\silk_backward-end.png" />
-    <None Include="Resources\silk_backward-1.png" />
-    <None Include="Resources\silk_backward.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

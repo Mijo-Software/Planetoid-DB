@@ -124,9 +124,6 @@
   <data name="silk_hourglass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_hourglass.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_forward_1_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_forward-1_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="silk_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,9 +138,6 @@
   </data>
   <data name="silk_control_backward_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_control_backward-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silk_forward_end_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_forward-end_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_control_forward_end" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_control_forward-end.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,9 +157,6 @@
   <data name="silk_control_backward_end_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_control_backward-end_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_backward_end_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_backward-end_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="silk_reload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_reload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,9 +165,6 @@
   </data>
   <data name="silk_package_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_package-go.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silk_forward_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_forward_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_compress" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_compress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,9 +187,6 @@
   <data name="silk_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_cancel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_forward_end_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_forward-end.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="silk_control_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_control_forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -210,9 +195,6 @@
   </data>
   <data name="silk_disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silk_backward_end_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_backward-end.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_section_collapsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_section_collapsed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -231,9 +213,6 @@
   </data>
   <data name="silk_control_stop_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_control_stop_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silk_forward_1_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_forward-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_clipboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_clipboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,9 +238,6 @@
   <data name="silk_cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_backward_1_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_backward-1_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="silk_magnifier" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_magnifier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -286,9 +262,6 @@
   <data name="silk_database_lightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_database_lightning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_backward_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_backward_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="silk_lightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_lightning.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -312,9 +285,6 @@
   </data>
   <data name="silk_asterisk_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_asterisk_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silk_backward_1_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_backward-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="silk_house" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_house.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,12 +325,6 @@
   <data name="silk_wrench" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_wrench.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silk_backward_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_backward.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silk_forward_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silk_forward.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="silk_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_go.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -390,5 +354,161 @@
   </data>
   <data name="strHomepageMail" xml:space="preserve">
     <value>mailto:michael-johne@gmx.de</value>
+  </data>
+  <data name="silk_backward_1_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_backward-1_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_backward_1_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_backward-1_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_backward_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_backward_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_backward_end_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_backward-end_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_backward_end_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_backward-end_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_backward_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_backward_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_bullet_arrow_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_bullet_arrow_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_bullet_arrow_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_bullet_arrow_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_bullet_arrow_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_bullet_arrow_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_bullet_arrow_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_bullet_arrow_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_bullet_goback" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_bullet_goback.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_computer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_computer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_connect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_contrast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_contrast.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_control_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_control_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_control_add_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_control_add_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_control_blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_control_blank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_control_blank_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_control_blank_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_control_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_control_remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_control_remove_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_control_remove_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_date" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_date.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_disconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_disconnect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_flag_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_flag_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_flag_es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_flag_es.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_flag_fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_flag_fr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_flag_gb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_flag_gb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_flag_it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_flag_it.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_forward_1_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_forward-1_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_forward_1_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_forward-1_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_forward_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_forward_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_forward_end_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_forward-end_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_forward_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_forward_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_page_paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_page_paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_page_white_acrobat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_page_white_acrobat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_page_white_code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_page_white_code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_page_white_database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_page_white_database.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_page_white_excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_page_white_excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_page_white_word" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_page_white_word.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_pan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_pan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_ruler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_ruler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_script" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_script.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_style" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_style.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_tag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_tag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_tag_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_tag_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_text_list_bullets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silk_text_list_bullets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silk_forward_end_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\silk_forward-end_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
