@@ -199,6 +199,7 @@
 			this.toolStripMenuItem10.Text = "10";
 			this.toolStripMenuItem10.ToolTipText = "Jump 10 items backward/forward";
 			this.toolStripMenuItem10.Click += new System.EventHandler(this.ToolStripMenuItem10_Click);
+			this.toolStripMenuItem10.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem100
 			// 
@@ -210,6 +211,7 @@
 			this.toolStripMenuItem100.Text = "100";
 			this.toolStripMenuItem100.ToolTipText = "Jump 100 items backward/forward";
 			this.toolStripMenuItem100.Click += new System.EventHandler(this.ToolStripMenuItem100_Click);
+			this.toolStripMenuItem100.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem1000
 			// 
@@ -219,6 +221,7 @@
 			this.toolStripMenuItem1000.Text = "1000";
 			this.toolStripMenuItem1000.ToolTipText = "Jump 1000 items backward/forward";
 			this.toolStripMenuItem1000.Click += new System.EventHandler(this.ToolStripMenuItem1000_Click);
+			this.toolStripMenuItem1000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem10000
 			// 
@@ -228,6 +231,7 @@
 			this.toolStripMenuItem10000.Text = "10000";
 			this.toolStripMenuItem10000.ToolTipText = "Jump 10000 items backward/forward";
 			this.toolStripMenuItem10000.Click += new System.EventHandler(this.ToolStripMenuItem10000_Click);
+			this.toolStripMenuItem10000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem100000
 			// 
@@ -237,6 +241,7 @@
 			this.toolStripMenuItem100000.Text = "100000";
 			this.toolStripMenuItem100000.ToolTipText = "Jump 100000 items backward/forward";
 			this.toolStripMenuItem100000.Click += new System.EventHandler(this.ToolStripMenuItem100000_Click);
+			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanelData
 			// 
@@ -326,9 +331,9 @@
 			this.toolTip.SetToolTip(this.linkLabelObsLastDate, "Date of last observation");
 			this.linkLabelObsLastDate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsLastDate_Click);
 			this.linkLabelObsLastDate.Enter += new System.EventHandler(this.LabelObsLastDate_Enter);
-			this.linkLabelObsLastDate.Leave += new System.EventHandler(this.LabelObsLastDate_Leave);
+			this.linkLabelObsLastDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelObsLastDate.MouseEnter += new System.EventHandler(this.LabelObsLastDate_Enter);
-			this.linkLabelObsLastDate.MouseLeave += new System.EventHandler(this.LabelObsLastDate_Leave);
+			this.linkLabelObsLastDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelFlags
 			// 
@@ -349,9 +354,9 @@
 			this.toolTip.SetToolTip(this.linkLabelFlags, "4-hexdigit flags");
 			this.linkLabelFlags.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelFlags_Click);
 			this.linkLabelFlags.Enter += new System.EventHandler(this.LabelFlags_Enter);
-			this.linkLabelFlags.Leave += new System.EventHandler(this.LabelFlags_Leave);
+			this.linkLabelFlags.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelFlags.MouseEnter += new System.EventHandler(this.LabelFlags_Enter);
-			this.linkLabelFlags.MouseLeave += new System.EventHandler(this.LabelFlags_Leave);
+			this.linkLabelFlags.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelComputerName
 			// 
@@ -372,9 +377,9 @@
 			this.toolTip.SetToolTip(this.linkLabelComputerName, "Computer name");
 			this.linkLabelComputerName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelComputerName_Click);
 			this.linkLabelComputerName.Enter += new System.EventHandler(this.LabelComputerName_Enter);
-			this.linkLabelComputerName.Leave += new System.EventHandler(this.LabelComputerName_Leave);
+			this.linkLabelComputerName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelComputerName.MouseEnter += new System.EventHandler(this.LabelComputerName_Enter);
-			this.linkLabelComputerName.MouseLeave += new System.EventHandler(this.LabelComputerName_Leave);
+			this.linkLabelComputerName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelRmsResidual
 			// 
@@ -397,9 +402,9 @@
 			this.toolTip.SetToolTip(this.linkLabelRmsResidual, "r.m.s. residual (\")");
 			this.linkLabelRmsResidual.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRmsResidual_Click);
 			this.linkLabelRmsResidual.Enter += new System.EventHandler(this.LabelRmsResidual_Enter);
-			this.linkLabelRmsResidual.Leave += new System.EventHandler(this.LabelRmsResidual_Leave);
+			this.linkLabelRmsResidual.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelRmsResidual.MouseEnter += new System.EventHandler(this.LabelRmsResidual_Enter);
-			this.linkLabelRmsResidual.MouseLeave += new System.EventHandler(this.LabelRmsResidual_Leave);
+			this.linkLabelRmsResidual.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelObsSpan
 			// 
@@ -422,9 +427,9 @@
 			this.toolTip.SetToolTip(this.linkLabelObsSpan, "Observation span");
 			this.linkLabelObsSpan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsSpan_Click);
 			this.linkLabelObsSpan.Enter += new System.EventHandler(this.LabelObsSpan_Enter);
-			this.linkLabelObsSpan.Leave += new System.EventHandler(this.LabelObsSpan_Leave);
+			this.linkLabelObsSpan.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelObsSpan.MouseEnter += new System.EventHandler(this.LabelObsSpan_Enter);
-			this.linkLabelObsSpan.MouseLeave += new System.EventHandler(this.LabelObsSpan_Leave);
+			this.linkLabelObsSpan.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelNumbObs
 			// 
@@ -447,9 +452,9 @@
 			this.toolTip.SetToolTip(this.linkLabelNumbObs, "Number of observations");
 			this.linkLabelNumbObs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbObs_Click);
 			this.linkLabelNumbObs.Enter += new System.EventHandler(this.LabelNumbObs_Enter);
-			this.linkLabelNumbObs.Leave += new System.EventHandler(this.LabelNumbObs_Leave);
+			this.linkLabelNumbObs.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelNumbObs.MouseEnter += new System.EventHandler(this.LabelNumbObs_Enter);
-			this.linkLabelNumbObs.MouseLeave += new System.EventHandler(this.LabelNumbObs_Leave);
+			this.linkLabelNumbObs.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelNumbOppos
 			// 
@@ -472,9 +477,9 @@
 			this.toolTip.SetToolTip(this.linkLabelNumbOppos, "Number of oppositions");
 			this.linkLabelNumbOppos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbOppos_Enter);
 			this.linkLabelNumbOppos.Enter += new System.EventHandler(this.LabelNumbOppos_Enter);
-			this.linkLabelNumbOppos.Leave += new System.EventHandler(this.LabelNumbOppos_Leave);
+			this.linkLabelNumbOppos.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelNumbOppos.MouseEnter += new System.EventHandler(this.LabelNumbOppos_Enter);
-			this.linkLabelNumbOppos.MouseLeave += new System.EventHandler(this.LabelNumbOppos_Leave);
+			this.linkLabelNumbOppos.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelRef
 			// 
@@ -497,9 +502,9 @@
 			this.toolTip.SetToolTip(this.linkLabelRef, "Reference");
 			this.linkLabelRef.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRef_Click);
 			this.linkLabelRef.Enter += new System.EventHandler(this.LabelRef_Enter);
-			this.linkLabelRef.Leave += new System.EventHandler(this.LabelRef_Leave);
+			this.linkLabelRef.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelRef.MouseEnter += new System.EventHandler(this.LabelRef_Enter);
-			this.linkLabelRef.MouseLeave += new System.EventHandler(this.LabelRef_Leave);
+			this.linkLabelRef.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelSlopeParam
 			// 
@@ -522,9 +527,9 @@
 			this.toolTip.SetToolTip(this.linkLabelSlopeParam, "Slope parameter, G");
 			this.linkLabelSlopeParam.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSlopeParam_Click);
 			this.linkLabelSlopeParam.Enter += new System.EventHandler(this.LabelSlopeParam_Enter);
-			this.linkLabelSlopeParam.Leave += new System.EventHandler(this.LabelSlopeParam_Leave);
+			this.linkLabelSlopeParam.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelSlopeParam.MouseEnter += new System.EventHandler(this.LabelSlopeParam_Enter);
-			this.linkLabelSlopeParam.MouseLeave += new System.EventHandler(this.LabelSlopeParam_Leave);
+			this.linkLabelSlopeParam.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelMagAbs
 			// 
@@ -547,9 +552,9 @@
 			this.toolTip.SetToolTip(this.linkLabelMagAbs, "Absolute magnitude, H");
 			this.linkLabelMagAbs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMagAbs_Enter);
 			this.linkLabelMagAbs.Enter += new System.EventHandler(this.LabelMagAbs_Enter);
-			this.linkLabelMagAbs.Leave += new System.EventHandler(this.LabelMagAbs_Leave);
+			this.linkLabelMagAbs.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelMagAbs.MouseEnter += new System.EventHandler(this.LabelMagAbs_Enter);
-			this.linkLabelMagAbs.MouseLeave += new System.EventHandler(this.LabelMagAbs_Leave);
+			this.linkLabelMagAbs.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelSemiMajorAxis
 			// 
@@ -571,9 +576,9 @@
 			this.toolTip.SetToolTip(this.linkLabelSemiMajorAxis, "Semimajor axis (AU)");
 			this.linkLabelSemiMajorAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSemiMajorAxis_Click);
 			this.linkLabelSemiMajorAxis.Enter += new System.EventHandler(this.LabelSemiMajorAxis_Enter);
-			this.linkLabelSemiMajorAxis.Leave += new System.EventHandler(this.LabelSemiMajorAxis_Leave);
+			this.linkLabelSemiMajorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelSemiMajorAxis.MouseEnter += new System.EventHandler(this.LabelSemiMajorAxis_Enter);
-			this.linkLabelSemiMajorAxis.MouseLeave += new System.EventHandler(this.LabelSemiMajorAxis_Leave);
+			this.linkLabelSemiMajorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelMotion
 			// 
@@ -596,9 +601,9 @@
 			this.toolTip.SetToolTip(this.linkLabelMotion, "Mean daily motion (degrees per day)");
 			this.linkLabelMotion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMotion_Enter);
 			this.linkLabelMotion.Enter += new System.EventHandler(this.LabelMotion_Enter);
-			this.linkLabelMotion.Leave += new System.EventHandler(this.LabelMotion_Leave);
+			this.linkLabelMotion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelMotion.MouseEnter += new System.EventHandler(this.LabelMotion_Enter);
-			this.linkLabelMotion.MouseLeave += new System.EventHandler(this.LabelMotion_Leave);
+			this.linkLabelMotion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelOrbEcc
 			// 
@@ -621,9 +626,9 @@
 			this.toolTip.SetToolTip(this.linkLabelOrbEcc, "Orbital eccentricity");
 			this.linkLabelOrbEcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelOrbEcc_Enter);
 			this.linkLabelOrbEcc.Enter += new System.EventHandler(this.LabelOrbEcc_Enter);
-			this.linkLabelOrbEcc.Leave += new System.EventHandler(this.LabelOrbEcc_Leave);
+			this.linkLabelOrbEcc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelOrbEcc.MouseEnter += new System.EventHandler(this.LabelOrbEcc_Enter);
-			this.linkLabelOrbEcc.MouseLeave += new System.EventHandler(this.LabelOrbEcc_Leave);
+			this.linkLabelOrbEcc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelIncl
 			// 
@@ -645,9 +650,9 @@
 			this.linkLabelIncl.Text = "Inclination to the ecliptic, J2000.0 (degrees)";
 			this.linkLabelIncl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIncl_Enter);
 			this.linkLabelIncl.Enter += new System.EventHandler(this.LabelIncl_Enter);
-			this.linkLabelIncl.Leave += new System.EventHandler(this.LabelIncl_Leave);
+			this.linkLabelIncl.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelIncl.MouseEnter += new System.EventHandler(this.LabelIncl_Enter);
-			this.linkLabelIncl.MouseLeave += new System.EventHandler(this.LabelIncl_Leave);
+			this.linkLabelIncl.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelLongAscNode
 			// 
@@ -670,9 +675,9 @@
 			this.toolTip.SetToolTip(this.linkLabelLongAscNode, "Longitude of the ascending node, J2000.0");
 			this.linkLabelLongAscNode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelLongAscNode_Click);
 			this.linkLabelLongAscNode.Enter += new System.EventHandler(this.LabelLongAscNode_Enter);
-			this.linkLabelLongAscNode.Leave += new System.EventHandler(this.LabelLongAscNode_Leave);
+			this.linkLabelLongAscNode.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelLongAscNode.MouseEnter += new System.EventHandler(this.LabelLongAscNode_Enter);
-			this.linkLabelLongAscNode.MouseLeave += new System.EventHandler(this.LabelLongAscNode_Leave);
+			this.linkLabelLongAscNode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelArgPeri
 			// 
@@ -695,9 +700,9 @@
 			this.toolTip.SetToolTip(this.linkLabelArgPeri, "Argument of perihelion, J2000.0 (degrees)");
 			this.linkLabelArgPeri.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelArgPeri_Click);
 			this.linkLabelArgPeri.Enter += new System.EventHandler(this.LabelArgPeri_Enter);
-			this.linkLabelArgPeri.Leave += new System.EventHandler(this.LabelArgPeri_Leave);
+			this.linkLabelArgPeri.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelArgPeri.MouseEnter += new System.EventHandler(this.LabelArgPeri_Enter);
-			this.linkLabelArgPeri.MouseLeave += new System.EventHandler(this.LabelArgPeri_Leave);
+			this.linkLabelArgPeri.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelMeanAnomaly
 			// 
@@ -720,9 +725,9 @@
 			this.toolTip.SetToolTip(this.linkLabelMeanAnomaly, "Mean anomaly at the epoch, in degrees");
 			this.linkLabelMeanAnomaly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMeanAnomaly_Click);
 			this.linkLabelMeanAnomaly.Enter += new System.EventHandler(this.LabelMeanAnomaly_Enter);
-			this.linkLabelMeanAnomaly.Leave += new System.EventHandler(this.LabelMeanAnomaly_Leave);
+			this.linkLabelMeanAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelMeanAnomaly.MouseEnter += new System.EventHandler(this.LabelMeanAnomaly_Enter);
-			this.linkLabelMeanAnomaly.MouseLeave += new System.EventHandler(this.LabelMeanAnomaly_Leave);
+			this.linkLabelMeanAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelEpoch
 			// 
@@ -745,9 +750,9 @@
 			this.toolTip.SetToolTip(this.linkLabelEpoch, "Epoch (in packed form, .0 TT)");
 			this.linkLabelEpoch.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelEpoch_Click);
 			this.linkLabelEpoch.Enter += new System.EventHandler(this.LabelEpoch_Enter);
-			this.linkLabelEpoch.Leave += new System.EventHandler(this.LabelEpoch_Leave);
+			this.linkLabelEpoch.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelEpoch.MouseEnter += new System.EventHandler(this.LabelEpoch_Enter);
-			this.linkLabelEpoch.MouseLeave += new System.EventHandler(this.LabelEpoch_Leave);
+			this.linkLabelEpoch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelDesgnNameValue
 			// 
@@ -766,9 +771,9 @@
 			this.toolTip.SetToolTip(this.labelDesgnNameValue, "Show the information of  \"Readable designation\"");
 			this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.LabelDesgnNameValue_DoubleClick);
 			this.labelDesgnNameValue.Enter += new System.EventHandler(this.LabelDesgnNameValue_Enter);
-			this.labelDesgnNameValue.Leave += new System.EventHandler(this.LabelDesgnNameValue_Leave);
+			this.labelDesgnNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDesgnNameValue.MouseEnter += new System.EventHandler(this.LabelDesgnNameValue_Enter);
-			this.labelDesgnNameValue.MouseLeave += new System.EventHandler(this.LabelDesgnNameValue_Leave);
+			this.labelDesgnNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelEpochValue
 			// 
@@ -787,9 +792,9 @@
 			this.toolTip.SetToolTip(this.labelEpochValue, "Show the information of \"Epoch (in packed form, .0 TT)\"");
 			this.labelEpochValue.DoubleClick += new System.EventHandler(this.LabelEpochValue_DoubleClick);
 			this.labelEpochValue.Enter += new System.EventHandler(this.LabelEpochValue_Enter);
-			this.labelEpochValue.Leave += new System.EventHandler(this.LabelEpochValue_Leave);
+			this.labelEpochValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelEpochValue.MouseEnter += new System.EventHandler(this.LabelEpochValue_Enter);
-			this.labelEpochValue.MouseLeave += new System.EventHandler(this.LabelEpochValue_Leave);
+			this.labelEpochValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMeanAnomalyValue
 			// 
@@ -808,9 +813,9 @@
 			this.toolTip.SetToolTip(this.labelMeanAnomalyValue, "Show the information of \"Mean anomaly at the epoch, in degrees\"");
 			this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.LabelMeanAnomalyValue_DoubleClick);
 			this.labelMeanAnomalyValue.Enter += new System.EventHandler(this.LabelMeanAnomalyValue_Enter);
-			this.labelMeanAnomalyValue.Leave += new System.EventHandler(this.LabelMeanAnomalyValue_Leave);
+			this.labelMeanAnomalyValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMeanAnomalyValue.MouseEnter += new System.EventHandler(this.LabelMeanAnomalyValue_Enter);
-			this.labelMeanAnomalyValue.MouseLeave += new System.EventHandler(this.LabelMeanAnomalyValue_Leave);
+			this.labelMeanAnomalyValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelArgPeriValue
 			// 
@@ -829,9 +834,9 @@
 			this.toolTip.SetToolTip(this.labelArgPeriValue, "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"");
 			this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.LabelArgPeriValue_DoubleClick);
 			this.labelArgPeriValue.Enter += new System.EventHandler(this.LabelArgPeriValue_Enter);
-			this.labelArgPeriValue.Leave += new System.EventHandler(this.LabelArgPeriValue_Leave);
+			this.labelArgPeriValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelArgPeriValue.MouseEnter += new System.EventHandler(this.LabelArgPeriValue_Enter);
-			this.labelArgPeriValue.MouseLeave += new System.EventHandler(this.LabelArgPeriValue_Leave);
+			this.labelArgPeriValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelLongAscNodeValue
 			// 
@@ -850,9 +855,9 @@
 			this.toolTip.SetToolTip(this.labelLongAscNodeValue, "Show the information of \"Longitude of the ascending node, J2000.0\"");
 			this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.LabelLongAscNodeValue_DoubleClick);
 			this.labelLongAscNodeValue.Enter += new System.EventHandler(this.LabelLongAscNodeValue_Enter);
-			this.labelLongAscNodeValue.Leave += new System.EventHandler(this.LabelLongAscNodeValue_Leave);
+			this.labelLongAscNodeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelLongAscNodeValue.MouseEnter += new System.EventHandler(this.LabelLongAscNodeValue_Enter);
-			this.labelLongAscNodeValue.MouseLeave += new System.EventHandler(this.LabelLongAscNodeValue_Leave);
+			this.labelLongAscNodeValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelInclValue
 			// 
@@ -871,9 +876,9 @@
 			this.toolTip.SetToolTip(this.labelInclValue, "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"");
 			this.labelInclValue.DoubleClick += new System.EventHandler(this.LabelInclValue_DoubleClick);
 			this.labelInclValue.Enter += new System.EventHandler(this.LabelInclValue_Enter);
-			this.labelInclValue.Leave += new System.EventHandler(this.LabelInclValue_Leave);
+			this.labelInclValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelInclValue.MouseEnter += new System.EventHandler(this.LabelInclValue_Enter);
-			this.labelInclValue.MouseLeave += new System.EventHandler(this.LabelInclValue_Leave);
+			this.labelInclValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelOrbEccValue
 			// 
@@ -892,9 +897,9 @@
 			this.toolTip.SetToolTip(this.labelOrbEccValue, "Show the information of \"Orbital eccentricity\"");
 			this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.LabelOrbEccValue_DoubleClick);
 			this.labelOrbEccValue.Enter += new System.EventHandler(this.LabelOrbEccValue_Enter);
-			this.labelOrbEccValue.Leave += new System.EventHandler(this.LabelOrbEccValue_Leave);
+			this.labelOrbEccValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelOrbEccValue.MouseEnter += new System.EventHandler(this.LabelOrbEccValue_Enter);
-			this.labelOrbEccValue.MouseLeave += new System.EventHandler(this.LabelOrbEccValue_Leave);
+			this.labelOrbEccValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMotionValue
 			// 
@@ -913,9 +918,9 @@
 			this.toolTip.SetToolTip(this.labelMotionValue, "Show the information of \"Mean daily motion (degrees per day)\"");
 			this.labelMotionValue.DoubleClick += new System.EventHandler(this.LabelMotionValue_DoubleClick);
 			this.labelMotionValue.Enter += new System.EventHandler(this.LabelMotionValue_Enter);
-			this.labelMotionValue.Leave += new System.EventHandler(this.LabelMotionValue_Leave);
+			this.labelMotionValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMotionValue.MouseEnter += new System.EventHandler(this.LabelMotionValue_Enter);
-			this.labelMotionValue.MouseLeave += new System.EventHandler(this.LabelMotionValue_Leave);
+			this.labelMotionValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSemiMajorAxisValue
 			// 
@@ -934,9 +939,9 @@
 			this.toolTip.SetToolTip(this.labelSemiMajorAxisValue, "Show the information of \"Semimajor axis (AU)\"");
 			this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.LabelSemiMajorAxisValue_DoubleClick);
 			this.labelSemiMajorAxisValue.Enter += new System.EventHandler(this.LabelSemiMajorAxisValue_Enter);
-			this.labelSemiMajorAxisValue.Leave += new System.EventHandler(this.LabelSemiMajorAxisValue_Leave);
+			this.labelSemiMajorAxisValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSemiMajorAxisValue.MouseEnter += new System.EventHandler(this.LabelSemiMajorAxisValue_Enter);
-			this.labelSemiMajorAxisValue.MouseLeave += new System.EventHandler(this.LabelSemiMajorAxisValue_Leave);
+			this.labelSemiMajorAxisValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSlopeParamValue
 			// 
@@ -955,9 +960,9 @@
 			this.toolTip.SetToolTip(this.labelSlopeParamValue, "Show the information of \"Slope parameter, G\"");
 			this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.LabelSlopeParamValue_DoubleClick);
 			this.labelSlopeParamValue.Enter += new System.EventHandler(this.LabelSlopeParamValue_Enter);
-			this.labelSlopeParamValue.Leave += new System.EventHandler(this.LabelSlopeParamValue_Leave);
+			this.labelSlopeParamValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSlopeParamValue.MouseEnter += new System.EventHandler(this.LabelSlopeParamValue_Enter);
-			this.labelSlopeParamValue.MouseLeave += new System.EventHandler(this.LabelSlopeParamValue_Leave);
+			this.labelSlopeParamValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelIndexValue
 			// 
@@ -976,9 +981,9 @@
 			this.toolTip.SetToolTip(this.labelIndexValue, "Show the information of \"Index No.\"");
 			this.labelIndexValue.DoubleClick += new System.EventHandler(this.LabelIndexValue_DoubleClick);
 			this.labelIndexValue.Enter += new System.EventHandler(this.LabelIndexValue_Enter);
-			this.labelIndexValue.Leave += new System.EventHandler(this.LabelIndexValue_Leave);
+			this.labelIndexValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelIndexValue.MouseEnter += new System.EventHandler(this.LabelIndexValue_Enter);
-			this.labelIndexValue.MouseLeave += new System.EventHandler(this.LabelIndexValue_Leave);
+			this.labelIndexValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMagAbsValue
 			// 
@@ -997,9 +1002,9 @@
 			this.toolTip.SetToolTip(this.labelMagAbsValue, "Show the information of \"Absolute magnitude, H\"");
 			this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.LabelMagAbsValue_DoubleClick);
 			this.labelMagAbsValue.Enter += new System.EventHandler(this.LabelMagAbsValue_Enter);
-			this.labelMagAbsValue.Leave += new System.EventHandler(this.LabelMagAbsValue_Leave);
+			this.labelMagAbsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMagAbsValue.MouseEnter += new System.EventHandler(this.LabelMagAbsValue_Enter);
-			this.labelMagAbsValue.MouseLeave += new System.EventHandler(this.LabelMagAbsValue_Leave);
+			this.labelMagAbsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelRefValue
 			// 
@@ -1018,9 +1023,9 @@
 			this.toolTip.SetToolTip(this.labelRefValue, "Show the information of \"Reference\"");
 			this.labelRefValue.DoubleClick += new System.EventHandler(this.LabelRefValue_DoubleClick);
 			this.labelRefValue.Enter += new System.EventHandler(this.LabelRefValue_Enter);
-			this.labelRefValue.Leave += new System.EventHandler(this.LabelRefValue_Leave);
+			this.labelRefValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelRefValue.MouseEnter += new System.EventHandler(this.LabelRefValue_Enter);
-			this.labelRefValue.MouseLeave += new System.EventHandler(this.LabelRefValue_Leave);
+			this.labelRefValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelNumbOpposValue
 			// 
@@ -1039,9 +1044,9 @@
 			this.toolTip.SetToolTip(this.labelNumbOpposValue, "Show the information of \"Number of oppositions\"");
 			this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.LabelNumbOpposValue_DoubleClick);
 			this.labelNumbOpposValue.Enter += new System.EventHandler(this.LabelNumbOpposValue_Enter);
-			this.labelNumbOpposValue.Leave += new System.EventHandler(this.LabelNumbOpposValue_Leave);
+			this.labelNumbOpposValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelNumbOpposValue.MouseEnter += new System.EventHandler(this.LabelNumbOpposValue_Enter);
-			this.labelNumbOpposValue.MouseLeave += new System.EventHandler(this.LabelNumbOpposValue_Leave);
+			this.labelNumbOpposValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelNumbObsValue
 			// 
@@ -1060,9 +1065,9 @@
 			this.toolTip.SetToolTip(this.labelNumbObsValue, "Show the information of \"Number of observations\"");
 			this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.LabelNumbObsValue_DoubleClick);
 			this.labelNumbObsValue.Enter += new System.EventHandler(this.LabelNumbObsValue_Enter);
-			this.labelNumbObsValue.Leave += new System.EventHandler(this.LabelNumbObsValue_Leave);
+			this.labelNumbObsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelNumbObsValue.MouseEnter += new System.EventHandler(this.LabelNumbObsValue_Enter);
-			this.labelNumbObsValue.MouseLeave += new System.EventHandler(this.LabelNumbObsValue_Leave);
+			this.labelNumbObsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelObsSpanValue
 			// 
@@ -1081,9 +1086,9 @@
 			this.toolTip.SetToolTip(this.labelObsSpanValue, "Show the information of \"Observation span\"");
 			this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.LabelObsSpanValue_DoubleClick);
 			this.labelObsSpanValue.Enter += new System.EventHandler(this.LabelObsSpanValue_Enter);
-			this.labelObsSpanValue.Leave += new System.EventHandler(this.LabelObsSpanValue_Leave);
+			this.labelObsSpanValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelObsSpanValue.MouseEnter += new System.EventHandler(this.LabelObsSpanValue_Enter);
-			this.labelObsSpanValue.MouseLeave += new System.EventHandler(this.LabelObsSpanValue_Leave);
+			this.labelObsSpanValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelRmsResidualValue
 			// 
@@ -1102,9 +1107,9 @@
 			this.toolTip.SetToolTip(this.labelRmsResidualValue, "Show the information of \"r.m.s residual (\")\"");
 			this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.LabelRmsResidualValue_DoubleClick);
 			this.labelRmsResidualValue.Enter += new System.EventHandler(this.LabelRmsResidualValue_Enter);
-			this.labelRmsResidualValue.Leave += new System.EventHandler(this.LabelRmsResidualValue_Leave);
+			this.labelRmsResidualValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelRmsResidualValue.MouseEnter += new System.EventHandler(this.LabelRmsResidualValue_Enter);
-			this.labelRmsResidualValue.MouseLeave += new System.EventHandler(this.LabelRmsResidualValue_Leave);
+			this.labelRmsResidualValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelComputerNameValue
 			// 
@@ -1123,9 +1128,9 @@
 			this.toolTip.SetToolTip(this.labelComputerNameValue, "Show the information of \"Computer name\"");
 			this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.LabelComputerNameValue_DoubleClick);
 			this.labelComputerNameValue.Enter += new System.EventHandler(this.LabelComputerNameValue_Enter);
-			this.labelComputerNameValue.Leave += new System.EventHandler(this.LabelComputerNameValue_Leave);
+			this.labelComputerNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelComputerNameValue.MouseEnter += new System.EventHandler(this.LabelComputerNameValue_Enter);
-			this.labelComputerNameValue.MouseLeave += new System.EventHandler(this.LabelComputerNameValue_Leave);
+			this.labelComputerNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelFlagsValue
 			// 
@@ -1144,9 +1149,9 @@
 			this.toolTip.SetToolTip(this.labelFlagsValue, "Show the information of \"4-hexdigit flags\"");
 			this.labelFlagsValue.DoubleClick += new System.EventHandler(this.LabelFlagsValue_DoubleClick);
 			this.labelFlagsValue.Enter += new System.EventHandler(this.LabelFlagsValue_Enter);
-			this.labelFlagsValue.Leave += new System.EventHandler(this.LabelFlagsValue_Leave);
+			this.labelFlagsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelFlagsValue.MouseEnter += new System.EventHandler(this.LabelFlagsValue_Enter);
-			this.labelFlagsValue.MouseLeave += new System.EventHandler(this.LabelFlagsValue_Leave);
+			this.labelFlagsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelObsLastDateValue
 			// 
@@ -1165,9 +1170,9 @@
 			this.toolTip.SetToolTip(this.labelObsLastDateValue, "Show the information of \"Date of last observation\"");
 			this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.LabelObsLastDateValue_DoubleClick);
 			this.labelObsLastDateValue.Enter += new System.EventHandler(this.LabelObsLastDateValue_Enter);
-			this.labelObsLastDateValue.Leave += new System.EventHandler(this.LabelObsLastDateValue_Leave);
+			this.labelObsLastDateValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelObsLastDateValue.MouseEnter += new System.EventHandler(this.LabelObsLastDateValue_Enter);
-			this.labelObsLastDateValue.MouseLeave += new System.EventHandler(this.LabelObsLastDateValue_Leave);
+			this.labelObsLastDateValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelIndex
 			// 
@@ -1189,9 +1194,9 @@
 			this.linkLabelIndex.Text = "Index No.";
 			this.linkLabelIndex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIndex_Click);
 			this.linkLabelIndex.Enter += new System.EventHandler(this.LabelIndex_Enter);
-			this.linkLabelIndex.Leave += new System.EventHandler(this.LabelIndex_Leave);
+			this.linkLabelIndex.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelIndex.MouseEnter += new System.EventHandler(this.LabelIndex_Enter);
-			this.linkLabelIndex.MouseLeave += new System.EventHandler(this.LabelIndex_Leave);
+			this.linkLabelIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelDesgnName
 			// 
@@ -1214,9 +1219,9 @@
 			this.toolTip.SetToolTip(this.linkLabelDesgnName, "Readable designation");
 			this.linkLabelDesgnName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelDesgnName_Click);
 			this.linkLabelDesgnName.Enter += new System.EventHandler(this.LabelDesgnName_Enter);
-			this.linkLabelDesgnName.Leave += new System.EventHandler(this.LabelDesgnName_Leave);
+			this.linkLabelDesgnName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelDesgnName.MouseEnter += new System.EventHandler(this.LabelDesgnName_Enter);
-			this.linkLabelDesgnName.MouseLeave += new System.EventHandler(this.LabelDesgnName_Leave);
+			this.linkLabelDesgnName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// statusBar
 			// 
@@ -1270,7 +1275,7 @@
 			this.toolStripStatusLabelUpdate.ToolTipText = "MPCORB.DAT update aviable";
 			this.toolStripStatusLabelUpdate.Click += new System.EventHandler(this.ToolStripStatusLabelUpdate_Click);
 			this.toolStripStatusLabelUpdate.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelUpdate_MouseEnter);
-			this.toolStripStatusLabelUpdate.MouseLeave += new System.EventHandler(this.ToolStripStatusLabelUpdate_MouseLeave);
+			this.toolStripStatusLabelUpdate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripStatusLabelBackgroundDownload
 			// 
@@ -1284,9 +1289,9 @@
 			this.toolStripStatusLabelBackgroundDownload.Size = new System.Drawing.Size(80, 16);
 			this.toolStripStatusLabelBackgroundDownload.Text = "Download:";
 			this.toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progres";
-			this.toolStripStatusLabelBackgroundDownload.DoubleClick += new System.EventHandler(this.ToolStripStatusLabelBackgroundDownload_DoubleClick);
+			this.toolStripStatusLabelBackgroundDownload.DoubleClick += new System.EventHandler(this.EasterEgg_DoubleClick);
 			this.toolStripStatusLabelBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelBackgroundDownload_MouseEnter);
-			this.toolStripStatusLabelBackgroundDownload.MouseLeave += new System.EventHandler(this.ToolStripStatusLabelBackgroundDownload_MouseLeave);
+			this.toolStripStatusLabelBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripProgressBarBackgroundDownload
 			// 
@@ -1299,9 +1304,9 @@
 			this.toolStripProgressBarBackgroundDownload.Size = new System.Drawing.Size(100, 16);
 			this.toolStripProgressBarBackgroundDownload.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.toolStripProgressBarBackgroundDownload.ToolTipText = "Show the download progres";
-			this.toolStripProgressBarBackgroundDownload.DoubleClick += new System.EventHandler(this.ToolStripProgressBarBackgroundDownload_DoubleClick);
+			this.toolStripProgressBarBackgroundDownload.DoubleClick += new System.EventHandler(this.EasterEgg_DoubleClick);
 			this.toolStripProgressBarBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripProgressBarBackgroundDownload_MouseEnter);
-			this.toolStripProgressBarBackgroundDownload.MouseLeave += new System.EventHandler(this.ToolStripProgressBarBackgroundDownload_MouseLeave);
+			this.toolStripProgressBarBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripStatusLabelCancelBackgroundDownload
 			// 
@@ -1316,7 +1321,7 @@
 			this.toolStripStatusLabelCancelBackgroundDownload.Text = "Cancel background download";
 			this.toolStripStatusLabelCancelBackgroundDownload.Click += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_Click);
 			this.toolStripStatusLabelCancelBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_MouseEnter);
-			this.toolStripStatusLabelCancelBackgroundDownload.MouseLeave += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_MouseLeave);
+			this.toolStripStatusLabelCancelBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menu
 			// 
@@ -1356,7 +1361,7 @@
 			this.menuitemFile.Text = "&File";
 			this.menuitemFile.ToolTipText = "Open the menu \"file\"";
 			this.menuitemFile.MouseEnter += new System.EventHandler(this.MenuitemFile_MouseEnter);
-			this.menuitemFile.MouseLeave += new System.EventHandler(this.MenuitemFile_MouseLeave);
+			this.menuitemFile.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemPrint
 			// 
@@ -1369,11 +1374,11 @@
 			this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
 			this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
 			this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemPrint.Text = "&Print";
 			this.toolStripMenuItemPrint.Click += new System.EventHandler(this.ToolStripMenuItemPrint_Click);
 			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.ToolStripMenuItemPrint_MouseEnter);
-			this.toolStripMenuItemPrint.MouseLeave += new System.EventHandler(this.ToolStripMenuItemPrint_MouseLeave);
+			this.toolStripMenuItemPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemExit
 			// 
@@ -1385,12 +1390,12 @@
 			this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
 			this.menuitemExit.Name = "menuitemExit";
 			this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-			this.menuitemExit.Size = new System.Drawing.Size(136, 22);
+			this.menuitemExit.Size = new System.Drawing.Size(180, 22);
 			this.menuitemExit.Text = "E&xit";
 			this.menuitemExit.ToolTipText = "Exit the application";
 			this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
 			this.menuitemExit.MouseEnter += new System.EventHandler(this.MenuitemExit_MouseEnter);
-			this.menuitemExit.MouseLeave += new System.EventHandler(this.MenuitemExit_MouseLeave);
+			this.menuitemExit.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemEdit
 			// 
@@ -1408,7 +1413,7 @@
 			this.menuitemEdit.Text = "&Edit";
 			this.menuitemEdit.ToolTipText = "Open the menu \"edit\"";
 			this.menuitemEdit.MouseEnter += new System.EventHandler(this.MenuitemEdit_MouseEnter);
-			this.menuitemEdit.MouseLeave += new System.EventHandler(this.MenuitemEdit_MouseLeave);
+			this.menuitemEdit.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemCopytoClipboard
 			// 
@@ -1421,12 +1426,12 @@
 			this.toolStripMenuItemCopytoClipboard.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
 			this.toolStripMenuItemCopytoClipboard.Name = "toolStripMenuItemCopytoClipboard";
 			this.toolStripMenuItemCopytoClipboard.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(140, 22);
+			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemCopytoClipboard.Text = "Copy";
 			this.toolStripMenuItemCopytoClipboard.ToolTipText = "Copy to clipboard";
 			this.toolStripMenuItemCopytoClipboard.Click += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_Click);
 			this.toolStripMenuItemCopytoClipboard.MouseEnter += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_MouseEnter);
-			this.toolStripMenuItemCopytoClipboard.MouseLeave += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_MouseLeave);
+			this.toolStripMenuItemCopytoClipboard.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemSearch
 			// 
@@ -1438,11 +1443,11 @@
 			this.toolStripMenuItemSearch.Enabled = false;
 			this.toolStripMenuItemSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
 			this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
-			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(140, 22);
+			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemSearch.Text = "Search";
 			this.toolStripMenuItemSearch.Click += new System.EventHandler(this.ToolStripMenuItemSearch_Click);
 			this.toolStripMenuItemSearch.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSearch_MouseEnter);
-			this.toolStripMenuItemSearch.MouseLeave += new System.EventHandler(this.ToolStripMenuItemSearch_MouseLeave);
+			this.toolStripMenuItemSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemOptions
 			// 
@@ -1470,7 +1475,7 @@
 			this.menuitemOptions.Text = "&Options";
 			this.menuitemOptions.ToolTipText = "Open the menu \"options\"";
 			this.menuitemOptions.MouseEnter += new System.EventHandler(this.MenuitemOptions_MouseEnter);
-			this.menuitemOptions.MouseLeave += new System.EventHandler(this.MenuitemOptions_MouseLeave);
+			this.menuitemOptions.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemDatabaseInformation
 			// 
@@ -1486,7 +1491,7 @@
 			this.toolStripMenuItemDatabaseInformation.Text = "Database information";
 			this.toolStripMenuItemDatabaseInformation.Click += new System.EventHandler(this.ToolStripMenuItemDatabaseInformation_Click);
 			this.toolStripMenuItemDatabaseInformation.MouseEnter += new System.EventHandler(this.ToolStripMenuItemDatabaseInformation_MouseEnter);
-			this.toolStripMenuItemDatabaseInformation.MouseLeave += new System.EventHandler(this.ToolStripMenuItemDatabaseInformation_MouseLeave);
+			this.toolStripMenuItemDatabaseInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemTableMode
 			// 
@@ -1503,7 +1508,7 @@
 			this.toolStripMenuItemTableMode.ToolTipText = "Activate the table mode";
 			this.toolStripMenuItemTableMode.Click += new System.EventHandler(this.ToolStripMenuItemTableMode_Click);
 			this.toolStripMenuItemTableMode.MouseEnter += new System.EventHandler(this.ToolStripMenuItemTableMode_MouseEnter);
-			this.toolStripMenuItemTableMode.MouseLeave += new System.EventHandler(this.ToolStripMenuItemTableMode_MouseLeave);
+			this.toolStripMenuItemTableMode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemTerminology
 			// 
@@ -1520,7 +1525,7 @@
 			this.toolStripMenuItemTerminology.ToolTipText = "Show the terminology";
 			this.toolStripMenuItemTerminology.Click += new System.EventHandler(this.ToolStripMenuItemTerminology_Click);
 			this.toolStripMenuItemTerminology.MouseEnter += new System.EventHandler(this.ToolStripMenuItemTerminology_MouseEnter);
-			this.toolStripMenuItemTerminology.MouseLeave += new System.EventHandler(this.ToolStripMenuItemTerminology_MouseLeave);
+			this.toolStripMenuItemTerminology.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorOptions1
 			// 
@@ -1536,6 +1541,7 @@
 			this.chartBarToolStripMenuItem.Name = "chartBarToolStripMenuItem";
 			this.chartBarToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.chartBarToolStripMenuItem.Text = "Chart bar";
+			this.chartBarToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// chartCurveToolStripMenuItem
 			// 
@@ -1546,6 +1552,7 @@
 			this.chartCurveToolStripMenuItem.Name = "chartCurveToolStripMenuItem";
 			this.chartCurveToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.chartCurveToolStripMenuItem.Text = "Chart curve";
+			this.chartCurveToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// chartPieToolStripMenuItem
 			// 
@@ -1556,6 +1563,7 @@
 			this.chartPieToolStripMenuItem.Name = "chartPieToolStripMenuItem";
 			this.chartPieToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.chartPieToolStripMenuItem.Text = "Chart pie";
+			this.chartPieToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorOptions2
 			// 
@@ -1577,7 +1585,7 @@
 			this.menuitemCheckMpcorbDat.ToolTipText = "Check for updates of the database";
 			this.menuitemCheckMpcorbDat.Click += new System.EventHandler(this.MenuitemCheckMpcorbDat_Click);
 			this.menuitemCheckMpcorbDat.MouseEnter += new System.EventHandler(this.MenuitemCheckMpcorbDat_MouseEnter);
-			this.menuitemCheckMpcorbDat.MouseLeave += new System.EventHandler(this.MenuitemCheckMpcorbDat_MouseLeave);
+			this.menuitemCheckMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemDownloadMpcorbDat
 			// 
@@ -1594,7 +1602,7 @@
 			this.menuitemDownloadMpcorbDat.ToolTipText = "Download the database";
 			this.menuitemDownloadMpcorbDat.Click += new System.EventHandler(this.MenuitemDownloadMpcorbDat_Click);
 			this.menuitemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.MenuitemDownloadMpcorbDat_MouseEnter);
-			this.menuitemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.MenuitemDownloadMpcorbDat_MouseLeave);
+			this.menuitemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorOptions3
 			// 
@@ -1618,7 +1626,7 @@
 			this.ToolStripMenuItemStyle.Size = new System.Drawing.Size(244, 22);
 			this.ToolStripMenuItemStyle.Text = "&Look and Feel";
 			this.ToolStripMenuItemStyle.MouseEnter += new System.EventHandler(this.ToolStripMenuItemStyle_MouseEnter);
-			this.ToolStripMenuItemStyle.MouseLeave += new System.EventHandler(this.ToolStripMenuItemStyle_MouseLeave);
+			this.ToolStripMenuItemStyle.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleProfessional
 			// 
@@ -1634,7 +1642,7 @@
 			this.toolStripMenuItemStyleProfessional.ToolTipText = "Style \"Professionell\"";
 			this.toolStripMenuItemStyleProfessional.Click += new System.EventHandler(this.ToolStripMenuItemStyleProfessionell_Click);
 			this.toolStripMenuItemStyleProfessional.MouseEnter += new System.EventHandler(this.ToolStripMenuItemStyleProfessionell_MouseEnter);
-			this.toolStripMenuItemStyleProfessional.MouseLeave += new System.EventHandler(this.ToolStripMenuItemStyleProfessionell_MouseLeave);
+			this.toolStripMenuItemStyleProfessional.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleOffice2007
 			// 
@@ -1651,6 +1659,7 @@
 			this.toolStripMenuItemStyleOffice2007.Text = "Office 2007";
 			this.toolStripMenuItemStyleOffice2007.ToolTipText = "Style \"Office 2007\"";
 			this.toolStripMenuItemStyleOffice2007.Click += new System.EventHandler(this.ToolStripMenuItemStyleOffice2007_Click);
+			this.toolStripMenuItemStyleOffice2007.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleSystem
 			// 
@@ -1666,7 +1675,7 @@
 			this.toolStripMenuItemStyleSystem.ToolTipText = "Style \"System\"";
 			this.toolStripMenuItemStyleSystem.Click += new System.EventHandler(this.ToolStripMenuItemSystem_Click);
 			this.toolStripMenuItemStyleSystem.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSystem_MouseEnter);
-			this.toolStripMenuItemStyleSystem.MouseLeave += new System.EventHandler(this.ToolStripMenuItemSystem_MouseLeave);
+			this.toolStripMenuItemStyleSystem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleVs2008
 			// 
@@ -1681,7 +1690,7 @@
 			this.toolStripMenuItemStyleVs2008.ToolTipText = "Style \"VS 2008\"";
 			this.toolStripMenuItemStyleVs2008.Click += new System.EventHandler(this.ToolStripMenuItemVs2008_Click);
 			this.toolStripMenuItemStyleVs2008.MouseEnter += new System.EventHandler(this.ToolStripMenuItemVs2008_MouseEnter);
-			this.toolStripMenuItemStyleVs2008.MouseLeave += new System.EventHandler(this.ToolStripMenuItemVs2008_MouseLeave);
+			this.toolStripMenuItemStyleVs2008.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemQuest
 			// 
@@ -1702,7 +1711,7 @@
 			this.menuitemQuest.Text = "&?";
 			this.menuitemQuest.ToolTipText = "Open the menu \"?\"";
 			this.menuitemQuest.MouseEnter += new System.EventHandler(this.MenuitemQuest_MouseEnter);
-			this.menuitemQuest.MouseLeave += new System.EventHandler(this.MenuitemQuest_MouseLeave);
+			this.menuitemQuest.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemAbout
 			// 
@@ -1719,18 +1728,15 @@
 			this.menuitemAbout.ToolTipText = "More information about the application";
 			this.menuitemAbout.Click += new System.EventHandler(this.MenuitemAbout_Click);
 			this.menuitemAbout.MouseEnter += new System.EventHandler(this.MenuitemAbout_MouseEnter);
-			this.menuitemAbout.MouseLeave += new System.EventHandler(this.MenuitemAbout_MouseLeave);
+			this.menuitemAbout.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorMisc
 			// 
-			this.toolStripSeparatorMisc.AccessibleDescription = "There is an easter egg in it. Find out how to get!";
-			this.toolStripSeparatorMisc.AccessibleName = "Separator";
+			this.toolStripSeparatorMisc.AccessibleDescription = "";
+			this.toolStripSeparatorMisc.AccessibleName = "";
 			this.toolStripSeparatorMisc.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
 			this.toolStripSeparatorMisc.Name = "toolStripSeparatorMisc";
 			this.toolStripSeparatorMisc.Size = new System.Drawing.Size(228, 6);
-			this.toolStripSeparatorMisc.Click += new System.EventHandler(this.ToolStripSeparatorMisc_Click);
-			this.toolStripSeparatorMisc.MouseEnter += new System.EventHandler(this.ToolStripSeparatorMisc_MouseEnter);
-			this.toolStripSeparatorMisc.MouseLeave += new System.EventHandler(this.ToolStripSeparatorMisc_MouseLeave);
 			// 
 			// menuitemOpenWebsitePDB
 			// 
@@ -1746,7 +1752,7 @@
 			this.menuitemOpenWebsitePDB.ToolTipText = "Opens the PlanetoidDB homepage";
 			this.menuitemOpenWebsitePDB.Click += new System.EventHandler(this.MenuitemOpenWebsitePDB_Click);
 			this.menuitemOpenWebsitePDB.MouseEnter += new System.EventHandler(this.MenuitemOpenWebsitePDB_MouseEnter);
-			this.menuitemOpenWebsitePDB.MouseLeave += new System.EventHandler(this.MenuitemOpenWebsitePDB_MouseLeave);
+			this.menuitemOpenWebsitePDB.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemOpenWebsiteMPC
 			// 
@@ -1762,7 +1768,7 @@
 			this.menuitemOpenWebsiteMPC.ToolTipText = "Opens the MPC homepage";
 			this.menuitemOpenWebsiteMPC.Click += new System.EventHandler(this.MenuitemOpenWebsiteMPC_Click);
 			this.menuitemOpenWebsiteMPC.MouseEnter += new System.EventHandler(this.MenuitemOpenWebsiteMPC_MouseEnter);
-			this.menuitemOpenWebsiteMPC.MouseLeave += new System.EventHandler(this.MenuitemOpenWebsiteMPC_MouseLeave);
+			this.menuitemOpenWebsiteMPC.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemOpenMPCORBWebsite
 			// 
@@ -1778,7 +1784,7 @@
 			this.menuitemOpenMPCORBWebsite.ToolTipText = "Opens the MPCORB website";
 			this.menuitemOpenMPCORBWebsite.Click += new System.EventHandler(this.MenuitemOpenMPCORBWebsite_Click);
 			this.menuitemOpenMPCORBWebsite.MouseEnter += new System.EventHandler(this.MenuitemOpenMPCORBWebsite_MouseEnter);
-			this.menuitemOpenMPCORBWebsite.MouseLeave += new System.EventHandler(this.MenuitemOpenMPCORBWebsite_MouseLeave);
+			this.menuitemOpenMPCORBWebsite.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripIcons
 			// 
@@ -1830,7 +1836,7 @@
 			this.toolStripButtonPrint.Text = "Print";
 			this.toolStripButtonPrint.Click += new System.EventHandler(this.ToolStripButtonPrint_Click);
 			this.toolStripButtonPrint.MouseEnter += new System.EventHandler(this.ToolStripButtonPrint_MouseEnter);
-			this.toolStripButtonPrint.MouseLeave += new System.EventHandler(this.ToolStripButtonPrint_MouseLeave);
+			this.toolStripButtonPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonCopyToClipboard
 			// 
@@ -1848,7 +1854,7 @@
 			this.toolStripButtonCopyToClipboard.ToolTipText = "Copy to clipboard";
 			this.toolStripButtonCopyToClipboard.Click += new System.EventHandler(this.ToolStripButtonCopyToClipboard_Click);
 			this.toolStripButtonCopyToClipboard.MouseEnter += new System.EventHandler(this.ToolStripButtonCopyToClipboard_MouseEnter);
-			this.toolStripButtonCopyToClipboard.MouseLeave += new System.EventHandler(this.ToolStripButtonCopyToClipboard_MouseLeave);
+			this.toolStripButtonCopyToClipboard.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator4
 			// 
@@ -1870,7 +1876,7 @@
 			this.toolStripButtonDatabaseInformation.Text = "Database information";
 			this.toolStripButtonDatabaseInformation.Click += new System.EventHandler(this.ToolStripButtonDatabaseInformation_Click);
 			this.toolStripButtonDatabaseInformation.MouseEnter += new System.EventHandler(this.ToolStripButtonDatabaseInformation_MouseEnter);
-			this.toolStripButtonDatabaseInformation.MouseLeave += new System.EventHandler(this.ToolStripButtonDatabaseInformation_MouseLeave);
+			this.toolStripButtonDatabaseInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonTableMode
 			// 
@@ -1887,7 +1893,7 @@
 			this.toolStripButtonTableMode.ToolTipText = "Activate the table mode";
 			this.toolStripButtonTableMode.Click += new System.EventHandler(this.ToolStripButtonTableMode_Click);
 			this.toolStripButtonTableMode.MouseEnter += new System.EventHandler(this.ToolStripButtonTableMode_MouseEnter);
-			this.toolStripButtonTableMode.MouseLeave += new System.EventHandler(this.ToolStripButtonTableMode_MouseLeave);
+			this.toolStripButtonTableMode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonTerminology
 			// 
@@ -1904,7 +1910,7 @@
 			this.toolStripButtonTerminology.ToolTipText = "Show the terminology";
 			this.toolStripButtonTerminology.Click += new System.EventHandler(this.ToolStripButtonTerminology_Click);
 			this.toolStripButtonTerminology.MouseEnter += new System.EventHandler(this.ToolStripButtonTerminology_MouseEnter);
-			this.toolStripButtonTerminology.MouseLeave += new System.EventHandler(this.ToolStripButtonTerminology_MouseLeave);
+			this.toolStripButtonTerminology.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator3
 			// 
@@ -1925,6 +1931,7 @@
 			this.toolStripSplitButton1.Name = "toolStripSplitButton1";
 			this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
 			this.toolStripSplitButton1.Text = "Chart bar";
+			this.toolStripSplitButton1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSplitButton2
 			// 
@@ -1939,6 +1946,7 @@
 			this.toolStripSplitButton2.Name = "toolStripSplitButton2";
 			this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
 			this.toolStripSplitButton2.Text = "Chart line";
+			this.toolStripSplitButton2.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSplitButton3
 			// 
@@ -1953,6 +1961,7 @@
 			this.toolStripSplitButton3.Name = "toolStripSplitButton3";
 			this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
 			this.toolStripSplitButton3.Text = "Chart pie";
+			this.toolStripSplitButton3.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator5
 			// 
@@ -1975,7 +1984,7 @@
 			this.toolStripButtonCheckMpcorbDat.ToolTipText = "Check MPCORB.DAT";
 			this.toolStripButtonCheckMpcorbDat.Click += new System.EventHandler(this.ToolStripButtonCheckMpcorbDat_Click);
 			this.toolStripButtonCheckMpcorbDat.MouseEnter += new System.EventHandler(this.ToolStripButtonCheckMpcorbDat_MouseEnter);
-			this.toolStripButtonCheckMpcorbDat.MouseLeave += new System.EventHandler(this.ToolStripButtonCheckMpcorbDat_MouseLeave);
+			this.toolStripButtonCheckMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonDownloadMpcorbDat
 			// 
@@ -1992,7 +2001,7 @@
 			this.toolStripButtonDownloadMpcorbDat.ToolTipText = "Download the database";
 			this.toolStripButtonDownloadMpcorbDat.Click += new System.EventHandler(this.ToolStripButtonDownloadMpcorbDat_Click);
 			this.toolStripButtonDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.ToolStripButtonDownloadMpcorbDat_MouseEnter);
-			this.toolStripButtonDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ToolStripButtonDownloadMpcorbDat_MouseLeave);
+			this.toolStripButtonDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator1
 			// 
@@ -2015,7 +2024,7 @@
 			this.toolStripButtonAbout.ToolTipText = "More information about the application";
 			this.toolStripButtonAbout.Click += new System.EventHandler(this.ToolStripButtonAbout_Click);
 			this.toolStripButtonAbout.MouseEnter += new System.EventHandler(this.ToolStripButtonAbout_MouseEnter);
-			this.toolStripButtonAbout.MouseLeave += new System.EventHandler(this.ToolStripButtonAbout_MouseLeave);
+			this.toolStripButtonAbout.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonOpenWebsitePDB
 			// 
@@ -2032,7 +2041,7 @@
 			this.toolStripButtonOpenWebsitePDB.ToolTipText = "Open the PlanetoidDB homepage";
 			this.toolStripButtonOpenWebsitePDB.Click += new System.EventHandler(this.ToolStripButtonOpenWebsitePDB_Click);
 			this.toolStripButtonOpenWebsitePDB.MouseEnter += new System.EventHandler(this.ToolStripButtonOpenWebsitePDB_MouseEnter);
-			this.toolStripButtonOpenWebsitePDB.MouseLeave += new System.EventHandler(this.ToolStripButtonOpenWebsitePDB_MouseLeave);
+			this.toolStripButtonOpenWebsitePDB.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator2
 			// 
@@ -2048,6 +2057,7 @@
 			this.toolStripLabelSearch.Name = "toolStripLabelSearch";
 			this.toolStripLabelSearch.Size = new System.Drawing.Size(45, 22);
 			this.toolStripLabelSearch.Text = "Search:";
+			this.toolStripLabelSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripTextBoxSearch
 			// 
@@ -2060,8 +2070,9 @@
 			this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
 			this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
 			this.toolStripTextBoxSearch.ToolTipText = "Search";
+			this.toolStripTextBoxSearch.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.toolStripTextBoxSearch.MouseEnter += new System.EventHandler(this.ToolStripTextBoxSearch_MouseEnter);
-			this.toolStripTextBoxSearch.MouseLeave += new System.EventHandler(this.ToolStripTextBoxSearch_MouseLeave);
+			this.toolStripTextBoxSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonSearch
 			// 
@@ -2078,7 +2089,7 @@
 			this.toolStripButtonSearch.Text = "Search";
 			this.toolStripButtonSearch.Click += new System.EventHandler(this.ToolStripButtonSearch_Click);
 			this.toolStripButtonSearch.MouseEnter += new System.EventHandler(this.ToolStripButtonSearch_MouseEnter);
-			this.toolStripButtonSearch.MouseLeave += new System.EventHandler(this.ToolStripButtonSearch_MouseLeave);
+			this.toolStripButtonSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// backgroundWorkerLoadingDatabase
 			// 
@@ -2129,7 +2140,7 @@
 			this.toolStripButtonStepToBegin.Text = "Begin of the data";
 			this.toolStripButtonStepToBegin.Click += new System.EventHandler(this.ToolStripButtonStepToBegin_Click);
 			this.toolStripButtonStepToBegin.MouseEnter += new System.EventHandler(this.ToolStripButtonStepToBegin_MouseEnter);
-			this.toolStripButtonStepToBegin.MouseLeave += new System.EventHandler(this.ToolStripButtonStepToBegin_MouseLeave);
+			this.toolStripButtonStepToBegin.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepBackward
 			// 
@@ -2144,7 +2155,7 @@
 			this.toolStripButtonStepBackward.Text = "Navigate some data backward";
 			this.toolStripButtonStepBackward.Click += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
 			this.toolStripButtonStepBackward.MouseEnter += new System.EventHandler(this.ToolStripButtonStepBackward_MouseEnter);
-			this.toolStripButtonStepBackward.MouseLeave += new System.EventHandler(this.ToolStripButtonStepBackward_MouseLeave);
+			this.toolStripButtonStepBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepBackwardOne
 			// 
@@ -2159,7 +2170,7 @@
 			this.toolStripButtonStepBackwardOne.Text = "Navigate to the previous data";
 			this.toolStripButtonStepBackwardOne.Click += new System.EventHandler(this.ToolStripButtonStepBackwardOne_Click);
 			this.toolStripButtonStepBackwardOne.MouseEnter += new System.EventHandler(this.ToolStripButtonStepBackwardOne_MouseEnter);
-			this.toolStripButtonStepBackwardOne.MouseLeave += new System.EventHandler(this.ToolStripButtonStepBackwardOne_MouseLeave);
+			this.toolStripButtonStepBackwardOne.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepForwardOne
 			// 
@@ -2174,7 +2185,7 @@
 			this.toolStripButtonStepForwardOne.Text = "Navigate to the next data";
 			this.toolStripButtonStepForwardOne.Click += new System.EventHandler(this.ToolStripButtonStepForwardOne_Click);
 			this.toolStripButtonStepForwardOne.MouseEnter += new System.EventHandler(this.ToolStripButtonStepForwardOne_MouseEnter);
-			this.toolStripButtonStepForwardOne.MouseLeave += new System.EventHandler(this.ToolStripButtonStepForwardOne_MouseLeave);
+			this.toolStripButtonStepForwardOne.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepForward
 			// 
@@ -2189,7 +2200,7 @@
 			this.toolStripButtonStepForward.Text = "Navigate some data forward";
 			this.toolStripButtonStepForward.Click += new System.EventHandler(this.ToolStripButtonStepForward_Click);
 			this.toolStripButtonStepForward.MouseEnter += new System.EventHandler(this.ToolStripButtonStepForward_MouseEnter);
-			this.toolStripButtonStepForward.MouseLeave += new System.EventHandler(this.ToolStripButtonStepForward_MouseLeave);
+			this.toolStripButtonStepForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepToEnd
 			// 
@@ -2204,7 +2215,7 @@
 			this.toolStripButtonStepToEnd.Text = "End of the data";
 			this.toolStripButtonStepToEnd.Click += new System.EventHandler(this.ToolStripButtonStepToEnd_Click);
 			this.toolStripButtonStepToEnd.MouseEnter += new System.EventHandler(this.ToolStripButtonStepToEnd_MouseEnter);
-			this.toolStripButtonStepToEnd.MouseLeave += new System.EventHandler(this.ToolStripButtonStepToEnd_MouseLeave);
+			this.toolStripButtonStepToEnd.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator6
 			// 
@@ -2221,9 +2232,11 @@
 			this.toolStripLabelGoToIndex.Name = "toolStripLabelGoToIndex";
 			this.toolStripLabelGoToIndex.Size = new System.Drawing.Size(70, 22);
 			this.toolStripLabelGoToIndex.Text = "Go to index:";
+			this.toolStripLabelGoToIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripTextBoxGotoIndex
 			// 
+			this.toolStripTextBoxGotoIndex.AcceptsReturn = true;
 			this.toolStripTextBoxGotoIndex.AccessibleDescription = "Enter the index number of the planetoid";
 			this.toolStripTextBoxGotoIndex.AccessibleName = "Index field";
 			this.toolStripTextBoxGotoIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
@@ -2232,10 +2245,10 @@
 			this.toolStripTextBoxGotoIndex.Size = new System.Drawing.Size(80, 25);
 			this.toolStripTextBoxGotoIndex.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolStripTextBoxGotoIndex.Enter += new System.EventHandler(this.ToolStripTextBoxGotoIndex_Enter);
-			this.toolStripTextBoxGotoIndex.Leave += new System.EventHandler(this.ToolStripTextBoxGotoIndex_Leave);
-			this.toolStripTextBoxGotoIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxGotoIndex_KeyPress);
+			this.toolStripTextBoxGotoIndex.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.toolStripTextBoxGotoIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ToolStripTextBoxGotoIndex_KeyPress);
 			this.toolStripTextBoxGotoIndex.MouseEnter += new System.EventHandler(this.ToolStripTextBoxGotoIndex_Enter);
-			this.toolStripTextBoxGotoIndex.MouseLeave += new System.EventHandler(this.ToolStripTextBoxGotoIndex_Leave);
+			this.toolStripTextBoxGotoIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonGoToIndex
 			// 
@@ -2250,7 +2263,7 @@
 			this.toolStripButtonGoToIndex.Text = "Go to index";
 			this.toolStripButtonGoToIndex.Click += new System.EventHandler(this.ToolStripButtonGoToIndex_Click);
 			this.toolStripButtonGoToIndex.MouseEnter += new System.EventHandler(this.ToolStripButtonGoToIndex_MouseEnter);
-			this.toolStripButtonGoToIndex.MouseLeave += new System.EventHandler(this.ToolStripButtonGoToIndex_MouseLeave);
+			this.toolStripButtonGoToIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator7
 			// 
@@ -2268,7 +2281,7 @@
 			this.toolStripLabelIndexPosition.Size = new System.Drawing.Size(124, 22);
 			this.toolStripLabelIndexPosition.Text = "index: 123456 / 999999";
 			this.toolStripLabelIndexPosition.MouseEnter += new System.EventHandler(this.ToolStripLabelIndexPosition_MouseEnter);
-			this.toolStripLabelIndexPosition.MouseLeave += new System.EventHandler(this.ToolStripLabelIndexPosition_MouseLeave);
+			this.toolStripLabelIndexPosition.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripContainer
 			// 

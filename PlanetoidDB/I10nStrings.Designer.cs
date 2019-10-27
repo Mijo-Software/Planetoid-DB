@@ -151,6 +151,15 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Don&apos;t disturb. I&apos;m loading. ☺ ähnelt.
+        /// </summary>
+        internal static string strEasterEgg {
+            get {
+                return ResourceManager.GetString("strEasterEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
         /// </summary>
         internal static string strErrorCaption {

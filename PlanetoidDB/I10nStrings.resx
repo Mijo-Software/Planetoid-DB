@@ -274,4 +274,7 @@
   <data name="strIndexOutOfRange" xml:space="preserve">
     <value>Index is out of range</value>
   </data>
+  <data name="strEasterEgg" xml:space="preserve">
+    <value>Don't disturb. I'm loading. ☺</value>
+  </data>
 </root>

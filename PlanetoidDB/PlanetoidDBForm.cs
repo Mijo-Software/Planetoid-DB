@@ -26,62 +26,6 @@ namespace Planetoid_DB
 			strFilenameMPCORBtemp = Properties.Resources.strFilenameMPCORBtemp;
 		private Uri uriMPCORB = new Uri(uriString: Properties.Resources.strMpcorbUrl);
 
-		#region Constructor and Form-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public PlanetoidDBForm()
-		{
-			InitializeComponent();
-			Text = Text + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
-			SetLabelText(text: "");
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PlanetoidDBForm_Load(object sender, EventArgs e)
-		{
-			ToolStripManager.Renderer = new Office2007Renderer();
-			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
-			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
-			backgroundWorkerLoadingDatabase.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDatabase_ProgressChanged);
-			backgroundWorkerLoadingDatabase.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDatabase_RunWorkerCompleted);
-			backgroundWorkerLoadingDatabase.RunWorkerAsync();
-			formSplashScreen.Show();
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PlanetoidDBForm_Shown(object sender, EventArgs e)
-		{
-			toolStripStatusLabelBackgroundDownload.Enabled = false;
-			toolStripProgressBarBackgroundDownload.Enabled = false;
-			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
-			toolStripStatusLabelBackgroundDownload.Visible = false;
-			toolStripProgressBarBackgroundDownload.Visible = false;
-			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
-			if (IsMpcorbDatUpdateAvailable())
-			{
-				timerBlinkForUpdateAvailable.Enabled = true;
-				toolStripStatusLabelUpdate.Enabled = true;
-			}
-			else
-			{
-				timerBlinkForUpdateAvailable.Enabled = false;
-				toolStripStatusLabelUpdate.Enabled = false;
-				toolStripStatusLabelUpdate.Visible = false;
-			}
-		}
-
-		#endregion
-
 		#region main functions
 
 		/// <summary>
@@ -291,6 +235,79 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region Constructor
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public PlanetoidDBForm()
+		{
+			InitializeComponent();
+			Text = Text + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			SetLabelText(text: "");
+		}
+
+		#endregion
+
+		#region Form* event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PlanetoidDBForm_Load(object sender, EventArgs e)
+		{
+			ToolStripManager.Renderer = new Office2007Renderer();
+			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
+			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
+			backgroundWorkerLoadingDatabase.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDatabase_ProgressChanged);
+			backgroundWorkerLoadingDatabase.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDatabase_RunWorkerCompleted);
+			backgroundWorkerLoadingDatabase.RunWorkerAsync();
+			formSplashScreen.Show();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PlanetoidDBForm_Shown(object sender, EventArgs e)
+		{
+			toolStripStatusLabelBackgroundDownload.Enabled = false;
+			toolStripProgressBarBackgroundDownload.Enabled = false;
+			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
+			toolStripStatusLabelBackgroundDownload.Visible = false;
+			toolStripProgressBarBackgroundDownload.Visible = false;
+			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+			if (IsMpcorbDatUpdateAvailable())
+			{
+				timerBlinkForUpdateAvailable.Enabled = true;
+				toolStripStatusLabelUpdate.Enabled = true;
+			}
+			else
+			{
+				timerBlinkForUpdateAvailable.Enabled = false;
+				toolStripStatusLabelUpdate.Enabled = false;
+				toolStripStatusLabelUpdate.Visible = false;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PlanetoidDBForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (File.Exists(path: strFilenameMPCORBtemp))
+			{
+				File.Delete(path: strFilenameMPCORBtemp);
+			}
+		}
+
+		#endregion
+
 		#region BackgroundWorker for database loading on start up
 
 		/// <summary>
@@ -433,6 +450,27 @@ namespace Planetoid_DB
 			toolStripMenuItem1000.Checked = false;
 			toolStripMenuItem10000.Checked = false;
 			toolStripMenuItem100000.Checked = false;
+		}
+
+		#endregion
+
+		#region KeyPress-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripTextBoxGotoIndex_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(c: e.KeyChar) && !char.IsDigit(c: e.KeyChar))
+			{
+				e.Handled = true;
+			}
+			if (e.KeyChar == Convert.ToChar(value: Keys.Return))
+			{
+				ToolStripButtonGoToIndex_Click(sender: null, e: null);
+			}
 		}
 
 		#endregion
@@ -735,6 +773,62 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripButtonStepToBegin_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepToBegin.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepBackward_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepBackward.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepBackwardOne_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepBackwardOne.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepForwardOne_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepForward_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepToEnd_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripLabelIndexPosition_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripLabelIndexPosition.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonGoToIndex_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonGoToIndex.AccessibleDescription);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToolStripMenuItemTerminology_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripMenuItemTerminology.AccessibleDescription);
 
 		/// <summary>
@@ -1009,572 +1103,126 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelDesgnNameValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelEpochValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMeanAnomalyValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelArgPeriValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelLongAscNodeValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelInclValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelOrbEccValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMotionValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSemiMajorAxisValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMagAbsValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndex_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDesgnName_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelEpoch_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMeanAnomaly_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelArgPeri_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelLongAscNode_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIncl_Leave(object sender, MouseEventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelOrbEcc_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMotion_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndexValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSemiMajorAxis_Leave(object sender, MouseEventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMagAbs_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidual_Leave(object sender, EventArgs e) => SetLabelText(text: ""); private void LabelSemiMajorAxis_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIncl_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSlopeParam_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSlopeParamValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRefValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbOpposValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbObsValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsSpanValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidualValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelComputerNameValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelFlagsValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsLastDateValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRef_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbOppos_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbObs_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsSpan_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidual_Leave(object sender, MouseEventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelComputerName_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelFlags_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsLastDate_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		#endregion
-
-		#region MouseLeave-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemTerminology_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonTerminology_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripStatusLabelCancelBackgroundDownload_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemFile_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemExit_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemOptions_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemCheckMpcorbDat_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemDownloadMpcorbDat_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemQuest_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemOpenWebsitePDB_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemOpenWebsiteMPC_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemOpenMPCORBWebsite_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemAbout_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripSeparatorMisc_MouseLeave(object sender, EventArgs e)
-		{
-			//todo: easter egg			
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripStatusLabelUpdate_MouseLeave(object sender, EventArgs e)
-		{
-			if (timerBlinkForUpdateAvailable.Enabled)
-			{
-				toolStripStatusLabelUpdate.IsLink = false;
-			}
-
-			SetLabelText(text: "");
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripStatusLabelBackgroundDownload_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripProgressBarBackgroundDownload_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonCheckMpcorbDat_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonDownloadMpcorbDat_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonAbout_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonOpenWebsitePDB_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemEdit_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemTableMode_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonTableMode_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemStyle_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemStyleProfessionell_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemSystem_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonPrint_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonCopyToClipboard_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonDatabaseInformation_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemPrint_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripTextBoxSearch_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripButtonSearch_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemCopytoClipboard_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemSearch_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemVs2008_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemDatabaseInformation_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		#endregion
 
 		#region Click-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)
+		{
+			currentPosition = 0;
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepBackward_Click(object sender, EventArgs e)
+		{
+			currentPosition -= stepPosition;
+			if (currentPosition < 1)
+			{
+				currentPosition += arrDB.Count;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepBackwardOne_Click(object sender, EventArgs e)
+		{
+			if (currentPosition == 0)
+			{
+				currentPosition = arrDB.Count - 1;
+			}
+			else
+			{
+				currentPosition--;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepForwardOne_Click(object sender, EventArgs e)
+		{
+			if (currentPosition == arrDB.Count - 1)
+			{
+				currentPosition = 0;
+			}
+			else
+			{
+				currentPosition++;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepForward_Click(object sender, EventArgs e)
+		{
+			currentPosition += stepPosition;
+			if (currentPosition > arrDB.Count)
+			{
+				currentPosition -= arrDB.Count;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonStepToEnd_Click(object sender, EventArgs e)
+		{
+			currentPosition = arrDB.Count - 1;
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonGoToIndex_Click(object sender, EventArgs e)
+		{
+			int pos = 0;
+			try
+			{
+				pos = int.Parse(s: toolStripTextBoxGotoIndex.Text);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			if (pos <= 0 || pos >= arrDB.Count + 1)
+			{
+				MessageBox.Show(text: I10nStrings.strIndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			else
+			{
+				currentPosition = pos - 1;
+				GotoCurrentPosition(currentPosition: currentPosition);
+			}
+		}
 
 		/// <summary>
 		/// 
@@ -2249,172 +1897,13 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelObsLastDateValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsLastDateValue.Text);
 
-		private void PlanetoidDBForm_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			if (File.Exists(path: strFilenameMPCORBtemp))
-			{
-				File.Delete(path: strFilenameMPCORBtemp);
-			}
-		}
-
-		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)
-		{
-			currentPosition = 0;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		private void ToolStripButtonStepBackward_Click(object sender, EventArgs e)
-		{
-			currentPosition -= stepPosition;
-			if (currentPosition < 1)
-			{
-				currentPosition += arrDB.Count;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		private void ToolStripButtonStepBackwardOne_Click(object sender, EventArgs e)
-		{
-			if (currentPosition == 0)
-			{
-				currentPosition = arrDB.Count - 1;
-			}
-			else
-			{
-				currentPosition--;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		private void ToolStripButtonStepForwardOne_Click(object sender, EventArgs e)
-		{
-			if (currentPosition == arrDB.Count - 1)
-			{
-				currentPosition = 0;
-			}
-			else
-			{
-				currentPosition++;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		private void ToolStripButtonStepForward_Click(object sender, EventArgs e)
-		{
-			currentPosition += stepPosition;
-			if (currentPosition > arrDB.Count)
-			{
-				currentPosition -= arrDB.Count;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		private void ToolStripButtonStepToEnd_Click(object sender, EventArgs e)
-		{
-			currentPosition = arrDB.Count - 1;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		private void ToolStripButtonGoToIndex_Click(object sender, EventArgs e)
-		{
-			int pos = 0;
-			try
-			{
-				pos = int.Parse(toolStripTextBoxGotoIndex.Text);
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-			if (pos <= 0 || pos >= arrDB.Count)
-			{
-				MessageBox.Show(text: I10nStrings.strIndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-			else
-			{
-				currentPosition = pos - 1;
-				GotoCurrentPosition(currentPosition: currentPosition);
-			}
-		}
-
-		private void ToolStripButtonStepToBegin_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepToBegin.AccessibleDescription);
-
-		private void ToolStripButtonStepBackward_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepBackward.AccessibleDescription);
-
-		private void ToolStripButtonStepBackwardOne_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepBackwardOne.AccessibleDescription);
-
-		private void ToolStripButtonStepForwardOne_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
-
-		private void ToolStripButtonStepForward_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
-
-		private void ToolStripButtonStepToEnd_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
-
-		private void ToolStripLabelIndexPosition_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripLabelIndexPosition.AccessibleDescription);
-
-		private void ToolStripButtonGoToIndex_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonGoToIndex.AccessibleDescription);
-
-		private void ToolStripButtonStepToBegin_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripButtonStepBackward_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripButtonStepBackwardOne_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripButtonStepForwardOne_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripButtonStepForward_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripButtonStepToEnd_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripLabelIndexPosition_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripButtonGoToIndex_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void ToolStripTextBoxGotoIndex_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		private void toolStripTextBoxGotoIndex_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (e.KeyChar == Convert.ToChar(Keys.Return))
-			{
-				int pos = 0;
-				try
-				{
-					pos = int.Parse(toolStripTextBoxGotoIndex.Text);
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				if (pos <= 0 || pos >= arrDB.Count)
-				{
-					MessageBox.Show(text: I10nStrings.strIndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				else
-				{
-					currentPosition = pos - 1;
-					GotoCurrentPosition(currentPosition: currentPosition);
-				}
-			}
-		}
-
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripStatusLabelBackgroundDownload_DoubleClick(object sender, EventArgs e)
-		{
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripProgressBarBackgroundDownload_DoubleClick(object sender, EventArgs e)
-		{
-		}
+		private void EasterEgg_DoubleClick(object sender, EventArgs e) => MessageBox.Show(text: I10nStrings.strEasterEgg, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 
 		#endregion
-
 	}
 }

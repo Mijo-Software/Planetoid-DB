@@ -342,7 +342,7 @@
 			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelHelp.DoubleClickEnabled = true;
 			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+			this.labelHelp.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
 			this.labelHelp.Name = "labelHelp";
 			this.labelHelp.Size = new System.Drawing.Size(116, 16);
 			this.labelHelp.Text = "Show tooltip here";

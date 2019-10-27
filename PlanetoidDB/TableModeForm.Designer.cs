@@ -438,7 +438,7 @@
 			this.labelHelp.AccessibleName = "Information field";
 			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelHelp.Margin = new System.Windows.Forms.Padding(10, 3, 0, 2);
+			this.labelHelp.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
 			this.labelHelp.Name = "labelHelp";
 			this.labelHelp.Size = new System.Drawing.Size(170, 16);
 			this.labelHelp.Text = "Show informative messages";
