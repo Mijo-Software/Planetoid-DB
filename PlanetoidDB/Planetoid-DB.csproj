@@ -55,7 +55,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>PlanetoidDB2.ico</ApplicationIcon>
+    <ApplicationIcon>Planetoid-DB-3.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -257,6 +257,7 @@
     <None Include="Resources\silk_information.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Planetoid-DB-3.ico" />
     <Content Include="PlanetoidDB.ico" />
     <Content Include="PlanetoidDB2.ico" />
     <None Include="Resources\silk_forward-1_green.png" />

@@ -19,7 +19,7 @@ namespace Planetoid_DB {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class I10nStrings {
@@ -165,6 +165,15 @@ namespace Planetoid_DB {
         internal static string strIndex {
             get {
                 return ResourceManager.GetString("strIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Index is out of range ähnelt.
+        /// </summary>
+        internal static string strIndexOutOfRange {
+            get {
+                return ResourceManager.GetString("strIndexOutOfRange", resourceCulture);
             }
         }
         

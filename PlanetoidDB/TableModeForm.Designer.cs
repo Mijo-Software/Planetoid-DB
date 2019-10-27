@@ -286,6 +286,7 @@
 			this.listViewTableMode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.listViewTableMode.FullRowSelect = true;
 			this.listViewTableMode.GridLines = true;
+			this.listViewTableMode.HideSelection = false;
 			this.listViewTableMode.Location = new System.Drawing.Point(12, 77);
 			this.listViewTableMode.Name = "listViewTableMode";
 			this.listViewTableMode.Size = new System.Drawing.Size(720, 299);

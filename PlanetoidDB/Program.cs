@@ -9,15 +9,15 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	internal static class Program
-  {
-    /// <summary>
-    /// Der Haupteinstiegspunkt für die Anwendung.
-    /// </summary>
-    [STAThread]
+	{
+		/// <summary>
+		/// Der Haupteinstiegspunkt für die Anwendung.
+		/// </summary>
+		[STAThread]
 		private static void Main()
-    {
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
 			if (!File.Exists(path: Properties.Resources.strFilenameMPCORB))
 			{
 				if (MessageBox.Show(text: I10nStrings.strMpcorbDatNotFoundText, caption: I10nStrings.strMpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -29,14 +29,16 @@ namespace Planetoid_DB
 					}
 					else
 					{
-						DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm();
-						if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
+						using (DownloadUpdateForm formDownloaderForMpcorbDat = new DownloadUpdateForm())
 						{
-							Application.Run(mainForm: new PlanetoidDBForm());
-						}
-						else
-						{
-							Application.Exit();
+							if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
+							{
+								Application.Run(mainForm: new PlanetoidDBForm());
+							}
+							else
+							{
+								Application.Exit();
+							}
 						}
 					}
 				}
@@ -49,6 +51,6 @@ namespace Planetoid_DB
 			{
 				Application.Run(mainForm: new PlanetoidDBForm());
 			}
-    }
-  }
+		}
+	}
 }

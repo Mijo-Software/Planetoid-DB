@@ -8,7 +8,7 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	public partial class AppInfoForm : Form
-  {
+	{
 		/// <summary>
 		/// 
 		/// </summary>
@@ -20,22 +20,22 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void AppInfoForm_Load(object sender, EventArgs e)
-    {
-      labelTitle.Text = GetAssemblyProduct();
-      labelVersion.Text = String.Format(format: I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
-      linkLabelCopyright.Text = GetAssemblyCopyright();
-      linkLabelCopyright.Links.Add(start: 24, length: Properties.Resources.strHomepageMail.Length, linkData: Properties.Resources.strHomepageMail);
-      labelDescription.Text = GetAssemblyDescription();
+		{
+			labelTitle.Text = GetAssemblyProduct();
+			labelVersion.Text = string.Format(format: I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
+			linkLabelCopyright.Text = GetAssemblyCopyright();
+			linkLabelCopyright.Links.Add(start: 24, length: Properties.Resources.strHomepageMail.Length, linkData: Properties.Resources.strHomepageMail);
+			labelDescription.Text = GetAssemblyDescription();
 			linkLabelWWW.Text = I10nStrings.strWww + ": " + Properties.Resources.strHomepage;
 			linkLabelWWW.Links.Add(start: 5, length: Properties.Resources.strHomepage.Length, linkData: Properties.Resources.strHomepage);
-    }
+		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void AppInfoForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void AppInfoForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		/// <summary>
 		/// 

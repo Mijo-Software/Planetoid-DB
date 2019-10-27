@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Office2007Rendering;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -7,7 +8,6 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Windows.Forms;
-using Office2007Rendering;
 using VS2008StripRenderingLibrary;
 
 namespace Planetoid_DB
@@ -34,7 +34,7 @@ namespace Planetoid_DB
 		public PlanetoidDBForm()
 		{
 			InitializeComponent();
-			this.Text = this.Text + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			Text = Text + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			SetLabelText(text: "");
 		}
 
@@ -90,7 +90,7 @@ namespace Planetoid_DB
 		private void Restart()
 		{
 			Process.Start(fileName: Application.ExecutablePath);
-			this.Close();
+			Close();
 		}
 
 		/// <summary>
@@ -132,8 +132,7 @@ namespace Planetoid_DB
 			labelFlagsValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			labelDesgnNameValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
 			labelObsLastDateValue.Text = arrDB[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
-			labelIndexPos.Text = I10nStrings.strIndex + ": " + (currentPosition + 1).ToString() + " / " + arrDB.Count.ToString();
-			trackBarIndex.Value = this.currentPosition;
+			toolStripLabelIndexPosition.Text = I10nStrings.strIndex + ": " + (currentPosition + 1).ToString() + " / " + arrDB.Count.ToString();
 		}
 
 		/// <summary>
@@ -301,18 +300,17 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void BackgroundWorkerLoadingDatabase_DoWork(object sender, DoWorkEventArgs e)
 		{
-			this.Enabled = false;
+			Enabled = false;
 			int step = 0, lineNum = 0;
 			FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
 			long fileSize = fileInfo.Length, fileSizeReaded = 0;
 			FileStream fileStream = new FileStream(path: strFilenameMPCORB, mode: FileMode.Open);
 			StreamReader streamReader = new StreamReader(stream: fileStream);
-			string readLine = "";
 			formSplashScreen.Show();
 			while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
-			{
-				readLine = streamReader.ReadLine();
-				fileSizeReaded = fileSizeReaded + readLine.Length;
+			{				
+				string readLine = streamReader.ReadLine();
+				fileSizeReaded += readLine.Length;
 				float percent = 100 * fileSizeReaded / fileSize;
 				step = (int)percent;
 				formSplashScreen.SetProgressbar(value: step);
@@ -340,18 +338,11 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void BackgroundWorkerLoadingDatabase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			numericUpDownGotoIndex.Minimum = 1;
-			numericUpDownGotoIndex.Maximum = arrDB.Count;
+			toolStripTextBoxGotoIndex.Text = 1.ToString();
 			currentPosition = 0;
 			stepPosition = 100;
 			GotoCurrentPosition(currentPosition);
-			trackBarIndex.Value = 1;
-			trackBarIndex.Maximum = arrDB.Count - 1;
-			trackBarIndex.TickFrequency = (int)trackBarIndex.Maximum;
-			this.Enabled = true;
-			#if DEBUG
-			Console.Write("Asynchroner Thread kam bis zum Wert: " + e.Result.ToString());
-			#endif
+			Enabled = true;
 		}
 
 		#endregion
@@ -361,7 +352,7 @@ namespace Planetoid_DB
 		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
 		{
 			toolStripProgressBarBackgroundDownload.Value = e.ProgressPercentage;
-			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
 		private void Completed(object sender, AsyncCompletedEventArgs e)
@@ -397,7 +388,7 @@ namespace Planetoid_DB
 			toolStripStatusLabelUpdate.Visible = false;
 			timerBlinkForUpdateAvailable.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Value = toolStripProgressBarBackgroundDownload.Minimum;
-			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
 		#endregion
@@ -446,21 +437,6 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Scroll-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TrackBarIndex_Scroll(object sender, EventArgs e)
-		{
-			currentPosition = trackBarIndex.Value;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		#endregion
-
 		#region Enter-Handler
 
 		/// <summary>
@@ -468,196 +444,140 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepToBegin_Enter(object sender, EventArgs e) => SetLabelText(text: buttonStepToBegin.AccessibleDescription);
+		private void LabelIndex_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelIndex.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepBackward_Enter(object sender, EventArgs e) => SetLabelText(text: buttonStepBackward.AccessibleDescription);
+		private void LabelDesgnName_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelDesgnName.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepBackward1_Enter(object sender, EventArgs e) => SetLabelText(text: buttonStepBackward1.AccessibleDescription);
+		private void LabelEpoch_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelEpoch.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepForward1_Enter(object sender, EventArgs e) => SetLabelText(text: buttonStepForward1.AccessibleDescription);
+		private void LabelSemiMajorAxis_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelSemiMajorAxis.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepForward_Enter(object sender, EventArgs e) => SetLabelText(text: buttonStepForward.AccessibleDescription);
+		private void LabelMeanAnomaly_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelMeanAnomaly.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepToEnd_Enter(object sender, EventArgs e) => SetLabelText(text: buttonStepToEnd.AccessibleDescription);
+		private void LabelArgPeri_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelArgPeri.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonGotoIndex_Enter(object sender, EventArgs e) => SetLabelText(text: buttonGotoIndex.AccessibleDescription);
+		private void LabelLongAscNode_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelLongAscNode.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelIndex_Enter(object sender, EventArgs e) => SetLabelText(text: labelIndex.AccessibleDescription);
+		private void LabelIncl_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelIncl.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelDesgnName_Enter(object sender, EventArgs e) => SetLabelText(text: labelDesgnName.AccessibleDescription);
+		private void LabelOrbEcc_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelOrbEcc.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelEpoch_Enter(object sender, EventArgs e) => SetLabelText(text: labelEpoch.AccessibleDescription);
+		private void LabelMotion_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelMotion.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelSemiMajorAxis_Enter(object sender, EventArgs e) => SetLabelText(text: labelSemiMajorAxis.AccessibleDescription);
+		private void LabelMagAbs_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelMagAbs.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMeanAnomaly_Enter(object sender, EventArgs e) => SetLabelText(text: labelMeanAnomaly.AccessibleDescription);
+		private void LabelSlopeParam_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelSlopeParam.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelArgPeri_Enter(object sender, EventArgs e) => SetLabelText(text: labelArgPeri.AccessibleDescription);
+		private void LabelRef_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelRef.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelLongAscNode_Enter(object sender, EventArgs e) => SetLabelText(text: labelLongAscNode.AccessibleDescription);
+		private void LabelNumbOppos_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelNumbOppos.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelIncl_Enter(object sender, EventArgs e) => SetLabelText(text: labelIncl.AccessibleDescription);
+		private void LabelNumbObs_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelNumbObs.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelOrbEcc_Enter(object sender, EventArgs e) => SetLabelText(text: labelOrbEcc.AccessibleDescription);
+		private void LabelObsSpan_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelObsSpan.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMotion_Enter(object sender, EventArgs e) => SetLabelText(text: labelMotion.AccessibleDescription);
+		private void LabelRmsResidual_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelRmsResidual.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMagAbs_Enter(object sender, EventArgs e) => SetLabelText(text: labelMagAbs.AccessibleDescription);
+		private void LabelComputerName_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelComputerName.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelSlopeParam_Enter(object sender, EventArgs e) => SetLabelText(text: labelSlopeParam.AccessibleDescription);
+		private void LabelFlags_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelFlags.AccessibleDescription);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelRef_Enter(object sender, EventArgs e) => SetLabelText(text: labelRef.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbOppos_Enter(object sender, EventArgs e) => SetLabelText(text: labelNumbOppos.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbObs_Enter(object sender, EventArgs e) => SetLabelText(text: labelNumbObs.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsSpan_Enter(object sender, EventArgs e) => SetLabelText(text: labelObsSpan.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidual_Enter(object sender, EventArgs e) => SetLabelText(text: labelRmsResidual.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelComputerName_Enter(object sender, EventArgs e) => SetLabelText(text: labelComputerName.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelFlags_Enter(object sender, EventArgs e) => SetLabelText(text: labelFlags.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsLastDate_Enter(object sender, EventArgs e) => SetLabelText(text: labelObsLastDate.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndexPos_Enter(object sender, EventArgs e) => SetLabelText(text: labelIndexPos.AccessibleDescription);
+		private void LabelObsLastDate_Enter(object sender, EventArgs e) => SetLabelText(text: linkLabelObsLastDate.AccessibleDescription);
 
 		/// <summary>
 		/// 
@@ -799,6 +719,13 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelObsLastDateValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelObsLastDateValue.AccessibleDescription);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripTextBoxGotoIndex_Enter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonGoToIndex.AccessibleDescription);
+
 		#endregion
 
 		#region MouseEnter-Handler
@@ -824,13 +751,6 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelCancelBackgroundDownload_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripStatusLabelCancelBackgroundDownload.AccessibleDescription);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TrackBarIndex_MouseEnter(object sender, EventArgs e) => SetLabelText(text: trackBarIndex.AccessibleDescription);
-		
 		/// <summary>
 		/// 
 		/// </summary>
@@ -911,7 +831,11 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelUpdate_MouseEnter(object sender, EventArgs e)
 		{
-			if (timerBlinkForUpdateAvailable.Enabled) toolStripStatusLabelUpdate.IsLink = true;
+			if (timerBlinkForUpdateAvailable.Enabled)
+			{
+				toolStripStatusLabelUpdate.IsLink = true;
+			}
+
 			SetLabelText(text: toolStripStatusLabelUpdate.AccessibleDescription);
 		}
 
@@ -1079,62 +1003,6 @@ namespace Planetoid_DB
 		#endregion
 
 		#region Leave-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndexPos_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepToBegin_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepBackward_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepBackward1_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepForward1_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepForward_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepToEnd_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonGotoIndex_Leave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		/// <summary>
 		/// 
@@ -1460,13 +1328,6 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TrackBarIndex_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void MenuitemFile_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		/// <summary>
@@ -1549,7 +1410,11 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelUpdate_MouseLeave(object sender, EventArgs e)
 		{
-			if (timerBlinkForUpdateAvailable.Enabled) toolStripStatusLabelUpdate.IsLink = false;
+			if (timerBlinkForUpdateAvailable.Enabled)
+			{
+				toolStripStatusLabelUpdate.IsLink = false;
+			}
+
 			SetLabelText(text: "");
 		}
 
@@ -1746,85 +1611,6 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonStepToBegin_Click(object sender, EventArgs e)
-		{
-			currentPosition = 0;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepBackward_Click(object sender, EventArgs e)
-		{
-			currentPosition = currentPosition - stepPosition;
-			if (currentPosition < 1) currentPosition = arrDB.Count + currentPosition;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepBackward1_Click(object sender, EventArgs e)
-		{
-			if (currentPosition == 0) currentPosition = arrDB.Count - 1; else currentPosition--;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepForward1_Click(object sender, EventArgs e)
-		{
-			if (currentPosition == arrDB.Count - 1) currentPosition = 0; else currentPosition++;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepForward_Click(object sender, EventArgs e)
-		{
-			currentPosition = currentPosition + stepPosition;
-			if (currentPosition > arrDB.Count) currentPosition = currentPosition - arrDB.Count;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonStepToEnd_Click(object sender, EventArgs e)
-		{
-			currentPosition = arrDB.Count - 1;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonGotoIndex_Click(object sender, EventArgs e)
-		{
-			currentPosition = (int)numericUpDownGotoIndex.Value - 1;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ToolStripMenuItem10_Click(object sender, EventArgs e)
 		{
 			stepPosition = 10;
@@ -1892,11 +1678,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemAbout_Click(object sender, EventArgs e)
-		{
-			AppInfoForm formAppInfo = new AppInfoForm();
-			formAppInfo.ShowDialog();
-		}
+		private void MenuitemAbout_Click(object sender, EventArgs e) => ShowAppInfo();
 
 		/// <summary>
 		/// 
@@ -1955,143 +1737,140 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelIndex_Click(object sender, EventArgs e) => OpenTerminology(index: 0);
+		private void LabelIndex_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 0);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelDesgnName_Click(object sender, EventArgs e) => OpenTerminology(index: 1);
+		private void LabelDesgnName_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 1);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelEpoch_Click(object sender, EventArgs e) => OpenTerminology(index: 2);
+		private void LabelEpoch_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 2);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMeanAnomaly_Click(object sender, EventArgs e) => OpenTerminology(index: 3);
+		private void LabelMeanAnomaly_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 3);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelArgPeri_Click(object sender, EventArgs e) => OpenTerminology(index: 4);
+		private void LabelArgPeri_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 4);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelLongAscNode_Click(object sender, EventArgs e) => OpenTerminology(index: 5);
+		private void LabelLongAscNode_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 5);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelIncl_Click(object sender, EventArgs e) => OpenTerminology(index: 6);
+		private void LabelIncl_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 6);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelOrbEcc_Click(object sender, EventArgs e) => OpenTerminology(index: 7);
+		private void LabelOrbEcc_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 7);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMotion_Click(object sender, EventArgs e) => OpenTerminology(index: 8);
+		private void LabelMotion_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 8);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelSemiMajorAxis_Click(object sender, EventArgs e) => OpenTerminology(index: 9);
+		private void LabelSemiMajorAxis_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 9);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMagAbs_Click(object sender, EventArgs e) => OpenTerminology(index: 10);
+		private void LabelMagAbs_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 10);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelSlopeParam_Click(object sender, EventArgs e) => OpenTerminology(index: 11);
+		private void LabelSlopeParam_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 11);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelRef_Click(object sender, EventArgs e) => OpenTerminology(index: 12);
+		private void LabelRef_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 12);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelNumbOppos_Click(object sender, EventArgs e) => OpenTerminology(index: 13);
+		private void LabelNumbOppos_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 13);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelNumbObs_Click(object sender, EventArgs e) => OpenTerminology(index: 14);
+		private void LabelNumbObs_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 14);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelObsSpan_Click(object sender, EventArgs e) => OpenTerminology(index: 15);
+		private void LabelObsSpan_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 15);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelRmsResidual_Click(object sender, EventArgs e)
-		{
-			OpenTerminology(index: 16);
-		}
+		private void LabelRmsResidual_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 16);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelComputerName_Click(object sender, EventArgs e) => OpenTerminology(index: 17);
+		private void LabelComputerName_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 17);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelFlags_Click(object sender, EventArgs e) => OpenTerminology(index: 18);
+		private void LabelFlags_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 18);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelObsLastDate_Click(object sender, EventArgs e) => OpenTerminology(index: 19);
+		private void LabelObsLastDate_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 19);
 
 		/// <summary>
 		/// 
@@ -2470,7 +2249,153 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelObsLastDateValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsLastDateValue.Text);
 
-		
+		private void PlanetoidDBForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (File.Exists(path: strFilenameMPCORBtemp))
+			{
+				File.Delete(path: strFilenameMPCORBtemp);
+			}
+		}
+
+		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)
+		{
+			currentPosition = 0;
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		private void ToolStripButtonStepBackward_Click(object sender, EventArgs e)
+		{
+			currentPosition -= stepPosition;
+			if (currentPosition < 1)
+			{
+				currentPosition += arrDB.Count;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		private void ToolStripButtonStepBackwardOne_Click(object sender, EventArgs e)
+		{
+			if (currentPosition == 0)
+			{
+				currentPosition = arrDB.Count - 1;
+			}
+			else
+			{
+				currentPosition--;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		private void ToolStripButtonStepForwardOne_Click(object sender, EventArgs e)
+		{
+			if (currentPosition == arrDB.Count - 1)
+			{
+				currentPosition = 0;
+			}
+			else
+			{
+				currentPosition++;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		private void ToolStripButtonStepForward_Click(object sender, EventArgs e)
+		{
+			currentPosition += stepPosition;
+			if (currentPosition > arrDB.Count)
+			{
+				currentPosition -= arrDB.Count;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		private void ToolStripButtonStepToEnd_Click(object sender, EventArgs e)
+		{
+			currentPosition = arrDB.Count - 1;
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		private void ToolStripButtonGoToIndex_Click(object sender, EventArgs e)
+		{
+			int pos = 0;
+			try
+			{
+				pos = int.Parse(toolStripTextBoxGotoIndex.Text);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			if (pos <= 0 || pos >= arrDB.Count)
+			{
+				MessageBox.Show(text: I10nStrings.strIndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			else
+			{
+				currentPosition = pos - 1;
+				GotoCurrentPosition(currentPosition: currentPosition);
+			}
+		}
+
+		private void ToolStripButtonStepToBegin_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepToBegin.AccessibleDescription);
+
+		private void ToolStripButtonStepBackward_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepBackward.AccessibleDescription);
+
+		private void ToolStripButtonStepBackwardOne_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepBackwardOne.AccessibleDescription);
+
+		private void ToolStripButtonStepForwardOne_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
+
+		private void ToolStripButtonStepForward_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
+
+		private void ToolStripButtonStepToEnd_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonStepForwardOne.AccessibleDescription);
+
+		private void ToolStripLabelIndexPosition_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripLabelIndexPosition.AccessibleDescription);
+
+		private void ToolStripButtonGoToIndex_MouseEnter(object sender, EventArgs e) => SetLabelText(text: toolStripButtonGoToIndex.AccessibleDescription);
+
+		private void ToolStripButtonStepToBegin_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripButtonStepBackward_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripButtonStepBackwardOne_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripButtonStepForwardOne_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripButtonStepForward_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripButtonStepToEnd_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripLabelIndexPosition_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripButtonGoToIndex_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void ToolStripTextBoxGotoIndex_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+
+		private void toolStripTextBoxGotoIndex_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == Convert.ToChar(Keys.Return))
+			{
+				int pos = 0;
+				try
+				{
+					pos = int.Parse(toolStripTextBoxGotoIndex.Text);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				if (pos <= 0 || pos >= arrDB.Count)
+				{
+					MessageBox.Show(text: I10nStrings.strIndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				else
+				{
+					currentPosition = pos - 1;
+					GotoCurrentPosition(currentPosition: currentPosition);
+				}
+			}
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>

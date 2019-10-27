@@ -17,7 +17,7 @@ namespace VS2008StripRenderingLibrary
 		{
 			base.InitializeItem(item: item);
 			item.ForeColor = Color.Black;
-    }
+		}
 
 		/// <summary>
 		/// 
@@ -90,7 +90,9 @@ namespace VS2008StripRenderingLibrary
 				e.Graphics.FillRectangle(brush: b, rect: rect);
 				e.Graphics.FillRectangle(brush: b2, rect: rect2);
 				e.Graphics.DrawImage(image: e.Image, point: new Point(x: 5, y: 3));
-			} else {
+			}
+			else
+			{
 				Rectangle rect = new Rectangle(x: 3, y: 1, width: 20, height: 20);
 				Rectangle rect2 = new Rectangle(x: 4, y: 2, width: 18, height: 18);
 				SolidBrush b = new SolidBrush(color: ClsColor.clrSelectedBG_Drop_Border);
@@ -131,7 +133,7 @@ namespace VS2008StripRenderingLibrary
 		/// <param name="e"></param>
 		protected override void OnRenderMenuItemBackground(ToolStripItemRenderEventArgs e)
 		{
-      base.OnRenderMenuItemBackground(e);
+			base.OnRenderMenuItemBackground(e);
 			if (e.Item.Enabled)
 			{
 				if (e.Item.IsOnDropDown == false && e.Item.Selected)
@@ -148,7 +150,9 @@ namespace VS2008StripRenderingLibrary
 							e.Item.ForeColor = Color.Black;
 						}
 					}
-				} else if (e.Item.IsOnDropDown && e.Item.Selected) {
+				}
+				else if (e.Item.IsOnDropDown && e.Item.Selected)
+				{
 					// If item is NOT menuheader (but subitem); and selected: draw lightblue border
 					Rectangle rect = new Rectangle(x: 4, y: 2, width: e.Item.Width - 6, height: e.Item.Height - 4);
 					using (LinearGradientBrush b = new LinearGradientBrush(rect: rect, color1: ClsColor.clrSelectedBG_White, color2: ClsColor.clrSelectedBG_Blue, linearGradientMode: LinearGradientMode.Vertical))
@@ -185,4 +189,4 @@ namespace VS2008StripRenderingLibrary
 		}
 	}
 }
-    
+

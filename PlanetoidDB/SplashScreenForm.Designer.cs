@@ -92,7 +92,7 @@
 			this.labelDataLoading.ForeColor = System.Drawing.Color.White;
 			this.labelDataLoading.Location = new System.Drawing.Point(12, 294);
 			this.labelDataLoading.Name = "labelDataLoading";
-			this.labelDataLoading.Size = new System.Drawing.Size(89, 15);
+			this.labelDataLoading.Size = new System.Drawing.Size(90, 15);
 			this.labelDataLoading.TabIndex = 2;
 			this.labelDataLoading.Text = "[ProcessAsText]";
 			// 

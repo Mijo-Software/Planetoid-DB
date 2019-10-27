@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
-using System.IO;
-using System.Media;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -12,7 +9,7 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	public partial class TableModeForm : Form
-  {
+	{
 		private ArrayList arrDB = new ArrayList(capacity: 0);
 		private int numberPlanetoids = 0;
 		private bool isCancelled = false;
@@ -53,7 +50,7 @@ namespace Planetoid_DB
 		private void TableModeForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			listViewTableMode.Dispose();
-			this.Dispose();
+			Dispose();
 		}
 
 		#region Important methods
@@ -69,10 +66,10 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="arrTemp"></param>
 		public void FillArray(ArrayList arrTemp)
-    {
-      arrDB = arrTemp;
-      numberPlanetoids = arrDB.Count;
-    }
+		{
+			arrDB = arrTemp;
+			numberPlanetoids = arrDB.Count;
+		}
 
 		/// <summary>
 		/// 
@@ -93,7 +90,9 @@ namespace Planetoid_DB
 			if (text == "")
 			{
 				labelHelp.Enabled = false;
-			} else {
+			}
+			else
+			{
 				labelHelp.Enabled = true;
 			}
 			labelHelp.Text = text;
@@ -104,54 +103,54 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="currentPosition"></param>
 		private void FormatRow(int currentPosition)
-    {
-      //Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
-      // if (teilstring == "0") zahl = 0; ...
-      strIndex = arrDB[currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-      strMagAbs = arrDB[currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-      strSlopeParam = arrDB[currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-      strEpoch = arrDB[currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-      strMeanAnomaly = arrDB[currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-      strArgPeri = arrDB[currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-      strLongAscNode = arrDB[currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-      strIncl = arrDB[currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-      strOrbEcc = arrDB[currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-      strMotion = arrDB[currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-      strSemiMajorAxis = arrDB[currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-      strRef = arrDB[currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-      strNumbObs = arrDB[currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-      strNumbOppos = arrDB[currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-      strObsSpan = arrDB[currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-      strRmsResdiual = arrDB[currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-      strComputerName = arrDB[currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-      strFlags = arrDB[currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-      strDesgnName = arrDB[currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-      strObsLastDate = arrDB[currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+		{
+			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
+			// if (teilstring == "0") zahl = 0; ...
+			strIndex = arrDB[currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			strMagAbs = arrDB[currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			strSlopeParam = arrDB[currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			strEpoch = arrDB[currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			strMeanAnomaly = arrDB[currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			strArgPeri = arrDB[currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			strLongAscNode = arrDB[currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			strIncl = arrDB[currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			strOrbEcc = arrDB[currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			strMotion = arrDB[currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			strSemiMajorAxis = arrDB[currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			strRef = arrDB[currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			strNumbObs = arrDB[currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			strNumbOppos = arrDB[currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			strObsSpan = arrDB[currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			strRmsResdiual = arrDB[currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			strComputerName = arrDB[currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			strFlags = arrDB[currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			strDesgnName = arrDB[currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			strObsLastDate = arrDB[currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 			ListViewItem listViewItem = new ListViewItem(text: strIndex)
 			{
 				ToolTipText = strIndex + ": " + strDesgnName
 			};
 			listViewItem.SubItems.Add(text: strDesgnName);
-      listViewItem.SubItems.Add(text: strEpoch);
-      listViewItem.SubItems.Add(text: strMeanAnomaly);
-      listViewItem.SubItems.Add(text: strArgPeri);
-      listViewItem.SubItems.Add(text: strLongAscNode);
-      listViewItem.SubItems.Add(text: strIncl);
-      listViewItem.SubItems.Add(text: strOrbEcc);
-      listViewItem.SubItems.Add(text: strMotion);
-      listViewItem.SubItems.Add(text: strSemiMajorAxis);
-      listViewItem.SubItems.Add(text: strMagAbs);
-      listViewItem.SubItems.Add(text: strSlopeParam);
-      listViewItem.SubItems.Add(text: strRef);
-      listViewItem.SubItems.Add(text: strNumbOppos);
-      listViewItem.SubItems.Add(text: strNumbObs);
-      listViewItem.SubItems.Add(text: strObsSpan);
-      listViewItem.SubItems.Add(text: strRmsResdiual);
-      listViewItem.SubItems.Add(text: strComputerName);
-      listViewItem.SubItems.Add(text: strFlags);
-      listViewItem.SubItems.Add(text: strObsLastDate);
-      listViewTableMode.Items.Add(value: listViewItem);
-    }
+			listViewItem.SubItems.Add(text: strEpoch);
+			listViewItem.SubItems.Add(text: strMeanAnomaly);
+			listViewItem.SubItems.Add(text: strArgPeri);
+			listViewItem.SubItems.Add(text: strLongAscNode);
+			listViewItem.SubItems.Add(text: strIncl);
+			listViewItem.SubItems.Add(text: strOrbEcc);
+			listViewItem.SubItems.Add(text: strMotion);
+			listViewItem.SubItems.Add(text: strSemiMajorAxis);
+			listViewItem.SubItems.Add(text: strMagAbs);
+			listViewItem.SubItems.Add(text: strSlopeParam);
+			listViewItem.SubItems.Add(text: strRef);
+			listViewItem.SubItems.Add(text: strNumbOppos);
+			listViewItem.SubItems.Add(text: strNumbObs);
+			listViewItem.SubItems.Add(text: strObsSpan);
+			listViewItem.SubItems.Add(text: strRmsResdiual);
+			listViewItem.SubItems.Add(text: strComputerName);
+			listViewItem.SubItems.Add(text: strFlags);
+			listViewItem.SubItems.Add(text: strObsLastDate);
+			listViewTableMode.Items.Add(value: listViewItem);
+		}
 
 		#endregion
 
@@ -163,16 +162,19 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-    {
-      progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
-      for (int i = (int)numericUpDownMinimum.Value - 1; i < (int)numericUpDownMaximum.Value; i++)
-      {
-        FormatRow(currentPosition: i);
-        backgroundWorker.ReportProgress(percentProgress: i);
-        TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: i, progressMax: (int)numericUpDownMaximum.Value);
-        if (isCancelled) break;
-      }
-    }
+		{
+			progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
+			for (int i = (int)numericUpDownMinimum.Value - 1; i < (int)numericUpDownMaximum.Value; i++)
+			{
+				FormatRow(currentPosition: i);
+				backgroundWorker.ReportProgress(percentProgress: i);
+				TaskbarProgress.SetValue(windowHandle: Handle, progressValue: i, progressMax: (int)numericUpDownMaximum.Value);
+				if (isCancelled)
+				{
+					break;
+				}
+			}
+		}
 
 		/// <summary>
 		/// 
@@ -187,15 +189,15 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-    {
-      listViewTableMode.Visible = true;
-      numericUpDownMinimum.Enabled = true;
-      numericUpDownMaximum.Enabled = true;
-      buttonList.Enabled = true;
-      buttonCancel.Enabled = false;
-      progressBar.Enabled = false;
-      TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
-    }
+		{
+			listViewTableMode.Visible = true;
+			numericUpDownMinimum.Enabled = true;
+			numericUpDownMaximum.Enabled = true;
+			buttonList.Enabled = true;
+			buttonCancel.Enabled = false;
+			progressBar.Enabled = false;
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
+		}
 
 		#endregion
 
@@ -243,12 +245,12 @@ namespace Planetoid_DB
 			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
 			backgroundWorker.RunWorkerAsync();
 		}
-		
+
 		/// <summary>
-		 /// 
-		 /// </summary>
-		 /// <param name="sender"></param>
-		 /// <param name="e"></param>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ButtonCancel_Click(object sender, EventArgs e) => isCancelled = true;
 
 		#endregion
@@ -319,42 +321,42 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelMinimum_Enter(object sender, EventArgs e) => SetLabelText(text: labelMinimum.AccessibleDescription);
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelMaximum_Enter(object sender, EventArgs e) => SetLabelText(text: labelMaximum.AccessibleDescription);
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void NumericUpDownMinimum_Enter(object sender, EventArgs e) => SetLabelText(text: numericUpDownMinimum.AccessibleDescription);
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void NumericUpDownMaximum_Enter(object sender, EventArgs e) => SetLabelText(text: numericUpDownMaximum.AccessibleDescription);
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelWarning1_Enter(object sender, EventArgs e) => SetLabelText(text: labelWarning1.AccessibleDescription);
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelWarning2_Enter(object sender, EventArgs e) => SetLabelText(text: labelWarning2.AccessibleDescription);
-	
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -489,7 +491,7 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void ListViewTableMode_SelectedIndexChanged(object sender, EventArgs e)
-    {
+		{
 			int intselectedIndex;
 			if (listViewTableMode.SelectedIndices.Count <= 0)
 			{

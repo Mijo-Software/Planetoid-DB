@@ -50,7 +50,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void CheckMpcorbDatForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void CheckMpcorbDatForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 

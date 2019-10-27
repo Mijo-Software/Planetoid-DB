@@ -73,7 +73,7 @@
 			// 
 			// labelIsUpdateNeeded
 			// 
-			this.labelIsUpdateNeeded.AccessibleDescription = "Inform if an update is available";
+			this.labelIsUpdateNeeded.AccessibleDescription = "Inform if an update is recommended";
 			this.labelIsUpdateNeeded.AccessibleName = "Update text";
 			this.labelIsUpdateNeeded.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelIsUpdateNeeded.AutoSize = true;
@@ -85,7 +85,7 @@
 			this.labelIsUpdateNeeded.TabIndex = 8;
 			this.labelIsUpdateNeeded.Text = "Update needed?";
 			this.labelIsUpdateNeeded.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.toolTip.SetToolTip(this.labelIsUpdateNeeded, "Inform if an update is available");
+			this.toolTip.SetToolTip(this.labelIsUpdateNeeded, "Inform if an update is recommended");
 			this.labelIsUpdateNeeded.Enter += new System.EventHandler(this.LabelIsUpdateNeeded_Enter);
 			this.labelIsUpdateNeeded.Leave += new System.EventHandler(this.LabelIsUpdateNeeded_Leave);
 			this.labelIsUpdateNeeded.MouseEnter += new System.EventHandler(this.LabelIsUpdateNeeded_Enter);

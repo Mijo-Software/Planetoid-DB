@@ -15,7 +15,8 @@ namespace VS2008StripRenderingLibrary
 		/// Render custom background gradient
 		/// </summary>
 		/// <param name="e"></param>
-		protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e) {
+		protected override void OnRenderToolStripBackground(ToolStripRenderEventArgs e)
+		{
 			base.OnRenderToolStripBackground(e);
 			using (LinearGradientBrush b = new LinearGradientBrush(rect: e.AffectedBounds, color1: ClsColor.clrVerBG_White, color2: ClsColor.clrVerBG_GrayBlue, linearGradientMode: LinearGradientMode.Vertical))
 			{

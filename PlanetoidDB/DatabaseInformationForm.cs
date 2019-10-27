@@ -8,7 +8,7 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	public partial class DatabaseInformationForm : Form
-  {
+	{
 		/// <summary>
 		/// 
 		/// </summary>
@@ -20,23 +20,23 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
-    {
+		{
 			FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.strFilenameMPCORB);
-      labelNameValue.Text = fileInfo.Name;
-      labelDirectoryValue.Text = fileInfo.DirectoryName;
-      labelSizeValue.Text = fileInfo.Length.ToString() + " " + I10nStrings.strBytesText;
-      labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
-      labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
-      labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
-      labelAttributesValue.Text = fileInfo.Attributes.ToString();
-    }
+			labelNameValue.Text = fileInfo.Name;
+			labelDirectoryValue.Text = fileInfo.DirectoryName;
+			labelSizeValue.Text = fileInfo.Length.ToString() + " " + I10nStrings.strBytesText;
+			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
+			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
+			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
+			labelAttributesValue.Text = fileInfo.Attributes.ToString();
+		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		/// <summary>
 		/// 
@@ -73,16 +73,16 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void PictureBoxInformation_Click(object sender, EventArgs e)
-    {
+		{
 			//todo: add something here
-    }
+		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonOK_Click(object sender, EventArgs e) => this.Close();
+		private void ButtonOK_Click(object sender, EventArgs e) => Close();
 
 		#endregion
 

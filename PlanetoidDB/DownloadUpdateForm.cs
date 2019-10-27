@@ -11,7 +11,7 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	public partial class DownloadUpdateForm : Form
-  {
+	{
 		private string
 			strFilenameMPCORB = Properties.Resources.strFilenameMPCORB,
 			strFilenameMPCORBtemp = Properties.Resources.strFilenameMPCORBtemp;
@@ -30,17 +30,17 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void DownloadUpdateForm_Load(object sender, EventArgs e)
-    {
-      labelStatusValue.Text = I10nStrings.strStatusNothingToDoText;
-      labelDateValue.Text = ""; labelDateValue.Visible = false;
-      labelSizeValue.Text = ""; labelSizeValue.Visible = false;
-      labelSourceValue.Text = ""; labelSourceValue.Visible = false;
-      labelDownload.Text = I10nStrings.strNumberZero + I10nStrings.strPercentSign;
-      buttonCancelDownload.Enabled = false;
-      webClient.Proxy = null;
-      webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-      webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-    }
+		{
+			labelStatusValue.Text = I10nStrings.strStatusNothingToDoText;
+			labelDateValue.Text = ""; labelDateValue.Visible = false;
+			labelSizeValue.Text = ""; labelSizeValue.Visible = false;
+			labelSourceValue.Text = ""; labelSourceValue.Visible = false;
+			labelDownload.Text = I10nStrings.strNumberZero + I10nStrings.strPercentSign;
+			buttonCancelDownload.Enabled = false;
+			webClient.Proxy = null;
+			webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+			webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+		}
 
 		/// <summary>
 		/// 
@@ -51,7 +51,7 @@ namespace Planetoid_DB
 		{
 			webClient.CancelAsync();
 			webClient.Dispose();
-			this.Dispose();
+			Dispose();
 		}
 
 		/// <summary>
@@ -60,20 +60,20 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-    {
-      progressBarDownload.Value = e.ProgressPercentage;
-      labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.strPercentSign;
-      TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: e.ProgressPercentage, progressMax: 100);
-    }
+		{
+			progressBarDownload.Value = e.ProgressPercentage;
+			labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.strPercentSign;
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: e.ProgressPercentage, progressMax: 100);
+		}
 
-    /// <summary>
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void Completed(object sender, AsyncCompletedEventArgs e)
-    {
-			TaskbarProgress.SetValue(windowHandle: this.Handle, progressValue: 0, progressMax: 100);
+		{
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 			if (e.Error == null)
 			{
 				labelStatusValue.Text = I10nStrings.strStatusRefreshingDatabaseText;
@@ -103,33 +103,33 @@ namespace Planetoid_DB
 				progressBarDownload.Value = 0;
 				labelDownload.Text = progressBarDownload.Value.ToString() + I10nStrings.strPercentSign;
 			}
-    }
+		}
 
-    /// <summary>
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="uri"></param>
 		/// <returns></returns>
 		private DateTime GetLastModified(Uri uri)
-    {
+		{
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-      HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 			resp.Close();
-      return resp.LastModified;
-    }
+			return resp.LastModified;
+		}
 
-    /// <summary>
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="uri"></param>
 		/// <returns></returns>
 		private long GetContentLength(Uri uri)
-    {
+		{
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 			resp.Close();
 			return Convert.ToInt64(value: resp.ContentLength);
-    }
+		}
 
 		/// <summary>
 		/// 
@@ -169,8 +169,10 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				CheckMpcorbDatForm formCeckMpcorbDat = new CheckMpcorbDatForm();
-				formCeckMpcorbDat.ShowDialog();
+				using (CheckMpcorbDatForm formCeckMpcorbDat = new CheckMpcorbDatForm())
+				{
+					formCeckMpcorbDat.ShowDialog();
+				}
 			}
 		}
 
@@ -183,7 +185,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void LabelStatusText_Enter(object sender, EventArgs e) => SetLabelText(text: labelStatusText.AccessibleDescription);
 
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -204,7 +206,7 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelSizeText_Enter(object sender, EventArgs e) => SetLabelText(text: labelSizeText.AccessibleDescription);
-		
+
 		/// <summary>
 		/// 
 		/// </summary>

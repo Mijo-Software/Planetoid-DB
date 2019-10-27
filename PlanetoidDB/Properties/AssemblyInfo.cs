@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
@@ -14,7 +13,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("Planetoid-DB")]
-[assembly: AssemblyCopyright("2010-2018 Michael Johne <michael-johne@gmx.de>")]
+[assembly: AssemblyCopyright("2010-2019 Michael Johne <info@.planetoid-db.de>")]
 [assembly: AssemblyTrademark("Planetoid-DB")]
 [assembly: AssemblyCulture("")]
 

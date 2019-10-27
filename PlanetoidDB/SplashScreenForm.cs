@@ -8,7 +8,7 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	public partial class SplashScreenForm : Form
-  {
+	{
 		/// <summary>
 		/// 
 		/// </summary>
@@ -26,11 +26,11 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void SplashScreenForm_Load(object sender, EventArgs e)
-    {
-      labelDataLoading.Text = I10nStrings.strDataLoading;
-      labelTitle.Text = GetAssemblyProduct();
-      labelVersion.Text = string.Format(format: I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
-    }
+		{
+			labelDataLoading.Text = I10nStrings.strDataLoading;
+			labelTitle.Text = GetAssemblyProduct();
+			labelVersion.Text = string.Format(format: I10nStrings.strVersionTemplate, arg0: GetAssemblyVersion());
+		}
 
 		/// <summary>
 		/// 

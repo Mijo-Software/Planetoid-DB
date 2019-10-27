@@ -9,8 +9,7 @@ namespace Planetoid_DB
 	/// </summary>
 	public partial class TerminologyForm : Form
 	{
-
-		bool
+		private bool
 			isLabelIndexActive = false,
 			isLabelDesgnNameActive = false,
 			isLabelEpochActive = false,
@@ -54,7 +53,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TerminologyForm_FormClosed(object sender, FormClosedEventArgs e) => this.Dispose();
+		private void TerminologyForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 

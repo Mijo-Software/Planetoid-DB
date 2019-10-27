@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 
 namespace VS2008StripRenderingLibrary
-{ 
+{
 	/// <summary>
 	/// 
 	/// </summary>
@@ -10,6 +10,6 @@ namespace VS2008StripRenderingLibrary
 		/// <summary>
 		/// 
 		/// </summary>
-		public VS2008ToolStrip() => this.Renderer = new VS2008ToolStripRenderer();
+		public VS2008ToolStrip() => Renderer = new VS2008ToolStripRenderer();
 	}
 }
