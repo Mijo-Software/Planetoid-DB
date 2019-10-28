@@ -82,7 +82,7 @@
 			this.linkLabelDesgnName = new System.Windows.Forms.LinkLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.statusBar = new System.Windows.Forms.StatusStrip();
-			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelUpdate = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBarBackgroundDownload = new System.Windows.Forms.ToolStripProgressBar();
@@ -142,10 +142,10 @@
 			this.timerBlinkForUpdateAvailable = new System.Windows.Forms.Timer(this.components);
 			this.toolStripNavigation = new System.Windows.Forms.ToolStrip();
 			this.toolStripButtonStepToBegin = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButtonStepBackward = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripButtonStepBackwardOne = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonStepForwardOne = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButtonStepForward = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripButtonStepToEnd = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripLabelGoToIndex = new System.Windows.Forms.ToolStripLabel();
@@ -157,8 +157,8 @@
 			this.timerCheckForNewMpcorbDatFile = new System.Windows.Forms.Timer(this.components);
 			this.notifyIconUpdate = new System.Windows.Forms.NotifyIcon(this.components);
 			this.contextMenuNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.checkMPCORBDATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.downloadMPCORBDATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemCheckMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemDownloadMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuNavigationStep.SuspendLayout();
 			this.tableLayoutPanelData.SuspendLayout();
 			this.statusBar.SuspendLayout();
@@ -184,25 +184,35 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
-			this.contextMenuNavigationStep.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepForward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
+			this.contextMenuNavigationStep.TabStop = true;
 			this.contextMenuNavigationStep.Text = "Navigation step";
 			this.toolTip.SetToolTip(this.contextMenuNavigationStep, "Show the context name of data items");
+			this.contextMenuNavigationStep.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.contextMenuNavigationStep.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem10
 			// 
+			this.toolStripMenuItem10.AccessibleDescription = "Jump 10 items backward/forward";
+			this.toolStripMenuItem10.AccessibleName = "Jump 10 items backward/forward";
+			this.toolStripMenuItem10.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItem10.CheckOnClick = true;
 			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
 			this.toolStripMenuItem10.Size = new System.Drawing.Size(110, 22);
 			this.toolStripMenuItem10.Text = "10";
 			this.toolStripMenuItem10.ToolTipText = "Jump 10 items backward/forward";
 			this.toolStripMenuItem10.Click += new System.EventHandler(this.ToolStripMenuItem10_Click);
+			this.toolStripMenuItem10.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem10.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem100
 			// 
+			this.toolStripMenuItem100.AccessibleDescription = "Jump 100 items backward/forward";
+			this.toolStripMenuItem100.AccessibleName = "Jump 100 items backward/forward";
+			this.toolStripMenuItem100.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItem100.Checked = true;
 			this.toolStripMenuItem100.CheckOnClick = true;
 			this.toolStripMenuItem100.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -211,36 +221,49 @@
 			this.toolStripMenuItem100.Text = "100";
 			this.toolStripMenuItem100.ToolTipText = "Jump 100 items backward/forward";
 			this.toolStripMenuItem100.Click += new System.EventHandler(this.ToolStripMenuItem100_Click);
+			this.toolStripMenuItem100.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem1000
 			// 
+			this.toolStripMenuItem1000.AccessibleDescription = "Jump 1000 items backward/forward";
+			this.toolStripMenuItem1000.AccessibleName = "Jump 1000 items backward/forward";
+			this.toolStripMenuItem1000.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItem1000.CheckOnClick = true;
 			this.toolStripMenuItem1000.Name = "toolStripMenuItem1000";
 			this.toolStripMenuItem1000.Size = new System.Drawing.Size(110, 22);
 			this.toolStripMenuItem1000.Text = "1000";
 			this.toolStripMenuItem1000.ToolTipText = "Jump 1000 items backward/forward";
 			this.toolStripMenuItem1000.Click += new System.EventHandler(this.ToolStripMenuItem1000_Click);
+			this.toolStripMenuItem1000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem1000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem10000
 			// 
+			this.toolStripMenuItem10000.AccessibleDescription = "Jump 10000 items backward/forward";
+			this.toolStripMenuItem10000.AccessibleName = "Jump 10000 items backward/forward";
+			this.toolStripMenuItem10000.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItem10000.CheckOnClick = true;
 			this.toolStripMenuItem10000.Name = "toolStripMenuItem10000";
 			this.toolStripMenuItem10000.Size = new System.Drawing.Size(110, 22);
 			this.toolStripMenuItem10000.Text = "10000";
 			this.toolStripMenuItem10000.ToolTipText = "Jump 10000 items backward/forward";
 			this.toolStripMenuItem10000.Click += new System.EventHandler(this.ToolStripMenuItem10000_Click);
+			this.toolStripMenuItem10000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem10000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItem100000
 			// 
+			this.toolStripMenuItem100000.AccessibleDescription = "Jump 100000 items backward/forward";
+			this.toolStripMenuItem100000.AccessibleName = "Jump 100000 items backward/forward";
+			this.toolStripMenuItem100000.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItem100000.CheckOnClick = true;
 			this.toolStripMenuItem100000.Name = "toolStripMenuItem100000";
 			this.toolStripMenuItem100000.Size = new System.Drawing.Size(110, 22);
 			this.toolStripMenuItem100000.Text = "100000";
 			this.toolStripMenuItem100000.ToolTipText = "Jump 100000 items backward/forward";
 			this.toolStripMenuItem100000.Click += new System.EventHandler(this.ToolStripMenuItem100000_Click);
+			this.toolStripMenuItem100000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanelData
@@ -249,6 +272,7 @@
 			this.tableLayoutPanelData.AccessibleName = "Table Panel";
 			this.tableLayoutPanelData.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.tableLayoutPanelData.BackColor = System.Drawing.SystemColors.Control;
+			this.tableLayoutPanelData.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
 			this.tableLayoutPanelData.ColumnCount = 4;
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
@@ -309,7 +333,7 @@
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanelData.Size = new System.Drawing.Size(744, 213);
+			this.tableLayoutPanelData.Size = new System.Drawing.Size(744, 234);
 			this.tableLayoutPanelData.TabIndex = 12;
 			// 
 			// linkLabelObsLastDate
@@ -322,17 +346,18 @@
 			this.linkLabelObsLastDate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelObsLastDate.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelObsLastDate.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelObsLastDate.Location = new System.Drawing.Point(416, 171);
+			this.linkLabelObsLastDate.Location = new System.Drawing.Point(422, 191);
 			this.linkLabelObsLastDate.Name = "linkLabelObsLastDate";
 			this.linkLabelObsLastDate.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelObsLastDate.TabIndex = 42;
 			this.linkLabelObsLastDate.TabStop = true;
 			this.linkLabelObsLastDate.Text = "Date of last observation";
+			this.linkLabelObsLastDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelObsLastDate, "Date of last observation");
 			this.linkLabelObsLastDate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsLastDate_Click);
-			this.linkLabelObsLastDate.Enter += new System.EventHandler(this.LabelObsLastDate_Enter);
+			this.linkLabelObsLastDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelObsLastDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelObsLastDate.MouseEnter += new System.EventHandler(this.LabelObsLastDate_Enter);
+			this.linkLabelObsLastDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelObsLastDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelFlags
@@ -345,17 +370,18 @@
 			this.linkLabelFlags.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelFlags.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelFlags.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelFlags.Location = new System.Drawing.Point(416, 152);
+			this.linkLabelFlags.Location = new System.Drawing.Point(422, 170);
 			this.linkLabelFlags.Name = "linkLabelFlags";
 			this.linkLabelFlags.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelFlags.TabIndex = 42;
 			this.linkLabelFlags.TabStop = true;
 			this.linkLabelFlags.Text = "4-hexdigit flags";
+			this.linkLabelFlags.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelFlags, "4-hexdigit flags");
 			this.linkLabelFlags.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelFlags_Click);
-			this.linkLabelFlags.Enter += new System.EventHandler(this.LabelFlags_Enter);
+			this.linkLabelFlags.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelFlags.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelFlags.MouseEnter += new System.EventHandler(this.LabelFlags_Enter);
+			this.linkLabelFlags.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelFlags.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelComputerName
@@ -368,17 +394,18 @@
 			this.linkLabelComputerName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelComputerName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelComputerName.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelComputerName.Location = new System.Drawing.Point(416, 133);
+			this.linkLabelComputerName.Location = new System.Drawing.Point(422, 149);
 			this.linkLabelComputerName.Name = "linkLabelComputerName";
 			this.linkLabelComputerName.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelComputerName.TabIndex = 42;
 			this.linkLabelComputerName.TabStop = true;
 			this.linkLabelComputerName.Text = "Computer name";
+			this.linkLabelComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelComputerName, "Computer name");
 			this.linkLabelComputerName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelComputerName_Click);
-			this.linkLabelComputerName.Enter += new System.EventHandler(this.LabelComputerName_Enter);
+			this.linkLabelComputerName.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelComputerName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelComputerName.MouseEnter += new System.EventHandler(this.LabelComputerName_Enter);
+			this.linkLabelComputerName.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelComputerName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelRmsResidual
@@ -393,17 +420,18 @@
 			this.linkLabelRmsResidual.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelRmsResidual.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelRmsResidual.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelRmsResidual.Location = new System.Drawing.Point(416, 114);
+			this.linkLabelRmsResidual.Location = new System.Drawing.Point(422, 128);
 			this.linkLabelRmsResidual.Name = "linkLabelRmsResidual";
 			this.linkLabelRmsResidual.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelRmsResidual.TabIndex = 42;
 			this.linkLabelRmsResidual.TabStop = true;
 			this.linkLabelRmsResidual.Text = "r.m.s. residual (\")";
+			this.linkLabelRmsResidual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelRmsResidual, "r.m.s. residual (\")");
 			this.linkLabelRmsResidual.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRmsResidual_Click);
-			this.linkLabelRmsResidual.Enter += new System.EventHandler(this.LabelRmsResidual_Enter);
+			this.linkLabelRmsResidual.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelRmsResidual.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelRmsResidual.MouseEnter += new System.EventHandler(this.LabelRmsResidual_Enter);
+			this.linkLabelRmsResidual.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelRmsResidual.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelObsSpan
@@ -418,17 +446,18 @@
 			this.linkLabelObsSpan.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelObsSpan.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelObsSpan.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelObsSpan.Location = new System.Drawing.Point(416, 95);
+			this.linkLabelObsSpan.Location = new System.Drawing.Point(422, 107);
 			this.linkLabelObsSpan.Name = "linkLabelObsSpan";
 			this.linkLabelObsSpan.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelObsSpan.TabIndex = 42;
 			this.linkLabelObsSpan.TabStop = true;
 			this.linkLabelObsSpan.Text = "Observation span";
+			this.linkLabelObsSpan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelObsSpan, "Observation span");
 			this.linkLabelObsSpan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsSpan_Click);
-			this.linkLabelObsSpan.Enter += new System.EventHandler(this.LabelObsSpan_Enter);
+			this.linkLabelObsSpan.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelObsSpan.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelObsSpan.MouseEnter += new System.EventHandler(this.LabelObsSpan_Enter);
+			this.linkLabelObsSpan.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelObsSpan.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelNumbObs
@@ -443,17 +472,18 @@
 			this.linkLabelNumbObs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelNumbObs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelNumbObs.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelNumbObs.Location = new System.Drawing.Point(416, 76);
+			this.linkLabelNumbObs.Location = new System.Drawing.Point(422, 86);
 			this.linkLabelNumbObs.Name = "linkLabelNumbObs";
 			this.linkLabelNumbObs.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelNumbObs.TabIndex = 42;
 			this.linkLabelNumbObs.TabStop = true;
 			this.linkLabelNumbObs.Text = "Number of observations";
+			this.linkLabelNumbObs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelNumbObs, "Number of observations");
 			this.linkLabelNumbObs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbObs_Click);
-			this.linkLabelNumbObs.Enter += new System.EventHandler(this.LabelNumbObs_Enter);
+			this.linkLabelNumbObs.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelNumbObs.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelNumbObs.MouseEnter += new System.EventHandler(this.LabelNumbObs_Enter);
+			this.linkLabelNumbObs.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelNumbObs.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelNumbOppos
@@ -468,17 +498,18 @@
 			this.linkLabelNumbOppos.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelNumbOppos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelNumbOppos.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelNumbOppos.Location = new System.Drawing.Point(416, 57);
+			this.linkLabelNumbOppos.Location = new System.Drawing.Point(422, 65);
 			this.linkLabelNumbOppos.Name = "linkLabelNumbOppos";
 			this.linkLabelNumbOppos.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelNumbOppos.TabIndex = 42;
 			this.linkLabelNumbOppos.TabStop = true;
 			this.linkLabelNumbOppos.Text = "Number of oppositions";
+			this.linkLabelNumbOppos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelNumbOppos, "Number of oppositions");
 			this.linkLabelNumbOppos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbOppos_Enter);
-			this.linkLabelNumbOppos.Enter += new System.EventHandler(this.LabelNumbOppos_Enter);
+			this.linkLabelNumbOppos.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelNumbOppos.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelNumbOppos.MouseEnter += new System.EventHandler(this.LabelNumbOppos_Enter);
+			this.linkLabelNumbOppos.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelNumbOppos.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelRef
@@ -493,17 +524,18 @@
 			this.linkLabelRef.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelRef.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelRef.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelRef.Location = new System.Drawing.Point(416, 38);
+			this.linkLabelRef.Location = new System.Drawing.Point(422, 44);
 			this.linkLabelRef.Name = "linkLabelRef";
 			this.linkLabelRef.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelRef.TabIndex = 42;
 			this.linkLabelRef.TabStop = true;
 			this.linkLabelRef.Text = "Reference";
+			this.linkLabelRef.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelRef, "Reference");
 			this.linkLabelRef.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRef_Click);
-			this.linkLabelRef.Enter += new System.EventHandler(this.LabelRef_Enter);
+			this.linkLabelRef.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelRef.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelRef.MouseEnter += new System.EventHandler(this.LabelRef_Enter);
+			this.linkLabelRef.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelRef.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelSlopeParam
@@ -518,17 +550,18 @@
 			this.linkLabelSlopeParam.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelSlopeParam.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSlopeParam.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSlopeParam.Location = new System.Drawing.Point(416, 19);
+			this.linkLabelSlopeParam.Location = new System.Drawing.Point(422, 23);
 			this.linkLabelSlopeParam.Name = "linkLabelSlopeParam";
 			this.linkLabelSlopeParam.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelSlopeParam.TabIndex = 42;
 			this.linkLabelSlopeParam.TabStop = true;
 			this.linkLabelSlopeParam.Text = "Slope parameter, G";
+			this.linkLabelSlopeParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelSlopeParam, "Slope parameter, G");
 			this.linkLabelSlopeParam.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSlopeParam_Click);
-			this.linkLabelSlopeParam.Enter += new System.EventHandler(this.LabelSlopeParam_Enter);
+			this.linkLabelSlopeParam.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSlopeParam.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSlopeParam.MouseEnter += new System.EventHandler(this.LabelSlopeParam_Enter);
+			this.linkLabelSlopeParam.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSlopeParam.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelMagAbs
@@ -543,17 +576,18 @@
 			this.linkLabelMagAbs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMagAbs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMagAbs.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMagAbs.Location = new System.Drawing.Point(3, 190);
+			this.linkLabelMagAbs.Location = new System.Drawing.Point(5, 212);
 			this.linkLabelMagAbs.Name = "linkLabelMagAbs";
-			this.linkLabelMagAbs.Size = new System.Drawing.Size(233, 23);
+			this.linkLabelMagAbs.Size = new System.Drawing.Size(233, 20);
 			this.linkLabelMagAbs.TabIndex = 42;
 			this.linkLabelMagAbs.TabStop = true;
 			this.linkLabelMagAbs.Text = "Absolute magnitude, H";
+			this.linkLabelMagAbs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelMagAbs, "Absolute magnitude, H");
 			this.linkLabelMagAbs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMagAbs_Enter);
-			this.linkLabelMagAbs.Enter += new System.EventHandler(this.LabelMagAbs_Enter);
+			this.linkLabelMagAbs.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMagAbs.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMagAbs.MouseEnter += new System.EventHandler(this.LabelMagAbs_Enter);
+			this.linkLabelMagAbs.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMagAbs.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelSemiMajorAxis
@@ -567,17 +601,18 @@
 			this.linkLabelSemiMajorAxis.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelSemiMajorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSemiMajorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSemiMajorAxis.Location = new System.Drawing.Point(3, 171);
+			this.linkLabelSemiMajorAxis.Location = new System.Drawing.Point(5, 191);
 			this.linkLabelSemiMajorAxis.Name = "linkLabelSemiMajorAxis";
 			this.linkLabelSemiMajorAxis.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelSemiMajorAxis.TabIndex = 42;
 			this.linkLabelSemiMajorAxis.TabStop = true;
 			this.linkLabelSemiMajorAxis.Text = "Semimajor axis (AU)";
+			this.linkLabelSemiMajorAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelSemiMajorAxis, "Semimajor axis (AU)");
 			this.linkLabelSemiMajorAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSemiMajorAxis_Click);
-			this.linkLabelSemiMajorAxis.Enter += new System.EventHandler(this.LabelSemiMajorAxis_Enter);
+			this.linkLabelSemiMajorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSemiMajorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSemiMajorAxis.MouseEnter += new System.EventHandler(this.LabelSemiMajorAxis_Enter);
+			this.linkLabelSemiMajorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSemiMajorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelMotion
@@ -592,17 +627,18 @@
 			this.linkLabelMotion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMotion.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMotion.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMotion.Location = new System.Drawing.Point(3, 152);
+			this.linkLabelMotion.Location = new System.Drawing.Point(5, 170);
 			this.linkLabelMotion.Name = "linkLabelMotion";
 			this.linkLabelMotion.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelMotion.TabIndex = 42;
 			this.linkLabelMotion.TabStop = true;
 			this.linkLabelMotion.Text = "Mean daily motion (degrees per day)";
+			this.linkLabelMotion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelMotion, "Mean daily motion (degrees per day)");
 			this.linkLabelMotion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMotion_Enter);
-			this.linkLabelMotion.Enter += new System.EventHandler(this.LabelMotion_Enter);
+			this.linkLabelMotion.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMotion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMotion.MouseEnter += new System.EventHandler(this.LabelMotion_Enter);
+			this.linkLabelMotion.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMotion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelOrbEcc
@@ -617,17 +653,18 @@
 			this.linkLabelOrbEcc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelOrbEcc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelOrbEcc.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelOrbEcc.Location = new System.Drawing.Point(3, 133);
+			this.linkLabelOrbEcc.Location = new System.Drawing.Point(5, 149);
 			this.linkLabelOrbEcc.Name = "linkLabelOrbEcc";
 			this.linkLabelOrbEcc.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelOrbEcc.TabIndex = 42;
 			this.linkLabelOrbEcc.TabStop = true;
 			this.linkLabelOrbEcc.Text = "Orbital eccentricity";
+			this.linkLabelOrbEcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelOrbEcc, "Orbital eccentricity");
 			this.linkLabelOrbEcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelOrbEcc_Enter);
-			this.linkLabelOrbEcc.Enter += new System.EventHandler(this.LabelOrbEcc_Enter);
+			this.linkLabelOrbEcc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelOrbEcc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelOrbEcc.MouseEnter += new System.EventHandler(this.LabelOrbEcc_Enter);
+			this.linkLabelOrbEcc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelOrbEcc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelIncl
@@ -642,16 +679,17 @@
 			this.linkLabelIncl.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelIncl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelIncl.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelIncl.Location = new System.Drawing.Point(3, 114);
+			this.linkLabelIncl.Location = new System.Drawing.Point(5, 128);
 			this.linkLabelIncl.Name = "linkLabelIncl";
 			this.linkLabelIncl.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelIncl.TabIndex = 42;
 			this.linkLabelIncl.TabStop = true;
 			this.linkLabelIncl.Text = "Inclination to the ecliptic, J2000.0 (degrees)";
+			this.linkLabelIncl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.linkLabelIncl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIncl_Enter);
-			this.linkLabelIncl.Enter += new System.EventHandler(this.LabelIncl_Enter);
+			this.linkLabelIncl.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelIncl.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelIncl.MouseEnter += new System.EventHandler(this.LabelIncl_Enter);
+			this.linkLabelIncl.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelIncl.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelLongAscNode
@@ -666,17 +704,18 @@
 			this.linkLabelLongAscNode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelLongAscNode.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelLongAscNode.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelLongAscNode.Location = new System.Drawing.Point(3, 95);
+			this.linkLabelLongAscNode.Location = new System.Drawing.Point(5, 107);
 			this.linkLabelLongAscNode.Name = "linkLabelLongAscNode";
 			this.linkLabelLongAscNode.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelLongAscNode.TabIndex = 42;
 			this.linkLabelLongAscNode.TabStop = true;
 			this.linkLabelLongAscNode.Text = "Longitude of the ascending node, J2000.0";
+			this.linkLabelLongAscNode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelLongAscNode, "Longitude of the ascending node, J2000.0");
 			this.linkLabelLongAscNode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelLongAscNode_Click);
-			this.linkLabelLongAscNode.Enter += new System.EventHandler(this.LabelLongAscNode_Enter);
+			this.linkLabelLongAscNode.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLongAscNode.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelLongAscNode.MouseEnter += new System.EventHandler(this.LabelLongAscNode_Enter);
+			this.linkLabelLongAscNode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLongAscNode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelArgPeri
@@ -691,17 +730,18 @@
 			this.linkLabelArgPeri.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelArgPeri.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelArgPeri.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelArgPeri.Location = new System.Drawing.Point(3, 76);
+			this.linkLabelArgPeri.Location = new System.Drawing.Point(5, 86);
 			this.linkLabelArgPeri.Name = "linkLabelArgPeri";
 			this.linkLabelArgPeri.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelArgPeri.TabIndex = 42;
 			this.linkLabelArgPeri.TabStop = true;
 			this.linkLabelArgPeri.Text = "Argument of perihelion, J2000.0 (degrees)";
+			this.linkLabelArgPeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelArgPeri, "Argument of perihelion, J2000.0 (degrees)");
 			this.linkLabelArgPeri.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelArgPeri_Click);
-			this.linkLabelArgPeri.Enter += new System.EventHandler(this.LabelArgPeri_Enter);
+			this.linkLabelArgPeri.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelArgPeri.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelArgPeri.MouseEnter += new System.EventHandler(this.LabelArgPeri_Enter);
+			this.linkLabelArgPeri.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelArgPeri.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelMeanAnomaly
@@ -716,17 +756,18 @@
 			this.linkLabelMeanAnomaly.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMeanAnomaly.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMeanAnomaly.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMeanAnomaly.Location = new System.Drawing.Point(3, 57);
+			this.linkLabelMeanAnomaly.Location = new System.Drawing.Point(5, 65);
 			this.linkLabelMeanAnomaly.Name = "linkLabelMeanAnomaly";
 			this.linkLabelMeanAnomaly.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelMeanAnomaly.TabIndex = 42;
 			this.linkLabelMeanAnomaly.TabStop = true;
 			this.linkLabelMeanAnomaly.Text = "Mean anomaly at the epoch, in degrees";
+			this.linkLabelMeanAnomaly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelMeanAnomaly, "Mean anomaly at the epoch, in degrees");
 			this.linkLabelMeanAnomaly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMeanAnomaly_Click);
-			this.linkLabelMeanAnomaly.Enter += new System.EventHandler(this.LabelMeanAnomaly_Enter);
+			this.linkLabelMeanAnomaly.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMeanAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMeanAnomaly.MouseEnter += new System.EventHandler(this.LabelMeanAnomaly_Enter);
+			this.linkLabelMeanAnomaly.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMeanAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelEpoch
@@ -741,17 +782,18 @@
 			this.linkLabelEpoch.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelEpoch.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelEpoch.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelEpoch.Location = new System.Drawing.Point(3, 38);
+			this.linkLabelEpoch.Location = new System.Drawing.Point(5, 44);
 			this.linkLabelEpoch.Name = "linkLabelEpoch";
 			this.linkLabelEpoch.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelEpoch.TabIndex = 42;
 			this.linkLabelEpoch.TabStop = true;
 			this.linkLabelEpoch.Text = "Epoch (in packed form, .0 TT)";
+			this.linkLabelEpoch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelEpoch, "Epoch (in packed form, .0 TT)");
 			this.linkLabelEpoch.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelEpoch_Click);
-			this.linkLabelEpoch.Enter += new System.EventHandler(this.LabelEpoch_Enter);
+			this.linkLabelEpoch.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelEpoch.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelEpoch.MouseEnter += new System.EventHandler(this.LabelEpoch_Enter);
+			this.linkLabelEpoch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelEpoch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelDesgnNameValue
@@ -762,17 +804,18 @@
 			this.labelDesgnNameValue.AutoSize = true;
 			this.labelDesgnNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelDesgnNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelDesgnNameValue.Location = new System.Drawing.Point(242, 19);
+			this.labelDesgnNameValue.Location = new System.Drawing.Point(246, 23);
 			this.labelDesgnNameValue.Name = "labelDesgnNameValue";
 			this.labelDesgnNameValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelDesgnNameValue.Size = new System.Drawing.Size(168, 19);
 			this.labelDesgnNameValue.TabIndex = 3;
 			this.labelDesgnNameValue.Text = "...";
+			this.labelDesgnNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelDesgnNameValue, "Show the information of  \"Readable designation\"");
 			this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.LabelDesgnNameValue_DoubleClick);
-			this.labelDesgnNameValue.Enter += new System.EventHandler(this.LabelDesgnNameValue_Enter);
+			this.labelDesgnNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDesgnNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDesgnNameValue.MouseEnter += new System.EventHandler(this.LabelDesgnNameValue_Enter);
+			this.labelDesgnNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDesgnNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelEpochValue
@@ -783,17 +826,18 @@
 			this.labelEpochValue.AutoSize = true;
 			this.labelEpochValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelEpochValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEpochValue.Location = new System.Drawing.Point(242, 38);
+			this.labelEpochValue.Location = new System.Drawing.Point(246, 44);
 			this.labelEpochValue.Name = "labelEpochValue";
 			this.labelEpochValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelEpochValue.Size = new System.Drawing.Size(168, 19);
 			this.labelEpochValue.TabIndex = 7;
 			this.labelEpochValue.Text = "...";
+			this.labelEpochValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelEpochValue, "Show the information of \"Epoch (in packed form, .0 TT)\"");
 			this.labelEpochValue.DoubleClick += new System.EventHandler(this.LabelEpochValue_DoubleClick);
-			this.labelEpochValue.Enter += new System.EventHandler(this.LabelEpochValue_Enter);
+			this.labelEpochValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelEpochValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelEpochValue.MouseEnter += new System.EventHandler(this.LabelEpochValue_Enter);
+			this.labelEpochValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelEpochValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMeanAnomalyValue
@@ -804,17 +848,18 @@
 			this.labelMeanAnomalyValue.AutoSize = true;
 			this.labelMeanAnomalyValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMeanAnomalyValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMeanAnomalyValue.Location = new System.Drawing.Point(242, 57);
+			this.labelMeanAnomalyValue.Location = new System.Drawing.Point(246, 65);
 			this.labelMeanAnomalyValue.Name = "labelMeanAnomalyValue";
 			this.labelMeanAnomalyValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelMeanAnomalyValue.Size = new System.Drawing.Size(168, 19);
 			this.labelMeanAnomalyValue.TabIndex = 11;
 			this.labelMeanAnomalyValue.Text = "...";
+			this.labelMeanAnomalyValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMeanAnomalyValue, "Show the information of \"Mean anomaly at the epoch, in degrees\"");
 			this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.LabelMeanAnomalyValue_DoubleClick);
-			this.labelMeanAnomalyValue.Enter += new System.EventHandler(this.LabelMeanAnomalyValue_Enter);
+			this.labelMeanAnomalyValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMeanAnomalyValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMeanAnomalyValue.MouseEnter += new System.EventHandler(this.LabelMeanAnomalyValue_Enter);
+			this.labelMeanAnomalyValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMeanAnomalyValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelArgPeriValue
@@ -825,17 +870,18 @@
 			this.labelArgPeriValue.AutoSize = true;
 			this.labelArgPeriValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelArgPeriValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelArgPeriValue.Location = new System.Drawing.Point(242, 76);
+			this.labelArgPeriValue.Location = new System.Drawing.Point(246, 86);
 			this.labelArgPeriValue.Name = "labelArgPeriValue";
 			this.labelArgPeriValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelArgPeriValue.Size = new System.Drawing.Size(168, 19);
 			this.labelArgPeriValue.TabIndex = 15;
 			this.labelArgPeriValue.Text = "...";
+			this.labelArgPeriValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelArgPeriValue, "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"");
 			this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.LabelArgPeriValue_DoubleClick);
-			this.labelArgPeriValue.Enter += new System.EventHandler(this.LabelArgPeriValue_Enter);
+			this.labelArgPeriValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelArgPeriValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelArgPeriValue.MouseEnter += new System.EventHandler(this.LabelArgPeriValue_Enter);
+			this.labelArgPeriValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelArgPeriValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelLongAscNodeValue
@@ -846,17 +892,18 @@
 			this.labelLongAscNodeValue.AutoSize = true;
 			this.labelLongAscNodeValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelLongAscNodeValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLongAscNodeValue.Location = new System.Drawing.Point(242, 95);
+			this.labelLongAscNodeValue.Location = new System.Drawing.Point(246, 107);
 			this.labelLongAscNodeValue.Name = "labelLongAscNodeValue";
 			this.labelLongAscNodeValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelLongAscNodeValue.Size = new System.Drawing.Size(168, 19);
 			this.labelLongAscNodeValue.TabIndex = 19;
 			this.labelLongAscNodeValue.Text = "...";
+			this.labelLongAscNodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelLongAscNodeValue, "Show the information of \"Longitude of the ascending node, J2000.0\"");
 			this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.LabelLongAscNodeValue_DoubleClick);
-			this.labelLongAscNodeValue.Enter += new System.EventHandler(this.LabelLongAscNodeValue_Enter);
+			this.labelLongAscNodeValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelLongAscNodeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelLongAscNodeValue.MouseEnter += new System.EventHandler(this.LabelLongAscNodeValue_Enter);
+			this.labelLongAscNodeValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelLongAscNodeValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelInclValue
@@ -867,17 +914,18 @@
 			this.labelInclValue.AutoSize = true;
 			this.labelInclValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelInclValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelInclValue.Location = new System.Drawing.Point(242, 114);
+			this.labelInclValue.Location = new System.Drawing.Point(246, 128);
 			this.labelInclValue.Name = "labelInclValue";
 			this.labelInclValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelInclValue.Size = new System.Drawing.Size(168, 19);
 			this.labelInclValue.TabIndex = 23;
 			this.labelInclValue.Text = "...";
+			this.labelInclValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelInclValue, "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"");
 			this.labelInclValue.DoubleClick += new System.EventHandler(this.LabelInclValue_DoubleClick);
-			this.labelInclValue.Enter += new System.EventHandler(this.LabelInclValue_Enter);
+			this.labelInclValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelInclValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelInclValue.MouseEnter += new System.EventHandler(this.LabelInclValue_Enter);
+			this.labelInclValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelInclValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelOrbEccValue
@@ -888,17 +936,18 @@
 			this.labelOrbEccValue.AutoSize = true;
 			this.labelOrbEccValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbEccValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelOrbEccValue.Location = new System.Drawing.Point(242, 133);
+			this.labelOrbEccValue.Location = new System.Drawing.Point(246, 149);
 			this.labelOrbEccValue.Name = "labelOrbEccValue";
 			this.labelOrbEccValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelOrbEccValue.Size = new System.Drawing.Size(168, 19);
 			this.labelOrbEccValue.TabIndex = 27;
 			this.labelOrbEccValue.Text = "...";
+			this.labelOrbEccValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelOrbEccValue, "Show the information of \"Orbital eccentricity\"");
 			this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.LabelOrbEccValue_DoubleClick);
-			this.labelOrbEccValue.Enter += new System.EventHandler(this.LabelOrbEccValue_Enter);
+			this.labelOrbEccValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelOrbEccValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelOrbEccValue.MouseEnter += new System.EventHandler(this.LabelOrbEccValue_Enter);
+			this.labelOrbEccValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelOrbEccValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMotionValue
@@ -909,17 +958,18 @@
 			this.labelMotionValue.AutoSize = true;
 			this.labelMotionValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMotionValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMotionValue.Location = new System.Drawing.Point(242, 152);
+			this.labelMotionValue.Location = new System.Drawing.Point(246, 170);
 			this.labelMotionValue.Name = "labelMotionValue";
 			this.labelMotionValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelMotionValue.Size = new System.Drawing.Size(168, 19);
 			this.labelMotionValue.TabIndex = 31;
 			this.labelMotionValue.Text = "...";
+			this.labelMotionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMotionValue, "Show the information of \"Mean daily motion (degrees per day)\"");
 			this.labelMotionValue.DoubleClick += new System.EventHandler(this.LabelMotionValue_DoubleClick);
-			this.labelMotionValue.Enter += new System.EventHandler(this.LabelMotionValue_Enter);
+			this.labelMotionValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMotionValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMotionValue.MouseEnter += new System.EventHandler(this.LabelMotionValue_Enter);
+			this.labelMotionValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMotionValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSemiMajorAxisValue
@@ -930,17 +980,18 @@
 			this.labelSemiMajorAxisValue.AutoSize = true;
 			this.labelSemiMajorAxisValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiMajorAxisValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSemiMajorAxisValue.Location = new System.Drawing.Point(242, 171);
+			this.labelSemiMajorAxisValue.Location = new System.Drawing.Point(246, 191);
 			this.labelSemiMajorAxisValue.Name = "labelSemiMajorAxisValue";
 			this.labelSemiMajorAxisValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelSemiMajorAxisValue.Size = new System.Drawing.Size(168, 19);
 			this.labelSemiMajorAxisValue.TabIndex = 35;
 			this.labelSemiMajorAxisValue.Text = "...";
+			this.labelSemiMajorAxisValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSemiMajorAxisValue, "Show the information of \"Semimajor axis (AU)\"");
 			this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.LabelSemiMajorAxisValue_DoubleClick);
-			this.labelSemiMajorAxisValue.Enter += new System.EventHandler(this.LabelSemiMajorAxisValue_Enter);
+			this.labelSemiMajorAxisValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiMajorAxisValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSemiMajorAxisValue.MouseEnter += new System.EventHandler(this.LabelSemiMajorAxisValue_Enter);
+			this.labelSemiMajorAxisValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiMajorAxisValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSlopeParamValue
@@ -951,17 +1002,18 @@
 			this.labelSlopeParamValue.AutoSize = true;
 			this.labelSlopeParamValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSlopeParamValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSlopeParamValue.Location = new System.Drawing.Point(557, 19);
+			this.labelSlopeParamValue.Location = new System.Drawing.Point(565, 23);
 			this.labelSlopeParamValue.Name = "labelSlopeParamValue";
 			this.labelSlopeParamValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelSlopeParamValue.Size = new System.Drawing.Size(184, 19);
+			this.labelSlopeParamValue.Size = new System.Drawing.Size(174, 19);
 			this.labelSlopeParamValue.TabIndex = 5;
 			this.labelSlopeParamValue.Text = "...";
+			this.labelSlopeParamValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSlopeParamValue, "Show the information of \"Slope parameter, G\"");
 			this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.LabelSlopeParamValue_DoubleClick);
-			this.labelSlopeParamValue.Enter += new System.EventHandler(this.LabelSlopeParamValue_Enter);
+			this.labelSlopeParamValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSlopeParamValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSlopeParamValue.MouseEnter += new System.EventHandler(this.LabelSlopeParamValue_Enter);
+			this.labelSlopeParamValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSlopeParamValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelIndexValue
@@ -972,17 +1024,18 @@
 			this.labelIndexValue.AutoSize = true;
 			this.labelIndexValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelIndexValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelIndexValue.Location = new System.Drawing.Point(242, 0);
+			this.labelIndexValue.Location = new System.Drawing.Point(246, 2);
 			this.labelIndexValue.Name = "labelIndexValue";
 			this.labelIndexValue.Padding = new System.Windows.Forms.Padding(3);
 			this.labelIndexValue.Size = new System.Drawing.Size(168, 19);
 			this.labelIndexValue.TabIndex = 1;
 			this.labelIndexValue.Text = "...";
+			this.labelIndexValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelIndexValue, "Show the information of \"Index No.\"");
 			this.labelIndexValue.DoubleClick += new System.EventHandler(this.LabelIndexValue_DoubleClick);
-			this.labelIndexValue.Enter += new System.EventHandler(this.LabelIndexValue_Enter);
+			this.labelIndexValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelIndexValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelIndexValue.MouseEnter += new System.EventHandler(this.LabelIndexValue_Enter);
+			this.labelIndexValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelIndexValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMagAbsValue
@@ -993,17 +1046,18 @@
 			this.labelMagAbsValue.AutoSize = true;
 			this.labelMagAbsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMagAbsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMagAbsValue.Location = new System.Drawing.Point(242, 190);
+			this.labelMagAbsValue.Location = new System.Drawing.Point(246, 212);
 			this.labelMagAbsValue.Name = "labelMagAbsValue";
 			this.labelMagAbsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMagAbsValue.Size = new System.Drawing.Size(168, 23);
+			this.labelMagAbsValue.Size = new System.Drawing.Size(168, 20);
 			this.labelMagAbsValue.TabIndex = 39;
 			this.labelMagAbsValue.Text = "...";
+			this.labelMagAbsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMagAbsValue, "Show the information of \"Absolute magnitude, H\"");
 			this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.LabelMagAbsValue_DoubleClick);
-			this.labelMagAbsValue.Enter += new System.EventHandler(this.LabelMagAbsValue_Enter);
+			this.labelMagAbsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMagAbsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMagAbsValue.MouseEnter += new System.EventHandler(this.LabelMagAbsValue_Enter);
+			this.labelMagAbsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMagAbsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelRefValue
@@ -1014,17 +1068,18 @@
 			this.labelRefValue.AutoSize = true;
 			this.labelRefValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRefValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRefValue.Location = new System.Drawing.Point(557, 38);
+			this.labelRefValue.Location = new System.Drawing.Point(565, 44);
 			this.labelRefValue.Name = "labelRefValue";
 			this.labelRefValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelRefValue.Size = new System.Drawing.Size(184, 19);
+			this.labelRefValue.Size = new System.Drawing.Size(174, 19);
 			this.labelRefValue.TabIndex = 9;
 			this.labelRefValue.Text = "...";
+			this.labelRefValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelRefValue, "Show the information of \"Reference\"");
 			this.labelRefValue.DoubleClick += new System.EventHandler(this.LabelRefValue_DoubleClick);
-			this.labelRefValue.Enter += new System.EventHandler(this.LabelRefValue_Enter);
+			this.labelRefValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelRefValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelRefValue.MouseEnter += new System.EventHandler(this.LabelRefValue_Enter);
+			this.labelRefValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelRefValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelNumbOpposValue
@@ -1035,17 +1090,18 @@
 			this.labelNumbOpposValue.AutoSize = true;
 			this.labelNumbOpposValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbOpposValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNumbOpposValue.Location = new System.Drawing.Point(557, 57);
+			this.labelNumbOpposValue.Location = new System.Drawing.Point(565, 65);
 			this.labelNumbOpposValue.Name = "labelNumbOpposValue";
 			this.labelNumbOpposValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelNumbOpposValue.Size = new System.Drawing.Size(184, 19);
+			this.labelNumbOpposValue.Size = new System.Drawing.Size(174, 19);
 			this.labelNumbOpposValue.TabIndex = 13;
 			this.labelNumbOpposValue.Text = "...";
+			this.labelNumbOpposValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelNumbOpposValue, "Show the information of \"Number of oppositions\"");
 			this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.LabelNumbOpposValue_DoubleClick);
-			this.labelNumbOpposValue.Enter += new System.EventHandler(this.LabelNumbOpposValue_Enter);
+			this.labelNumbOpposValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelNumbOpposValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelNumbOpposValue.MouseEnter += new System.EventHandler(this.LabelNumbOpposValue_Enter);
+			this.labelNumbOpposValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelNumbOpposValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelNumbObsValue
@@ -1056,17 +1112,18 @@
 			this.labelNumbObsValue.AutoSize = true;
 			this.labelNumbObsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbObsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNumbObsValue.Location = new System.Drawing.Point(557, 76);
+			this.labelNumbObsValue.Location = new System.Drawing.Point(565, 86);
 			this.labelNumbObsValue.Name = "labelNumbObsValue";
 			this.labelNumbObsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelNumbObsValue.Size = new System.Drawing.Size(184, 19);
+			this.labelNumbObsValue.Size = new System.Drawing.Size(174, 19);
 			this.labelNumbObsValue.TabIndex = 17;
 			this.labelNumbObsValue.Text = "...";
+			this.labelNumbObsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelNumbObsValue, "Show the information of \"Number of observations\"");
 			this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.LabelNumbObsValue_DoubleClick);
-			this.labelNumbObsValue.Enter += new System.EventHandler(this.LabelNumbObsValue_Enter);
+			this.labelNumbObsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelNumbObsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelNumbObsValue.MouseEnter += new System.EventHandler(this.LabelNumbObsValue_Enter);
+			this.labelNumbObsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelNumbObsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelObsSpanValue
@@ -1077,17 +1134,18 @@
 			this.labelObsSpanValue.AutoSize = true;
 			this.labelObsSpanValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsSpanValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelObsSpanValue.Location = new System.Drawing.Point(557, 95);
+			this.labelObsSpanValue.Location = new System.Drawing.Point(565, 107);
 			this.labelObsSpanValue.Name = "labelObsSpanValue";
 			this.labelObsSpanValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelObsSpanValue.Size = new System.Drawing.Size(184, 19);
+			this.labelObsSpanValue.Size = new System.Drawing.Size(174, 19);
 			this.labelObsSpanValue.TabIndex = 21;
 			this.labelObsSpanValue.Text = "...";
+			this.labelObsSpanValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelObsSpanValue, "Show the information of \"Observation span\"");
 			this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.LabelObsSpanValue_DoubleClick);
-			this.labelObsSpanValue.Enter += new System.EventHandler(this.LabelObsSpanValue_Enter);
+			this.labelObsSpanValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelObsSpanValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelObsSpanValue.MouseEnter += new System.EventHandler(this.LabelObsSpanValue_Enter);
+			this.labelObsSpanValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelObsSpanValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelRmsResidualValue
@@ -1098,17 +1156,18 @@
 			this.labelRmsResidualValue.AutoSize = true;
 			this.labelRmsResidualValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRmsResidualValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRmsResidualValue.Location = new System.Drawing.Point(557, 114);
+			this.labelRmsResidualValue.Location = new System.Drawing.Point(565, 128);
 			this.labelRmsResidualValue.Name = "labelRmsResidualValue";
 			this.labelRmsResidualValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelRmsResidualValue.Size = new System.Drawing.Size(184, 19);
+			this.labelRmsResidualValue.Size = new System.Drawing.Size(174, 19);
 			this.labelRmsResidualValue.TabIndex = 25;
 			this.labelRmsResidualValue.Text = "...";
+			this.labelRmsResidualValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelRmsResidualValue, "Show the information of \"r.m.s residual (\")\"");
 			this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.LabelRmsResidualValue_DoubleClick);
-			this.labelRmsResidualValue.Enter += new System.EventHandler(this.LabelRmsResidualValue_Enter);
+			this.labelRmsResidualValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelRmsResidualValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelRmsResidualValue.MouseEnter += new System.EventHandler(this.LabelRmsResidualValue_Enter);
+			this.labelRmsResidualValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelRmsResidualValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelComputerNameValue
@@ -1119,17 +1178,18 @@
 			this.labelComputerNameValue.AutoSize = true;
 			this.labelComputerNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelComputerNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelComputerNameValue.Location = new System.Drawing.Point(557, 133);
+			this.labelComputerNameValue.Location = new System.Drawing.Point(565, 149);
 			this.labelComputerNameValue.Name = "labelComputerNameValue";
 			this.labelComputerNameValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelComputerNameValue.Size = new System.Drawing.Size(184, 19);
+			this.labelComputerNameValue.Size = new System.Drawing.Size(174, 19);
 			this.labelComputerNameValue.TabIndex = 29;
 			this.labelComputerNameValue.Text = "...";
+			this.labelComputerNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelComputerNameValue, "Show the information of \"Computer name\"");
 			this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.LabelComputerNameValue_DoubleClick);
-			this.labelComputerNameValue.Enter += new System.EventHandler(this.LabelComputerNameValue_Enter);
+			this.labelComputerNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelComputerNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelComputerNameValue.MouseEnter += new System.EventHandler(this.LabelComputerNameValue_Enter);
+			this.labelComputerNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelComputerNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelFlagsValue
@@ -1140,17 +1200,18 @@
 			this.labelFlagsValue.AutoSize = true;
 			this.labelFlagsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelFlagsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFlagsValue.Location = new System.Drawing.Point(557, 152);
+			this.labelFlagsValue.Location = new System.Drawing.Point(565, 170);
 			this.labelFlagsValue.Name = "labelFlagsValue";
 			this.labelFlagsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelFlagsValue.Size = new System.Drawing.Size(184, 19);
+			this.labelFlagsValue.Size = new System.Drawing.Size(174, 19);
 			this.labelFlagsValue.TabIndex = 33;
 			this.labelFlagsValue.Text = "...";
+			this.labelFlagsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelFlagsValue, "Show the information of \"4-hexdigit flags\"");
 			this.labelFlagsValue.DoubleClick += new System.EventHandler(this.LabelFlagsValue_DoubleClick);
-			this.labelFlagsValue.Enter += new System.EventHandler(this.LabelFlagsValue_Enter);
+			this.labelFlagsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelFlagsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelFlagsValue.MouseEnter += new System.EventHandler(this.LabelFlagsValue_Enter);
+			this.labelFlagsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelFlagsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelObsLastDateValue
@@ -1161,17 +1222,18 @@
 			this.labelObsLastDateValue.AutoSize = true;
 			this.labelObsLastDateValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsLastDateValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelObsLastDateValue.Location = new System.Drawing.Point(557, 171);
+			this.labelObsLastDateValue.Location = new System.Drawing.Point(565, 191);
 			this.labelObsLastDateValue.Name = "labelObsLastDateValue";
 			this.labelObsLastDateValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelObsLastDateValue.Size = new System.Drawing.Size(184, 19);
+			this.labelObsLastDateValue.Size = new System.Drawing.Size(174, 19);
 			this.labelObsLastDateValue.TabIndex = 37;
 			this.labelObsLastDateValue.Text = "...";
+			this.labelObsLastDateValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelObsLastDateValue, "Show the information of \"Date of last observation\"");
 			this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.LabelObsLastDateValue_DoubleClick);
-			this.labelObsLastDateValue.Enter += new System.EventHandler(this.LabelObsLastDateValue_Enter);
+			this.labelObsLastDateValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelObsLastDateValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelObsLastDateValue.MouseEnter += new System.EventHandler(this.LabelObsLastDateValue_Enter);
+			this.labelObsLastDateValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelObsLastDateValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelIndex
@@ -1186,16 +1248,17 @@
 			this.linkLabelIndex.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelIndex.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelIndex.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelIndex.Location = new System.Drawing.Point(3, 0);
+			this.linkLabelIndex.Location = new System.Drawing.Point(5, 2);
 			this.linkLabelIndex.Name = "linkLabelIndex";
 			this.linkLabelIndex.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelIndex.TabIndex = 40;
 			this.linkLabelIndex.TabStop = true;
 			this.linkLabelIndex.Text = "Index No.";
+			this.linkLabelIndex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.linkLabelIndex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIndex_Click);
-			this.linkLabelIndex.Enter += new System.EventHandler(this.LabelIndex_Enter);
+			this.linkLabelIndex.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelIndex.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelIndex.MouseEnter += new System.EventHandler(this.LabelIndex_Enter);
+			this.linkLabelIndex.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelDesgnName
@@ -1210,17 +1273,18 @@
 			this.linkLabelDesgnName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelDesgnName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelDesgnName.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelDesgnName.Location = new System.Drawing.Point(3, 19);
+			this.linkLabelDesgnName.Location = new System.Drawing.Point(5, 23);
 			this.linkLabelDesgnName.Name = "linkLabelDesgnName";
 			this.linkLabelDesgnName.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelDesgnName.TabIndex = 42;
 			this.linkLabelDesgnName.TabStop = true;
 			this.linkLabelDesgnName.Text = "Readable designation";
+			this.linkLabelDesgnName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.linkLabelDesgnName, "Readable designation");
 			this.linkLabelDesgnName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelDesgnName_Click);
-			this.linkLabelDesgnName.Enter += new System.EventHandler(this.LabelDesgnName_Enter);
+			this.linkLabelDesgnName.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelDesgnName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelDesgnName.MouseEnter += new System.EventHandler(this.LabelDesgnName_Enter);
+			this.linkLabelDesgnName.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelDesgnName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// statusBar
@@ -1231,11 +1295,11 @@
 			this.statusBar.Dock = System.Windows.Forms.DockStyle.None;
 			this.statusBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelHelp,
             this.toolStripStatusLabelUpdate,
             this.toolStripStatusLabelBackgroundDownload,
             this.toolStripProgressBarBackgroundDownload,
-            this.toolStripStatusLabelCancelBackgroundDownload});
+            this.toolStripStatusLabelCancelBackgroundDownload,
+            this.labelInformation});
 			this.statusBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.statusBar.Location = new System.Drawing.Point(0, 0);
 			this.statusBar.Name = "statusBar";
@@ -1247,19 +1311,18 @@
 			this.statusBar.TabStop = true;
 			this.statusBar.Text = "statusStrip";
 			// 
-			// labelHelp
+			// labelInformation
 			// 
-			this.labelHelp.AccessibleDescription = "Show some information";
-			this.labelHelp.AccessibleName = "Show some information";
-			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelHelp.AutoToolTip = true;
-			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelHelp.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelHelp.Name = "labelHelp";
-			this.labelHelp.Size = new System.Drawing.Size(116, 16);
-			this.labelHelp.Spring = true;
-			this.labelHelp.Text = "Show tooltip here";
-			this.labelHelp.ToolTipText = "Show some information";
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Show some information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInformation.AutoToolTip = true;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(116, 16);
+			this.labelInformation.Text = "Show tooltip here";
+			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// toolStripStatusLabelUpdate
 			// 
@@ -1274,7 +1337,7 @@
 			this.toolStripStatusLabelUpdate.Text = "MPCORB.DAT update available";
 			this.toolStripStatusLabelUpdate.ToolTipText = "MPCORB.DAT update aviable";
 			this.toolStripStatusLabelUpdate.Click += new System.EventHandler(this.ToolStripStatusLabelUpdate_Click);
-			this.toolStripStatusLabelUpdate.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelUpdate_MouseEnter);
+			this.toolStripStatusLabelUpdate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripStatusLabelUpdate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripStatusLabelBackgroundDownload
@@ -1290,7 +1353,7 @@
 			this.toolStripStatusLabelBackgroundDownload.Text = "Download:";
 			this.toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progres";
 			this.toolStripStatusLabelBackgroundDownload.DoubleClick += new System.EventHandler(this.EasterEgg_DoubleClick);
-			this.toolStripStatusLabelBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelBackgroundDownload_MouseEnter);
+			this.toolStripStatusLabelBackgroundDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripStatusLabelBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripProgressBarBackgroundDownload
@@ -1305,7 +1368,7 @@
 			this.toolStripProgressBarBackgroundDownload.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.toolStripProgressBarBackgroundDownload.ToolTipText = "Show the download progres";
 			this.toolStripProgressBarBackgroundDownload.DoubleClick += new System.EventHandler(this.EasterEgg_DoubleClick);
-			this.toolStripProgressBarBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripProgressBarBackgroundDownload_MouseEnter);
+			this.toolStripProgressBarBackgroundDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripProgressBarBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripStatusLabelCancelBackgroundDownload
@@ -1320,7 +1383,7 @@
 			this.toolStripStatusLabelCancelBackgroundDownload.Size = new System.Drawing.Size(16, 16);
 			this.toolStripStatusLabelCancelBackgroundDownload.Text = "Cancel background download";
 			this.toolStripStatusLabelCancelBackgroundDownload.Click += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_Click);
-			this.toolStripStatusLabelCancelBackgroundDownload.MouseEnter += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_MouseEnter);
+			this.toolStripStatusLabelCancelBackgroundDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripStatusLabelCancelBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menu
@@ -1344,6 +1407,10 @@
 			this.menu.Size = new System.Drawing.Size(744, 24);
 			this.menu.TabIndex = 0;
 			this.menu.Text = "menu";
+			this.menu.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.menu.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.menu.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.menu.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemFile
 			// 
@@ -1360,7 +1427,7 @@
 			this.menuitemFile.Size = new System.Drawing.Size(37, 24);
 			this.menuitemFile.Text = "&File";
 			this.menuitemFile.ToolTipText = "Open the menu \"file\"";
-			this.menuitemFile.MouseEnter += new System.EventHandler(this.MenuitemFile_MouseEnter);
+			this.menuitemFile.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemFile.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemPrint
@@ -1374,10 +1441,10 @@
 			this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
 			this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
 			this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(136, 22);
 			this.toolStripMenuItemPrint.Text = "&Print";
 			this.toolStripMenuItemPrint.Click += new System.EventHandler(this.ToolStripMenuItemPrint_Click);
-			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.ToolStripMenuItemPrint_MouseEnter);
+			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemExit
@@ -1390,11 +1457,11 @@
 			this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
 			this.menuitemExit.Name = "menuitemExit";
 			this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-			this.menuitemExit.Size = new System.Drawing.Size(180, 22);
+			this.menuitemExit.Size = new System.Drawing.Size(136, 22);
 			this.menuitemExit.Text = "E&xit";
 			this.menuitemExit.ToolTipText = "Exit the application";
 			this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
-			this.menuitemExit.MouseEnter += new System.EventHandler(this.MenuitemExit_MouseEnter);
+			this.menuitemExit.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemExit.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemEdit
@@ -1412,7 +1479,7 @@
 			this.menuitemEdit.Size = new System.Drawing.Size(39, 24);
 			this.menuitemEdit.Text = "&Edit";
 			this.menuitemEdit.ToolTipText = "Open the menu \"edit\"";
-			this.menuitemEdit.MouseEnter += new System.EventHandler(this.MenuitemEdit_MouseEnter);
+			this.menuitemEdit.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemEdit.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemCopytoClipboard
@@ -1426,11 +1493,11 @@
 			this.toolStripMenuItemCopytoClipboard.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
 			this.toolStripMenuItemCopytoClipboard.Name = "toolStripMenuItemCopytoClipboard";
 			this.toolStripMenuItemCopytoClipboard.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(140, 22);
 			this.toolStripMenuItemCopytoClipboard.Text = "Copy";
 			this.toolStripMenuItemCopytoClipboard.ToolTipText = "Copy to clipboard";
 			this.toolStripMenuItemCopytoClipboard.Click += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_Click);
-			this.toolStripMenuItemCopytoClipboard.MouseEnter += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_MouseEnter);
+			this.toolStripMenuItemCopytoClipboard.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemCopytoClipboard.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemSearch
@@ -1443,17 +1510,17 @@
 			this.toolStripMenuItemSearch.Enabled = false;
 			this.toolStripMenuItemSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
 			this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
-			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(140, 22);
 			this.toolStripMenuItemSearch.Text = "Search";
 			this.toolStripMenuItemSearch.Click += new System.EventHandler(this.ToolStripMenuItemSearch_Click);
-			this.toolStripMenuItemSearch.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSearch_MouseEnter);
+			this.toolStripMenuItemSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemOptions
 			// 
 			this.menuitemOptions.AccessibleDescription = "Open the menu \"options\"";
 			this.menuitemOptions.AccessibleName = "Options";
-			this.menuitemOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+			this.menuitemOptions.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
 			this.menuitemOptions.AutoToolTip = true;
 			this.menuitemOptions.DoubleClickEnabled = true;
 			this.menuitemOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1474,7 +1541,7 @@
 			this.menuitemOptions.Size = new System.Drawing.Size(61, 24);
 			this.menuitemOptions.Text = "&Options";
 			this.menuitemOptions.ToolTipText = "Open the menu \"options\"";
-			this.menuitemOptions.MouseEnter += new System.EventHandler(this.MenuitemOptions_MouseEnter);
+			this.menuitemOptions.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemOptions.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemDatabaseInformation
@@ -1490,7 +1557,7 @@
 			this.toolStripMenuItemDatabaseInformation.Size = new System.Drawing.Size(244, 22);
 			this.toolStripMenuItemDatabaseInformation.Text = "Database information";
 			this.toolStripMenuItemDatabaseInformation.Click += new System.EventHandler(this.ToolStripMenuItemDatabaseInformation_Click);
-			this.toolStripMenuItemDatabaseInformation.MouseEnter += new System.EventHandler(this.ToolStripMenuItemDatabaseInformation_MouseEnter);
+			this.toolStripMenuItemDatabaseInformation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemDatabaseInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemTableMode
@@ -1507,7 +1574,7 @@
 			this.toolStripMenuItemTableMode.Text = "&Table mode";
 			this.toolStripMenuItemTableMode.ToolTipText = "Activate the table mode";
 			this.toolStripMenuItemTableMode.Click += new System.EventHandler(this.ToolStripMenuItemTableMode_Click);
-			this.toolStripMenuItemTableMode.MouseEnter += new System.EventHandler(this.ToolStripMenuItemTableMode_MouseEnter);
+			this.toolStripMenuItemTableMode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemTableMode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemTerminology
@@ -1524,11 +1591,12 @@
 			this.toolStripMenuItemTerminology.Text = "Terminolog&y";
 			this.toolStripMenuItemTerminology.ToolTipText = "Show the terminology";
 			this.toolStripMenuItemTerminology.Click += new System.EventHandler(this.ToolStripMenuItemTerminology_Click);
-			this.toolStripMenuItemTerminology.MouseEnter += new System.EventHandler(this.ToolStripMenuItemTerminology_MouseEnter);
+			this.toolStripMenuItemTerminology.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemTerminology.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorOptions1
 			// 
+			this.toolStripSeparatorOptions1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
 			this.toolStripSeparatorOptions1.Name = "toolStripSeparatorOptions1";
 			this.toolStripSeparatorOptions1.Size = new System.Drawing.Size(241, 6);
 			// 
@@ -1541,6 +1609,7 @@
 			this.chartBarToolStripMenuItem.Name = "chartBarToolStripMenuItem";
 			this.chartBarToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.chartBarToolStripMenuItem.Text = "Chart bar";
+			this.chartBarToolStripMenuItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.chartBarToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// chartCurveToolStripMenuItem
@@ -1552,6 +1621,7 @@
 			this.chartCurveToolStripMenuItem.Name = "chartCurveToolStripMenuItem";
 			this.chartCurveToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.chartCurveToolStripMenuItem.Text = "Chart curve";
+			this.chartCurveToolStripMenuItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.chartCurveToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// chartPieToolStripMenuItem
@@ -1563,10 +1633,12 @@
 			this.chartPieToolStripMenuItem.Name = "chartPieToolStripMenuItem";
 			this.chartPieToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
 			this.chartPieToolStripMenuItem.Text = "Chart pie";
+			this.chartPieToolStripMenuItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.chartPieToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorOptions2
 			// 
+			this.toolStripSeparatorOptions2.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
 			this.toolStripSeparatorOptions2.Name = "toolStripSeparatorOptions2";
 			this.toolStripSeparatorOptions2.Size = new System.Drawing.Size(241, 6);
 			// 
@@ -1584,7 +1656,7 @@
 			this.menuitemCheckMpcorbDat.Text = "&Check MPCORB.DAT";
 			this.menuitemCheckMpcorbDat.ToolTipText = "Check for updates of the database";
 			this.menuitemCheckMpcorbDat.Click += new System.EventHandler(this.MenuitemCheckMpcorbDat_Click);
-			this.menuitemCheckMpcorbDat.MouseEnter += new System.EventHandler(this.MenuitemCheckMpcorbDat_MouseEnter);
+			this.menuitemCheckMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemCheckMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemDownloadMpcorbDat
@@ -1601,11 +1673,12 @@
 			this.menuitemDownloadMpcorbDat.Text = "&Download MPCORB.DAT";
 			this.menuitemDownloadMpcorbDat.ToolTipText = "Download the database";
 			this.menuitemDownloadMpcorbDat.Click += new System.EventHandler(this.MenuitemDownloadMpcorbDat_Click);
-			this.menuitemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.MenuitemDownloadMpcorbDat_MouseEnter);
+			this.menuitemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorOptions3
 			// 
+			this.toolStripSeparatorOptions3.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
 			this.toolStripSeparatorOptions3.Name = "toolStripSeparatorOptions3";
 			this.toolStripSeparatorOptions3.Size = new System.Drawing.Size(241, 6);
 			// 
@@ -1625,7 +1698,7 @@
 			this.ToolStripMenuItemStyle.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.L)));
 			this.ToolStripMenuItemStyle.Size = new System.Drawing.Size(244, 22);
 			this.ToolStripMenuItemStyle.Text = "&Look and Feel";
-			this.ToolStripMenuItemStyle.MouseEnter += new System.EventHandler(this.ToolStripMenuItemStyle_MouseEnter);
+			this.ToolStripMenuItemStyle.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.ToolStripMenuItemStyle.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleProfessional
@@ -1641,7 +1714,7 @@
 			this.toolStripMenuItemStyleProfessional.Text = "Professionell";
 			this.toolStripMenuItemStyleProfessional.ToolTipText = "Style \"Professionell\"";
 			this.toolStripMenuItemStyleProfessional.Click += new System.EventHandler(this.ToolStripMenuItemStyleProfessionell_Click);
-			this.toolStripMenuItemStyleProfessional.MouseEnter += new System.EventHandler(this.ToolStripMenuItemStyleProfessionell_MouseEnter);
+			this.toolStripMenuItemStyleProfessional.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemStyleProfessional.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleOffice2007
@@ -1659,6 +1732,7 @@
 			this.toolStripMenuItemStyleOffice2007.Text = "Office 2007";
 			this.toolStripMenuItemStyleOffice2007.ToolTipText = "Style \"Office 2007\"";
 			this.toolStripMenuItemStyleOffice2007.Click += new System.EventHandler(this.ToolStripMenuItemStyleOffice2007_Click);
+			this.toolStripMenuItemStyleOffice2007.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemStyleOffice2007.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleSystem
@@ -1674,7 +1748,7 @@
 			this.toolStripMenuItemStyleSystem.Text = "System";
 			this.toolStripMenuItemStyleSystem.ToolTipText = "Style \"System\"";
 			this.toolStripMenuItemStyleSystem.Click += new System.EventHandler(this.ToolStripMenuItemSystem_Click);
-			this.toolStripMenuItemStyleSystem.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSystem_MouseEnter);
+			this.toolStripMenuItemStyleSystem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemStyleSystem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripMenuItemStyleVs2008
@@ -1689,7 +1763,7 @@
 			this.toolStripMenuItemStyleVs2008.Text = "VS 2008";
 			this.toolStripMenuItemStyleVs2008.ToolTipText = "Style \"VS 2008\"";
 			this.toolStripMenuItemStyleVs2008.Click += new System.EventHandler(this.ToolStripMenuItemVs2008_Click);
-			this.toolStripMenuItemStyleVs2008.MouseEnter += new System.EventHandler(this.ToolStripMenuItemVs2008_MouseEnter);
+			this.toolStripMenuItemStyleVs2008.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemStyleVs2008.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemQuest
@@ -1710,7 +1784,7 @@
 			this.menuitemQuest.Size = new System.Drawing.Size(24, 24);
 			this.menuitemQuest.Text = "&?";
 			this.menuitemQuest.ToolTipText = "Open the menu \"?\"";
-			this.menuitemQuest.MouseEnter += new System.EventHandler(this.MenuitemQuest_MouseEnter);
+			this.menuitemQuest.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemQuest.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemAbout
@@ -1727,7 +1801,7 @@
 			this.menuitemAbout.Text = "&About";
 			this.menuitemAbout.ToolTipText = "More information about the application";
 			this.menuitemAbout.Click += new System.EventHandler(this.MenuitemAbout_Click);
-			this.menuitemAbout.MouseEnter += new System.EventHandler(this.MenuitemAbout_MouseEnter);
+			this.menuitemAbout.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemAbout.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparatorMisc
@@ -1751,7 +1825,7 @@
 			this.menuitemOpenWebsitePDB.Text = "Open PlanetoidDB homepage";
 			this.menuitemOpenWebsitePDB.ToolTipText = "Opens the PlanetoidDB homepage";
 			this.menuitemOpenWebsitePDB.Click += new System.EventHandler(this.MenuitemOpenWebsitePDB_Click);
-			this.menuitemOpenWebsitePDB.MouseEnter += new System.EventHandler(this.MenuitemOpenWebsitePDB_MouseEnter);
+			this.menuitemOpenWebsitePDB.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemOpenWebsitePDB.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemOpenWebsiteMPC
@@ -1767,7 +1841,7 @@
 			this.menuitemOpenWebsiteMPC.Text = "Open MPC homepage";
 			this.menuitemOpenWebsiteMPC.ToolTipText = "Opens the MPC homepage";
 			this.menuitemOpenWebsiteMPC.Click += new System.EventHandler(this.MenuitemOpenWebsiteMPC_Click);
-			this.menuitemOpenWebsiteMPC.MouseEnter += new System.EventHandler(this.MenuitemOpenWebsiteMPC_MouseEnter);
+			this.menuitemOpenWebsiteMPC.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemOpenWebsiteMPC.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemOpenMPCORBWebsite
@@ -1783,11 +1857,12 @@
 			this.menuitemOpenMPCORBWebsite.Text = "Open MPCORB website";
 			this.menuitemOpenMPCORBWebsite.ToolTipText = "Opens the MPCORB website";
 			this.menuitemOpenMPCORBWebsite.Click += new System.EventHandler(this.MenuitemOpenMPCORBWebsite_Click);
-			this.menuitemOpenMPCORBWebsite.MouseEnter += new System.EventHandler(this.MenuitemOpenMPCORBWebsite_MouseEnter);
+			this.menuitemOpenMPCORBWebsite.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.menuitemOpenMPCORBWebsite.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripIcons
 			// 
+			this.toolStripIcons.AccessibleDescription = "Toolbar of main functions";
 			this.toolStripIcons.AccessibleName = "Toolbar of main functions";
 			this.toolStripIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
 			this.toolStripIcons.Dock = System.Windows.Forms.DockStyle.None;
@@ -1820,6 +1895,10 @@
 			this.toolStripIcons.TabIndex = 1;
 			this.toolStripIcons.TabStop = true;
 			this.toolStripIcons.Text = "Toolbar of main functions";
+			this.toolStripIcons.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripIcons.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.toolStripIcons.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonPrint
 			// 
@@ -1835,7 +1914,7 @@
 			this.toolStripButtonPrint.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonPrint.Text = "Print";
 			this.toolStripButtonPrint.Click += new System.EventHandler(this.ToolStripButtonPrint_Click);
-			this.toolStripButtonPrint.MouseEnter += new System.EventHandler(this.ToolStripButtonPrint_MouseEnter);
+			this.toolStripButtonPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonCopyToClipboard
@@ -1853,7 +1932,7 @@
 			this.toolStripButtonCopyToClipboard.Text = "Copy to clipboard";
 			this.toolStripButtonCopyToClipboard.ToolTipText = "Copy to clipboard";
 			this.toolStripButtonCopyToClipboard.Click += new System.EventHandler(this.ToolStripButtonCopyToClipboard_Click);
-			this.toolStripButtonCopyToClipboard.MouseEnter += new System.EventHandler(this.ToolStripButtonCopyToClipboard_MouseEnter);
+			this.toolStripButtonCopyToClipboard.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonCopyToClipboard.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator4
@@ -1875,7 +1954,7 @@
 			this.toolStripButtonDatabaseInformation.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonDatabaseInformation.Text = "Database information";
 			this.toolStripButtonDatabaseInformation.Click += new System.EventHandler(this.ToolStripButtonDatabaseInformation_Click);
-			this.toolStripButtonDatabaseInformation.MouseEnter += new System.EventHandler(this.ToolStripButtonDatabaseInformation_MouseEnter);
+			this.toolStripButtonDatabaseInformation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonDatabaseInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonTableMode
@@ -1892,7 +1971,7 @@
 			this.toolStripButtonTableMode.Text = "Table mode";
 			this.toolStripButtonTableMode.ToolTipText = "Activate the table mode";
 			this.toolStripButtonTableMode.Click += new System.EventHandler(this.ToolStripButtonTableMode_Click);
-			this.toolStripButtonTableMode.MouseEnter += new System.EventHandler(this.ToolStripButtonTableMode_MouseEnter);
+			this.toolStripButtonTableMode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonTableMode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonTerminology
@@ -1909,7 +1988,7 @@
 			this.toolStripButtonTerminology.Text = "Terminology";
 			this.toolStripButtonTerminology.ToolTipText = "Show the terminology";
 			this.toolStripButtonTerminology.Click += new System.EventHandler(this.ToolStripButtonTerminology_Click);
-			this.toolStripButtonTerminology.MouseEnter += new System.EventHandler(this.ToolStripButtonTerminology_MouseEnter);
+			this.toolStripButtonTerminology.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonTerminology.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator3
@@ -1931,6 +2010,7 @@
 			this.toolStripSplitButton1.Name = "toolStripSplitButton1";
 			this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
 			this.toolStripSplitButton1.Text = "Chart bar";
+			this.toolStripSplitButton1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripSplitButton1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSplitButton2
@@ -1946,6 +2026,7 @@
 			this.toolStripSplitButton2.Name = "toolStripSplitButton2";
 			this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
 			this.toolStripSplitButton2.Text = "Chart line";
+			this.toolStripSplitButton2.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripSplitButton2.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSplitButton3
@@ -1961,6 +2042,7 @@
 			this.toolStripSplitButton3.Name = "toolStripSplitButton3";
 			this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 22);
 			this.toolStripSplitButton3.Text = "Chart pie";
+			this.toolStripSplitButton3.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripSplitButton3.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator5
@@ -1983,7 +2065,7 @@
 			this.toolStripButtonCheckMpcorbDat.Text = "Check MPCORB.DAT";
 			this.toolStripButtonCheckMpcorbDat.ToolTipText = "Check MPCORB.DAT";
 			this.toolStripButtonCheckMpcorbDat.Click += new System.EventHandler(this.ToolStripButtonCheckMpcorbDat_Click);
-			this.toolStripButtonCheckMpcorbDat.MouseEnter += new System.EventHandler(this.ToolStripButtonCheckMpcorbDat_MouseEnter);
+			this.toolStripButtonCheckMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonCheckMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonDownloadMpcorbDat
@@ -2000,7 +2082,7 @@
 			this.toolStripButtonDownloadMpcorbDat.Text = "Download MPCORB.DAT";
 			this.toolStripButtonDownloadMpcorbDat.ToolTipText = "Download the database";
 			this.toolStripButtonDownloadMpcorbDat.Click += new System.EventHandler(this.ToolStripButtonDownloadMpcorbDat_Click);
-			this.toolStripButtonDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.ToolStripButtonDownloadMpcorbDat_MouseEnter);
+			this.toolStripButtonDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator1
@@ -2023,7 +2105,7 @@
 			this.toolStripButtonAbout.Text = "About";
 			this.toolStripButtonAbout.ToolTipText = "More information about the application";
 			this.toolStripButtonAbout.Click += new System.EventHandler(this.ToolStripButtonAbout_Click);
-			this.toolStripButtonAbout.MouseEnter += new System.EventHandler(this.ToolStripButtonAbout_MouseEnter);
+			this.toolStripButtonAbout.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonAbout.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonOpenWebsitePDB
@@ -2040,7 +2122,7 @@
 			this.toolStripButtonOpenWebsitePDB.Text = "Open PlanetoidDB homepage";
 			this.toolStripButtonOpenWebsitePDB.ToolTipText = "Open the PlanetoidDB homepage";
 			this.toolStripButtonOpenWebsitePDB.Click += new System.EventHandler(this.ToolStripButtonOpenWebsitePDB_Click);
-			this.toolStripButtonOpenWebsitePDB.MouseEnter += new System.EventHandler(this.ToolStripButtonOpenWebsitePDB_MouseEnter);
+			this.toolStripButtonOpenWebsitePDB.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonOpenWebsitePDB.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator2
@@ -2057,6 +2139,7 @@
 			this.toolStripLabelSearch.Name = "toolStripLabelSearch";
 			this.toolStripLabelSearch.Size = new System.Drawing.Size(45, 22);
 			this.toolStripLabelSearch.Text = "Search:";
+			this.toolStripLabelSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripLabelSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripTextBoxSearch
@@ -2070,8 +2153,9 @@
 			this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
 			this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
 			this.toolStripTextBoxSearch.ToolTipText = "Search";
+			this.toolStripTextBoxSearch.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripTextBoxSearch.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.toolStripTextBoxSearch.MouseEnter += new System.EventHandler(this.ToolStripTextBoxSearch_MouseEnter);
+			this.toolStripTextBoxSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripTextBoxSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonSearch
@@ -2088,7 +2172,7 @@
 			this.toolStripButtonSearch.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonSearch.Text = "Search";
 			this.toolStripButtonSearch.Click += new System.EventHandler(this.ToolStripButtonSearch_Click);
-			this.toolStripButtonSearch.MouseEnter += new System.EventHandler(this.ToolStripButtonSearch_MouseEnter);
+			this.toolStripButtonSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// backgroundWorkerLoadingDatabase
@@ -2106,13 +2190,16 @@
 			// 
 			// toolStripNavigation
 			// 
+			this.toolStripNavigation.AccessibleDescription = "Toolbar of the navigation";
+			this.toolStripNavigation.AccessibleName = "Toolbar of the navigation";
+			this.toolStripNavigation.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
 			this.toolStripNavigation.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolStripNavigation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonStepToBegin,
-            this.toolStripButtonStepBackward,
+            this.toolStripSplitButtonStepBackward,
             this.toolStripButtonStepBackwardOne,
             this.toolStripButtonStepForwardOne,
-            this.toolStripButtonStepForward,
+            this.toolStripSplitButtonStepForward,
             this.toolStripButtonStepToEnd,
             this.toolStripSeparator6,
             this.toolStripLabelGoToIndex,
@@ -2126,6 +2213,10 @@
 			this.toolStripNavigation.Stretch = true;
 			this.toolStripNavigation.TabIndex = 15;
 			this.toolStripNavigation.Text = "Navigation";
+			this.toolStripNavigation.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripNavigation.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.toolStripNavigation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripNavigation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepToBegin
 			// 
@@ -2139,23 +2230,24 @@
 			this.toolStripButtonStepToBegin.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonStepToBegin.Text = "Begin of the data";
 			this.toolStripButtonStepToBegin.Click += new System.EventHandler(this.ToolStripButtonStepToBegin_Click);
-			this.toolStripButtonStepToBegin.MouseEnter += new System.EventHandler(this.ToolStripButtonStepToBegin_MouseEnter);
+			this.toolStripButtonStepToBegin.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonStepToBegin.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripButtonStepBackward
+			// toolStripSplitButtonStepBackward
 			// 
-			this.toolStripButtonStepBackward.AccessibleDescription = "Navigate some data backward";
-			this.toolStripButtonStepBackward.AccessibleName = "Navigate some data backward";
-			this.toolStripButtonStepBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.toolStripButtonStepBackward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButtonStepBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
-			this.toolStripButtonStepBackward.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonStepBackward.Name = "toolStripButtonStepBackward";
-			this.toolStripButtonStepBackward.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButtonStepBackward.Text = "Navigate some data backward";
-			this.toolStripButtonStepBackward.Click += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
-			this.toolStripButtonStepBackward.MouseEnter += new System.EventHandler(this.ToolStripButtonStepBackward_MouseEnter);
-			this.toolStripButtonStepBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.toolStripSplitButtonStepBackward.AccessibleDescription = "Navigate some data backward";
+			this.toolStripSplitButtonStepBackward.AccessibleName = "Navigate some data backward";
+			this.toolStripSplitButtonStepBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
+			this.toolStripSplitButtonStepBackward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripSplitButtonStepBackward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripSplitButtonStepBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
+			this.toolStripSplitButtonStepBackward.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripSplitButtonStepBackward.Name = "toolStripSplitButtonStepBackward";
+			this.toolStripSplitButtonStepBackward.Size = new System.Drawing.Size(32, 22);
+			this.toolStripSplitButtonStepBackward.Text = "Navigate some data backward";
+			this.toolStripSplitButtonStepBackward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
+			this.toolStripSplitButtonStepBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripSplitButtonStepBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepBackwardOne
 			// 
@@ -2169,7 +2261,7 @@
 			this.toolStripButtonStepBackwardOne.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonStepBackwardOne.Text = "Navigate to the previous data";
 			this.toolStripButtonStepBackwardOne.Click += new System.EventHandler(this.ToolStripButtonStepBackwardOne_Click);
-			this.toolStripButtonStepBackwardOne.MouseEnter += new System.EventHandler(this.ToolStripButtonStepBackwardOne_MouseEnter);
+			this.toolStripButtonStepBackwardOne.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonStepBackwardOne.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepForwardOne
@@ -2184,23 +2276,24 @@
 			this.toolStripButtonStepForwardOne.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonStepForwardOne.Text = "Navigate to the next data";
 			this.toolStripButtonStepForwardOne.Click += new System.EventHandler(this.ToolStripButtonStepForwardOne_Click);
-			this.toolStripButtonStepForwardOne.MouseEnter += new System.EventHandler(this.ToolStripButtonStepForwardOne_MouseEnter);
+			this.toolStripButtonStepForwardOne.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonStepForwardOne.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripButtonStepForward
+			// toolStripSplitButtonStepForward
 			// 
-			this.toolStripButtonStepForward.AccessibleDescription = "Navigate some data forward";
-			this.toolStripButtonStepForward.AccessibleName = "Navigate some data forward";
-			this.toolStripButtonStepForward.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.toolStripButtonStepForward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButtonStepForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
-			this.toolStripButtonStepForward.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButtonStepForward.Name = "toolStripButtonStepForward";
-			this.toolStripButtonStepForward.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButtonStepForward.Text = "Navigate some data forward";
-			this.toolStripButtonStepForward.Click += new System.EventHandler(this.ToolStripButtonStepForward_Click);
-			this.toolStripButtonStepForward.MouseEnter += new System.EventHandler(this.ToolStripButtonStepForward_MouseEnter);
-			this.toolStripButtonStepForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.toolStripSplitButtonStepForward.AccessibleDescription = "Navigate some data forward";
+			this.toolStripSplitButtonStepForward.AccessibleName = "Navigate some data forward";
+			this.toolStripSplitButtonStepForward.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
+			this.toolStripSplitButtonStepForward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripSplitButtonStepForward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripSplitButtonStepForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
+			this.toolStripSplitButtonStepForward.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripSplitButtonStepForward.Name = "toolStripSplitButtonStepForward";
+			this.toolStripSplitButtonStepForward.Size = new System.Drawing.Size(32, 22);
+			this.toolStripSplitButtonStepForward.Text = "Navigate some data forward";
+			this.toolStripSplitButtonStepForward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
+			this.toolStripSplitButtonStepForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripSplitButtonStepForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepToEnd
 			// 
@@ -2214,7 +2307,7 @@
 			this.toolStripButtonStepToEnd.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonStepToEnd.Text = "End of the data";
 			this.toolStripButtonStepToEnd.Click += new System.EventHandler(this.ToolStripButtonStepToEnd_Click);
-			this.toolStripButtonStepToEnd.MouseEnter += new System.EventHandler(this.ToolStripButtonStepToEnd_MouseEnter);
+			this.toolStripButtonStepToEnd.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonStepToEnd.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator6
@@ -2232,6 +2325,7 @@
 			this.toolStripLabelGoToIndex.Name = "toolStripLabelGoToIndex";
 			this.toolStripLabelGoToIndex.Size = new System.Drawing.Size(70, 22);
 			this.toolStripLabelGoToIndex.Text = "Go to index:";
+			this.toolStripLabelGoToIndex.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripLabelGoToIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripTextBoxGotoIndex
@@ -2244,10 +2338,10 @@
 			this.toolStripTextBoxGotoIndex.Name = "toolStripTextBoxGotoIndex";
 			this.toolStripTextBoxGotoIndex.Size = new System.Drawing.Size(80, 25);
 			this.toolStripTextBoxGotoIndex.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.toolStripTextBoxGotoIndex.Enter += new System.EventHandler(this.ToolStripTextBoxGotoIndex_Enter);
+			this.toolStripTextBoxGotoIndex.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripTextBoxGotoIndex.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.toolStripTextBoxGotoIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ToolStripTextBoxGotoIndex_KeyPress);
-			this.toolStripTextBoxGotoIndex.MouseEnter += new System.EventHandler(this.ToolStripTextBoxGotoIndex_Enter);
+			this.toolStripTextBoxGotoIndex.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripTextBoxGotoIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonGoToIndex
@@ -2262,7 +2356,7 @@
 			this.toolStripButtonGoToIndex.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButtonGoToIndex.Text = "Go to index";
 			this.toolStripButtonGoToIndex.Click += new System.EventHandler(this.ToolStripButtonGoToIndex_Click);
-			this.toolStripButtonGoToIndex.MouseEnter += new System.EventHandler(this.ToolStripButtonGoToIndex_MouseEnter);
+			this.toolStripButtonGoToIndex.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonGoToIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSeparator7
@@ -2280,7 +2374,7 @@
 			this.toolStripLabelIndexPosition.Name = "toolStripLabelIndexPosition";
 			this.toolStripLabelIndexPosition.Size = new System.Drawing.Size(124, 22);
 			this.toolStripLabelIndexPosition.Text = "index: 123456 / 999999";
-			this.toolStripLabelIndexPosition.MouseEnter += new System.EventHandler(this.ToolStripLabelIndexPosition_MouseEnter);
+			this.toolStripLabelIndexPosition.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripLabelIndexPosition.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripContainer
@@ -2288,23 +2382,44 @@
 			// 
 			// toolStripContainer.BottomToolStripPanel
 			// 
+			this.toolStripContainer.BottomToolStripPanel.AccessibleDescription = "Lower part of the control panel";
+			this.toolStripContainer.BottomToolStripPanel.AccessibleName = "Lower part of the control panel";
+			this.toolStripContainer.BottomToolStripPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusBar);
 			// 
 			// toolStripContainer.ContentPanel
 			// 
+			this.toolStripContainer.ContentPanel.AccessibleDescription = "Group the controls";
+			this.toolStripContainer.ContentPanel.AccessibleName = "Container Panel";
+			this.toolStripContainer.ContentPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.toolStripContainer.ContentPanel.AutoScroll = true;
 			this.toolStripContainer.ContentPanel.BackColor = System.Drawing.Color.Transparent;
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tableLayoutPanelData);
 			this.toolStripContainer.ContentPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(744, 213);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(744, 234);
 			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+			// 
+			// toolStripContainer.LeftToolStripPanel
+			// 
+			this.toolStripContainer.LeftToolStripPanel.AccessibleDescription = "Left part of the container panel";
+			this.toolStripContainer.LeftToolStripPanel.AccessibleName = "Left part of the container panel";
+			this.toolStripContainer.LeftToolStripPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.toolStripContainer.Location = new System.Drawing.Point(0, 0);
 			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new System.Drawing.Size(744, 309);
+			// 
+			// toolStripContainer.RightToolStripPanel
+			// 
+			this.toolStripContainer.RightToolStripPanel.AccessibleDescription = "Right part of the container panel";
+			this.toolStripContainer.RightToolStripPanel.AccessibleName = "Right part of the container panel";
+			this.toolStripContainer.RightToolStripPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
+			this.toolStripContainer.Size = new System.Drawing.Size(744, 330);
 			this.toolStripContainer.TabIndex = 16;
 			// 
 			// toolStripContainer.TopToolStripPanel
 			// 
+			this.toolStripContainer.TopToolStripPanel.AccessibleDescription = "Upper part of the container panel";
+			this.toolStripContainer.TopToolStripPanel.AccessibleName = "Upper part of the container panel";
+			this.toolStripContainer.TopToolStripPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.toolStripContainer.TopToolStripPanel.Controls.Add(this.menu);
 			this.toolStripContainer.TopToolStripPanel.Controls.Add(this.toolStripIcons);
 			this.toolStripContainer.TopToolStripPanel.Controls.Add(this.toolStripNavigation);
@@ -2317,6 +2432,7 @@
 			// 
 			// notifyIconUpdate
 			// 
+			this.notifyIconUpdate.ContextMenuStrip = this.contextMenuNotifyIcon;
 			this.notifyIconUpdate.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconUpdate.Icon")));
 			this.notifyIconUpdate.Text = "PlanetoidDB";
 			this.notifyIconUpdate.Click += new System.EventHandler(this.NotifyIconUpdate_Click);
@@ -2325,24 +2441,45 @@
 			// 
 			this.contextMenuNotifyIcon.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
 			this.contextMenuNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkMPCORBDATToolStripMenuItem,
-            this.downloadMPCORBDATToolStripMenuItem});
+            this.toolStripMenuItemCheckMpcorbDat,
+            this.toolStripMenuItemDownloadMpcorbDat});
 			this.contextMenuNotifyIcon.Name = "contextMenuNotifyIcon";
-			this.contextMenuNotifyIcon.Size = new System.Drawing.Size(207, 48);
+			this.contextMenuNotifyIcon.Size = new System.Drawing.Size(245, 48);
+			this.contextMenuNotifyIcon.TabStop = true;
+			this.contextMenuNotifyIcon.Text = "notify context menu";
+			this.contextMenuNotifyIcon.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.contextMenuNotifyIcon.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// checkMPCORBDATToolStripMenuItem
+			// toolStripMenuItemCheckMpcorbDat
 			// 
-			this.checkMPCORBDATToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
-			this.checkMPCORBDATToolStripMenuItem.Name = "checkMPCORBDATToolStripMenuItem";
-			this.checkMPCORBDATToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-			this.checkMPCORBDATToolStripMenuItem.Text = "Check MPCORB.DAT";
+			this.toolStripMenuItemCheckMpcorbDat.AccessibleDescription = "Check for updates of the database";
+			this.toolStripMenuItemCheckMpcorbDat.AccessibleName = "Check MPCORB.DAT";
+			this.toolStripMenuItemCheckMpcorbDat.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemCheckMpcorbDat.AutoToolTip = true;
+			this.toolStripMenuItemCheckMpcorbDat.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
+			this.toolStripMenuItemCheckMpcorbDat.Name = "toolStripMenuItemCheckMpcorbDat";
+			this.toolStripMenuItemCheckMpcorbDat.ShortcutKeyDisplayString = "";
+			this.toolStripMenuItemCheckMpcorbDat.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
+			this.toolStripMenuItemCheckMpcorbDat.Size = new System.Drawing.Size(244, 22);
+			this.toolStripMenuItemCheckMpcorbDat.Text = "&Check MPCORB.DAT";
+			this.toolStripMenuItemCheckMpcorbDat.Click += new System.EventHandler(this.MenuitemCheckMpcorbDat_Click);
+			this.toolStripMenuItemCheckMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemCheckMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// downloadMPCORBDATToolStripMenuItem
+			// toolStripMenuItemDownloadMpcorbDat
 			// 
-			this.downloadMPCORBDATToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
-			this.downloadMPCORBDATToolStripMenuItem.Name = "downloadMPCORBDATToolStripMenuItem";
-			this.downloadMPCORBDATToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-			this.downloadMPCORBDATToolStripMenuItem.Text = "Download MPCORB.DAT";
+			this.toolStripMenuItemDownloadMpcorbDat.AccessibleDescription = "Download the database";
+			this.toolStripMenuItemDownloadMpcorbDat.AccessibleName = "Download MPCORB.DAT";
+			this.toolStripMenuItemDownloadMpcorbDat.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemDownloadMpcorbDat.AutoToolTip = true;
+			this.toolStripMenuItemDownloadMpcorbDat.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
+			this.toolStripMenuItemDownloadMpcorbDat.Name = "toolStripMenuItemDownloadMpcorbDat";
+			this.toolStripMenuItemDownloadMpcorbDat.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+			this.toolStripMenuItemDownloadMpcorbDat.Size = new System.Drawing.Size(244, 22);
+			this.toolStripMenuItemDownloadMpcorbDat.Text = "&Download MPCORB.DAT";
+			this.toolStripMenuItemDownloadMpcorbDat.Click += new System.EventHandler(this.MenuitemDownloadMpcorbDat_Click);
+			this.toolStripMenuItemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// PlanetoidDBForm
 			// 
@@ -2352,7 +2489,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-			this.ClientSize = new System.Drawing.Size(744, 309);
+			this.ClientSize = new System.Drawing.Size(744, 330);
 			this.Controls.Add(this.toolStripContainer);
 			this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -2433,7 +2570,7 @@
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelBackgroundDownload;
     private System.ComponentModel.BackgroundWorker backgroundWorkerLoadingDatabase;
     private System.Windows.Forms.ToolStripMenuItem menuitemCheckMpcorbDat;
-    private System.Windows.Forms.ToolStripStatusLabel labelHelp;
+    private System.Windows.Forms.ToolStripStatusLabel labelInformation;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUpdate;
     private System.Windows.Forms.Timer timerBlinkForUpdateAvailable;
     private System.Windows.Forms.ToolStrip toolStripIcons;
@@ -2457,10 +2594,8 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStrip toolStripNavigation;
     private System.Windows.Forms.ToolStripButton toolStripButtonStepToBegin;
-    private System.Windows.Forms.ToolStripButton toolStripButtonStepBackward;
     private System.Windows.Forms.ToolStripButton toolStripButtonStepBackwardOne;
     private System.Windows.Forms.ToolStripButton toolStripButtonStepForwardOne;
-    private System.Windows.Forms.ToolStripButton toolStripButtonStepForward;
     private System.Windows.Forms.ToolStripButton toolStripButtonStepToEnd;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     private System.Windows.Forms.ToolStripLabel toolStripLabelIndexPosition;
@@ -2490,8 +2625,8 @@
     private System.Windows.Forms.Timer timerCheckForNewMpcorbDatFile;
     private System.Windows.Forms.NotifyIcon notifyIconUpdate;
     private System.Windows.Forms.ContextMenuStrip contextMenuNotifyIcon;
-    private System.Windows.Forms.ToolStripMenuItem checkMPCORBDATToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem downloadMPCORBDATToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCheckMpcorbDat;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDownloadMpcorbDat;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCancelBackgroundDownload;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTerminology;
 		private System.Windows.Forms.ToolStripButton toolStripButtonTerminology;
@@ -2515,6 +2650,8 @@
 		private System.Windows.Forms.LinkLabel linkLabelComputerName;
 		private System.Windows.Forms.LinkLabel linkLabelFlags;
 		private System.Windows.Forms.LinkLabel linkLabelObsLastDate;
+		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepBackward;
+		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepForward;
 	}
 }
 
