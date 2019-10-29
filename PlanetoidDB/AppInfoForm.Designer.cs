@@ -39,13 +39,11 @@
 			this.buttonOK = new System.Windows.Forms.Button();
 			this.labelDescription = new System.Windows.Forms.Label();
 			this.linkLabelCopyright = new System.Windows.Forms.LinkLabel();
-			this.pictureBoxWorld = new System.Windows.Forms.PictureBox();
 			this.linkLabelWWW = new System.Windows.Forms.LinkLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxBanner)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxWorld)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -161,7 +159,7 @@
 			this.linkLabelCopyright.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelCopyright.AutoSize = true;
 			this.linkLabelCopyright.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelCopyright.Location = new System.Drawing.Point(12, 141);
+			this.linkLabelCopyright.Location = new System.Drawing.Point(9, 137);
 			this.linkLabelCopyright.Name = "linkLabelCopyright";
 			this.linkLabelCopyright.Size = new System.Drawing.Size(107, 15);
 			this.linkLabelCopyright.TabIndex = 2;
@@ -174,22 +172,6 @@
 			this.linkLabelCopyright.MouseEnter += new System.EventHandler(this.LinkLabelCopyright_Enter);
 			this.linkLabelCopyright.MouseLeave += new System.EventHandler(this.LinkLabelCopyright_Leave);
 			// 
-			// pictureBoxWorld
-			// 
-			this.pictureBoxWorld.AccessibleDescription = "Show a globe";
-			this.pictureBoxWorld.AccessibleName = "Earth";
-			this.pictureBoxWorld.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
-			this.pictureBoxWorld.Image = global::Planetoid_DB.Properties.Resources.silk_world;
-			this.pictureBoxWorld.Location = new System.Drawing.Point(15, 190);
-			this.pictureBoxWorld.Name = "pictureBoxWorld";
-			this.pictureBoxWorld.Size = new System.Drawing.Size(16, 16);
-			this.pictureBoxWorld.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxWorld.TabIndex = 9;
-			this.pictureBoxWorld.TabStop = false;
-			this.toolTip.SetToolTip(this.pictureBoxWorld, "Earth");
-			this.pictureBoxWorld.MouseEnter += new System.EventHandler(this.PictureBoxWorld_MouseEnter);
-			this.pictureBoxWorld.MouseLeave += new System.EventHandler(this.PictureBoxWorld_MouseLeave);
-			// 
 			// linkLabelWWW
 			// 
 			this.linkLabelWWW.AccessibleDescription = "Click to open the homepage";
@@ -197,9 +179,12 @@
 			this.linkLabelWWW.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelWWW.AutoSize = true;
 			this.linkLabelWWW.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelWWW.Location = new System.Drawing.Point(37, 191);
+			this.linkLabelWWW.Image = global::Planetoid_DB.Properties.Resources.silk_world;
+			this.linkLabelWWW.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.linkLabelWWW.Location = new System.Drawing.Point(9, 192);
 			this.linkLabelWWW.Name = "linkLabelWWW";
-			this.linkLabelWWW.Size = new System.Drawing.Size(57, 15);
+			this.linkLabelWWW.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
+			this.linkLabelWWW.Size = new System.Drawing.Size(75, 15);
 			this.linkLabelWWW.TabIndex = 4;
 			this.linkLabelWWW.TabStop = true;
 			this.linkLabelWWW.Text = "[Website]";
@@ -252,7 +237,6 @@
 			this.ClientSize = new System.Drawing.Size(487, 240);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.linkLabelWWW);
-			this.Controls.Add(this.pictureBoxWorld);
 			this.Controls.Add(this.linkLabelCopyright);
 			this.Controls.Add(this.labelDescription);
 			this.Controls.Add(this.buttonOK);
@@ -269,7 +253,6 @@
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppInfoForm_FormClosed);
 			this.Load += new System.EventHandler(this.AppInfoForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxBanner)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxWorld)).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.ResumeLayout(false);
@@ -285,7 +268,6 @@
     private System.Windows.Forms.Button buttonOK;
     private System.Windows.Forms.Label labelDescription;
     private System.Windows.Forms.LinkLabel linkLabelCopyright;
-    private System.Windows.Forms.PictureBox pictureBoxWorld;
     private System.Windows.Forms.LinkLabel linkLabelWWW;
     private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.StatusStrip statusStrip;

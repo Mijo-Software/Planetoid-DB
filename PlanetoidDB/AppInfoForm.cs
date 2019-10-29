@@ -266,13 +266,6 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void PictureBoxBanner_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxBanner.AccessibleDescription);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PictureBoxWorld_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxWorld.AccessibleDescription);
-
 		#endregion
 
 		#region MouseLeave-Eventhandler
@@ -283,13 +276,6 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void PictureBoxBanner_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PictureBoxWorld_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
 
 		#endregion
 	}

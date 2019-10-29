@@ -39,6 +39,7 @@
 			this.toolStripMenuItem1000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem10000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem100000 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.tableLayoutPanelData = new System.Windows.Forms.TableLayoutPanel();
 			this.linkLabelObsLastDate = new System.Windows.Forms.LinkLabel();
 			this.linkLabelFlags = new System.Windows.Forms.LinkLabel();
@@ -81,12 +82,14 @@
 			this.linkLabelIndex = new System.Windows.Forms.LinkLabel();
 			this.linkLabelDesgnName = new System.Windows.Forms.LinkLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.contextMenuCopyToClipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.copyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusBar = new System.Windows.Forms.StatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelUpdate = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBarBackgroundDownload = new System.Windows.Forms.ToolStripProgressBar();
 			this.toolStripStatusLabelCancelBackgroundDownload = new System.Windows.Forms.ToolStripStatusLabel();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.menu = new System.Windows.Forms.MenuStrip();
 			this.menuitemFile = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemPrint = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +148,6 @@
 			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripButtonStepBackwardOne = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonStepForwardOne = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripButtonStepToEnd = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripLabelGoToIndex = new System.Windows.Forms.ToolStripLabel();
@@ -161,6 +163,7 @@
 			this.toolStripMenuItemDownloadMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuNavigationStep.SuspendLayout();
 			this.tableLayoutPanelData.SuspendLayout();
+			this.contextMenuCopyToClipboard.SuspendLayout();
 			this.statusBar.SuspendLayout();
 			this.menu.SuspendLayout();
 			this.toolStripIcons.SuspendLayout();
@@ -184,7 +187,7 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
-			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepForward;
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepBackward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
@@ -265,6 +268,22 @@
 			this.toolStripMenuItem100000.Click += new System.EventHandler(this.ToolStripMenuItem100000_Click);
 			this.toolStripMenuItem100000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripSplitButtonStepForward
+			// 
+			this.toolStripSplitButtonStepForward.AccessibleDescription = "Navigate some data forward";
+			this.toolStripSplitButtonStepForward.AccessibleName = "Navigate some data forward";
+			this.toolStripSplitButtonStepForward.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
+			this.toolStripSplitButtonStepForward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripSplitButtonStepForward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripSplitButtonStepForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
+			this.toolStripSplitButtonStepForward.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripSplitButtonStepForward.Name = "toolStripSplitButtonStepForward";
+			this.toolStripSplitButtonStepForward.Size = new System.Drawing.Size(32, 22);
+			this.toolStripSplitButtonStepForward.Text = "Navigate some data forward";
+			this.toolStripSplitButtonStepForward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
+			this.toolStripSplitButtonStepForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripSplitButtonStepForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanelData
 			// 
@@ -812,7 +831,7 @@
 			this.labelDesgnNameValue.Text = "...";
 			this.labelDesgnNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelDesgnNameValue, "Show the information of  \"Readable designation\"");
-			this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.LabelDesgnNameValue_DoubleClick);
+			this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelDesgnNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelDesgnNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelDesgnNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -834,7 +853,7 @@
 			this.labelEpochValue.Text = "...";
 			this.labelEpochValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelEpochValue, "Show the information of \"Epoch (in packed form, .0 TT)\"");
-			this.labelEpochValue.DoubleClick += new System.EventHandler(this.LabelEpochValue_DoubleClick);
+			this.labelEpochValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelEpochValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelEpochValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelEpochValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -856,7 +875,7 @@
 			this.labelMeanAnomalyValue.Text = "...";
 			this.labelMeanAnomalyValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMeanAnomalyValue, "Show the information of \"Mean anomaly at the epoch, in degrees\"");
-			this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.LabelMeanAnomalyValue_DoubleClick);
+			this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelMeanAnomalyValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMeanAnomalyValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMeanAnomalyValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -878,7 +897,7 @@
 			this.labelArgPeriValue.Text = "...";
 			this.labelArgPeriValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelArgPeriValue, "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"");
-			this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.LabelArgPeriValue_DoubleClick);
+			this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelArgPeriValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelArgPeriValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelArgPeriValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -900,7 +919,7 @@
 			this.labelLongAscNodeValue.Text = "...";
 			this.labelLongAscNodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelLongAscNodeValue, "Show the information of \"Longitude of the ascending node, J2000.0\"");
-			this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.LabelLongAscNodeValue_DoubleClick);
+			this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelLongAscNodeValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelLongAscNodeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelLongAscNodeValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -922,7 +941,7 @@
 			this.labelInclValue.Text = "...";
 			this.labelInclValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelInclValue, "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"");
-			this.labelInclValue.DoubleClick += new System.EventHandler(this.LabelInclValue_DoubleClick);
+			this.labelInclValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelInclValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelInclValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelInclValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -944,7 +963,7 @@
 			this.labelOrbEccValue.Text = "...";
 			this.labelOrbEccValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelOrbEccValue, "Show the information of \"Orbital eccentricity\"");
-			this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.LabelOrbEccValue_DoubleClick);
+			this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelOrbEccValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelOrbEccValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelOrbEccValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -966,7 +985,7 @@
 			this.labelMotionValue.Text = "...";
 			this.labelMotionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMotionValue, "Show the information of \"Mean daily motion (degrees per day)\"");
-			this.labelMotionValue.DoubleClick += new System.EventHandler(this.LabelMotionValue_DoubleClick);
+			this.labelMotionValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelMotionValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMotionValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMotionValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -988,7 +1007,7 @@
 			this.labelSemiMajorAxisValue.Text = "...";
 			this.labelSemiMajorAxisValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSemiMajorAxisValue, "Show the information of \"Semimajor axis (AU)\"");
-			this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.LabelSemiMajorAxisValue_DoubleClick);
+			this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelSemiMajorAxisValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiMajorAxisValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSemiMajorAxisValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1010,7 +1029,7 @@
 			this.labelSlopeParamValue.Text = "...";
 			this.labelSlopeParamValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSlopeParamValue, "Show the information of \"Slope parameter, G\"");
-			this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.LabelSlopeParamValue_DoubleClick);
+			this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelSlopeParamValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSlopeParamValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSlopeParamValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1032,7 +1051,7 @@
 			this.labelIndexValue.Text = "...";
 			this.labelIndexValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelIndexValue, "Show the information of \"Index No.\"");
-			this.labelIndexValue.DoubleClick += new System.EventHandler(this.LabelIndexValue_DoubleClick);
+			this.labelIndexValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelIndexValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelIndexValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelIndexValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1054,7 +1073,7 @@
 			this.labelMagAbsValue.Text = "...";
 			this.labelMagAbsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMagAbsValue, "Show the information of \"Absolute magnitude, H\"");
-			this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.LabelMagAbsValue_DoubleClick);
+			this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelMagAbsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMagAbsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMagAbsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1076,7 +1095,7 @@
 			this.labelRefValue.Text = "...";
 			this.labelRefValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelRefValue, "Show the information of \"Reference\"");
-			this.labelRefValue.DoubleClick += new System.EventHandler(this.LabelRefValue_DoubleClick);
+			this.labelRefValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelRefValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelRefValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelRefValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1098,7 +1117,7 @@
 			this.labelNumbOpposValue.Text = "...";
 			this.labelNumbOpposValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelNumbOpposValue, "Show the information of \"Number of oppositions\"");
-			this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.LabelNumbOpposValue_DoubleClick);
+			this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelNumbOpposValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelNumbOpposValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelNumbOpposValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1120,7 +1139,7 @@
 			this.labelNumbObsValue.Text = "...";
 			this.labelNumbObsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelNumbObsValue, "Show the information of \"Number of observations\"");
-			this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.LabelNumbObsValue_DoubleClick);
+			this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelNumbObsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelNumbObsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelNumbObsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1142,7 +1161,7 @@
 			this.labelObsSpanValue.Text = "...";
 			this.labelObsSpanValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelObsSpanValue, "Show the information of \"Observation span\"");
-			this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.LabelObsSpanValue_DoubleClick);
+			this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelObsSpanValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelObsSpanValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelObsSpanValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1164,7 +1183,7 @@
 			this.labelRmsResidualValue.Text = "...";
 			this.labelRmsResidualValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelRmsResidualValue, "Show the information of \"r.m.s residual (\")\"");
-			this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.LabelRmsResidualValue_DoubleClick);
+			this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelRmsResidualValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelRmsResidualValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelRmsResidualValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1186,7 +1205,7 @@
 			this.labelComputerNameValue.Text = "...";
 			this.labelComputerNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelComputerNameValue, "Show the information of \"Computer name\"");
-			this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.LabelComputerNameValue_DoubleClick);
+			this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelComputerNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelComputerNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelComputerNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1208,7 +1227,7 @@
 			this.labelFlagsValue.Text = "...";
 			this.labelFlagsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelFlagsValue, "Show the information of \"4-hexdigit flags\"");
-			this.labelFlagsValue.DoubleClick += new System.EventHandler(this.LabelFlagsValue_DoubleClick);
+			this.labelFlagsValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelFlagsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelFlagsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelFlagsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1230,7 +1249,7 @@
 			this.labelObsLastDateValue.Text = "...";
 			this.labelObsLastDateValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelObsLastDateValue, "Show the information of \"Date of last observation\"");
-			this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.LabelObsLastDateValue_DoubleClick);
+			this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.labelObsLastDateValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelObsLastDateValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelObsLastDateValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1287,6 +1306,34 @@
 			this.linkLabelDesgnName.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelDesgnName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// contextMenuCopyToClipboard
+			// 
+			this.contextMenuCopyToClipboard.AccessibleDescription = "Show the context menu of copying to clipboard";
+			this.contextMenuCopyToClipboard.AccessibleName = "Context menu of copying to clipboard";
+			this.contextMenuCopyToClipboard.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+			this.contextMenuCopyToClipboard.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToClipboardToolStripMenuItem});
+			this.contextMenuCopyToClipboard.Name = "contextMenuCopyToClipboard";
+			this.contextMenuCopyToClipboard.Size = new System.Drawing.Size(208, 26);
+			this.contextMenuCopyToClipboard.TabStop = true;
+			this.contextMenuCopyToClipboard.Text = "Copy to clipboard";
+			this.toolTip.SetToolTip(this.contextMenuCopyToClipboard, "Copy to clipboard");
+			this.contextMenuCopyToClipboard.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.contextMenuCopyToClipboard.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// copyToClipboardToolStripMenuItem
+			// 
+			this.copyToClipboardToolStripMenuItem.AccessibleDescription = "Click to copy into the clipboard";
+			this.copyToClipboardToolStripMenuItem.AccessibleName = "Copy to clipboard";
+			this.copyToClipboardToolStripMenuItem.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.copyToClipboardToolStripMenuItem.AutoToolTip = true;
+			this.copyToClipboardToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
+			this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
+			this.copyToClipboardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
+			this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+			this.copyToClipboardToolStripMenuItem.Text = "&Copy to clipboard";
+			this.copyToClipboardToolStripMenuItem.Click += new System.EventHandler(this.CopyToClipboard_Click);
+			// 
 			// statusBar
 			// 
 			this.statusBar.AccessibleDescription = "Shows some information";
@@ -1310,19 +1357,6 @@
 			this.statusBar.TabIndex = 13;
 			this.statusBar.TabStop = true;
 			this.statusBar.Text = "statusStrip";
-			// 
-			// labelInformation
-			// 
-			this.labelInformation.AccessibleDescription = "Show some information";
-			this.labelInformation.AccessibleName = "Show some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelInformation.AutoToolTip = true;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(116, 16);
-			this.labelInformation.Text = "Show tooltip here";
-			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// toolStripStatusLabelUpdate
 			// 
@@ -1385,6 +1419,19 @@
 			this.toolStripStatusLabelCancelBackgroundDownload.Click += new System.EventHandler(this.ToolStripStatusLabelCancelBackgroundDownload_Click);
 			this.toolStripStatusLabelCancelBackgroundDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripStatusLabelCancelBackgroundDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelInformation
+			// 
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Show some information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInformation.AutoToolTip = true;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(116, 16);
+			this.labelInformation.Text = "Show tooltip here";
+			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// menu
 			// 
@@ -2279,22 +2326,6 @@
 			this.toolStripButtonStepForwardOne.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonStepForwardOne.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripSplitButtonStepForward
-			// 
-			this.toolStripSplitButtonStepForward.AccessibleDescription = "Navigate some data forward";
-			this.toolStripSplitButtonStepForward.AccessibleName = "Navigate some data forward";
-			this.toolStripSplitButtonStepForward.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
-			this.toolStripSplitButtonStepForward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripSplitButtonStepForward.DropDown = this.contextMenuNavigationStep;
-			this.toolStripSplitButtonStepForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
-			this.toolStripSplitButtonStepForward.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripSplitButtonStepForward.Name = "toolStripSplitButtonStepForward";
-			this.toolStripSplitButtonStepForward.Size = new System.Drawing.Size(32, 22);
-			this.toolStripSplitButtonStepForward.Text = "Navigate some data forward";
-			this.toolStripSplitButtonStepForward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
-			this.toolStripSplitButtonStepForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripSplitButtonStepForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
 			// toolStripButtonStepToEnd
 			// 
 			this.toolStripButtonStepToEnd.AccessibleDescription = "Navigate to the end of the data";
@@ -2439,6 +2470,8 @@
 			// 
 			// contextMenuNotifyIcon
 			// 
+			this.contextMenuNotifyIcon.AccessibleDescription = "Show the context menu of notify icon";
+			this.contextMenuNotifyIcon.AccessibleName = "Context menu of notify icon";
 			this.contextMenuNotifyIcon.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
 			this.contextMenuNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCheckMpcorbDat,
@@ -2505,6 +2538,7 @@
 			this.contextMenuNavigationStep.ResumeLayout(false);
 			this.tableLayoutPanelData.ResumeLayout(false);
 			this.tableLayoutPanelData.PerformLayout();
+			this.contextMenuCopyToClipboard.ResumeLayout(false);
 			this.statusBar.ResumeLayout(false);
 			this.statusBar.PerformLayout();
 			this.menu.ResumeLayout(false);
@@ -2652,6 +2686,8 @@
 		private System.Windows.Forms.LinkLabel linkLabelObsLastDate;
 		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepBackward;
 		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepForward;
+		private System.Windows.Forms.ContextMenuStrip contextMenuCopyToClipboard;
+		private System.Windows.Forms.ToolStripMenuItem copyToClipboardToolStripMenuItem;
 	}
 }
 

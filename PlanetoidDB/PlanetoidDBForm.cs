@@ -1246,149 +1246,94 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e) => ShowDatabaseInformation();
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void CopyToClipboard_Click(object sender, EventArgs e)
+		{
+			if (sender is TextBox)
+			{
+				CopyToClipboard(text: ((TextBox)sender).Text);
+			}
+			else if (sender is Button)
+			{
+				CopyToClipboard(text: ((Button)sender).Text);
+			}
+			else if (sender is RadioButton)
+			{
+				CopyToClipboard(text: ((RadioButton)sender).Text);
+			}
+			else if (sender is CheckBox)
+			{
+				SetStatusbar(text: ((CheckBox)sender).Text);
+			}
+			else if (sender is DateTimePicker)
+			{
+				CopyToClipboard(text: ((DateTimePicker)sender).Text);
+			}
+			else if (sender is Label)
+			{
+				CopyToClipboard(text: ((Label)sender).Text);
+			}
+			else if (sender is ToolStripButton)
+			{
+				CopyToClipboard(text: ((ToolStripButton)sender).Text);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				CopyToClipboard(text: ((ToolStripMenuItem)sender).Text);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				CopyToClipboard(text: ((ToolStripLabel)sender).Text);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				CopyToClipboard(text: ((ToolStripComboBox)sender).Text);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				CopyToClipboard(text: ((ToolStripDropDown)sender).Text);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownButton)sender).Text);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownItem)sender).Text);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownMenu)sender).Text);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				CopyToClipboard(text: ((ToolStripProgressBar)sender).Text);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				CopyToClipboard(text: ((ToolStripSplitButton)sender).Text);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				CopyToClipboard(text: ((ToolStripSeparator)sender).Text);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				CopyToClipboard(text: ((ToolStripStatusLabel)sender).Text);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				CopyToClipboard(text: ((ToolStripTextBox)sender).Text);
+			}
+		}
+
 		#endregion
 
 		#region DoubleClick-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndexValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelIndexValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDesgnNameValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDesgnNameValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelEpochValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelEpochValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMeanAnomalyValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMeanAnomalyValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelArgPeriValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelArgPeriValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelLongAscNodeValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelLongAscNodeValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelInclValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelLongAscNodeValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelOrbEccValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelOrbEccValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMotionValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMotionValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSemiMajorAxisValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSemiMajorAxisValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMagAbsValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMagAbsValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSlopeParamValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSlopeParamValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRefValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelRefValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbOpposValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelNumbOpposValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbObsValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelNumbObsValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsSpanValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsSpanValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidualValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelRmsResidualValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelComputerNameValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelComputerNameValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelFlagsValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelFlagsValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsLastDateValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelObsLastDateValue.Text);
 
 		/// <summary>
 		/// 
