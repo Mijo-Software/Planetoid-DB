@@ -63,6 +63,7 @@
 			this.labelTitle.Size = new System.Drawing.Size(221, 45);
 			this.labelTitle.TabIndex = 0;
 			this.labelTitle.Text = "Planetoid-DB";
+			this.labelTitle.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			// 
 			// labelVersion
 			// 
@@ -79,10 +80,11 @@
 			this.labelVersion.TabIndex = 1;
 			this.labelVersion.Text = "Version: X.X.X.X";
 			this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.labelVersion.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			// 
 			// labelDataLoading
 			// 
-			this.labelDataLoading.AccessibleDescription = "Show, that data are loading";
+			this.labelDataLoading.AccessibleDescription = "Show that data are loading";
 			this.labelDataLoading.AccessibleName = "Loading text";
 			this.labelDataLoading.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDataLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -95,6 +97,7 @@
 			this.labelDataLoading.Size = new System.Drawing.Size(90, 15);
 			this.labelDataLoading.TabIndex = 2;
 			this.labelDataLoading.Text = "[ProcessAsText]";
+			this.labelDataLoading.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			// 
 			// SplashScreenForm
 			// 

@@ -18,13 +18,13 @@ namespace Planetoid_DB
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
-			if (!File.Exists(path: Properties.Resources.strFilenameMPCORB))
+			if (!File.Exists(path: Properties.Resources.FilenameMpcorb))
 			{
-				if (MessageBox.Show(text: I10nStrings.strMpcorbDatNotFoundText, caption: I10nStrings.strMpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+				if (MessageBox.Show(text: I10nStrings.MpcorbDatNotFoundText, caption: I10nStrings.MpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 				{
 					if (!NetworkInterface.GetIsNetworkAvailable())
 					{
-						MessageBox.Show(text: I10nStrings.strNoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+						MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 						Application.Exit();
 					}
 					else

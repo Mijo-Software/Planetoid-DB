@@ -53,7 +53,7 @@
 			this.labelObsLastDate = new System.Windows.Forms.Label();
 			this.buttonOK = new System.Windows.Forms.Button();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
-			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -70,6 +70,7 @@
 			this.labelIndex.AccessibleName = "Index No.";
 			this.labelIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelIndex.AutoSize = true;
+			this.labelIndex.BackColor = System.Drawing.Color.Transparent;
 			this.labelIndex.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelIndex.Location = new System.Drawing.Point(3, 0);
 			this.labelIndex.Name = "labelIndex";
@@ -91,6 +92,7 @@
 			this.labelDesgnName.AccessibleName = "Readable designation";
 			this.labelDesgnName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDesgnName.AutoSize = true;
+			this.labelDesgnName.BackColor = System.Drawing.Color.Transparent;
 			this.labelDesgnName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelDesgnName.Location = new System.Drawing.Point(3, 21);
 			this.labelDesgnName.Name = "labelDesgnName";
@@ -112,6 +114,7 @@
 			this.labelEpoch.AccessibleName = "Epoch (in packed form, .0 TT)";
 			this.labelEpoch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelEpoch.AutoSize = true;
+			this.labelEpoch.BackColor = System.Drawing.Color.Transparent;
 			this.labelEpoch.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelEpoch.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelEpoch.Location = new System.Drawing.Point(3, 42);
@@ -134,6 +137,7 @@
 			this.labelMeanAnomaly.AccessibleName = "Mean anomaly at the epoch, in degrees";
 			this.labelMeanAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMeanAnomaly.AutoSize = true;
+			this.labelMeanAnomaly.BackColor = System.Drawing.Color.Transparent;
 			this.labelMeanAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMeanAnomaly.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelMeanAnomaly.Location = new System.Drawing.Point(3, 63);
@@ -156,6 +160,7 @@
 			this.labelArgPeri.AccessibleName = "Argument of perihelion, J2000.0 (degrees)";
 			this.labelArgPeri.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelArgPeri.AutoSize = true;
+			this.labelArgPeri.BackColor = System.Drawing.Color.Transparent;
 			this.labelArgPeri.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelArgPeri.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelArgPeri.Location = new System.Drawing.Point(3, 84);
@@ -178,6 +183,7 @@
 			this.labelLongAscNode.AccessibleName = "Longitude of the ascending node, J2000.0";
 			this.labelLongAscNode.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelLongAscNode.AutoSize = true;
+			this.labelLongAscNode.BackColor = System.Drawing.Color.Transparent;
 			this.labelLongAscNode.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelLongAscNode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelLongAscNode.Location = new System.Drawing.Point(3, 105);
@@ -200,6 +206,7 @@
 			this.labelIncl.AccessibleName = "Inclination to the ecliptic, J2000.0 (degrees)";
 			this.labelIncl.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelIncl.AutoSize = true;
+			this.labelIncl.BackColor = System.Drawing.Color.Transparent;
 			this.labelIncl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelIncl.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelIncl.Location = new System.Drawing.Point(3, 126);
@@ -222,6 +229,7 @@
 			this.labelOrbEcc.AccessibleName = "Orbital eccentricity";
 			this.labelOrbEcc.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelOrbEcc.AutoSize = true;
+			this.labelOrbEcc.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbEcc.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbEcc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelOrbEcc.Location = new System.Drawing.Point(3, 147);
@@ -244,6 +252,7 @@
 			this.labelMotion.AccessibleName = "Mean daily motion (degrees per day)";
 			this.labelMotion.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMotion.AutoSize = true;
+			this.labelMotion.BackColor = System.Drawing.Color.Transparent;
 			this.labelMotion.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMotion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelMotion.Location = new System.Drawing.Point(3, 168);
@@ -266,6 +275,7 @@
 			this.labelSemiMajorAxis.AccessibleName = "Semimajor axis (AU)";
 			this.labelSemiMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSemiMajorAxis.AutoSize = true;
+			this.labelSemiMajorAxis.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiMajorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiMajorAxis.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelSemiMajorAxis.Location = new System.Drawing.Point(3, 189);
@@ -288,6 +298,7 @@
 			this.labelMagAbs.AccessibleName = "Absolute magnitude, H";
 			this.labelMagAbs.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMagAbs.AutoSize = true;
+			this.labelMagAbs.BackColor = System.Drawing.Color.Transparent;
 			this.labelMagAbs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMagAbs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelMagAbs.Location = new System.Drawing.Point(3, 210);
@@ -310,6 +321,7 @@
 			this.labelSlopeParam.AccessibleName = "Slope parameter, G";
 			this.labelSlopeParam.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSlopeParam.AutoSize = true;
+			this.labelSlopeParam.BackColor = System.Drawing.Color.Transparent;
 			this.labelSlopeParam.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSlopeParam.Location = new System.Drawing.Point(3, 231);
 			this.labelSlopeParam.Name = "labelSlopeParam";
@@ -331,6 +343,7 @@
 			this.labelRef.AccessibleName = "Reference";
 			this.labelRef.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelRef.AutoSize = true;
+			this.labelRef.BackColor = System.Drawing.Color.Transparent;
 			this.labelRef.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRef.Location = new System.Drawing.Point(3, 252);
 			this.labelRef.Name = "labelRef";
@@ -352,6 +365,7 @@
 			this.labelNumbOppos.AccessibleName = "Number of oppositions";
 			this.labelNumbOppos.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelNumbOppos.AutoSize = true;
+			this.labelNumbOppos.BackColor = System.Drawing.Color.Transparent;
 			this.labelNumbOppos.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbOppos.Location = new System.Drawing.Point(3, 273);
 			this.labelNumbOppos.Name = "labelNumbOppos";
@@ -373,6 +387,7 @@
 			this.labelNumbObs.AccessibleName = "Number of observations";
 			this.labelNumbObs.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelNumbObs.AutoSize = true;
+			this.labelNumbObs.BackColor = System.Drawing.Color.Transparent;
 			this.labelNumbObs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbObs.Location = new System.Drawing.Point(3, 294);
 			this.labelNumbObs.Name = "labelNumbObs";
@@ -394,6 +409,7 @@
 			this.labelObsSpan.AccessibleName = "Observation span";
 			this.labelObsSpan.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelObsSpan.AutoSize = true;
+			this.labelObsSpan.BackColor = System.Drawing.Color.Transparent;
 			this.labelObsSpan.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsSpan.Location = new System.Drawing.Point(3, 315);
 			this.labelObsSpan.Name = "labelObsSpan";
@@ -415,6 +431,7 @@
 			this.labelRmsResidual.AccessibleName = "r.m.s. residual (\")";
 			this.labelRmsResidual.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelRmsResidual.AutoSize = true;
+			this.labelRmsResidual.BackColor = System.Drawing.Color.Transparent;
 			this.labelRmsResidual.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRmsResidual.Location = new System.Drawing.Point(3, 336);
 			this.labelRmsResidual.Name = "labelRmsResidual";
@@ -436,6 +453,7 @@
 			this.labelComputerName.AccessibleName = "Computer name";
 			this.labelComputerName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelComputerName.AutoSize = true;
+			this.labelComputerName.BackColor = System.Drawing.Color.Transparent;
 			this.labelComputerName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelComputerName.Location = new System.Drawing.Point(3, 357);
 			this.labelComputerName.Name = "labelComputerName";
@@ -457,6 +475,7 @@
 			this.labelFlags.AccessibleName = "4-hexdigit flags";
 			this.labelFlags.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelFlags.AutoSize = true;
+			this.labelFlags.BackColor = System.Drawing.Color.Transparent;
 			this.labelFlags.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelFlags.Location = new System.Drawing.Point(3, 378);
 			this.labelFlags.Name = "labelFlags";
@@ -478,6 +497,7 @@
 			this.labelObsLastDate.AccessibleName = "Date of last observation";
 			this.labelObsLastDate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelObsLastDate.AutoSize = true;
+			this.labelObsLastDate.BackColor = System.Drawing.Color.Transparent;
 			this.labelObsLastDate.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsLastDate.Location = new System.Drawing.Point(3, 399);
 			this.labelObsLastDate.Name = "labelObsLastDate";
@@ -523,7 +543,7 @@
 			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelHelp});
+            this.labelInformation});
 			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.statusStrip.Location = new System.Drawing.Point(0, 429);
 			this.statusStrip.Name = "statusStrip";
@@ -535,17 +555,17 @@
 			this.statusStrip.TabStop = true;
 			this.statusStrip.Text = "statusStrip";
 			// 
-			// labelHelp
+			// labelInformation
 			// 
-			this.labelHelp.AccessibleDescription = "Show some important informations";
-			this.labelHelp.AccessibleName = "Information field";
-			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelHelp.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelHelp.Name = "labelHelp";
-			this.labelHelp.Size = new System.Drawing.Size(170, 16);
-			this.labelHelp.Text = "Show informative messages";
-			this.labelHelp.ToolTipText = "Show informative messages";
+			this.labelInformation.AccessibleDescription = "Show some important informations";
+			this.labelInformation.AccessibleName = "Information field";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(170, 16);
+			this.labelInformation.Text = "Show informative messages";
+			this.labelInformation.ToolTipText = "Show informative messages";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -655,7 +675,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "TerminologyForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Terminology";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TerminologyForm_FormClosed);
 			this.Load += new System.EventHandler(this.TerminologyForm_Load);
@@ -674,7 +694,7 @@
 
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.StatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelHelp;
+		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 		private System.Windows.Forms.Label labelIndex;
 		private System.Windows.Forms.Label labelDesgnName;
 		private System.Windows.Forms.Label labelEpoch;

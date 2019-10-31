@@ -117,97 +117,97 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="strBytesText" xml:space="preserve">
+  <data name="BytesText" xml:space="preserve">
     <value>bytes</value>
   </data>
-  <data name="strCopiedToClipboard" xml:space="preserve">
+  <data name="CopiedToClipboard" xml:space="preserve">
     <value>Copied to clipboard.</value>
   </data>
-  <data name="strDataLoading" xml:space="preserve">
+  <data name="DataLoading" xml:space="preserve">
     <value>Loading data...</value>
   </data>
   <data name="strErrorCaption" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="strIndex" xml:space="preserve">
+  <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
-  <data name="strMpcorbDatNotFoundCaption" xml:space="preserve">
+  <data name="MpcorbDatNotFoundCaption" xml:space="preserve">
     <value>MPCORB.DAT not found</value>
   </data>
-  <data name="strMpcorbDatNotFoundText" xml:space="preserve">
+  <data name="MpcorbDatNotFoundText" xml:space="preserve">
     <value>The file MPCORB.DAT was not found. You need it to run the application. The file has a size of about 150-200 MB. Do you want to download the MPCORB.DAT file from the MPC website?</value>
   </data>
-  <data name="strNoInternetConnectionText" xml:space="preserve">
+  <data name="NoInternetConnectionText" xml:space="preserve">
     <value>No internet connection available!</value>
   </data>
-  <data name="strVersionTemplate" xml:space="preserve">
+  <data name="VersionTemplate" xml:space="preserve">
     <value>Version: {0}</value>
   </data>
-  <data name="strWww" xml:space="preserve">
-    <value>WWW</value>
+  <data name="Www" xml:space="preserve">
+    <value>www</value>
   </data>
-  <data name="strNoFileFoundText" xml:space="preserve">
+  <data name="NoFileFoundText" xml:space="preserve">
     <value>no file found</value>
   </data>
-  <data name="strCompleteCaption" xml:space="preserve">
+  <data name="CompleteCaption" xml:space="preserve">
     <value>Complete</value>
   </data>
-  <data name="strDownloadCompleteText" xml:space="preserve">
+  <data name="DownloadCompleteText" xml:space="preserve">
     <value>Download completed!</value>
   </data>
-  <data name="strMpcorbDatInformationCaption" xml:space="preserve">
+  <data name="MpcorbDatInformationCaption" xml:space="preserve">
     <value>MPCORB.DAT infomation</value>
   </data>
-  <data name="strNoUpdateNeededText" xml:space="preserve">
+  <data name="NoUpdateNeededText" xml:space="preserve">
     <value>No update needed!</value>
   </data>
-  <data name="strNumberZero" xml:space="preserve">
+  <data name="NumberZero" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="strPercentSign" xml:space="preserve">
+  <data name="PercentSign" xml:space="preserve">
     <value> %</value>
   </data>
-  <data name="strStatusDownloadCancelled" xml:space="preserve">
+  <data name="StatusDownloadCancelled" xml:space="preserve">
     <value>Download cancelled...</value>
   </data>
-  <data name="strStatusDownloadCompleteText" xml:space="preserve">
+  <data name="StatusDownloadCompleteText" xml:space="preserve">
     <value>Download complete</value>
   </data>
-  <data name="strStatusDownloading" xml:space="preserve">
+  <data name="StatusDownloading" xml:space="preserve">
     <value>Downloading...</value>
   </data>
-  <data name="strStatusNothingToDoText" xml:space="preserve">
+  <data name="StatusNothingToDoText" xml:space="preserve">
     <value>nothing to do...</value>
   </data>
-  <data name="strStatusRefreshingDatabaseText" xml:space="preserve">
+  <data name="StatusRefreshingDatabaseText" xml:space="preserve">
     <value>Refreshing database...</value>
   </data>
-  <data name="strStatusTryToConnect" xml:space="preserve">
+  <data name="StatusTryToConnect" xml:space="preserve">
     <value>Try to connect...</value>
   </data>
-  <data name="strStatusUnknownError" xml:space="preserve">
+  <data name="StatusUnknownError" xml:space="preserve">
     <value>Unknown error...</value>
   </data>
-  <data name="strUpdateRecommendedText" xml:space="preserve">
+  <data name="UpdateRecommendedText" xml:space="preserve">
     <value>Update recommended</value>
   </data>
-  <data name="strAskForDownloadingLastestMpcorbDatFile" xml:space="preserve">
+  <data name="AskForDownloadingLastestMpcorbDatFile" xml:space="preserve">
     <value>Do you want download the lastest MPCORB.DAT file?</value>
   </data>
-  <data name="strAskForDownloadingLastestMpcorbDatFileCaption" xml:space="preserve">
+  <data name="AskForDownloadingLastestMpcorbDatFileCaption" xml:space="preserve">
     <value>Download MPCORB.DAT?</value>
   </data>
-  <data name="strDownloadCancelledText" xml:space="preserve">
+  <data name="DownloadCancelledText" xml:space="preserve">
     <value>Download cancelled!</value>
   </data>
-  <data name="strDownloadCompleteAndRestartQuestionText" xml:space="preserve">
+  <data name="DownloadCompleteAndRestartQuestionText" xml:space="preserve">
     <value>Download complete! Do you want to restart the application to apply the update of the database?</value>
   </data>
-  <data name="strDownloadUnknownError" xml:space="preserve">
+  <data name="DownloadUnknownError" xml:space="preserve">
     <value>Unknown Error!</value>
   </data>
-  <data name="strInformationCaption" xml:space="preserve">
+  <data name="InformationCaption" xml:space="preserve">
     <value>Information</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -271,10 +271,13 @@
   <data name="terminology_SlopeParam" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\terminology_SlopeParam.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="strIndexOutOfRange" xml:space="preserve">
+  <data name="IndexOutOfRange" xml:space="preserve">
     <value>Index is out of range</value>
   </data>
-  <data name="strEasterEgg" xml:space="preserve">
+  <data name="EasterEgg" xml:space="preserve">
     <value>Don't disturb. I'm loading. ☺</value>
+  </data>
+  <data name="Mail" xml:space="preserve">
+    <value>mail</value>
   </data>
 </root>

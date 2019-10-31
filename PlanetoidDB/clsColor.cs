@@ -128,8 +128,7 @@ namespace VS2008StripRenderingLibrary
 		/// <param name="height"></param>
 		/// <param name="m_diameter"></param>
 		/// <param name="color"></param>
-		public static void DrawRoundedRectangle(Graphics g, int x, int y,
-				int width, int height, int m_diameter, Color color)
+		public static void DrawRoundedRectangle(Graphics g, int x, int y, int width, int height, int m_diameter, Color color)
 		{
 			using (Pen pen = new Pen(color: color))
 			{

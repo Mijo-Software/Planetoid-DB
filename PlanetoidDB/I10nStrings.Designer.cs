@@ -63,99 +63,270 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Do you want download the lastest MPCORB.DAT file? ähnelt.
         /// </summary>
-        internal static string strAskForDownloadingLastestMpcorbDatFile {
+        internal static string AskForDownloadingLastestMpcorbDatFile {
             get {
-                return ResourceManager.GetString("strAskForDownloadingLastestMpcorbDatFile", resourceCulture);
+                return ResourceManager.GetString("AskForDownloadingLastestMpcorbDatFile", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Download MPCORB.DAT? ähnelt.
         /// </summary>
-        internal static string strAskForDownloadingLastestMpcorbDatFileCaption {
+        internal static string AskForDownloadingLastestMpcorbDatFileCaption {
             get {
-                return ResourceManager.GetString("strAskForDownloadingLastestMpcorbDatFileCaption", resourceCulture);
+                return ResourceManager.GetString("AskForDownloadingLastestMpcorbDatFileCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die bytes ähnelt.
         /// </summary>
-        internal static string strBytesText {
+        internal static string BytesText {
             get {
-                return ResourceManager.GetString("strBytesText", resourceCulture);
+                return ResourceManager.GetString("BytesText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Complete ähnelt.
         /// </summary>
-        internal static string strCompleteCaption {
+        internal static string CompleteCaption {
             get {
-                return ResourceManager.GetString("strCompleteCaption", resourceCulture);
+                return ResourceManager.GetString("CompleteCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Copied to clipboard. ähnelt.
         /// </summary>
-        internal static string strCopiedToClipboard {
+        internal static string CopiedToClipboard {
             get {
-                return ResourceManager.GetString("strCopiedToClipboard", resourceCulture);
+                return ResourceManager.GetString("CopiedToClipboard", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Loading data... ähnelt.
         /// </summary>
-        internal static string strDataLoading {
+        internal static string DataLoading {
             get {
-                return ResourceManager.GetString("strDataLoading", resourceCulture);
+                return ResourceManager.GetString("DataLoading", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Download cancelled! ähnelt.
         /// </summary>
-        internal static string strDownloadCancelledText {
+        internal static string DownloadCancelledText {
             get {
-                return ResourceManager.GetString("strDownloadCancelledText", resourceCulture);
+                return ResourceManager.GetString("DownloadCancelledText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Download complete! Do you want to restart the application to apply the update of the database? ähnelt.
         /// </summary>
-        internal static string strDownloadCompleteAndRestartQuestionText {
+        internal static string DownloadCompleteAndRestartQuestionText {
             get {
-                return ResourceManager.GetString("strDownloadCompleteAndRestartQuestionText", resourceCulture);
+                return ResourceManager.GetString("DownloadCompleteAndRestartQuestionText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Download completed! ähnelt.
         /// </summary>
-        internal static string strDownloadCompleteText {
+        internal static string DownloadCompleteText {
             get {
-                return ResourceManager.GetString("strDownloadCompleteText", resourceCulture);
+                return ResourceManager.GetString("DownloadCompleteText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Unknown Error! ähnelt.
         /// </summary>
-        internal static string strDownloadUnknownError {
+        internal static string DownloadUnknownError {
             get {
-                return ResourceManager.GetString("strDownloadUnknownError", resourceCulture);
+                return ResourceManager.GetString("DownloadUnknownError", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Don&apos;t disturb. I&apos;m loading. ☺ ähnelt.
         /// </summary>
-        internal static string strEasterEgg {
+        internal static string EasterEgg {
             get {
-                return ResourceManager.GetString("strEasterEgg", resourceCulture);
+                return ResourceManager.GetString("EasterEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Index ähnelt.
+        /// </summary>
+        internal static string Index {
+            get {
+                return ResourceManager.GetString("Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Index is out of range ähnelt.
+        /// </summary>
+        internal static string IndexOutOfRange {
+            get {
+                return ResourceManager.GetString("IndexOutOfRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Information ähnelt.
+        /// </summary>
+        internal static string InformationCaption {
+            get {
+                return ResourceManager.GetString("InformationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die mail ähnelt.
+        /// </summary>
+        internal static string Mail {
+            get {
+                return ResourceManager.GetString("Mail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT infomation ähnelt.
+        /// </summary>
+        internal static string MpcorbDatInformationCaption {
+            get {
+                return ResourceManager.GetString("MpcorbDatInformationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT not found ähnelt.
+        /// </summary>
+        internal static string MpcorbDatNotFoundCaption {
+            get {
+                return ResourceManager.GetString("MpcorbDatNotFoundCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The file MPCORB.DAT was not found. You need it to run the application. The file has a size of about 150-200 MB. Do you want to download the MPCORB.DAT file from the MPC website? ähnelt.
+        /// </summary>
+        internal static string MpcorbDatNotFoundText {
+            get {
+                return ResourceManager.GetString("MpcorbDatNotFoundText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die no file found ähnelt.
+        /// </summary>
+        internal static string NoFileFoundText {
+            get {
+                return ResourceManager.GetString("NoFileFoundText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No internet connection available! ähnelt.
+        /// </summary>
+        internal static string NoInternetConnectionText {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No update needed! ähnelt.
+        /// </summary>
+        internal static string NoUpdateNeededText {
+            get {
+                return ResourceManager.GetString("NoUpdateNeededText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 0 ähnelt.
+        /// </summary>
+        internal static string NumberZero {
+            get {
+                return ResourceManager.GetString("NumberZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  % ähnelt.
+        /// </summary>
+        internal static string PercentSign {
+            get {
+                return ResourceManager.GetString("PercentSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download cancelled... ähnelt.
+        /// </summary>
+        internal static string StatusDownloadCancelled {
+            get {
+                return ResourceManager.GetString("StatusDownloadCancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download complete ähnelt.
+        /// </summary>
+        internal static string StatusDownloadCompleteText {
+            get {
+                return ResourceManager.GetString("StatusDownloadCompleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Downloading... ähnelt.
+        /// </summary>
+        internal static string StatusDownloading {
+            get {
+                return ResourceManager.GetString("StatusDownloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die nothing to do... ähnelt.
+        /// </summary>
+        internal static string StatusNothingToDoText {
+            get {
+                return ResourceManager.GetString("StatusNothingToDoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Refreshing database... ähnelt.
+        /// </summary>
+        internal static string StatusRefreshingDatabaseText {
+            get {
+                return ResourceManager.GetString("StatusRefreshingDatabaseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Try to connect... ähnelt.
+        /// </summary>
+        internal static string StatusTryToConnect {
+            get {
+                return ResourceManager.GetString("StatusTryToConnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Unknown error... ähnelt.
+        /// </summary>
+        internal static string StatusUnknownError {
+            get {
+                return ResourceManager.GetString("StatusUnknownError", resourceCulture);
             }
         }
         
@@ -165,195 +336,6 @@ namespace Planetoid_DB {
         internal static string strErrorCaption {
             get {
                 return ResourceManager.GetString("strErrorCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Index ähnelt.
-        /// </summary>
-        internal static string strIndex {
-            get {
-                return ResourceManager.GetString("strIndex", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Index is out of range ähnelt.
-        /// </summary>
-        internal static string strIndexOutOfRange {
-            get {
-                return ResourceManager.GetString("strIndexOutOfRange", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Information ähnelt.
-        /// </summary>
-        internal static string strInformationCaption {
-            get {
-                return ResourceManager.GetString("strInformationCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT infomation ähnelt.
-        /// </summary>
-        internal static string strMpcorbDatInformationCaption {
-            get {
-                return ResourceManager.GetString("strMpcorbDatInformationCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT not found ähnelt.
-        /// </summary>
-        internal static string strMpcorbDatNotFoundCaption {
-            get {
-                return ResourceManager.GetString("strMpcorbDatNotFoundCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The file MPCORB.DAT was not found. You need it to run the application. The file has a size of about 150-200 MB. Do you want to download the MPCORB.DAT file from the MPC website? ähnelt.
-        /// </summary>
-        internal static string strMpcorbDatNotFoundText {
-            get {
-                return ResourceManager.GetString("strMpcorbDatNotFoundText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die no file found ähnelt.
-        /// </summary>
-        internal static string strNoFileFoundText {
-            get {
-                return ResourceManager.GetString("strNoFileFoundText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die No internet connection available! ähnelt.
-        /// </summary>
-        internal static string strNoInternetConnectionText {
-            get {
-                return ResourceManager.GetString("strNoInternetConnectionText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die No update needed! ähnelt.
-        /// </summary>
-        internal static string strNoUpdateNeededText {
-            get {
-                return ResourceManager.GetString("strNoUpdateNeededText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 0 ähnelt.
-        /// </summary>
-        internal static string strNumberZero {
-            get {
-                return ResourceManager.GetString("strNumberZero", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  % ähnelt.
-        /// </summary>
-        internal static string strPercentSign {
-            get {
-                return ResourceManager.GetString("strPercentSign", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Download cancelled... ähnelt.
-        /// </summary>
-        internal static string strStatusDownloadCancelled {
-            get {
-                return ResourceManager.GetString("strStatusDownloadCancelled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Download complete ähnelt.
-        /// </summary>
-        internal static string strStatusDownloadCompleteText {
-            get {
-                return ResourceManager.GetString("strStatusDownloadCompleteText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Downloading... ähnelt.
-        /// </summary>
-        internal static string strStatusDownloading {
-            get {
-                return ResourceManager.GetString("strStatusDownloading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die nothing to do... ähnelt.
-        /// </summary>
-        internal static string strStatusNothingToDoText {
-            get {
-                return ResourceManager.GetString("strStatusNothingToDoText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Refreshing database... ähnelt.
-        /// </summary>
-        internal static string strStatusRefreshingDatabaseText {
-            get {
-                return ResourceManager.GetString("strStatusRefreshingDatabaseText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Try to connect... ähnelt.
-        /// </summary>
-        internal static string strStatusTryToConnect {
-            get {
-                return ResourceManager.GetString("strStatusTryToConnect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Unknown error... ähnelt.
-        /// </summary>
-        internal static string strStatusUnknownError {
-            get {
-                return ResourceManager.GetString("strStatusUnknownError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Update recommended ähnelt.
-        /// </summary>
-        internal static string strUpdateRecommendedText {
-            get {
-                return ResourceManager.GetString("strUpdateRecommendedText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Version: {0} ähnelt.
-        /// </summary>
-        internal static string strVersionTemplate {
-            get {
-                return ResourceManager.GetString("strVersionTemplate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die WWW ähnelt.
-        /// </summary>
-        internal static string strWww {
-            get {
-                return ResourceManager.GetString("strWww", resourceCulture);
             }
         }
         
@@ -794,6 +776,33 @@ namespace Planetoid_DB {
         internal static string terminology_SlopeParam {
             get {
                 return ResourceManager.GetString("terminology_SlopeParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update recommended ähnelt.
+        /// </summary>
+        internal static string UpdateRecommendedText {
+            get {
+                return ResourceManager.GetString("UpdateRecommendedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Version: {0} ähnelt.
+        /// </summary>
+        internal static string VersionTemplate {
+            get {
+                return ResourceManager.GetString("VersionTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die www ähnelt.
+        /// </summary>
+        internal static string Www {
+            get {
+                return ResourceManager.GetString("Www", resourceCulture);
             }
         }
     }

@@ -31,33 +31,7 @@ namespace Planetoid_DB
 			isLabelFlagsActive = false,
 			isLabelObsLastDateActive = false;
 
-		#region Constructor und Form
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public TerminologyForm() => InitializeComponent();
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TerminologyForm_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TerminologyForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
-
-		#endregion
-
-		#region main functions
+		#region local methods
 
 		/// <summary>
 		/// 
@@ -203,20 +177,10 @@ namespace Planetoid_DB
 		/// 
 		/// </summary>
 		/// <param name="text"></param>
-		private void CopyToClipboard(string text)
+		private void SetStatusbar(string text)
 		{
-			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private void SetLabelText(string text)
-		{
-			labelHelp.Enabled = text == "" ? false : true;
-			labelHelp.Text = text;
+			labelInformation.Enabled = text == "" ? false : true;
+			labelInformation.Text = text;
 		}
 
 		/// <summary>
@@ -266,9 +230,139 @@ namespace Planetoid_DB
 			LabelObsLastDate_Leave(sender: null, e: null);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="label"></param>
+		/// <param name="backColor"></param>
+		/// <param name="foreColor"></param>
+		private void SetBackAndForeColors(ref Label label, Color backColor, Color foreColor)
+		{
+			label.BackColor = backColor;
+			label.ForeColor = foreColor;
+		}
+
+		#endregion
+
+		#region Constructor
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public TerminologyForm() => InitializeComponent();
+
+		#endregion
+
+		#region Form* event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TerminologyForm_Load(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TerminologyForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+
 		#endregion
 
 		#region Enter-Eventhandler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SetStatusbar_Enter(object sender, EventArgs e)
+		{
+			if (sender is TextBox)
+			{
+				SetStatusbar(text: ((TextBox)sender).AccessibleDescription);
+			}
+			else if (sender is Button)
+			{
+				SetStatusbar(text: ((Button)sender).AccessibleDescription);
+			}
+			else if (sender is RadioButton)
+			{
+				SetStatusbar(text: ((RadioButton)sender).AccessibleDescription);
+			}
+			else if (sender is CheckBox)
+			{
+				SetStatusbar(text: ((CheckBox)sender).AccessibleDescription);
+			}
+			else if (sender is DateTimePicker)
+			{
+				SetStatusbar(text: ((DateTimePicker)sender).AccessibleDescription);
+			}
+			else if (sender is Label)
+			{
+				SetStatusbar(text: ((Label)sender).AccessibleDescription);
+			}
+			else if (sender is PictureBox)
+			{
+				SetStatusbar(text: ((PictureBox)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripButton)
+			{
+				SetStatusbar(text: ((ToolStripButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				SetStatusbar(text: ((ToolStripMenuItem)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				SetStatusbar(text: ((ToolStripLabel)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				SetStatusbar(text: ((ToolStripComboBox)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				SetStatusbar(text: ((ToolStripDropDown)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				SetStatusbar(text: ((ToolStripDropDownButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				SetStatusbar(text: ((ToolStripDropDownItem)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				SetStatusbar(text: ((ToolStripDropDownMenu)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				SetStatusbar(text: ((ToolStripProgressBar)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				SetStatusbar(text: ((ToolStripSplitButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				SetStatusbar(text: ((ToolStripSeparator)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				SetStatusbar(text: ((ToolStripStatusLabel)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				SetStatusbar(text: ((ToolStripTextBox)sender).AccessibleDescription);
+			}
+		}
 
 		/// <summary>
 		/// 
@@ -279,10 +373,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelIndexActive)
 			{
-				labelIndex.BackColor = SystemColors.Highlight;
-				labelIndex.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelIndex, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelIndex.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -294,10 +387,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelDesgnNameActive)
 			{
-				labelDesgnName.BackColor = SystemColors.Highlight;
-				labelDesgnName.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelDesgnName, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelDesgnName.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -309,10 +401,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelEpochActive)
 			{
-				labelEpoch.BackColor = SystemColors.Highlight;
-				labelEpoch.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelEpoch, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelEpoch.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -324,10 +415,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelMeanAnomalyActive)
 			{
-				labelMeanAnomaly.BackColor = SystemColors.Highlight;
-				labelMeanAnomaly.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelMeanAnomaly, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelMeanAnomaly.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -339,10 +429,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelArgPeriActive)
 			{
-				labelArgPeri.BackColor = SystemColors.Highlight;
-				labelArgPeri.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelArgPeri, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelArgPeri.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -354,10 +443,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelLongAscNodeActive)
 			{
-				labelLongAscNode.BackColor = SystemColors.Highlight;
-				labelLongAscNode.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelLongAscNode, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelLongAscNode.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -369,10 +457,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelInclActive)
 			{
-				labelIncl.BackColor = SystemColors.Highlight;
-				labelIncl.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelIncl, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelIncl.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -384,10 +471,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelOrbEccActive)
 			{
-				labelOrbEcc.BackColor = SystemColors.Highlight;
-				labelOrbEcc.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelOrbEcc, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelOrbEcc.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -399,10 +485,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelMotionActive)
 			{
-				labelMotion.BackColor = SystemColors.Highlight;
-				labelMotion.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelMotion, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelMotion.AccessibleDescription);
+			SetStatusbar(text: labelMotion.AccessibleDescription);
 		}
 
 		/// <summary>
@@ -414,10 +499,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelSemiMajorAxisActive)
 			{
-				labelSemiMajorAxis.BackColor = SystemColors.Highlight;
-				labelSemiMajorAxis.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelSemiMajorAxis, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelSemiMajorAxis.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -429,10 +513,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelMagAbsActive)
 			{
-				labelMagAbs.BackColor = SystemColors.Highlight;
-				labelMagAbs.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelMagAbs, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelMagAbs.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -444,10 +527,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelSlopeParamActive)
 			{
-				labelSlopeParam.BackColor = SystemColors.Highlight;
-				labelSlopeParam.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelSlopeParam, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelSlopeParam.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -459,10 +541,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelRefActive)
 			{
-				labelRef.BackColor = SystemColors.Highlight;
-				labelRef.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelRef, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelRef.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -474,10 +555,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelNumbOpposActive)
 			{
-				labelNumbOppos.BackColor = SystemColors.Highlight;
-				labelNumbOppos.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelNumbOppos, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelNumbOppos.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -489,10 +569,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelNumbObsActive)
 			{
-				labelNumbObs.BackColor = SystemColors.Highlight;
-				labelNumbObs.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelNumbObs, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelNumbObs.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -504,10 +583,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelObsSpanActive)
 			{
-				labelObsSpan.BackColor = SystemColors.Highlight;
-				labelObsSpan.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelObsSpan, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelObsSpan.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -519,10 +597,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelRmsResidualActive)
 			{
-				labelRmsResidual.BackColor = SystemColors.Highlight;
-				labelRmsResidual.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelRmsResidual, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelRmsResidual.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -534,10 +611,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelComputerNameActive)
 			{
-				labelComputerName.BackColor = SystemColors.Highlight;
-				labelComputerName.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelComputerName, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelComputerName.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -549,10 +625,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelFlagsActive)
 			{
-				labelFlags.BackColor = SystemColors.Highlight;
-				labelFlags.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelFlags, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelFlags.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -564,10 +639,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelObsLastDateActive)
 			{
-				labelObsLastDate.BackColor = SystemColors.Highlight;
-				labelObsLastDate.ForeColor = SystemColors.HighlightText;
+				SetBackAndForeColors(label: ref labelObsLastDate, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
 			}
-			SetLabelText(text: labelObsLastDate.AccessibleDescription);
+			SetStatusbar_Enter(sender: sender, e);
 		}
 
 		/// <summary>
@@ -575,7 +649,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonOK_Enter(object sender, EventArgs e) => SetLabelText(text: buttonOK.AccessibleDescription);
+		private void ButtonOK_Enter(object sender, EventArgs e) => SetStatusbar_Enter(sender: sender, e: e);
 
 		#endregion
 
@@ -590,10 +664,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelIndexActive)
 			{
-				labelIndex.BackColor = SystemColors.Control;
-				labelIndex.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelIndex, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -605,10 +678,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelDesgnNameActive)
 			{
-				labelDesgnName.BackColor = SystemColors.Control;
-				labelDesgnName.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelDesgnName, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -620,10 +692,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelEpochActive)
 			{
-				labelEpoch.BackColor = SystemColors.Control;
-				labelEpoch.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelEpoch, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -635,10 +706,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelMeanAnomalyActive)
 			{
-				labelMeanAnomaly.BackColor = SystemColors.Control;
-				labelMeanAnomaly.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelMeanAnomaly, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -650,10 +720,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelArgPeriActive)
 			{
-				labelArgPeri.BackColor = SystemColors.Control;
-				labelArgPeri.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelArgPeri, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -665,10 +734,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelLongAscNodeActive)
 			{
-				labelLongAscNode.BackColor = SystemColors.Control;
-				labelLongAscNode.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelLongAscNode, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -680,10 +748,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelInclActive)
 			{
-				labelIncl.BackColor = SystemColors.Control;
-				labelIncl.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelIncl, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -695,10 +762,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelOrbEccActive)
 			{
-				labelOrbEcc.BackColor = SystemColors.Control;
-				labelOrbEcc.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelOrbEcc, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -710,10 +776,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelMotionActive)
 			{
-				labelMotion.BackColor = SystemColors.Control;
-				labelMotion.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelMotion, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -725,10 +790,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelSemiMajorAxisActive)
 			{
-				labelSemiMajorAxis.BackColor = SystemColors.Control;
-				labelSemiMajorAxis.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelSemiMajorAxis, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -740,10 +804,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelMagAbsActive)
 			{
-				labelMagAbs.BackColor = SystemColors.Control;
-				labelMagAbs.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelMagAbs, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -755,10 +818,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelSlopeParamActive)
 			{
-				labelSlopeParam.BackColor = SystemColors.Control;
-				labelSlopeParam.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelSlopeParam, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -770,10 +832,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelRefActive)
 			{
-				labelRef.BackColor = SystemColors.Control;
-				labelRef.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelRef, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -785,10 +846,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelNumbOpposActive)
 			{
-				labelNumbOppos.BackColor = SystemColors.Control;
-				labelNumbOppos.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelNumbOppos, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -800,10 +860,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelNumbObsActive)
 			{
-				labelNumbObs.BackColor = SystemColors.Control;
-				labelNumbObs.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelNumbObs, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -815,10 +874,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelObsSpanActive)
 			{
-				labelObsSpan.BackColor = SystemColors.Control;
-				labelObsSpan.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelObsSpan, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -830,10 +888,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelRmsResidualActive)
 			{
-				labelRmsResidual.BackColor = SystemColors.Control;
-				labelRmsResidual.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelRmsResidual, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -845,10 +902,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelComputerNameActive)
 			{
-				labelComputerName.BackColor = SystemColors.Control;
-				labelComputerName.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelComputerName, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -860,10 +916,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelFlagsActive)
 			{
-				labelFlags.BackColor = SystemColors.Control;
-				labelFlags.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelFlags, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -875,10 +930,9 @@ namespace Planetoid_DB
 		{
 			if (!isLabelObsLastDateActive)
 			{
-				labelObsLastDate.BackColor = SystemColors.Control;
-				labelObsLastDate.ForeColor = SystemColors.ControlText;
+				SetBackAndForeColors(label: ref labelObsLastDate, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
 			}
-			SetLabelText(text: "");
+			SetStatusbar(text: "");
 		}
 
 		/// <summary>
@@ -886,7 +940,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonOK_Leave(object sender, EventArgs e) => SetLabelText(text: "");
+		private void ButtonOK_Leave(object sender, EventArgs e) => SetStatusbar(text: "");
 
 		#endregion
 

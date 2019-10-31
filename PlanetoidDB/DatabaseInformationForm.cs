@@ -9,10 +9,40 @@ namespace Planetoid_DB
 	/// </summary>
 	public partial class DatabaseInformationForm : Form
 	{
+		#region local methods
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void CopyToClipboard(string text)
+		{
+			Clipboard.SetText(text: text);
+			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		private void SetStatusbar(string text)
+		{
+			labelInformation.Enabled = text == "" ? false : true;
+			labelInformation.Text = text;
+		}
+
+		#endregion
+
+		#region Constructor
+
 		/// <summary>
 		/// 
 		/// </summary>
 		public DatabaseInformationForm() => InitializeComponent();
+
+		#endregion
+
+		#region Form* event handlers
 
 		/// <summary>
 		/// 
@@ -21,10 +51,10 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
 		{
-			FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.strFilenameMPCORB);
+			FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.FilenameMpcorb);
 			labelNameValue.Text = fileInfo.Name;
 			labelDirectoryValue.Text = fileInfo.DirectoryName;
-			labelSizeValue.Text = fileInfo.Length.ToString() + " " + I10nStrings.strBytesText;
+			labelSizeValue.Text = fileInfo.Length.ToString() + " " + I10nStrings.BytesText;
 			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
 			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
 			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
@@ -38,32 +68,111 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private void CopyToClipboard(string text)
-		{
-			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-		}
+		#endregion
+
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetLabelText(string text)
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
-			if (text == "")
+			if (sender is TextBox)
 			{
-				labelHelp.Enabled = false;
+				SetStatusbar(text: ((TextBox)sender).AccessibleDescription);
 			}
-			else
+			else if (sender is Button)
 			{
-				labelHelp.Enabled = true;
+				SetStatusbar(text: ((Button)sender).AccessibleDescription);
 			}
-			labelHelp.Text = text;
+			else if (sender is RadioButton)
+			{
+				SetStatusbar(text: ((RadioButton)sender).AccessibleDescription);
+			}
+			else if (sender is CheckBox)
+			{
+				SetStatusbar(text: ((CheckBox)sender).AccessibleDescription);
+			}
+			else if (sender is DateTimePicker)
+			{
+				SetStatusbar(text: ((DateTimePicker)sender).AccessibleDescription);
+			}
+			else if (sender is Label)
+			{
+				SetStatusbar(text: ((Label)sender).AccessibleDescription);
+			}
+			else if (sender is PictureBox)
+			{
+				SetStatusbar(text: ((PictureBox)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripButton)
+			{
+				SetStatusbar(text: ((ToolStripButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				SetStatusbar(text: ((ToolStripMenuItem)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				SetStatusbar(text: ((ToolStripLabel)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				SetStatusbar(text: ((ToolStripComboBox)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				SetStatusbar(text: ((ToolStripDropDown)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				SetStatusbar(text: ((ToolStripDropDownButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				SetStatusbar(text: ((ToolStripDropDownItem)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				SetStatusbar(text: ((ToolStripDropDownMenu)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				SetStatusbar(text: ((ToolStripProgressBar)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				SetStatusbar(text: ((ToolStripSplitButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				SetStatusbar(text: ((ToolStripSeparator)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				SetStatusbar(text: ((ToolStripStatusLabel)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				SetStatusbar(text: ((ToolStripTextBox)sender).AccessibleDescription);
+			}
 		}
+
+		#endregion
+
+		#region Leave event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbar(text: "");
+
+		#endregion
 
 		#region Click-Handler
 
@@ -84,347 +193,90 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ButtonOK_Click(object sender, EventArgs e) => Close();
 
-		#endregion
-
-		#region DoubleClick-Handler
-
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelName_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelName.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDirectory_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDirectory.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSize_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSize.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateCreated_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateCreated.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateAccessed_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateAccessed.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateWrited_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateWrited.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelAttributes_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelAttributes.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNameValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelNameValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDirectoryValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDirectoryValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSizeValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelSizeValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateCreatedValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateCreatedValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateAccessedValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateAccessedValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateWritedValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelDateWritedValue.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelAttributesValue_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelAttributesValue.Text);
-
-		#endregion
-
-		#region Enter-Eventhandler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelName_Enter(object sender, EventArgs e) => SetLabelText(text: labelName.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDirectory_Enter(object sender, EventArgs e) => SetLabelText(text: labelDirectory.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSize_Enter(object sender, EventArgs e) => SetLabelText(text: labelSize.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateCreated_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateCreated.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateAccessed_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateAccessed.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateWrited_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateWrited.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelAttributes_Enter(object sender, EventArgs e) => SetLabelText(text: labelAttributes.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNameValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelNameValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDirectoryValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDirectoryValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSizeValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelSizeValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateCreatedValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateCreatedValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateAccessedValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateAccessedValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateWritedValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelDateWritedValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelAttributesValue_Enter(object sender, EventArgs e) => SetLabelText(text: labelAttributesValue.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonOK_Enter(object sender, EventArgs e) => SetLabelText(text: buttonOK.AccessibleDescription);
-
-		#endregion
-
-		#region Leave-Eventhandler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelName_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDirectory_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSize_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateCreated_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateAccessed_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateWrited_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelAttributes_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNameValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDirectoryValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSizeValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateCreatedValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateAccessedValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDateWritedValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelAttributesValue_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonOK_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		#endregion
-
-		#region MouseEnter-Eventhandler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PictureBoxInformation_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxInformation.AccessibleDescription);
-
-		#endregion
-
-		#region MouseLeave-Eventhandler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PictureBoxInformation_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
+		private void CopyToClipboard_Click(object sender, EventArgs e)
+		{
+			if (sender is TextBox)
+			{
+				CopyToClipboard(text: ((TextBox)sender).Text);
+			}
+			else if (sender is Button)
+			{
+				CopyToClipboard(text: ((Button)sender).Text);
+			}
+			else if (sender is RadioButton)
+			{
+				CopyToClipboard(text: ((RadioButton)sender).Text);
+			}
+			else if (sender is CheckBox)
+			{
+				CopyToClipboard(text: ((CheckBox)sender).Text);
+			}
+			else if (sender is DateTimePicker)
+			{
+				CopyToClipboard(text: ((DateTimePicker)sender).Text);
+			}
+			else if (sender is Label)
+			{
+				CopyToClipboard(text: ((Label)sender).Text);
+			}
+			else if (sender is ToolStripButton)
+			{
+				CopyToClipboard(text: ((ToolStripButton)sender).Text);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				CopyToClipboard(text: ((ToolStripMenuItem)sender).Text);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				CopyToClipboard(text: ((ToolStripLabel)sender).Text);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				CopyToClipboard(text: ((ToolStripComboBox)sender).Text);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				CopyToClipboard(text: ((ToolStripDropDown)sender).Text);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownButton)sender).Text);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownItem)sender).Text);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownMenu)sender).Text);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				CopyToClipboard(text: ((ToolStripProgressBar)sender).Text);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				CopyToClipboard(text: ((ToolStripSplitButton)sender).Text);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				CopyToClipboard(text: ((ToolStripSeparator)sender).Text);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				CopyToClipboard(text: ((ToolStripStatusLabel)sender).Text);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				CopyToClipboard(text: ((ToolStripTextBox)sender).Text);
+			}
+		}
 
 		#endregion
 	}

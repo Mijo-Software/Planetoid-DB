@@ -64,7 +64,7 @@
 			this.columnHeaderDateLastObservation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
-			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinimum)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaximum)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxWarning)).BeginInit();
@@ -83,8 +83,8 @@
 			this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.progressBar.TabIndex = 8;
 			this.toolTip.SetToolTip(this.progressBar, "Show the progress");
-			this.progressBar.MouseEnter += new System.EventHandler(this.ProgressBar_MouseEnter);
-			this.progressBar.MouseLeave += new System.EventHandler(this.ProgressBar_MouseLeave);
+			this.progressBar.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.progressBar.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMinimum
 			// 
@@ -92,6 +92,7 @@
 			this.labelMinimum.AccessibleName = "Minimum";
 			this.labelMinimum.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMinimum.AutoSize = true;
+			this.labelMinimum.BackColor = System.Drawing.Color.Transparent;
 			this.labelMinimum.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelMinimum.Location = new System.Drawing.Point(12, 17);
 			this.labelMinimum.Name = "labelMinimum";
@@ -99,11 +100,11 @@
 			this.labelMinimum.TabIndex = 0;
 			this.labelMinimum.Text = "M&inimum:";
 			this.toolTip.SetToolTip(this.labelMinimum, "Minimum");
-			this.labelMinimum.DoubleClick += new System.EventHandler(this.LabelMinimum_DoubleClick);
-			this.labelMinimum.Enter += new System.EventHandler(this.LabelMinimum_Enter);
-			this.labelMinimum.Leave += new System.EventHandler(this.LabelMinimum_Leave);
-			this.labelMinimum.MouseEnter += new System.EventHandler(this.LabelMinimum_Enter);
-			this.labelMinimum.MouseLeave += new System.EventHandler(this.LabelMinimum_Leave);
+			this.labelMinimum.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMinimum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMinimum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMinimum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMinimum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// numericUpDownMinimum
 			// 
@@ -117,8 +118,8 @@
 			this.numericUpDownMinimum.TabIndex = 1;
 			this.numericUpDownMinimum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.numericUpDownMinimum, "Minimum value for the list");
-			this.numericUpDownMinimum.Enter += new System.EventHandler(this.NumericUpDownMinimum_Enter);
-			this.numericUpDownMinimum.Leave += new System.EventHandler(this.NumericUpDownMinimum_Leave);
+			this.numericUpDownMinimum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.numericUpDownMinimum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// numericUpDownMaximum
 			// 
@@ -132,8 +133,8 @@
 			this.numericUpDownMaximum.TabIndex = 3;
 			this.numericUpDownMaximum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.numericUpDownMaximum, "Maximum value for the list");
-			this.numericUpDownMaximum.Enter += new System.EventHandler(this.NumericUpDownMaximum_Enter);
-			this.numericUpDownMaximum.Leave += new System.EventHandler(this.NumericUpDownMaximum_Leave);
+			this.numericUpDownMaximum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.numericUpDownMaximum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelMaximum
 			// 
@@ -141,6 +142,7 @@
 			this.labelMaximum.AccessibleName = "Maximum";
 			this.labelMaximum.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMaximum.AutoSize = true;
+			this.labelMaximum.BackColor = System.Drawing.Color.Transparent;
 			this.labelMaximum.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelMaximum.Location = new System.Drawing.Point(151, 17);
 			this.labelMaximum.Name = "labelMaximum";
@@ -148,11 +150,11 @@
 			this.labelMaximum.TabIndex = 2;
 			this.labelMaximum.Text = "M&aximum:";
 			this.toolTip.SetToolTip(this.labelMaximum, "Maximum");
-			this.labelMaximum.DoubleClick += new System.EventHandler(this.LabelMaximum_DoubleClick);
-			this.labelMaximum.Enter += new System.EventHandler(this.LabelMaximum_Enter);
-			this.labelMaximum.Leave += new System.EventHandler(this.LabelMaximum_Leave);
-			this.labelMaximum.MouseEnter += new System.EventHandler(this.LabelMaximum_Enter);
-			this.labelMaximum.MouseLeave += new System.EventHandler(this.LabelMaximum_Leave);
+			this.labelMaximum.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMaximum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMaximum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMaximum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMaximum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// pictureBoxWarning
 			// 
@@ -168,8 +170,8 @@
 			this.pictureBoxWarning.TabStop = false;
 			this.toolTip.SetToolTip(this.pictureBoxWarning, "Warning!!!");
 			this.pictureBoxWarning.DoubleClick += new System.EventHandler(this.PictureBoxWarning_DoubleClick);
-			this.pictureBoxWarning.MouseEnter += new System.EventHandler(this.PictureBoxWarning_MouseEnter);
-			this.pictureBoxWarning.MouseLeave += new System.EventHandler(this.PictureBoxWarning_MouseLeave);
+			this.pictureBoxWarning.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.pictureBoxWarning.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonList
 			// 
@@ -189,10 +191,10 @@
 			this.toolTip.SetToolTip(this.buttonList, "Start the progress and list");
 			this.buttonList.UseVisualStyleBackColor = true;
 			this.buttonList.Click += new System.EventHandler(this.ButtonList_Click);
-			this.buttonList.Enter += new System.EventHandler(this.ButtonList_Enter);
-			this.buttonList.Leave += new System.EventHandler(this.ButtonList_Leave);
-			this.buttonList.MouseEnter += new System.EventHandler(this.ButtonList_Enter);
-			this.buttonList.MouseLeave += new System.EventHandler(this.ButtonList_Leave);
+			this.buttonList.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonList.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonList.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonList.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelWarning1
 			// 
@@ -200,6 +202,7 @@
 			this.labelWarning1.AccessibleName = "Warning message 1";
 			this.labelWarning1.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelWarning1.AutoSize = true;
+			this.labelWarning1.BackColor = System.Drawing.Color.Transparent;
 			this.labelWarning1.Font = new System.Drawing.Font("Segoe UI", 7F);
 			this.labelWarning1.Location = new System.Drawing.Point(443, 14);
 			this.labelWarning1.Name = "labelWarning1";
@@ -207,11 +210,11 @@
 			this.labelWarning1.TabIndex = 6;
 			this.labelWarning1.Text = "Be careful: Don\'t use a big span between minimum and maximum!";
 			this.toolTip.SetToolTip(this.labelWarning1, "Be careful: Don\'t use a big span between minimum and maximum!");
-			this.labelWarning1.DoubleClick += new System.EventHandler(this.LabelWarning1_DoubleClick);
-			this.labelWarning1.Enter += new System.EventHandler(this.LabelWarning1_Enter);
-			this.labelWarning1.Leave += new System.EventHandler(this.LabelWarning1_Leave);
-			this.labelWarning1.MouseEnter += new System.EventHandler(this.LabelWarning1_Enter);
-			this.labelWarning1.MouseLeave += new System.EventHandler(this.LabelWarning1_Leave);
+			this.labelWarning1.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelWarning1.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelWarning1.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelWarning1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelWarning1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelWarning2
 			// 
@@ -219,6 +222,7 @@
 			this.labelWarning2.AccessibleName = "Warning message 2";
 			this.labelWarning2.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelWarning2.AutoSize = true;
+			this.labelWarning2.BackColor = System.Drawing.Color.Transparent;
 			this.labelWarning2.Font = new System.Drawing.Font("Segoe UI", 7F);
 			this.labelWarning2.Location = new System.Drawing.Point(443, 29);
 			this.labelWarning2.Name = "labelWarning2";
@@ -226,11 +230,11 @@
 			this.labelWarning2.TabIndex = 7;
 			this.labelWarning2.Text = "The loading time and the memory increase. Use small spans!";
 			this.toolTip.SetToolTip(this.labelWarning2, "The loading time and the memory increase. Use small spans!");
-			this.labelWarning2.DoubleClick += new System.EventHandler(this.LabelWarning2_DoubleClick);
-			this.labelWarning2.Enter += new System.EventHandler(this.LabelWarning2_Enter);
-			this.labelWarning2.Leave += new System.EventHandler(this.LabelWarning2_Leave);
-			this.labelWarning2.MouseEnter += new System.EventHandler(this.LabelWarning2_Enter);
-			this.labelWarning2.MouseLeave += new System.EventHandler(this.LabelWarning2_Leave);
+			this.labelWarning2.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelWarning2.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelWarning2.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelWarning2.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelWarning2.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonCancel
 			// 
@@ -250,10 +254,10 @@
 			this.toolTip.SetToolTip(this.buttonCancel, "Cancel the progress");
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
-			this.buttonCancel.Enter += new System.EventHandler(this.ButtonCancel_Enter);
-			this.buttonCancel.Leave += new System.EventHandler(this.ButtonCancel_Leave);
-			this.buttonCancel.MouseEnter += new System.EventHandler(this.ButtonCancel_Enter);
-			this.buttonCancel.MouseLeave += new System.EventHandler(this.ButtonCancel_Leave);
+			this.buttonCancel.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancel.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonCancel.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancel.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// listViewTableMode
 			// 
@@ -294,10 +298,10 @@
 			this.listViewTableMode.UseCompatibleStateImageBehavior = false;
 			this.listViewTableMode.View = System.Windows.Forms.View.Details;
 			this.listViewTableMode.SelectedIndexChanged += new System.EventHandler(this.ListViewTableMode_SelectedIndexChanged);
-			this.listViewTableMode.Enter += new System.EventHandler(this.ListViewTableMode_Enter);
-			this.listViewTableMode.Leave += new System.EventHandler(this.ListViewTableMode_Leave);
-			this.listViewTableMode.MouseEnter += new System.EventHandler(this.ListViewTableMode_Enter);
-			this.listViewTableMode.MouseLeave += new System.EventHandler(this.ListViewTableMode_Leave);
+			this.listViewTableMode.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.listViewTableMode.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.listViewTableMode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.listViewTableMode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// columnHeaderIndex
 			// 
@@ -420,7 +424,7 @@
 			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelHelp});
+            this.labelInformation});
 			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.statusStrip.Location = new System.Drawing.Point(0, 380);
 			this.statusStrip.Name = "statusStrip";
@@ -432,19 +436,19 @@
 			this.statusStrip.TabStop = true;
 			this.statusStrip.Text = "statusStrip";
 			// 
-			// labelHelp
+			// labelInformation
 			// 
-			this.labelHelp.AccessibleDescription = "Show some important informations";
-			this.labelHelp.AccessibleName = "Information field";
-			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelHelp.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelHelp.Name = "labelHelp";
-			this.labelHelp.Size = new System.Drawing.Size(170, 16);
-			this.labelHelp.Text = "Show informative messages";
-			this.labelHelp.ToolTipText = "Show informative messages";
-			this.labelHelp.MouseEnter += new System.EventHandler(this.LabelStatus_MouseEnter);
-			this.labelHelp.MouseLeave += new System.EventHandler(this.LabelStatus_MouseLeave);
+			this.labelInformation.AccessibleDescription = "Show some important informations";
+			this.labelInformation.AccessibleName = "Information field";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(170, 16);
+			this.labelInformation.Text = "Show informative messages";
+			this.labelInformation.ToolTipText = "Show informative messages";
+			this.labelInformation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelInformation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// TableModeForm
 			// 
@@ -471,7 +475,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "TableModeForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Table Mode";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TableModeForm_FormClosed);
 			this.Load += new System.EventHandler(this.TableModeForm_Load);
@@ -521,6 +525,6 @@
     private System.Windows.Forms.Label labelWarning1;
     private System.Windows.Forms.Label labelWarning2;
     private System.Windows.Forms.Button buttonCancel;
-    private System.Windows.Forms.ToolStripStatusLabel labelHelp;
+    private System.Windows.Forms.ToolStripStatusLabel labelInformation;
   }
 }

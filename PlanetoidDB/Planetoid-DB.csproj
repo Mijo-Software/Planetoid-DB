@@ -97,6 +97,7 @@
     <Compile Include="AppInfoForm.Designer.cs">
       <DependentUpon>AppInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CheckMpcorbDatForm.cs">
       <SubType>Form</SubType>
     </Compile>

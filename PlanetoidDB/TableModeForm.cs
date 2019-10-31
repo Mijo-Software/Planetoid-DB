@@ -10,50 +10,12 @@ namespace Planetoid_DB
 	/// </summary>
 	public partial class TableModeForm : Form
 	{
-		private ArrayList arrDB = new ArrayList(capacity: 0);
+		private ArrayList planetoidDatabase = new ArrayList(capacity: 0);
 		private int numberPlanetoids = 0;
 		private bool isCancelled = false;
 		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public TableModeForm() => InitializeComponent();
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TableModeForm_Load(object sender, EventArgs e)
-		{
-			labelHelp.Text = "";
-			labelHelp.Enabled = false;
-			listViewTableMode.Visible = false;
-			buttonCancel.Enabled = false;
-			if (arrDB.Count > 0)
-			{
-				numericUpDownMinimum.Minimum = 1;
-				numericUpDownMaximum.Minimum = 1;
-				numericUpDownMinimum.Maximum = arrDB.Count;
-				numericUpDownMaximum.Maximum = arrDB.Count;
-				numericUpDownMinimum.Value = 1;
-				numericUpDownMaximum.Value = arrDB.Count;
-			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void TableModeForm_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			listViewTableMode.Dispose();
-			Dispose();
-		}
-
-		#region Important methods
+		#region local methods
 
 		/// <summary>
 		/// 
@@ -67,8 +29,8 @@ namespace Planetoid_DB
 		/// <param name="arrTemp"></param>
 		public void FillArray(ArrayList arrTemp)
 		{
-			arrDB = arrTemp;
-			numberPlanetoids = arrDB.Count;
+			planetoidDatabase = arrTemp;
+			numberPlanetoids = planetoidDatabase.Count;
 		}
 
 		/// <summary>
@@ -78,24 +40,17 @@ namespace Planetoid_DB
 		private void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="text"></param>
-		private void SetLabelText(string text)
+		private void SetStatusbar(string text)
 		{
-			if (text == "")
-			{
-				labelHelp.Enabled = false;
-			}
-			else
-			{
-				labelHelp.Enabled = true;
-			}
-			labelHelp.Text = text;
+			labelInformation.Enabled = text == "" ? false : true;
+			labelInformation.Text = text;
 		}
 
 		/// <summary>
@@ -104,28 +59,26 @@ namespace Planetoid_DB
 		/// <param name="currentPosition"></param>
 		private void FormatRow(int currentPosition)
 		{
-			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
-			// if (teilstring == "0") zahl = 0; ...
-			strIndex = arrDB[currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-			strMagAbs = arrDB[currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			strSlopeParam = arrDB[currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			strEpoch = arrDB[currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			strMeanAnomaly = arrDB[currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			strArgPeri = arrDB[currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			strLongAscNode = arrDB[currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			strIncl = arrDB[currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			strOrbEcc = arrDB[currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			strMotion = arrDB[currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			strSemiMajorAxis = arrDB[currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			strRef = arrDB[currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			strNumbObs = arrDB[currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			strNumbOppos = arrDB[currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			strObsSpan = arrDB[currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			strRmsResdiual = arrDB[currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			strComputerName = arrDB[currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			strFlags = arrDB[currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-			strDesgnName = arrDB[currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			strObsLastDate = arrDB[currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+			strIndex = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			strMagAbs = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			strSlopeParam = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			strEpoch = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			strMeanAnomaly = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			strArgPeri = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			strLongAscNode = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			strIncl = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			strOrbEcc = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			strMotion = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			strSemiMajorAxis = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			strRef = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			strNumbObs = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			strNumbOppos = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			strObsSpan = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			strRmsResdiual = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			strComputerName = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			strFlags = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			strDesgnName = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			strObsLastDate = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 			ListViewItem listViewItem = new ListViewItem(text: strIndex)
 			{
 				ToolTipText = strIndex + ": " + strDesgnName
@@ -150,6 +103,46 @@ namespace Planetoid_DB
 			listViewItem.SubItems.Add(text: strFlags);
 			listViewItem.SubItems.Add(text: strObsLastDate);
 			listViewTableMode.Items.Add(value: listViewItem);
+		}
+
+		#endregion
+
+		#region Constructor
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public TableModeForm() => InitializeComponent();
+
+		#endregion
+
+		#region Form* event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TableModeForm_Load(object sender, EventArgs e)
+		{
+			labelInformation.Text = "";
+			labelInformation.Enabled = listViewTableMode.Visible = buttonCancel.Enabled = false;
+			if (planetoidDatabase.Count > 0)
+			{
+				numericUpDownMinimum.Minimum = numericUpDownMaximum.Minimum = numericUpDownMinimum.Value = 1;
+				numericUpDownMinimum.Maximum = numericUpDownMaximum.Maximum = numericUpDownMaximum.Value = planetoidDatabase.Count;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TableModeForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			listViewTableMode.Dispose();
+			Dispose();
 		}
 
 		#endregion
@@ -201,7 +194,216 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region Enter-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SetStatusbar_Enter(object sender, EventArgs e)
+		{
+			if (sender is TextBox)
+			{
+				SetStatusbar(text: ((TextBox)sender).AccessibleDescription);
+			}
+			else if (sender is Button)
+			{
+				SetStatusbar(text: ((Button)sender).AccessibleDescription);
+			}
+			else if (sender is RadioButton)
+			{
+				SetStatusbar(text: ((RadioButton)sender).AccessibleDescription);
+			}
+			else if (sender is CheckBox)
+			{
+				SetStatusbar(text: ((CheckBox)sender).AccessibleDescription);
+			}
+			else if (sender is DateTimePicker)
+			{
+				SetStatusbar(text: ((DateTimePicker)sender).AccessibleDescription);
+			}
+			else if (sender is Label)
+			{
+				SetStatusbar(text: ((Label)sender).AccessibleDescription);
+			}
+			else if (sender is PictureBox)
+			{
+				SetStatusbar(text: ((PictureBox)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripButton)
+			{
+				SetStatusbar(text: ((ToolStripButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				SetStatusbar(text: ((ToolStripMenuItem)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				SetStatusbar(text: ((ToolStripLabel)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				SetStatusbar(text: ((ToolStripComboBox)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				SetStatusbar(text: ((ToolStripDropDown)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				SetStatusbar(text: ((ToolStripDropDownButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				SetStatusbar(text: ((ToolStripDropDownItem)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				SetStatusbar(text: ((ToolStripDropDownMenu)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				SetStatusbar(text: ((ToolStripProgressBar)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				SetStatusbar(text: ((ToolStripSplitButton)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				SetStatusbar(text: ((ToolStripSeparator)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				SetStatusbar(text: ((ToolStripStatusLabel)sender).AccessibleDescription);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				SetStatusbar(text: ((ToolStripTextBox)sender).AccessibleDescription);
+			}
+		}
+
+		#endregion
+
+		#region Leave-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbar(text: "");
+
+		#endregion
+
+		#region SelectedIndexChanged-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ListViewTableMode_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listViewTableMode.SelectedIndices.Count > 0)
+			{
+				int selectedIndex = listViewTableMode.SelectedIndices[index: 0];
+				if (selectedIndex >= 0)
+				{
+					SetStatusbar(text: I10nStrings.Index + ": " + listViewTableMode.Items[selectedIndex].Text + " - " + listViewTableMode.Items[selectedIndex].SubItems[1].Text);
+				}
+			}
+		}
+		#endregion
+
 		#region Clicks-Handler
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void CopyToClipboard_Click(object sender, EventArgs e)
+		{
+			if (sender is TextBox)
+			{
+				CopyToClipboard(text: ((TextBox)sender).Text);
+			}
+			else if (sender is Button)
+			{
+				CopyToClipboard(text: ((Button)sender).Text);
+			}
+			else if (sender is RadioButton)
+			{
+				CopyToClipboard(text: ((RadioButton)sender).Text);
+			}
+			else if (sender is CheckBox)
+			{
+				CopyToClipboard(text: ((CheckBox)sender).Text);
+			}
+			else if (sender is DateTimePicker)
+			{
+				CopyToClipboard(text: ((DateTimePicker)sender).Text);
+			}
+			else if (sender is Label)
+			{
+				CopyToClipboard(text: ((Label)sender).Text);
+			}
+			else if (sender is ToolStripButton)
+			{
+				CopyToClipboard(text: ((ToolStripButton)sender).Text);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				CopyToClipboard(text: ((ToolStripMenuItem)sender).Text);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				CopyToClipboard(text: ((ToolStripLabel)sender).Text);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				CopyToClipboard(text: ((ToolStripComboBox)sender).Text);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				CopyToClipboard(text: ((ToolStripDropDown)sender).Text);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownButton)sender).Text);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownItem)sender).Text);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownMenu)sender).Text);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				CopyToClipboard(text: ((ToolStripProgressBar)sender).Text);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				CopyToClipboard(text: ((ToolStripSplitButton)sender).Text);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				CopyToClipboard(text: ((ToolStripSeparator)sender).Text);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				CopyToClipboard(text: ((ToolStripStatusLabel)sender).Text);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				CopyToClipboard(text: ((ToolStripTextBox)sender).Text);
+			}
+		}
 
 		/// <summary>
 		/// 
@@ -262,250 +464,12 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void LabelMinimum_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: buttonCancel.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMaximum_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelMaximum.Text);
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void PictureBoxWarning_DoubleClick(object sender, EventArgs e)
 		{
 			//SoundPlayer sound = new SoundPlayer(stream: Properties.Resources.wav_redalert);
 			//sound.Play();
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelWarning1_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelWarning1.Text);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelWarning2_DoubleClick(object sender, EventArgs e) => CopyToClipboard(text: labelWarning2.Text);
-
-		#endregion
-
-		#region Enter-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonList_Enter(object sender, EventArgs e) => SetLabelText(text: buttonList.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonCancel_Enter(object sender, EventArgs e) => SetLabelText(text: buttonCancel.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMinimum_Enter(object sender, EventArgs e) => SetLabelText(text: labelMinimum.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMaximum_Enter(object sender, EventArgs e) => SetLabelText(text: labelMaximum.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void NumericUpDownMinimum_Enter(object sender, EventArgs e) => SetLabelText(text: numericUpDownMinimum.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void NumericUpDownMaximum_Enter(object sender, EventArgs e) => SetLabelText(text: numericUpDownMaximum.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelWarning1_Enter(object sender, EventArgs e) => SetLabelText(text: labelWarning1.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelWarning2_Enter(object sender, EventArgs e) => SetLabelText(text: labelWarning2.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ListViewTableMode_Enter(object sender, EventArgs e) => SetLabelText(text: listViewTableMode.AccessibleDescription);
-
-		#endregion
-
-		#region Leave-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonList_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonCancel_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMinimum_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMaximum_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void NumericUpDownMinimum_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void NumericUpDownMaximum_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelWarning1_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelWarning2_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ListViewTableMode_Leave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		#endregion
-
-		#region MouseEnter-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PictureBoxWarning_MouseEnter(object sender, EventArgs e) => SetLabelText(text: pictureBoxWarning.AccessibleDescription);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ProgressBar_MouseEnter(object sender, EventArgs e) => SetLabelText(text: progressBar.AccessibleDescription + ": " + progressBar.Value);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelStatus_MouseEnter(object sender, EventArgs e) => SetLabelText(text: labelHelp.AccessibleDescription);
-
-		#endregion
-
-		#region MouseLeave
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void PictureBoxWarning_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ProgressBar_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelStatus_MouseLeave(object sender, EventArgs e) => SetLabelText(text: "");
-
-		#endregion
-
-		#region SelectedIndexChanged-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ListViewTableMode_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			int intselectedIndex;
-			if (listViewTableMode.SelectedIndices.Count <= 0)
-			{
-				return;
-			}
-			else
-			{
-				intselectedIndex = listViewTableMode.SelectedIndices[index: 0];
-				if (intselectedIndex >= 0)
-				{
-					SetLabelText(text: I10nStrings.strIndex + ": " + listViewTableMode.Items[intselectedIndex].Text + " - " + listViewTableMode.Items[intselectedIndex].SubItems[1].Text);
-				}
-			}
-		}
 		#endregion
 	}
 }

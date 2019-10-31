@@ -46,7 +46,7 @@
 			this.labelSizeText = new System.Windows.Forms.Label();
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
-			this.labelHelp = new System.Windows.Forms.ToolStripStatusLabel();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tableLayoutPanel.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -61,8 +61,8 @@
 			this.progressBarDownload.Size = new System.Drawing.Size(408, 18);
 			this.progressBarDownload.TabIndex = 1;
 			this.toolTip.SetToolTip(this.progressBarDownload, "Show the progress of the download");
-			this.progressBarDownload.MouseEnter += new System.EventHandler(this.ProgressBarDownload_MouseEnter);
-			this.progressBarDownload.MouseLeave += new System.EventHandler(this.ProgressBarDownload_MouseLeave);
+			this.progressBarDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.progressBarDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelStatusValue
 			// 
@@ -70,18 +70,20 @@
 			this.labelStatusValue.AccessibleName = "Status of the download";
 			this.labelStatusValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelStatusValue.AutoSize = true;
+			this.labelStatusValue.BackColor = System.Drawing.Color.Transparent;
+			this.labelStatusValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelStatusValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelStatusValue.Location = new System.Drawing.Point(55, 0);
 			this.labelStatusValue.Name = "labelStatusValue";
-			this.labelStatusValue.Size = new System.Drawing.Size(16, 15);
+			this.labelStatusValue.Size = new System.Drawing.Size(415, 15);
 			this.labelStatusValue.TabIndex = 1;
 			this.labelStatusValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelStatusValue, "Show the status of the download");
-			this.labelStatusValue.DoubleClick += new System.EventHandler(this.LabelStatusValue_DoubleClick);
-			this.labelStatusValue.Enter += new System.EventHandler(this.LabelStatusValue_Enter);
-			this.labelStatusValue.Leave += new System.EventHandler(this.LabelStatusValue_Leave);
-			this.labelStatusValue.MouseEnter += new System.EventHandler(this.LabelStatusValue_Enter);
-			this.labelStatusValue.MouseLeave += new System.EventHandler(this.LabelStatusValue_Leave);
+			this.labelStatusValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelStatusValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelStatusValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelStatusValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelStatusValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelDownload
 			// 
@@ -96,10 +98,11 @@
 			this.labelDownload.TabIndex = 2;
 			this.labelDownload.Text = "xxx %";
 			this.toolTip.SetToolTip(this.labelDownload, "Show the percent of the downloaded bytes");
-			this.labelDownload.Enter += new System.EventHandler(this.LabelDownload_Enter);
-			this.labelDownload.Leave += new System.EventHandler(this.LabelDownload_Leave);
-			this.labelDownload.MouseEnter += new System.EventHandler(this.LabelDownload_Enter);
-			this.labelDownload.MouseLeave += new System.EventHandler(this.LabelDownload_Leave);
+			this.labelDownload.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelDownload.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDownload.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonCancelDownload
 			// 
@@ -118,10 +121,10 @@
 			this.toolTip.SetToolTip(this.buttonCancelDownload, "Cancel the download");
 			this.buttonCancelDownload.UseVisualStyleBackColor = true;
 			this.buttonCancelDownload.Click += new System.EventHandler(this.ButtonCancelDownload_Click);
-			this.buttonCancelDownload.Enter += new System.EventHandler(this.ButtonCancelDownload_Enter);
-			this.buttonCancelDownload.Leave += new System.EventHandler(this.ButtonCancelDownload_Leave);
-			this.buttonCancelDownload.MouseEnter += new System.EventHandler(this.ButtonCancelDownload_Enter);
-			this.buttonCancelDownload.MouseLeave += new System.EventHandler(this.ButtonCancelDownload_Leave);
+			this.buttonCancelDownload.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancelDownload.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonCancelDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancelDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonDownload
 			// 
@@ -140,10 +143,10 @@
 			this.toolTip.SetToolTip(this.buttonDownload, "Download the database");
 			this.buttonDownload.UseVisualStyleBackColor = true;
 			this.buttonDownload.Click += new System.EventHandler(this.ButtonDownload_Click);
-			this.buttonDownload.Enter += new System.EventHandler(this.ButtonDownload_Enter);
-			this.buttonDownload.Leave += new System.EventHandler(this.ButtonDownload_Leave);
-			this.buttonDownload.MouseEnter += new System.EventHandler(this.ButtonDownload_Enter);
-			this.buttonDownload.MouseLeave += new System.EventHandler(this.ButtonDownload_Leave);
+			this.buttonDownload.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonDownload.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSourceValue
 			// 
@@ -151,18 +154,20 @@
 			this.labelSourceValue.AccessibleName = "Source of the download";
 			this.labelSourceValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSourceValue.AutoSize = true;
+			this.labelSourceValue.BackColor = System.Drawing.Color.Transparent;
+			this.labelSourceValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSourceValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelSourceValue.Location = new System.Drawing.Point(55, 30);
 			this.labelSourceValue.Name = "labelSourceValue";
-			this.labelSourceValue.Size = new System.Drawing.Size(16, 15);
+			this.labelSourceValue.Size = new System.Drawing.Size(415, 15);
 			this.labelSourceValue.TabIndex = 5;
 			this.labelSourceValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelSourceValue, "Show the download source");
-			this.labelSourceValue.DoubleClick += new System.EventHandler(this.LabelSourceValue_DoubleClick);
-			this.labelSourceValue.Enter += new System.EventHandler(this.LabelSourceValue_Enter);
-			this.labelSourceValue.Leave += new System.EventHandler(this.LabelSourceValue_Leave);
-			this.labelSourceValue.MouseEnter += new System.EventHandler(this.LabelSourceValue_Enter);
-			this.labelSourceValue.MouseLeave += new System.EventHandler(this.LabelSourceValue_Leave);
+			this.labelSourceValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSourceValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSourceValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSourceValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSourceValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonCheckForUpdate
 			// 
@@ -181,10 +186,10 @@
 			this.toolTip.SetToolTip(this.buttonCheckForUpdate, "Check for updates of the database");
 			this.buttonCheckForUpdate.UseVisualStyleBackColor = true;
 			this.buttonCheckForUpdate.Click += new System.EventHandler(this.ButtonCheckForUpdate_Click);
-			this.buttonCheckForUpdate.Enter += new System.EventHandler(this.ButtonCheckForUpdate_Enter);
-			this.buttonCheckForUpdate.Leave += new System.EventHandler(this.ButtonCheckForUpdate_Leave);
-			this.buttonCheckForUpdate.MouseEnter += new System.EventHandler(this.ButtonCheckForUpdate_Enter);
-			this.buttonCheckForUpdate.MouseLeave += new System.EventHandler(this.ButtonCheckForUpdate_Leave);
+			this.buttonCheckForUpdate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCheckForUpdate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonCheckForUpdate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCheckForUpdate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelDateValue
 			// 
@@ -192,18 +197,20 @@
 			this.labelDateValue.AccessibleName = "Date of the download file";
 			this.labelDateValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateValue.AutoSize = true;
+			this.labelDateValue.BackColor = System.Drawing.Color.Transparent;
+			this.labelDateValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelDateValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelDateValue.Location = new System.Drawing.Point(55, 15);
 			this.labelDateValue.Name = "labelDateValue";
-			this.labelDateValue.Size = new System.Drawing.Size(16, 15);
+			this.labelDateValue.Size = new System.Drawing.Size(415, 15);
 			this.labelDateValue.TabIndex = 3;
 			this.labelDateValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelDateValue, "Show the last modified date of the download");
-			this.labelDateValue.DoubleClick += new System.EventHandler(this.LabelDateValue_DoubleClick);
-			this.labelDateValue.Enter += new System.EventHandler(this.LabelDateValue_Enter);
-			this.labelDateValue.Leave += new System.EventHandler(this.LabelDateValue_Leave);
-			this.labelDateValue.MouseEnter += new System.EventHandler(this.LabelDateValue_Enter);
-			this.labelDateValue.MouseLeave += new System.EventHandler(this.LabelDateValue_Leave);
+			this.labelDateValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelDateValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDateValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelDateValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDateValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSizeValue
 			// 
@@ -211,18 +218,20 @@
 			this.labelSizeValue.AccessibleName = "Size of the dowload file";
 			this.labelSizeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSizeValue.AutoSize = true;
+			this.labelSizeValue.BackColor = System.Drawing.Color.Transparent;
+			this.labelSizeValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSizeValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.labelSizeValue.Location = new System.Drawing.Point(55, 45);
 			this.labelSizeValue.Name = "labelSizeValue";
-			this.labelSizeValue.Size = new System.Drawing.Size(16, 15);
+			this.labelSizeValue.Size = new System.Drawing.Size(415, 22);
 			this.labelSizeValue.TabIndex = 7;
 			this.labelSizeValue.Text = "...";
 			this.toolTip.SetToolTip(this.labelSizeValue, "Show the file size of the download");
-			this.labelSizeValue.DoubleClick += new System.EventHandler(this.LabelSizeValue_DoubleClick);
-			this.labelSizeValue.Enter += new System.EventHandler(this.LabelSizeValue_Enter);
-			this.labelSizeValue.Leave += new System.EventHandler(this.LabelSizeValue_Leave);
-			this.labelSizeValue.MouseEnter += new System.EventHandler(this.LabelSizeValue_Enter);
-			this.labelSizeValue.MouseLeave += new System.EventHandler(this.LabelSizeValue_Leave);
+			this.labelSizeValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSizeValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSizeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSizeValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSizeValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelStatusText
 			// 
@@ -230,16 +239,19 @@
 			this.labelStatusText.AccessibleName = "Status";
 			this.labelStatusText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelStatusText.AutoSize = true;
+			this.labelStatusText.BackColor = System.Drawing.Color.Transparent;
+			this.labelStatusText.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelStatusText.Location = new System.Drawing.Point(3, 0);
 			this.labelStatusText.Name = "labelStatusText";
-			this.labelStatusText.Size = new System.Drawing.Size(42, 15);
+			this.labelStatusText.Size = new System.Drawing.Size(46, 15);
 			this.labelStatusText.TabIndex = 0;
 			this.labelStatusText.Text = "Status:";
 			this.toolTip.SetToolTip(this.labelStatusText, "Status");
-			this.labelStatusText.Enter += new System.EventHandler(this.LabelStatusText_Enter);
-			this.labelStatusText.Leave += new System.EventHandler(this.LabelStatusText_Leave);
-			this.labelStatusText.MouseEnter += new System.EventHandler(this.LabelStatusText_Enter);
-			this.labelStatusText.MouseLeave += new System.EventHandler(this.LabelStatusText_Leave);
+			this.labelStatusText.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelStatusText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelStatusText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelStatusText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelStatusText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelDateText
 			// 
@@ -247,16 +259,19 @@
 			this.labelDateText.AccessibleName = "Date";
 			this.labelDateText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDateText.AutoSize = true;
+			this.labelDateText.BackColor = System.Drawing.Color.Transparent;
+			this.labelDateText.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelDateText.Location = new System.Drawing.Point(3, 15);
 			this.labelDateText.Name = "labelDateText";
-			this.labelDateText.Size = new System.Drawing.Size(34, 15);
+			this.labelDateText.Size = new System.Drawing.Size(46, 15);
 			this.labelDateText.TabIndex = 2;
 			this.labelDateText.Text = "Date:";
 			this.toolTip.SetToolTip(this.labelDateText, "Date");
-			this.labelDateText.Enter += new System.EventHandler(this.LabelDateText_Enter);
-			this.labelDateText.Leave += new System.EventHandler(this.LabelDateText_Leave);
-			this.labelDateText.MouseEnter += new System.EventHandler(this.LabelDateText_Enter);
-			this.labelDateText.MouseLeave += new System.EventHandler(this.LabelDateText_Leave);
+			this.labelDateText.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelDateText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDateText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelDateText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDateText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSourceText
 			// 
@@ -264,16 +279,19 @@
 			this.labelSourceText.AccessibleName = "Source";
 			this.labelSourceText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSourceText.AutoSize = true;
+			this.labelSourceText.BackColor = System.Drawing.Color.Transparent;
+			this.labelSourceText.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSourceText.Location = new System.Drawing.Point(3, 30);
 			this.labelSourceText.Name = "labelSourceText";
 			this.labelSourceText.Size = new System.Drawing.Size(46, 15);
 			this.labelSourceText.TabIndex = 4;
 			this.labelSourceText.Text = "Source:";
 			this.toolTip.SetToolTip(this.labelSourceText, "Source");
-			this.labelSourceText.Enter += new System.EventHandler(this.LabelSourceText_Enter);
-			this.labelSourceText.Leave += new System.EventHandler(this.LabelSourceText_Leave);
-			this.labelSourceText.MouseEnter += new System.EventHandler(this.LabelSourceText_Enter);
-			this.labelSourceText.MouseHover += new System.EventHandler(this.LabelSourceText_Leave);
+			this.labelSourceText.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSourceText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSourceText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSourceText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSourceText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelSizeText
 			// 
@@ -281,19 +299,25 @@
 			this.labelSizeText.AccessibleName = "Size";
 			this.labelSizeText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSizeText.AutoSize = true;
+			this.labelSizeText.BackColor = System.Drawing.Color.Transparent;
+			this.labelSizeText.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSizeText.Location = new System.Drawing.Point(3, 45);
 			this.labelSizeText.Name = "labelSizeText";
-			this.labelSizeText.Size = new System.Drawing.Size(30, 15);
+			this.labelSizeText.Size = new System.Drawing.Size(46, 22);
 			this.labelSizeText.TabIndex = 6;
 			this.labelSizeText.Text = "Size:";
 			this.toolTip.SetToolTip(this.labelSizeText, "Size");
-			this.labelSizeText.Enter += new System.EventHandler(this.LabelSizeText_Enter);
-			this.labelSizeText.Leave += new System.EventHandler(this.LabelSizeText_Leave);
-			this.labelSizeText.MouseEnter += new System.EventHandler(this.LabelSizeText_Enter);
-			this.labelSizeText.MouseLeave += new System.EventHandler(this.LabelSizeText_Leave);
+			this.labelSizeText.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSizeText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSizeText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSizeText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSizeText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanel
 			// 
+			this.tableLayoutPanel.AccessibleDescription = "Group the data";
+			this.tableLayoutPanel.AccessibleName = "Information";
+			this.tableLayoutPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.tableLayoutPanel.ColumnCount = 2;
 			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -323,7 +347,7 @@
 			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelHelp});
+            this.labelInformation});
 			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.statusStrip.Location = new System.Drawing.Point(0, 151);
 			this.statusStrip.Name = "statusStrip";
@@ -335,18 +359,18 @@
 			this.statusStrip.TabStop = true;
 			this.statusStrip.Text = "statusStrip";
 			// 
-			// labelHelp
+			// labelInformation
 			// 
-			this.labelHelp.AccessibleDescription = "Show some information";
-			this.labelHelp.AccessibleName = "Show some information";
-			this.labelHelp.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelHelp.DoubleClickEnabled = true;
-			this.labelHelp.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelHelp.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelHelp.Name = "labelHelp";
-			this.labelHelp.Size = new System.Drawing.Size(116, 16);
-			this.labelHelp.Text = "Show tooltip here";
-			this.labelHelp.ToolTipText = "Show some information";
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Show some information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInformation.DoubleClickEnabled = true;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(116, 16);
+			this.labelInformation.Text = "Show tooltip here";
+			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// DownloadUpdateForm
 			// 
@@ -370,7 +394,7 @@
 			this.MinimizeBox = false;
 			this.Name = "DownloadUpdateForm";
 			this.ShowIcon = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Download MPCORB.DAT";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DownloadUpdateForm_FormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DownloadUpdateForm_FormClosed);
@@ -402,6 +426,6 @@
 		private System.Windows.Forms.Label labelSizeText;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
 		private System.Windows.Forms.StatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelHelp;
+		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 	}
 }

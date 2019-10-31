@@ -39,6 +39,7 @@
 			this.toolStripMenuItem1000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem10000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem100000 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.tableLayoutPanelData = new System.Windows.Forms.TableLayoutPanel();
 			this.linkLabelObsLastDate = new System.Windows.Forms.LinkLabel();
@@ -145,7 +146,6 @@
 			this.timerBlinkForUpdateAvailable = new System.Windows.Forms.Timer(this.components);
 			this.toolStripNavigation = new System.Windows.Forms.ToolStrip();
 			this.toolStripButtonStepToBegin = new System.Windows.Forms.ToolStripButton();
-			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripButtonStepBackwardOne = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonStepForwardOne = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonStepToEnd = new System.Windows.Forms.ToolStripButton();
@@ -187,7 +187,7 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
-			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepBackward;
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepForward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
@@ -268,6 +268,22 @@
 			this.toolStripMenuItem100000.Click += new System.EventHandler(this.ToolStripMenuItem100000_Click);
 			this.toolStripMenuItem100000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripSplitButtonStepBackward
+			// 
+			this.toolStripSplitButtonStepBackward.AccessibleDescription = "Navigate some data backward";
+			this.toolStripSplitButtonStepBackward.AccessibleName = "Navigate some data backward";
+			this.toolStripSplitButtonStepBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
+			this.toolStripSplitButtonStepBackward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripSplitButtonStepBackward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripSplitButtonStepBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
+			this.toolStripSplitButtonStepBackward.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripSplitButtonStepBackward.Name = "toolStripSplitButtonStepBackward";
+			this.toolStripSplitButtonStepBackward.Size = new System.Drawing.Size(32, 22);
+			this.toolStripSplitButtonStepBackward.Text = "Navigate some data backward";
+			this.toolStripSplitButtonStepBackward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
+			this.toolStripSplitButtonStepBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripSplitButtonStepBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripSplitButtonStepForward
 			// 
@@ -361,6 +377,7 @@
 			this.linkLabelObsLastDate.AccessibleName = "Date of last observation";
 			this.linkLabelObsLastDate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.linkLabelObsLastDate.AutoSize = true;
+			this.linkLabelObsLastDate.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelObsLastDate.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelObsLastDate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelObsLastDate.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
@@ -385,6 +402,7 @@
 			this.linkLabelFlags.AccessibleName = "4-hexdigit flags";
 			this.linkLabelFlags.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.linkLabelFlags.AutoSize = true;
+			this.linkLabelFlags.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelFlags.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelFlags.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelFlags.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
@@ -409,6 +427,7 @@
 			this.linkLabelComputerName.AccessibleName = "Computer name";
 			this.linkLabelComputerName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.linkLabelComputerName.AutoSize = true;
+			this.linkLabelComputerName.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelComputerName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelComputerName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelComputerName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
@@ -436,6 +455,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelRmsResidual.AutoSize = true;
+			this.linkLabelRmsResidual.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelRmsResidual.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelRmsResidual.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelRmsResidual.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -462,6 +482,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelObsSpan.AutoSize = true;
+			this.linkLabelObsSpan.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelObsSpan.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelObsSpan.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelObsSpan.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -488,6 +509,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelNumbObs.AutoSize = true;
+			this.linkLabelNumbObs.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelNumbObs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelNumbObs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelNumbObs.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -514,6 +536,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelNumbOppos.AutoSize = true;
+			this.linkLabelNumbOppos.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelNumbOppos.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelNumbOppos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelNumbOppos.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -540,6 +563,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelRef.AutoSize = true;
+			this.linkLabelRef.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelRef.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelRef.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelRef.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -566,6 +590,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelSlopeParam.AutoSize = true;
+			this.linkLabelSlopeParam.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelSlopeParam.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelSlopeParam.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSlopeParam.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -592,6 +617,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelMagAbs.AutoSize = true;
+			this.linkLabelMagAbs.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelMagAbs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMagAbs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMagAbs.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -617,6 +643,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelSemiMajorAxis.AutoSize = true;
+			this.linkLabelSemiMajorAxis.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelSemiMajorAxis.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelSemiMajorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSemiMajorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -643,6 +670,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelMotion.AutoSize = true;
+			this.linkLabelMotion.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelMotion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMotion.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMotion.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -669,6 +697,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelOrbEcc.AutoSize = true;
+			this.linkLabelOrbEcc.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelOrbEcc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelOrbEcc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelOrbEcc.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -695,6 +724,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelIncl.AutoSize = true;
+			this.linkLabelIncl.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelIncl.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelIncl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelIncl.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -720,6 +750,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelLongAscNode.AutoSize = true;
+			this.linkLabelLongAscNode.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelLongAscNode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelLongAscNode.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelLongAscNode.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -746,6 +777,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelArgPeri.AutoSize = true;
+			this.linkLabelArgPeri.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelArgPeri.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelArgPeri.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelArgPeri.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -772,6 +804,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelMeanAnomaly.AutoSize = true;
+			this.linkLabelMeanAnomaly.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelMeanAnomaly.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMeanAnomaly.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMeanAnomaly.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -798,6 +831,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelEpoch.AutoSize = true;
+			this.linkLabelEpoch.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelEpoch.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelEpoch.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelEpoch.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -821,6 +855,7 @@
 			this.labelDesgnNameValue.AccessibleName = "Show the information of \"Readable designation\"";
 			this.labelDesgnNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelDesgnNameValue.AutoSize = true;
+			this.labelDesgnNameValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelDesgnNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelDesgnNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelDesgnNameValue.Location = new System.Drawing.Point(246, 23);
@@ -843,6 +878,7 @@
 			this.labelEpochValue.AccessibleName = "Show the information of \"Epoch (in packed form, .0 TT)\"";
 			this.labelEpochValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelEpochValue.AutoSize = true;
+			this.labelEpochValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelEpochValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelEpochValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelEpochValue.Location = new System.Drawing.Point(246, 44);
@@ -865,6 +901,7 @@
 			this.labelMeanAnomalyValue.AccessibleName = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
 			this.labelMeanAnomalyValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMeanAnomalyValue.AutoSize = true;
+			this.labelMeanAnomalyValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelMeanAnomalyValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMeanAnomalyValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelMeanAnomalyValue.Location = new System.Drawing.Point(246, 65);
@@ -887,6 +924,7 @@
 			this.labelArgPeriValue.AccessibleName = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
 			this.labelArgPeriValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelArgPeriValue.AutoSize = true;
+			this.labelArgPeriValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelArgPeriValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelArgPeriValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelArgPeriValue.Location = new System.Drawing.Point(246, 86);
@@ -909,6 +947,7 @@
 			this.labelLongAscNodeValue.AccessibleName = "Show the information of \"Longitude of the ascending node, J2000.0\"";
 			this.labelLongAscNodeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelLongAscNodeValue.AutoSize = true;
+			this.labelLongAscNodeValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelLongAscNodeValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelLongAscNodeValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelLongAscNodeValue.Location = new System.Drawing.Point(246, 107);
@@ -931,6 +970,7 @@
 			this.labelInclValue.AccessibleName = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
 			this.labelInclValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelInclValue.AutoSize = true;
+			this.labelInclValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelInclValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelInclValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelInclValue.Location = new System.Drawing.Point(246, 128);
@@ -953,6 +993,7 @@
 			this.labelOrbEccValue.AccessibleName = "Show the information of \"Orbital eccentricity\"";
 			this.labelOrbEccValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelOrbEccValue.AutoSize = true;
+			this.labelOrbEccValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbEccValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbEccValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelOrbEccValue.Location = new System.Drawing.Point(246, 149);
@@ -975,6 +1016,7 @@
 			this.labelMotionValue.AccessibleName = "Show the information of \"Mean daily motion (degrees per day)\"";
 			this.labelMotionValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMotionValue.AutoSize = true;
+			this.labelMotionValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelMotionValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMotionValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelMotionValue.Location = new System.Drawing.Point(246, 170);
@@ -997,6 +1039,7 @@
 			this.labelSemiMajorAxisValue.AccessibleName = "Show the information of \"Semimajor axis (AU)\"";
 			this.labelSemiMajorAxisValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSemiMajorAxisValue.AutoSize = true;
+			this.labelSemiMajorAxisValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiMajorAxisValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiMajorAxisValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelSemiMajorAxisValue.Location = new System.Drawing.Point(246, 191);
@@ -1019,6 +1062,7 @@
 			this.labelSlopeParamValue.AccessibleName = "Show the information of \"Slope parameter, G\"";
 			this.labelSlopeParamValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelSlopeParamValue.AutoSize = true;
+			this.labelSlopeParamValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelSlopeParamValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSlopeParamValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelSlopeParamValue.Location = new System.Drawing.Point(565, 23);
@@ -1041,6 +1085,7 @@
 			this.labelIndexValue.AccessibleName = "Show the information of \"Index No.\"";
 			this.labelIndexValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelIndexValue.AutoSize = true;
+			this.labelIndexValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelIndexValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelIndexValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelIndexValue.Location = new System.Drawing.Point(246, 2);
@@ -1063,6 +1108,7 @@
 			this.labelMagAbsValue.AccessibleName = "Show the information of \"Absolute magnitude, H\"";
 			this.labelMagAbsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelMagAbsValue.AutoSize = true;
+			this.labelMagAbsValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelMagAbsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMagAbsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelMagAbsValue.Location = new System.Drawing.Point(246, 212);
@@ -1085,6 +1131,7 @@
 			this.labelRefValue.AccessibleName = "Show the information of \"Reference\"";
 			this.labelRefValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelRefValue.AutoSize = true;
+			this.labelRefValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelRefValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRefValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelRefValue.Location = new System.Drawing.Point(565, 44);
@@ -1107,6 +1154,7 @@
 			this.labelNumbOpposValue.AccessibleName = "Show the information of \"Number of oppositions\"";
 			this.labelNumbOpposValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelNumbOpposValue.AutoSize = true;
+			this.labelNumbOpposValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelNumbOpposValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbOpposValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelNumbOpposValue.Location = new System.Drawing.Point(565, 65);
@@ -1129,6 +1177,7 @@
 			this.labelNumbObsValue.AccessibleName = "Show the information of \"Number of observations\"";
 			this.labelNumbObsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelNumbObsValue.AutoSize = true;
+			this.labelNumbObsValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelNumbObsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbObsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelNumbObsValue.Location = new System.Drawing.Point(565, 86);
@@ -1151,6 +1200,7 @@
 			this.labelObsSpanValue.AccessibleName = "Show the information of \"Observation span\"";
 			this.labelObsSpanValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelObsSpanValue.AutoSize = true;
+			this.labelObsSpanValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelObsSpanValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsSpanValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelObsSpanValue.Location = new System.Drawing.Point(565, 107);
@@ -1173,6 +1223,7 @@
 			this.labelRmsResidualValue.AccessibleName = "Show the information of \"r.m.s residual (\")\"";
 			this.labelRmsResidualValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelRmsResidualValue.AutoSize = true;
+			this.labelRmsResidualValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelRmsResidualValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRmsResidualValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelRmsResidualValue.Location = new System.Drawing.Point(565, 128);
@@ -1195,6 +1246,7 @@
 			this.labelComputerNameValue.AccessibleName = "Show the information of \"Computer name\"";
 			this.labelComputerNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelComputerNameValue.AutoSize = true;
+			this.labelComputerNameValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelComputerNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelComputerNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelComputerNameValue.Location = new System.Drawing.Point(565, 149);
@@ -1217,6 +1269,7 @@
 			this.labelFlagsValue.AccessibleName = "Show the information of \"4-hexdigit flags\"";
 			this.labelFlagsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelFlagsValue.AutoSize = true;
+			this.labelFlagsValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelFlagsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelFlagsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelFlagsValue.Location = new System.Drawing.Point(565, 170);
@@ -1239,6 +1292,7 @@
 			this.labelObsLastDateValue.AccessibleName = "Show the information of \"Date of last observation\"";
 			this.labelObsLastDateValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.labelObsLastDateValue.AutoSize = true;
+			this.labelObsLastDateValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelObsLastDateValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsLastDateValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelObsLastDateValue.Location = new System.Drawing.Point(565, 191);
@@ -1264,6 +1318,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelIndex.AutoSize = true;
+			this.linkLabelIndex.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelIndex.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelIndex.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelIndex.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -1289,6 +1344,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.linkLabelDesgnName.AutoSize = true;
+			this.linkLabelDesgnName.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelDesgnName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelDesgnName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelDesgnName.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -1488,7 +1544,7 @@
 			this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
 			this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
 			this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(136, 22);
+			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemPrint.Text = "&Print";
 			this.toolStripMenuItemPrint.Click += new System.EventHandler(this.ToolStripMenuItemPrint_Click);
 			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1504,7 +1560,7 @@
 			this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
 			this.menuitemExit.Name = "menuitemExit";
 			this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-			this.menuitemExit.Size = new System.Drawing.Size(136, 22);
+			this.menuitemExit.Size = new System.Drawing.Size(180, 22);
 			this.menuitemExit.Text = "E&xit";
 			this.menuitemExit.ToolTipText = "Exit the application";
 			this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
@@ -2279,22 +2335,6 @@
 			this.toolStripButtonStepToBegin.Click += new System.EventHandler(this.ToolStripButtonStepToBegin_Click);
 			this.toolStripButtonStepToBegin.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripButtonStepToBegin.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// toolStripSplitButtonStepBackward
-			// 
-			this.toolStripSplitButtonStepBackward.AccessibleDescription = "Navigate some data backward";
-			this.toolStripSplitButtonStepBackward.AccessibleName = "Navigate some data backward";
-			this.toolStripSplitButtonStepBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.SplitButton;
-			this.toolStripSplitButtonStepBackward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripSplitButtonStepBackward.DropDown = this.contextMenuNavigationStep;
-			this.toolStripSplitButtonStepBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
-			this.toolStripSplitButtonStepBackward.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripSplitButtonStepBackward.Name = "toolStripSplitButtonStepBackward";
-			this.toolStripSplitButtonStepBackward.Size = new System.Drawing.Size(32, 22);
-			this.toolStripSplitButtonStepBackward.Text = "Navigate some data backward";
-			this.toolStripSplitButtonStepBackward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
-			this.toolStripSplitButtonStepBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripSplitButtonStepBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// toolStripButtonStepBackwardOne
 			// 

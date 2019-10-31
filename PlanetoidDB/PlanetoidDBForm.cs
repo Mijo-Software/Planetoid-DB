@@ -21,11 +21,11 @@ namespace Planetoid_DB
 		private readonly ArrayList planetoidDatabase = new ArrayList(capacity: 0);
 		private readonly SplashScreenForm formSplashScreen = new SplashScreenForm();
 		private readonly WebClient webClient = new WebClient();
-		private readonly string strFilenameMPCORB = Properties.Resources.strFilenameMPCORB;
-		private readonly string strFilenameMPCORBtemp = Properties.Resources.strFilenameMPCORBtemp;
-		private readonly Uri uriMPCORB = new Uri(uriString: Properties.Resources.strMpcorbUrl);
+		private readonly string strFilenameMPCORB = Properties.Resources.FilenameMpcorb;
+		private readonly string strFilenameMPCORBtemp = Properties.Resources.FilenameMpcorbTemp;
+		private readonly Uri uriMPCORB = new Uri(uriString: Properties.Resources.MpcorbUrl);
 
-		#region local functions
+		#region local methods
 
 		/// <summary>
 		/// 
@@ -41,7 +41,6 @@ namespace Planetoid_DB
 			aProp.SetValue(obj: control, value: true, index: null);
 		}
 
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -56,7 +55,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void AskForRestartAfterDownloadingDatabase()
 		{
-			if (MessageBox.Show(text: I10nStrings.strDownloadCompleteAndRestartQuestionText, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+			if (MessageBox.Show(text: I10nStrings.DownloadCompleteAndRestartQuestionText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 			{
 				Restart();
 			}
@@ -90,7 +89,7 @@ namespace Planetoid_DB
 			labelFlagsValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			labelDesgnNameValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
 			labelObsLastDateValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
-			toolStripLabelIndexPosition.Text = I10nStrings.strIndex + ": " + (currentPosition + 1).ToString() + " / " + planetoidDatabase.Count.ToString();
+			toolStripLabelIndexPosition.Text = I10nStrings.Index + ": " + (currentPosition + 1).ToString() + " / " + planetoidDatabase.Count.ToString();
 		}
 
 		/// <summary>
@@ -138,7 +137,7 @@ namespace Planetoid_DB
 		private void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.strCopiedToClipboard, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -206,7 +205,7 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.strNoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -224,7 +223,7 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.strNoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -269,7 +268,7 @@ namespace Planetoid_DB
 		public PlanetoidDBForm()
 		{
 			InitializeComponent();
-			Text = $"{Text} {Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+			base.Text = $"{base.Text} {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
 			SetStatusbar(text: "");
 		}
 
@@ -407,7 +406,7 @@ namespace Planetoid_DB
 			if (e.Error == null)
 			{
 				File.Delete(path: strFilenameMPCORB);
-				File.Copy(sourceFileName: strFilenameMPCORBtemp, destFileName: Properties.Resources.strFilenameMPCORB);
+				File.Copy(sourceFileName: strFilenameMPCORBtemp, destFileName: Properties.Resources.FilenameMpcorb);
 				File.Delete(path: strFilenameMPCORBtemp);
 				AskForRestartAfterDownloadingDatabase();
 			}
@@ -415,11 +414,11 @@ namespace Planetoid_DB
 			{
 				if (e.Cancelled)
 				{
-					MessageBox.Show(text: I10nStrings.strDownloadCancelledText, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+					MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
 				}
 				else
 				{
-					MessageBox.Show(text: I10nStrings.strDownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.strInformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+					MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				}
 				File.Delete(path: strFilenameMPCORBtemp);
 			}
@@ -634,6 +633,91 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void CopyToClipboard_Click(object sender, EventArgs e)
+		{
+			if (sender is TextBox)
+			{
+				CopyToClipboard(text: ((TextBox)sender).Text);
+			}
+			else if (sender is Button)
+			{
+				CopyToClipboard(text: ((Button)sender).Text);
+			}
+			else if (sender is RadioButton)
+			{
+				CopyToClipboard(text: ((RadioButton)sender).Text);
+			}
+			else if (sender is CheckBox)
+			{
+				CopyToClipboard(text: ((CheckBox)sender).Text);
+			}
+			else if (sender is DateTimePicker)
+			{
+				CopyToClipboard(text: ((DateTimePicker)sender).Text);
+			}
+			else if (sender is Label)
+			{
+				CopyToClipboard(text: ((Label)sender).Text);
+			}
+			else if (sender is ToolStripButton)
+			{
+				CopyToClipboard(text: ((ToolStripButton)sender).Text);
+			}
+			else if (sender is ToolStripMenuItem)
+			{
+				CopyToClipboard(text: ((ToolStripMenuItem)sender).Text);
+			}
+			else if (sender is ToolStripLabel)
+			{
+				CopyToClipboard(text: ((ToolStripLabel)sender).Text);
+			}
+			else if (sender is ToolStripComboBox)
+			{
+				CopyToClipboard(text: ((ToolStripComboBox)sender).Text);
+			}
+			else if (sender is ToolStripDropDown)
+			{
+				CopyToClipboard(text: ((ToolStripDropDown)sender).Text);
+			}
+			else if (sender is ToolStripDropDownButton)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownButton)sender).Text);
+			}
+			else if (sender is ToolStripDropDownItem)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownItem)sender).Text);
+			}
+			else if (sender is ToolStripDropDownMenu)
+			{
+				CopyToClipboard(text: ((ToolStripDropDownMenu)sender).Text);
+			}
+			else if (sender is ToolStripProgressBar)
+			{
+				CopyToClipboard(text: ((ToolStripProgressBar)sender).Text);
+			}
+			else if (sender is ToolStripSplitButton)
+			{
+				CopyToClipboard(text: ((ToolStripSplitButton)sender).Text);
+			}
+			else if (sender is ToolStripSeparator)
+			{
+				CopyToClipboard(text: ((ToolStripSeparator)sender).Text);
+			}
+			else if (sender is ToolStripStatusLabel)
+			{
+				CopyToClipboard(text: ((ToolStripStatusLabel)sender).Text);
+			}
+			else if (sender is ToolStripTextBox)
+			{
+				CopyToClipboard(text: ((ToolStripTextBox)sender).Text);
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)
 		{
 			currentPosition = 0;
@@ -735,7 +819,7 @@ namespace Planetoid_DB
 			}
 			if (pos <= 0 || pos >= planetoidDatabase.Count + 1)
 			{
-				MessageBox.Show(text: I10nStrings.strIndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.IndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -853,21 +937,21 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.strHomepage);
+		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.Homepage);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.strWebsiteMpc);
+		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.WebsiteMpc);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.strWebsiteMpcorb);
+		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.WebsiteMpcorb);
 
 		/// <summary>
 		/// 
@@ -1031,7 +1115,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripStatusLabelUpdate_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show(text: I10nStrings.strAskForDownloadingLastestMpcorbDatFile, caption: I10nStrings.strAskForDownloadingLastestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show(text: I10nStrings.AskForDownloadingLastestMpcorbDatFile, caption: I10nStrings.AskForDownloadingLastestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				toolStripStatusLabelUpdate.IsLink = false;
 				toolStripStatusLabelUpdate.Enabled = false;
@@ -1048,7 +1132,7 @@ namespace Planetoid_DB
 				webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 				try
 				{
-					webClient.DownloadFileAsync(address: uriMPCORB, fileName: Properties.Resources.strFilenameMPCORBtemp);
+					webClient.DownloadFileAsync(address: uriMPCORB, fileName: Properties.Resources.FilenameMpcorbTemp);
 				}
 				catch (Exception ex)
 				{
@@ -1093,7 +1177,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.strHomepage);
+		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.Homepage);
 
 		/// <summary>
 		/// 
@@ -1246,91 +1330,6 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e) => ShowDatabaseInformation();
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyToClipboard_Click(object sender, EventArgs e)
-		{
-			if (sender is TextBox)
-			{
-				CopyToClipboard(text: ((TextBox)sender).Text);
-			}
-			else if (sender is Button)
-			{
-				CopyToClipboard(text: ((Button)sender).Text);
-			}
-			else if (sender is RadioButton)
-			{
-				CopyToClipboard(text: ((RadioButton)sender).Text);
-			}
-			else if (sender is CheckBox)
-			{
-				SetStatusbar(text: ((CheckBox)sender).Text);
-			}
-			else if (sender is DateTimePicker)
-			{
-				CopyToClipboard(text: ((DateTimePicker)sender).Text);
-			}
-			else if (sender is Label)
-			{
-				CopyToClipboard(text: ((Label)sender).Text);
-			}
-			else if (sender is ToolStripButton)
-			{
-				CopyToClipboard(text: ((ToolStripButton)sender).Text);
-			}
-			else if (sender is ToolStripMenuItem)
-			{
-				CopyToClipboard(text: ((ToolStripMenuItem)sender).Text);
-			}
-			else if (sender is ToolStripLabel)
-			{
-				CopyToClipboard(text: ((ToolStripLabel)sender).Text);
-			}
-			else if (sender is ToolStripComboBox)
-			{
-				CopyToClipboard(text: ((ToolStripComboBox)sender).Text);
-			}
-			else if (sender is ToolStripDropDown)
-			{
-				CopyToClipboard(text: ((ToolStripDropDown)sender).Text);
-			}
-			else if (sender is ToolStripDropDownButton)
-			{
-				CopyToClipboard(text: ((ToolStripDropDownButton)sender).Text);
-			}
-			else if (sender is ToolStripDropDownItem)
-			{
-				CopyToClipboard(text: ((ToolStripDropDownItem)sender).Text);
-			}
-			else if (sender is ToolStripDropDownMenu)
-			{
-				CopyToClipboard(text: ((ToolStripDropDownMenu)sender).Text);
-			}
-			else if (sender is ToolStripProgressBar)
-			{
-				CopyToClipboard(text: ((ToolStripProgressBar)sender).Text);
-			}
-			else if (sender is ToolStripSplitButton)
-			{
-				CopyToClipboard(text: ((ToolStripSplitButton)sender).Text);
-			}
-			else if (sender is ToolStripSeparator)
-			{
-				CopyToClipboard(text: ((ToolStripSeparator)sender).Text);
-			}
-			else if (sender is ToolStripStatusLabel)
-			{
-				CopyToClipboard(text: ((ToolStripStatusLabel)sender).Text);
-			}
-			else if (sender is ToolStripTextBox)
-			{
-				CopyToClipboard(text: ((ToolStripTextBox)sender).Text);
-			}
-		}
-
 		#endregion
 
 		#region DoubleClick-Handler
@@ -1340,7 +1339,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void EasterEgg_DoubleClick(object sender, EventArgs e) => MessageBox.Show(text: I10nStrings.strEasterEgg, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		private void EasterEgg_DoubleClick(object sender, EventArgs e) => MessageBox.Show(text: I10nStrings.EasterEgg, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 
 		#endregion
 	}
