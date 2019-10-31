@@ -19,7 +19,7 @@ namespace Planetoid_DB.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,60 @@ namespace Planetoid_DB.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die mpcorb.dat ähnelt.
+        /// </summary>
+        internal static string FilenameMpcorb {
+            get {
+                return ResourceManager.GetString("FilenameMpcorb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die _ ähnelt.
+        /// </summary>
+        internal static string FilenameMpcorbTemp {
+            get {
+                return ResourceManager.GetString("FilenameMpcorbTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die https://planetoid-db.de ähnelt.
+        /// </summary>
+        internal static string Homepage {
+            get {
+                return ResourceManager.GetString("Homepage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die info@planetoid-db.de ähnelt.
+        /// </summary>
+        internal static string HomepageMailExtern {
+            get {
+                return ResourceManager.GetString("HomepageMailExtern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die mailto:info@planetoid-db.de ähnelt.
+        /// </summary>
+        internal static string HomepageMailIntern {
+            get {
+                return ResourceManager.GetString("HomepageMailIntern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT ähnelt.
+        /// </summary>
+        internal static string MpcorbUrl {
+            get {
+                return ResourceManager.GetString("MpcorbUrl", resourceCulture);
             }
         }
         
@@ -1301,65 +1355,20 @@ namespace Planetoid_DB.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die mpcorb.dat ähnelt.
-        /// </summary>
-        internal static string strFilenameMPCORB {
-            get {
-                return ResourceManager.GetString("strFilenameMPCORB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die _ ähnelt.
-        /// </summary>
-        internal static string strFilenameMPCORBtemp {
-            get {
-                return ResourceManager.GetString("strFilenameMPCORBtemp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die https://planetoid-db.de ähnelt.
-        /// </summary>
-        internal static string strHomepage {
-            get {
-                return ResourceManager.GetString("strHomepage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die mailto:michael-johne@gmx.de ähnelt.
-        /// </summary>
-        internal static string strHomepageMail {
-            get {
-                return ResourceManager.GetString("strHomepageMail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT ähnelt.
-        /// </summary>
-        internal static string strMpcorbUrl {
-            get {
-                return ResourceManager.GetString("strMpcorbUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/mpc.html ähnelt.
         /// </summary>
-        internal static string strWebsiteMpc {
+        internal static string WebsiteMpc {
             get {
-                return ResourceManager.GetString("strWebsiteMpc", resourceCulture);
+                return ResourceManager.GetString("WebsiteMpc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB.html ähnelt.
         /// </summary>
-        internal static string strWebsiteMpcorb {
+        internal static string WebsiteMpcorb {
             get {
-                return ResourceManager.GetString("strWebsiteMpcorb", resourceCulture);
+                return ResourceManager.GetString("WebsiteMpcorb", resourceCulture);
             }
         }
     }

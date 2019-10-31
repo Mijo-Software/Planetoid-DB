@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("Planetoid-DB")]
-[assembly: AssemblyCopyright("2010-2019 Michael Johne <info@.planetoid-db.de>")]
+[assembly: AssemblyCopyright("2010-2019 Michael Johne")]
 [assembly: AssemblyTrademark("Planetoid-DB")]
 [assembly: AssemblyCulture("")]
 

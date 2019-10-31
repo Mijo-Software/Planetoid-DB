@@ -334,26 +334,26 @@
   <data name="silk_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="strFilenameMPCORB" xml:space="preserve">
+  <data name="FilenameMpcorb" xml:space="preserve">
     <value>mpcorb.dat</value>
   </data>
-  <data name="strFilenameMPCORBtemp" xml:space="preserve">
+  <data name="FilenameMpcorbTemp" xml:space="preserve">
     <value>_</value>
   </data>
-  <data name="strHomepage" xml:space="preserve">
+  <data name="Homepage" xml:space="preserve">
     <value>https://planetoid-db.de</value>
   </data>
-  <data name="strMpcorbUrl" xml:space="preserve">
+  <data name="MpcorbUrl" xml:space="preserve">
     <value>http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT</value>
   </data>
-  <data name="strWebsiteMpc" xml:space="preserve">
+  <data name="WebsiteMpc" xml:space="preserve">
     <value>http://www.minorplanetcenter.org/iau/mpc.html</value>
   </data>
-  <data name="strWebsiteMpcorb" xml:space="preserve">
+  <data name="WebsiteMpcorb" xml:space="preserve">
     <value>http://www.minorplanetcenter.org/iau/MPCORB.html</value>
   </data>
-  <data name="strHomepageMail" xml:space="preserve">
-    <value>mailto:michael-johne@gmx.de</value>
+  <data name="HomepageMailIntern" xml:space="preserve">
+    <value>mailto:info@planetoid-db.de</value>
   </data>
   <data name="silk_backward_1_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_backward-1_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -510,5 +510,8 @@
   </data>
   <data name="silk_forward_end_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\silk_forward-end_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HomepageMailExtern" xml:space="preserve">
+    <value>info@planetoid-db.de</value>
   </data>
 </root>
