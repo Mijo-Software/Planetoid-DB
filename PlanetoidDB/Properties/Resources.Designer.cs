@@ -137,6 +137,26 @@ namespace Planetoid_DB.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap silk_arrow_refresh {
+            get {
+                object obj = ResourceManager.GetObject("silk_arrow_refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silk_arrow_switch {
+            get {
+                object obj = ResourceManager.GetObject("silk_arrow_switch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap silk_asterisk_orange {
             get {
                 object obj = ResourceManager.GetObject("silk_asterisk_orange", resourceCulture);
@@ -270,6 +290,16 @@ namespace Planetoid_DB.Properties {
         internal static System.Drawing.Bitmap silk_bullet_goback {
             get {
                 object obj = ResourceManager.GetObject("silk_bullet_goback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silk_bullet_green {
+            get {
+                object obj = ResourceManager.GetObject("silk_bullet_green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
