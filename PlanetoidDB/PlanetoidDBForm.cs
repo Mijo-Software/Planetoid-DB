@@ -1330,6 +1330,8 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e) => ShowDatabaseInformation();
 
+		private void ToolStripButtonLoadRandomMinorPlanet_Click(object sender, EventArgs e) => GotoCurrentPosition(currentPosition: new Random().Next(maxValue: planetoidDatabase.Count + 1));
+
 		#endregion
 
 		#region DoubleClick-Handler

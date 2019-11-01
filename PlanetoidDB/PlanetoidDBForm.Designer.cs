@@ -145,6 +145,8 @@
 			this.backgroundWorkerLoadingDatabase = new System.ComponentModel.BackgroundWorker();
 			this.timerBlinkForUpdateAvailable = new System.Windows.Forms.Timer(this.components);
 			this.toolStripNavigation = new System.Windows.Forms.ToolStrip();
+			this.toolStripButtonLoadRandomMinorPlanet = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButtonStepToBegin = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonStepBackwardOne = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonStepForwardOne = new System.Windows.Forms.ToolStripButton();
@@ -1544,7 +1546,7 @@
 			this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
 			this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
 			this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(136, 22);
 			this.toolStripMenuItemPrint.Text = "&Print";
 			this.toolStripMenuItemPrint.Click += new System.EventHandler(this.ToolStripMenuItemPrint_Click);
 			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1560,7 +1562,7 @@
 			this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
 			this.menuitemExit.Name = "menuitemExit";
 			this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-			this.menuitemExit.Size = new System.Drawing.Size(180, 22);
+			this.menuitemExit.Size = new System.Drawing.Size(136, 22);
 			this.menuitemExit.Text = "E&xit";
 			this.menuitemExit.ToolTipText = "Exit the application";
 			this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
@@ -2298,6 +2300,8 @@
 			this.toolStripNavigation.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
 			this.toolStripNavigation.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolStripNavigation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonLoadRandomMinorPlanet,
+            this.toolStripSeparator8,
             this.toolStripButtonStepToBegin,
             this.toolStripSplitButtonStepBackward,
             this.toolStripButtonStepBackwardOne,
@@ -2320,6 +2324,27 @@
 			this.toolStripNavigation.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.toolStripNavigation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripNavigation.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripButtonLoadRandomMinorPlanet
+			// 
+			this.toolStripButtonLoadRandomMinorPlanet.AccessibleDescription = "Load a random minor planet";
+			this.toolStripButtonLoadRandomMinorPlanet.AccessibleName = "Random minor planet";
+			this.toolStripButtonLoadRandomMinorPlanet.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.toolStripButtonLoadRandomMinorPlanet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButtonLoadRandomMinorPlanet.Image = global::Planetoid_DB.Properties.Resources.silk_arrow_refresh;
+			this.toolStripButtonLoadRandomMinorPlanet.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButtonLoadRandomMinorPlanet.Name = "toolStripButtonLoadRandomMinorPlanet";
+			this.toolStripButtonLoadRandomMinorPlanet.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButtonLoadRandomMinorPlanet.Text = "Random minor planet";
+			this.toolStripButtonLoadRandomMinorPlanet.Click += new System.EventHandler(this.ToolStripButtonLoadRandomMinorPlanet_Click);
+			this.toolStripButtonLoadRandomMinorPlanet.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripButtonLoadRandomMinorPlanet.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripSeparator8
+			// 
+			this.toolStripSeparator8.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+			this.toolStripSeparator8.Name = "toolStripSeparator8";
+			this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
 			// 
 			// toolStripButtonStepToBegin
 			// 
@@ -2728,6 +2753,8 @@
 		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepForward;
 		private System.Windows.Forms.ContextMenuStrip contextMenuCopyToClipboard;
 		private System.Windows.Forms.ToolStripMenuItem copyToClipboardToolStripMenuItem;
+		private System.Windows.Forms.ToolStripButton toolStripButtonLoadRandomMinorPlanet;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
 	}
 }
 
