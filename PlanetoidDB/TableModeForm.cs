@@ -129,8 +129,12 @@ namespace Planetoid_DB
 			labelInformation.Enabled = listViewTableMode.Visible = buttonCancel.Enabled = false;
 			if (planetoidDatabase.Count > 0)
 			{
-				numericUpDownMinimum.Minimum = numericUpDownMaximum.Minimum = numericUpDownMinimum.Value = 1;
-				numericUpDownMinimum.Maximum = numericUpDownMaximum.Maximum = numericUpDownMaximum.Value = planetoidDatabase.Count;
+				numericUpDownMinimum.Minimum = 1;
+				numericUpDownMaximum.Minimum = 1;
+				numericUpDownMinimum.Maximum = planetoidDatabase.Count;
+				numericUpDownMaximum.Maximum = planetoidDatabase.Count;
+				numericUpDownMinimum.Value = 1;
+				numericUpDownMaximum.Value = planetoidDatabase.Count;
 			}
 		}
 

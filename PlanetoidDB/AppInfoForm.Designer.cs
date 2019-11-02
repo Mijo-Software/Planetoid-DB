@@ -118,8 +118,8 @@
 			// 
 			// linkLabelMailAddress
 			// 
-			this.linkLabelMailAddress.AccessibleDescription = "Show the copyright";
-			this.linkLabelMailAddress.AccessibleName = "Copyright";
+			this.linkLabelMailAddress.AccessibleDescription = "Show the mail address";
+			this.linkLabelMailAddress.AccessibleName = "Mail address";
 			this.linkLabelMailAddress.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelMailAddress.AutoSize = true;
 			this.linkLabelMailAddress.BackColor = System.Drawing.Color.Transparent;
@@ -133,7 +133,7 @@
 			this.linkLabelMailAddress.TabIndex = 5;
 			this.linkLabelMailAddress.TabStop = true;
 			this.linkLabelMailAddress.Text = "Mail address";
-			this.toolTip.SetToolTip(this.linkLabelMailAddress, "Show the copyright");
+			this.toolTip.SetToolTip(this.linkLabelMailAddress, "Show the mail address");
 			this.linkLabelMailAddress.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelCopyright_LinkClicked);
 			this.linkLabelMailAddress.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.linkLabelMailAddress.Enter += new System.EventHandler(this.SetStatusbar_Enter);

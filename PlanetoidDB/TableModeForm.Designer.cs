@@ -36,10 +36,8 @@
 			this.numericUpDownMinimum = new System.Windows.Forms.NumericUpDown();
 			this.numericUpDownMaximum = new System.Windows.Forms.NumericUpDown();
 			this.labelMaximum = new System.Windows.Forms.Label();
-			this.pictureBoxWarning = new System.Windows.Forms.PictureBox();
 			this.buttonList = new System.Windows.Forms.Button();
-			this.labelWarning1 = new System.Windows.Forms.Label();
-			this.labelWarning2 = new System.Windows.Forms.Label();
+			this.labelWarning = new System.Windows.Forms.Label();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.listViewTableMode = new System.Windows.Forms.ListView();
 			this.columnHeaderIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,7 +65,6 @@
 			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinimum)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaximum)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxWarning)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -156,23 +153,6 @@
 			this.labelMaximum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMaximum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// pictureBoxWarning
-			// 
-			this.pictureBoxWarning.AccessibleDescription = "It\'s a warning sign.";
-			this.pictureBoxWarning.AccessibleName = "Warning sign";
-			this.pictureBoxWarning.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
-			this.pictureBoxWarning.Image = global::Planetoid_DB.Properties.Resources.silk_error;
-			this.pictureBoxWarning.Location = new System.Drawing.Point(424, 10);
-			this.pictureBoxWarning.Name = "pictureBoxWarning";
-			this.pictureBoxWarning.Size = new System.Drawing.Size(16, 16);
-			this.pictureBoxWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxWarning.TabIndex = 8;
-			this.pictureBoxWarning.TabStop = false;
-			this.toolTip.SetToolTip(this.pictureBoxWarning, "Warning!!!");
-			this.pictureBoxWarning.DoubleClick += new System.EventHandler(this.PictureBoxWarning_DoubleClick);
-			this.pictureBoxWarning.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.pictureBoxWarning.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
 			// buttonList
 			// 
 			this.buttonList.AccessibleDescription = "Start the progress and list";
@@ -196,45 +176,27 @@
 			this.buttonList.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.buttonList.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// labelWarning1
+			// labelWarning
 			// 
-			this.labelWarning1.AccessibleDescription = "Warning message: Be careful! Don\'t use a big span between minimum and maximum!";
-			this.labelWarning1.AccessibleName = "Warning message 1";
-			this.labelWarning1.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelWarning1.AutoSize = true;
-			this.labelWarning1.BackColor = System.Drawing.Color.Transparent;
-			this.labelWarning1.Font = new System.Drawing.Font("Segoe UI", 7F);
-			this.labelWarning1.Location = new System.Drawing.Point(443, 14);
-			this.labelWarning1.Name = "labelWarning1";
-			this.labelWarning1.Size = new System.Drawing.Size(301, 12);
-			this.labelWarning1.TabIndex = 6;
-			this.labelWarning1.Text = "Be careful: Don\'t use a big span between minimum and maximum!";
-			this.toolTip.SetToolTip(this.labelWarning1, "Be careful: Don\'t use a big span between minimum and maximum!");
-			this.labelWarning1.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelWarning1.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelWarning1.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelWarning1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelWarning1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelWarning2
-			// 
-			this.labelWarning2.AccessibleDescription = "Warning message: The loading time and the memory increase. Use small spans!";
-			this.labelWarning2.AccessibleName = "Warning message 2";
-			this.labelWarning2.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelWarning2.AutoSize = true;
-			this.labelWarning2.BackColor = System.Drawing.Color.Transparent;
-			this.labelWarning2.Font = new System.Drawing.Font("Segoe UI", 7F);
-			this.labelWarning2.Location = new System.Drawing.Point(443, 29);
-			this.labelWarning2.Name = "labelWarning2";
-			this.labelWarning2.Size = new System.Drawing.Size(271, 12);
-			this.labelWarning2.TabIndex = 7;
-			this.labelWarning2.Text = "The loading time and the memory increase. Use small spans!";
-			this.toolTip.SetToolTip(this.labelWarning2, "The loading time and the memory increase. Use small spans!");
-			this.labelWarning2.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelWarning2.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelWarning2.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelWarning2.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelWarning2.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelWarning.AccessibleDescription = "Warning message: Be careful! Don\'t use a big span between minimum and maximum!";
+			this.labelWarning.AccessibleName = "Warning message";
+			this.labelWarning.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelWarning.BackColor = System.Drawing.Color.SeaShell;
+			this.labelWarning.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.labelWarning.Font = new System.Drawing.Font("Segoe UI", 7F);
+			this.labelWarning.Location = new System.Drawing.Point(424, 10);
+			this.labelWarning.Name = "labelWarning";
+			this.labelWarning.Size = new System.Drawing.Size(308, 31);
+			this.labelWarning.TabIndex = 6;
+			this.labelWarning.Text = "Be careful: Don\'t use a big span between minimum and maximum! The loading time an" +
+    "d the memory increase. Use small spans!";
+			this.labelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelWarning, "Be careful: Don\'t use a big span between minimum and maximum!");
+			this.labelWarning.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelWarning.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelWarning.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelWarning.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelWarning.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonCancel
 			// 
@@ -459,9 +421,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(744, 401);
 			this.Controls.Add(this.buttonCancel);
-			this.Controls.Add(this.labelWarning2);
-			this.Controls.Add(this.labelWarning1);
-			this.Controls.Add(this.pictureBoxWarning);
+			this.Controls.Add(this.labelWarning);
 			this.Controls.Add(this.buttonList);
 			this.Controls.Add(this.numericUpDownMaximum);
 			this.Controls.Add(this.labelMaximum);
@@ -481,7 +441,6 @@
 			this.Load += new System.EventHandler(this.TableModeForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinimum)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaximum)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxWarning)).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.ResumeLayout(false);
@@ -521,9 +480,7 @@
     private System.Windows.Forms.NumericUpDown numericUpDownMaximum;
     private System.Windows.Forms.Label labelMaximum;
     private System.Windows.Forms.Button buttonList;
-    private System.Windows.Forms.PictureBox pictureBoxWarning;
-    private System.Windows.Forms.Label labelWarning1;
-    private System.Windows.Forms.Label labelWarning2;
+    private System.Windows.Forms.Label labelWarning;
     private System.Windows.Forms.Button buttonCancel;
     private System.Windows.Forms.ToolStripStatusLabel labelInformation;
   }

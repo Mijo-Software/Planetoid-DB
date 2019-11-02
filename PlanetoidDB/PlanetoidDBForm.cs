@@ -25,7 +25,7 @@ namespace Planetoid_DB
 		private readonly string strFilenameMPCORBtemp = Properties.Resources.FilenameMpcorbTemp;
 		private readonly Uri uriMPCORB = new Uri(uriString: Properties.Resources.MpcorbUrl);
 
-		#region local methods
+		#region Local methods
 
 		/// <summary>
 		/// 
@@ -139,6 +139,79 @@ namespace Planetoid_DB
 			Clipboard.SetText(text: text);
 			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void LoadRandomMinorPlanet() => GotoCurrentPosition(currentPosition: currentPosition = new Random().Next(maxValue: planetoidDatabase.Count + 1));
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void NavigateToTheBeginOfTheData() => GotoCurrentPosition(currentPosition: currentPosition = 0);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void NavigateSomeDataBackward()
+		{
+			currentPosition -= stepPosition;
+			if (currentPosition < 1)
+			{
+				currentPosition += planetoidDatabase.Count;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void NavigateToThePreviousData()
+		{
+			if (currentPosition == 0)
+			{
+				currentPosition = planetoidDatabase.Count - 1;
+			}
+			else
+			{
+				currentPosition--;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void NavigateToTheNextData()
+		{
+			if (currentPosition == planetoidDatabase.Count - 1)
+			{
+				currentPosition = 0;
+			}
+			else
+			{
+				currentPosition++;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void NavigateSomeDataForward()
+		{
+			currentPosition += stepPosition;
+			if (currentPosition > planetoidDatabase.Count)
+			{
+				currentPosition -= planetoidDatabase.Count;
+			}
+			GotoCurrentPosition(currentPosition: currentPosition);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void NavigateToTheEndOfTheData() => GotoCurrentPosition(currentPosition: currentPosition = planetoidDatabase.Count - 1);
 
 		/// <summary>
 		/// 
@@ -718,88 +791,42 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)
-		{
-			currentPosition = 0;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
+		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)	=> NavigateToTheBeginOfTheData();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepBackward_Click(object sender, EventArgs e)
-		{
-			currentPosition -= stepPosition;
-			if (currentPosition < 1)
-			{
-				currentPosition += planetoidDatabase.Count;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
+		private void ToolStripButtonStepBackward_Click(object sender, EventArgs e) => NavigateSomeDataBackward();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepBackwardOne_Click(object sender, EventArgs e)
-		{
-			if (currentPosition == 0)
-			{
-				currentPosition = planetoidDatabase.Count - 1;
-			}
-			else
-			{
-				currentPosition--;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
+		private void ToolStripButtonStepBackwardOne_Click(object sender, EventArgs e) => NavigateToThePreviousData();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepForwardOne_Click(object sender, EventArgs e)
-		{
-			if (currentPosition == planetoidDatabase.Count - 1)
-			{
-				currentPosition = 0;
-			}
-			else
-			{
-				currentPosition++;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
+		private void ToolStripButtonStepForwardOne_Click(object sender, EventArgs e) => NavigateToTheNextData();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepForward_Click(object sender, EventArgs e)
-		{
-			currentPosition += stepPosition;
-			if (currentPosition > planetoidDatabase.Count)
-			{
-				currentPosition -= planetoidDatabase.Count;
-			}
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
+		private void ToolStripButtonStepForward_Click(object sender, EventArgs e) => NavigateSomeDataForward();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepToEnd_Click(object sender, EventArgs e)
-		{
-			currentPosition = planetoidDatabase.Count - 1;
-			GotoCurrentPosition(currentPosition: currentPosition);
-		}
+		private void ToolStripButtonStepToEnd_Click(object sender, EventArgs e) => NavigateToTheEndOfTheData();
 
 		/// <summary>
 		/// 
@@ -1330,7 +1357,71 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemDatabaseInformation_Click(object sender, EventArgs e) => ShowDatabaseInformation();
 
-		private void ToolStripButtonLoadRandomMinorPlanet_Click(object sender, EventArgs e) => GotoCurrentPosition(currentPosition: new Random().Next(maxValue: planetoidDatabase.Count + 1));
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonLoadRandomMinorPlanet_Click(object sender, EventArgs e) => LoadRandomMinorPlanet();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemRandomMinorPlanet_Click(object sender, EventArgs e) => LoadRandomMinorPlanet();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemNavigateToTheBegin_Click(object sender, EventArgs e) => NavigateToTheBeginOfTheData();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemNavigateSomeDataBackward_Click(object sender, EventArgs e) => NavigateSomeDataBackward();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemNavigateToThePreviousData_Click(object sender, EventArgs e) => NavigateToThePreviousData();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemNavigateToTheNextData_Click(object sender, EventArgs e) => NavigateToTheNextData();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemNavigateSomeDataForward_Click(object sender, EventArgs e) => NavigateSomeDataForward();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemNavigateToTheEnd_Click(object sender, EventArgs e) => NavigateToTheEndOfTheData();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
+		{
+			//todo: add Settings here
+		}
 
 		#endregion
 

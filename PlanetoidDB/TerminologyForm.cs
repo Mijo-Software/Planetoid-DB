@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -9,6 +10,16 @@ namespace Planetoid_DB
 	/// </summary>
 	public partial class TerminologyForm : Form
 	{
+		private const int FEATURE_DISABLE_NAVIGATION_SOUNDS = 21;
+		private const int SET_FEATURE_ON_THREAD = 0x00000001;
+		private const int SET_FEATURE_ON_PROCESS = 0x00000002;
+		private const int SET_FEATURE_IN_REGISTRY = 0x00000004;
+		private const int SET_FEATURE_ON_THREAD_LOCALMACHINE = 0x00000008;
+		private const int SET_FEATURE_ON_THREAD_INTRANET = 0x00000010;
+		private const int SET_FEATURE_ON_THREAD_TRUSTED = 0x00000020;
+		private const int SET_FEATURE_ON_THREAD_INTERNET = 0x00000040;
+		private const int SET_FEATURE_ON_THREAD_RESTRICTED = 0x00000080;
+
 		private bool
 			isLabelIndexActive = false,
 			isLabelDesgnNameActive = false,
@@ -30,6 +41,13 @@ namespace Planetoid_DB
 			isLabelComputerNameActive = false,
 			isLabelFlagsActive = false,
 			isLabelObsLastDateActive = false;
+
+		// Necessary dll import
+		[DllImport("urlmon.dll")]
+		[PreserveSig]
+		[return: MarshalAs(UnmanagedType.Error)]
+
+		static extern int CoInternetSetFeatureEnabled(int FeatureEntry, [MarshalAs(UnmanagedType.U4)] int dwFlags, bool fEnable);
 
 		#region local methods
 
@@ -260,9 +278,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TerminologyForm_Load(object sender, EventArgs e)
-		{
-		}
+		private void TerminologyForm_Load(object sender, EventArgs e) => CoInternetSetFeatureEnabled(FeatureEntry: FEATURE_DISABLE_NAVIGATION_SOUNDS, dwFlags: SET_FEATURE_ON_PROCESS, fEnable: true);
 
 		/// <summary>
 		/// 
