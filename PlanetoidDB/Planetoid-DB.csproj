@@ -259,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Planetoid-DB-3.ico" />
+    <None Include="Resources\silk_arrow_divide.png" />
     <None Include="Resources\silk_bullet_green.png" />
     <None Include="Resources\silk_arrow_switch.png" />
     <None Include="Resources\silk_arrow_refresh.png" />

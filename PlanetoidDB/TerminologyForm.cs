@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -41,13 +40,6 @@ namespace Planetoid_DB
 			isLabelComputerNameActive = false,
 			isLabelFlagsActive = false,
 			isLabelObsLastDateActive = false;
-
-		// Necessary dll import
-		[DllImport("urlmon.dll")]
-		[PreserveSig]
-		[return: MarshalAs(UnmanagedType.Error)]
-
-		static extern int CoInternetSetFeatureEnabled(int FeatureEntry, [MarshalAs(UnmanagedType.U4)] int dwFlags, bool fEnable);
 
 		#region local methods
 
@@ -278,7 +270,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TerminologyForm_Load(object sender, EventArgs e) => CoInternetSetFeatureEnabled(FeatureEntry: FEATURE_DISABLE_NAVIGATION_SOUNDS, dwFlags: SET_FEATURE_ON_PROCESS, fEnable: true);
+		private void TerminologyForm_Load(object sender, EventArgs e) { }
 
 		/// <summary>
 		/// 

@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Office2007Rendering;
 using VS2008StripRenderingLibrary;
@@ -24,6 +25,30 @@ namespace Planetoid_DB
 		private readonly string strFilenameMPCORB = Properties.Resources.FilenameMpcorb;
 		private readonly string strFilenameMPCORBtemp = Properties.Resources.FilenameMpcorbTemp;
 		private readonly Uri uriMPCORB = new Uri(uriString: Properties.Resources.MpcorbUrl);
+
+		private const int FEATURE_DISABLE_NAVIGATION_SOUNDS = 21;
+		private const int SET_FEATURE_ON_THREAD = 0x00000001;
+		private const int SET_FEATURE_ON_PROCESS = 0x00000002;
+		private const int SET_FEATURE_IN_REGISTRY = 0x00000004;
+		private const int SET_FEATURE_ON_THREAD_LOCALMACHINE = 0x00000008;
+		private const int SET_FEATURE_ON_THREAD_INTRANET = 0x00000010;
+		private const int SET_FEATURE_ON_THREAD_TRUSTED = 0x00000020;
+		private const int SET_FEATURE_ON_THREAD_INTERNET = 0x00000040;
+		private const int SET_FEATURE_ON_THREAD_RESTRICTED = 0x00000080;
+		
+		// Necessary dll import
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="FeatureEntry"></param>
+		/// <param name="dwFlags"></param>
+		/// <param name="fEnable"></param>
+		/// <returns></returns>
+		[DllImport("urlmon.dll")]
+		[PreserveSig]
+		[return: MarshalAs(UnmanagedType.Error)]
+
+		static extern int CoInternetSetFeatureEnabled(int FeatureEntry, [MarshalAs(UnmanagedType.U4)] int dwFlags, bool fEnable);
 
 		#region Local methods
 
@@ -356,6 +381,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void PlanetoidDBForm_Load(object sender, EventArgs e)
 		{
+			CoInternetSetFeatureEnabled(FeatureEntry: FEATURE_DISABLE_NAVIGATION_SOUNDS, dwFlags: SET_FEATURE_ON_PROCESS, fEnable: true);
 			SetDoubleBuffered(control: tableLayoutPanelData);
 			ToolStripManager.Renderer = new Office2007Renderer();
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
@@ -1421,6 +1447,16 @@ namespace Planetoid_DB
 		private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
 		{
 			//todo: add Settings here
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemFilter_Click(object sender, EventArgs e)
+		{
+			//todo: add Filter here
 		}
 
 		#endregion
