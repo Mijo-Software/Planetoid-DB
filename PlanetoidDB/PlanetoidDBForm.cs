@@ -1473,12 +1473,10 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemDerivatedOrbitElements_Click(object sender, EventArgs e)
 		{
-			///todo: add DerivatedOrbitElements here
-			///linear eccentricity
-			///semi-minor axis
-			///eccentric anomaly
-			///true anomaly
-			///longitude of the descending node
+			using (DerivatedOrbitElementsForm formDerivatedOrbitElements = new DerivatedOrbitElementsForm())
+			{
+				formDerivatedOrbitElements.ShowDialog();
+			}
 		}
 
 		#endregion

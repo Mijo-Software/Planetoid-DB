@@ -275,6 +275,7 @@
 			this.Controls.Add(this.labelVersion);
 			this.Controls.Add(this.labelTitle);
 			this.Controls.Add(this.pictureBoxBanner);
+			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;

@@ -414,7 +414,7 @@
 			// 
 			// TableModeForm
 			// 
-			this.AccessibleDescription = "List up the MPCORB.DAT into a  table";
+			this.AccessibleDescription = "List the MPCORB.DAT into a  table";
 			this.AccessibleName = "Table Mode";
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +430,7 @@
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.progressBar);
 			this.Controls.Add(this.listViewTableMode);
+			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;

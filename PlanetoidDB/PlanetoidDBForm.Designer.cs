@@ -39,10 +39,10 @@
 			this.toolStripMenuItem1000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem10000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem100000 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemNavigateSomeDataForward = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripMenuItemNavigateSomeDataBackward = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemNavigateSomeDataForward = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanelData = new System.Windows.Forms.TableLayoutPanel();
 			this.linkLabelObsLastDate = new System.Windows.Forms.LinkLabel();
 			this.linkLabelFlags = new System.Windows.Forms.LinkLabel();
@@ -110,10 +110,12 @@
 			this.toolStripMenuItemNavigateToTheNextData = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemNavigateToTheEnd = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemTools = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemDerivatedOrbitElements = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparatorTools1 = new System.Windows.Forms.ToolStripSeparator();
 			this.chartBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.chartCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.chartPieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparatorTools1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparatorTools2 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripMenuItemDatabaseInformation = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemTableMode = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemTerminology = new System.Windows.Forms.ToolStripMenuItem();
@@ -180,8 +182,6 @@
 			this.contextMenuNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolStripMenuItemCheckMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemDownloadMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparatorTools2 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripMenuItemDerivatedOrbitElements = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuNavigationStep.SuspendLayout();
 			this.tableLayoutPanelData.SuspendLayout();
 			this.contextMenuCopyToClipboard.SuspendLayout();
@@ -208,7 +208,7 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
-			this.contextMenuNavigationStep.OwnerItem = this.toolStripMenuItemNavigateSomeDataBackward;
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripMenuItemNavigateSomeDataForward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
@@ -290,23 +290,6 @@
 			this.toolStripMenuItem100000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripMenuItemNavigateSomeDataForward
-			// 
-			this.toolStripMenuItemNavigateSomeDataForward.AccessibleDescription = "Navigate some data forward";
-			this.toolStripMenuItemNavigateSomeDataForward.AccessibleName = "Navigate some data forward";
-			this.toolStripMenuItemNavigateSomeDataForward.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
-			this.toolStripMenuItemNavigateSomeDataForward.AutoToolTip = true;
-			this.toolStripMenuItemNavigateSomeDataForward.DoubleClickEnabled = true;
-			this.toolStripMenuItemNavigateSomeDataForward.DropDown = this.contextMenuNavigationStep;
-			this.toolStripMenuItemNavigateSomeDataForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
-			this.toolStripMenuItemNavigateSomeDataForward.Name = "toolStripMenuItemNavigateSomeDataForward";
-			this.toolStripMenuItemNavigateSomeDataForward.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
-			this.toolStripMenuItemNavigateSomeDataForward.Size = new System.Drawing.Size(274, 22);
-			this.toolStripMenuItemNavigateSomeDataForward.Text = "Navigate some data &forward";
-			this.toolStripMenuItemNavigateSomeDataForward.Click += new System.EventHandler(this.ToolStripMenuItemNavigateSomeDataForward_Click);
-			this.toolStripMenuItemNavigateSomeDataForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripMenuItemNavigateSomeDataForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
 			// toolStripSplitButtonStepForward
 			// 
 			this.toolStripSplitButtonStepForward.AccessibleDescription = "Navigate some data forward";
@@ -356,6 +339,23 @@
 			this.toolStripMenuItemNavigateSomeDataBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemNavigateSomeDataBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// toolStripMenuItemNavigateSomeDataForward
+			// 
+			this.toolStripMenuItemNavigateSomeDataForward.AccessibleDescription = "Navigate some data forward";
+			this.toolStripMenuItemNavigateSomeDataForward.AccessibleName = "Navigate some data forward";
+			this.toolStripMenuItemNavigateSomeDataForward.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemNavigateSomeDataForward.AutoToolTip = true;
+			this.toolStripMenuItemNavigateSomeDataForward.DoubleClickEnabled = true;
+			this.toolStripMenuItemNavigateSomeDataForward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripMenuItemNavigateSomeDataForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
+			this.toolStripMenuItemNavigateSomeDataForward.Name = "toolStripMenuItemNavigateSomeDataForward";
+			this.toolStripMenuItemNavigateSomeDataForward.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+			this.toolStripMenuItemNavigateSomeDataForward.Size = new System.Drawing.Size(274, 22);
+			this.toolStripMenuItemNavigateSomeDataForward.Text = "Navigate some data &forward";
+			this.toolStripMenuItemNavigateSomeDataForward.Click += new System.EventHandler(this.ToolStripMenuItemNavigateSomeDataForward_Click);
+			this.toolStripMenuItemNavigateSomeDataForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemNavigateSomeDataForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// tableLayoutPanelData
 			// 
 			this.tableLayoutPanelData.AccessibleDescription = "Group the data";
@@ -365,7 +365,7 @@
 			this.tableLayoutPanelData.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
 			this.tableLayoutPanelData.ColumnCount = 4;
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanelData.Controls.Add(this.linkLabelObsLastDate, 2, 9);
@@ -423,22 +423,22 @@
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanelData.Size = new System.Drawing.Size(744, 234);
+			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+			this.tableLayoutPanelData.Size = new System.Drawing.Size(685, 233);
 			this.tableLayoutPanelData.TabIndex = 12;
 			// 
 			// linkLabelObsLastDate
 			// 
 			this.linkLabelObsLastDate.AccessibleDescription = "Date of last observation";
 			this.linkLabelObsLastDate.AccessibleName = "Date of last observation";
-			this.linkLabelObsLastDate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.linkLabelObsLastDate.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelObsLastDate.AutoSize = true;
 			this.linkLabelObsLastDate.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelObsLastDate.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelObsLastDate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelObsLastDate.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelObsLastDate.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelObsLastDate.Location = new System.Drawing.Point(422, 191);
+			this.linkLabelObsLastDate.Location = new System.Drawing.Point(397, 191);
 			this.linkLabelObsLastDate.Name = "linkLabelObsLastDate";
 			this.linkLabelObsLastDate.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelObsLastDate.TabIndex = 42;
@@ -456,14 +456,14 @@
 			// 
 			this.linkLabelFlags.AccessibleDescription = "4-hexdigit flags";
 			this.linkLabelFlags.AccessibleName = "4-hexdigit flags";
-			this.linkLabelFlags.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.linkLabelFlags.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelFlags.AutoSize = true;
 			this.linkLabelFlags.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelFlags.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelFlags.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelFlags.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelFlags.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelFlags.Location = new System.Drawing.Point(422, 170);
+			this.linkLabelFlags.Location = new System.Drawing.Point(397, 170);
 			this.linkLabelFlags.Name = "linkLabelFlags";
 			this.linkLabelFlags.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelFlags.TabIndex = 42;
@@ -481,14 +481,14 @@
 			// 
 			this.linkLabelComputerName.AccessibleDescription = "Computer name";
 			this.linkLabelComputerName.AccessibleName = "Computer name";
-			this.linkLabelComputerName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.linkLabelComputerName.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelComputerName.AutoSize = true;
 			this.linkLabelComputerName.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelComputerName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelComputerName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelComputerName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelComputerName.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelComputerName.Location = new System.Drawing.Point(422, 149);
+			this.linkLabelComputerName.Location = new System.Drawing.Point(397, 149);
 			this.linkLabelComputerName.Name = "linkLabelComputerName";
 			this.linkLabelComputerName.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelComputerName.TabIndex = 42;
@@ -506,16 +506,14 @@
 			// 
 			this.linkLabelRmsResidual.AccessibleDescription = "r.m.s. residual (\")";
 			this.linkLabelRmsResidual.AccessibleName = "r.m.s. residual (\")";
-			this.linkLabelRmsResidual.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelRmsResidual.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelRmsResidual.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelRmsResidual.AutoSize = true;
 			this.linkLabelRmsResidual.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelRmsResidual.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelRmsResidual.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelRmsResidual.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelRmsResidual.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelRmsResidual.Location = new System.Drawing.Point(422, 128);
+			this.linkLabelRmsResidual.Location = new System.Drawing.Point(397, 128);
 			this.linkLabelRmsResidual.Name = "linkLabelRmsResidual";
 			this.linkLabelRmsResidual.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelRmsResidual.TabIndex = 42;
@@ -533,16 +531,14 @@
 			// 
 			this.linkLabelObsSpan.AccessibleDescription = "Observation span";
 			this.linkLabelObsSpan.AccessibleName = "Observation span";
-			this.linkLabelObsSpan.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelObsSpan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelObsSpan.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelObsSpan.AutoSize = true;
 			this.linkLabelObsSpan.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelObsSpan.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelObsSpan.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelObsSpan.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelObsSpan.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelObsSpan.Location = new System.Drawing.Point(422, 107);
+			this.linkLabelObsSpan.Location = new System.Drawing.Point(397, 107);
 			this.linkLabelObsSpan.Name = "linkLabelObsSpan";
 			this.linkLabelObsSpan.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelObsSpan.TabIndex = 42;
@@ -560,16 +556,14 @@
 			// 
 			this.linkLabelNumbObs.AccessibleDescription = "Number of observations";
 			this.linkLabelNumbObs.AccessibleName = "Number of observations";
-			this.linkLabelNumbObs.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelNumbObs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelNumbObs.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelNumbObs.AutoSize = true;
 			this.linkLabelNumbObs.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelNumbObs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelNumbObs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelNumbObs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelNumbObs.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelNumbObs.Location = new System.Drawing.Point(422, 86);
+			this.linkLabelNumbObs.Location = new System.Drawing.Point(397, 86);
 			this.linkLabelNumbObs.Name = "linkLabelNumbObs";
 			this.linkLabelNumbObs.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelNumbObs.TabIndex = 42;
@@ -587,16 +581,14 @@
 			// 
 			this.linkLabelNumbOppos.AccessibleDescription = "Number of oppositions";
 			this.linkLabelNumbOppos.AccessibleName = "Number of oppositions";
-			this.linkLabelNumbOppos.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelNumbOppos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelNumbOppos.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelNumbOppos.AutoSize = true;
 			this.linkLabelNumbOppos.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelNumbOppos.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelNumbOppos.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelNumbOppos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelNumbOppos.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelNumbOppos.Location = new System.Drawing.Point(422, 65);
+			this.linkLabelNumbOppos.Location = new System.Drawing.Point(397, 65);
 			this.linkLabelNumbOppos.Name = "linkLabelNumbOppos";
 			this.linkLabelNumbOppos.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelNumbOppos.TabIndex = 42;
@@ -614,16 +606,14 @@
 			// 
 			this.linkLabelRef.AccessibleDescription = "Reference";
 			this.linkLabelRef.AccessibleName = "Reference";
-			this.linkLabelRef.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelRef.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelRef.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelRef.AutoSize = true;
 			this.linkLabelRef.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelRef.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelRef.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelRef.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelRef.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelRef.Location = new System.Drawing.Point(422, 44);
+			this.linkLabelRef.Location = new System.Drawing.Point(397, 44);
 			this.linkLabelRef.Name = "linkLabelRef";
 			this.linkLabelRef.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelRef.TabIndex = 42;
@@ -641,16 +631,14 @@
 			// 
 			this.linkLabelSlopeParam.AccessibleDescription = "Slope parameter, G";
 			this.linkLabelSlopeParam.AccessibleName = "Slope parameter, G";
-			this.linkLabelSlopeParam.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelSlopeParam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelSlopeParam.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelSlopeParam.AutoSize = true;
 			this.linkLabelSlopeParam.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelSlopeParam.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelSlopeParam.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelSlopeParam.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSlopeParam.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSlopeParam.Location = new System.Drawing.Point(422, 23);
+			this.linkLabelSlopeParam.Location = new System.Drawing.Point(397, 23);
 			this.linkLabelSlopeParam.Name = "linkLabelSlopeParam";
 			this.linkLabelSlopeParam.Size = new System.Drawing.Size(135, 19);
 			this.linkLabelSlopeParam.TabIndex = 42;
@@ -668,18 +656,16 @@
 			// 
 			this.linkLabelMagAbs.AccessibleDescription = "Absolute magnitude, H";
 			this.linkLabelMagAbs.AccessibleName = "Absolute magnitude, H";
-			this.linkLabelMagAbs.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelMagAbs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelMagAbs.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelMagAbs.AutoSize = true;
 			this.linkLabelMagAbs.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMagAbs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelMagAbs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMagAbs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMagAbs.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelMagAbs.Location = new System.Drawing.Point(5, 212);
 			this.linkLabelMagAbs.Name = "linkLabelMagAbs";
-			this.linkLabelMagAbs.Size = new System.Drawing.Size(233, 20);
+			this.linkLabelMagAbs.Size = new System.Drawing.Size(233, 19);
 			this.linkLabelMagAbs.TabIndex = 42;
 			this.linkLabelMagAbs.TabStop = true;
 			this.linkLabelMagAbs.Text = "Absolute magnitude, H";
@@ -695,11 +681,10 @@
 			// 
 			this.linkLabelSemiMajorAxis.AccessibleDescription = "Semimajor axis (AU)";
 			this.linkLabelSemiMajorAxis.AccessibleName = "Semimajor axis (AU)";
-			this.linkLabelSemiMajorAxis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelSemiMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelSemiMajorAxis.AutoSize = true;
 			this.linkLabelSemiMajorAxis.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelSemiMajorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelSemiMajorAxis.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelSemiMajorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSemiMajorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -721,12 +706,10 @@
 			// 
 			this.linkLabelMotion.AccessibleDescription = "Mean daily motion (degrees per day)";
 			this.linkLabelMotion.AccessibleName = "Mean daily motion (degrees per day)";
-			this.linkLabelMotion.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelMotion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelMotion.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelMotion.AutoSize = true;
 			this.linkLabelMotion.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMotion.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelMotion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMotion.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMotion.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -748,12 +731,10 @@
 			// 
 			this.linkLabelOrbEcc.AccessibleDescription = "Orbital eccentricity";
 			this.linkLabelOrbEcc.AccessibleName = "Orbital eccentricity";
-			this.linkLabelOrbEcc.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelOrbEcc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelOrbEcc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelOrbEcc.AutoSize = true;
 			this.linkLabelOrbEcc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelOrbEcc.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelOrbEcc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelOrbEcc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelOrbEcc.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -775,12 +756,10 @@
 			// 
 			this.linkLabelIncl.AccessibleDescription = "Inclination to the ecliptic, J2000.0 (degrees)";
 			this.linkLabelIncl.AccessibleName = "Inclination to the ecliptic, J2000.0 (degrees)";
-			this.linkLabelIncl.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelIncl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelIncl.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelIncl.AutoSize = true;
 			this.linkLabelIncl.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelIncl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelIncl.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelIncl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelIncl.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -801,12 +780,10 @@
 			// 
 			this.linkLabelLongAscNode.AccessibleDescription = "Longitude of the ascending node, J2000.0";
 			this.linkLabelLongAscNode.AccessibleName = "Longitude of the ascending node, J2000.0";
-			this.linkLabelLongAscNode.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelLongAscNode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelLongAscNode.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelLongAscNode.AutoSize = true;
 			this.linkLabelLongAscNode.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelLongAscNode.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelLongAscNode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelLongAscNode.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelLongAscNode.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -828,12 +805,10 @@
 			// 
 			this.linkLabelArgPeri.AccessibleDescription = "Argument of perihelion, J2000.0 (degrees)";
 			this.linkLabelArgPeri.AccessibleName = "Argument of perihelion, J2000.0 (degrees)";
-			this.linkLabelArgPeri.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelArgPeri.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelArgPeri.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelArgPeri.AutoSize = true;
 			this.linkLabelArgPeri.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelArgPeri.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelArgPeri.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelArgPeri.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelArgPeri.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -855,12 +830,10 @@
 			// 
 			this.linkLabelMeanAnomaly.AccessibleDescription = "Mean anomaly at the epoch, in degrees";
 			this.linkLabelMeanAnomaly.AccessibleName = "Mean anomaly at the epoch, in degrees";
-			this.linkLabelMeanAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelMeanAnomaly.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelMeanAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelMeanAnomaly.AutoSize = true;
 			this.linkLabelMeanAnomaly.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMeanAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelMeanAnomaly.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelMeanAnomaly.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMeanAnomaly.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -882,12 +855,10 @@
 			// 
 			this.linkLabelEpoch.AccessibleDescription = "Epoch (in packed form, .0 TT)";
 			this.linkLabelEpoch.AccessibleName = "Epoch (in packed form, .0 TT)";
-			this.linkLabelEpoch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelEpoch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelEpoch.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelEpoch.AutoSize = true;
 			this.linkLabelEpoch.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelEpoch.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelEpoch.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelEpoch.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelEpoch.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -909,7 +880,7 @@
 			// 
 			this.labelDesgnNameValue.AccessibleDescription = "Show the information of \"Readable designation\"";
 			this.labelDesgnNameValue.AccessibleName = "Show the information of \"Readable designation\"";
-			this.labelDesgnNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelDesgnNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelDesgnNameValue.AutoSize = true;
 			this.labelDesgnNameValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelDesgnNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -917,7 +888,7 @@
 			this.labelDesgnNameValue.Location = new System.Drawing.Point(246, 23);
 			this.labelDesgnNameValue.Name = "labelDesgnNameValue";
 			this.labelDesgnNameValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelDesgnNameValue.Size = new System.Drawing.Size(168, 19);
+			this.labelDesgnNameValue.Size = new System.Drawing.Size(143, 19);
 			this.labelDesgnNameValue.TabIndex = 3;
 			this.labelDesgnNameValue.Text = "...";
 			this.labelDesgnNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -932,7 +903,7 @@
 			// 
 			this.labelEpochValue.AccessibleDescription = "Show the information of \"Epoch (in packed form, .0 TT)\"";
 			this.labelEpochValue.AccessibleName = "Show the information of \"Epoch (in packed form, .0 TT)\"";
-			this.labelEpochValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelEpochValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelEpochValue.AutoSize = true;
 			this.labelEpochValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelEpochValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -940,7 +911,7 @@
 			this.labelEpochValue.Location = new System.Drawing.Point(246, 44);
 			this.labelEpochValue.Name = "labelEpochValue";
 			this.labelEpochValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelEpochValue.Size = new System.Drawing.Size(168, 19);
+			this.labelEpochValue.Size = new System.Drawing.Size(143, 19);
 			this.labelEpochValue.TabIndex = 7;
 			this.labelEpochValue.Text = "...";
 			this.labelEpochValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -955,7 +926,7 @@
 			// 
 			this.labelMeanAnomalyValue.AccessibleDescription = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
 			this.labelMeanAnomalyValue.AccessibleName = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
-			this.labelMeanAnomalyValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelMeanAnomalyValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelMeanAnomalyValue.AutoSize = true;
 			this.labelMeanAnomalyValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelMeanAnomalyValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -963,7 +934,7 @@
 			this.labelMeanAnomalyValue.Location = new System.Drawing.Point(246, 65);
 			this.labelMeanAnomalyValue.Name = "labelMeanAnomalyValue";
 			this.labelMeanAnomalyValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMeanAnomalyValue.Size = new System.Drawing.Size(168, 19);
+			this.labelMeanAnomalyValue.Size = new System.Drawing.Size(143, 19);
 			this.labelMeanAnomalyValue.TabIndex = 11;
 			this.labelMeanAnomalyValue.Text = "...";
 			this.labelMeanAnomalyValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -978,7 +949,7 @@
 			// 
 			this.labelArgPeriValue.AccessibleDescription = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
 			this.labelArgPeriValue.AccessibleName = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
-			this.labelArgPeriValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelArgPeriValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelArgPeriValue.AutoSize = true;
 			this.labelArgPeriValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelArgPeriValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -986,7 +957,7 @@
 			this.labelArgPeriValue.Location = new System.Drawing.Point(246, 86);
 			this.labelArgPeriValue.Name = "labelArgPeriValue";
 			this.labelArgPeriValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelArgPeriValue.Size = new System.Drawing.Size(168, 19);
+			this.labelArgPeriValue.Size = new System.Drawing.Size(143, 19);
 			this.labelArgPeriValue.TabIndex = 15;
 			this.labelArgPeriValue.Text = "...";
 			this.labelArgPeriValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1001,7 +972,7 @@
 			// 
 			this.labelLongAscNodeValue.AccessibleDescription = "Show the information of \"Longitude of the ascending node, J2000.0\"";
 			this.labelLongAscNodeValue.AccessibleName = "Show the information of \"Longitude of the ascending node, J2000.0\"";
-			this.labelLongAscNodeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelLongAscNodeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelLongAscNodeValue.AutoSize = true;
 			this.labelLongAscNodeValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelLongAscNodeValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1009,7 +980,7 @@
 			this.labelLongAscNodeValue.Location = new System.Drawing.Point(246, 107);
 			this.labelLongAscNodeValue.Name = "labelLongAscNodeValue";
 			this.labelLongAscNodeValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelLongAscNodeValue.Size = new System.Drawing.Size(168, 19);
+			this.labelLongAscNodeValue.Size = new System.Drawing.Size(143, 19);
 			this.labelLongAscNodeValue.TabIndex = 19;
 			this.labelLongAscNodeValue.Text = "...";
 			this.labelLongAscNodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1024,7 +995,7 @@
 			// 
 			this.labelInclValue.AccessibleDescription = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
 			this.labelInclValue.AccessibleName = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
-			this.labelInclValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInclValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelInclValue.AutoSize = true;
 			this.labelInclValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelInclValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1032,7 +1003,7 @@
 			this.labelInclValue.Location = new System.Drawing.Point(246, 128);
 			this.labelInclValue.Name = "labelInclValue";
 			this.labelInclValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelInclValue.Size = new System.Drawing.Size(168, 19);
+			this.labelInclValue.Size = new System.Drawing.Size(143, 19);
 			this.labelInclValue.TabIndex = 23;
 			this.labelInclValue.Text = "...";
 			this.labelInclValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1047,7 +1018,7 @@
 			// 
 			this.labelOrbEccValue.AccessibleDescription = "Show the information of \"Orbital eccentricity\"";
 			this.labelOrbEccValue.AccessibleName = "Show the information of \"Orbital eccentricity\"";
-			this.labelOrbEccValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelOrbEccValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelOrbEccValue.AutoSize = true;
 			this.labelOrbEccValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbEccValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1055,7 +1026,7 @@
 			this.labelOrbEccValue.Location = new System.Drawing.Point(246, 149);
 			this.labelOrbEccValue.Name = "labelOrbEccValue";
 			this.labelOrbEccValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelOrbEccValue.Size = new System.Drawing.Size(168, 19);
+			this.labelOrbEccValue.Size = new System.Drawing.Size(143, 19);
 			this.labelOrbEccValue.TabIndex = 27;
 			this.labelOrbEccValue.Text = "...";
 			this.labelOrbEccValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1070,7 +1041,7 @@
 			// 
 			this.labelMotionValue.AccessibleDescription = "Show the information of \"Mean daily motion (degrees per day)\"";
 			this.labelMotionValue.AccessibleName = "Show the information of \"Mean daily motion (degrees per day)\"";
-			this.labelMotionValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelMotionValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelMotionValue.AutoSize = true;
 			this.labelMotionValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelMotionValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1078,7 +1049,7 @@
 			this.labelMotionValue.Location = new System.Drawing.Point(246, 170);
 			this.labelMotionValue.Name = "labelMotionValue";
 			this.labelMotionValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMotionValue.Size = new System.Drawing.Size(168, 19);
+			this.labelMotionValue.Size = new System.Drawing.Size(143, 19);
 			this.labelMotionValue.TabIndex = 31;
 			this.labelMotionValue.Text = "...";
 			this.labelMotionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1093,7 +1064,7 @@
 			// 
 			this.labelSemiMajorAxisValue.AccessibleDescription = "Show the information of \"Semimajor axis (AU)\"";
 			this.labelSemiMajorAxisValue.AccessibleName = "Show the information of \"Semimajor axis (AU)\"";
-			this.labelSemiMajorAxisValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelSemiMajorAxisValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelSemiMajorAxisValue.AutoSize = true;
 			this.labelSemiMajorAxisValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiMajorAxisValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1101,7 +1072,7 @@
 			this.labelSemiMajorAxisValue.Location = new System.Drawing.Point(246, 191);
 			this.labelSemiMajorAxisValue.Name = "labelSemiMajorAxisValue";
 			this.labelSemiMajorAxisValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelSemiMajorAxisValue.Size = new System.Drawing.Size(168, 19);
+			this.labelSemiMajorAxisValue.Size = new System.Drawing.Size(143, 19);
 			this.labelSemiMajorAxisValue.TabIndex = 35;
 			this.labelSemiMajorAxisValue.Text = "...";
 			this.labelSemiMajorAxisValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1116,15 +1087,15 @@
 			// 
 			this.labelSlopeParamValue.AccessibleDescription = "Show the information of \"Slope parameter, G\"";
 			this.labelSlopeParamValue.AccessibleName = "Show the information of \"Slope parameter, G\"";
-			this.labelSlopeParamValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelSlopeParamValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelSlopeParamValue.AutoSize = true;
 			this.labelSlopeParamValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelSlopeParamValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSlopeParamValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSlopeParamValue.Location = new System.Drawing.Point(565, 23);
+			this.labelSlopeParamValue.Location = new System.Drawing.Point(540, 23);
 			this.labelSlopeParamValue.Name = "labelSlopeParamValue";
 			this.labelSlopeParamValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelSlopeParamValue.Size = new System.Drawing.Size(174, 19);
+			this.labelSlopeParamValue.Size = new System.Drawing.Size(140, 19);
 			this.labelSlopeParamValue.TabIndex = 5;
 			this.labelSlopeParamValue.Text = "...";
 			this.labelSlopeParamValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1139,7 +1110,7 @@
 			// 
 			this.labelIndexValue.AccessibleDescription = "Show the information of \"Index No.\"";
 			this.labelIndexValue.AccessibleName = "Show the information of \"Index No.\"";
-			this.labelIndexValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelIndexValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelIndexValue.AutoSize = true;
 			this.labelIndexValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelIndexValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1147,7 +1118,7 @@
 			this.labelIndexValue.Location = new System.Drawing.Point(246, 2);
 			this.labelIndexValue.Name = "labelIndexValue";
 			this.labelIndexValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelIndexValue.Size = new System.Drawing.Size(168, 19);
+			this.labelIndexValue.Size = new System.Drawing.Size(143, 19);
 			this.labelIndexValue.TabIndex = 1;
 			this.labelIndexValue.Text = "...";
 			this.labelIndexValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1162,7 +1133,7 @@
 			// 
 			this.labelMagAbsValue.AccessibleDescription = "Show the information of \"Absolute magnitude, H\"";
 			this.labelMagAbsValue.AccessibleName = "Show the information of \"Absolute magnitude, H\"";
-			this.labelMagAbsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelMagAbsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelMagAbsValue.AutoSize = true;
 			this.labelMagAbsValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelMagAbsValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1170,7 +1141,7 @@
 			this.labelMagAbsValue.Location = new System.Drawing.Point(246, 212);
 			this.labelMagAbsValue.Name = "labelMagAbsValue";
 			this.labelMagAbsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMagAbsValue.Size = new System.Drawing.Size(168, 20);
+			this.labelMagAbsValue.Size = new System.Drawing.Size(143, 19);
 			this.labelMagAbsValue.TabIndex = 39;
 			this.labelMagAbsValue.Text = "...";
 			this.labelMagAbsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1185,15 +1156,15 @@
 			// 
 			this.labelRefValue.AccessibleDescription = "Show the information of \"Reference\"";
 			this.labelRefValue.AccessibleName = "Show the information of \"Reference\"";
-			this.labelRefValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelRefValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelRefValue.AutoSize = true;
 			this.labelRefValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelRefValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRefValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRefValue.Location = new System.Drawing.Point(565, 44);
+			this.labelRefValue.Location = new System.Drawing.Point(540, 44);
 			this.labelRefValue.Name = "labelRefValue";
 			this.labelRefValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelRefValue.Size = new System.Drawing.Size(174, 19);
+			this.labelRefValue.Size = new System.Drawing.Size(140, 19);
 			this.labelRefValue.TabIndex = 9;
 			this.labelRefValue.Text = "...";
 			this.labelRefValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1208,15 +1179,15 @@
 			// 
 			this.labelNumbOpposValue.AccessibleDescription = "Show the information of \"Number of oppositions\"";
 			this.labelNumbOpposValue.AccessibleName = "Show the information of \"Number of oppositions\"";
-			this.labelNumbOpposValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelNumbOpposValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelNumbOpposValue.AutoSize = true;
 			this.labelNumbOpposValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelNumbOpposValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbOpposValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNumbOpposValue.Location = new System.Drawing.Point(565, 65);
+			this.labelNumbOpposValue.Location = new System.Drawing.Point(540, 65);
 			this.labelNumbOpposValue.Name = "labelNumbOpposValue";
 			this.labelNumbOpposValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelNumbOpposValue.Size = new System.Drawing.Size(174, 19);
+			this.labelNumbOpposValue.Size = new System.Drawing.Size(140, 19);
 			this.labelNumbOpposValue.TabIndex = 13;
 			this.labelNumbOpposValue.Text = "...";
 			this.labelNumbOpposValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1231,15 +1202,15 @@
 			// 
 			this.labelNumbObsValue.AccessibleDescription = "Show the information of \"Number of observations\"";
 			this.labelNumbObsValue.AccessibleName = "Show the information of \"Number of observations\"";
-			this.labelNumbObsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelNumbObsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelNumbObsValue.AutoSize = true;
 			this.labelNumbObsValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelNumbObsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelNumbObsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNumbObsValue.Location = new System.Drawing.Point(565, 86);
+			this.labelNumbObsValue.Location = new System.Drawing.Point(540, 86);
 			this.labelNumbObsValue.Name = "labelNumbObsValue";
 			this.labelNumbObsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelNumbObsValue.Size = new System.Drawing.Size(174, 19);
+			this.labelNumbObsValue.Size = new System.Drawing.Size(140, 19);
 			this.labelNumbObsValue.TabIndex = 17;
 			this.labelNumbObsValue.Text = "...";
 			this.labelNumbObsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1254,15 +1225,15 @@
 			// 
 			this.labelObsSpanValue.AccessibleDescription = "Show the information of \"Observation span\"";
 			this.labelObsSpanValue.AccessibleName = "Show the information of \"Observation span\"";
-			this.labelObsSpanValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelObsSpanValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelObsSpanValue.AutoSize = true;
 			this.labelObsSpanValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelObsSpanValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsSpanValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelObsSpanValue.Location = new System.Drawing.Point(565, 107);
+			this.labelObsSpanValue.Location = new System.Drawing.Point(540, 107);
 			this.labelObsSpanValue.Name = "labelObsSpanValue";
 			this.labelObsSpanValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelObsSpanValue.Size = new System.Drawing.Size(174, 19);
+			this.labelObsSpanValue.Size = new System.Drawing.Size(140, 19);
 			this.labelObsSpanValue.TabIndex = 21;
 			this.labelObsSpanValue.Text = "...";
 			this.labelObsSpanValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1277,15 +1248,15 @@
 			// 
 			this.labelRmsResidualValue.AccessibleDescription = "Show the information of \"r.m.s residual (\")\"";
 			this.labelRmsResidualValue.AccessibleName = "Show the information of \"r.m.s residual (\")\"";
-			this.labelRmsResidualValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelRmsResidualValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelRmsResidualValue.AutoSize = true;
 			this.labelRmsResidualValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelRmsResidualValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelRmsResidualValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRmsResidualValue.Location = new System.Drawing.Point(565, 128);
+			this.labelRmsResidualValue.Location = new System.Drawing.Point(540, 128);
 			this.labelRmsResidualValue.Name = "labelRmsResidualValue";
 			this.labelRmsResidualValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelRmsResidualValue.Size = new System.Drawing.Size(174, 19);
+			this.labelRmsResidualValue.Size = new System.Drawing.Size(140, 19);
 			this.labelRmsResidualValue.TabIndex = 25;
 			this.labelRmsResidualValue.Text = "...";
 			this.labelRmsResidualValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1300,15 +1271,15 @@
 			// 
 			this.labelComputerNameValue.AccessibleDescription = "Show the information of \"Computer name\"";
 			this.labelComputerNameValue.AccessibleName = "Show the information of \"Computer name\"";
-			this.labelComputerNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelComputerNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelComputerNameValue.AutoSize = true;
 			this.labelComputerNameValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelComputerNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelComputerNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelComputerNameValue.Location = new System.Drawing.Point(565, 149);
+			this.labelComputerNameValue.Location = new System.Drawing.Point(540, 149);
 			this.labelComputerNameValue.Name = "labelComputerNameValue";
 			this.labelComputerNameValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelComputerNameValue.Size = new System.Drawing.Size(174, 19);
+			this.labelComputerNameValue.Size = new System.Drawing.Size(140, 19);
 			this.labelComputerNameValue.TabIndex = 29;
 			this.labelComputerNameValue.Text = "...";
 			this.labelComputerNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1323,15 +1294,15 @@
 			// 
 			this.labelFlagsValue.AccessibleDescription = "Show the information of \"4-hexdigit flags\"";
 			this.labelFlagsValue.AccessibleName = "Show the information of \"4-hexdigit flags\"";
-			this.labelFlagsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelFlagsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelFlagsValue.AutoSize = true;
 			this.labelFlagsValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelFlagsValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelFlagsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFlagsValue.Location = new System.Drawing.Point(565, 170);
+			this.labelFlagsValue.Location = new System.Drawing.Point(540, 170);
 			this.labelFlagsValue.Name = "labelFlagsValue";
 			this.labelFlagsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelFlagsValue.Size = new System.Drawing.Size(174, 19);
+			this.labelFlagsValue.Size = new System.Drawing.Size(140, 19);
 			this.labelFlagsValue.TabIndex = 33;
 			this.labelFlagsValue.Text = "...";
 			this.labelFlagsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1346,15 +1317,15 @@
 			// 
 			this.labelObsLastDateValue.AccessibleDescription = "Show the information of \"Date of last observation\"";
 			this.labelObsLastDateValue.AccessibleName = "Show the information of \"Date of last observation\"";
-			this.labelObsLastDateValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelObsLastDateValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelObsLastDateValue.AutoSize = true;
 			this.labelObsLastDateValue.BackColor = System.Drawing.Color.Transparent;
 			this.labelObsLastDateValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelObsLastDateValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelObsLastDateValue.Location = new System.Drawing.Point(565, 191);
+			this.labelObsLastDateValue.Location = new System.Drawing.Point(540, 191);
 			this.labelObsLastDateValue.Name = "labelObsLastDateValue";
 			this.labelObsLastDateValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelObsLastDateValue.Size = new System.Drawing.Size(174, 19);
+			this.labelObsLastDateValue.Size = new System.Drawing.Size(140, 19);
 			this.labelObsLastDateValue.TabIndex = 37;
 			this.labelObsLastDateValue.Text = "...";
 			this.labelObsLastDateValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1369,12 +1340,10 @@
 			// 
 			this.linkLabelIndex.AccessibleDescription = "Index No.";
 			this.linkLabelIndex.AccessibleName = "Index No.";
-			this.linkLabelIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelIndex.AutoSize = true;
 			this.linkLabelIndex.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelIndex.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelIndex.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelIndex.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelIndex.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -1395,12 +1364,10 @@
 			// 
 			this.linkLabelDesgnName.AccessibleDescription = "Readable designation";
 			this.linkLabelDesgnName.AccessibleName = "Readable designation";
-			this.linkLabelDesgnName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.linkLabelDesgnName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.linkLabelDesgnName.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelDesgnName.AutoSize = true;
 			this.linkLabelDesgnName.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelDesgnName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelDesgnName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.linkLabelDesgnName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelDesgnName.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -1464,7 +1431,7 @@
 			this.statusBar.Name = "statusBar";
 			this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			this.statusBar.ShowItemToolTips = true;
-			this.statusBar.Size = new System.Drawing.Size(744, 22);
+			this.statusBar.Size = new System.Drawing.Size(685, 22);
 			this.statusBar.SizingGrip = false;
 			this.statusBar.TabIndex = 13;
 			this.statusBar.TabStop = true;
@@ -1474,7 +1441,7 @@
 			// 
 			this.toolStripStatusLabelUpdate.AccessibleDescription = "Show that an MPCORB.DAT update is aviable";
 			this.toolStripStatusLabelUpdate.AccessibleName = "Update information";
-			this.toolStripStatusLabelUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.toolStripStatusLabelUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.toolStripStatusLabelUpdate.AutoToolTip = true;
 			this.toolStripStatusLabelUpdate.Image = global::Planetoid_DB.Properties.Resources.silk_database_lightning;
 			this.toolStripStatusLabelUpdate.IsLink = true;
@@ -1493,7 +1460,7 @@
 			// 
 			this.toolStripStatusLabelBackgroundDownload.AccessibleDescription = "Show the download progres";
 			this.toolStripStatusLabelBackgroundDownload.AccessibleName = "Download progress";
-			this.toolStripStatusLabelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.toolStripStatusLabelBackgroundDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.toolStripStatusLabelBackgroundDownload.AutoToolTip = true;
 			this.toolStripStatusLabelBackgroundDownload.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
 			this.toolStripStatusLabelBackgroundDownload.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
@@ -1539,7 +1506,7 @@
 			// 
 			this.labelInformation.AccessibleDescription = "Show some information";
 			this.labelInformation.AccessibleName = "Show some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelInformation.AutoToolTip = true;
 			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
 			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
@@ -1569,7 +1536,7 @@
 			this.menu.Name = "menu";
 			this.menu.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
 			this.menu.ShowItemToolTips = true;
-			this.menu.Size = new System.Drawing.Size(744, 24);
+			this.menu.Size = new System.Drawing.Size(685, 24);
 			this.menu.TabIndex = 0;
 			this.menu.Text = "menu";
 			this.menu.Enter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1830,6 +1797,29 @@
 			this.toolStripMenuItemTools.Size = new System.Drawing.Size(48, 24);
 			this.toolStripMenuItemTools.Text = "&Tools";
 			// 
+			// toolStripMenuItemDerivatedOrbitElements
+			// 
+			this.toolStripMenuItemDerivatedOrbitElements.AccessibleDescription = "Calculate derivated orbital elements";
+			this.toolStripMenuItemDerivatedOrbitElements.AccessibleName = "Derivated orbital elements";
+			this.toolStripMenuItemDerivatedOrbitElements.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemDerivatedOrbitElements.AutoToolTip = true;
+			this.toolStripMenuItemDerivatedOrbitElements.Image = global::Planetoid_DB.Properties.Resources.silk_arrow_branch;
+			this.toolStripMenuItemDerivatedOrbitElements.Name = "toolStripMenuItemDerivatedOrbitElements";
+			this.toolStripMenuItemDerivatedOrbitElements.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
+			this.toolStripMenuItemDerivatedOrbitElements.Size = new System.Drawing.Size(251, 22);
+			this.toolStripMenuItemDerivatedOrbitElements.Text = "Derivated &orbital elements";
+			this.toolStripMenuItemDerivatedOrbitElements.Click += new System.EventHandler(this.ToolStripMenuItemDerivatedOrbitElements_Click);
+			this.toolStripMenuItemDerivatedOrbitElements.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemDerivatedOrbitElements.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripSeparatorTools1
+			// 
+			this.toolStripSeparatorTools1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+			this.toolStripSeparatorTools1.Name = "toolStripSeparatorTools1";
+			this.toolStripSeparatorTools1.Size = new System.Drawing.Size(248, 6);
+			this.toolStripSeparatorTools1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripSeparatorTools1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// chartBarToolStripMenuItem
 			// 
 			this.chartBarToolStripMenuItem.AutoToolTip = true;
@@ -1837,7 +1827,7 @@
 			this.chartBarToolStripMenuItem.Enabled = false;
 			this.chartBarToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_chart_bar;
 			this.chartBarToolStripMenuItem.Name = "chartBarToolStripMenuItem";
-			this.chartBarToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.chartBarToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
 			this.chartBarToolStripMenuItem.Text = "Chart bar";
 			this.chartBarToolStripMenuItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.chartBarToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -1849,7 +1839,7 @@
 			this.chartCurveToolStripMenuItem.Enabled = false;
 			this.chartCurveToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_chart_curve;
 			this.chartCurveToolStripMenuItem.Name = "chartCurveToolStripMenuItem";
-			this.chartCurveToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.chartCurveToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
 			this.chartCurveToolStripMenuItem.Text = "Chart curve";
 			this.chartCurveToolStripMenuItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.chartCurveToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -1861,18 +1851,15 @@
 			this.chartPieToolStripMenuItem.Enabled = false;
 			this.chartPieToolStripMenuItem.Image = global::Planetoid_DB.Properties.Resources.silk_chart_pie;
 			this.chartPieToolStripMenuItem.Name = "chartPieToolStripMenuItem";
-			this.chartPieToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.chartPieToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
 			this.chartPieToolStripMenuItem.Text = "Chart pie";
 			this.chartPieToolStripMenuItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.chartPieToolStripMenuItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripSeparatorTools1
+			// toolStripSeparatorTools2
 			// 
-			this.toolStripSeparatorTools1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
-			this.toolStripSeparatorTools1.Name = "toolStripSeparatorTools1";
-			this.toolStripSeparatorTools1.Size = new System.Drawing.Size(248, 6);
-			this.toolStripSeparatorTools1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripSeparatorTools1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.toolStripSeparatorTools2.Name = "toolStripSeparatorTools2";
+			this.toolStripSeparatorTools2.Size = new System.Drawing.Size(248, 6);
 			// 
 			// toolStripMenuItemDatabaseInformation
 			// 
@@ -1884,7 +1871,7 @@
 			this.toolStripMenuItemDatabaseInformation.Image = global::Planetoid_DB.Properties.Resources.silk_database;
 			this.toolStripMenuItemDatabaseInformation.Name = "toolStripMenuItemDatabaseInformation";
 			this.toolStripMenuItemDatabaseInformation.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-			this.toolStripMenuItemDatabaseInformation.Size = new System.Drawing.Size(226, 22);
+			this.toolStripMenuItemDatabaseInformation.Size = new System.Drawing.Size(251, 22);
 			this.toolStripMenuItemDatabaseInformation.Text = "&Database information";
 			this.toolStripMenuItemDatabaseInformation.Click += new System.EventHandler(this.ToolStripMenuItemDatabaseInformation_Click);
 			this.toolStripMenuItemDatabaseInformation.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1900,7 +1887,7 @@
 			this.toolStripMenuItemTableMode.Image = global::Planetoid_DB.Properties.Resources.silk_table;
 			this.toolStripMenuItemTableMode.Name = "toolStripMenuItemTableMode";
 			this.toolStripMenuItemTableMode.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
-			this.toolStripMenuItemTableMode.Size = new System.Drawing.Size(226, 22);
+			this.toolStripMenuItemTableMode.Size = new System.Drawing.Size(251, 22);
 			this.toolStripMenuItemTableMode.Text = "&Table mode";
 			this.toolStripMenuItemTableMode.Click += new System.EventHandler(this.ToolStripMenuItemTableMode_Click);
 			this.toolStripMenuItemTableMode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1916,7 +1903,7 @@
 			this.toolStripMenuItemTerminology.Image = global::Planetoid_DB.Properties.Resources.silk_text_list_bullets;
 			this.toolStripMenuItemTerminology.Name = "toolStripMenuItemTerminology";
 			this.toolStripMenuItemTerminology.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Y)));
-			this.toolStripMenuItemTerminology.Size = new System.Drawing.Size(226, 22);
+			this.toolStripMenuItemTerminology.Size = new System.Drawing.Size(251, 22);
 			this.toolStripMenuItemTerminology.Text = "Terminolog&y";
 			this.toolStripMenuItemTerminology.Click += new System.EventHandler(this.ToolStripMenuItemTerminology_Click);
 			this.toolStripMenuItemTerminology.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -2243,7 +2230,7 @@
 			this.toolStripIcons.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
 			this.toolStripIcons.Location = new System.Drawing.Point(0, 24);
 			this.toolStripIcons.Name = "toolStripIcons";
-			this.toolStripIcons.Size = new System.Drawing.Size(744, 25);
+			this.toolStripIcons.Size = new System.Drawing.Size(685, 25);
 			this.toolStripIcons.Stretch = true;
 			this.toolStripIcons.TabIndex = 1;
 			this.toolStripIcons.TabStop = true;
@@ -2496,7 +2483,7 @@
 			// 
 			this.toolStripLabelQuickSearch.AccessibleDescription = "Quick search";
 			this.toolStripLabelQuickSearch.AccessibleName = "Quick search";
-			this.toolStripLabelQuickSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.toolStripLabelQuickSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.toolStripLabelQuickSearch.AutoToolTip = true;
 			this.toolStripLabelQuickSearch.Enabled = false;
 			this.toolStripLabelQuickSearch.Name = "toolStripLabelQuickSearch";
@@ -2574,7 +2561,7 @@
             this.toolStripLabelIndexPosition});
 			this.toolStripNavigation.Location = new System.Drawing.Point(0, 49);
 			this.toolStripNavigation.Name = "toolStripNavigation";
-			this.toolStripNavigation.Size = new System.Drawing.Size(744, 25);
+			this.toolStripNavigation.Size = new System.Drawing.Size(685, 25);
 			this.toolStripNavigation.Stretch = true;
 			this.toolStripNavigation.TabIndex = 15;
 			this.toolStripNavigation.Text = "Navigation";
@@ -2756,7 +2743,7 @@
 			this.toolStripContainer.ContentPanel.BackColor = System.Drawing.Color.Transparent;
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tableLayoutPanelData);
 			this.toolStripContainer.ContentPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(744, 234);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(685, 233);
 			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
 			// 
 			// toolStripContainer.LeftToolStripPanel
@@ -2772,7 +2759,7 @@
 			this.toolStripContainer.RightToolStripPanel.AccessibleDescription = "Right part of the container panel";
 			this.toolStripContainer.RightToolStripPanel.AccessibleName = "Right part of the container panel";
 			this.toolStripContainer.RightToolStripPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-			this.toolStripContainer.Size = new System.Drawing.Size(744, 330);
+			this.toolStripContainer.Size = new System.Drawing.Size(685, 329);
 			this.toolStripContainer.TabIndex = 16;
 			// 
 			// toolStripContainer.TopToolStripPanel
@@ -2843,37 +2830,17 @@
 			this.toolStripMenuItemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripSeparatorTools2
-			// 
-			this.toolStripSeparatorTools2.Name = "toolStripSeparatorTools2";
-			this.toolStripSeparatorTools2.Size = new System.Drawing.Size(223, 6);
-			// 
-			// toolStripMenuItemDerivatedOrbitElements
-			// 
-			this.toolStripMenuItemDerivatedOrbitElements.AccessibleDescription = "Calculate derivated orbital elements";
-			this.toolStripMenuItemDerivatedOrbitElements.AccessibleName = "Derivated orbital elements";
-			this.toolStripMenuItemDerivatedOrbitElements.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
-			this.toolStripMenuItemDerivatedOrbitElements.AutoToolTip = true;
-			this.toolStripMenuItemDerivatedOrbitElements.Enabled = false;
-			this.toolStripMenuItemDerivatedOrbitElements.Name = "toolStripMenuItemDerivatedOrbitElements";
-			this.toolStripMenuItemDerivatedOrbitElements.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
-			this.toolStripMenuItemDerivatedOrbitElements.Size = new System.Drawing.Size(251, 22);
-			this.toolStripMenuItemDerivatedOrbitElements.Text = "Derivated &orbital elements";
-			this.toolStripMenuItemDerivatedOrbitElements.Click += new System.EventHandler(this.ToolStripMenuItemDerivatedOrbitElements_Click);
-			this.toolStripMenuItemDerivatedOrbitElements.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripMenuItemDerivatedOrbitElements.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
 			// PlanetoidDBForm
 			// 
 			this.AccessibleDescription = "Viewer for the MPC Orbit (MPCORB) Database";
 			this.AccessibleName = "PlanetoidDB";
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-			this.ClientSize = new System.Drawing.Size(744, 330);
+			this.ClientSize = new System.Drawing.Size(685, 329);
 			this.Controls.Add(this.toolStripContainer);
-			this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menu;

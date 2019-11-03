@@ -111,6 +111,12 @@
     <Compile Include="DatabaseInformationForm.Designer.cs">
       <DependentUpon>DatabaseInformationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DerivatedOrbitElementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DerivatedOrbitElementsForm.Designer.cs">
+      <DependentUpon>DerivatedOrbitElementsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DownloadUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatabaseInformationForm.resx">
       <DependentUpon>DatabaseInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DerivatedOrbitElementsForm.resx">
+      <DependentUpon>DerivatedOrbitElementsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DownloadUpdateForm.resx">
       <DependentUpon>DownloadUpdateForm.cs</DependentUpon>
@@ -259,6 +268,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Planetoid-DB-3.ico" />
+    <None Include="Resources\silk_arrow_branch.png" />
     <None Include="Resources\silk_arrow_divide.png" />
     <None Include="Resources\silk_bullet_green.png" />
     <None Include="Resources\silk_arrow_switch.png" />
@@ -385,7 +395,6 @@
     <None Include="Resources\silk_asterisk_orange.png" />
     <None Include="Resources\silk_table.png" />
     <None Include="Resources\silk_lightning.png" />
-    <None Include="Resources\silk_arrow-switch.png" />
     <None Include="Resources\silk_application-put.png" />
     <None Include="Resources\silk_package-go.png" />
     <None Include="Resources\silk_package.png" />

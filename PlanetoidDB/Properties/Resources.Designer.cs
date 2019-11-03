@@ -137,6 +137,16 @@ namespace Planetoid_DB.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap silk_arrow_branch {
+            get {
+                object obj = ResourceManager.GetObject("silk_arrow_branch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap silk_arrow_divide {
             get {
                 object obj = ResourceManager.GetObject("silk_arrow_divide", resourceCulture);
