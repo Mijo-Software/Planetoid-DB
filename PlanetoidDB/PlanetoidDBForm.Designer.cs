@@ -39,10 +39,10 @@
 			this.toolStripMenuItem1000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem10000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem100000 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemNavigateSomeDataBackward = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemNavigateSomeDataForward = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
+			this.toolStripMenuItemNavigateSomeDataBackward = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanelData = new System.Windows.Forms.TableLayoutPanel();
 			this.linkLabelObsLastDate = new System.Windows.Forms.LinkLabel();
 			this.linkLabelFlags = new System.Windows.Forms.LinkLabel();
@@ -96,6 +96,8 @@
 			this.menu = new System.Windows.Forms.MenuStrip();
 			this.menuitemFile = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemPrint = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparatorFile1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripMenuItemRestart = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuitemExit = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuitemEdit = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemCopytoClipboard = new System.Windows.Forms.ToolStripMenuItem();
@@ -178,6 +180,8 @@
 			this.contextMenuNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolStripMenuItemCheckMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItemDownloadMpcorbDat = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparatorTools2 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripMenuItemDerivatedOrbitElements = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuNavigationStep.SuspendLayout();
 			this.tableLayoutPanelData.SuspendLayout();
 			this.contextMenuCopyToClipboard.SuspendLayout();
@@ -204,7 +208,7 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
-			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepBackward;
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripMenuItemNavigateSomeDataBackward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
@@ -286,23 +290,6 @@
 			this.toolStripMenuItem100000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripMenuItemNavigateSomeDataBackward
-			// 
-			this.toolStripMenuItemNavigateSomeDataBackward.AccessibleDescription = "Navigate some data backward";
-			this.toolStripMenuItemNavigateSomeDataBackward.AccessibleName = "Navigate some data backward";
-			this.toolStripMenuItemNavigateSomeDataBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
-			this.toolStripMenuItemNavigateSomeDataBackward.AutoToolTip = true;
-			this.toolStripMenuItemNavigateSomeDataBackward.DoubleClickEnabled = true;
-			this.toolStripMenuItemNavigateSomeDataBackward.DropDown = this.contextMenuNavigationStep;
-			this.toolStripMenuItemNavigateSomeDataBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
-			this.toolStripMenuItemNavigateSomeDataBackward.Name = "toolStripMenuItemNavigateSomeDataBackward";
-			this.toolStripMenuItemNavigateSomeDataBackward.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
-			this.toolStripMenuItemNavigateSomeDataBackward.Size = new System.Drawing.Size(274, 22);
-			this.toolStripMenuItemNavigateSomeDataBackward.Text = "Navigate some data back&ward";
-			this.toolStripMenuItemNavigateSomeDataBackward.Click += new System.EventHandler(this.ToolStripMenuItemNavigateSomeDataBackward_Click);
-			this.toolStripMenuItemNavigateSomeDataBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripMenuItemNavigateSomeDataBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
 			// toolStripMenuItemNavigateSomeDataForward
 			// 
 			this.toolStripMenuItemNavigateSomeDataForward.AccessibleDescription = "Navigate some data forward";
@@ -351,6 +338,23 @@
 			this.toolStripSplitButtonStepBackward.ButtonClick += new System.EventHandler(this.ToolStripButtonStepBackward_Click);
 			this.toolStripSplitButtonStepBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripSplitButtonStepBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripMenuItemNavigateSomeDataBackward
+			// 
+			this.toolStripMenuItemNavigateSomeDataBackward.AccessibleDescription = "Navigate some data backward";
+			this.toolStripMenuItemNavigateSomeDataBackward.AccessibleName = "Navigate some data backward";
+			this.toolStripMenuItemNavigateSomeDataBackward.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemNavigateSomeDataBackward.AutoToolTip = true;
+			this.toolStripMenuItemNavigateSomeDataBackward.DoubleClickEnabled = true;
+			this.toolStripMenuItemNavigateSomeDataBackward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripMenuItemNavigateSomeDataBackward.Image = global::Planetoid_DB.Properties.Resources.silk_backward_green;
+			this.toolStripMenuItemNavigateSomeDataBackward.Name = "toolStripMenuItemNavigateSomeDataBackward";
+			this.toolStripMenuItemNavigateSomeDataBackward.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
+			this.toolStripMenuItemNavigateSomeDataBackward.Size = new System.Drawing.Size(274, 22);
+			this.toolStripMenuItemNavigateSomeDataBackward.Text = "Navigate some data back&ward";
+			this.toolStripMenuItemNavigateSomeDataBackward.Click += new System.EventHandler(this.ToolStripMenuItemNavigateSomeDataBackward_Click);
+			this.toolStripMenuItemNavigateSomeDataBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemNavigateSomeDataBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanelData
 			// 
@@ -419,6 +423,7 @@
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanelData.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanelData.Size = new System.Drawing.Size(744, 234);
 			this.tableLayoutPanelData.TabIndex = 12;
 			// 
@@ -1580,6 +1585,8 @@
 			this.menuitemFile.AutoToolTip = true;
 			this.menuitemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPrint,
+            this.toolStripSeparatorFile1,
+            this.toolStripMenuItemRestart,
             this.menuitemExit});
 			this.menuitemFile.Name = "menuitemFile";
 			this.menuitemFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
@@ -1599,11 +1606,34 @@
 			this.toolStripMenuItemPrint.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
 			this.toolStripMenuItemPrint.Name = "toolStripMenuItemPrint";
 			this.toolStripMenuItemPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemPrint.Size = new System.Drawing.Size(147, 22);
 			this.toolStripMenuItemPrint.Text = "&Print";
 			this.toolStripMenuItemPrint.Click += new System.EventHandler(this.ToolStripMenuItemPrint_Click);
 			this.toolStripMenuItemPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripSeparatorFile1
+			// 
+			this.toolStripSeparatorFile1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+			this.toolStripSeparatorFile1.Name = "toolStripSeparatorFile1";
+			this.toolStripSeparatorFile1.Size = new System.Drawing.Size(144, 6);
+			this.toolStripSeparatorFile1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripSeparatorFile1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripMenuItemRestart
+			// 
+			this.toolStripMenuItemRestart.AccessibleDescription = "Restart the application";
+			this.toolStripMenuItemRestart.AccessibleName = "Restart";
+			this.toolStripMenuItemRestart.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemRestart.AutoToolTip = true;
+			this.toolStripMenuItemRestart.Image = global::Planetoid_DB.Properties.Resources.silk_reload;
+			this.toolStripMenuItemRestart.Name = "toolStripMenuItemRestart";
+			this.toolStripMenuItemRestart.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
+			this.toolStripMenuItemRestart.Size = new System.Drawing.Size(147, 22);
+			this.toolStripMenuItemRestart.Text = "&Restart";
+			this.toolStripMenuItemRestart.Click += new System.EventHandler(this.ToolStripMenuItemRestart_Click);
+			this.toolStripMenuItemRestart.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemRestart.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// menuitemExit
 			// 
@@ -1615,7 +1645,7 @@
 			this.menuitemExit.Image = global::Planetoid_DB.Properties.Resources.silk_door_in;
 			this.menuitemExit.Name = "menuitemExit";
 			this.menuitemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-			this.menuitemExit.Size = new System.Drawing.Size(180, 22);
+			this.menuitemExit.Size = new System.Drawing.Size(147, 22);
 			this.menuitemExit.Text = "E&xit";
 			this.menuitemExit.Click += new System.EventHandler(this.MenuitemExit_Click);
 			this.menuitemExit.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1648,7 +1678,7 @@
 			this.toolStripMenuItemCopytoClipboard.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
 			this.toolStripMenuItemCopytoClipboard.Name = "toolStripMenuItemCopytoClipboard";
 			this.toolStripMenuItemCopytoClipboard.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(145, 22);
 			this.toolStripMenuItemCopytoClipboard.Text = "&Copy";
 			this.toolStripMenuItemCopytoClipboard.Click += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_Click);
 			this.toolStripMenuItemCopytoClipboard.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1665,7 +1695,7 @@
 			this.toolStripMenuItemSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
 			this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
 			this.toolStripMenuItemSearch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(145, 22);
 			this.toolStripMenuItemSearch.Text = "&Search";
 			this.toolStripMenuItemSearch.Click += new System.EventHandler(this.ToolStripMenuItemSearch_Click);
 			this.toolStripMenuItemSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1787,10 +1817,12 @@
 			this.toolStripMenuItemTools.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
 			this.toolStripMenuItemTools.AutoToolTip = true;
 			this.toolStripMenuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemDerivatedOrbitElements,
+            this.toolStripSeparatorTools1,
             this.chartBarToolStripMenuItem,
             this.chartCurveToolStripMenuItem,
             this.chartPieToolStripMenuItem,
-            this.toolStripSeparatorTools1,
+            this.toolStripSeparatorTools2,
             this.toolStripMenuItemDatabaseInformation,
             this.toolStripMenuItemTableMode,
             this.toolStripMenuItemTerminology});
@@ -1836,8 +1868,9 @@
 			// 
 			// toolStripSeparatorTools1
 			// 
+			this.toolStripSeparatorTools1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
 			this.toolStripSeparatorTools1.Name = "toolStripSeparatorTools1";
-			this.toolStripSeparatorTools1.Size = new System.Drawing.Size(223, 6);
+			this.toolStripSeparatorTools1.Size = new System.Drawing.Size(248, 6);
 			this.toolStripSeparatorTools1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripSeparatorTools1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
@@ -2810,6 +2843,26 @@
 			this.toolStripMenuItemDownloadMpcorbDat.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemDownloadMpcorbDat.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// toolStripSeparatorTools2
+			// 
+			this.toolStripSeparatorTools2.Name = "toolStripSeparatorTools2";
+			this.toolStripSeparatorTools2.Size = new System.Drawing.Size(223, 6);
+			// 
+			// toolStripMenuItemDerivatedOrbitElements
+			// 
+			this.toolStripMenuItemDerivatedOrbitElements.AccessibleDescription = "Calculate derivated orbital elements";
+			this.toolStripMenuItemDerivatedOrbitElements.AccessibleName = "Derivated orbital elements";
+			this.toolStripMenuItemDerivatedOrbitElements.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemDerivatedOrbitElements.AutoToolTip = true;
+			this.toolStripMenuItemDerivatedOrbitElements.Enabled = false;
+			this.toolStripMenuItemDerivatedOrbitElements.Name = "toolStripMenuItemDerivatedOrbitElements";
+			this.toolStripMenuItemDerivatedOrbitElements.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
+			this.toolStripMenuItemDerivatedOrbitElements.Size = new System.Drawing.Size(251, 22);
+			this.toolStripMenuItemDerivatedOrbitElements.Text = "Derivated &orbital elements";
+			this.toolStripMenuItemDerivatedOrbitElements.Click += new System.EventHandler(this.ToolStripMenuItemDerivatedOrbitElements_Click);
+			this.toolStripMenuItemDerivatedOrbitElements.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemDerivatedOrbitElements.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// PlanetoidDBForm
 			// 
 			this.AccessibleDescription = "Viewer for the MPC Orbit (MPCORB) Database";
@@ -3001,6 +3054,10 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparatorOptions;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFilter;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparatorOptions9;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparatorFile1;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRestart;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDerivatedOrbitElements;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparatorTools2;
 	}
 }
 

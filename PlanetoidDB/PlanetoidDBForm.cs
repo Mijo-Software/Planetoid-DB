@@ -20,8 +20,8 @@ namespace Planetoid_DB
 	{
 		private int currentPosition = 0, stepPosition = 0;
 		private readonly ArrayList planetoidDatabase = new ArrayList(capacity: 0);
-		private readonly SplashScreenForm formSplashScreen = new SplashScreenForm();
 		private readonly WebClient webClient = new WebClient();
+		private readonly SplashScreenForm formSplashScreen = new SplashScreenForm();
 		private readonly string strFilenameMPCORB = Properties.Resources.FilenameMpcorb;
 		private readonly string strFilenameMPCORBtemp = Properties.Resources.FilenameMpcorbTemp;
 		private readonly Uri uriMPCORB = new Uri(uriString: Properties.Resources.MpcorbUrl);
@@ -1457,6 +1457,28 @@ namespace Planetoid_DB
 		private void ToolStripMenuItemFilter_Click(object sender, EventArgs e)
 		{
 			//todo: add Filter here
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemRestart_Click(object sender, EventArgs e) => Restart();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemDerivatedOrbitElements_Click(object sender, EventArgs e)
+		{
+			///todo: add DerivatedOrbitElements here
+			///linear eccentricity
+			///semi-minor axis
+			///eccentric anomaly
+			///true anomaly
+			///longitude of the descending node
 		}
 
 		#endregion
