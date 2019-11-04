@@ -24,7 +24,7 @@ namespace Planetoid_DB
 				{
 					if (!NetworkInterface.GetIsNetworkAvailable())
 					{
-						MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+						MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 						Application.Exit();
 					}
 					else

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Planetoid_DB
 {
 	public partial class DerivatedOrbitElementsForm : Form
 	{
+		private ArrayList derivatedOrbitElementsDatabase = new ArrayList(capacity: 0);
+
 		#region Local methods
 
 		/// <summary>
@@ -56,7 +59,27 @@ namespace Planetoid_DB
 			InitializeComponent();
 		}
 
-		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e) => SetDoubleBuffered(control: tableLayoutPanel);
+		public void SetDatabase(ArrayList arrayList)
+		{
+			derivatedOrbitElementsDatabase = arrayList;
+		}
+
+		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e)
+		{
+			SetDoubleBuffered(control: tableLayoutPanel);
+			labelLinearEccentricity.Text = derivatedOrbitElementsDatabase[0].ToString();
+			labelSemiMinorAxis.Text = derivatedOrbitElementsDatabase[1].ToString();
+			labelMajorAxis.Text = derivatedOrbitElementsDatabase[2].ToString();
+			labelMinorAxis.Text = derivatedOrbitElementsDatabase[3].ToString();
+			labelFocalParameter.Text = derivatedOrbitElementsDatabase[10].ToString();
+			labelSemiLatusRectum.Text = derivatedOrbitElementsDatabase[11].ToString();
+			labelLatusRectum.Text = derivatedOrbitElementsDatabase[12].ToString();
+			labelPeriod.Text = derivatedOrbitElementsDatabase[13].ToString();
+			labelOrbitalArea.Text = derivatedOrbitElementsDatabase[14].ToString();
+			labelOrbitalPerimeter.Text = derivatedOrbitElementsDatabase[15].ToString();
+			labelSemiMeanAxis.Text = derivatedOrbitElementsDatabase[16].ToString();
+			labelMeanAxis.Text = derivatedOrbitElementsDatabase[17].ToString();
+		}
 
 		private void DerivatedOrbitElementsForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 

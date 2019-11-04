@@ -160,6 +160,15 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
+        /// </summary>
+        internal static string ErrorCaption {
+            get {
+                return ResourceManager.GetString("ErrorCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Index ähnelt.
         /// </summary>
         internal static string Index {
@@ -331,29 +340,24 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
-        /// </summary>
-        internal static string strErrorCaption {
-            get {
-                return ResourceManager.GetString("strErrorCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Argument of perihelion, J2000.0 (degrees)&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Argument of perihelion, J2000.0 (degrees)&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusa [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Argument of perihelion, J2000.0 (degrees)&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Argument of perihelion, J2000.0 (degrees)&lt;/h1&gt;
+        ///		&lt;p&gt;The &lt;span class= [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_ArgPeri {
             get {
@@ -364,18 +368,24 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Computer name&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Computer name&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gube [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Computer name&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Computer name&lt;/h1&gt;
+        ///		&lt;p&gt;This is the computer name.&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
         /// </summary>
         internal static string terminology_ComputerName {
             get {
@@ -386,18 +396,23 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Terminology: Readable designation&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Readable designation&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Terminology: Readable designation&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Readable designation&lt;/h1&gt;
+        ///		&lt;p&gt;This is the readable designation.&lt;/p&gt;
+        ///  &lt;/bod [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_DesgnName {
             get {
@@ -408,18 +423,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Terminology: Epoch (in packed form, .0 TT)&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Epoch (in packed form, .0 TT)&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Terminology: Epoch (in packed form, .0 TT)&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Epoch (in packed form, .0 TT)&lt;/h1&gt;
+        ///		&lt;p&gt;In astronomy, an epoch&lt;/spa [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_Epoch {
             get {
@@ -430,18 +449,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;4-hexdigit flags&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;4-hexdigit flags&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;4-hexdigit flags&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;4-hexdigit flags&lt;/h1&gt;
+        ///		&lt;p&gt;This information has been updated 2014 July 16, for files created  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_Flags {
             get {
@@ -452,18 +475,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Inclination to the ecliptic, J2000.0 (degrees)&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Inclination to the ecliptic, J2000.0 (degrees)&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Inclination to the ecliptic, J2000.0 (degrees)&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Inclination to the ecliptic, J2000.0 (degrees)&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;span  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_Incl {
             get {
@@ -474,18 +501,24 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Terminology: Index No.&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Index No.&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Terminology: Index No.&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Index No.&lt;/h1&gt;
+        ///		&lt;p&gt;This is the intern index number.&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
         /// </summary>
         internal static string terminology_IndexNo {
             get {
@@ -496,18 +529,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Longitude of the ascending node, J2000.0&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Longitude of the ascending node, J2000.0&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Longitude of the ascending node, J2000.0&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Longitude of the ascending node, J2000.0&lt;/h1&gt;
+        ///		&lt;p&gt;The &lt;span class=&quot;b [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_LongAscNode {
             get {
@@ -518,18 +555,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Absolute magnitude, H&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Absolute magnitude, H&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Absolute magnitude, H&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Absolute magnitude, H&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Absolute magnitude &lt;span class=&quot;itali [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_MagAbs {
             get {
@@ -540,18 +581,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Terminology: Mean anomaly at the epoch, in degrees&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Terminology: Mean anomaly at the epoch, in degrees&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
         ///  &lt;body&gt;
         ///  	&lt;h1&gt;Mean anomaly at the epoch, in degrees&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et a [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///		&lt;p&gt;In celest [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_MeanAnomaly {
             get {
@@ -562,18 +607,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Mean daily motion (degrees per day)&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Mean daily motion (degrees per day)&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo d [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Mean daily motion (degrees per day)&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Mean daily motion (degrees per day)&lt;/h1&gt;
+        ///		&lt;p&gt;In orbital mechanics, &lt;span  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_Motion {
             get {
@@ -584,18 +633,24 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Number of observations&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Number of observations&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. St [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Number of observations&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Number of observations&lt;/h1&gt;
+        ///		&lt;p&gt;This is the number of observations.&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/htm [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_NumbObs {
             get {
@@ -606,18 +661,23 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Number of oppositions&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Number of oppositions&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Number of oppositions&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Number of oppositions&lt;/h1&gt;
+        ///		&lt;p&gt;This is the number of oppositions.&lt;/p&gt;
+        ///		&lt;p&gt;In positiona [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_NumbOppos {
             get {
@@ -628,18 +688,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Date of last observation&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Date of last observation&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Date of last observation&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Date of last observation&lt;/h1&gt;
+        ///		&lt;p&gt;This is the date of last observation included in o [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_ObsLastDate {
             get {
@@ -650,18 +714,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Observation span&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Observation span&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Observation span&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Observation span&lt;/h1&gt;
+        ///		&lt;p&gt;This is the observation span with the year of first observation an [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_ObsSpan {
             get {
@@ -672,18 +740,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Orbital eccentricity&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Orbital eccentricity&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet c [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Orbital eccentricity&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Orbital eccentricity&lt;/h1&gt;
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;orbital eccentricity&lt;/span&gt; of an a [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_OrbEcc {
             get {
@@ -694,18 +766,24 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Reference&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Reference&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, n [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Reference&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Reference&lt;/h1&gt;
+        ///		&lt;p&gt;This is the reference where the observation data published.&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
         /// </summary>
         internal static string terminology_Ref {
             get {
@@ -716,18 +794,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;r.m.s. residual (&quot;)&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;r.m.s. residual (&quot;)&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet cli [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;r.m.s. residual (&quot;)&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;r.m.s. residual (&quot;)&lt;/h1&gt;
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;root-mean-square deviation (RMSD)&lt;/sp [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_RmsResidual {
             get {
@@ -738,18 +820,22 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Semimajor axis (AU)&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Semimajor axis (AU)&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet cli [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Semimajor axis (AU)&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Semimajor axis (AU)&lt;/h1&gt;
+        ///		&lt;p&gt;In geometry, the major axis of an ellipse is its longest dia [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_SemiMajorAxis {
             get {
@@ -760,18 +846,24 @@ namespace Planetoid_DB {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
-        ///  &lt;head&gt;
-        ///    &lt;meta charset=&quot;utf-8&quot;&gt;
-        ///    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///    &lt;title&gt;Slope parameter, G&lt;/title&gt;
-        ///	&lt;style&gt;
-        ///		* {font-family:sans-serif;}
-        ///	&lt;/style&gt;
-        ///  &lt;/head&gt;
-        ///  &lt;body&gt;
-        ///  	&lt;h1&gt;Slope parameter, G&lt;/h1&gt;
-        ///	&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Slope parameter, G&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Slope parameter, G&lt;/h1&gt;
+        ///		&lt;p&gt;This is the slope parameter.&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
         /// </summary>
         internal static string terminology_SlopeParam {
             get {

@@ -126,7 +126,7 @@
   <data name="DataLoading" xml:space="preserve">
     <value>Loading data...</value>
   </data>
-  <data name="strErrorCaption" xml:space="preserve">
+  <data name="ErrorCaption" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="Index" xml:space="preserve">

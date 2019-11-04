@@ -2,6 +2,7 @@
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -20,11 +21,12 @@ namespace Planetoid_DB
 	{
 		private int currentPosition = 0, stepPosition = 0;
 		private readonly ArrayList planetoidDatabase = new ArrayList(capacity: 0);
+		private readonly ArrayList derivatedOrbitElementsDatabase = new ArrayList(capacity: 0);
 		private readonly WebClient webClient = new WebClient();
 		private readonly SplashScreenForm formSplashScreen = new SplashScreenForm();
-		private readonly string strFilenameMPCORB = Properties.Resources.FilenameMpcorb;
-		private readonly string strFilenameMPCORBtemp = Properties.Resources.FilenameMpcorbTemp;
-		private readonly Uri uriMPCORB = new Uri(uriString: Properties.Resources.MpcorbUrl);
+		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
+		private readonly string filenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
+		private readonly Uri uriMpcorb = new Uri(uriString: Properties.Resources.MpcorbUrl);
 
 		private const int FEATURE_DISABLE_NAVIGATION_SOUNDS = 21;
 		private const int SET_FEATURE_ON_THREAD = 0x00000001;
@@ -149,9 +151,9 @@ namespace Planetoid_DB
 		/// <returns></returns>
 		private bool IsMpcorbDatUpdateAvailable()
 		{
-			FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
+			FileInfo fileInfo = new FileInfo(fileName: filenameMpcorb);
 			DateTime datetimeFileLocal = fileInfo.LastWriteTime;
-			DateTime datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+			DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
 			return datetimeFileOnline > datetimeFileLocal ? true : false;
 		}
 
@@ -303,7 +305,7 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -321,7 +323,7 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -425,9 +427,9 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void PlanetoidDBForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (File.Exists(path: strFilenameMPCORBtemp))
+			if (File.Exists(path: filenameMpcorbTemp))
 			{
-				File.Delete(path: strFilenameMPCORBtemp);
+				File.Delete(path: filenameMpcorbTemp);
 			}
 		}
 
@@ -444,18 +446,19 @@ namespace Planetoid_DB
 		{
 			Enabled = false;
 			int lineNum = 0;
-			FileInfo fileInfo = new FileInfo(fileName: strFilenameMPCORB);
+			float percent;
+			string readLine;
+			FileInfo fileInfo = new FileInfo(fileName: filenameMpcorb);
 			long fileSize = fileInfo.Length, fileSizeReaded = 0;
-			FileStream fileStream = new FileStream(path: strFilenameMPCORB, mode: FileMode.Open);
+			FileStream fileStream = new FileStream(path: filenameMpcorb, mode: FileMode.Open);
 			StreamReader streamReader = new StreamReader(stream: fileStream);
 			formSplashScreen.Show();
 			while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
 			{
-				string readLine = streamReader.ReadLine();
+				readLine = streamReader.ReadLine();
 				fileSizeReaded += readLine.Length;
-				float percent = 100 * fileSizeReaded / fileSize;
-				int step = (int)percent;
-				formSplashScreen.SetProgressbar(value: step);
+				percent = 100 * fileSizeReaded / fileSize;
+				formSplashScreen.SetProgressbar(value: (int)percent);
 				lineNum++;
 				if ((lineNum >= 44) && (readLine != ""))
 				{
@@ -504,9 +507,9 @@ namespace Planetoid_DB
 		{
 			if (e.Error == null)
 			{
-				File.Delete(path: strFilenameMPCORB);
-				File.Copy(sourceFileName: strFilenameMPCORBtemp, destFileName: Properties.Resources.FilenameMpcorb);
-				File.Delete(path: strFilenameMPCORBtemp);
+				File.Delete(path: filenameMpcorb);
+				File.Copy(sourceFileName: filenameMpcorbTemp, destFileName: Properties.Resources.FilenameMpcorb);
+				File.Delete(path: filenameMpcorbTemp);
 				AskForRestartAfterDownloadingDatabase();
 			}
 			else
@@ -519,7 +522,7 @@ namespace Planetoid_DB
 				{
 					MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				}
-				File.Delete(path: strFilenameMPCORBtemp);
+				File.Delete(path: filenameMpcorbTemp);
 			}
 			webClient.Dispose();
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
@@ -868,11 +871,11 @@ namespace Planetoid_DB
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			if (pos <= 0 || pos >= planetoidDatabase.Count + 1)
 			{
-				MessageBox.Show(text: I10nStrings.IndexOutOfRange, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.IndexOutOfRange, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -1185,11 +1188,11 @@ namespace Planetoid_DB
 				webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 				try
 				{
-					webClient.DownloadFileAsync(address: uriMPCORB, fileName: Properties.Resources.FilenameMpcorbTemp);
+					webClient.DownloadFileAsync(address: uriMpcorb, fileName: Properties.Resources.FilenameMpcorbTemp);
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+					MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
 					toolStripStatusLabelUpdate.IsLink = true;
 					toolStripStatusLabelUpdate.Enabled = true;
 					toolStripStatusLabelUpdate.Visible = true;
@@ -1466,6 +1469,30 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemRestart_Click(object sender, EventArgs e) => Restart();
 
+		private double CalculateSemiMinorAxis(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * Math.Sqrt(1 - Math.Pow(x: numericalEccentricity, y: 2));
+
+		private double CalculateLinearEccentricity(double semiMajorAxis, double numericalEccentricity) => Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+
+		private double CalculateMajorAxis(double semiMajorAxis) => 2 * semiMajorAxis;
+
+		private double CalculateMinorAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
+
+		private double CalculateFocalParameter(double semiMajorAxis, double numericalEccentricity) => Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+
+		private double CalculateSemiLatusRectum(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * (1 - Math.Pow(x: numericalEccentricity, y: 2));
+
+		private double CalculateLatusRectum(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
+
+		private double CalculatePeriod(double semiMajorAxis) => Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 3));
+
+		private double CalculateOrbitalArea(double semiMajorAxis, double numericalEccentricity) => Math.Pow(x: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) * Math.PI;
+
+		private double CalculateOrbitalPerimeter(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) * Math.PI;
+
+		private double CalculateSemiMeanAxis(double semiMajorAxis, double numericalEccentricity) => (semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity)) / 2;
+
+		private double CalculateMeanAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1473,8 +1500,33 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ToolStripMenuItemDerivatedOrbitElements_Click(object sender, EventArgs e)
 		{
+			derivatedOrbitElementsDatabase.Clear();
+			IFormatProvider provider = CultureInfo.CreateSpecificCulture(name: "en");
+			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisValue.Text, provider: provider);
+			double numericalEccentricity = double.Parse(s: labelOrbEccValue.Text, provider: provider);
+			derivatedOrbitElementsDatabase.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add(CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+			derivatedOrbitElementsDatabase.Add(CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
+
+
 			using (DerivatedOrbitElementsForm formDerivatedOrbitElements = new DerivatedOrbitElementsForm())
 			{
+				formDerivatedOrbitElements.SetDatabase(arrayList: derivatedOrbitElementsDatabase);
 				formDerivatedOrbitElements.ShowDialog();
 			}
 		}
@@ -1488,7 +1540,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void EasterEgg_DoubleClick(object sender, EventArgs e) => MessageBox.Show(text: I10nStrings.EasterEgg, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		private void EasterEgg_DoubleClick(object sender, EventArgs e) => MessageBox.Show(text: I10nStrings.EasterEgg, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 
 		#endregion
 	}

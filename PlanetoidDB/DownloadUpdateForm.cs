@@ -72,7 +72,7 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -392,7 +392,7 @@ namespace Planetoid_DB
 				labelStatusValue.Text = I10nStrings.StatusUnknownError + " " + ex.Message;
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
-				MessageBox.Show(text: ex.Message, caption: I10nStrings.strErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+				MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
 			}
 		}
 
