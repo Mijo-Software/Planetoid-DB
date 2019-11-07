@@ -71,6 +71,8 @@ namespace Planetoid_DB
 			labelSemiMinorAxis.Text = derivatedOrbitElementsDatabase[1].ToString();
 			labelMajorAxis.Text = derivatedOrbitElementsDatabase[2].ToString();
 			labelMinorAxis.Text = derivatedOrbitElementsDatabase[3].ToString();
+			labelPerihelionDistance.Text = derivatedOrbitElementsDatabase[6].ToString();
+			labelAphelionDistance.Text = derivatedOrbitElementsDatabase[7].ToString();
 			labelFocalParameter.Text = derivatedOrbitElementsDatabase[10].ToString();
 			labelSemiLatusRectum.Text = derivatedOrbitElementsDatabase[11].ToString();
 			labelLatusRectum.Text = derivatedOrbitElementsDatabase[12].ToString();

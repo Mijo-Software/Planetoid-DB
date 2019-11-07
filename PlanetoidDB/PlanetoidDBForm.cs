@@ -1477,6 +1477,10 @@ namespace Planetoid_DB
 
 		private double CalculateMinorAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
 
+		private double CalculatePerihelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 - numericalEccentricity) * semiMajorAxis;
+
+		private double CalculateAphelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 + numericalEccentricity) * semiMajorAxis;
+
 		private double CalculateFocalParameter(double semiMajorAxis, double numericalEccentricity) => Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
 
 		private double CalculateSemiLatusRectum(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * (1 - Math.Pow(x: numericalEccentricity, y: 2));
@@ -1485,7 +1489,7 @@ namespace Planetoid_DB
 
 		private double CalculatePeriod(double semiMajorAxis) => Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 3));
 
-		private double CalculateOrbitalArea(double semiMajorAxis, double numericalEccentricity) => Math.Pow(x: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) * Math.PI;
+		private double CalculateOrbitalArea(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) + ((3 * Math.Pow(x: semiMajorAxis - CalculateSemiMinorAxis(semiMajorAxis, numericalEccentricity), y: 2) / 10 * (semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity))) + Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + (14 * semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity)) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis, numericalEccentricity), y: 2)));
 
 		private double CalculateOrbitalPerimeter(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) * Math.PI;
 
@@ -1510,8 +1514,8 @@ namespace Planetoid_DB
 			derivatedOrbitElementsDatabase.Add(CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
 			derivatedOrbitElementsDatabase.Add("");
 			derivatedOrbitElementsDatabase.Add("");
-			derivatedOrbitElementsDatabase.Add("");
-			derivatedOrbitElementsDatabase.Add("");
+			derivatedOrbitElementsDatabase.Add(CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
 			derivatedOrbitElementsDatabase.Add("");
 			derivatedOrbitElementsDatabase.Add("");
 			derivatedOrbitElementsDatabase.Add(CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
