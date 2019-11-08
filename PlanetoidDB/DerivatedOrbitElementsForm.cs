@@ -67,20 +67,24 @@ namespace Planetoid_DB
 		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e)
 		{
 			SetDoubleBuffered(control: tableLayoutPanel);
-			labelLinearEccentricity.Text = derivatedOrbitElementsDatabase[0].ToString();
-			labelSemiMinorAxis.Text = derivatedOrbitElementsDatabase[1].ToString();
-			labelMajorAxis.Text = derivatedOrbitElementsDatabase[2].ToString();
-			labelMinorAxis.Text = derivatedOrbitElementsDatabase[3].ToString();
-			labelPerihelionDistance.Text = derivatedOrbitElementsDatabase[6].ToString();
-			labelAphelionDistance.Text = derivatedOrbitElementsDatabase[7].ToString();
-			labelFocalParameter.Text = derivatedOrbitElementsDatabase[10].ToString();
-			labelSemiLatusRectum.Text = derivatedOrbitElementsDatabase[11].ToString();
-			labelLatusRectum.Text = derivatedOrbitElementsDatabase[12].ToString();
-			labelPeriod.Text = derivatedOrbitElementsDatabase[13].ToString();
-			labelOrbitalArea.Text = derivatedOrbitElementsDatabase[14].ToString();
-			labelOrbitalPerimeter.Text = derivatedOrbitElementsDatabase[15].ToString();
-			labelSemiMeanAxis.Text = derivatedOrbitElementsDatabase[16].ToString();
-			labelMeanAxis.Text = derivatedOrbitElementsDatabase[17].ToString();
+			labelLinearEccentricityData.Text = derivatedOrbitElementsDatabase[0].ToString();
+			labelSemiMinorAxisData.Text = derivatedOrbitElementsDatabase[1].ToString();
+			labelMajorAxisData.Text = derivatedOrbitElementsDatabase[2].ToString();
+			labelMinorAxisData.Text = derivatedOrbitElementsDatabase[3].ToString();
+			labelEccentricAnomalyData.Text = derivatedOrbitElementsDatabase[4].ToString();
+			labelTrueAnomalyData.Text = derivatedOrbitElementsDatabase[5].ToString();
+			labelPerihelionDistanceData.Text = derivatedOrbitElementsDatabase[6].ToString();
+			labelAphelionDistanceData.Text = derivatedOrbitElementsDatabase[7].ToString();
+			labelLongitudeDescendingNodeData.Text = derivatedOrbitElementsDatabase[8].ToString();
+			labelArgumentAphelionData.Text = derivatedOrbitElementsDatabase[9].ToString();
+			labelFocalParameterData.Text = derivatedOrbitElementsDatabase[10].ToString();
+			labelSemiLatusRectumData.Text = derivatedOrbitElementsDatabase[11].ToString();
+			labelLatusRectumData.Text = derivatedOrbitElementsDatabase[12].ToString();
+			labelPeriodData.Text = derivatedOrbitElementsDatabase[13].ToString();
+			labelOrbitalAreaData.Text = derivatedOrbitElementsDatabase[14].ToString();
+			labelOrbitalPerimeterData.Text = derivatedOrbitElementsDatabase[15].ToString();
+			labelSemiMeanAxisData.Text = derivatedOrbitElementsDatabase[16].ToString();
+			labelMeanAxisData.Text = derivatedOrbitElementsDatabase[17].ToString();
 		}
 
 		private void DerivatedOrbitElementsForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();

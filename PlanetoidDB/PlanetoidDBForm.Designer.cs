@@ -39,51 +39,51 @@
 			this.toolStripMenuItem1000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem10000 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem100000 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemNavigateSomeDataForward = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSplitButtonStepForward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripSplitButtonStepBackward = new System.Windows.Forms.ToolStripSplitButton();
 			this.toolStripMenuItemNavigateSomeDataBackward = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItemNavigateSomeDataForward = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanelData = new System.Windows.Forms.TableLayoutPanel();
-			this.linkLabelObsLastDate = new System.Windows.Forms.LinkLabel();
-			this.linkLabelFlags = new System.Windows.Forms.LinkLabel();
-			this.linkLabelComputerName = new System.Windows.Forms.LinkLabel();
-			this.linkLabelRmsResidual = new System.Windows.Forms.LinkLabel();
-			this.linkLabelObsSpan = new System.Windows.Forms.LinkLabel();
-			this.linkLabelNumbObs = new System.Windows.Forms.LinkLabel();
-			this.linkLabelNumbOppos = new System.Windows.Forms.LinkLabel();
-			this.linkLabelRef = new System.Windows.Forms.LinkLabel();
-			this.linkLabelSlopeParam = new System.Windows.Forms.LinkLabel();
-			this.linkLabelMagAbs = new System.Windows.Forms.LinkLabel();
-			this.linkLabelSemiMajorAxis = new System.Windows.Forms.LinkLabel();
-			this.linkLabelMotion = new System.Windows.Forms.LinkLabel();
-			this.linkLabelOrbEcc = new System.Windows.Forms.LinkLabel();
-			this.linkLabelIncl = new System.Windows.Forms.LinkLabel();
-			this.linkLabelLongAscNode = new System.Windows.Forms.LinkLabel();
-			this.linkLabelArgPeri = new System.Windows.Forms.LinkLabel();
-			this.linkLabelMeanAnomaly = new System.Windows.Forms.LinkLabel();
-			this.linkLabelEpoch = new System.Windows.Forms.LinkLabel();
-			this.labelDesgnNameValue = new System.Windows.Forms.Label();
-			this.labelEpochValue = new System.Windows.Forms.Label();
-			this.labelMeanAnomalyValue = new System.Windows.Forms.Label();
-			this.labelArgPeriValue = new System.Windows.Forms.Label();
-			this.labelLongAscNodeValue = new System.Windows.Forms.Label();
-			this.labelInclValue = new System.Windows.Forms.Label();
-			this.labelOrbEccValue = new System.Windows.Forms.Label();
-			this.labelMotionValue = new System.Windows.Forms.Label();
-			this.labelSemiMajorAxisValue = new System.Windows.Forms.Label();
-			this.labelSlopeParamValue = new System.Windows.Forms.Label();
-			this.labelIndexValue = new System.Windows.Forms.Label();
-			this.labelMagAbsValue = new System.Windows.Forms.Label();
-			this.labelRefValue = new System.Windows.Forms.Label();
-			this.labelNumbOpposValue = new System.Windows.Forms.Label();
-			this.labelNumbObsValue = new System.Windows.Forms.Label();
-			this.labelObsSpanValue = new System.Windows.Forms.Label();
-			this.labelRmsResidualValue = new System.Windows.Forms.Label();
-			this.labelComputerNameValue = new System.Windows.Forms.Label();
-			this.labelFlagsValue = new System.Windows.Forms.Label();
-			this.labelObsLastDateValue = new System.Windows.Forms.Label();
-			this.linkLabelIndex = new System.Windows.Forms.LinkLabel();
-			this.linkLabelDesgnName = new System.Windows.Forms.LinkLabel();
+			this.linkLabelDateLastObservationDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelFlagsDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelComputerNameDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelRmsResidualDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelObservationSpanDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelNumberObservationsDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelNumberOppositionsDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelReferenceDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelSlopeParameterDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelAbsoluteMagnitudeDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelSemiMajorAxisDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelMeanDailyMotionDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelOrbitalEccentricityDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelInclinationDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelLongitudeAscendingNodeDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelArgumentPerihelionDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelMeanAnomalyDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelEpochDesc = new System.Windows.Forms.LinkLabel();
+			this.labelDesignationNameData = new System.Windows.Forms.Label();
+			this.labelEpochData = new System.Windows.Forms.Label();
+			this.labelMeanAnomalyData = new System.Windows.Forms.Label();
+			this.labelArgumentPerihelionData = new System.Windows.Forms.Label();
+			this.labelLongitudeAscendingNodeData = new System.Windows.Forms.Label();
+			this.labelInclinationData = new System.Windows.Forms.Label();
+			this.labelOrbitalEccentricityData = new System.Windows.Forms.Label();
+			this.labelMeanDailyMotionData = new System.Windows.Forms.Label();
+			this.labelSemiMajorAxisData = new System.Windows.Forms.Label();
+			this.labelSlopeParameterData = new System.Windows.Forms.Label();
+			this.labelIndexData = new System.Windows.Forms.Label();
+			this.labelAbsoluteMagnitudeData = new System.Windows.Forms.Label();
+			this.labelReferenceData = new System.Windows.Forms.Label();
+			this.labelNumberOppositionsData = new System.Windows.Forms.Label();
+			this.labelNumberObservationsData = new System.Windows.Forms.Label();
+			this.labelObservationSpanData = new System.Windows.Forms.Label();
+			this.labelRmsResidualData = new System.Windows.Forms.Label();
+			this.labelComputerNameData = new System.Windows.Forms.Label();
+			this.labelFlagsData = new System.Windows.Forms.Label();
+			this.labelDateLastObservationData = new System.Windows.Forms.Label();
+			this.linkLabelIndexDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelDesignationNameDesc = new System.Windows.Forms.LinkLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.contextMenuCopyToClipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -208,7 +208,7 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
-			this.contextMenuNavigationStep.OwnerItem = this.toolStripMenuItemNavigateSomeDataForward;
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripMenuItemNavigateSomeDataBackward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
@@ -290,6 +290,23 @@
 			this.toolStripMenuItem100000.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItem100000.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// toolStripMenuItemNavigateSomeDataForward
+			// 
+			this.toolStripMenuItemNavigateSomeDataForward.AccessibleDescription = "Navigate some data forward";
+			this.toolStripMenuItemNavigateSomeDataForward.AccessibleName = "Navigate some data forward";
+			this.toolStripMenuItemNavigateSomeDataForward.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemNavigateSomeDataForward.AutoToolTip = true;
+			this.toolStripMenuItemNavigateSomeDataForward.DoubleClickEnabled = true;
+			this.toolStripMenuItemNavigateSomeDataForward.DropDown = this.contextMenuNavigationStep;
+			this.toolStripMenuItemNavigateSomeDataForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
+			this.toolStripMenuItemNavigateSomeDataForward.Name = "toolStripMenuItemNavigateSomeDataForward";
+			this.toolStripMenuItemNavigateSomeDataForward.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+			this.toolStripMenuItemNavigateSomeDataForward.Size = new System.Drawing.Size(274, 22);
+			this.toolStripMenuItemNavigateSomeDataForward.Text = "Navigate some data &forward";
+			this.toolStripMenuItemNavigateSomeDataForward.Click += new System.EventHandler(this.ToolStripMenuItemNavigateSomeDataForward_Click);
+			this.toolStripMenuItemNavigateSomeDataForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripMenuItemNavigateSomeDataForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// toolStripSplitButtonStepForward
 			// 
 			this.toolStripSplitButtonStepForward.AccessibleDescription = "Navigate some data forward";
@@ -339,23 +356,6 @@
 			this.toolStripMenuItemNavigateSomeDataBackward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.toolStripMenuItemNavigateSomeDataBackward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripMenuItemNavigateSomeDataForward
-			// 
-			this.toolStripMenuItemNavigateSomeDataForward.AccessibleDescription = "Navigate some data forward";
-			this.toolStripMenuItemNavigateSomeDataForward.AccessibleName = "Navigate some data forward";
-			this.toolStripMenuItemNavigateSomeDataForward.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
-			this.toolStripMenuItemNavigateSomeDataForward.AutoToolTip = true;
-			this.toolStripMenuItemNavigateSomeDataForward.DoubleClickEnabled = true;
-			this.toolStripMenuItemNavigateSomeDataForward.DropDown = this.contextMenuNavigationStep;
-			this.toolStripMenuItemNavigateSomeDataForward.Image = global::Planetoid_DB.Properties.Resources.silk_forward_green;
-			this.toolStripMenuItemNavigateSomeDataForward.Name = "toolStripMenuItemNavigateSomeDataForward";
-			this.toolStripMenuItemNavigateSomeDataForward.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
-			this.toolStripMenuItemNavigateSomeDataForward.Size = new System.Drawing.Size(274, 22);
-			this.toolStripMenuItemNavigateSomeDataForward.Text = "Navigate some data &forward";
-			this.toolStripMenuItemNavigateSomeDataForward.Click += new System.EventHandler(this.ToolStripMenuItemNavigateSomeDataForward_Click);
-			this.toolStripMenuItemNavigateSomeDataForward.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.toolStripMenuItemNavigateSomeDataForward.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
 			// tableLayoutPanelData
 			// 
 			this.tableLayoutPanelData.AccessibleDescription = "Group the data";
@@ -368,46 +368,46 @@
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanelData.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelObsLastDate, 2, 9);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelFlags, 2, 8);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelComputerName, 2, 7);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelRmsResidual, 2, 6);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelObsSpan, 2, 5);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelNumbObs, 2, 4);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelNumbOppos, 2, 3);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelRef, 2, 2);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelSlopeParam, 2, 1);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelMagAbs, 0, 10);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelSemiMajorAxis, 0, 9);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelMotion, 0, 8);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelOrbEcc, 0, 7);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelIncl, 0, 6);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelLongAscNode, 0, 5);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelArgPeri, 0, 4);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelMeanAnomaly, 0, 3);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelEpoch, 0, 2);
-			this.tableLayoutPanelData.Controls.Add(this.labelDesgnNameValue, 1, 1);
-			this.tableLayoutPanelData.Controls.Add(this.labelEpochValue, 1, 2);
-			this.tableLayoutPanelData.Controls.Add(this.labelMeanAnomalyValue, 1, 3);
-			this.tableLayoutPanelData.Controls.Add(this.labelArgPeriValue, 1, 4);
-			this.tableLayoutPanelData.Controls.Add(this.labelLongAscNodeValue, 1, 5);
-			this.tableLayoutPanelData.Controls.Add(this.labelInclValue, 1, 6);
-			this.tableLayoutPanelData.Controls.Add(this.labelOrbEccValue, 1, 7);
-			this.tableLayoutPanelData.Controls.Add(this.labelMotionValue, 1, 8);
-			this.tableLayoutPanelData.Controls.Add(this.labelSemiMajorAxisValue, 1, 9);
-			this.tableLayoutPanelData.Controls.Add(this.labelSlopeParamValue, 3, 1);
-			this.tableLayoutPanelData.Controls.Add(this.labelIndexValue, 1, 0);
-			this.tableLayoutPanelData.Controls.Add(this.labelMagAbsValue, 1, 10);
-			this.tableLayoutPanelData.Controls.Add(this.labelRefValue, 3, 2);
-			this.tableLayoutPanelData.Controls.Add(this.labelNumbOpposValue, 3, 3);
-			this.tableLayoutPanelData.Controls.Add(this.labelNumbObsValue, 3, 4);
-			this.tableLayoutPanelData.Controls.Add(this.labelObsSpanValue, 3, 5);
-			this.tableLayoutPanelData.Controls.Add(this.labelRmsResidualValue, 3, 6);
-			this.tableLayoutPanelData.Controls.Add(this.labelComputerNameValue, 3, 7);
-			this.tableLayoutPanelData.Controls.Add(this.labelFlagsValue, 3, 8);
-			this.tableLayoutPanelData.Controls.Add(this.labelObsLastDateValue, 3, 9);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelIndex, 0, 0);
-			this.tableLayoutPanelData.Controls.Add(this.linkLabelDesgnName, 0, 1);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelDateLastObservationDesc, 2, 9);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelFlagsDesc, 2, 8);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelComputerNameDesc, 2, 7);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelRmsResidualDesc, 2, 6);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelObservationSpanDesc, 2, 5);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelNumberObservationsDesc, 2, 4);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelNumberOppositionsDesc, 2, 3);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelReferenceDesc, 2, 2);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelSlopeParameterDesc, 2, 1);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelAbsoluteMagnitudeDesc, 0, 10);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelSemiMajorAxisDesc, 0, 9);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelMeanDailyMotionDesc, 0, 8);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelOrbitalEccentricityDesc, 0, 7);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelInclinationDesc, 0, 6);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelLongitudeAscendingNodeDesc, 0, 5);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelArgumentPerihelionDesc, 0, 4);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelMeanAnomalyDesc, 0, 3);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelEpochDesc, 0, 2);
+			this.tableLayoutPanelData.Controls.Add(this.labelDesignationNameData, 1, 1);
+			this.tableLayoutPanelData.Controls.Add(this.labelEpochData, 1, 2);
+			this.tableLayoutPanelData.Controls.Add(this.labelMeanAnomalyData, 1, 3);
+			this.tableLayoutPanelData.Controls.Add(this.labelArgumentPerihelionData, 1, 4);
+			this.tableLayoutPanelData.Controls.Add(this.labelLongitudeAscendingNodeData, 1, 5);
+			this.tableLayoutPanelData.Controls.Add(this.labelInclinationData, 1, 6);
+			this.tableLayoutPanelData.Controls.Add(this.labelOrbitalEccentricityData, 1, 7);
+			this.tableLayoutPanelData.Controls.Add(this.labelMeanDailyMotionData, 1, 8);
+			this.tableLayoutPanelData.Controls.Add(this.labelSemiMajorAxisData, 1, 9);
+			this.tableLayoutPanelData.Controls.Add(this.labelSlopeParameterData, 3, 1);
+			this.tableLayoutPanelData.Controls.Add(this.labelIndexData, 1, 0);
+			this.tableLayoutPanelData.Controls.Add(this.labelAbsoluteMagnitudeData, 1, 10);
+			this.tableLayoutPanelData.Controls.Add(this.labelReferenceData, 3, 2);
+			this.tableLayoutPanelData.Controls.Add(this.labelNumberOppositionsData, 3, 3);
+			this.tableLayoutPanelData.Controls.Add(this.labelNumberObservationsData, 3, 4);
+			this.tableLayoutPanelData.Controls.Add(this.labelObservationSpanData, 3, 5);
+			this.tableLayoutPanelData.Controls.Add(this.labelRmsResidualData, 3, 6);
+			this.tableLayoutPanelData.Controls.Add(this.labelComputerNameData, 3, 7);
+			this.tableLayoutPanelData.Controls.Add(this.labelFlagsData, 3, 8);
+			this.tableLayoutPanelData.Controls.Add(this.labelDateLastObservationData, 3, 9);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelIndexDesc, 0, 0);
+			this.tableLayoutPanelData.Controls.Add(this.linkLabelDesignationNameDesc, 0, 1);
 			this.tableLayoutPanelData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanelData.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanelData.Name = "tableLayoutPanelData";
@@ -427,963 +427,963 @@
 			this.tableLayoutPanelData.Size = new System.Drawing.Size(685, 233);
 			this.tableLayoutPanelData.TabIndex = 12;
 			// 
-			// linkLabelObsLastDate
-			// 
-			this.linkLabelObsLastDate.AccessibleDescription = "Date of last observation";
-			this.linkLabelObsLastDate.AccessibleName = "Date of last observation";
-			this.linkLabelObsLastDate.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelObsLastDate.AutoSize = true;
-			this.linkLabelObsLastDate.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelObsLastDate.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelObsLastDate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelObsLastDate.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelObsLastDate.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelObsLastDate.Location = new System.Drawing.Point(397, 191);
-			this.linkLabelObsLastDate.Name = "linkLabelObsLastDate";
-			this.linkLabelObsLastDate.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelObsLastDate.TabIndex = 42;
-			this.linkLabelObsLastDate.TabStop = true;
-			this.linkLabelObsLastDate.Text = "Date of last observation";
-			this.linkLabelObsLastDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelObsLastDate, "Date of last observation");
-			this.linkLabelObsLastDate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsLastDate_Click);
-			this.linkLabelObsLastDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelObsLastDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelObsLastDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelObsLastDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelFlags
-			// 
-			this.linkLabelFlags.AccessibleDescription = "4-hexdigit flags";
-			this.linkLabelFlags.AccessibleName = "4-hexdigit flags";
-			this.linkLabelFlags.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelFlags.AutoSize = true;
-			this.linkLabelFlags.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelFlags.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelFlags.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelFlags.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelFlags.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelFlags.Location = new System.Drawing.Point(397, 170);
-			this.linkLabelFlags.Name = "linkLabelFlags";
-			this.linkLabelFlags.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelFlags.TabIndex = 42;
-			this.linkLabelFlags.TabStop = true;
-			this.linkLabelFlags.Text = "4-hexdigit flags";
-			this.linkLabelFlags.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelFlags, "4-hexdigit flags");
-			this.linkLabelFlags.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelFlags_Click);
-			this.linkLabelFlags.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelFlags.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelFlags.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelFlags.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelComputerName
-			// 
-			this.linkLabelComputerName.AccessibleDescription = "Computer name";
-			this.linkLabelComputerName.AccessibleName = "Computer name";
-			this.linkLabelComputerName.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelComputerName.AutoSize = true;
-			this.linkLabelComputerName.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelComputerName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelComputerName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelComputerName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelComputerName.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelComputerName.Location = new System.Drawing.Point(397, 149);
-			this.linkLabelComputerName.Name = "linkLabelComputerName";
-			this.linkLabelComputerName.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelComputerName.TabIndex = 42;
-			this.linkLabelComputerName.TabStop = true;
-			this.linkLabelComputerName.Text = "Computer name";
-			this.linkLabelComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelComputerName, "Computer name");
-			this.linkLabelComputerName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelComputerName_Click);
-			this.linkLabelComputerName.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelComputerName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelComputerName.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelComputerName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelRmsResidual
-			// 
-			this.linkLabelRmsResidual.AccessibleDescription = "r.m.s. residual (\")";
-			this.linkLabelRmsResidual.AccessibleName = "r.m.s. residual (\")";
-			this.linkLabelRmsResidual.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelRmsResidual.AutoSize = true;
-			this.linkLabelRmsResidual.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelRmsResidual.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelRmsResidual.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelRmsResidual.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelRmsResidual.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelRmsResidual.Location = new System.Drawing.Point(397, 128);
-			this.linkLabelRmsResidual.Name = "linkLabelRmsResidual";
-			this.linkLabelRmsResidual.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelRmsResidual.TabIndex = 42;
-			this.linkLabelRmsResidual.TabStop = true;
-			this.linkLabelRmsResidual.Text = "r.m.s. residual (\")";
-			this.linkLabelRmsResidual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelRmsResidual, "r.m.s. residual (\")");
-			this.linkLabelRmsResidual.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRmsResidual_Click);
-			this.linkLabelRmsResidual.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelRmsResidual.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelRmsResidual.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelRmsResidual.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelObsSpan
-			// 
-			this.linkLabelObsSpan.AccessibleDescription = "Observation span";
-			this.linkLabelObsSpan.AccessibleName = "Observation span";
-			this.linkLabelObsSpan.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelObsSpan.AutoSize = true;
-			this.linkLabelObsSpan.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelObsSpan.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelObsSpan.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelObsSpan.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelObsSpan.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelObsSpan.Location = new System.Drawing.Point(397, 107);
-			this.linkLabelObsSpan.Name = "linkLabelObsSpan";
-			this.linkLabelObsSpan.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelObsSpan.TabIndex = 42;
-			this.linkLabelObsSpan.TabStop = true;
-			this.linkLabelObsSpan.Text = "Observation span";
-			this.linkLabelObsSpan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelObsSpan, "Observation span");
-			this.linkLabelObsSpan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsSpan_Click);
-			this.linkLabelObsSpan.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelObsSpan.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelObsSpan.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelObsSpan.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelNumbObs
-			// 
-			this.linkLabelNumbObs.AccessibleDescription = "Number of observations";
-			this.linkLabelNumbObs.AccessibleName = "Number of observations";
-			this.linkLabelNumbObs.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelNumbObs.AutoSize = true;
-			this.linkLabelNumbObs.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelNumbObs.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelNumbObs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelNumbObs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelNumbObs.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelNumbObs.Location = new System.Drawing.Point(397, 86);
-			this.linkLabelNumbObs.Name = "linkLabelNumbObs";
-			this.linkLabelNumbObs.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelNumbObs.TabIndex = 42;
-			this.linkLabelNumbObs.TabStop = true;
-			this.linkLabelNumbObs.Text = "Number of observations";
-			this.linkLabelNumbObs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelNumbObs, "Number of observations");
-			this.linkLabelNumbObs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbObs_Click);
-			this.linkLabelNumbObs.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelNumbObs.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelNumbObs.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelNumbObs.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelNumbOppos
-			// 
-			this.linkLabelNumbOppos.AccessibleDescription = "Number of oppositions";
-			this.linkLabelNumbOppos.AccessibleName = "Number of oppositions";
-			this.linkLabelNumbOppos.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelNumbOppos.AutoSize = true;
-			this.linkLabelNumbOppos.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelNumbOppos.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelNumbOppos.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelNumbOppos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelNumbOppos.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelNumbOppos.Location = new System.Drawing.Point(397, 65);
-			this.linkLabelNumbOppos.Name = "linkLabelNumbOppos";
-			this.linkLabelNumbOppos.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelNumbOppos.TabIndex = 42;
-			this.linkLabelNumbOppos.TabStop = true;
-			this.linkLabelNumbOppos.Text = "Number of oppositions";
-			this.linkLabelNumbOppos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelNumbOppos, "Number of oppositions");
-			this.linkLabelNumbOppos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbOppos_Enter);
-			this.linkLabelNumbOppos.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelNumbOppos.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelNumbOppos.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelNumbOppos.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelRef
-			// 
-			this.linkLabelRef.AccessibleDescription = "Reference";
-			this.linkLabelRef.AccessibleName = "Reference";
-			this.linkLabelRef.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelRef.AutoSize = true;
-			this.linkLabelRef.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelRef.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelRef.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelRef.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelRef.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelRef.Location = new System.Drawing.Point(397, 44);
-			this.linkLabelRef.Name = "linkLabelRef";
-			this.linkLabelRef.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelRef.TabIndex = 42;
-			this.linkLabelRef.TabStop = true;
-			this.linkLabelRef.Text = "Reference";
-			this.linkLabelRef.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelRef, "Reference");
-			this.linkLabelRef.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRef_Click);
-			this.linkLabelRef.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelRef.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelRef.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelRef.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelSlopeParam
-			// 
-			this.linkLabelSlopeParam.AccessibleDescription = "Slope parameter, G";
-			this.linkLabelSlopeParam.AccessibleName = "Slope parameter, G";
-			this.linkLabelSlopeParam.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelSlopeParam.AutoSize = true;
-			this.linkLabelSlopeParam.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelSlopeParam.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelSlopeParam.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelSlopeParam.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelSlopeParam.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSlopeParam.Location = new System.Drawing.Point(397, 23);
-			this.linkLabelSlopeParam.Name = "linkLabelSlopeParam";
-			this.linkLabelSlopeParam.Size = new System.Drawing.Size(135, 19);
-			this.linkLabelSlopeParam.TabIndex = 42;
-			this.linkLabelSlopeParam.TabStop = true;
-			this.linkLabelSlopeParam.Text = "Slope parameter, G";
-			this.linkLabelSlopeParam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelSlopeParam, "Slope parameter, G");
-			this.linkLabelSlopeParam.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSlopeParam_Click);
-			this.linkLabelSlopeParam.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSlopeParam.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSlopeParam.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSlopeParam.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelMagAbs
-			// 
-			this.linkLabelMagAbs.AccessibleDescription = "Absolute magnitude, H";
-			this.linkLabelMagAbs.AccessibleName = "Absolute magnitude, H";
-			this.linkLabelMagAbs.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelMagAbs.AutoSize = true;
-			this.linkLabelMagAbs.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelMagAbs.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelMagAbs.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelMagAbs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelMagAbs.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMagAbs.Location = new System.Drawing.Point(5, 212);
-			this.linkLabelMagAbs.Name = "linkLabelMagAbs";
-			this.linkLabelMagAbs.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelMagAbs.TabIndex = 42;
-			this.linkLabelMagAbs.TabStop = true;
-			this.linkLabelMagAbs.Text = "Absolute magnitude, H";
-			this.linkLabelMagAbs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelMagAbs, "Absolute magnitude, H");
-			this.linkLabelMagAbs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMagAbs_Enter);
-			this.linkLabelMagAbs.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMagAbs.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMagAbs.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMagAbs.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelSemiMajorAxis
-			// 
-			this.linkLabelSemiMajorAxis.AccessibleDescription = "Semimajor axis (AU)";
-			this.linkLabelSemiMajorAxis.AccessibleName = "Semimajor axis (AU)";
-			this.linkLabelSemiMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelSemiMajorAxis.AutoSize = true;
-			this.linkLabelSemiMajorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelSemiMajorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelSemiMajorAxis.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelSemiMajorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelSemiMajorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSemiMajorAxis.Location = new System.Drawing.Point(5, 191);
-			this.linkLabelSemiMajorAxis.Name = "linkLabelSemiMajorAxis";
-			this.linkLabelSemiMajorAxis.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelSemiMajorAxis.TabIndex = 42;
-			this.linkLabelSemiMajorAxis.TabStop = true;
-			this.linkLabelSemiMajorAxis.Text = "Semimajor axis (AU)";
-			this.linkLabelSemiMajorAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelSemiMajorAxis, "Semimajor axis (AU)");
-			this.linkLabelSemiMajorAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSemiMajorAxis_Click);
-			this.linkLabelSemiMajorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiMajorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSemiMajorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiMajorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelMotion
-			// 
-			this.linkLabelMotion.AccessibleDescription = "Mean daily motion (degrees per day)";
-			this.linkLabelMotion.AccessibleName = "Mean daily motion (degrees per day)";
-			this.linkLabelMotion.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelMotion.AutoSize = true;
-			this.linkLabelMotion.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelMotion.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelMotion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelMotion.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelMotion.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMotion.Location = new System.Drawing.Point(5, 170);
-			this.linkLabelMotion.Name = "linkLabelMotion";
-			this.linkLabelMotion.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelMotion.TabIndex = 42;
-			this.linkLabelMotion.TabStop = true;
-			this.linkLabelMotion.Text = "Mean daily motion (degrees per day)";
-			this.linkLabelMotion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelMotion, "Mean daily motion (degrees per day)");
-			this.linkLabelMotion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMotion_Enter);
-			this.linkLabelMotion.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMotion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMotion.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMotion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelOrbEcc
-			// 
-			this.linkLabelOrbEcc.AccessibleDescription = "Orbital eccentricity";
-			this.linkLabelOrbEcc.AccessibleName = "Orbital eccentricity";
-			this.linkLabelOrbEcc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelOrbEcc.AutoSize = true;
-			this.linkLabelOrbEcc.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelOrbEcc.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelOrbEcc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelOrbEcc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelOrbEcc.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelOrbEcc.Location = new System.Drawing.Point(5, 149);
-			this.linkLabelOrbEcc.Name = "linkLabelOrbEcc";
-			this.linkLabelOrbEcc.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelOrbEcc.TabIndex = 42;
-			this.linkLabelOrbEcc.TabStop = true;
-			this.linkLabelOrbEcc.Text = "Orbital eccentricity";
-			this.linkLabelOrbEcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelOrbEcc, "Orbital eccentricity");
-			this.linkLabelOrbEcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelOrbEcc_Enter);
-			this.linkLabelOrbEcc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelOrbEcc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelOrbEcc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelOrbEcc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelIncl
-			// 
-			this.linkLabelIncl.AccessibleDescription = "Inclination to the ecliptic, J2000.0 (degrees)";
-			this.linkLabelIncl.AccessibleName = "Inclination to the ecliptic, J2000.0 (degrees)";
-			this.linkLabelIncl.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelIncl.AutoSize = true;
-			this.linkLabelIncl.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelIncl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelIncl.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelIncl.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelIncl.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelIncl.Location = new System.Drawing.Point(5, 128);
-			this.linkLabelIncl.Name = "linkLabelIncl";
-			this.linkLabelIncl.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelIncl.TabIndex = 42;
-			this.linkLabelIncl.TabStop = true;
-			this.linkLabelIncl.Text = "Inclination to the ecliptic, J2000.0 (degrees)";
-			this.linkLabelIncl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.linkLabelIncl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIncl_Enter);
-			this.linkLabelIncl.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelIncl.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelIncl.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelIncl.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelLongAscNode
-			// 
-			this.linkLabelLongAscNode.AccessibleDescription = "Longitude of the ascending node, J2000.0";
-			this.linkLabelLongAscNode.AccessibleName = "Longitude of the ascending node, J2000.0";
-			this.linkLabelLongAscNode.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelLongAscNode.AutoSize = true;
-			this.linkLabelLongAscNode.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelLongAscNode.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelLongAscNode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelLongAscNode.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelLongAscNode.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelLongAscNode.Location = new System.Drawing.Point(5, 107);
-			this.linkLabelLongAscNode.Name = "linkLabelLongAscNode";
-			this.linkLabelLongAscNode.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelLongAscNode.TabIndex = 42;
-			this.linkLabelLongAscNode.TabStop = true;
-			this.linkLabelLongAscNode.Text = "Longitude of the ascending node, J2000.0";
-			this.linkLabelLongAscNode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelLongAscNode, "Longitude of the ascending node, J2000.0");
-			this.linkLabelLongAscNode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelLongAscNode_Click);
-			this.linkLabelLongAscNode.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLongAscNode.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelLongAscNode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLongAscNode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelArgPeri
-			// 
-			this.linkLabelArgPeri.AccessibleDescription = "Argument of perihelion, J2000.0 (degrees)";
-			this.linkLabelArgPeri.AccessibleName = "Argument of perihelion, J2000.0 (degrees)";
-			this.linkLabelArgPeri.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelArgPeri.AutoSize = true;
-			this.linkLabelArgPeri.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelArgPeri.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelArgPeri.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelArgPeri.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelArgPeri.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelArgPeri.Location = new System.Drawing.Point(5, 86);
-			this.linkLabelArgPeri.Name = "linkLabelArgPeri";
-			this.linkLabelArgPeri.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelArgPeri.TabIndex = 42;
-			this.linkLabelArgPeri.TabStop = true;
-			this.linkLabelArgPeri.Text = "Argument of perihelion, J2000.0 (degrees)";
-			this.linkLabelArgPeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelArgPeri, "Argument of perihelion, J2000.0 (degrees)");
-			this.linkLabelArgPeri.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelArgPeri_Click);
-			this.linkLabelArgPeri.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelArgPeri.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelArgPeri.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelArgPeri.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelMeanAnomaly
-			// 
-			this.linkLabelMeanAnomaly.AccessibleDescription = "Mean anomaly at the epoch, in degrees";
-			this.linkLabelMeanAnomaly.AccessibleName = "Mean anomaly at the epoch, in degrees";
-			this.linkLabelMeanAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelMeanAnomaly.AutoSize = true;
-			this.linkLabelMeanAnomaly.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelMeanAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelMeanAnomaly.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelMeanAnomaly.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelMeanAnomaly.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMeanAnomaly.Location = new System.Drawing.Point(5, 65);
-			this.linkLabelMeanAnomaly.Name = "linkLabelMeanAnomaly";
-			this.linkLabelMeanAnomaly.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelMeanAnomaly.TabIndex = 42;
-			this.linkLabelMeanAnomaly.TabStop = true;
-			this.linkLabelMeanAnomaly.Text = "Mean anomaly at the epoch, in degrees";
-			this.linkLabelMeanAnomaly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelMeanAnomaly, "Mean anomaly at the epoch, in degrees");
-			this.linkLabelMeanAnomaly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMeanAnomaly_Click);
-			this.linkLabelMeanAnomaly.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMeanAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMeanAnomaly.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMeanAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelEpoch
-			// 
-			this.linkLabelEpoch.AccessibleDescription = "Epoch (in packed form, .0 TT)";
-			this.linkLabelEpoch.AccessibleName = "Epoch (in packed form, .0 TT)";
-			this.linkLabelEpoch.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelEpoch.AutoSize = true;
-			this.linkLabelEpoch.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelEpoch.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelEpoch.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelEpoch.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelEpoch.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelEpoch.Location = new System.Drawing.Point(5, 44);
-			this.linkLabelEpoch.Name = "linkLabelEpoch";
-			this.linkLabelEpoch.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelEpoch.TabIndex = 42;
-			this.linkLabelEpoch.TabStop = true;
-			this.linkLabelEpoch.Text = "Epoch (in packed form, .0 TT)";
-			this.linkLabelEpoch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelEpoch, "Epoch (in packed form, .0 TT)");
-			this.linkLabelEpoch.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelEpoch_Click);
-			this.linkLabelEpoch.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelEpoch.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelEpoch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelEpoch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelDesgnNameValue
-			// 
-			this.labelDesgnNameValue.AccessibleDescription = "Show the information of \"Readable designation\"";
-			this.labelDesgnNameValue.AccessibleName = "Show the information of \"Readable designation\"";
-			this.labelDesgnNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelDesgnNameValue.AutoSize = true;
-			this.labelDesgnNameValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelDesgnNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDesgnNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelDesgnNameValue.Location = new System.Drawing.Point(246, 23);
-			this.labelDesgnNameValue.Name = "labelDesgnNameValue";
-			this.labelDesgnNameValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelDesgnNameValue.Size = new System.Drawing.Size(143, 19);
-			this.labelDesgnNameValue.TabIndex = 3;
-			this.labelDesgnNameValue.Text = "...";
-			this.labelDesgnNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelDesgnNameValue, "Show the information of  \"Readable designation\"");
-			this.labelDesgnNameValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelDesgnNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDesgnNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDesgnNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDesgnNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelEpochValue
-			// 
-			this.labelEpochValue.AccessibleDescription = "Show the information of \"Epoch (in packed form, .0 TT)\"";
-			this.labelEpochValue.AccessibleName = "Show the information of \"Epoch (in packed form, .0 TT)\"";
-			this.labelEpochValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelEpochValue.AutoSize = true;
-			this.labelEpochValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelEpochValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelEpochValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEpochValue.Location = new System.Drawing.Point(246, 44);
-			this.labelEpochValue.Name = "labelEpochValue";
-			this.labelEpochValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelEpochValue.Size = new System.Drawing.Size(143, 19);
-			this.labelEpochValue.TabIndex = 7;
-			this.labelEpochValue.Text = "...";
-			this.labelEpochValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelEpochValue, "Show the information of \"Epoch (in packed form, .0 TT)\"");
-			this.labelEpochValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelEpochValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelEpochValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelEpochValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelEpochValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelMeanAnomalyValue
-			// 
-			this.labelMeanAnomalyValue.AccessibleDescription = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
-			this.labelMeanAnomalyValue.AccessibleName = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
-			this.labelMeanAnomalyValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMeanAnomalyValue.AutoSize = true;
-			this.labelMeanAnomalyValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelMeanAnomalyValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMeanAnomalyValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMeanAnomalyValue.Location = new System.Drawing.Point(246, 65);
-			this.labelMeanAnomalyValue.Name = "labelMeanAnomalyValue";
-			this.labelMeanAnomalyValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMeanAnomalyValue.Size = new System.Drawing.Size(143, 19);
-			this.labelMeanAnomalyValue.TabIndex = 11;
-			this.labelMeanAnomalyValue.Text = "...";
-			this.labelMeanAnomalyValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelMeanAnomalyValue, "Show the information of \"Mean anomaly at the epoch, in degrees\"");
-			this.labelMeanAnomalyValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMeanAnomalyValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMeanAnomalyValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMeanAnomalyValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMeanAnomalyValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelArgPeriValue
-			// 
-			this.labelArgPeriValue.AccessibleDescription = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
-			this.labelArgPeriValue.AccessibleName = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
-			this.labelArgPeriValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelArgPeriValue.AutoSize = true;
-			this.labelArgPeriValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelArgPeriValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelArgPeriValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelArgPeriValue.Location = new System.Drawing.Point(246, 86);
-			this.labelArgPeriValue.Name = "labelArgPeriValue";
-			this.labelArgPeriValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelArgPeriValue.Size = new System.Drawing.Size(143, 19);
-			this.labelArgPeriValue.TabIndex = 15;
-			this.labelArgPeriValue.Text = "...";
-			this.labelArgPeriValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelArgPeriValue, "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"");
-			this.labelArgPeriValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelArgPeriValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelArgPeriValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelArgPeriValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelArgPeriValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelLongAscNodeValue
-			// 
-			this.labelLongAscNodeValue.AccessibleDescription = "Show the information of \"Longitude of the ascending node, J2000.0\"";
-			this.labelLongAscNodeValue.AccessibleName = "Show the information of \"Longitude of the ascending node, J2000.0\"";
-			this.labelLongAscNodeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelLongAscNodeValue.AutoSize = true;
-			this.labelLongAscNodeValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelLongAscNodeValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelLongAscNodeValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLongAscNodeValue.Location = new System.Drawing.Point(246, 107);
-			this.labelLongAscNodeValue.Name = "labelLongAscNodeValue";
-			this.labelLongAscNodeValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelLongAscNodeValue.Size = new System.Drawing.Size(143, 19);
-			this.labelLongAscNodeValue.TabIndex = 19;
-			this.labelLongAscNodeValue.Text = "...";
-			this.labelLongAscNodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelLongAscNodeValue, "Show the information of \"Longitude of the ascending node, J2000.0\"");
-			this.labelLongAscNodeValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelLongAscNodeValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLongAscNodeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelLongAscNodeValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLongAscNodeValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelInclValue
-			// 
-			this.labelInclValue.AccessibleDescription = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
-			this.labelInclValue.AccessibleName = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
-			this.labelInclValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelInclValue.AutoSize = true;
-			this.labelInclValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelInclValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelInclValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelInclValue.Location = new System.Drawing.Point(246, 128);
-			this.labelInclValue.Name = "labelInclValue";
-			this.labelInclValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelInclValue.Size = new System.Drawing.Size(143, 19);
-			this.labelInclValue.TabIndex = 23;
-			this.labelInclValue.Text = "...";
-			this.labelInclValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelInclValue, "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"");
-			this.labelInclValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelInclValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelInclValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelInclValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelInclValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelOrbEccValue
-			// 
-			this.labelOrbEccValue.AccessibleDescription = "Show the information of \"Orbital eccentricity\"";
-			this.labelOrbEccValue.AccessibleName = "Show the information of \"Orbital eccentricity\"";
-			this.labelOrbEccValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelOrbEccValue.AutoSize = true;
-			this.labelOrbEccValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelOrbEccValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelOrbEccValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelOrbEccValue.Location = new System.Drawing.Point(246, 149);
-			this.labelOrbEccValue.Name = "labelOrbEccValue";
-			this.labelOrbEccValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelOrbEccValue.Size = new System.Drawing.Size(143, 19);
-			this.labelOrbEccValue.TabIndex = 27;
-			this.labelOrbEccValue.Text = "...";
-			this.labelOrbEccValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelOrbEccValue, "Show the information of \"Orbital eccentricity\"");
-			this.labelOrbEccValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelOrbEccValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelOrbEccValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelOrbEccValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelOrbEccValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelMotionValue
-			// 
-			this.labelMotionValue.AccessibleDescription = "Show the information of \"Mean daily motion (degrees per day)\"";
-			this.labelMotionValue.AccessibleName = "Show the information of \"Mean daily motion (degrees per day)\"";
-			this.labelMotionValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMotionValue.AutoSize = true;
-			this.labelMotionValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelMotionValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMotionValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMotionValue.Location = new System.Drawing.Point(246, 170);
-			this.labelMotionValue.Name = "labelMotionValue";
-			this.labelMotionValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMotionValue.Size = new System.Drawing.Size(143, 19);
-			this.labelMotionValue.TabIndex = 31;
-			this.labelMotionValue.Text = "...";
-			this.labelMotionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelMotionValue, "Show the information of \"Mean daily motion (degrees per day)\"");
-			this.labelMotionValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMotionValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMotionValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMotionValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMotionValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelSemiMajorAxisValue
-			// 
-			this.labelSemiMajorAxisValue.AccessibleDescription = "Show the information of \"Semimajor axis (AU)\"";
-			this.labelSemiMajorAxisValue.AccessibleName = "Show the information of \"Semimajor axis (AU)\"";
-			this.labelSemiMajorAxisValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelSemiMajorAxisValue.AutoSize = true;
-			this.labelSemiMajorAxisValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelSemiMajorAxisValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSemiMajorAxisValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSemiMajorAxisValue.Location = new System.Drawing.Point(246, 191);
-			this.labelSemiMajorAxisValue.Name = "labelSemiMajorAxisValue";
-			this.labelSemiMajorAxisValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelSemiMajorAxisValue.Size = new System.Drawing.Size(143, 19);
-			this.labelSemiMajorAxisValue.TabIndex = 35;
-			this.labelSemiMajorAxisValue.Text = "...";
-			this.labelSemiMajorAxisValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelSemiMajorAxisValue, "Show the information of \"Semimajor axis (AU)\"");
-			this.labelSemiMajorAxisValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelSemiMajorAxisValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiMajorAxisValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSemiMajorAxisValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiMajorAxisValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelSlopeParamValue
-			// 
-			this.labelSlopeParamValue.AccessibleDescription = "Show the information of \"Slope parameter, G\"";
-			this.labelSlopeParamValue.AccessibleName = "Show the information of \"Slope parameter, G\"";
-			this.labelSlopeParamValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelSlopeParamValue.AutoSize = true;
-			this.labelSlopeParamValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelSlopeParamValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSlopeParamValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSlopeParamValue.Location = new System.Drawing.Point(540, 23);
-			this.labelSlopeParamValue.Name = "labelSlopeParamValue";
-			this.labelSlopeParamValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelSlopeParamValue.Size = new System.Drawing.Size(140, 19);
-			this.labelSlopeParamValue.TabIndex = 5;
-			this.labelSlopeParamValue.Text = "...";
-			this.labelSlopeParamValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelSlopeParamValue, "Show the information of \"Slope parameter, G\"");
-			this.labelSlopeParamValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelSlopeParamValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSlopeParamValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSlopeParamValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSlopeParamValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelIndexValue
-			// 
-			this.labelIndexValue.AccessibleDescription = "Show the information of \"Index No.\"";
-			this.labelIndexValue.AccessibleName = "Show the information of \"Index No.\"";
-			this.labelIndexValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelIndexValue.AutoSize = true;
-			this.labelIndexValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelIndexValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelIndexValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelIndexValue.Location = new System.Drawing.Point(246, 2);
-			this.labelIndexValue.Name = "labelIndexValue";
-			this.labelIndexValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelIndexValue.Size = new System.Drawing.Size(143, 19);
-			this.labelIndexValue.TabIndex = 1;
-			this.labelIndexValue.Text = "...";
-			this.labelIndexValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelIndexValue, "Show the information of \"Index No.\"");
-			this.labelIndexValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelIndexValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelIndexValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelIndexValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelIndexValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelMagAbsValue
-			// 
-			this.labelMagAbsValue.AccessibleDescription = "Show the information of \"Absolute magnitude, H\"";
-			this.labelMagAbsValue.AccessibleName = "Show the information of \"Absolute magnitude, H\"";
-			this.labelMagAbsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMagAbsValue.AutoSize = true;
-			this.labelMagAbsValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelMagAbsValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMagAbsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMagAbsValue.Location = new System.Drawing.Point(246, 212);
-			this.labelMagAbsValue.Name = "labelMagAbsValue";
-			this.labelMagAbsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelMagAbsValue.Size = new System.Drawing.Size(143, 19);
-			this.labelMagAbsValue.TabIndex = 39;
-			this.labelMagAbsValue.Text = "...";
-			this.labelMagAbsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelMagAbsValue, "Show the information of \"Absolute magnitude, H\"");
-			this.labelMagAbsValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMagAbsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMagAbsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMagAbsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMagAbsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelRefValue
-			// 
-			this.labelRefValue.AccessibleDescription = "Show the information of \"Reference\"";
-			this.labelRefValue.AccessibleName = "Show the information of \"Reference\"";
-			this.labelRefValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelRefValue.AutoSize = true;
-			this.labelRefValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelRefValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelRefValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRefValue.Location = new System.Drawing.Point(540, 44);
-			this.labelRefValue.Name = "labelRefValue";
-			this.labelRefValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelRefValue.Size = new System.Drawing.Size(140, 19);
-			this.labelRefValue.TabIndex = 9;
-			this.labelRefValue.Text = "...";
-			this.labelRefValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelRefValue, "Show the information of \"Reference\"");
-			this.labelRefValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelRefValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelRefValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelRefValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelRefValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelNumbOpposValue
-			// 
-			this.labelNumbOpposValue.AccessibleDescription = "Show the information of \"Number of oppositions\"";
-			this.labelNumbOpposValue.AccessibleName = "Show the information of \"Number of oppositions\"";
-			this.labelNumbOpposValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelNumbOpposValue.AutoSize = true;
-			this.labelNumbOpposValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelNumbOpposValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelNumbOpposValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNumbOpposValue.Location = new System.Drawing.Point(540, 65);
-			this.labelNumbOpposValue.Name = "labelNumbOpposValue";
-			this.labelNumbOpposValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelNumbOpposValue.Size = new System.Drawing.Size(140, 19);
-			this.labelNumbOpposValue.TabIndex = 13;
-			this.labelNumbOpposValue.Text = "...";
-			this.labelNumbOpposValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelNumbOpposValue, "Show the information of \"Number of oppositions\"");
-			this.labelNumbOpposValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelNumbOpposValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelNumbOpposValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelNumbOpposValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelNumbOpposValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelNumbObsValue
-			// 
-			this.labelNumbObsValue.AccessibleDescription = "Show the information of \"Number of observations\"";
-			this.labelNumbObsValue.AccessibleName = "Show the information of \"Number of observations\"";
-			this.labelNumbObsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelNumbObsValue.AutoSize = true;
-			this.labelNumbObsValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelNumbObsValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelNumbObsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNumbObsValue.Location = new System.Drawing.Point(540, 86);
-			this.labelNumbObsValue.Name = "labelNumbObsValue";
-			this.labelNumbObsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelNumbObsValue.Size = new System.Drawing.Size(140, 19);
-			this.labelNumbObsValue.TabIndex = 17;
-			this.labelNumbObsValue.Text = "...";
-			this.labelNumbObsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelNumbObsValue, "Show the information of \"Number of observations\"");
-			this.labelNumbObsValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelNumbObsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelNumbObsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelNumbObsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelNumbObsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelObsSpanValue
-			// 
-			this.labelObsSpanValue.AccessibleDescription = "Show the information of \"Observation span\"";
-			this.labelObsSpanValue.AccessibleName = "Show the information of \"Observation span\"";
-			this.labelObsSpanValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelObsSpanValue.AutoSize = true;
-			this.labelObsSpanValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelObsSpanValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelObsSpanValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelObsSpanValue.Location = new System.Drawing.Point(540, 107);
-			this.labelObsSpanValue.Name = "labelObsSpanValue";
-			this.labelObsSpanValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelObsSpanValue.Size = new System.Drawing.Size(140, 19);
-			this.labelObsSpanValue.TabIndex = 21;
-			this.labelObsSpanValue.Text = "...";
-			this.labelObsSpanValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelObsSpanValue, "Show the information of \"Observation span\"");
-			this.labelObsSpanValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelObsSpanValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelObsSpanValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelObsSpanValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelObsSpanValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelRmsResidualValue
-			// 
-			this.labelRmsResidualValue.AccessibleDescription = "Show the information of \"r.m.s residual (\")\"";
-			this.labelRmsResidualValue.AccessibleName = "Show the information of \"r.m.s residual (\")\"";
-			this.labelRmsResidualValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelRmsResidualValue.AutoSize = true;
-			this.labelRmsResidualValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelRmsResidualValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelRmsResidualValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRmsResidualValue.Location = new System.Drawing.Point(540, 128);
-			this.labelRmsResidualValue.Name = "labelRmsResidualValue";
-			this.labelRmsResidualValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelRmsResidualValue.Size = new System.Drawing.Size(140, 19);
-			this.labelRmsResidualValue.TabIndex = 25;
-			this.labelRmsResidualValue.Text = "...";
-			this.labelRmsResidualValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelRmsResidualValue, "Show the information of \"r.m.s residual (\")\"");
-			this.labelRmsResidualValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelRmsResidualValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelRmsResidualValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelRmsResidualValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelRmsResidualValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelComputerNameValue
-			// 
-			this.labelComputerNameValue.AccessibleDescription = "Show the information of \"Computer name\"";
-			this.labelComputerNameValue.AccessibleName = "Show the information of \"Computer name\"";
-			this.labelComputerNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelComputerNameValue.AutoSize = true;
-			this.labelComputerNameValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelComputerNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelComputerNameValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelComputerNameValue.Location = new System.Drawing.Point(540, 149);
-			this.labelComputerNameValue.Name = "labelComputerNameValue";
-			this.labelComputerNameValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelComputerNameValue.Size = new System.Drawing.Size(140, 19);
-			this.labelComputerNameValue.TabIndex = 29;
-			this.labelComputerNameValue.Text = "...";
-			this.labelComputerNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelComputerNameValue, "Show the information of \"Computer name\"");
-			this.labelComputerNameValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelComputerNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelComputerNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelComputerNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelComputerNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelFlagsValue
-			// 
-			this.labelFlagsValue.AccessibleDescription = "Show the information of \"4-hexdigit flags\"";
-			this.labelFlagsValue.AccessibleName = "Show the information of \"4-hexdigit flags\"";
-			this.labelFlagsValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelFlagsValue.AutoSize = true;
-			this.labelFlagsValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelFlagsValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelFlagsValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFlagsValue.Location = new System.Drawing.Point(540, 170);
-			this.labelFlagsValue.Name = "labelFlagsValue";
-			this.labelFlagsValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelFlagsValue.Size = new System.Drawing.Size(140, 19);
-			this.labelFlagsValue.TabIndex = 33;
-			this.labelFlagsValue.Text = "...";
-			this.labelFlagsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelFlagsValue, "Show the information of \"4-hexdigit flags\"");
-			this.labelFlagsValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelFlagsValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelFlagsValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelFlagsValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelFlagsValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelObsLastDateValue
-			// 
-			this.labelObsLastDateValue.AccessibleDescription = "Show the information of \"Date of last observation\"";
-			this.labelObsLastDateValue.AccessibleName = "Show the information of \"Date of last observation\"";
-			this.labelObsLastDateValue.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelObsLastDateValue.AutoSize = true;
-			this.labelObsLastDateValue.BackColor = System.Drawing.Color.Transparent;
-			this.labelObsLastDateValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelObsLastDateValue.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelObsLastDateValue.Location = new System.Drawing.Point(540, 191);
-			this.labelObsLastDateValue.Name = "labelObsLastDateValue";
-			this.labelObsLastDateValue.Padding = new System.Windows.Forms.Padding(3);
-			this.labelObsLastDateValue.Size = new System.Drawing.Size(140, 19);
-			this.labelObsLastDateValue.TabIndex = 37;
-			this.labelObsLastDateValue.Text = "...";
-			this.labelObsLastDateValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.labelObsLastDateValue, "Show the information of \"Date of last observation\"");
-			this.labelObsLastDateValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelObsLastDateValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelObsLastDateValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelObsLastDateValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelObsLastDateValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelIndex
-			// 
-			this.linkLabelIndex.AccessibleDescription = "Index No.";
-			this.linkLabelIndex.AccessibleName = "Index No.";
-			this.linkLabelIndex.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelIndex.AutoSize = true;
-			this.linkLabelIndex.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelIndex.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelIndex.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelIndex.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelIndex.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelIndex.Location = new System.Drawing.Point(5, 2);
-			this.linkLabelIndex.Name = "linkLabelIndex";
-			this.linkLabelIndex.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelIndex.TabIndex = 40;
-			this.linkLabelIndex.TabStop = true;
-			this.linkLabelIndex.Text = "Index No.";
-			this.linkLabelIndex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.linkLabelIndex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIndex_Click);
-			this.linkLabelIndex.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelIndex.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelIndex.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelIndex.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelDesgnName
-			// 
-			this.linkLabelDesgnName.AccessibleDescription = "Readable designation";
-			this.linkLabelDesgnName.AccessibleName = "Readable designation";
-			this.linkLabelDesgnName.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelDesgnName.AutoSize = true;
-			this.linkLabelDesgnName.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelDesgnName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelDesgnName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.linkLabelDesgnName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelDesgnName.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelDesgnName.Location = new System.Drawing.Point(5, 23);
-			this.linkLabelDesgnName.Name = "linkLabelDesgnName";
-			this.linkLabelDesgnName.Size = new System.Drawing.Size(233, 19);
-			this.linkLabelDesgnName.TabIndex = 42;
-			this.linkLabelDesgnName.TabStop = true;
-			this.linkLabelDesgnName.Text = "Readable designation";
-			this.linkLabelDesgnName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.toolTip.SetToolTip(this.linkLabelDesgnName, "Readable designation");
-			this.linkLabelDesgnName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelDesgnName_Click);
-			this.linkLabelDesgnName.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelDesgnName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelDesgnName.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelDesgnName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// linkLabelDateLastObservationDesc
+			// 
+			this.linkLabelDateLastObservationDesc.AccessibleDescription = "Date of last observation";
+			this.linkLabelDateLastObservationDesc.AccessibleName = "Date of last observation";
+			this.linkLabelDateLastObservationDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelDateLastObservationDesc.AutoSize = true;
+			this.linkLabelDateLastObservationDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelDateLastObservationDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelDateLastObservationDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelDateLastObservationDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelDateLastObservationDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelDateLastObservationDesc.Location = new System.Drawing.Point(397, 191);
+			this.linkLabelDateLastObservationDesc.Name = "linkLabelDateLastObservationDesc";
+			this.linkLabelDateLastObservationDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelDateLastObservationDesc.TabIndex = 42;
+			this.linkLabelDateLastObservationDesc.TabStop = true;
+			this.linkLabelDateLastObservationDesc.Text = "Date of last observation";
+			this.linkLabelDateLastObservationDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelDateLastObservationDesc, "Date of last observation");
+			this.linkLabelDateLastObservationDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsLastDate_Click);
+			this.linkLabelDateLastObservationDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelDateLastObservationDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelDateLastObservationDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelDateLastObservationDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelFlagsDesc
+			// 
+			this.linkLabelFlagsDesc.AccessibleDescription = "4-hexdigit flags";
+			this.linkLabelFlagsDesc.AccessibleName = "4-hexdigit flags";
+			this.linkLabelFlagsDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelFlagsDesc.AutoSize = true;
+			this.linkLabelFlagsDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelFlagsDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelFlagsDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelFlagsDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelFlagsDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelFlagsDesc.Location = new System.Drawing.Point(397, 170);
+			this.linkLabelFlagsDesc.Name = "linkLabelFlagsDesc";
+			this.linkLabelFlagsDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelFlagsDesc.TabIndex = 42;
+			this.linkLabelFlagsDesc.TabStop = true;
+			this.linkLabelFlagsDesc.Text = "4-hexdigit flags";
+			this.linkLabelFlagsDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelFlagsDesc, "4-hexdigit flags");
+			this.linkLabelFlagsDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelFlags_Click);
+			this.linkLabelFlagsDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelFlagsDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelFlagsDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelFlagsDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelComputerNameDesc
+			// 
+			this.linkLabelComputerNameDesc.AccessibleDescription = "Computer name";
+			this.linkLabelComputerNameDesc.AccessibleName = "Computer name";
+			this.linkLabelComputerNameDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelComputerNameDesc.AutoSize = true;
+			this.linkLabelComputerNameDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelComputerNameDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelComputerNameDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelComputerNameDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelComputerNameDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelComputerNameDesc.Location = new System.Drawing.Point(397, 149);
+			this.linkLabelComputerNameDesc.Name = "linkLabelComputerNameDesc";
+			this.linkLabelComputerNameDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelComputerNameDesc.TabIndex = 42;
+			this.linkLabelComputerNameDesc.TabStop = true;
+			this.linkLabelComputerNameDesc.Text = "Computer name";
+			this.linkLabelComputerNameDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelComputerNameDesc, "Computer name");
+			this.linkLabelComputerNameDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelComputerName_Click);
+			this.linkLabelComputerNameDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelComputerNameDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelComputerNameDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelComputerNameDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelRmsResidualDesc
+			// 
+			this.linkLabelRmsResidualDesc.AccessibleDescription = "r.m.s. residual (\")";
+			this.linkLabelRmsResidualDesc.AccessibleName = "r.m.s. residual (\")";
+			this.linkLabelRmsResidualDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelRmsResidualDesc.AutoSize = true;
+			this.linkLabelRmsResidualDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelRmsResidualDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelRmsResidualDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelRmsResidualDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelRmsResidualDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelRmsResidualDesc.Location = new System.Drawing.Point(397, 128);
+			this.linkLabelRmsResidualDesc.Name = "linkLabelRmsResidualDesc";
+			this.linkLabelRmsResidualDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelRmsResidualDesc.TabIndex = 42;
+			this.linkLabelRmsResidualDesc.TabStop = true;
+			this.linkLabelRmsResidualDesc.Text = "r.m.s. residual (\")";
+			this.linkLabelRmsResidualDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelRmsResidualDesc, "r.m.s. residual (\")");
+			this.linkLabelRmsResidualDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRmsResidual_Click);
+			this.linkLabelRmsResidualDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelRmsResidualDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelRmsResidualDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelRmsResidualDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelObservationSpanDesc
+			// 
+			this.linkLabelObservationSpanDesc.AccessibleDescription = "Observation span";
+			this.linkLabelObservationSpanDesc.AccessibleName = "Observation span";
+			this.linkLabelObservationSpanDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelObservationSpanDesc.AutoSize = true;
+			this.linkLabelObservationSpanDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelObservationSpanDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelObservationSpanDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelObservationSpanDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelObservationSpanDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelObservationSpanDesc.Location = new System.Drawing.Point(397, 107);
+			this.linkLabelObservationSpanDesc.Name = "linkLabelObservationSpanDesc";
+			this.linkLabelObservationSpanDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelObservationSpanDesc.TabIndex = 42;
+			this.linkLabelObservationSpanDesc.TabStop = true;
+			this.linkLabelObservationSpanDesc.Text = "Observation span";
+			this.linkLabelObservationSpanDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelObservationSpanDesc, "Observation span");
+			this.linkLabelObservationSpanDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelObsSpan_Click);
+			this.linkLabelObservationSpanDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelObservationSpanDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelObservationSpanDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelObservationSpanDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelNumberObservationsDesc
+			// 
+			this.linkLabelNumberObservationsDesc.AccessibleDescription = "Number of observations";
+			this.linkLabelNumberObservationsDesc.AccessibleName = "Number of observations";
+			this.linkLabelNumberObservationsDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelNumberObservationsDesc.AutoSize = true;
+			this.linkLabelNumberObservationsDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelNumberObservationsDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelNumberObservationsDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelNumberObservationsDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelNumberObservationsDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelNumberObservationsDesc.Location = new System.Drawing.Point(397, 86);
+			this.linkLabelNumberObservationsDesc.Name = "linkLabelNumberObservationsDesc";
+			this.linkLabelNumberObservationsDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelNumberObservationsDesc.TabIndex = 42;
+			this.linkLabelNumberObservationsDesc.TabStop = true;
+			this.linkLabelNumberObservationsDesc.Text = "Number of observations";
+			this.linkLabelNumberObservationsDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelNumberObservationsDesc, "Number of observations");
+			this.linkLabelNumberObservationsDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbObs_Click);
+			this.linkLabelNumberObservationsDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelNumberObservationsDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelNumberObservationsDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelNumberObservationsDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelNumberOppositionsDesc
+			// 
+			this.linkLabelNumberOppositionsDesc.AccessibleDescription = "Number of oppositions";
+			this.linkLabelNumberOppositionsDesc.AccessibleName = "Number of oppositions";
+			this.linkLabelNumberOppositionsDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelNumberOppositionsDesc.AutoSize = true;
+			this.linkLabelNumberOppositionsDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelNumberOppositionsDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelNumberOppositionsDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelNumberOppositionsDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelNumberOppositionsDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelNumberOppositionsDesc.Location = new System.Drawing.Point(397, 65);
+			this.linkLabelNumberOppositionsDesc.Name = "linkLabelNumberOppositionsDesc";
+			this.linkLabelNumberOppositionsDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelNumberOppositionsDesc.TabIndex = 42;
+			this.linkLabelNumberOppositionsDesc.TabStop = true;
+			this.linkLabelNumberOppositionsDesc.Text = "Number of oppositions";
+			this.linkLabelNumberOppositionsDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelNumberOppositionsDesc, "Number of oppositions");
+			this.linkLabelNumberOppositionsDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelNumbOppos_Enter);
+			this.linkLabelNumberOppositionsDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelNumberOppositionsDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelNumberOppositionsDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelNumberOppositionsDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelReferenceDesc
+			// 
+			this.linkLabelReferenceDesc.AccessibleDescription = "Reference";
+			this.linkLabelReferenceDesc.AccessibleName = "Reference";
+			this.linkLabelReferenceDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelReferenceDesc.AutoSize = true;
+			this.linkLabelReferenceDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelReferenceDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelReferenceDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelReferenceDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelReferenceDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelReferenceDesc.Location = new System.Drawing.Point(397, 44);
+			this.linkLabelReferenceDesc.Name = "linkLabelReferenceDesc";
+			this.linkLabelReferenceDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelReferenceDesc.TabIndex = 42;
+			this.linkLabelReferenceDesc.TabStop = true;
+			this.linkLabelReferenceDesc.Text = "Reference";
+			this.linkLabelReferenceDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelReferenceDesc, "Reference");
+			this.linkLabelReferenceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelRef_Click);
+			this.linkLabelReferenceDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelReferenceDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelReferenceDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelReferenceDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelSlopeParameterDesc
+			// 
+			this.linkLabelSlopeParameterDesc.AccessibleDescription = "Slope parameter, G";
+			this.linkLabelSlopeParameterDesc.AccessibleName = "Slope parameter, G";
+			this.linkLabelSlopeParameterDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelSlopeParameterDesc.AutoSize = true;
+			this.linkLabelSlopeParameterDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelSlopeParameterDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelSlopeParameterDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelSlopeParameterDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelSlopeParameterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelSlopeParameterDesc.Location = new System.Drawing.Point(397, 23);
+			this.linkLabelSlopeParameterDesc.Name = "linkLabelSlopeParameterDesc";
+			this.linkLabelSlopeParameterDesc.Size = new System.Drawing.Size(135, 19);
+			this.linkLabelSlopeParameterDesc.TabIndex = 42;
+			this.linkLabelSlopeParameterDesc.TabStop = true;
+			this.linkLabelSlopeParameterDesc.Text = "Slope parameter, G";
+			this.linkLabelSlopeParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelSlopeParameterDesc, "Slope parameter, G");
+			this.linkLabelSlopeParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSlopeParam_Click);
+			this.linkLabelSlopeParameterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSlopeParameterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelSlopeParameterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSlopeParameterDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelAbsoluteMagnitudeDesc
+			// 
+			this.linkLabelAbsoluteMagnitudeDesc.AccessibleDescription = "Absolute magnitude, H";
+			this.linkLabelAbsoluteMagnitudeDesc.AccessibleName = "Absolute magnitude, H";
+			this.linkLabelAbsoluteMagnitudeDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelAbsoluteMagnitudeDesc.AutoSize = true;
+			this.linkLabelAbsoluteMagnitudeDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelAbsoluteMagnitudeDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelAbsoluteMagnitudeDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelAbsoluteMagnitudeDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelAbsoluteMagnitudeDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelAbsoluteMagnitudeDesc.Location = new System.Drawing.Point(5, 212);
+			this.linkLabelAbsoluteMagnitudeDesc.Name = "linkLabelAbsoluteMagnitudeDesc";
+			this.linkLabelAbsoluteMagnitudeDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelAbsoluteMagnitudeDesc.TabIndex = 42;
+			this.linkLabelAbsoluteMagnitudeDesc.TabStop = true;
+			this.linkLabelAbsoluteMagnitudeDesc.Text = "Absolute magnitude, H";
+			this.linkLabelAbsoluteMagnitudeDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelAbsoluteMagnitudeDesc, "Absolute magnitude, H");
+			this.linkLabelAbsoluteMagnitudeDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMagAbs_Enter);
+			this.linkLabelAbsoluteMagnitudeDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelAbsoluteMagnitudeDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelAbsoluteMagnitudeDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelAbsoluteMagnitudeDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelSemiMajorAxisDesc
+			// 
+			this.linkLabelSemiMajorAxisDesc.AccessibleDescription = "Semimajor axis (AU)";
+			this.linkLabelSemiMajorAxisDesc.AccessibleName = "Semimajor axis (AU)";
+			this.linkLabelSemiMajorAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelSemiMajorAxisDesc.AutoSize = true;
+			this.linkLabelSemiMajorAxisDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelSemiMajorAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelSemiMajorAxisDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelSemiMajorAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelSemiMajorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelSemiMajorAxisDesc.Location = new System.Drawing.Point(5, 191);
+			this.linkLabelSemiMajorAxisDesc.Name = "linkLabelSemiMajorAxisDesc";
+			this.linkLabelSemiMajorAxisDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelSemiMajorAxisDesc.TabIndex = 42;
+			this.linkLabelSemiMajorAxisDesc.TabStop = true;
+			this.linkLabelSemiMajorAxisDesc.Text = "Semimajor axis (AU)";
+			this.linkLabelSemiMajorAxisDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelSemiMajorAxisDesc, "Semimajor axis (AU)");
+			this.linkLabelSemiMajorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelSemiMajorAxis_Click);
+			this.linkLabelSemiMajorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiMajorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelSemiMajorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiMajorAxisDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelMeanDailyMotionDesc
+			// 
+			this.linkLabelMeanDailyMotionDesc.AccessibleDescription = "Mean daily motion (degrees per day)";
+			this.linkLabelMeanDailyMotionDesc.AccessibleName = "Mean daily motion (degrees per day)";
+			this.linkLabelMeanDailyMotionDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelMeanDailyMotionDesc.AutoSize = true;
+			this.linkLabelMeanDailyMotionDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMeanDailyMotionDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelMeanDailyMotionDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelMeanDailyMotionDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelMeanDailyMotionDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelMeanDailyMotionDesc.Location = new System.Drawing.Point(5, 170);
+			this.linkLabelMeanDailyMotionDesc.Name = "linkLabelMeanDailyMotionDesc";
+			this.linkLabelMeanDailyMotionDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelMeanDailyMotionDesc.TabIndex = 42;
+			this.linkLabelMeanDailyMotionDesc.TabStop = true;
+			this.linkLabelMeanDailyMotionDesc.Text = "Mean daily motion (degrees per day)";
+			this.linkLabelMeanDailyMotionDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelMeanDailyMotionDesc, "Mean daily motion (degrees per day)");
+			this.linkLabelMeanDailyMotionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMotion_Enter);
+			this.linkLabelMeanDailyMotionDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMeanDailyMotionDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelMeanDailyMotionDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMeanDailyMotionDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelOrbitalEccentricityDesc
+			// 
+			this.linkLabelOrbitalEccentricityDesc.AccessibleDescription = "Orbital eccentricity";
+			this.linkLabelOrbitalEccentricityDesc.AccessibleName = "Orbital eccentricity";
+			this.linkLabelOrbitalEccentricityDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelOrbitalEccentricityDesc.AutoSize = true;
+			this.linkLabelOrbitalEccentricityDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelOrbitalEccentricityDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelOrbitalEccentricityDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelOrbitalEccentricityDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelOrbitalEccentricityDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelOrbitalEccentricityDesc.Location = new System.Drawing.Point(5, 149);
+			this.linkLabelOrbitalEccentricityDesc.Name = "linkLabelOrbitalEccentricityDesc";
+			this.linkLabelOrbitalEccentricityDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelOrbitalEccentricityDesc.TabIndex = 42;
+			this.linkLabelOrbitalEccentricityDesc.TabStop = true;
+			this.linkLabelOrbitalEccentricityDesc.Text = "Orbital eccentricity";
+			this.linkLabelOrbitalEccentricityDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelOrbitalEccentricityDesc, "Orbital eccentricity");
+			this.linkLabelOrbitalEccentricityDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelOrbEcc_Enter);
+			this.linkLabelOrbitalEccentricityDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelOrbitalEccentricityDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelOrbitalEccentricityDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelOrbitalEccentricityDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelInclinationDesc
+			// 
+			this.linkLabelInclinationDesc.AccessibleDescription = "Inclination to the ecliptic, J2000.0 (degrees)";
+			this.linkLabelInclinationDesc.AccessibleName = "Inclination to the ecliptic, J2000.0 (degrees)";
+			this.linkLabelInclinationDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelInclinationDesc.AutoSize = true;
+			this.linkLabelInclinationDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelInclinationDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelInclinationDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelInclinationDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelInclinationDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelInclinationDesc.Location = new System.Drawing.Point(5, 128);
+			this.linkLabelInclinationDesc.Name = "linkLabelInclinationDesc";
+			this.linkLabelInclinationDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelInclinationDesc.TabIndex = 42;
+			this.linkLabelInclinationDesc.TabStop = true;
+			this.linkLabelInclinationDesc.Text = "Inclination to the ecliptic, J2000.0 (degrees)";
+			this.linkLabelInclinationDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.linkLabelInclinationDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIncl_Enter);
+			this.linkLabelInclinationDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelInclinationDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelInclinationDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelInclinationDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelLongitudeAscendingNodeDesc
+			// 
+			this.linkLabelLongitudeAscendingNodeDesc.AccessibleDescription = "Longitude of the ascending node, J2000.0";
+			this.linkLabelLongitudeAscendingNodeDesc.AccessibleName = "Longitude of the ascending node, J2000.0";
+			this.linkLabelLongitudeAscendingNodeDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelLongitudeAscendingNodeDesc.AutoSize = true;
+			this.linkLabelLongitudeAscendingNodeDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelLongitudeAscendingNodeDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelLongitudeAscendingNodeDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelLongitudeAscendingNodeDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelLongitudeAscendingNodeDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelLongitudeAscendingNodeDesc.Location = new System.Drawing.Point(5, 107);
+			this.linkLabelLongitudeAscendingNodeDesc.Name = "linkLabelLongitudeAscendingNodeDesc";
+			this.linkLabelLongitudeAscendingNodeDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelLongitudeAscendingNodeDesc.TabIndex = 42;
+			this.linkLabelLongitudeAscendingNodeDesc.TabStop = true;
+			this.linkLabelLongitudeAscendingNodeDesc.Text = "Longitude of the ascending node, J2000.0";
+			this.linkLabelLongitudeAscendingNodeDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelLongitudeAscendingNodeDesc, "Longitude of the ascending node, J2000.0");
+			this.linkLabelLongitudeAscendingNodeDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelLongAscNode_Click);
+			this.linkLabelLongitudeAscendingNodeDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLongitudeAscendingNodeDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelLongitudeAscendingNodeDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLongitudeAscendingNodeDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelArgumentPerihelionDesc
+			// 
+			this.linkLabelArgumentPerihelionDesc.AccessibleDescription = "Argument of perihelion, J2000.0 (degrees)";
+			this.linkLabelArgumentPerihelionDesc.AccessibleName = "Argument of perihelion, J2000.0 (degrees)";
+			this.linkLabelArgumentPerihelionDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelArgumentPerihelionDesc.AutoSize = true;
+			this.linkLabelArgumentPerihelionDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelArgumentPerihelionDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelArgumentPerihelionDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelArgumentPerihelionDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelArgumentPerihelionDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelArgumentPerihelionDesc.Location = new System.Drawing.Point(5, 86);
+			this.linkLabelArgumentPerihelionDesc.Name = "linkLabelArgumentPerihelionDesc";
+			this.linkLabelArgumentPerihelionDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelArgumentPerihelionDesc.TabIndex = 42;
+			this.linkLabelArgumentPerihelionDesc.TabStop = true;
+			this.linkLabelArgumentPerihelionDesc.Text = "Argument of perihelion, J2000.0 (degrees)";
+			this.linkLabelArgumentPerihelionDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelArgumentPerihelionDesc, "Argument of perihelion, J2000.0 (degrees)");
+			this.linkLabelArgumentPerihelionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelArgPeri_Click);
+			this.linkLabelArgumentPerihelionDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelArgumentPerihelionDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelArgumentPerihelionDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelArgumentPerihelionDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelMeanAnomalyDesc
+			// 
+			this.linkLabelMeanAnomalyDesc.AccessibleDescription = "Mean anomaly at the epoch, in degrees";
+			this.linkLabelMeanAnomalyDesc.AccessibleName = "Mean anomaly at the epoch, in degrees";
+			this.linkLabelMeanAnomalyDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelMeanAnomalyDesc.AutoSize = true;
+			this.linkLabelMeanAnomalyDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMeanAnomalyDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelMeanAnomalyDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelMeanAnomalyDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelMeanAnomalyDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelMeanAnomalyDesc.Location = new System.Drawing.Point(5, 65);
+			this.linkLabelMeanAnomalyDesc.Name = "linkLabelMeanAnomalyDesc";
+			this.linkLabelMeanAnomalyDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelMeanAnomalyDesc.TabIndex = 42;
+			this.linkLabelMeanAnomalyDesc.TabStop = true;
+			this.linkLabelMeanAnomalyDesc.Text = "Mean anomaly at the epoch, in degrees";
+			this.linkLabelMeanAnomalyDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelMeanAnomalyDesc, "Mean anomaly at the epoch, in degrees");
+			this.linkLabelMeanAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelMeanAnomaly_Click);
+			this.linkLabelMeanAnomalyDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMeanAnomalyDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelMeanAnomalyDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMeanAnomalyDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelEpochDesc
+			// 
+			this.linkLabelEpochDesc.AccessibleDescription = "Epoch (in packed form, .0 TT)";
+			this.linkLabelEpochDesc.AccessibleName = "Epoch (in packed form, .0 TT)";
+			this.linkLabelEpochDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelEpochDesc.AutoSize = true;
+			this.linkLabelEpochDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelEpochDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelEpochDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelEpochDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelEpochDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelEpochDesc.Location = new System.Drawing.Point(5, 44);
+			this.linkLabelEpochDesc.Name = "linkLabelEpochDesc";
+			this.linkLabelEpochDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelEpochDesc.TabIndex = 42;
+			this.linkLabelEpochDesc.TabStop = true;
+			this.linkLabelEpochDesc.Text = "Epoch (in packed form, .0 TT)";
+			this.linkLabelEpochDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelEpochDesc, "Epoch (in packed form, .0 TT)");
+			this.linkLabelEpochDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelEpoch_Click);
+			this.linkLabelEpochDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelEpochDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelEpochDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelEpochDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelDesignationNameData
+			// 
+			this.labelDesignationNameData.AccessibleDescription = "Show the information of \"Readable designation\"";
+			this.labelDesignationNameData.AccessibleName = "Show the information of \"Readable designation\"";
+			this.labelDesignationNameData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelDesignationNameData.AutoSize = true;
+			this.labelDesignationNameData.BackColor = System.Drawing.Color.Transparent;
+			this.labelDesignationNameData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelDesignationNameData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelDesignationNameData.Location = new System.Drawing.Point(246, 23);
+			this.labelDesignationNameData.Name = "labelDesignationNameData";
+			this.labelDesignationNameData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelDesignationNameData.Size = new System.Drawing.Size(143, 19);
+			this.labelDesignationNameData.TabIndex = 3;
+			this.labelDesignationNameData.Text = "...";
+			this.labelDesignationNameData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelDesignationNameData, "Show the information of  \"Readable designation\"");
+			this.labelDesignationNameData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelDesignationNameData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDesignationNameData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelDesignationNameData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDesignationNameData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelEpochData
+			// 
+			this.labelEpochData.AccessibleDescription = "Show the information of \"Epoch (in packed form, .0 TT)\"";
+			this.labelEpochData.AccessibleName = "Show the information of \"Epoch (in packed form, .0 TT)\"";
+			this.labelEpochData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelEpochData.AutoSize = true;
+			this.labelEpochData.BackColor = System.Drawing.Color.Transparent;
+			this.labelEpochData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelEpochData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelEpochData.Location = new System.Drawing.Point(246, 44);
+			this.labelEpochData.Name = "labelEpochData";
+			this.labelEpochData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelEpochData.Size = new System.Drawing.Size(143, 19);
+			this.labelEpochData.TabIndex = 7;
+			this.labelEpochData.Text = "...";
+			this.labelEpochData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelEpochData, "Show the information of \"Epoch (in packed form, .0 TT)\"");
+			this.labelEpochData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelEpochData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelEpochData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelEpochData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelEpochData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelMeanAnomalyData
+			// 
+			this.labelMeanAnomalyData.AccessibleDescription = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
+			this.labelMeanAnomalyData.AccessibleName = "Show the information of \"Mean anomaly at the epoch, in degrees\"";
+			this.labelMeanAnomalyData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelMeanAnomalyData.AutoSize = true;
+			this.labelMeanAnomalyData.BackColor = System.Drawing.Color.Transparent;
+			this.labelMeanAnomalyData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelMeanAnomalyData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMeanAnomalyData.Location = new System.Drawing.Point(246, 65);
+			this.labelMeanAnomalyData.Name = "labelMeanAnomalyData";
+			this.labelMeanAnomalyData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelMeanAnomalyData.Size = new System.Drawing.Size(143, 19);
+			this.labelMeanAnomalyData.TabIndex = 11;
+			this.labelMeanAnomalyData.Text = "...";
+			this.labelMeanAnomalyData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelMeanAnomalyData, "Show the information of \"Mean anomaly at the epoch, in degrees\"");
+			this.labelMeanAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMeanAnomalyData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanAnomalyData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMeanAnomalyData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanAnomalyData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelArgumentPerihelionData
+			// 
+			this.labelArgumentPerihelionData.AccessibleDescription = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
+			this.labelArgumentPerihelionData.AccessibleName = "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"";
+			this.labelArgumentPerihelionData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelArgumentPerihelionData.AutoSize = true;
+			this.labelArgumentPerihelionData.BackColor = System.Drawing.Color.Transparent;
+			this.labelArgumentPerihelionData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelArgumentPerihelionData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelArgumentPerihelionData.Location = new System.Drawing.Point(246, 86);
+			this.labelArgumentPerihelionData.Name = "labelArgumentPerihelionData";
+			this.labelArgumentPerihelionData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelArgumentPerihelionData.Size = new System.Drawing.Size(143, 19);
+			this.labelArgumentPerihelionData.TabIndex = 15;
+			this.labelArgumentPerihelionData.Text = "...";
+			this.labelArgumentPerihelionData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelArgumentPerihelionData, "Show the information of \"Argument of perihelion, J2000.0 (degrees)\"");
+			this.labelArgumentPerihelionData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelArgumentPerihelionData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelArgumentPerihelionData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelArgumentPerihelionData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelArgumentPerihelionData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelLongitudeAscendingNodeData
+			// 
+			this.labelLongitudeAscendingNodeData.AccessibleDescription = "Show the information of \"Longitude of the ascending node, J2000.0\"";
+			this.labelLongitudeAscendingNodeData.AccessibleName = "Show the information of \"Longitude of the ascending node, J2000.0\"";
+			this.labelLongitudeAscendingNodeData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelLongitudeAscendingNodeData.AutoSize = true;
+			this.labelLongitudeAscendingNodeData.BackColor = System.Drawing.Color.Transparent;
+			this.labelLongitudeAscendingNodeData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelLongitudeAscendingNodeData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLongitudeAscendingNodeData.Location = new System.Drawing.Point(246, 107);
+			this.labelLongitudeAscendingNodeData.Name = "labelLongitudeAscendingNodeData";
+			this.labelLongitudeAscendingNodeData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelLongitudeAscendingNodeData.Size = new System.Drawing.Size(143, 19);
+			this.labelLongitudeAscendingNodeData.TabIndex = 19;
+			this.labelLongitudeAscendingNodeData.Text = "...";
+			this.labelLongitudeAscendingNodeData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelLongitudeAscendingNodeData, "Show the information of \"Longitude of the ascending node, J2000.0\"");
+			this.labelLongitudeAscendingNodeData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLongitudeAscendingNodeData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLongitudeAscendingNodeData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelLongitudeAscendingNodeData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLongitudeAscendingNodeData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelInclinationData
+			// 
+			this.labelInclinationData.AccessibleDescription = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
+			this.labelInclinationData.AccessibleName = "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"";
+			this.labelInclinationData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelInclinationData.AutoSize = true;
+			this.labelInclinationData.BackColor = System.Drawing.Color.Transparent;
+			this.labelInclinationData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelInclinationData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInclinationData.Location = new System.Drawing.Point(246, 128);
+			this.labelInclinationData.Name = "labelInclinationData";
+			this.labelInclinationData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelInclinationData.Size = new System.Drawing.Size(143, 19);
+			this.labelInclinationData.TabIndex = 23;
+			this.labelInclinationData.Text = "...";
+			this.labelInclinationData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelInclinationData, "Show the information of \"Inclination to the ecliptic, J2000.0 (degrees)\"");
+			this.labelInclinationData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelInclinationData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelInclinationData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelInclinationData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelInclinationData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelOrbitalEccentricityData
+			// 
+			this.labelOrbitalEccentricityData.AccessibleDescription = "Show the information of \"Orbital eccentricity\"";
+			this.labelOrbitalEccentricityData.AccessibleName = "Show the information of \"Orbital eccentricity\"";
+			this.labelOrbitalEccentricityData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelOrbitalEccentricityData.AutoSize = true;
+			this.labelOrbitalEccentricityData.BackColor = System.Drawing.Color.Transparent;
+			this.labelOrbitalEccentricityData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelOrbitalEccentricityData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelOrbitalEccentricityData.Location = new System.Drawing.Point(246, 149);
+			this.labelOrbitalEccentricityData.Name = "labelOrbitalEccentricityData";
+			this.labelOrbitalEccentricityData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelOrbitalEccentricityData.Size = new System.Drawing.Size(143, 19);
+			this.labelOrbitalEccentricityData.TabIndex = 27;
+			this.labelOrbitalEccentricityData.Text = "...";
+			this.labelOrbitalEccentricityData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelOrbitalEccentricityData, "Show the information of \"Orbital eccentricity\"");
+			this.labelOrbitalEccentricityData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelOrbitalEccentricityData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelOrbitalEccentricityData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelOrbitalEccentricityData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelOrbitalEccentricityData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelMeanDailyMotionData
+			// 
+			this.labelMeanDailyMotionData.AccessibleDescription = "Show the information of \"Mean daily motion (degrees per day)\"";
+			this.labelMeanDailyMotionData.AccessibleName = "Show the information of \"Mean daily motion (degrees per day)\"";
+			this.labelMeanDailyMotionData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelMeanDailyMotionData.AutoSize = true;
+			this.labelMeanDailyMotionData.BackColor = System.Drawing.Color.Transparent;
+			this.labelMeanDailyMotionData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelMeanDailyMotionData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMeanDailyMotionData.Location = new System.Drawing.Point(246, 170);
+			this.labelMeanDailyMotionData.Name = "labelMeanDailyMotionData";
+			this.labelMeanDailyMotionData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelMeanDailyMotionData.Size = new System.Drawing.Size(143, 19);
+			this.labelMeanDailyMotionData.TabIndex = 31;
+			this.labelMeanDailyMotionData.Text = "...";
+			this.labelMeanDailyMotionData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelMeanDailyMotionData, "Show the information of \"Mean daily motion (degrees per day)\"");
+			this.labelMeanDailyMotionData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMeanDailyMotionData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanDailyMotionData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMeanDailyMotionData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanDailyMotionData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelSemiMajorAxisData
+			// 
+			this.labelSemiMajorAxisData.AccessibleDescription = "Show the information of \"Semimajor axis (AU)\"";
+			this.labelSemiMajorAxisData.AccessibleName = "Show the information of \"Semimajor axis (AU)\"";
+			this.labelSemiMajorAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelSemiMajorAxisData.AutoSize = true;
+			this.labelSemiMajorAxisData.BackColor = System.Drawing.Color.Transparent;
+			this.labelSemiMajorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelSemiMajorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelSemiMajorAxisData.Location = new System.Drawing.Point(246, 191);
+			this.labelSemiMajorAxisData.Name = "labelSemiMajorAxisData";
+			this.labelSemiMajorAxisData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelSemiMajorAxisData.Size = new System.Drawing.Size(143, 19);
+			this.labelSemiMajorAxisData.TabIndex = 35;
+			this.labelSemiMajorAxisData.Text = "...";
+			this.labelSemiMajorAxisData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelSemiMajorAxisData, "Show the information of \"Semimajor axis (AU)\"");
+			this.labelSemiMajorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiMajorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiMajorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSemiMajorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiMajorAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelSlopeParameterData
+			// 
+			this.labelSlopeParameterData.AccessibleDescription = "Show the information of \"Slope parameter, G\"";
+			this.labelSlopeParameterData.AccessibleName = "Show the information of \"Slope parameter, G\"";
+			this.labelSlopeParameterData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelSlopeParameterData.AutoSize = true;
+			this.labelSlopeParameterData.BackColor = System.Drawing.Color.Transparent;
+			this.labelSlopeParameterData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelSlopeParameterData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelSlopeParameterData.Location = new System.Drawing.Point(540, 23);
+			this.labelSlopeParameterData.Name = "labelSlopeParameterData";
+			this.labelSlopeParameterData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelSlopeParameterData.Size = new System.Drawing.Size(140, 19);
+			this.labelSlopeParameterData.TabIndex = 5;
+			this.labelSlopeParameterData.Text = "...";
+			this.labelSlopeParameterData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelSlopeParameterData, "Show the information of \"Slope parameter, G\"");
+			this.labelSlopeParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSlopeParameterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSlopeParameterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSlopeParameterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSlopeParameterData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelIndexData
+			// 
+			this.labelIndexData.AccessibleDescription = "Show the information of \"Index No.\"";
+			this.labelIndexData.AccessibleName = "Show the information of \"Index No.\"";
+			this.labelIndexData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelIndexData.AutoSize = true;
+			this.labelIndexData.BackColor = System.Drawing.Color.Transparent;
+			this.labelIndexData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelIndexData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelIndexData.Location = new System.Drawing.Point(246, 2);
+			this.labelIndexData.Name = "labelIndexData";
+			this.labelIndexData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelIndexData.Size = new System.Drawing.Size(143, 19);
+			this.labelIndexData.TabIndex = 1;
+			this.labelIndexData.Text = "...";
+			this.labelIndexData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelIndexData, "Show the information of \"Index No.\"");
+			this.labelIndexData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelIndexData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelIndexData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelIndexData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelIndexData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelAbsoluteMagnitudeData
+			// 
+			this.labelAbsoluteMagnitudeData.AccessibleDescription = "Show the information of \"Absolute magnitude, H\"";
+			this.labelAbsoluteMagnitudeData.AccessibleName = "Show the information of \"Absolute magnitude, H\"";
+			this.labelAbsoluteMagnitudeData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelAbsoluteMagnitudeData.AutoSize = true;
+			this.labelAbsoluteMagnitudeData.BackColor = System.Drawing.Color.Transparent;
+			this.labelAbsoluteMagnitudeData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelAbsoluteMagnitudeData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelAbsoluteMagnitudeData.Location = new System.Drawing.Point(246, 212);
+			this.labelAbsoluteMagnitudeData.Name = "labelAbsoluteMagnitudeData";
+			this.labelAbsoluteMagnitudeData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelAbsoluteMagnitudeData.Size = new System.Drawing.Size(143, 19);
+			this.labelAbsoluteMagnitudeData.TabIndex = 39;
+			this.labelAbsoluteMagnitudeData.Text = "...";
+			this.labelAbsoluteMagnitudeData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelAbsoluteMagnitudeData, "Show the information of \"Absolute magnitude, H\"");
+			this.labelAbsoluteMagnitudeData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelAbsoluteMagnitudeData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelAbsoluteMagnitudeData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelAbsoluteMagnitudeData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelAbsoluteMagnitudeData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelReferenceData
+			// 
+			this.labelReferenceData.AccessibleDescription = "Show the information of \"Reference\"";
+			this.labelReferenceData.AccessibleName = "Show the information of \"Reference\"";
+			this.labelReferenceData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelReferenceData.AutoSize = true;
+			this.labelReferenceData.BackColor = System.Drawing.Color.Transparent;
+			this.labelReferenceData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelReferenceData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelReferenceData.Location = new System.Drawing.Point(540, 44);
+			this.labelReferenceData.Name = "labelReferenceData";
+			this.labelReferenceData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelReferenceData.Size = new System.Drawing.Size(140, 19);
+			this.labelReferenceData.TabIndex = 9;
+			this.labelReferenceData.Text = "...";
+			this.labelReferenceData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelReferenceData, "Show the information of \"Reference\"");
+			this.labelReferenceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelReferenceData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelReferenceData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelReferenceData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelReferenceData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelNumberOppositionsData
+			// 
+			this.labelNumberOppositionsData.AccessibleDescription = "Show the information of \"Number of oppositions\"";
+			this.labelNumberOppositionsData.AccessibleName = "Show the information of \"Number of oppositions\"";
+			this.labelNumberOppositionsData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelNumberOppositionsData.AutoSize = true;
+			this.labelNumberOppositionsData.BackColor = System.Drawing.Color.Transparent;
+			this.labelNumberOppositionsData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelNumberOppositionsData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelNumberOppositionsData.Location = new System.Drawing.Point(540, 65);
+			this.labelNumberOppositionsData.Name = "labelNumberOppositionsData";
+			this.labelNumberOppositionsData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelNumberOppositionsData.Size = new System.Drawing.Size(140, 19);
+			this.labelNumberOppositionsData.TabIndex = 13;
+			this.labelNumberOppositionsData.Text = "...";
+			this.labelNumberOppositionsData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelNumberOppositionsData, "Show the information of \"Number of oppositions\"");
+			this.labelNumberOppositionsData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelNumberOppositionsData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNumberOppositionsData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelNumberOppositionsData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNumberOppositionsData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelNumberObservationsData
+			// 
+			this.labelNumberObservationsData.AccessibleDescription = "Show the information of \"Number of observations\"";
+			this.labelNumberObservationsData.AccessibleName = "Show the information of \"Number of observations\"";
+			this.labelNumberObservationsData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelNumberObservationsData.AutoSize = true;
+			this.labelNumberObservationsData.BackColor = System.Drawing.Color.Transparent;
+			this.labelNumberObservationsData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelNumberObservationsData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelNumberObservationsData.Location = new System.Drawing.Point(540, 86);
+			this.labelNumberObservationsData.Name = "labelNumberObservationsData";
+			this.labelNumberObservationsData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelNumberObservationsData.Size = new System.Drawing.Size(140, 19);
+			this.labelNumberObservationsData.TabIndex = 17;
+			this.labelNumberObservationsData.Text = "...";
+			this.labelNumberObservationsData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelNumberObservationsData, "Show the information of \"Number of observations\"");
+			this.labelNumberObservationsData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelNumberObservationsData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNumberObservationsData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelNumberObservationsData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNumberObservationsData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelObservationSpanData
+			// 
+			this.labelObservationSpanData.AccessibleDescription = "Show the information of \"Observation span\"";
+			this.labelObservationSpanData.AccessibleName = "Show the information of \"Observation span\"";
+			this.labelObservationSpanData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelObservationSpanData.AutoSize = true;
+			this.labelObservationSpanData.BackColor = System.Drawing.Color.Transparent;
+			this.labelObservationSpanData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelObservationSpanData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelObservationSpanData.Location = new System.Drawing.Point(540, 107);
+			this.labelObservationSpanData.Name = "labelObservationSpanData";
+			this.labelObservationSpanData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelObservationSpanData.Size = new System.Drawing.Size(140, 19);
+			this.labelObservationSpanData.TabIndex = 21;
+			this.labelObservationSpanData.Text = "...";
+			this.labelObservationSpanData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelObservationSpanData, "Show the information of \"Observation span\"");
+			this.labelObservationSpanData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelObservationSpanData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelObservationSpanData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelObservationSpanData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelObservationSpanData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelRmsResidualData
+			// 
+			this.labelRmsResidualData.AccessibleDescription = "Show the information of \"r.m.s residual (\")\"";
+			this.labelRmsResidualData.AccessibleName = "Show the information of \"r.m.s residual (\")\"";
+			this.labelRmsResidualData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelRmsResidualData.AutoSize = true;
+			this.labelRmsResidualData.BackColor = System.Drawing.Color.Transparent;
+			this.labelRmsResidualData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelRmsResidualData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelRmsResidualData.Location = new System.Drawing.Point(540, 128);
+			this.labelRmsResidualData.Name = "labelRmsResidualData";
+			this.labelRmsResidualData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelRmsResidualData.Size = new System.Drawing.Size(140, 19);
+			this.labelRmsResidualData.TabIndex = 25;
+			this.labelRmsResidualData.Text = "...";
+			this.labelRmsResidualData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelRmsResidualData, "Show the information of \"r.m.s residual (\")\"");
+			this.labelRmsResidualData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelRmsResidualData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelRmsResidualData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelRmsResidualData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelRmsResidualData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelComputerNameData
+			// 
+			this.labelComputerNameData.AccessibleDescription = "Show the information of \"Computer name\"";
+			this.labelComputerNameData.AccessibleName = "Show the information of \"Computer name\"";
+			this.labelComputerNameData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelComputerNameData.AutoSize = true;
+			this.labelComputerNameData.BackColor = System.Drawing.Color.Transparent;
+			this.labelComputerNameData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelComputerNameData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelComputerNameData.Location = new System.Drawing.Point(540, 149);
+			this.labelComputerNameData.Name = "labelComputerNameData";
+			this.labelComputerNameData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelComputerNameData.Size = new System.Drawing.Size(140, 19);
+			this.labelComputerNameData.TabIndex = 29;
+			this.labelComputerNameData.Text = "...";
+			this.labelComputerNameData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelComputerNameData, "Show the information of \"Computer name\"");
+			this.labelComputerNameData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelComputerNameData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelComputerNameData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelComputerNameData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelComputerNameData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelFlagsData
+			// 
+			this.labelFlagsData.AccessibleDescription = "Show the information of \"4-hexdigit flags\"";
+			this.labelFlagsData.AccessibleName = "Show the information of \"4-hexdigit flags\"";
+			this.labelFlagsData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelFlagsData.AutoSize = true;
+			this.labelFlagsData.BackColor = System.Drawing.Color.Transparent;
+			this.labelFlagsData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelFlagsData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelFlagsData.Location = new System.Drawing.Point(540, 170);
+			this.labelFlagsData.Name = "labelFlagsData";
+			this.labelFlagsData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelFlagsData.Size = new System.Drawing.Size(140, 19);
+			this.labelFlagsData.TabIndex = 33;
+			this.labelFlagsData.Text = "...";
+			this.labelFlagsData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelFlagsData, "Show the information of \"4-hexdigit flags\"");
+			this.labelFlagsData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelFlagsData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelFlagsData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelFlagsData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelFlagsData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelDateLastObservationData
+			// 
+			this.labelDateLastObservationData.AccessibleDescription = "Show the information of \"Date of last observation\"";
+			this.labelDateLastObservationData.AccessibleName = "Show the information of \"Date of last observation\"";
+			this.labelDateLastObservationData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelDateLastObservationData.AutoSize = true;
+			this.labelDateLastObservationData.BackColor = System.Drawing.Color.Transparent;
+			this.labelDateLastObservationData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelDateLastObservationData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelDateLastObservationData.Location = new System.Drawing.Point(540, 191);
+			this.labelDateLastObservationData.Name = "labelDateLastObservationData";
+			this.labelDateLastObservationData.Padding = new System.Windows.Forms.Padding(3);
+			this.labelDateLastObservationData.Size = new System.Drawing.Size(140, 19);
+			this.labelDateLastObservationData.TabIndex = 37;
+			this.labelDateLastObservationData.Text = "...";
+			this.labelDateLastObservationData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.labelDateLastObservationData, "Show the information of \"Date of last observation\"");
+			this.labelDateLastObservationData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelDateLastObservationData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDateLastObservationData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelDateLastObservationData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDateLastObservationData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelIndexDesc
+			// 
+			this.linkLabelIndexDesc.AccessibleDescription = "Index No.";
+			this.linkLabelIndexDesc.AccessibleName = "Index No.";
+			this.linkLabelIndexDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelIndexDesc.AutoSize = true;
+			this.linkLabelIndexDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelIndexDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelIndexDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelIndexDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelIndexDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelIndexDesc.Location = new System.Drawing.Point(5, 2);
+			this.linkLabelIndexDesc.Name = "linkLabelIndexDesc";
+			this.linkLabelIndexDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelIndexDesc.TabIndex = 40;
+			this.linkLabelIndexDesc.TabStop = true;
+			this.linkLabelIndexDesc.Text = "Index No.";
+			this.linkLabelIndexDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.linkLabelIndexDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIndex_Click);
+			this.linkLabelIndexDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelIndexDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelIndexDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelIndexDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelDesignationNameDesc
+			// 
+			this.linkLabelDesignationNameDesc.AccessibleDescription = "Readable designation";
+			this.linkLabelDesignationNameDesc.AccessibleName = "Readable designation";
+			this.linkLabelDesignationNameDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelDesignationNameDesc.AutoSize = true;
+			this.linkLabelDesignationNameDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelDesignationNameDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelDesignationNameDesc.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.linkLabelDesignationNameDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelDesignationNameDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelDesignationNameDesc.Location = new System.Drawing.Point(5, 23);
+			this.linkLabelDesignationNameDesc.Name = "linkLabelDesignationNameDesc";
+			this.linkLabelDesignationNameDesc.Size = new System.Drawing.Size(233, 19);
+			this.linkLabelDesignationNameDesc.TabIndex = 42;
+			this.linkLabelDesignationNameDesc.TabStop = true;
+			this.linkLabelDesignationNameDesc.Text = "Readable designation";
+			this.linkLabelDesignationNameDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.toolTip.SetToolTip(this.linkLabelDesignationNameDesc, "Readable designation");
+			this.linkLabelDesignationNameDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelDesgnName_Click);
+			this.linkLabelDesignationNameDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelDesignationNameDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelDesignationNameDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelDesignationNameDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// contextMenuCopyToClipboard
 			// 
@@ -2877,26 +2877,26 @@
 
     #endregion
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanelData;
-    private System.Windows.Forms.Label labelFlagsValue;
-    private System.Windows.Forms.Label labelRefValue;
-    private System.Windows.Forms.Label labelDesgnNameValue;
-    private System.Windows.Forms.Label labelEpochValue;
-    private System.Windows.Forms.Label labelMeanAnomalyValue;
-    private System.Windows.Forms.Label labelArgPeriValue;
-    private System.Windows.Forms.Label labelLongAscNodeValue;
-    private System.Windows.Forms.Label labelInclValue;
-    private System.Windows.Forms.Label labelOrbEccValue;
-    private System.Windows.Forms.Label labelMotionValue;
-    private System.Windows.Forms.Label labelSemiMajorAxisValue;
-    private System.Windows.Forms.Label labelSlopeParamValue;
-    private System.Windows.Forms.Label labelNumbOpposValue;
-    private System.Windows.Forms.Label labelNumbObsValue;
-    private System.Windows.Forms.Label labelObsSpanValue;
-    private System.Windows.Forms.Label labelRmsResidualValue;
-    private System.Windows.Forms.Label labelComputerNameValue;
-    private System.Windows.Forms.Label labelObsLastDateValue;
-    private System.Windows.Forms.Label labelIndexValue;
-    private System.Windows.Forms.Label labelMagAbsValue;
+    private System.Windows.Forms.Label labelFlagsData;
+    private System.Windows.Forms.Label labelReferenceData;
+    private System.Windows.Forms.Label labelDesignationNameData;
+    private System.Windows.Forms.Label labelEpochData;
+    private System.Windows.Forms.Label labelMeanAnomalyData;
+    private System.Windows.Forms.Label labelArgumentPerihelionData;
+    private System.Windows.Forms.Label labelLongitudeAscendingNodeData;
+    private System.Windows.Forms.Label labelInclinationData;
+    private System.Windows.Forms.Label labelOrbitalEccentricityData;
+    private System.Windows.Forms.Label labelMeanDailyMotionData;
+    private System.Windows.Forms.Label labelSemiMajorAxisData;
+    private System.Windows.Forms.Label labelSlopeParameterData;
+    private System.Windows.Forms.Label labelNumberOppositionsData;
+    private System.Windows.Forms.Label labelNumberObservationsData;
+    private System.Windows.Forms.Label labelObservationSpanData;
+    private System.Windows.Forms.Label labelRmsResidualData;
+    private System.Windows.Forms.Label labelComputerNameData;
+    private System.Windows.Forms.Label labelDateLastObservationData;
+    private System.Windows.Forms.Label labelIndexData;
+    private System.Windows.Forms.Label labelAbsoluteMagnitudeData;
     private System.Windows.Forms.ToolTip toolTip;
     private System.Windows.Forms.StatusStrip statusBar;
     private System.Windows.Forms.ContextMenuStrip contextMenuNavigationStep;
@@ -2979,26 +2979,26 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCancelBackgroundDownload;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTerminology;
 		private System.Windows.Forms.ToolStripButton toolStripButtonTerminology;
-		private System.Windows.Forms.LinkLabel linkLabelIndex;
-		private System.Windows.Forms.LinkLabel linkLabelDesgnName;
-		private System.Windows.Forms.LinkLabel linkLabelEpoch;
-		private System.Windows.Forms.LinkLabel linkLabelMeanAnomaly;
-		private System.Windows.Forms.LinkLabel linkLabelArgPeri;
-		private System.Windows.Forms.LinkLabel linkLabelLongAscNode;
-		private System.Windows.Forms.LinkLabel linkLabelIncl;
-		private System.Windows.Forms.LinkLabel linkLabelOrbEcc;
-		private System.Windows.Forms.LinkLabel linkLabelMotion;
-		private System.Windows.Forms.LinkLabel linkLabelSemiMajorAxis;
-		private System.Windows.Forms.LinkLabel linkLabelMagAbs;
-		private System.Windows.Forms.LinkLabel linkLabelSlopeParam;
-		private System.Windows.Forms.LinkLabel linkLabelRef;
-		private System.Windows.Forms.LinkLabel linkLabelNumbOppos;
-		private System.Windows.Forms.LinkLabel linkLabelNumbObs;
-		private System.Windows.Forms.LinkLabel linkLabelObsSpan;
-		private System.Windows.Forms.LinkLabel linkLabelRmsResidual;
-		private System.Windows.Forms.LinkLabel linkLabelComputerName;
-		private System.Windows.Forms.LinkLabel linkLabelFlags;
-		private System.Windows.Forms.LinkLabel linkLabelObsLastDate;
+		private System.Windows.Forms.LinkLabel linkLabelIndexDesc;
+		private System.Windows.Forms.LinkLabel linkLabelDesignationNameDesc;
+		private System.Windows.Forms.LinkLabel linkLabelEpochDesc;
+		private System.Windows.Forms.LinkLabel linkLabelMeanAnomalyDesc;
+		private System.Windows.Forms.LinkLabel linkLabelArgumentPerihelionDesc;
+		private System.Windows.Forms.LinkLabel linkLabelLongitudeAscendingNodeDesc;
+		private System.Windows.Forms.LinkLabel linkLabelInclinationDesc;
+		private System.Windows.Forms.LinkLabel linkLabelOrbitalEccentricityDesc;
+		private System.Windows.Forms.LinkLabel linkLabelMeanDailyMotionDesc;
+		private System.Windows.Forms.LinkLabel linkLabelSemiMajorAxisDesc;
+		private System.Windows.Forms.LinkLabel linkLabelAbsoluteMagnitudeDesc;
+		private System.Windows.Forms.LinkLabel linkLabelSlopeParameterDesc;
+		private System.Windows.Forms.LinkLabel linkLabelReferenceDesc;
+		private System.Windows.Forms.LinkLabel linkLabelNumberOppositionsDesc;
+		private System.Windows.Forms.LinkLabel linkLabelNumberObservationsDesc;
+		private System.Windows.Forms.LinkLabel linkLabelObservationSpanDesc;
+		private System.Windows.Forms.LinkLabel linkLabelRmsResidualDesc;
+		private System.Windows.Forms.LinkLabel linkLabelComputerNameDesc;
+		private System.Windows.Forms.LinkLabel linkLabelFlagsDesc;
+		private System.Windows.Forms.LinkLabel linkLabelDateLastObservationDesc;
 		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepBackward;
 		private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonStepForward;
 		private System.Windows.Forms.ContextMenuStrip contextMenuCopyToClipboard;

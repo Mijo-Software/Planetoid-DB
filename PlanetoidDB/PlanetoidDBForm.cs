@@ -37,7 +37,7 @@ namespace Planetoid_DB
 		private const int SET_FEATURE_ON_THREAD_TRUSTED = 0x00000020;
 		private const int SET_FEATURE_ON_THREAD_INTERNET = 0x00000040;
 		private const int SET_FEATURE_ON_THREAD_RESTRICTED = 0x00000080;
-		
+
 		// Necessary dll import
 		/// <summary>
 		/// 
@@ -96,26 +96,26 @@ namespace Planetoid_DB
 		{
 			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
 			// if (teilstring == "0") zahl = 0; ...
-			labelIndexValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-			labelMagAbsValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			labelSlopeParamValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			labelEpochValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			labelMeanAnomalyValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			labelArgPeriValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			labelLongAscNodeValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			labelInclValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			labelOrbEccValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			labelMotionValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			labelSemiMajorAxisValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			labelRefValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			labelNumbObsValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			labelNumbOpposValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			labelObsSpanValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			labelRmsResidualValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			labelComputerNameValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			labelFlagsValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-			labelDesgnNameValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			labelObsLastDateValue.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+			labelIndexData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			labelAbsoluteMagnitudeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			labelSlopeParameterData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			labelEpochData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			labelMeanAnomalyData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			labelArgumentPerihelionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			labelLongitudeAscendingNodeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			labelInclinationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			labelOrbitalEccentricityData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			labelMeanDailyMotionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			labelSemiMajorAxisData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			labelReferenceData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			labelNumberObservationsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			labelNumberOppositionsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			labelObservationSpanData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			labelRmsResidualData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			labelComputerNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			labelFlagsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			labelDesignationNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			labelDateLastObservationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 			toolStripLabelIndexPosition.Text = I10nStrings.Index + ": " + (currentPosition + 1).ToString() + " / " + planetoidDatabase.Count.ToString();
 		}
 
@@ -714,7 +714,7 @@ namespace Planetoid_DB
 			}
 			SetStatusbar(text: toolStripStatusLabelUpdate.AccessibleDescription);
 		}
-	 
+
 		#endregion
 
 		#region Leave-Handler
@@ -820,7 +820,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e)	=> NavigateToTheBeginOfTheData();
+		private void ToolStripButtonStepToBegin_Click(object sender, EventArgs e) => NavigateToTheBeginOfTheData();
 
 		/// <summary>
 		/// 
@@ -1477,11 +1477,86 @@ namespace Planetoid_DB
 
 		private double CalculateMinorAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
 
+		private double CalculateEccentricAnomaly(double meanAnomaly, double numericalEccentricity, double numberDecimalPlaces)
+		{
+			double K = Math.PI / 180.0;
+			int maxIteration = 30, i = 0;
+			double delta = Math.Pow(x: 10, y: -numberDecimalPlaces);
+			double E, F;
+			meanAnomaly /= 360.0;
+			meanAnomaly = 2.0 * Math.PI * (meanAnomaly - Math.Floor(d: meanAnomaly));
+			if (numericalEccentricity < 0.8)
+			{
+				E = meanAnomaly;
+			}
+			else
+			{
+				E = Math.PI;
+			}
+			F = E - numericalEccentricity * Math.Sin(a: meanAnomaly) - meanAnomaly;
+			while ((Math.Abs(value: F) > delta) && (i < maxIteration))
+			{
+				E -= F / (1.0 - (numericalEccentricity * Math.Cos(d: E)));
+				F = E - numericalEccentricity * Math.Sin(a: E) - meanAnomaly;
+				i += 1;
+			}
+			E /= K;
+			return Math.Round(a: E * Math.Pow(x: 10, y: numberDecimalPlaces)) / Math.Pow(x: 10, y: numberDecimalPlaces);
+		}
+
+		private double CalculateTrueAnomaly(double meanAnomaly, double numericalEccentricity, double numberDecimalPlaces)
+		{
+			double E = CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: numberDecimalPlaces);
+			double K = Math.PI / 180.0;
+			double S = Math.Sin(a: E);
+			double C = Math.Cos(d: E);
+			double fak = Math.Sqrt(d: 1.0 - (numericalEccentricity * numericalEccentricity));
+			double phi = Math.Atan2(y: fak * S, x: C - numericalEccentricity) / K;
+			return Math.Round(a: phi * Math.Pow(x: 10, y: numberDecimalPlaces)) / Math.Pow(x: 10, y: numberDecimalPlaces);
+		}
+
 		private double CalculatePerihelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 - numericalEccentricity) * semiMajorAxis;
 
 		private double CalculateAphelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 + numericalEccentricity) * semiMajorAxis;
 
-		private double CalculateFocalParameter(double semiMajorAxis, double numericalEccentricity) => Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+		private double CalculateLongitudeDescendingNode(double longitudeAscendingNode)
+		{
+			if (longitudeAscendingNode >= 0 && longitudeAscendingNode < 180)
+			{
+				return longitudeAscendingNode + 180;
+			}
+			else if (longitudeAscendingNode >= 180 && longitudeAscendingNode < 360)
+			{
+				return longitudeAscendingNode - 180;
+			}
+			return -1;
+		}
+
+		private double CalculateArgumenOfAphelion(double argumentAphelion)
+		{
+			if (argumentAphelion >= 0 && argumentAphelion < 180)
+			{
+				return argumentAphelion + 180;
+			}
+			else if (argumentAphelion >= 180 && argumentAphelion < 360)
+			{
+				return argumentAphelion - 180;
+			}
+			return -1;
+		}
+
+		private double CalculateFocalParameter(double semiMajorAxis, double numericalEccentricity)
+		{
+			if (numericalEccentricity > 1)
+			{
+				return Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+			}
+			else if (numericalEccentricity > 0 && numericalEccentricity < 1)
+			{
+				return Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+			}
+			return 2 * semiMajorAxis;
+		}
 
 		private double CalculateSemiLatusRectum(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * (1 - Math.Pow(x: numericalEccentricity, y: 2));
 
@@ -1506,28 +1581,29 @@ namespace Planetoid_DB
 		{
 			derivatedOrbitElementsDatabase.Clear();
 			IFormatProvider provider = CultureInfo.CreateSpecificCulture(name: "en");
-			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisValue.Text, provider: provider);
-			double numericalEccentricity = double.Parse(s: labelOrbEccValue.Text, provider: provider);
-			derivatedOrbitElementsDatabase.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add("");
-			derivatedOrbitElementsDatabase.Add("");
-			derivatedOrbitElementsDatabase.Add(CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
-			derivatedOrbitElementsDatabase.Add(CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
-			derivatedOrbitElementsDatabase.Add("");
-			derivatedOrbitElementsDatabase.Add("");
-			derivatedOrbitElementsDatabase.Add(CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-			derivatedOrbitElementsDatabase.Add(CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString());
-
-
+			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisData.Text, provider: provider);
+			double numericalEccentricity = double.Parse(s: labelOrbitalEccentricityData.Text, provider: provider);
+			double meanAnomaly = double.Parse(s: labelMeanAnomalyData.Text, provider: provider);
+			double longitudeAscendingNode = double.Parse(s: labelLongitudeAscendingNodeData.Text, provider: provider);
+			double argumentAphelion = double.Parse(s: labelArgumentPerihelionData.Text, provider: provider);
+			derivatedOrbitElementsDatabase.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis));
+			derivatedOrbitElementsDatabase.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8));
+			derivatedOrbitElementsDatabase.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8));
+			derivatedOrbitElementsDatabase.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode));
+			derivatedOrbitElementsDatabase.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion));
+			derivatedOrbitElementsDatabase.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis));
+			derivatedOrbitElementsDatabase.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
 			using (DerivatedOrbitElementsForm formDerivatedOrbitElements = new DerivatedOrbitElementsForm())
 			{
 				formDerivatedOrbitElements.SetDatabase(arrayList: derivatedOrbitElementsDatabase);

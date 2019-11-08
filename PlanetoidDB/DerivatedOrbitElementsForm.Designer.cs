@@ -34,45 +34,45 @@
 			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.buttonOK = new System.Windows.Forms.Button();
-			this.linkLabelLinearEccentricity = new System.Windows.Forms.LinkLabel();
+			this.linkLabelLinearEccentricityDesc = new System.Windows.Forms.LinkLabel();
 			this.contextMenuCopyToClipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copyToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.labelLinearEccentricity = new System.Windows.Forms.Label();
-			this.linkLabelSemiMinorAxis = new System.Windows.Forms.LinkLabel();
-			this.linkLabelMajorAxis = new System.Windows.Forms.LinkLabel();
-			this.linkLabelMinorAxis = new System.Windows.Forms.LinkLabel();
-			this.linkLabelEccenctricAnomaly = new System.Windows.Forms.LinkLabel();
-			this.linkLabelTrueAnomaly = new System.Windows.Forms.LinkLabel();
-			this.linkLabelPerihelionDistance = new System.Windows.Forms.LinkLabel();
-			this.linkLabelAphelionDistance = new System.Windows.Forms.LinkLabel();
-			this.linkLabelLongitudeDescendingNode = new System.Windows.Forms.LinkLabel();
-			this.linkLabel1ArgumentAphelion = new System.Windows.Forms.LinkLabel();
-			this.linkLabelFocalParameter = new System.Windows.Forms.LinkLabel();
-			this.linkLabelSemiLatusRectum = new System.Windows.Forms.LinkLabel();
-			this.linkLabelLatusRectum = new System.Windows.Forms.LinkLabel();
-			this.linkLabelPeriod = new System.Windows.Forms.LinkLabel();
-			this.labelSemiMinorAxis = new System.Windows.Forms.Label();
-			this.labelMajorAxis = new System.Windows.Forms.Label();
-			this.labelMinorAxis = new System.Windows.Forms.Label();
-			this.labelEccentricAnomaly = new System.Windows.Forms.Label();
-			this.labelTrueAnomaly = new System.Windows.Forms.Label();
-			this.labelPerihelionDistance = new System.Windows.Forms.Label();
-			this.labelAphelionDistance = new System.Windows.Forms.Label();
-			this.labelLongitudeDescendingNode = new System.Windows.Forms.Label();
-			this.labelArgumentAphelion = new System.Windows.Forms.Label();
-			this.labelFocalParameter = new System.Windows.Forms.Label();
-			this.labelSemiLatusRectum = new System.Windows.Forms.Label();
-			this.labelLatusRectum = new System.Windows.Forms.Label();
-			this.labelPeriod = new System.Windows.Forms.Label();
-			this.linkLabelOrbitalArea = new System.Windows.Forms.LinkLabel();
-			this.linkLabelOrbitalPerimeter = new System.Windows.Forms.LinkLabel();
-			this.linkLabelSemiMeanAxis = new System.Windows.Forms.LinkLabel();
-			this.linkLabelMeanAxis = new System.Windows.Forms.LinkLabel();
-			this.labelOrbitalArea = new System.Windows.Forms.Label();
-			this.labelOrbitalPerimeter = new System.Windows.Forms.Label();
-			this.labelSemiMeanAxis = new System.Windows.Forms.Label();
+			this.labelLinearEccentricityData = new System.Windows.Forms.Label();
+			this.linkLabelSemiMinorAxisDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelMajorAxisDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelMinorAxisDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelEccenctricAnomalyDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelTrueAnomalyDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelPerihelionDistanceDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelAphelionDistanceDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelLongitudeDescendingNodeDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabel1ArgumentAphelionDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelFocalParameterDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelSemiLatusRectumDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelLatusRectumDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelPeriodDesc = new System.Windows.Forms.LinkLabel();
+			this.labelSemiMinorAxisData = new System.Windows.Forms.Label();
+			this.labelMajorAxisData = new System.Windows.Forms.Label();
+			this.labelMinorAxisData = new System.Windows.Forms.Label();
+			this.labelEccentricAnomalyData = new System.Windows.Forms.Label();
+			this.labelTrueAnomalyData = new System.Windows.Forms.Label();
+			this.labelPerihelionDistanceData = new System.Windows.Forms.Label();
+			this.labelAphelionDistanceData = new System.Windows.Forms.Label();
+			this.labelLongitudeDescendingNodeData = new System.Windows.Forms.Label();
+			this.labelArgumentAphelionData = new System.Windows.Forms.Label();
+			this.labelFocalParameterData = new System.Windows.Forms.Label();
+			this.labelSemiLatusRectumData = new System.Windows.Forms.Label();
+			this.labelLatusRectumData = new System.Windows.Forms.Label();
+			this.labelPeriodData = new System.Windows.Forms.Label();
+			this.linkLabelOrbitalAreaDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelOrbitalPerimeterDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelSemiMeanAxisDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelMeanAxisDesc = new System.Windows.Forms.LinkLabel();
+			this.labelOrbitalAreaData = new System.Windows.Forms.Label();
+			this.labelOrbitalPerimeterData = new System.Windows.Forms.Label();
+			this.labelSemiMeanAxisData = new System.Windows.Forms.Label();
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.labelMeanAxis = new System.Windows.Forms.Label();
+			this.labelMeanAxisData = new System.Windows.Forms.Label();
 			this.statusStrip.SuspendLayout();
 			this.contextMenuCopyToClipboard.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
@@ -133,28 +133,28 @@
 			this.buttonOK.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.buttonOK.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// linkLabelLinearEccentricity
+			// linkLabelLinearEccentricityDesc
 			// 
-			this.linkLabelLinearEccentricity.AccessibleDescription = "Linear eccentricity";
-			this.linkLabelLinearEccentricity.AccessibleName = "Linear eccentricity";
-			this.linkLabelLinearEccentricity.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelLinearEccentricity.AutoSize = true;
-			this.linkLabelLinearEccentricity.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelLinearEccentricity.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelLinearEccentricity.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelLinearEccentricity.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelLinearEccentricity.Location = new System.Drawing.Point(5, 2);
-			this.linkLabelLinearEccentricity.Name = "linkLabelLinearEccentricity";
-			this.linkLabelLinearEccentricity.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelLinearEccentricity.TabIndex = 0;
-			this.linkLabelLinearEccentricity.TabStop = true;
-			this.linkLabelLinearEccentricity.Text = "Linear eccentricity";
-			this.toolTip.SetToolTip(this.linkLabelLinearEccentricity, "Linear eccentricity");
-			this.linkLabelLinearEccentricity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLinearEccentricity_LinkClicked);
-			this.linkLabelLinearEccentricity.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLinearEccentricity.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelLinearEccentricity.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLinearEccentricity.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelLinearEccentricityDesc.AccessibleDescription = "Linear eccentricity";
+			this.linkLabelLinearEccentricityDesc.AccessibleName = "Linear eccentricity";
+			this.linkLabelLinearEccentricityDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelLinearEccentricityDesc.AutoSize = true;
+			this.linkLabelLinearEccentricityDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelLinearEccentricityDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelLinearEccentricityDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelLinearEccentricityDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelLinearEccentricityDesc.Location = new System.Drawing.Point(5, 2);
+			this.linkLabelLinearEccentricityDesc.Name = "linkLabelLinearEccentricityDesc";
+			this.linkLabelLinearEccentricityDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelLinearEccentricityDesc.TabIndex = 0;
+			this.linkLabelLinearEccentricityDesc.TabStop = true;
+			this.linkLabelLinearEccentricityDesc.Text = "Linear eccentricity";
+			this.toolTip.SetToolTip(this.linkLabelLinearEccentricityDesc, "Linear eccentricity");
+			this.linkLabelLinearEccentricityDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLinearEccentricity_LinkClicked);
+			this.linkLabelLinearEccentricityDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLinearEccentricityDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelLinearEccentricityDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLinearEccentricityDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// contextMenuCopyToClipboard
 			// 
@@ -181,746 +181,746 @@
 			this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
 			this.copyToClipboardToolStripMenuItem.Text = "&Copy to clipboard";
 			// 
-			// labelLinearEccentricity
-			// 
-			this.labelLinearEccentricity.AccessibleDescription = "Show the information of \"Linear eccentricity\"";
-			this.labelLinearEccentricity.AccessibleName = "Show the information of \"Linear eccentricity\"";
-			this.labelLinearEccentricity.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelLinearEccentricity.AutoSize = true;
-			this.labelLinearEccentricity.BackColor = System.Drawing.Color.Transparent;
-			this.labelLinearEccentricity.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelLinearEccentricity.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLinearEccentricity.Location = new System.Drawing.Point(198, 2);
-			this.labelLinearEccentricity.Name = "labelLinearEccentricity";
-			this.labelLinearEccentricity.Size = new System.Drawing.Size(186, 15);
-			this.labelLinearEccentricity.TabIndex = 1;
-			this.labelLinearEccentricity.Text = "...";
-			this.toolTip.SetToolTip(this.labelLinearEccentricity, "Show the information of \"Linear eccentricity\"");
-			this.labelLinearEccentricity.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelLinearEccentricity.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLinearEccentricity.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelLinearEccentricity.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLinearEccentricity.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelSemiMinorAxis
-			// 
-			this.linkLabelSemiMinorAxis.AccessibleDescription = "Semi-minor axis";
-			this.linkLabelSemiMinorAxis.AccessibleName = "Semi-minor axis";
-			this.linkLabelSemiMinorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelSemiMinorAxis.AutoSize = true;
-			this.linkLabelSemiMinorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelSemiMinorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelSemiMinorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelSemiMinorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSemiMinorAxis.Location = new System.Drawing.Point(5, 19);
-			this.linkLabelSemiMinorAxis.Name = "linkLabelSemiMinorAxis";
-			this.linkLabelSemiMinorAxis.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelSemiMinorAxis.TabIndex = 2;
-			this.linkLabelSemiMinorAxis.TabStop = true;
-			this.linkLabelSemiMinorAxis.Text = "Semi-minor axis (AU)";
-			this.toolTip.SetToolTip(this.linkLabelSemiMinorAxis, "Semi-minor axis");
-			this.linkLabelSemiMinorAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMinorAxis_LinkClicked);
-			this.linkLabelSemiMinorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiMinorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSemiMinorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiMinorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelMajorAxis
-			// 
-			this.linkLabelMajorAxis.AccessibleDescription = "Major axis";
-			this.linkLabelMajorAxis.AccessibleName = "Major axis";
-			this.linkLabelMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelMajorAxis.AutoSize = true;
-			this.linkLabelMajorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelMajorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelMajorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelMajorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMajorAxis.Location = new System.Drawing.Point(5, 36);
-			this.linkLabelMajorAxis.Name = "linkLabelMajorAxis";
-			this.linkLabelMajorAxis.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelMajorAxis.TabIndex = 4;
-			this.linkLabelMajorAxis.TabStop = true;
-			this.linkLabelMajorAxis.Text = "Major axis (AU)";
-			this.toolTip.SetToolTip(this.linkLabelMajorAxis, "Major axis");
-			this.linkLabelMajorAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMajorAxis_LinkClicked);
-			this.linkLabelMajorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMajorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMajorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMajorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelMinorAxis
-			// 
-			this.linkLabelMinorAxis.AccessibleDescription = "Minor axis";
-			this.linkLabelMinorAxis.AccessibleName = "Minor axis";
-			this.linkLabelMinorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelMinorAxis.AutoSize = true;
-			this.linkLabelMinorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelMinorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelMinorAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelMinorAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMinorAxis.Location = new System.Drawing.Point(5, 53);
-			this.linkLabelMinorAxis.Name = "linkLabelMinorAxis";
-			this.linkLabelMinorAxis.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelMinorAxis.TabIndex = 6;
-			this.linkLabelMinorAxis.TabStop = true;
-			this.linkLabelMinorAxis.Text = "Minor axis (AU)";
-			this.toolTip.SetToolTip(this.linkLabelMinorAxis, "Minor axis");
-			this.linkLabelMinorAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMinorAxis_LinkClicked);
-			this.linkLabelMinorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMinorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMinorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMinorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelEccenctricAnomaly
-			// 
-			this.linkLabelEccenctricAnomaly.AccessibleDescription = "Eccentric anomaly";
-			this.linkLabelEccenctricAnomaly.AccessibleName = "Eccentric anomaly";
-			this.linkLabelEccenctricAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelEccenctricAnomaly.AutoSize = true;
-			this.linkLabelEccenctricAnomaly.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelEccenctricAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelEccenctricAnomaly.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelEccenctricAnomaly.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelEccenctricAnomaly.Location = new System.Drawing.Point(5, 70);
-			this.linkLabelEccenctricAnomaly.Name = "linkLabelEccenctricAnomaly";
-			this.linkLabelEccenctricAnomaly.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelEccenctricAnomaly.TabIndex = 8;
-			this.linkLabelEccenctricAnomaly.TabStop = true;
-			this.linkLabelEccenctricAnomaly.Text = "Eccentric anomaly (°)";
-			this.toolTip.SetToolTip(this.linkLabelEccenctricAnomaly, "Eccentric anomaly");
-			this.linkLabelEccenctricAnomaly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelEccenctricAnomaly_LinkClicked);
-			this.linkLabelEccenctricAnomaly.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelEccenctricAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelEccenctricAnomaly.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelEccenctricAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelTrueAnomaly
-			// 
-			this.linkLabelTrueAnomaly.AccessibleDescription = "True anomaly";
-			this.linkLabelTrueAnomaly.AccessibleName = "True anomaly";
-			this.linkLabelTrueAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelTrueAnomaly.AutoSize = true;
-			this.linkLabelTrueAnomaly.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelTrueAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelTrueAnomaly.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelTrueAnomaly.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelTrueAnomaly.Location = new System.Drawing.Point(5, 87);
-			this.linkLabelTrueAnomaly.Name = "linkLabelTrueAnomaly";
-			this.linkLabelTrueAnomaly.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelTrueAnomaly.TabIndex = 10;
-			this.linkLabelTrueAnomaly.TabStop = true;
-			this.linkLabelTrueAnomaly.Text = "True anomaly (°)";
-			this.toolTip.SetToolTip(this.linkLabelTrueAnomaly, "True anomaly");
-			this.linkLabelTrueAnomaly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelTrueAnomaly_LinkClicked);
-			this.linkLabelTrueAnomaly.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelTrueAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelTrueAnomaly.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelTrueAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelPerihelionDistance
-			// 
-			this.linkLabelPerihelionDistance.AccessibleDescription = "Perihelion distance";
-			this.linkLabelPerihelionDistance.AccessibleName = "Perihelion distance";
-			this.linkLabelPerihelionDistance.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelPerihelionDistance.AutoSize = true;
-			this.linkLabelPerihelionDistance.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelPerihelionDistance.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelPerihelionDistance.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelPerihelionDistance.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelPerihelionDistance.Location = new System.Drawing.Point(5, 104);
-			this.linkLabelPerihelionDistance.Name = "linkLabelPerihelionDistance";
-			this.linkLabelPerihelionDistance.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelPerihelionDistance.TabIndex = 12;
-			this.linkLabelPerihelionDistance.TabStop = true;
-			this.linkLabelPerihelionDistance.Text = "Perihelion distance (AU)";
-			this.toolTip.SetToolTip(this.linkLabelPerihelionDistance, "Perihelion distance");
-			this.linkLabelPerihelionDistance.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPerihelionDistance_LinkClicked);
-			this.linkLabelPerihelionDistance.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelPerihelionDistance.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelPerihelionDistance.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelPerihelionDistance.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelAphelionDistance
-			// 
-			this.linkLabelAphelionDistance.AccessibleDescription = "Aphelion distance";
-			this.linkLabelAphelionDistance.AccessibleName = "Aphelion distance";
-			this.linkLabelAphelionDistance.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelAphelionDistance.AutoSize = true;
-			this.linkLabelAphelionDistance.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelAphelionDistance.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelAphelionDistance.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelAphelionDistance.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelAphelionDistance.Location = new System.Drawing.Point(5, 121);
-			this.linkLabelAphelionDistance.Name = "linkLabelAphelionDistance";
-			this.linkLabelAphelionDistance.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelAphelionDistance.TabIndex = 14;
-			this.linkLabelAphelionDistance.TabStop = true;
-			this.linkLabelAphelionDistance.Text = "Aphelion distance (AU)";
-			this.toolTip.SetToolTip(this.linkLabelAphelionDistance, "Aphelion distance");
-			this.linkLabelAphelionDistance.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAphelionDistance_LinkClicked);
-			this.linkLabelAphelionDistance.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelAphelionDistance.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelAphelionDistance.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelAphelionDistance.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelLongitudeDescendingNode
-			// 
-			this.linkLabelLongitudeDescendingNode.AccessibleDescription = "Longitude of descending node";
-			this.linkLabelLongitudeDescendingNode.AccessibleName = "Longitude of descending node";
-			this.linkLabelLongitudeDescendingNode.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelLongitudeDescendingNode.AutoSize = true;
-			this.linkLabelLongitudeDescendingNode.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelLongitudeDescendingNode.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelLongitudeDescendingNode.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelLongitudeDescendingNode.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelLongitudeDescendingNode.Location = new System.Drawing.Point(5, 138);
-			this.linkLabelLongitudeDescendingNode.Name = "linkLabelLongitudeDescendingNode";
-			this.linkLabelLongitudeDescendingNode.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelLongitudeDescendingNode.TabIndex = 16;
-			this.linkLabelLongitudeDescendingNode.TabStop = true;
-			this.linkLabelLongitudeDescendingNode.Text = "Longitude of descending node (°)";
-			this.toolTip.SetToolTip(this.linkLabelLongitudeDescendingNode, "Longitude of descending node");
-			this.linkLabelLongitudeDescendingNode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLongitudeDescendingNode_LinkClicked);
-			this.linkLabelLongitudeDescendingNode.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLongitudeDescendingNode.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelLongitudeDescendingNode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLongitudeDescendingNode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabel1ArgumentAphelion
-			// 
-			this.linkLabel1ArgumentAphelion.AccessibleDescription = "Argument of aphelion";
-			this.linkLabel1ArgumentAphelion.AccessibleName = "Argument of aphelion";
-			this.linkLabel1ArgumentAphelion.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabel1ArgumentAphelion.AutoSize = true;
-			this.linkLabel1ArgumentAphelion.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabel1ArgumentAphelion.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabel1ArgumentAphelion.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabel1ArgumentAphelion.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabel1ArgumentAphelion.Location = new System.Drawing.Point(5, 155);
-			this.linkLabel1ArgumentAphelion.Name = "linkLabel1ArgumentAphelion";
-			this.linkLabel1ArgumentAphelion.Size = new System.Drawing.Size(185, 15);
-			this.linkLabel1ArgumentAphelion.TabIndex = 18;
-			this.linkLabel1ArgumentAphelion.TabStop = true;
-			this.linkLabel1ArgumentAphelion.Text = "Argument of aphelion (°)";
-			this.toolTip.SetToolTip(this.linkLabel1ArgumentAphelion, "Argument of aphelion");
-			this.linkLabel1ArgumentAphelion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1ArgumentAphelion_LinkClicked);
-			this.linkLabel1ArgumentAphelion.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabel1ArgumentAphelion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabel1ArgumentAphelion.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabel1ArgumentAphelion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelFocalParameter
-			// 
-			this.linkLabelFocalParameter.AccessibleDescription = "Focal parameter";
-			this.linkLabelFocalParameter.AccessibleName = "Focal parameter";
-			this.linkLabelFocalParameter.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelFocalParameter.AutoSize = true;
-			this.linkLabelFocalParameter.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelFocalParameter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelFocalParameter.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelFocalParameter.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelFocalParameter.Location = new System.Drawing.Point(5, 172);
-			this.linkLabelFocalParameter.Name = "linkLabelFocalParameter";
-			this.linkLabelFocalParameter.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelFocalParameter.TabIndex = 20;
-			this.linkLabelFocalParameter.TabStop = true;
-			this.linkLabelFocalParameter.Text = "Focal parameter";
-			this.toolTip.SetToolTip(this.linkLabelFocalParameter, "Focal parameter");
-			this.linkLabelFocalParameter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelFocalParameter_LinkClicked);
-			this.linkLabelFocalParameter.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelFocalParameter.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelFocalParameter.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelFocalParameter.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelSemiLatusRectum
-			// 
-			this.linkLabelSemiLatusRectum.AccessibleDescription = "Semi-latus rectum";
-			this.linkLabelSemiLatusRectum.AccessibleName = "Semi-latus rectum";
-			this.linkLabelSemiLatusRectum.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelSemiLatusRectum.AutoSize = true;
-			this.linkLabelSemiLatusRectum.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelSemiLatusRectum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelSemiLatusRectum.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelSemiLatusRectum.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSemiLatusRectum.Location = new System.Drawing.Point(5, 189);
-			this.linkLabelSemiLatusRectum.Name = "linkLabelSemiLatusRectum";
-			this.linkLabelSemiLatusRectum.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelSemiLatusRectum.TabIndex = 22;
-			this.linkLabelSemiLatusRectum.TabStop = true;
-			this.linkLabelSemiLatusRectum.Text = "Semi-latus rectum (AU)";
-			this.toolTip.SetToolTip(this.linkLabelSemiLatusRectum, "Semi-latus rectum");
-			this.linkLabelSemiLatusRectum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiLatusRectum_LinkClicked);
-			this.linkLabelSemiLatusRectum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiLatusRectum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSemiLatusRectum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiLatusRectum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelLatusRectum
-			// 
-			this.linkLabelLatusRectum.AccessibleDescription = "Latus rectum";
-			this.linkLabelLatusRectum.AccessibleName = "Latus rectum";
-			this.linkLabelLatusRectum.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelLatusRectum.AutoSize = true;
-			this.linkLabelLatusRectum.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelLatusRectum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelLatusRectum.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelLatusRectum.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelLatusRectum.Location = new System.Drawing.Point(5, 206);
-			this.linkLabelLatusRectum.Name = "linkLabelLatusRectum";
-			this.linkLabelLatusRectum.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelLatusRectum.TabIndex = 24;
-			this.linkLabelLatusRectum.TabStop = true;
-			this.linkLabelLatusRectum.Text = "Latus rectum (AU)";
-			this.toolTip.SetToolTip(this.linkLabelLatusRectum, "Latus rectum");
-			this.linkLabelLatusRectum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLatusRectum_LinkClicked);
-			this.linkLabelLatusRectum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLatusRectum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelLatusRectum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelLatusRectum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelPeriod
-			// 
-			this.linkLabelPeriod.AccessibleDescription = "Period";
-			this.linkLabelPeriod.AccessibleName = "Period";
-			this.linkLabelPeriod.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelPeriod.AutoSize = true;
-			this.linkLabelPeriod.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabelPeriod.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelPeriod.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelPeriod.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelPeriod.Location = new System.Drawing.Point(5, 223);
-			this.linkLabelPeriod.Name = "linkLabelPeriod";
-			this.linkLabelPeriod.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelPeriod.TabIndex = 26;
-			this.linkLabelPeriod.TabStop = true;
-			this.linkLabelPeriod.Text = "Period (years)";
-			this.toolTip.SetToolTip(this.linkLabelPeriod, "Period");
-			this.linkLabelPeriod.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPeriod_LinkClicked);
-			this.linkLabelPeriod.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelPeriod.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelPeriod.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelPeriod.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelSemiMinorAxis
-			// 
-			this.labelSemiMinorAxis.AccessibleDescription = "Show the information of \"Semi-minor axis\"";
-			this.labelSemiMinorAxis.AccessibleName = "Show the information of \"Semi-minor axis\"";
-			this.labelSemiMinorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelSemiMinorAxis.AutoSize = true;
-			this.labelSemiMinorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.labelSemiMinorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSemiMinorAxis.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSemiMinorAxis.Location = new System.Drawing.Point(198, 19);
-			this.labelSemiMinorAxis.Name = "labelSemiMinorAxis";
-			this.labelSemiMinorAxis.Size = new System.Drawing.Size(186, 15);
-			this.labelSemiMinorAxis.TabIndex = 3;
-			this.labelSemiMinorAxis.Text = "...";
-			this.toolTip.SetToolTip(this.labelSemiMinorAxis, "Show the information of \"Semi-minor axis\"");
-			this.labelSemiMinorAxis.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelSemiMinorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiMinorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSemiMinorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiMinorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelMajorAxis
-			// 
-			this.labelMajorAxis.AccessibleDescription = "Show the information of \"Major axis\"";
-			this.labelMajorAxis.AccessibleName = "Show the information of \"Major axis\"";
-			this.labelMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMajorAxis.AutoSize = true;
-			this.labelMajorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.labelMajorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMajorAxis.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMajorAxis.Location = new System.Drawing.Point(198, 36);
-			this.labelMajorAxis.Name = "labelMajorAxis";
-			this.labelMajorAxis.Size = new System.Drawing.Size(186, 15);
-			this.labelMajorAxis.TabIndex = 5;
-			this.labelMajorAxis.Text = "...";
-			this.toolTip.SetToolTip(this.labelMajorAxis, "Show the information of \"Major axis\"");
-			this.labelMajorAxis.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMajorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMajorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMajorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMajorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelMinorAxis
-			// 
-			this.labelMinorAxis.AccessibleDescription = "Show the information of \"Minor axis\"";
-			this.labelMinorAxis.AccessibleName = "Show the information of \"Minor axis\"";
-			this.labelMinorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMinorAxis.AutoSize = true;
-			this.labelMinorAxis.BackColor = System.Drawing.Color.Transparent;
-			this.labelMinorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMinorAxis.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMinorAxis.Location = new System.Drawing.Point(198, 53);
-			this.labelMinorAxis.Name = "labelMinorAxis";
-			this.labelMinorAxis.Size = new System.Drawing.Size(186, 15);
-			this.labelMinorAxis.TabIndex = 7;
-			this.labelMinorAxis.Text = "...";
-			this.toolTip.SetToolTip(this.labelMinorAxis, "Show the information of \"Minor axis\"");
-			this.labelMinorAxis.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMinorAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMinorAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMinorAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMinorAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelEccentricAnomaly
-			// 
-			this.labelEccentricAnomaly.AccessibleDescription = "Show the information of \"Eccentric anomaly\"";
-			this.labelEccentricAnomaly.AccessibleName = "Show the information of \"Eccentric anomaly\"";
-			this.labelEccentricAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelEccentricAnomaly.AutoSize = true;
-			this.labelEccentricAnomaly.BackColor = System.Drawing.Color.Transparent;
-			this.labelEccentricAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelEccentricAnomaly.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEccentricAnomaly.Location = new System.Drawing.Point(198, 70);
-			this.labelEccentricAnomaly.Name = "labelEccentricAnomaly";
-			this.labelEccentricAnomaly.Size = new System.Drawing.Size(186, 15);
-			this.labelEccentricAnomaly.TabIndex = 9;
-			this.labelEccentricAnomaly.Text = "...";
-			this.toolTip.SetToolTip(this.labelEccentricAnomaly, "Show the information of \"Eccentric anomaly\"");
-			this.labelEccentricAnomaly.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelEccentricAnomaly.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelEccentricAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelEccentricAnomaly.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelEccentricAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelTrueAnomaly
-			// 
-			this.labelTrueAnomaly.AccessibleDescription = "Show the information of \"True anomaly\"";
-			this.labelTrueAnomaly.AccessibleName = "Show the information of \"True anomaly\"";
-			this.labelTrueAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelTrueAnomaly.AutoSize = true;
-			this.labelTrueAnomaly.BackColor = System.Drawing.Color.Transparent;
-			this.labelTrueAnomaly.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelTrueAnomaly.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTrueAnomaly.Location = new System.Drawing.Point(198, 87);
-			this.labelTrueAnomaly.Name = "labelTrueAnomaly";
-			this.labelTrueAnomaly.Size = new System.Drawing.Size(186, 15);
-			this.labelTrueAnomaly.TabIndex = 11;
-			this.labelTrueAnomaly.Text = "...";
-			this.toolTip.SetToolTip(this.labelTrueAnomaly, "Show the information of \"True anomaly\"");
-			this.labelTrueAnomaly.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelTrueAnomaly.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelTrueAnomaly.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelTrueAnomaly.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelTrueAnomaly.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelPerihelionDistance
-			// 
-			this.labelPerihelionDistance.AccessibleDescription = "Show the information of \"Perihelion distance\"";
-			this.labelPerihelionDistance.AccessibleName = "Show the information of \"Perihelion distance\"";
-			this.labelPerihelionDistance.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelPerihelionDistance.AutoSize = true;
-			this.labelPerihelionDistance.BackColor = System.Drawing.Color.Transparent;
-			this.labelPerihelionDistance.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelPerihelionDistance.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPerihelionDistance.Location = new System.Drawing.Point(198, 104);
-			this.labelPerihelionDistance.Name = "labelPerihelionDistance";
-			this.labelPerihelionDistance.Size = new System.Drawing.Size(186, 15);
-			this.labelPerihelionDistance.TabIndex = 13;
-			this.labelPerihelionDistance.Text = "...";
-			this.toolTip.SetToolTip(this.labelPerihelionDistance, "Show the information of \"Perihelion distance\"");
-			this.labelPerihelionDistance.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelPerihelionDistance.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelPerihelionDistance.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelPerihelionDistance.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelPerihelionDistance.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelAphelionDistance
-			// 
-			this.labelAphelionDistance.AccessibleDescription = "Show the information of \"Aphelion distance\"";
-			this.labelAphelionDistance.AccessibleName = "Show the information of \"Aphelion distance\"";
-			this.labelAphelionDistance.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelAphelionDistance.AutoSize = true;
-			this.labelAphelionDistance.BackColor = System.Drawing.Color.Transparent;
-			this.labelAphelionDistance.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelAphelionDistance.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelAphelionDistance.Location = new System.Drawing.Point(198, 121);
-			this.labelAphelionDistance.Name = "labelAphelionDistance";
-			this.labelAphelionDistance.Size = new System.Drawing.Size(186, 15);
-			this.labelAphelionDistance.TabIndex = 15;
-			this.labelAphelionDistance.Text = "...";
-			this.toolTip.SetToolTip(this.labelAphelionDistance, "Show the information of \"Aphelion distance\"");
-			this.labelAphelionDistance.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelAphelionDistance.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelAphelionDistance.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelAphelionDistance.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelAphelionDistance.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelLongitudeDescendingNode
-			// 
-			this.labelLongitudeDescendingNode.AccessibleDescription = "Show the information of \"Longitude of descending node\"";
-			this.labelLongitudeDescendingNode.AccessibleName = "Show the information of \"Longitude of descending node\"";
-			this.labelLongitudeDescendingNode.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelLongitudeDescendingNode.AutoSize = true;
-			this.labelLongitudeDescendingNode.BackColor = System.Drawing.Color.Transparent;
-			this.labelLongitudeDescendingNode.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelLongitudeDescendingNode.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLongitudeDescendingNode.Location = new System.Drawing.Point(198, 138);
-			this.labelLongitudeDescendingNode.Name = "labelLongitudeDescendingNode";
-			this.labelLongitudeDescendingNode.Size = new System.Drawing.Size(186, 15);
-			this.labelLongitudeDescendingNode.TabIndex = 17;
-			this.labelLongitudeDescendingNode.Text = "...";
-			this.toolTip.SetToolTip(this.labelLongitudeDescendingNode, "Show the information of \"Longitude of descending node\"");
-			this.labelLongitudeDescendingNode.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelLongitudeDescendingNode.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLongitudeDescendingNode.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelLongitudeDescendingNode.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLongitudeDescendingNode.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelArgumentAphelion
-			// 
-			this.labelArgumentAphelion.AccessibleDescription = "Show the information of \"Argument of aphelion\"";
-			this.labelArgumentAphelion.AccessibleName = "Show the information of \"Argument of aphelion\"";
-			this.labelArgumentAphelion.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelArgumentAphelion.AutoSize = true;
-			this.labelArgumentAphelion.BackColor = System.Drawing.Color.Transparent;
-			this.labelArgumentAphelion.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelArgumentAphelion.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelArgumentAphelion.Location = new System.Drawing.Point(198, 155);
-			this.labelArgumentAphelion.Name = "labelArgumentAphelion";
-			this.labelArgumentAphelion.Size = new System.Drawing.Size(186, 15);
-			this.labelArgumentAphelion.TabIndex = 19;
-			this.labelArgumentAphelion.Text = "...";
-			this.toolTip.SetToolTip(this.labelArgumentAphelion, "Show the information of \"Argument of aphelion\"");
-			this.labelArgumentAphelion.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelArgumentAphelion.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelArgumentAphelion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelArgumentAphelion.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelArgumentAphelion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelFocalParameter
-			// 
-			this.labelFocalParameter.AccessibleDescription = "Show the information of \"Focal parameter\"";
-			this.labelFocalParameter.AccessibleName = "Show the information of \"Focal parameter\"";
-			this.labelFocalParameter.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelFocalParameter.AutoSize = true;
-			this.labelFocalParameter.BackColor = System.Drawing.Color.Transparent;
-			this.labelFocalParameter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelFocalParameter.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFocalParameter.Location = new System.Drawing.Point(198, 172);
-			this.labelFocalParameter.Name = "labelFocalParameter";
-			this.labelFocalParameter.Size = new System.Drawing.Size(186, 15);
-			this.labelFocalParameter.TabIndex = 21;
-			this.labelFocalParameter.Text = "...";
-			this.toolTip.SetToolTip(this.labelFocalParameter, "Show the information of \"Focal parameter\"");
-			this.labelFocalParameter.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelFocalParameter.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelFocalParameter.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelFocalParameter.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelFocalParameter.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelSemiLatusRectum
-			// 
-			this.labelSemiLatusRectum.AccessibleDescription = "Show the information of \"Semi-latus rectum\"";
-			this.labelSemiLatusRectum.AccessibleName = "Show the information of \"Semi-latus rectum\"";
-			this.labelSemiLatusRectum.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelSemiLatusRectum.AutoSize = true;
-			this.labelSemiLatusRectum.BackColor = System.Drawing.Color.Transparent;
-			this.labelSemiLatusRectum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSemiLatusRectum.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSemiLatusRectum.Location = new System.Drawing.Point(198, 189);
-			this.labelSemiLatusRectum.Name = "labelSemiLatusRectum";
-			this.labelSemiLatusRectum.Size = new System.Drawing.Size(186, 15);
-			this.labelSemiLatusRectum.TabIndex = 23;
-			this.labelSemiLatusRectum.Text = "...";
-			this.toolTip.SetToolTip(this.labelSemiLatusRectum, "Show the information of \"Semi-latus rectum\"");
-			this.labelSemiLatusRectum.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelSemiLatusRectum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiLatusRectum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSemiLatusRectum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiLatusRectum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelLatusRectum
-			// 
-			this.labelLatusRectum.AccessibleDescription = "Show the information of \"Latus rectum\"";
-			this.labelLatusRectum.AccessibleName = "Show the information of \"Latus rectum\"";
-			this.labelLatusRectum.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelLatusRectum.AutoSize = true;
-			this.labelLatusRectum.BackColor = System.Drawing.Color.Transparent;
-			this.labelLatusRectum.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelLatusRectum.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLatusRectum.Location = new System.Drawing.Point(198, 206);
-			this.labelLatusRectum.Name = "labelLatusRectum";
-			this.labelLatusRectum.Size = new System.Drawing.Size(186, 15);
-			this.labelLatusRectum.TabIndex = 25;
-			this.labelLatusRectum.Text = "...";
-			this.toolTip.SetToolTip(this.labelLatusRectum, "Show the information of \"Latus rectum\"");
-			this.labelLatusRectum.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelLatusRectum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLatusRectum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelLatusRectum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelLatusRectum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelPeriod
-			// 
-			this.labelPeriod.AccessibleDescription = "Show the information of \"Period\"";
-			this.labelPeriod.AccessibleName = "Show the information of \"Period\"";
-			this.labelPeriod.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelPeriod.AutoSize = true;
-			this.labelPeriod.BackColor = System.Drawing.Color.Transparent;
-			this.labelPeriod.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelPeriod.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPeriod.Location = new System.Drawing.Point(198, 223);
-			this.labelPeriod.Name = "labelPeriod";
-			this.labelPeriod.Size = new System.Drawing.Size(186, 15);
-			this.labelPeriod.TabIndex = 27;
-			this.labelPeriod.Text = "...";
-			this.toolTip.SetToolTip(this.labelPeriod, "Show the information of \"Period\"");
-			this.labelPeriod.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelPeriod.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelPeriod.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelPeriod.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelPeriod.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelOrbitalArea
-			// 
-			this.linkLabelOrbitalArea.AccessibleDescription = "Orbital area";
-			this.linkLabelOrbitalArea.AccessibleName = "Orbital area";
-			this.linkLabelOrbitalArea.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelOrbitalArea.AutoSize = true;
-			this.linkLabelOrbitalArea.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelOrbitalArea.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelOrbitalArea.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelOrbitalArea.Location = new System.Drawing.Point(5, 240);
-			this.linkLabelOrbitalArea.Name = "linkLabelOrbitalArea";
-			this.linkLabelOrbitalArea.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelOrbitalArea.TabIndex = 28;
-			this.linkLabelOrbitalArea.TabStop = true;
-			this.linkLabelOrbitalArea.Text = "Orbital area (AU²)";
-			this.toolTip.SetToolTip(this.linkLabelOrbitalArea, "Orbital area");
-			this.linkLabelOrbitalArea.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalArea_LinkClicked);
-			this.linkLabelOrbitalArea.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelOrbitalArea.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelOrbitalArea.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelOrbitalArea.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelOrbitalPerimeter
-			// 
-			this.linkLabelOrbitalPerimeter.AccessibleDescription = "Orbital perimeter";
-			this.linkLabelOrbitalPerimeter.AccessibleName = "Orbital perimeter";
-			this.linkLabelOrbitalPerimeter.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelOrbitalPerimeter.AutoSize = true;
-			this.linkLabelOrbitalPerimeter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelOrbitalPerimeter.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelOrbitalPerimeter.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelOrbitalPerimeter.Location = new System.Drawing.Point(5, 257);
-			this.linkLabelOrbitalPerimeter.Name = "linkLabelOrbitalPerimeter";
-			this.linkLabelOrbitalPerimeter.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelOrbitalPerimeter.TabIndex = 30;
-			this.linkLabelOrbitalPerimeter.TabStop = true;
-			this.linkLabelOrbitalPerimeter.Text = "Orbital perimeter (AU)";
-			this.toolTip.SetToolTip(this.linkLabelOrbitalPerimeter, "Orbital perimeter");
-			this.linkLabelOrbitalPerimeter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalPerimeter_LinkClicked);
-			this.linkLabelOrbitalPerimeter.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelOrbitalPerimeter.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelOrbitalPerimeter.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelOrbitalPerimeter.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelSemiMeanAxis
-			// 
-			this.linkLabelSemiMeanAxis.AccessibleDescription = "Semi-mean axis";
-			this.linkLabelSemiMeanAxis.AccessibleName = "Semi-mean axis";
-			this.linkLabelSemiMeanAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelSemiMeanAxis.AutoSize = true;
-			this.linkLabelSemiMeanAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelSemiMeanAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelSemiMeanAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelSemiMeanAxis.Location = new System.Drawing.Point(5, 274);
-			this.linkLabelSemiMeanAxis.Name = "linkLabelSemiMeanAxis";
-			this.linkLabelSemiMeanAxis.Size = new System.Drawing.Size(185, 15);
-			this.linkLabelSemiMeanAxis.TabIndex = 32;
-			this.linkLabelSemiMeanAxis.TabStop = true;
-			this.linkLabelSemiMeanAxis.Text = "Semi-mean axis (AU)";
-			this.toolTip.SetToolTip(this.linkLabelSemiMeanAxis, "Semi-mean axis");
-			this.linkLabelSemiMeanAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMeanAxis_LinkClicked);
-			this.linkLabelSemiMeanAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiMeanAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelSemiMeanAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelSemiMeanAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// linkLabelMeanAxis
-			// 
-			this.linkLabelMeanAxis.AccessibleDescription = "Mean axis";
-			this.linkLabelMeanAxis.AccessibleName = "Mean axis";
-			this.linkLabelMeanAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelMeanAxis.AutoSize = true;
-			this.linkLabelMeanAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabelMeanAxis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabelMeanAxis.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabelMeanAxis.Location = new System.Drawing.Point(5, 291);
-			this.linkLabelMeanAxis.Name = "linkLabelMeanAxis";
-			this.linkLabelMeanAxis.Size = new System.Drawing.Size(185, 17);
-			this.linkLabelMeanAxis.TabIndex = 34;
-			this.linkLabelMeanAxis.TabStop = true;
-			this.linkLabelMeanAxis.Text = "Mean axis (AU)";
-			this.toolTip.SetToolTip(this.linkLabelMeanAxis, "Mean axis");
-			this.linkLabelMeanAxis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMeanAxis_LinkClicked);
-			this.linkLabelMeanAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMeanAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelMeanAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelMeanAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelOrbitalArea
-			// 
-			this.labelOrbitalArea.AccessibleDescription = "Show the information of \"Orbital area\"";
-			this.labelOrbitalArea.AccessibleName = "Show the information of \"Orbital area\"";
-			this.labelOrbitalArea.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelOrbitalArea.AutoSize = true;
-			this.labelOrbitalArea.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelOrbitalArea.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelOrbitalArea.Location = new System.Drawing.Point(198, 240);
-			this.labelOrbitalArea.Name = "labelOrbitalArea";
-			this.labelOrbitalArea.Size = new System.Drawing.Size(186, 15);
-			this.labelOrbitalArea.TabIndex = 29;
-			this.labelOrbitalArea.Text = "...";
-			this.toolTip.SetToolTip(this.labelOrbitalArea, "Show the information of \"Orbital area\"");
-			this.labelOrbitalArea.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelOrbitalArea.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelOrbitalArea.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelOrbitalArea.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelOrbitalArea.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelOrbitalPerimeter
-			// 
-			this.labelOrbitalPerimeter.AccessibleDescription = "Show the information of \"Orbital perimeter\"";
-			this.labelOrbitalPerimeter.AccessibleName = "Show the information of \"Orbital perimeter\"";
-			this.labelOrbitalPerimeter.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelOrbitalPerimeter.AutoSize = true;
-			this.labelOrbitalPerimeter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelOrbitalPerimeter.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelOrbitalPerimeter.Location = new System.Drawing.Point(198, 257);
-			this.labelOrbitalPerimeter.Name = "labelOrbitalPerimeter";
-			this.labelOrbitalPerimeter.Size = new System.Drawing.Size(186, 15);
-			this.labelOrbitalPerimeter.TabIndex = 31;
-			this.labelOrbitalPerimeter.Text = "...";
-			this.toolTip.SetToolTip(this.labelOrbitalPerimeter, "Show the information of \"Orbital perimeter\"");
-			this.labelOrbitalPerimeter.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelOrbitalPerimeter.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelOrbitalPerimeter.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelOrbitalPerimeter.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelOrbitalPerimeter.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// labelSemiMeanAxis
-			// 
-			this.labelSemiMeanAxis.AccessibleDescription = "Show the information of \"Semi-mean axis\"";
-			this.labelSemiMeanAxis.AccessibleName = "Show the information of \"Semi-mean axis\"";
-			this.labelSemiMeanAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelSemiMeanAxis.AutoSize = true;
-			this.labelSemiMeanAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSemiMeanAxis.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelSemiMeanAxis.Location = new System.Drawing.Point(198, 274);
-			this.labelSemiMeanAxis.Name = "labelSemiMeanAxis";
-			this.labelSemiMeanAxis.Size = new System.Drawing.Size(186, 15);
-			this.labelSemiMeanAxis.TabIndex = 33;
-			this.labelSemiMeanAxis.Text = "...";
-			this.toolTip.SetToolTip(this.labelSemiMeanAxis, "Show the information of \"Semi-mean axis\"");
-			this.labelSemiMeanAxis.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelSemiMeanAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiMeanAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSemiMeanAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSemiMeanAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// labelLinearEccentricityData
+			// 
+			this.labelLinearEccentricityData.AccessibleDescription = "Show the information of \"Linear eccentricity\"";
+			this.labelLinearEccentricityData.AccessibleName = "Show the information of \"Linear eccentricity\"";
+			this.labelLinearEccentricityData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelLinearEccentricityData.AutoSize = true;
+			this.labelLinearEccentricityData.BackColor = System.Drawing.Color.Transparent;
+			this.labelLinearEccentricityData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelLinearEccentricityData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLinearEccentricityData.Location = new System.Drawing.Point(198, 2);
+			this.labelLinearEccentricityData.Name = "labelLinearEccentricityData";
+			this.labelLinearEccentricityData.Size = new System.Drawing.Size(186, 15);
+			this.labelLinearEccentricityData.TabIndex = 1;
+			this.labelLinearEccentricityData.Text = "...";
+			this.toolTip.SetToolTip(this.labelLinearEccentricityData, "Show the information of \"Linear eccentricity\"");
+			this.labelLinearEccentricityData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLinearEccentricityData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLinearEccentricityData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelLinearEccentricityData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLinearEccentricityData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelSemiMinorAxisDesc
+			// 
+			this.linkLabelSemiMinorAxisDesc.AccessibleDescription = "Semi-minor axis";
+			this.linkLabelSemiMinorAxisDesc.AccessibleName = "Semi-minor axis";
+			this.linkLabelSemiMinorAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelSemiMinorAxisDesc.AutoSize = true;
+			this.linkLabelSemiMinorAxisDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelSemiMinorAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelSemiMinorAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelSemiMinorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelSemiMinorAxisDesc.Location = new System.Drawing.Point(5, 19);
+			this.linkLabelSemiMinorAxisDesc.Name = "linkLabelSemiMinorAxisDesc";
+			this.linkLabelSemiMinorAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelSemiMinorAxisDesc.TabIndex = 2;
+			this.linkLabelSemiMinorAxisDesc.TabStop = true;
+			this.linkLabelSemiMinorAxisDesc.Text = "Semi-minor axis (AU)";
+			this.toolTip.SetToolTip(this.linkLabelSemiMinorAxisDesc, "Semi-minor axis");
+			this.linkLabelSemiMinorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMinorAxis_LinkClicked);
+			this.linkLabelSemiMinorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiMinorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelSemiMinorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiMinorAxisDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelMajorAxisDesc
+			// 
+			this.linkLabelMajorAxisDesc.AccessibleDescription = "Major axis";
+			this.linkLabelMajorAxisDesc.AccessibleName = "Major axis";
+			this.linkLabelMajorAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelMajorAxisDesc.AutoSize = true;
+			this.linkLabelMajorAxisDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMajorAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelMajorAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelMajorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelMajorAxisDesc.Location = new System.Drawing.Point(5, 36);
+			this.linkLabelMajorAxisDesc.Name = "linkLabelMajorAxisDesc";
+			this.linkLabelMajorAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelMajorAxisDesc.TabIndex = 4;
+			this.linkLabelMajorAxisDesc.TabStop = true;
+			this.linkLabelMajorAxisDesc.Text = "Major axis (AU)";
+			this.toolTip.SetToolTip(this.linkLabelMajorAxisDesc, "Major axis");
+			this.linkLabelMajorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMajorAxis_LinkClicked);
+			this.linkLabelMajorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMajorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelMajorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMajorAxisDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelMinorAxisDesc
+			// 
+			this.linkLabelMinorAxisDesc.AccessibleDescription = "Minor axis";
+			this.linkLabelMinorAxisDesc.AccessibleName = "Minor axis";
+			this.linkLabelMinorAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelMinorAxisDesc.AutoSize = true;
+			this.linkLabelMinorAxisDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelMinorAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelMinorAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelMinorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelMinorAxisDesc.Location = new System.Drawing.Point(5, 53);
+			this.linkLabelMinorAxisDesc.Name = "linkLabelMinorAxisDesc";
+			this.linkLabelMinorAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelMinorAxisDesc.TabIndex = 6;
+			this.linkLabelMinorAxisDesc.TabStop = true;
+			this.linkLabelMinorAxisDesc.Text = "Minor axis (AU)";
+			this.toolTip.SetToolTip(this.linkLabelMinorAxisDesc, "Minor axis");
+			this.linkLabelMinorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMinorAxis_LinkClicked);
+			this.linkLabelMinorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMinorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelMinorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMinorAxisDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelEccenctricAnomalyDesc
+			// 
+			this.linkLabelEccenctricAnomalyDesc.AccessibleDescription = "Eccentric anomaly";
+			this.linkLabelEccenctricAnomalyDesc.AccessibleName = "Eccentric anomaly";
+			this.linkLabelEccenctricAnomalyDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelEccenctricAnomalyDesc.AutoSize = true;
+			this.linkLabelEccenctricAnomalyDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelEccenctricAnomalyDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelEccenctricAnomalyDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelEccenctricAnomalyDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelEccenctricAnomalyDesc.Location = new System.Drawing.Point(5, 70);
+			this.linkLabelEccenctricAnomalyDesc.Name = "linkLabelEccenctricAnomalyDesc";
+			this.linkLabelEccenctricAnomalyDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelEccenctricAnomalyDesc.TabIndex = 8;
+			this.linkLabelEccenctricAnomalyDesc.TabStop = true;
+			this.linkLabelEccenctricAnomalyDesc.Text = "Eccentric anomaly (°)";
+			this.toolTip.SetToolTip(this.linkLabelEccenctricAnomalyDesc, "Eccentric anomaly");
+			this.linkLabelEccenctricAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelEccenctricAnomaly_LinkClicked);
+			this.linkLabelEccenctricAnomalyDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelEccenctricAnomalyDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelEccenctricAnomalyDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelEccenctricAnomalyDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelTrueAnomalyDesc
+			// 
+			this.linkLabelTrueAnomalyDesc.AccessibleDescription = "True anomaly";
+			this.linkLabelTrueAnomalyDesc.AccessibleName = "True anomaly";
+			this.linkLabelTrueAnomalyDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelTrueAnomalyDesc.AutoSize = true;
+			this.linkLabelTrueAnomalyDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelTrueAnomalyDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelTrueAnomalyDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelTrueAnomalyDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelTrueAnomalyDesc.Location = new System.Drawing.Point(5, 87);
+			this.linkLabelTrueAnomalyDesc.Name = "linkLabelTrueAnomalyDesc";
+			this.linkLabelTrueAnomalyDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelTrueAnomalyDesc.TabIndex = 10;
+			this.linkLabelTrueAnomalyDesc.TabStop = true;
+			this.linkLabelTrueAnomalyDesc.Text = "True anomaly (°)";
+			this.toolTip.SetToolTip(this.linkLabelTrueAnomalyDesc, "True anomaly");
+			this.linkLabelTrueAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelTrueAnomaly_LinkClicked);
+			this.linkLabelTrueAnomalyDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelTrueAnomalyDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelTrueAnomalyDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelTrueAnomalyDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelPerihelionDistanceDesc
+			// 
+			this.linkLabelPerihelionDistanceDesc.AccessibleDescription = "Perihelion distance";
+			this.linkLabelPerihelionDistanceDesc.AccessibleName = "Perihelion distance";
+			this.linkLabelPerihelionDistanceDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelPerihelionDistanceDesc.AutoSize = true;
+			this.linkLabelPerihelionDistanceDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelPerihelionDistanceDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelPerihelionDistanceDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelPerihelionDistanceDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelPerihelionDistanceDesc.Location = new System.Drawing.Point(5, 104);
+			this.linkLabelPerihelionDistanceDesc.Name = "linkLabelPerihelionDistanceDesc";
+			this.linkLabelPerihelionDistanceDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelPerihelionDistanceDesc.TabIndex = 12;
+			this.linkLabelPerihelionDistanceDesc.TabStop = true;
+			this.linkLabelPerihelionDistanceDesc.Text = "Perihelion distance (AU)";
+			this.toolTip.SetToolTip(this.linkLabelPerihelionDistanceDesc, "Perihelion distance");
+			this.linkLabelPerihelionDistanceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPerihelionDistance_LinkClicked);
+			this.linkLabelPerihelionDistanceDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelPerihelionDistanceDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelPerihelionDistanceDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelPerihelionDistanceDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelAphelionDistanceDesc
+			// 
+			this.linkLabelAphelionDistanceDesc.AccessibleDescription = "Aphelion distance";
+			this.linkLabelAphelionDistanceDesc.AccessibleName = "Aphelion distance";
+			this.linkLabelAphelionDistanceDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelAphelionDistanceDesc.AutoSize = true;
+			this.linkLabelAphelionDistanceDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelAphelionDistanceDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelAphelionDistanceDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelAphelionDistanceDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelAphelionDistanceDesc.Location = new System.Drawing.Point(5, 121);
+			this.linkLabelAphelionDistanceDesc.Name = "linkLabelAphelionDistanceDesc";
+			this.linkLabelAphelionDistanceDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelAphelionDistanceDesc.TabIndex = 14;
+			this.linkLabelAphelionDistanceDesc.TabStop = true;
+			this.linkLabelAphelionDistanceDesc.Text = "Aphelion distance (AU)";
+			this.toolTip.SetToolTip(this.linkLabelAphelionDistanceDesc, "Aphelion distance");
+			this.linkLabelAphelionDistanceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAphelionDistance_LinkClicked);
+			this.linkLabelAphelionDistanceDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelAphelionDistanceDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelAphelionDistanceDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelAphelionDistanceDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelLongitudeDescendingNodeDesc
+			// 
+			this.linkLabelLongitudeDescendingNodeDesc.AccessibleDescription = "Longitude of descending node";
+			this.linkLabelLongitudeDescendingNodeDesc.AccessibleName = "Longitude of descending node";
+			this.linkLabelLongitudeDescendingNodeDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelLongitudeDescendingNodeDesc.AutoSize = true;
+			this.linkLabelLongitudeDescendingNodeDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelLongitudeDescendingNodeDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelLongitudeDescendingNodeDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelLongitudeDescendingNodeDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelLongitudeDescendingNodeDesc.Location = new System.Drawing.Point(5, 138);
+			this.linkLabelLongitudeDescendingNodeDesc.Name = "linkLabelLongitudeDescendingNodeDesc";
+			this.linkLabelLongitudeDescendingNodeDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelLongitudeDescendingNodeDesc.TabIndex = 16;
+			this.linkLabelLongitudeDescendingNodeDesc.TabStop = true;
+			this.linkLabelLongitudeDescendingNodeDesc.Text = "Longitude of descending node (°)";
+			this.toolTip.SetToolTip(this.linkLabelLongitudeDescendingNodeDesc, "Longitude of descending node");
+			this.linkLabelLongitudeDescendingNodeDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLongitudeDescendingNode_LinkClicked);
+			this.linkLabelLongitudeDescendingNodeDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLongitudeDescendingNodeDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelLongitudeDescendingNodeDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLongitudeDescendingNodeDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabel1ArgumentAphelionDesc
+			// 
+			this.linkLabel1ArgumentAphelionDesc.AccessibleDescription = "Argument of aphelion";
+			this.linkLabel1ArgumentAphelionDesc.AccessibleName = "Argument of aphelion";
+			this.linkLabel1ArgumentAphelionDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabel1ArgumentAphelionDesc.AutoSize = true;
+			this.linkLabel1ArgumentAphelionDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabel1ArgumentAphelionDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabel1ArgumentAphelionDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabel1ArgumentAphelionDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabel1ArgumentAphelionDesc.Location = new System.Drawing.Point(5, 155);
+			this.linkLabel1ArgumentAphelionDesc.Name = "linkLabel1ArgumentAphelionDesc";
+			this.linkLabel1ArgumentAphelionDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabel1ArgumentAphelionDesc.TabIndex = 18;
+			this.linkLabel1ArgumentAphelionDesc.TabStop = true;
+			this.linkLabel1ArgumentAphelionDesc.Text = "Argument of aphelion (°)";
+			this.toolTip.SetToolTip(this.linkLabel1ArgumentAphelionDesc, "Argument of aphelion");
+			this.linkLabel1ArgumentAphelionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1ArgumentAphelion_LinkClicked);
+			this.linkLabel1ArgumentAphelionDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabel1ArgumentAphelionDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabel1ArgumentAphelionDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabel1ArgumentAphelionDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelFocalParameterDesc
+			// 
+			this.linkLabelFocalParameterDesc.AccessibleDescription = "Focal parameter";
+			this.linkLabelFocalParameterDesc.AccessibleName = "Focal parameter";
+			this.linkLabelFocalParameterDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelFocalParameterDesc.AutoSize = true;
+			this.linkLabelFocalParameterDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelFocalParameterDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelFocalParameterDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelFocalParameterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelFocalParameterDesc.Location = new System.Drawing.Point(5, 172);
+			this.linkLabelFocalParameterDesc.Name = "linkLabelFocalParameterDesc";
+			this.linkLabelFocalParameterDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelFocalParameterDesc.TabIndex = 20;
+			this.linkLabelFocalParameterDesc.TabStop = true;
+			this.linkLabelFocalParameterDesc.Text = "Focal parameter";
+			this.toolTip.SetToolTip(this.linkLabelFocalParameterDesc, "Focal parameter");
+			this.linkLabelFocalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelFocalParameter_LinkClicked);
+			this.linkLabelFocalParameterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelFocalParameterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelFocalParameterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelFocalParameterDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelSemiLatusRectumDesc
+			// 
+			this.linkLabelSemiLatusRectumDesc.AccessibleDescription = "Semi-latus rectum";
+			this.linkLabelSemiLatusRectumDesc.AccessibleName = "Semi-latus rectum";
+			this.linkLabelSemiLatusRectumDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelSemiLatusRectumDesc.AutoSize = true;
+			this.linkLabelSemiLatusRectumDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelSemiLatusRectumDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelSemiLatusRectumDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelSemiLatusRectumDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelSemiLatusRectumDesc.Location = new System.Drawing.Point(5, 189);
+			this.linkLabelSemiLatusRectumDesc.Name = "linkLabelSemiLatusRectumDesc";
+			this.linkLabelSemiLatusRectumDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelSemiLatusRectumDesc.TabIndex = 22;
+			this.linkLabelSemiLatusRectumDesc.TabStop = true;
+			this.linkLabelSemiLatusRectumDesc.Text = "Semi-latus rectum (AU)";
+			this.toolTip.SetToolTip(this.linkLabelSemiLatusRectumDesc, "Semi-latus rectum");
+			this.linkLabelSemiLatusRectumDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiLatusRectum_LinkClicked);
+			this.linkLabelSemiLatusRectumDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiLatusRectumDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelSemiLatusRectumDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiLatusRectumDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelLatusRectumDesc
+			// 
+			this.linkLabelLatusRectumDesc.AccessibleDescription = "Latus rectum";
+			this.linkLabelLatusRectumDesc.AccessibleName = "Latus rectum";
+			this.linkLabelLatusRectumDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelLatusRectumDesc.AutoSize = true;
+			this.linkLabelLatusRectumDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelLatusRectumDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelLatusRectumDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelLatusRectumDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelLatusRectumDesc.Location = new System.Drawing.Point(5, 206);
+			this.linkLabelLatusRectumDesc.Name = "linkLabelLatusRectumDesc";
+			this.linkLabelLatusRectumDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelLatusRectumDesc.TabIndex = 24;
+			this.linkLabelLatusRectumDesc.TabStop = true;
+			this.linkLabelLatusRectumDesc.Text = "Latus rectum (AU)";
+			this.toolTip.SetToolTip(this.linkLabelLatusRectumDesc, "Latus rectum");
+			this.linkLabelLatusRectumDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLatusRectum_LinkClicked);
+			this.linkLabelLatusRectumDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLatusRectumDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelLatusRectumDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelLatusRectumDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelPeriodDesc
+			// 
+			this.linkLabelPeriodDesc.AccessibleDescription = "Period";
+			this.linkLabelPeriodDesc.AccessibleName = "Period";
+			this.linkLabelPeriodDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelPeriodDesc.AutoSize = true;
+			this.linkLabelPeriodDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelPeriodDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelPeriodDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelPeriodDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelPeriodDesc.Location = new System.Drawing.Point(5, 223);
+			this.linkLabelPeriodDesc.Name = "linkLabelPeriodDesc";
+			this.linkLabelPeriodDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelPeriodDesc.TabIndex = 26;
+			this.linkLabelPeriodDesc.TabStop = true;
+			this.linkLabelPeriodDesc.Text = "Period (years)";
+			this.toolTip.SetToolTip(this.linkLabelPeriodDesc, "Period");
+			this.linkLabelPeriodDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPeriod_LinkClicked);
+			this.linkLabelPeriodDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelPeriodDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelPeriodDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelPeriodDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelSemiMinorAxisData
+			// 
+			this.labelSemiMinorAxisData.AccessibleDescription = "Show the information of \"Semi-minor axis\"";
+			this.labelSemiMinorAxisData.AccessibleName = "Show the information of \"Semi-minor axis\"";
+			this.labelSemiMinorAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelSemiMinorAxisData.AutoSize = true;
+			this.labelSemiMinorAxisData.BackColor = System.Drawing.Color.Transparent;
+			this.labelSemiMinorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelSemiMinorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelSemiMinorAxisData.Location = new System.Drawing.Point(198, 19);
+			this.labelSemiMinorAxisData.Name = "labelSemiMinorAxisData";
+			this.labelSemiMinorAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelSemiMinorAxisData.TabIndex = 3;
+			this.labelSemiMinorAxisData.Text = "...";
+			this.toolTip.SetToolTip(this.labelSemiMinorAxisData, "Show the information of \"Semi-minor axis\"");
+			this.labelSemiMinorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiMinorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiMinorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSemiMinorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiMinorAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelMajorAxisData
+			// 
+			this.labelMajorAxisData.AccessibleDescription = "Show the information of \"Major axis\"";
+			this.labelMajorAxisData.AccessibleName = "Show the information of \"Major axis\"";
+			this.labelMajorAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelMajorAxisData.AutoSize = true;
+			this.labelMajorAxisData.BackColor = System.Drawing.Color.Transparent;
+			this.labelMajorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelMajorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMajorAxisData.Location = new System.Drawing.Point(198, 36);
+			this.labelMajorAxisData.Name = "labelMajorAxisData";
+			this.labelMajorAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelMajorAxisData.TabIndex = 5;
+			this.labelMajorAxisData.Text = "...";
+			this.toolTip.SetToolTip(this.labelMajorAxisData, "Show the information of \"Major axis\"");
+			this.labelMajorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMajorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMajorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMajorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMajorAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelMinorAxisData
+			// 
+			this.labelMinorAxisData.AccessibleDescription = "Show the information of \"Minor axis\"";
+			this.labelMinorAxisData.AccessibleName = "Show the information of \"Minor axis\"";
+			this.labelMinorAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelMinorAxisData.AutoSize = true;
+			this.labelMinorAxisData.BackColor = System.Drawing.Color.Transparent;
+			this.labelMinorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelMinorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMinorAxisData.Location = new System.Drawing.Point(198, 53);
+			this.labelMinorAxisData.Name = "labelMinorAxisData";
+			this.labelMinorAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelMinorAxisData.TabIndex = 7;
+			this.labelMinorAxisData.Text = "...";
+			this.toolTip.SetToolTip(this.labelMinorAxisData, "Show the information of \"Minor axis\"");
+			this.labelMinorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMinorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMinorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMinorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMinorAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelEccentricAnomalyData
+			// 
+			this.labelEccentricAnomalyData.AccessibleDescription = "Show the information of \"Eccentric anomaly\"";
+			this.labelEccentricAnomalyData.AccessibleName = "Show the information of \"Eccentric anomaly\"";
+			this.labelEccentricAnomalyData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelEccentricAnomalyData.AutoSize = true;
+			this.labelEccentricAnomalyData.BackColor = System.Drawing.Color.Transparent;
+			this.labelEccentricAnomalyData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelEccentricAnomalyData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelEccentricAnomalyData.Location = new System.Drawing.Point(198, 70);
+			this.labelEccentricAnomalyData.Name = "labelEccentricAnomalyData";
+			this.labelEccentricAnomalyData.Size = new System.Drawing.Size(186, 15);
+			this.labelEccentricAnomalyData.TabIndex = 9;
+			this.labelEccentricAnomalyData.Text = "...";
+			this.toolTip.SetToolTip(this.labelEccentricAnomalyData, "Show the information of \"Eccentric anomaly\"");
+			this.labelEccentricAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelEccentricAnomalyData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelEccentricAnomalyData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelEccentricAnomalyData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelEccentricAnomalyData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelTrueAnomalyData
+			// 
+			this.labelTrueAnomalyData.AccessibleDescription = "Show the information of \"True anomaly\"";
+			this.labelTrueAnomalyData.AccessibleName = "Show the information of \"True anomaly\"";
+			this.labelTrueAnomalyData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelTrueAnomalyData.AutoSize = true;
+			this.labelTrueAnomalyData.BackColor = System.Drawing.Color.Transparent;
+			this.labelTrueAnomalyData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelTrueAnomalyData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTrueAnomalyData.Location = new System.Drawing.Point(198, 87);
+			this.labelTrueAnomalyData.Name = "labelTrueAnomalyData";
+			this.labelTrueAnomalyData.Size = new System.Drawing.Size(186, 15);
+			this.labelTrueAnomalyData.TabIndex = 11;
+			this.labelTrueAnomalyData.Text = "...";
+			this.toolTip.SetToolTip(this.labelTrueAnomalyData, "Show the information of \"True anomaly\"");
+			this.labelTrueAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelTrueAnomalyData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelTrueAnomalyData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelTrueAnomalyData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelTrueAnomalyData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelPerihelionDistanceData
+			// 
+			this.labelPerihelionDistanceData.AccessibleDescription = "Show the information of \"Perihelion distance\"";
+			this.labelPerihelionDistanceData.AccessibleName = "Show the information of \"Perihelion distance\"";
+			this.labelPerihelionDistanceData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelPerihelionDistanceData.AutoSize = true;
+			this.labelPerihelionDistanceData.BackColor = System.Drawing.Color.Transparent;
+			this.labelPerihelionDistanceData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelPerihelionDistanceData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPerihelionDistanceData.Location = new System.Drawing.Point(198, 104);
+			this.labelPerihelionDistanceData.Name = "labelPerihelionDistanceData";
+			this.labelPerihelionDistanceData.Size = new System.Drawing.Size(186, 15);
+			this.labelPerihelionDistanceData.TabIndex = 13;
+			this.labelPerihelionDistanceData.Text = "...";
+			this.toolTip.SetToolTip(this.labelPerihelionDistanceData, "Show the information of \"Perihelion distance\"");
+			this.labelPerihelionDistanceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelPerihelionDistanceData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelPerihelionDistanceData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelPerihelionDistanceData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelPerihelionDistanceData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelAphelionDistanceData
+			// 
+			this.labelAphelionDistanceData.AccessibleDescription = "Show the information of \"Aphelion distance\"";
+			this.labelAphelionDistanceData.AccessibleName = "Show the information of \"Aphelion distance\"";
+			this.labelAphelionDistanceData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelAphelionDistanceData.AutoSize = true;
+			this.labelAphelionDistanceData.BackColor = System.Drawing.Color.Transparent;
+			this.labelAphelionDistanceData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelAphelionDistanceData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelAphelionDistanceData.Location = new System.Drawing.Point(198, 121);
+			this.labelAphelionDistanceData.Name = "labelAphelionDistanceData";
+			this.labelAphelionDistanceData.Size = new System.Drawing.Size(186, 15);
+			this.labelAphelionDistanceData.TabIndex = 15;
+			this.labelAphelionDistanceData.Text = "...";
+			this.toolTip.SetToolTip(this.labelAphelionDistanceData, "Show the information of \"Aphelion distance\"");
+			this.labelAphelionDistanceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelAphelionDistanceData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelAphelionDistanceData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelAphelionDistanceData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelAphelionDistanceData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelLongitudeDescendingNodeData
+			// 
+			this.labelLongitudeDescendingNodeData.AccessibleDescription = "Show the information of \"Longitude of descending node\"";
+			this.labelLongitudeDescendingNodeData.AccessibleName = "Show the information of \"Longitude of descending node\"";
+			this.labelLongitudeDescendingNodeData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelLongitudeDescendingNodeData.AutoSize = true;
+			this.labelLongitudeDescendingNodeData.BackColor = System.Drawing.Color.Transparent;
+			this.labelLongitudeDescendingNodeData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelLongitudeDescendingNodeData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLongitudeDescendingNodeData.Location = new System.Drawing.Point(198, 138);
+			this.labelLongitudeDescendingNodeData.Name = "labelLongitudeDescendingNodeData";
+			this.labelLongitudeDescendingNodeData.Size = new System.Drawing.Size(186, 15);
+			this.labelLongitudeDescendingNodeData.TabIndex = 17;
+			this.labelLongitudeDescendingNodeData.Text = "...";
+			this.toolTip.SetToolTip(this.labelLongitudeDescendingNodeData, "Show the information of \"Longitude of descending node\"");
+			this.labelLongitudeDescendingNodeData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLongitudeDescendingNodeData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLongitudeDescendingNodeData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelLongitudeDescendingNodeData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLongitudeDescendingNodeData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelArgumentAphelionData
+			// 
+			this.labelArgumentAphelionData.AccessibleDescription = "Show the information of \"Argument of aphelion\"";
+			this.labelArgumentAphelionData.AccessibleName = "Show the information of \"Argument of aphelion\"";
+			this.labelArgumentAphelionData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelArgumentAphelionData.AutoSize = true;
+			this.labelArgumentAphelionData.BackColor = System.Drawing.Color.Transparent;
+			this.labelArgumentAphelionData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelArgumentAphelionData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelArgumentAphelionData.Location = new System.Drawing.Point(198, 155);
+			this.labelArgumentAphelionData.Name = "labelArgumentAphelionData";
+			this.labelArgumentAphelionData.Size = new System.Drawing.Size(186, 15);
+			this.labelArgumentAphelionData.TabIndex = 19;
+			this.labelArgumentAphelionData.Text = "...";
+			this.toolTip.SetToolTip(this.labelArgumentAphelionData, "Show the information of \"Argument of aphelion\"");
+			this.labelArgumentAphelionData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelArgumentAphelionData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelArgumentAphelionData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelArgumentAphelionData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelArgumentAphelionData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelFocalParameterData
+			// 
+			this.labelFocalParameterData.AccessibleDescription = "Show the information of \"Focal parameter\"";
+			this.labelFocalParameterData.AccessibleName = "Show the information of \"Focal parameter\"";
+			this.labelFocalParameterData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelFocalParameterData.AutoSize = true;
+			this.labelFocalParameterData.BackColor = System.Drawing.Color.Transparent;
+			this.labelFocalParameterData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelFocalParameterData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelFocalParameterData.Location = new System.Drawing.Point(198, 172);
+			this.labelFocalParameterData.Name = "labelFocalParameterData";
+			this.labelFocalParameterData.Size = new System.Drawing.Size(186, 15);
+			this.labelFocalParameterData.TabIndex = 21;
+			this.labelFocalParameterData.Text = "...";
+			this.toolTip.SetToolTip(this.labelFocalParameterData, "Show the information of \"Focal parameter\"");
+			this.labelFocalParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelFocalParameterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelFocalParameterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelFocalParameterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelFocalParameterData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelSemiLatusRectumData
+			// 
+			this.labelSemiLatusRectumData.AccessibleDescription = "Show the information of \"Semi-latus rectum\"";
+			this.labelSemiLatusRectumData.AccessibleName = "Show the information of \"Semi-latus rectum\"";
+			this.labelSemiLatusRectumData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelSemiLatusRectumData.AutoSize = true;
+			this.labelSemiLatusRectumData.BackColor = System.Drawing.Color.Transparent;
+			this.labelSemiLatusRectumData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelSemiLatusRectumData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelSemiLatusRectumData.Location = new System.Drawing.Point(198, 189);
+			this.labelSemiLatusRectumData.Name = "labelSemiLatusRectumData";
+			this.labelSemiLatusRectumData.Size = new System.Drawing.Size(186, 15);
+			this.labelSemiLatusRectumData.TabIndex = 23;
+			this.labelSemiLatusRectumData.Text = "...";
+			this.toolTip.SetToolTip(this.labelSemiLatusRectumData, "Show the information of \"Semi-latus rectum\"");
+			this.labelSemiLatusRectumData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiLatusRectumData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiLatusRectumData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSemiLatusRectumData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiLatusRectumData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelLatusRectumData
+			// 
+			this.labelLatusRectumData.AccessibleDescription = "Show the information of \"Latus rectum\"";
+			this.labelLatusRectumData.AccessibleName = "Show the information of \"Latus rectum\"";
+			this.labelLatusRectumData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelLatusRectumData.AutoSize = true;
+			this.labelLatusRectumData.BackColor = System.Drawing.Color.Transparent;
+			this.labelLatusRectumData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelLatusRectumData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLatusRectumData.Location = new System.Drawing.Point(198, 206);
+			this.labelLatusRectumData.Name = "labelLatusRectumData";
+			this.labelLatusRectumData.Size = new System.Drawing.Size(186, 15);
+			this.labelLatusRectumData.TabIndex = 25;
+			this.labelLatusRectumData.Text = "...";
+			this.toolTip.SetToolTip(this.labelLatusRectumData, "Show the information of \"Latus rectum\"");
+			this.labelLatusRectumData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLatusRectumData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLatusRectumData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelLatusRectumData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLatusRectumData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelPeriodData
+			// 
+			this.labelPeriodData.AccessibleDescription = "Show the information of \"Period\"";
+			this.labelPeriodData.AccessibleName = "Show the information of \"Period\"";
+			this.labelPeriodData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelPeriodData.AutoSize = true;
+			this.labelPeriodData.BackColor = System.Drawing.Color.Transparent;
+			this.labelPeriodData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelPeriodData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPeriodData.Location = new System.Drawing.Point(198, 223);
+			this.labelPeriodData.Name = "labelPeriodData";
+			this.labelPeriodData.Size = new System.Drawing.Size(186, 15);
+			this.labelPeriodData.TabIndex = 27;
+			this.labelPeriodData.Text = "...";
+			this.toolTip.SetToolTip(this.labelPeriodData, "Show the information of \"Period\"");
+			this.labelPeriodData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelPeriodData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelPeriodData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelPeriodData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelPeriodData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelOrbitalAreaDesc
+			// 
+			this.linkLabelOrbitalAreaDesc.AccessibleDescription = "Orbital area";
+			this.linkLabelOrbitalAreaDesc.AccessibleName = "Orbital area";
+			this.linkLabelOrbitalAreaDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelOrbitalAreaDesc.AutoSize = true;
+			this.linkLabelOrbitalAreaDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelOrbitalAreaDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelOrbitalAreaDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelOrbitalAreaDesc.Location = new System.Drawing.Point(5, 240);
+			this.linkLabelOrbitalAreaDesc.Name = "linkLabelOrbitalAreaDesc";
+			this.linkLabelOrbitalAreaDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelOrbitalAreaDesc.TabIndex = 28;
+			this.linkLabelOrbitalAreaDesc.TabStop = true;
+			this.linkLabelOrbitalAreaDesc.Text = "Orbital area (AU²)";
+			this.toolTip.SetToolTip(this.linkLabelOrbitalAreaDesc, "Orbital area");
+			this.linkLabelOrbitalAreaDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalArea_LinkClicked);
+			this.linkLabelOrbitalAreaDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelOrbitalAreaDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelOrbitalAreaDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelOrbitalAreaDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelOrbitalPerimeterDesc
+			// 
+			this.linkLabelOrbitalPerimeterDesc.AccessibleDescription = "Orbital perimeter";
+			this.linkLabelOrbitalPerimeterDesc.AccessibleName = "Orbital perimeter";
+			this.linkLabelOrbitalPerimeterDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelOrbitalPerimeterDesc.AutoSize = true;
+			this.linkLabelOrbitalPerimeterDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelOrbitalPerimeterDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelOrbitalPerimeterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelOrbitalPerimeterDesc.Location = new System.Drawing.Point(5, 257);
+			this.linkLabelOrbitalPerimeterDesc.Name = "linkLabelOrbitalPerimeterDesc";
+			this.linkLabelOrbitalPerimeterDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelOrbitalPerimeterDesc.TabIndex = 30;
+			this.linkLabelOrbitalPerimeterDesc.TabStop = true;
+			this.linkLabelOrbitalPerimeterDesc.Text = "Orbital perimeter (AU)";
+			this.toolTip.SetToolTip(this.linkLabelOrbitalPerimeterDesc, "Orbital perimeter");
+			this.linkLabelOrbitalPerimeterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalPerimeter_LinkClicked);
+			this.linkLabelOrbitalPerimeterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelOrbitalPerimeterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelOrbitalPerimeterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelOrbitalPerimeterDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelSemiMeanAxisDesc
+			// 
+			this.linkLabelSemiMeanAxisDesc.AccessibleDescription = "Semi-mean axis";
+			this.linkLabelSemiMeanAxisDesc.AccessibleName = "Semi-mean axis";
+			this.linkLabelSemiMeanAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelSemiMeanAxisDesc.AutoSize = true;
+			this.linkLabelSemiMeanAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelSemiMeanAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelSemiMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelSemiMeanAxisDesc.Location = new System.Drawing.Point(5, 274);
+			this.linkLabelSemiMeanAxisDesc.Name = "linkLabelSemiMeanAxisDesc";
+			this.linkLabelSemiMeanAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelSemiMeanAxisDesc.TabIndex = 32;
+			this.linkLabelSemiMeanAxisDesc.TabStop = true;
+			this.linkLabelSemiMeanAxisDesc.Text = "Semi-mean axis (AU)";
+			this.toolTip.SetToolTip(this.linkLabelSemiMeanAxisDesc, "Semi-mean axis");
+			this.linkLabelSemiMeanAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMeanAxis_LinkClicked);
+			this.linkLabelSemiMeanAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiMeanAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelSemiMeanAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelSemiMeanAxisDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelMeanAxisDesc
+			// 
+			this.linkLabelMeanAxisDesc.AccessibleDescription = "Mean axis";
+			this.linkLabelMeanAxisDesc.AccessibleName = "Mean axis";
+			this.linkLabelMeanAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelMeanAxisDesc.AutoSize = true;
+			this.linkLabelMeanAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelMeanAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelMeanAxisDesc.Location = new System.Drawing.Point(5, 291);
+			this.linkLabelMeanAxisDesc.Name = "linkLabelMeanAxisDesc";
+			this.linkLabelMeanAxisDesc.Size = new System.Drawing.Size(185, 17);
+			this.linkLabelMeanAxisDesc.TabIndex = 34;
+			this.linkLabelMeanAxisDesc.TabStop = true;
+			this.linkLabelMeanAxisDesc.Text = "Mean axis (AU)";
+			this.toolTip.SetToolTip(this.linkLabelMeanAxisDesc, "Mean axis");
+			this.linkLabelMeanAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMeanAxis_LinkClicked);
+			this.linkLabelMeanAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMeanAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelMeanAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelMeanAxisDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelOrbitalAreaData
+			// 
+			this.labelOrbitalAreaData.AccessibleDescription = "Show the information of \"Orbital area\"";
+			this.labelOrbitalAreaData.AccessibleName = "Show the information of \"Orbital area\"";
+			this.labelOrbitalAreaData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelOrbitalAreaData.AutoSize = true;
+			this.labelOrbitalAreaData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelOrbitalAreaData.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.labelOrbitalAreaData.Location = new System.Drawing.Point(198, 240);
+			this.labelOrbitalAreaData.Name = "labelOrbitalAreaData";
+			this.labelOrbitalAreaData.Size = new System.Drawing.Size(186, 15);
+			this.labelOrbitalAreaData.TabIndex = 29;
+			this.labelOrbitalAreaData.Text = "...";
+			this.toolTip.SetToolTip(this.labelOrbitalAreaData, "Show the information of \"Orbital area\"");
+			this.labelOrbitalAreaData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelOrbitalAreaData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelOrbitalAreaData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelOrbitalAreaData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelOrbitalAreaData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelOrbitalPerimeterData
+			// 
+			this.labelOrbitalPerimeterData.AccessibleDescription = "Show the information of \"Orbital perimeter\"";
+			this.labelOrbitalPerimeterData.AccessibleName = "Show the information of \"Orbital perimeter\"";
+			this.labelOrbitalPerimeterData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelOrbitalPerimeterData.AutoSize = true;
+			this.labelOrbitalPerimeterData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelOrbitalPerimeterData.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.labelOrbitalPerimeterData.Location = new System.Drawing.Point(198, 257);
+			this.labelOrbitalPerimeterData.Name = "labelOrbitalPerimeterData";
+			this.labelOrbitalPerimeterData.Size = new System.Drawing.Size(186, 15);
+			this.labelOrbitalPerimeterData.TabIndex = 31;
+			this.labelOrbitalPerimeterData.Text = "...";
+			this.toolTip.SetToolTip(this.labelOrbitalPerimeterData, "Show the information of \"Orbital perimeter\"");
+			this.labelOrbitalPerimeterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelOrbitalPerimeterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelOrbitalPerimeterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelOrbitalPerimeterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelOrbitalPerimeterData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelSemiMeanAxisData
+			// 
+			this.labelSemiMeanAxisData.AccessibleDescription = "Show the information of \"Semi-mean axis\"";
+			this.labelSemiMeanAxisData.AccessibleName = "Show the information of \"Semi-mean axis\"";
+			this.labelSemiMeanAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelSemiMeanAxisData.AutoSize = true;
+			this.labelSemiMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelSemiMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.labelSemiMeanAxisData.Location = new System.Drawing.Point(198, 274);
+			this.labelSemiMeanAxisData.Name = "labelSemiMeanAxisData";
+			this.labelSemiMeanAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelSemiMeanAxisData.TabIndex = 33;
+			this.labelSemiMeanAxisData.Text = "...";
+			this.toolTip.SetToolTip(this.labelSemiMeanAxisData, "Show the information of \"Semi-mean axis\"");
+			this.labelSemiMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiMeanAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSemiMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSemiMeanAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanel
 			// 
@@ -931,42 +931,42 @@
 			this.tableLayoutPanel.ColumnCount = 2;
 			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel.Controls.Add(this.labelLinearEccentricity, 1, 0);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelLinearEccentricity, 0, 0);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiMinorAxis, 0, 1);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelMajorAxis, 0, 2);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelMinorAxis, 0, 3);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelEccenctricAnomaly, 0, 4);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelTrueAnomaly, 0, 5);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelPerihelionDistance, 0, 6);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelAphelionDistance, 0, 7);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelLongitudeDescendingNode, 0, 8);
-			this.tableLayoutPanel.Controls.Add(this.linkLabel1ArgumentAphelion, 0, 9);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelFocalParameter, 0, 10);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiLatusRectum, 0, 11);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelLatusRectum, 0, 12);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelPeriod, 0, 13);
-			this.tableLayoutPanel.Controls.Add(this.labelSemiMinorAxis, 1, 1);
-			this.tableLayoutPanel.Controls.Add(this.labelMajorAxis, 1, 2);
-			this.tableLayoutPanel.Controls.Add(this.labelMinorAxis, 1, 3);
-			this.tableLayoutPanel.Controls.Add(this.labelEccentricAnomaly, 1, 4);
-			this.tableLayoutPanel.Controls.Add(this.labelTrueAnomaly, 1, 5);
-			this.tableLayoutPanel.Controls.Add(this.labelPerihelionDistance, 1, 6);
-			this.tableLayoutPanel.Controls.Add(this.labelAphelionDistance, 1, 7);
-			this.tableLayoutPanel.Controls.Add(this.labelLongitudeDescendingNode, 1, 8);
-			this.tableLayoutPanel.Controls.Add(this.labelArgumentAphelion, 1, 9);
-			this.tableLayoutPanel.Controls.Add(this.labelFocalParameter, 1, 10);
-			this.tableLayoutPanel.Controls.Add(this.labelSemiLatusRectum, 1, 11);
-			this.tableLayoutPanel.Controls.Add(this.labelLatusRectum, 1, 12);
-			this.tableLayoutPanel.Controls.Add(this.labelPeriod, 1, 13);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelOrbitalArea, 0, 14);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelOrbitalPerimeter, 0, 15);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiMeanAxis, 0, 16);
-			this.tableLayoutPanel.Controls.Add(this.linkLabelMeanAxis, 0, 17);
-			this.tableLayoutPanel.Controls.Add(this.labelOrbitalArea, 1, 14);
-			this.tableLayoutPanel.Controls.Add(this.labelOrbitalPerimeter, 1, 15);
-			this.tableLayoutPanel.Controls.Add(this.labelSemiMeanAxis, 1, 16);
-			this.tableLayoutPanel.Controls.Add(this.labelMeanAxis, 1, 17);
+			this.tableLayoutPanel.Controls.Add(this.labelLinearEccentricityData, 1, 0);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelLinearEccentricityDesc, 0, 0);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiMinorAxisDesc, 0, 1);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelMajorAxisDesc, 0, 2);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelMinorAxisDesc, 0, 3);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelEccenctricAnomalyDesc, 0, 4);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelTrueAnomalyDesc, 0, 5);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelPerihelionDistanceDesc, 0, 6);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelAphelionDistanceDesc, 0, 7);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelLongitudeDescendingNodeDesc, 0, 8);
+			this.tableLayoutPanel.Controls.Add(this.linkLabel1ArgumentAphelionDesc, 0, 9);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelFocalParameterDesc, 0, 10);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiLatusRectumDesc, 0, 11);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelLatusRectumDesc, 0, 12);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelPeriodDesc, 0, 13);
+			this.tableLayoutPanel.Controls.Add(this.labelSemiMinorAxisData, 1, 1);
+			this.tableLayoutPanel.Controls.Add(this.labelMajorAxisData, 1, 2);
+			this.tableLayoutPanel.Controls.Add(this.labelMinorAxisData, 1, 3);
+			this.tableLayoutPanel.Controls.Add(this.labelEccentricAnomalyData, 1, 4);
+			this.tableLayoutPanel.Controls.Add(this.labelTrueAnomalyData, 1, 5);
+			this.tableLayoutPanel.Controls.Add(this.labelPerihelionDistanceData, 1, 6);
+			this.tableLayoutPanel.Controls.Add(this.labelAphelionDistanceData, 1, 7);
+			this.tableLayoutPanel.Controls.Add(this.labelLongitudeDescendingNodeData, 1, 8);
+			this.tableLayoutPanel.Controls.Add(this.labelArgumentAphelionData, 1, 9);
+			this.tableLayoutPanel.Controls.Add(this.labelFocalParameterData, 1, 10);
+			this.tableLayoutPanel.Controls.Add(this.labelSemiLatusRectumData, 1, 11);
+			this.tableLayoutPanel.Controls.Add(this.labelLatusRectumData, 1, 12);
+			this.tableLayoutPanel.Controls.Add(this.labelPeriodData, 1, 13);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelOrbitalAreaDesc, 0, 14);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelOrbitalPerimeterDesc, 0, 15);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiMeanAxisDesc, 0, 16);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelMeanAxisDesc, 0, 17);
+			this.tableLayoutPanel.Controls.Add(this.labelOrbitalAreaData, 1, 14);
+			this.tableLayoutPanel.Controls.Add(this.labelOrbitalPerimeterData, 1, 15);
+			this.tableLayoutPanel.Controls.Add(this.labelSemiMeanAxisData, 1, 16);
+			this.tableLayoutPanel.Controls.Add(this.labelMeanAxisData, 1, 17);
 			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -993,24 +993,24 @@
 			this.tableLayoutPanel.TabIndex = 0;
 			this.tableLayoutPanel.TabStop = true;
 			// 
-			// labelMeanAxis
+			// labelMeanAxisData
 			// 
-			this.labelMeanAxis.AccessibleDescription = "Show the information of \"Mean axis\"";
-			this.labelMeanAxis.AccessibleName = "Show the information of \"Mean axis\"";
-			this.labelMeanAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMeanAxis.AutoSize = true;
-			this.labelMeanAxis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMeanAxis.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelMeanAxis.Location = new System.Drawing.Point(198, 291);
-			this.labelMeanAxis.Name = "labelMeanAxis";
-			this.labelMeanAxis.Size = new System.Drawing.Size(186, 17);
-			this.labelMeanAxis.TabIndex = 35;
-			this.labelMeanAxis.Text = "...";
-			this.labelMeanAxis.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMeanAxis.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMeanAxis.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMeanAxis.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMeanAxis.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMeanAxisData.AccessibleDescription = "Show the information of \"Mean axis\"";
+			this.labelMeanAxisData.AccessibleName = "Show the information of \"Mean axis\"";
+			this.labelMeanAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelMeanAxisData.AutoSize = true;
+			this.labelMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.labelMeanAxisData.Location = new System.Drawing.Point(198, 291);
+			this.labelMeanAxisData.Name = "labelMeanAxisData";
+			this.labelMeanAxisData.Size = new System.Drawing.Size(186, 17);
+			this.labelMeanAxisData.TabIndex = 35;
+			this.labelMeanAxisData.Text = "...";
+			this.labelMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMeanAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// DerivatedOrbitElementsForm
 			// 
@@ -1050,43 +1050,43 @@
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.Button buttonOK;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-		private System.Windows.Forms.Label labelLinearEccentricity;
-		private System.Windows.Forms.LinkLabel linkLabelLinearEccentricity;
-		private System.Windows.Forms.LinkLabel linkLabelSemiMinorAxis;
-		private System.Windows.Forms.LinkLabel linkLabelMajorAxis;
-		private System.Windows.Forms.LinkLabel linkLabelTrueAnomaly;
-		private System.Windows.Forms.LinkLabel linkLabelPerihelionDistance;
-		private System.Windows.Forms.LinkLabel linkLabelAphelionDistance;
-		private System.Windows.Forms.LinkLabel linkLabelLongitudeDescendingNode;
-		private System.Windows.Forms.LinkLabel linkLabel1ArgumentAphelion;
-		private System.Windows.Forms.LinkLabel linkLabelFocalParameter;
-		private System.Windows.Forms.LinkLabel linkLabelSemiLatusRectum;
-		private System.Windows.Forms.LinkLabel linkLabelLatusRectum;
-		private System.Windows.Forms.LinkLabel linkLabelPeriod;
-		private System.Windows.Forms.LinkLabel linkLabelMinorAxis;
-		private System.Windows.Forms.LinkLabel linkLabelEccenctricAnomaly;
-		private System.Windows.Forms.Label labelPeriod;
-		private System.Windows.Forms.Label labelSemiMinorAxis;
-		private System.Windows.Forms.Label labelMajorAxis;
-		private System.Windows.Forms.Label labelMinorAxis;
-		private System.Windows.Forms.Label labelEccentricAnomaly;
-		private System.Windows.Forms.Label labelTrueAnomaly;
-		private System.Windows.Forms.Label labelPerihelionDistance;
-		private System.Windows.Forms.Label labelAphelionDistance;
-		private System.Windows.Forms.Label labelLongitudeDescendingNode;
-		private System.Windows.Forms.Label labelArgumentAphelion;
-		private System.Windows.Forms.Label labelFocalParameter;
-		private System.Windows.Forms.Label labelSemiLatusRectum;
-		private System.Windows.Forms.Label labelLatusRectum;
+		private System.Windows.Forms.Label labelLinearEccentricityData;
+		private System.Windows.Forms.LinkLabel linkLabelLinearEccentricityDesc;
+		private System.Windows.Forms.LinkLabel linkLabelSemiMinorAxisDesc;
+		private System.Windows.Forms.LinkLabel linkLabelMajorAxisDesc;
+		private System.Windows.Forms.LinkLabel linkLabelTrueAnomalyDesc;
+		private System.Windows.Forms.LinkLabel linkLabelPerihelionDistanceDesc;
+		private System.Windows.Forms.LinkLabel linkLabelAphelionDistanceDesc;
+		private System.Windows.Forms.LinkLabel linkLabelLongitudeDescendingNodeDesc;
+		private System.Windows.Forms.LinkLabel linkLabel1ArgumentAphelionDesc;
+		private System.Windows.Forms.LinkLabel linkLabelFocalParameterDesc;
+		private System.Windows.Forms.LinkLabel linkLabelSemiLatusRectumDesc;
+		private System.Windows.Forms.LinkLabel linkLabelLatusRectumDesc;
+		private System.Windows.Forms.LinkLabel linkLabelPeriodDesc;
+		private System.Windows.Forms.LinkLabel linkLabelMinorAxisDesc;
+		private System.Windows.Forms.LinkLabel linkLabelEccenctricAnomalyDesc;
+		private System.Windows.Forms.Label labelPeriodData;
+		private System.Windows.Forms.Label labelSemiMinorAxisData;
+		private System.Windows.Forms.Label labelMajorAxisData;
+		private System.Windows.Forms.Label labelMinorAxisData;
+		private System.Windows.Forms.Label labelEccentricAnomalyData;
+		private System.Windows.Forms.Label labelTrueAnomalyData;
+		private System.Windows.Forms.Label labelPerihelionDistanceData;
+		private System.Windows.Forms.Label labelAphelionDistanceData;
+		private System.Windows.Forms.Label labelLongitudeDescendingNodeData;
+		private System.Windows.Forms.Label labelArgumentAphelionData;
+		private System.Windows.Forms.Label labelFocalParameterData;
+		private System.Windows.Forms.Label labelSemiLatusRectumData;
+		private System.Windows.Forms.Label labelLatusRectumData;
 		private System.Windows.Forms.ContextMenuStrip contextMenuCopyToClipboard;
 		private System.Windows.Forms.ToolStripMenuItem copyToClipboardToolStripMenuItem;
-		private System.Windows.Forms.LinkLabel linkLabelOrbitalArea;
-		private System.Windows.Forms.LinkLabel linkLabelOrbitalPerimeter;
-		private System.Windows.Forms.LinkLabel linkLabelSemiMeanAxis;
-		private System.Windows.Forms.LinkLabel linkLabelMeanAxis;
-		private System.Windows.Forms.Label labelOrbitalArea;
-		private System.Windows.Forms.Label labelOrbitalPerimeter;
-		private System.Windows.Forms.Label labelSemiMeanAxis;
-		private System.Windows.Forms.Label labelMeanAxis;
+		private System.Windows.Forms.LinkLabel linkLabelOrbitalAreaDesc;
+		private System.Windows.Forms.LinkLabel linkLabelOrbitalPerimeterDesc;
+		private System.Windows.Forms.LinkLabel linkLabelSemiMeanAxisDesc;
+		private System.Windows.Forms.LinkLabel linkLabelMeanAxisDesc;
+		private System.Windows.Forms.Label labelOrbitalAreaData;
+		private System.Windows.Forms.Label labelOrbitalPerimeterData;
+		private System.Windows.Forms.Label labelSemiMeanAxisData;
+		private System.Windows.Forms.Label labelMeanAxisData;
 	}
 }
