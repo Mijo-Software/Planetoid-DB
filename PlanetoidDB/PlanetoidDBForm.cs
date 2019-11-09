@@ -1467,6 +1467,14 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void ToolStripButtonDerivatedOrbitElements_Click(object sender, EventArgs e) => ToolStripMenuItemDerivatedOrbitElements_Click(sender: sender, e: e);
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToolStripMenuItemRestart_Click(object sender, EventArgs e) => Restart();
 
 		private double CalculateSemiMinorAxis(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * Math.Sqrt(1 - Math.Pow(x: numericalEccentricity, y: 2));

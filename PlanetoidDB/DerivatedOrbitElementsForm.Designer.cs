@@ -46,7 +46,7 @@
 			this.linkLabelPerihelionDistanceDesc = new System.Windows.Forms.LinkLabel();
 			this.linkLabelAphelionDistanceDesc = new System.Windows.Forms.LinkLabel();
 			this.linkLabelLongitudeDescendingNodeDesc = new System.Windows.Forms.LinkLabel();
-			this.linkLabel1ArgumentAphelionDesc = new System.Windows.Forms.LinkLabel();
+			this.linkLabelArgumentAphelionDesc = new System.Windows.Forms.LinkLabel();
 			this.linkLabelFocalParameterDesc = new System.Windows.Forms.LinkLabel();
 			this.linkLabelSemiLatusRectumDesc = new System.Windows.Forms.LinkLabel();
 			this.linkLabelLatusRectumDesc = new System.Windows.Forms.LinkLabel();
@@ -72,9 +72,9 @@
 			this.labelOrbitalPerimeterData = new System.Windows.Forms.Label();
 			this.labelSemiMeanAxisData = new System.Windows.Forms.Label();
 			this.linkLabelStandardGravitationalParameterDesc = new System.Windows.Forms.LinkLabel();
-			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.labelMeanAxisData = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
+			this.labelStandardGravitationalParameterData = new System.Windows.Forms.Label();
+			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.statusStrip.SuspendLayout();
 			this.contextMenuCopyToClipboard.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
@@ -93,7 +93,7 @@
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			this.statusStrip.ShowItemToolTips = true;
-			this.statusStrip.Size = new System.Drawing.Size(389, 21);
+			this.statusStrip.Size = new System.Drawing.Size(475, 21);
 			this.statusStrip.SizingGrip = false;
 			this.statusStrip.TabIndex = 2;
 			this.statusStrip.TabStop = true;
@@ -122,7 +122,7 @@
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
 			this.buttonOK.Location = new System.Drawing.Point(0, 327);
 			this.buttonOK.Name = "buttonOK";
-			this.buttonOK.Size = new System.Drawing.Size(389, 36);
+			this.buttonOK.Size = new System.Drawing.Size(475, 36);
 			this.buttonOK.TabIndex = 1;
 			this.buttonOK.Text = "&OK";
 			this.buttonOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -147,7 +147,7 @@
 			this.linkLabelLinearEccentricityDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelLinearEccentricityDesc.Location = new System.Drawing.Point(5, 2);
 			this.linkLabelLinearEccentricityDesc.Name = "linkLabelLinearEccentricityDesc";
-			this.linkLabelLinearEccentricityDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelLinearEccentricityDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelLinearEccentricityDesc.TabIndex = 0;
 			this.linkLabelLinearEccentricityDesc.TabStop = true;
 			this.linkLabelLinearEccentricityDesc.Text = "Linear eccentricity";
@@ -192,9 +192,9 @@
 			this.labelLinearEccentricityData.BackColor = System.Drawing.Color.Transparent;
 			this.labelLinearEccentricityData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelLinearEccentricityData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLinearEccentricityData.Location = new System.Drawing.Point(198, 2);
+			this.labelLinearEccentricityData.Location = new System.Drawing.Point(241, 2);
 			this.labelLinearEccentricityData.Name = "labelLinearEccentricityData";
-			this.labelLinearEccentricityData.Size = new System.Drawing.Size(186, 15);
+			this.labelLinearEccentricityData.Size = new System.Drawing.Size(229, 15);
 			this.labelLinearEccentricityData.TabIndex = 1;
 			this.labelLinearEccentricityData.Text = "...";
 			this.toolTip.SetToolTip(this.labelLinearEccentricityData, "Show the information of \"Linear eccentricity\"");
@@ -216,7 +216,7 @@
 			this.linkLabelSemiMinorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelSemiMinorAxisDesc.Location = new System.Drawing.Point(5, 19);
 			this.linkLabelSemiMinorAxisDesc.Name = "linkLabelSemiMinorAxisDesc";
-			this.linkLabelSemiMinorAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelSemiMinorAxisDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelSemiMinorAxisDesc.TabIndex = 2;
 			this.linkLabelSemiMinorAxisDesc.TabStop = true;
 			this.linkLabelSemiMinorAxisDesc.Text = "Semi-minor axis (AU)";
@@ -239,7 +239,7 @@
 			this.linkLabelMajorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelMajorAxisDesc.Location = new System.Drawing.Point(5, 36);
 			this.linkLabelMajorAxisDesc.Name = "linkLabelMajorAxisDesc";
-			this.linkLabelMajorAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelMajorAxisDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelMajorAxisDesc.TabIndex = 4;
 			this.linkLabelMajorAxisDesc.TabStop = true;
 			this.linkLabelMajorAxisDesc.Text = "Major axis (AU)";
@@ -262,7 +262,7 @@
 			this.linkLabelMinorAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelMinorAxisDesc.Location = new System.Drawing.Point(5, 53);
 			this.linkLabelMinorAxisDesc.Name = "linkLabelMinorAxisDesc";
-			this.linkLabelMinorAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelMinorAxisDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelMinorAxisDesc.TabIndex = 6;
 			this.linkLabelMinorAxisDesc.TabStop = true;
 			this.linkLabelMinorAxisDesc.Text = "Minor axis (AU)";
@@ -285,7 +285,7 @@
 			this.linkLabelEccenctricAnomalyDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelEccenctricAnomalyDesc.Location = new System.Drawing.Point(5, 70);
 			this.linkLabelEccenctricAnomalyDesc.Name = "linkLabelEccenctricAnomalyDesc";
-			this.linkLabelEccenctricAnomalyDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelEccenctricAnomalyDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelEccenctricAnomalyDesc.TabIndex = 8;
 			this.linkLabelEccenctricAnomalyDesc.TabStop = true;
 			this.linkLabelEccenctricAnomalyDesc.Text = "Eccentric anomaly (°)";
@@ -308,7 +308,7 @@
 			this.linkLabelTrueAnomalyDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelTrueAnomalyDesc.Location = new System.Drawing.Point(5, 87);
 			this.linkLabelTrueAnomalyDesc.Name = "linkLabelTrueAnomalyDesc";
-			this.linkLabelTrueAnomalyDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelTrueAnomalyDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelTrueAnomalyDesc.TabIndex = 10;
 			this.linkLabelTrueAnomalyDesc.TabStop = true;
 			this.linkLabelTrueAnomalyDesc.Text = "True anomaly (°)";
@@ -331,7 +331,7 @@
 			this.linkLabelPerihelionDistanceDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelPerihelionDistanceDesc.Location = new System.Drawing.Point(5, 104);
 			this.linkLabelPerihelionDistanceDesc.Name = "linkLabelPerihelionDistanceDesc";
-			this.linkLabelPerihelionDistanceDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelPerihelionDistanceDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelPerihelionDistanceDesc.TabIndex = 12;
 			this.linkLabelPerihelionDistanceDesc.TabStop = true;
 			this.linkLabelPerihelionDistanceDesc.Text = "Perihelion distance (AU)";
@@ -354,7 +354,7 @@
 			this.linkLabelAphelionDistanceDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelAphelionDistanceDesc.Location = new System.Drawing.Point(5, 121);
 			this.linkLabelAphelionDistanceDesc.Name = "linkLabelAphelionDistanceDesc";
-			this.linkLabelAphelionDistanceDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelAphelionDistanceDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelAphelionDistanceDesc.TabIndex = 14;
 			this.linkLabelAphelionDistanceDesc.TabStop = true;
 			this.linkLabelAphelionDistanceDesc.Text = "Aphelion distance (AU)";
@@ -377,7 +377,7 @@
 			this.linkLabelLongitudeDescendingNodeDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelLongitudeDescendingNodeDesc.Location = new System.Drawing.Point(5, 138);
 			this.linkLabelLongitudeDescendingNodeDesc.Name = "linkLabelLongitudeDescendingNodeDesc";
-			this.linkLabelLongitudeDescendingNodeDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelLongitudeDescendingNodeDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelLongitudeDescendingNodeDesc.TabIndex = 16;
 			this.linkLabelLongitudeDescendingNodeDesc.TabStop = true;
 			this.linkLabelLongitudeDescendingNodeDesc.Text = "Longitude of descending node (°)";
@@ -388,28 +388,28 @@
 			this.linkLabelLongitudeDescendingNodeDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLongitudeDescendingNodeDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// linkLabel1ArgumentAphelionDesc
+			// linkLabelArgumentAphelionDesc
 			// 
-			this.linkLabel1ArgumentAphelionDesc.AccessibleDescription = "Argument of aphelion";
-			this.linkLabel1ArgumentAphelionDesc.AccessibleName = "Argument of aphelion";
-			this.linkLabel1ArgumentAphelionDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabel1ArgumentAphelionDesc.AutoSize = true;
-			this.linkLabel1ArgumentAphelionDesc.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabel1ArgumentAphelionDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.linkLabel1ArgumentAphelionDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-			this.linkLabel1ArgumentAphelionDesc.LinkColor = System.Drawing.SystemColors.ControlText;
-			this.linkLabel1ArgumentAphelionDesc.Location = new System.Drawing.Point(5, 155);
-			this.linkLabel1ArgumentAphelionDesc.Name = "linkLabel1ArgumentAphelionDesc";
-			this.linkLabel1ArgumentAphelionDesc.Size = new System.Drawing.Size(185, 15);
-			this.linkLabel1ArgumentAphelionDesc.TabIndex = 18;
-			this.linkLabel1ArgumentAphelionDesc.TabStop = true;
-			this.linkLabel1ArgumentAphelionDesc.Text = "Argument of aphelion (°)";
-			this.toolTip.SetToolTip(this.linkLabel1ArgumentAphelionDesc, "Argument of aphelion");
-			this.linkLabel1ArgumentAphelionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1ArgumentAphelion_LinkClicked);
-			this.linkLabel1ArgumentAphelionDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabel1ArgumentAphelionDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabel1ArgumentAphelionDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabel1ArgumentAphelionDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelArgumentAphelionDesc.AccessibleDescription = "Argument of aphelion";
+			this.linkLabelArgumentAphelionDesc.AccessibleName = "Argument of aphelion";
+			this.linkLabelArgumentAphelionDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelArgumentAphelionDesc.AutoSize = true;
+			this.linkLabelArgumentAphelionDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelArgumentAphelionDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelArgumentAphelionDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelArgumentAphelionDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelArgumentAphelionDesc.Location = new System.Drawing.Point(5, 155);
+			this.linkLabelArgumentAphelionDesc.Name = "linkLabelArgumentAphelionDesc";
+			this.linkLabelArgumentAphelionDesc.Size = new System.Drawing.Size(228, 15);
+			this.linkLabelArgumentAphelionDesc.TabIndex = 18;
+			this.linkLabelArgumentAphelionDesc.TabStop = true;
+			this.linkLabelArgumentAphelionDesc.Text = "Argument of aphelion (°)";
+			this.toolTip.SetToolTip(this.linkLabelArgumentAphelionDesc, "Argument of aphelion");
+			this.linkLabelArgumentAphelionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelArgumentAphelion_LinkClicked);
+			this.linkLabelArgumentAphelionDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelArgumentAphelionDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelArgumentAphelionDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelArgumentAphelionDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// linkLabelFocalParameterDesc
 			// 
@@ -423,7 +423,7 @@
 			this.linkLabelFocalParameterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelFocalParameterDesc.Location = new System.Drawing.Point(5, 172);
 			this.linkLabelFocalParameterDesc.Name = "linkLabelFocalParameterDesc";
-			this.linkLabelFocalParameterDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelFocalParameterDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelFocalParameterDesc.TabIndex = 20;
 			this.linkLabelFocalParameterDesc.TabStop = true;
 			this.linkLabelFocalParameterDesc.Text = "Focal parameter";
@@ -446,7 +446,7 @@
 			this.linkLabelSemiLatusRectumDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelSemiLatusRectumDesc.Location = new System.Drawing.Point(5, 189);
 			this.linkLabelSemiLatusRectumDesc.Name = "linkLabelSemiLatusRectumDesc";
-			this.linkLabelSemiLatusRectumDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelSemiLatusRectumDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelSemiLatusRectumDesc.TabIndex = 22;
 			this.linkLabelSemiLatusRectumDesc.TabStop = true;
 			this.linkLabelSemiLatusRectumDesc.Text = "Semi-latus rectum (AU)";
@@ -469,7 +469,7 @@
 			this.linkLabelLatusRectumDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelLatusRectumDesc.Location = new System.Drawing.Point(5, 206);
 			this.linkLabelLatusRectumDesc.Name = "linkLabelLatusRectumDesc";
-			this.linkLabelLatusRectumDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelLatusRectumDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelLatusRectumDesc.TabIndex = 24;
 			this.linkLabelLatusRectumDesc.TabStop = true;
 			this.linkLabelLatusRectumDesc.Text = "Latus rectum (AU)";
@@ -492,7 +492,7 @@
 			this.linkLabelPeriodDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelPeriodDesc.Location = new System.Drawing.Point(5, 223);
 			this.linkLabelPeriodDesc.Name = "linkLabelPeriodDesc";
-			this.linkLabelPeriodDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelPeriodDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelPeriodDesc.TabIndex = 26;
 			this.linkLabelPeriodDesc.TabStop = true;
 			this.linkLabelPeriodDesc.Text = "Period (years)";
@@ -512,9 +512,9 @@
 			this.labelSemiMinorAxisData.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiMinorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiMinorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSemiMinorAxisData.Location = new System.Drawing.Point(198, 19);
+			this.labelSemiMinorAxisData.Location = new System.Drawing.Point(241, 19);
 			this.labelSemiMinorAxisData.Name = "labelSemiMinorAxisData";
-			this.labelSemiMinorAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelSemiMinorAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelSemiMinorAxisData.TabIndex = 3;
 			this.labelSemiMinorAxisData.Text = "...";
 			this.toolTip.SetToolTip(this.labelSemiMinorAxisData, "Show the information of \"Semi-minor axis\"");
@@ -533,9 +533,9 @@
 			this.labelMajorAxisData.BackColor = System.Drawing.Color.Transparent;
 			this.labelMajorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMajorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMajorAxisData.Location = new System.Drawing.Point(198, 36);
+			this.labelMajorAxisData.Location = new System.Drawing.Point(241, 36);
 			this.labelMajorAxisData.Name = "labelMajorAxisData";
-			this.labelMajorAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelMajorAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelMajorAxisData.TabIndex = 5;
 			this.labelMajorAxisData.Text = "...";
 			this.toolTip.SetToolTip(this.labelMajorAxisData, "Show the information of \"Major axis\"");
@@ -554,9 +554,9 @@
 			this.labelMinorAxisData.BackColor = System.Drawing.Color.Transparent;
 			this.labelMinorAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMinorAxisData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMinorAxisData.Location = new System.Drawing.Point(198, 53);
+			this.labelMinorAxisData.Location = new System.Drawing.Point(241, 53);
 			this.labelMinorAxisData.Name = "labelMinorAxisData";
-			this.labelMinorAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelMinorAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelMinorAxisData.TabIndex = 7;
 			this.labelMinorAxisData.Text = "...";
 			this.toolTip.SetToolTip(this.labelMinorAxisData, "Show the information of \"Minor axis\"");
@@ -575,9 +575,9 @@
 			this.labelEccentricAnomalyData.BackColor = System.Drawing.Color.Transparent;
 			this.labelEccentricAnomalyData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelEccentricAnomalyData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEccentricAnomalyData.Location = new System.Drawing.Point(198, 70);
+			this.labelEccentricAnomalyData.Location = new System.Drawing.Point(241, 70);
 			this.labelEccentricAnomalyData.Name = "labelEccentricAnomalyData";
-			this.labelEccentricAnomalyData.Size = new System.Drawing.Size(186, 15);
+			this.labelEccentricAnomalyData.Size = new System.Drawing.Size(229, 15);
 			this.labelEccentricAnomalyData.TabIndex = 9;
 			this.labelEccentricAnomalyData.Text = "...";
 			this.toolTip.SetToolTip(this.labelEccentricAnomalyData, "Show the information of \"Eccentric anomaly\"");
@@ -596,9 +596,9 @@
 			this.labelTrueAnomalyData.BackColor = System.Drawing.Color.Transparent;
 			this.labelTrueAnomalyData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelTrueAnomalyData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTrueAnomalyData.Location = new System.Drawing.Point(198, 87);
+			this.labelTrueAnomalyData.Location = new System.Drawing.Point(241, 87);
 			this.labelTrueAnomalyData.Name = "labelTrueAnomalyData";
-			this.labelTrueAnomalyData.Size = new System.Drawing.Size(186, 15);
+			this.labelTrueAnomalyData.Size = new System.Drawing.Size(229, 15);
 			this.labelTrueAnomalyData.TabIndex = 11;
 			this.labelTrueAnomalyData.Text = "...";
 			this.toolTip.SetToolTip(this.labelTrueAnomalyData, "Show the information of \"True anomaly\"");
@@ -617,9 +617,9 @@
 			this.labelPerihelionDistanceData.BackColor = System.Drawing.Color.Transparent;
 			this.labelPerihelionDistanceData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelPerihelionDistanceData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPerihelionDistanceData.Location = new System.Drawing.Point(198, 104);
+			this.labelPerihelionDistanceData.Location = new System.Drawing.Point(241, 104);
 			this.labelPerihelionDistanceData.Name = "labelPerihelionDistanceData";
-			this.labelPerihelionDistanceData.Size = new System.Drawing.Size(186, 15);
+			this.labelPerihelionDistanceData.Size = new System.Drawing.Size(229, 15);
 			this.labelPerihelionDistanceData.TabIndex = 13;
 			this.labelPerihelionDistanceData.Text = "...";
 			this.toolTip.SetToolTip(this.labelPerihelionDistanceData, "Show the information of \"Perihelion distance\"");
@@ -638,9 +638,9 @@
 			this.labelAphelionDistanceData.BackColor = System.Drawing.Color.Transparent;
 			this.labelAphelionDistanceData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelAphelionDistanceData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelAphelionDistanceData.Location = new System.Drawing.Point(198, 121);
+			this.labelAphelionDistanceData.Location = new System.Drawing.Point(241, 121);
 			this.labelAphelionDistanceData.Name = "labelAphelionDistanceData";
-			this.labelAphelionDistanceData.Size = new System.Drawing.Size(186, 15);
+			this.labelAphelionDistanceData.Size = new System.Drawing.Size(229, 15);
 			this.labelAphelionDistanceData.TabIndex = 15;
 			this.labelAphelionDistanceData.Text = "...";
 			this.toolTip.SetToolTip(this.labelAphelionDistanceData, "Show the information of \"Aphelion distance\"");
@@ -659,9 +659,9 @@
 			this.labelLongitudeDescendingNodeData.BackColor = System.Drawing.Color.Transparent;
 			this.labelLongitudeDescendingNodeData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelLongitudeDescendingNodeData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLongitudeDescendingNodeData.Location = new System.Drawing.Point(198, 138);
+			this.labelLongitudeDescendingNodeData.Location = new System.Drawing.Point(241, 138);
 			this.labelLongitudeDescendingNodeData.Name = "labelLongitudeDescendingNodeData";
-			this.labelLongitudeDescendingNodeData.Size = new System.Drawing.Size(186, 15);
+			this.labelLongitudeDescendingNodeData.Size = new System.Drawing.Size(229, 15);
 			this.labelLongitudeDescendingNodeData.TabIndex = 17;
 			this.labelLongitudeDescendingNodeData.Text = "...";
 			this.toolTip.SetToolTip(this.labelLongitudeDescendingNodeData, "Show the information of \"Longitude of descending node\"");
@@ -680,9 +680,9 @@
 			this.labelArgumentAphelionData.BackColor = System.Drawing.Color.Transparent;
 			this.labelArgumentAphelionData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelArgumentAphelionData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelArgumentAphelionData.Location = new System.Drawing.Point(198, 155);
+			this.labelArgumentAphelionData.Location = new System.Drawing.Point(241, 155);
 			this.labelArgumentAphelionData.Name = "labelArgumentAphelionData";
-			this.labelArgumentAphelionData.Size = new System.Drawing.Size(186, 15);
+			this.labelArgumentAphelionData.Size = new System.Drawing.Size(229, 15);
 			this.labelArgumentAphelionData.TabIndex = 19;
 			this.labelArgumentAphelionData.Text = "...";
 			this.toolTip.SetToolTip(this.labelArgumentAphelionData, "Show the information of \"Argument of aphelion\"");
@@ -701,9 +701,9 @@
 			this.labelFocalParameterData.BackColor = System.Drawing.Color.Transparent;
 			this.labelFocalParameterData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelFocalParameterData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFocalParameterData.Location = new System.Drawing.Point(198, 172);
+			this.labelFocalParameterData.Location = new System.Drawing.Point(241, 172);
 			this.labelFocalParameterData.Name = "labelFocalParameterData";
-			this.labelFocalParameterData.Size = new System.Drawing.Size(186, 15);
+			this.labelFocalParameterData.Size = new System.Drawing.Size(229, 15);
 			this.labelFocalParameterData.TabIndex = 21;
 			this.labelFocalParameterData.Text = "...";
 			this.toolTip.SetToolTip(this.labelFocalParameterData, "Show the information of \"Focal parameter\"");
@@ -722,9 +722,9 @@
 			this.labelSemiLatusRectumData.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiLatusRectumData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiLatusRectumData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSemiLatusRectumData.Location = new System.Drawing.Point(198, 189);
+			this.labelSemiLatusRectumData.Location = new System.Drawing.Point(241, 189);
 			this.labelSemiLatusRectumData.Name = "labelSemiLatusRectumData";
-			this.labelSemiLatusRectumData.Size = new System.Drawing.Size(186, 15);
+			this.labelSemiLatusRectumData.Size = new System.Drawing.Size(229, 15);
 			this.labelSemiLatusRectumData.TabIndex = 23;
 			this.labelSemiLatusRectumData.Text = "...";
 			this.toolTip.SetToolTip(this.labelSemiLatusRectumData, "Show the information of \"Semi-latus rectum\"");
@@ -743,9 +743,9 @@
 			this.labelLatusRectumData.BackColor = System.Drawing.Color.Transparent;
 			this.labelLatusRectumData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelLatusRectumData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLatusRectumData.Location = new System.Drawing.Point(198, 206);
+			this.labelLatusRectumData.Location = new System.Drawing.Point(241, 206);
 			this.labelLatusRectumData.Name = "labelLatusRectumData";
-			this.labelLatusRectumData.Size = new System.Drawing.Size(186, 15);
+			this.labelLatusRectumData.Size = new System.Drawing.Size(229, 15);
 			this.labelLatusRectumData.TabIndex = 25;
 			this.labelLatusRectumData.Text = "...";
 			this.toolTip.SetToolTip(this.labelLatusRectumData, "Show the information of \"Latus rectum\"");
@@ -764,9 +764,9 @@
 			this.labelPeriodData.BackColor = System.Drawing.Color.Transparent;
 			this.labelPeriodData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelPeriodData.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPeriodData.Location = new System.Drawing.Point(198, 223);
+			this.labelPeriodData.Location = new System.Drawing.Point(241, 223);
 			this.labelPeriodData.Name = "labelPeriodData";
-			this.labelPeriodData.Size = new System.Drawing.Size(186, 15);
+			this.labelPeriodData.Size = new System.Drawing.Size(229, 15);
 			this.labelPeriodData.TabIndex = 27;
 			this.labelPeriodData.Text = "...";
 			this.toolTip.SetToolTip(this.labelPeriodData, "Show the information of \"Period\"");
@@ -788,7 +788,7 @@
 			this.linkLabelOrbitalAreaDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelOrbitalAreaDesc.Location = new System.Drawing.Point(5, 240);
 			this.linkLabelOrbitalAreaDesc.Name = "linkLabelOrbitalAreaDesc";
-			this.linkLabelOrbitalAreaDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelOrbitalAreaDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelOrbitalAreaDesc.TabIndex = 28;
 			this.linkLabelOrbitalAreaDesc.TabStop = true;
 			this.linkLabelOrbitalAreaDesc.Text = "Orbital area (AU²)";
@@ -811,7 +811,7 @@
 			this.linkLabelOrbitalPerimeterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelOrbitalPerimeterDesc.Location = new System.Drawing.Point(5, 257);
 			this.linkLabelOrbitalPerimeterDesc.Name = "linkLabelOrbitalPerimeterDesc";
-			this.linkLabelOrbitalPerimeterDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelOrbitalPerimeterDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelOrbitalPerimeterDesc.TabIndex = 30;
 			this.linkLabelOrbitalPerimeterDesc.TabStop = true;
 			this.linkLabelOrbitalPerimeterDesc.Text = "Orbital perimeter (AU)";
@@ -834,7 +834,7 @@
 			this.linkLabelSemiMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelSemiMeanAxisDesc.Location = new System.Drawing.Point(5, 274);
 			this.linkLabelSemiMeanAxisDesc.Name = "linkLabelSemiMeanAxisDesc";
-			this.linkLabelSemiMeanAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelSemiMeanAxisDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelSemiMeanAxisDesc.TabIndex = 32;
 			this.linkLabelSemiMeanAxisDesc.TabStop = true;
 			this.linkLabelSemiMeanAxisDesc.Text = "Semi-mean axis (AU)";
@@ -856,7 +856,7 @@
 			this.linkLabelMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelMeanAxisDesc.Location = new System.Drawing.Point(5, 291);
 			this.linkLabelMeanAxisDesc.Name = "linkLabelMeanAxisDesc";
-			this.linkLabelMeanAxisDesc.Size = new System.Drawing.Size(185, 15);
+			this.linkLabelMeanAxisDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelMeanAxisDesc.TabIndex = 34;
 			this.linkLabelMeanAxisDesc.TabStop = true;
 			this.linkLabelMeanAxisDesc.Text = "Mean axis (AU)";
@@ -876,9 +876,9 @@
 			this.labelOrbitalAreaData.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbitalAreaData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbitalAreaData.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelOrbitalAreaData.Location = new System.Drawing.Point(198, 240);
+			this.labelOrbitalAreaData.Location = new System.Drawing.Point(241, 240);
 			this.labelOrbitalAreaData.Name = "labelOrbitalAreaData";
-			this.labelOrbitalAreaData.Size = new System.Drawing.Size(186, 15);
+			this.labelOrbitalAreaData.Size = new System.Drawing.Size(229, 15);
 			this.labelOrbitalAreaData.TabIndex = 29;
 			this.labelOrbitalAreaData.Text = "...";
 			this.toolTip.SetToolTip(this.labelOrbitalAreaData, "Show the information of \"Orbital area\"");
@@ -897,9 +897,9 @@
 			this.labelOrbitalPerimeterData.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbitalPerimeterData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbitalPerimeterData.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelOrbitalPerimeterData.Location = new System.Drawing.Point(198, 257);
+			this.labelOrbitalPerimeterData.Location = new System.Drawing.Point(241, 257);
 			this.labelOrbitalPerimeterData.Name = "labelOrbitalPerimeterData";
-			this.labelOrbitalPerimeterData.Size = new System.Drawing.Size(186, 15);
+			this.labelOrbitalPerimeterData.Size = new System.Drawing.Size(229, 15);
 			this.labelOrbitalPerimeterData.TabIndex = 31;
 			this.labelOrbitalPerimeterData.Text = "...";
 			this.toolTip.SetToolTip(this.labelOrbitalPerimeterData, "Show the information of \"Orbital perimeter\"");
@@ -918,9 +918,9 @@
 			this.labelSemiMeanAxisData.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelSemiMeanAxisData.Location = new System.Drawing.Point(198, 274);
+			this.labelSemiMeanAxisData.Location = new System.Drawing.Point(241, 274);
 			this.labelSemiMeanAxisData.Name = "labelSemiMeanAxisData";
-			this.labelSemiMeanAxisData.Size = new System.Drawing.Size(186, 15);
+			this.labelSemiMeanAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelSemiMeanAxisData.TabIndex = 33;
 			this.labelSemiMeanAxisData.Text = "...";
 			this.toolTip.SetToolTip(this.labelSemiMeanAxisData, "Show the information of \"Semi-mean axis\"");
@@ -942,16 +942,58 @@
 			this.linkLabelStandardGravitationalParameterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelStandardGravitationalParameterDesc.Location = new System.Drawing.Point(5, 308);
 			this.linkLabelStandardGravitationalParameterDesc.Name = "linkLabelStandardGravitationalParameterDesc";
-			this.linkLabelStandardGravitationalParameterDesc.Size = new System.Drawing.Size(185, 18);
+			this.linkLabelStandardGravitationalParameterDesc.Size = new System.Drawing.Size(228, 18);
 			this.linkLabelStandardGravitationalParameterDesc.TabIndex = 36;
 			this.linkLabelStandardGravitationalParameterDesc.TabStop = true;
-			this.linkLabelStandardGravitationalParameterDesc.Text = "Standard gravitational parameter";
+			this.linkLabelStandardGravitationalParameterDesc.Text = "Standard gravitational parameter (AU³/a²)";
 			this.toolTip.SetToolTip(this.linkLabelStandardGravitationalParameterDesc, "Standard gravitational parameter");
 			this.linkLabelStandardGravitationalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelStandardGravitationalParameterDesc_LinkClicked);
 			this.linkLabelStandardGravitationalParameterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelStandardGravitationalParameterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelStandardGravitationalParameterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelStandardGravitationalParameterDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelMeanAxisData
+			// 
+			this.labelMeanAxisData.AccessibleDescription = "Show the information of \"Mean axis\"";
+			this.labelMeanAxisData.AccessibleName = "Show the information of \"Mean axis\"";
+			this.labelMeanAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelMeanAxisData.AutoSize = true;
+			this.labelMeanAxisData.BackColor = System.Drawing.Color.Transparent;
+			this.labelMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.labelMeanAxisData.Location = new System.Drawing.Point(241, 291);
+			this.labelMeanAxisData.Name = "labelMeanAxisData";
+			this.labelMeanAxisData.Size = new System.Drawing.Size(229, 15);
+			this.labelMeanAxisData.TabIndex = 35;
+			this.labelMeanAxisData.Text = "...";
+			this.toolTip.SetToolTip(this.labelMeanAxisData, "Show the information of \"Mean axis\"");
+			this.labelMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMeanAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelMeanAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelStandardGravitationalParameterData
+			// 
+			this.labelStandardGravitationalParameterData.AccessibleDescription = "Show the information of \"Standard gravitational parameter\"";
+			this.labelStandardGravitationalParameterData.AccessibleName = "Show the information of \"Standard gravitational parameter\"";
+			this.labelStandardGravitationalParameterData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelStandardGravitationalParameterData.AutoSize = true;
+			this.labelStandardGravitationalParameterData.BackColor = System.Drawing.Color.Transparent;
+			this.labelStandardGravitationalParameterData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelStandardGravitationalParameterData.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.labelStandardGravitationalParameterData.Location = new System.Drawing.Point(241, 308);
+			this.labelStandardGravitationalParameterData.Name = "labelStandardGravitationalParameterData";
+			this.labelStandardGravitationalParameterData.Size = new System.Drawing.Size(229, 18);
+			this.labelStandardGravitationalParameterData.TabIndex = 37;
+			this.labelStandardGravitationalParameterData.Text = "...";
+			this.toolTip.SetToolTip(this.labelStandardGravitationalParameterData, "Show the information of \"Standard gravitational parameter\"");
+			this.labelStandardGravitationalParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelStandardGravitationalParameterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelStandardGravitationalParameterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelStandardGravitationalParameterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelStandardGravitationalParameterData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanel
 			// 
@@ -972,7 +1014,7 @@
 			this.tableLayoutPanel.Controls.Add(this.linkLabelPerihelionDistanceDesc, 0, 6);
 			this.tableLayoutPanel.Controls.Add(this.linkLabelAphelionDistanceDesc, 0, 7);
 			this.tableLayoutPanel.Controls.Add(this.linkLabelLongitudeDescendingNodeDesc, 0, 8);
-			this.tableLayoutPanel.Controls.Add(this.linkLabel1ArgumentAphelionDesc, 0, 9);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelArgumentAphelionDesc, 0, 9);
 			this.tableLayoutPanel.Controls.Add(this.linkLabelFocalParameterDesc, 0, 10);
 			this.tableLayoutPanel.Controls.Add(this.linkLabelSemiLatusRectumDesc, 0, 11);
 			this.tableLayoutPanel.Controls.Add(this.linkLabelLatusRectumDesc, 0, 12);
@@ -998,7 +1040,7 @@
 			this.tableLayoutPanel.Controls.Add(this.labelOrbitalPerimeterData, 1, 15);
 			this.tableLayoutPanel.Controls.Add(this.labelSemiMeanAxisData, 1, 16);
 			this.tableLayoutPanel.Controls.Add(this.labelMeanAxisData, 1, 17);
-			this.tableLayoutPanel.Controls.Add(this.label2, 1, 18);
+			this.tableLayoutPanel.Controls.Add(this.labelStandardGravitationalParameterData, 1, 18);
 			this.tableLayoutPanel.Controls.Add(this.linkLabelStandardGravitationalParameterDesc, 0, 18);
 			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -1023,48 +1065,9 @@
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.Size = new System.Drawing.Size(389, 328);
+			this.tableLayoutPanel.Size = new System.Drawing.Size(475, 328);
 			this.tableLayoutPanel.TabIndex = 0;
 			this.tableLayoutPanel.TabStop = true;
-			// 
-			// labelMeanAxisData
-			// 
-			this.labelMeanAxisData.AccessibleDescription = "Show the information of \"Mean axis\"";
-			this.labelMeanAxisData.AccessibleName = "Show the information of \"Mean axis\"";
-			this.labelMeanAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelMeanAxisData.AutoSize = true;
-			this.labelMeanAxisData.BackColor = System.Drawing.Color.Transparent;
-			this.labelMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.labelMeanAxisData.Location = new System.Drawing.Point(198, 291);
-			this.labelMeanAxisData.Name = "labelMeanAxisData";
-			this.labelMeanAxisData.Size = new System.Drawing.Size(186, 15);
-			this.labelMeanAxisData.TabIndex = 35;
-			this.labelMeanAxisData.Text = "...";
-			this.labelMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
-			this.labelMeanAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelMeanAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// label2
-			// 
-			this.label2.AccessibleDescription = "Show the information of \"Standard gravitational parameter\"";
-			this.label2.AccessibleName = "Show the information of \"Standard gravitational parameter\"";
-			this.label2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.label2.AutoSize = true;
-			this.label2.BackColor = System.Drawing.Color.Transparent;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Font = new System.Drawing.Font("Consolas", 8.25F);
-			this.label2.Location = new System.Drawing.Point(198, 308);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(186, 18);
-			this.label2.TabIndex = 37;
-			this.label2.Text = "...";
-			this.label2.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.label2.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.label2.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.label2.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// DerivatedOrbitElementsForm
 			// 
@@ -1073,7 +1076,7 @@
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(389, 384);
+			this.ClientSize = new System.Drawing.Size(475, 384);
 			this.Controls.Add(this.tableLayoutPanel);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.statusStrip);
@@ -1112,7 +1115,7 @@
 		private System.Windows.Forms.LinkLabel linkLabelPerihelionDistanceDesc;
 		private System.Windows.Forms.LinkLabel linkLabelAphelionDistanceDesc;
 		private System.Windows.Forms.LinkLabel linkLabelLongitudeDescendingNodeDesc;
-		private System.Windows.Forms.LinkLabel linkLabel1ArgumentAphelionDesc;
+		private System.Windows.Forms.LinkLabel linkLabelArgumentAphelionDesc;
 		private System.Windows.Forms.LinkLabel linkLabelFocalParameterDesc;
 		private System.Windows.Forms.LinkLabel linkLabelSemiLatusRectumDesc;
 		private System.Windows.Forms.LinkLabel linkLabelLatusRectumDesc;
@@ -1142,7 +1145,7 @@
 		private System.Windows.Forms.Label labelOrbitalPerimeterData;
 		private System.Windows.Forms.Label labelSemiMeanAxisData;
 		private System.Windows.Forms.Label labelMeanAxisData;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label labelStandardGravitationalParameterData;
 		private System.Windows.Forms.LinkLabel linkLabelStandardGravitationalParameterDesc;
 	}
 }

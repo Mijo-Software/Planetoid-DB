@@ -85,7 +85,7 @@ namespace Planetoid_DB
 			labelOrbitalPerimeterData.Text = derivatedOrbitElementsDatabase[15].ToString();
 			labelSemiMeanAxisData.Text = derivatedOrbitElementsDatabase[16].ToString();
 			labelMeanAxisData.Text = derivatedOrbitElementsDatabase[17].ToString();
-			linkLabelStandardGravitationalParameterDesc.Text = derivatedOrbitElementsDatabase[18].ToString();
+			labelStandardGravitationalParameterData.Text = derivatedOrbitElementsDatabase[18].ToString();
 		}
 
 		private void DerivatedOrbitElementsForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
@@ -303,7 +303,7 @@ namespace Planetoid_DB
 
 		}
 
-		private void LinkLabel1ArgumentAphelion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void LinkLabelArgumentAphelion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 
 		}

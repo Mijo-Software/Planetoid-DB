@@ -975,6 +975,121 @@ namespace Planetoid_DB
 			webBrowser.DocumentText = I10nStrings.terminology_IndexNo;
 		}
 
+		private void labelLinearEccentricity_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelSemiMinorAxis_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelMajorAxis_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelMinorAxis_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelEccenctricAnomaly_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelTrueAnomaly_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelPerihelionDistance_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelAphelionDistance_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelLongitudeDescendingNode_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelArgumentAphelion_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelFocalParameter_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelSemiLatusRectum_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelLatusRectum_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelPeriod_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelOrbitalArea_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelOrbitalPerimeter_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelSemiMeanAxis_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelMeanAxis_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelStandardGravitationalParameter_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelSemiMinorAxis_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelMinorAxis_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelEccenctricAnomaly_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private void labelTrueAnomaly_Enter(object sender, EventArgs e)
+		{
+
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
