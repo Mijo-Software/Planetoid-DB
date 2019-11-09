@@ -71,8 +71,10 @@
 			this.labelOrbitalAreaData = new System.Windows.Forms.Label();
 			this.labelOrbitalPerimeterData = new System.Windows.Forms.Label();
 			this.labelSemiMeanAxisData = new System.Windows.Forms.Label();
+			this.linkLabelStandardGravitationalParameterDesc = new System.Windows.Forms.LinkLabel();
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.labelMeanAxisData = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.statusStrip.SuspendLayout();
 			this.contextMenuCopyToClipboard.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
@@ -87,7 +89,7 @@
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelInformation});
 			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-			this.statusStrip.Location = new System.Drawing.Point(0, 345);
+			this.statusStrip.Location = new System.Drawing.Point(0, 363);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			this.statusStrip.ShowItemToolTips = true;
@@ -118,7 +120,7 @@
 			this.buttonOK.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
-			this.buttonOK.Location = new System.Drawing.Point(0, 309);
+			this.buttonOK.Location = new System.Drawing.Point(0, 327);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(389, 36);
 			this.buttonOK.TabIndex = 1;
@@ -780,6 +782,7 @@
 			this.linkLabelOrbitalAreaDesc.AccessibleName = "Orbital area";
 			this.linkLabelOrbitalAreaDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelOrbitalAreaDesc.AutoSize = true;
+			this.linkLabelOrbitalAreaDesc.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelOrbitalAreaDesc.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelOrbitalAreaDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelOrbitalAreaDesc.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -802,6 +805,7 @@
 			this.linkLabelOrbitalPerimeterDesc.AccessibleName = "Orbital perimeter";
 			this.linkLabelOrbitalPerimeterDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelOrbitalPerimeterDesc.AutoSize = true;
+			this.linkLabelOrbitalPerimeterDesc.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelOrbitalPerimeterDesc.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelOrbitalPerimeterDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelOrbitalPerimeterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -824,6 +828,7 @@
 			this.linkLabelSemiMeanAxisDesc.AccessibleName = "Semi-mean axis";
 			this.linkLabelSemiMeanAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelSemiMeanAxisDesc.AutoSize = true;
+			this.linkLabelSemiMeanAxisDesc.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelSemiMeanAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelSemiMeanAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelSemiMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -851,7 +856,7 @@
 			this.linkLabelMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
 			this.linkLabelMeanAxisDesc.Location = new System.Drawing.Point(5, 291);
 			this.linkLabelMeanAxisDesc.Name = "linkLabelMeanAxisDesc";
-			this.linkLabelMeanAxisDesc.Size = new System.Drawing.Size(185, 17);
+			this.linkLabelMeanAxisDesc.Size = new System.Drawing.Size(185, 15);
 			this.linkLabelMeanAxisDesc.TabIndex = 34;
 			this.linkLabelMeanAxisDesc.TabStop = true;
 			this.linkLabelMeanAxisDesc.Text = "Mean axis (AU)";
@@ -868,6 +873,7 @@
 			this.labelOrbitalAreaData.AccessibleName = "Show the information of \"Orbital area\"";
 			this.labelOrbitalAreaData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelOrbitalAreaData.AutoSize = true;
+			this.labelOrbitalAreaData.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbitalAreaData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbitalAreaData.Font = new System.Drawing.Font("Consolas", 8.25F);
 			this.labelOrbitalAreaData.Location = new System.Drawing.Point(198, 240);
@@ -888,6 +894,7 @@
 			this.labelOrbitalPerimeterData.AccessibleName = "Show the information of \"Orbital perimeter\"";
 			this.labelOrbitalPerimeterData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelOrbitalPerimeterData.AutoSize = true;
+			this.labelOrbitalPerimeterData.BackColor = System.Drawing.Color.Transparent;
 			this.labelOrbitalPerimeterData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelOrbitalPerimeterData.Font = new System.Drawing.Font("Consolas", 8.25F);
 			this.labelOrbitalPerimeterData.Location = new System.Drawing.Point(198, 257);
@@ -908,6 +915,7 @@
 			this.labelSemiMeanAxisData.AccessibleName = "Show the information of \"Semi-mean axis\"";
 			this.labelSemiMeanAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelSemiMeanAxisData.AutoSize = true;
+			this.labelSemiMeanAxisData.BackColor = System.Drawing.Color.Transparent;
 			this.labelSemiMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSemiMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
 			this.labelSemiMeanAxisData.Location = new System.Drawing.Point(198, 274);
@@ -921,6 +929,29 @@
 			this.labelSemiMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSemiMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiMeanAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// linkLabelStandardGravitationalParameterDesc
+			// 
+			this.linkLabelStandardGravitationalParameterDesc.AccessibleDescription = "Standard gravitational parameter";
+			this.linkLabelStandardGravitationalParameterDesc.AccessibleName = "Standard gravitational parameter";
+			this.linkLabelStandardGravitationalParameterDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
+			this.linkLabelStandardGravitationalParameterDesc.AutoSize = true;
+			this.linkLabelStandardGravitationalParameterDesc.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabelStandardGravitationalParameterDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.linkLabelStandardGravitationalParameterDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+			this.linkLabelStandardGravitationalParameterDesc.LinkColor = System.Drawing.SystemColors.ControlText;
+			this.linkLabelStandardGravitationalParameterDesc.Location = new System.Drawing.Point(5, 308);
+			this.linkLabelStandardGravitationalParameterDesc.Name = "linkLabelStandardGravitationalParameterDesc";
+			this.linkLabelStandardGravitationalParameterDesc.Size = new System.Drawing.Size(185, 18);
+			this.linkLabelStandardGravitationalParameterDesc.TabIndex = 36;
+			this.linkLabelStandardGravitationalParameterDesc.TabStop = true;
+			this.linkLabelStandardGravitationalParameterDesc.Text = "Standard gravitational parameter";
+			this.toolTip.SetToolTip(this.linkLabelStandardGravitationalParameterDesc, "Standard gravitational parameter");
+			this.linkLabelStandardGravitationalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelStandardGravitationalParameterDesc_LinkClicked);
+			this.linkLabelStandardGravitationalParameterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelStandardGravitationalParameterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.linkLabelStandardGravitationalParameterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.linkLabelStandardGravitationalParameterDesc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanel
 			// 
@@ -967,10 +998,12 @@
 			this.tableLayoutPanel.Controls.Add(this.labelOrbitalPerimeterData, 1, 15);
 			this.tableLayoutPanel.Controls.Add(this.labelSemiMeanAxisData, 1, 16);
 			this.tableLayoutPanel.Controls.Add(this.labelMeanAxisData, 1, 17);
+			this.tableLayoutPanel.Controls.Add(this.label2, 1, 18);
+			this.tableLayoutPanel.Controls.Add(this.linkLabelStandardGravitationalParameterDesc, 0, 18);
 			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel.Name = "tableLayoutPanel";
-			this.tableLayoutPanel.RowCount = 18;
+			this.tableLayoutPanel.RowCount = 19;
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -989,7 +1022,8 @@
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.Size = new System.Drawing.Size(389, 310);
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.Size = new System.Drawing.Size(389, 328);
 			this.tableLayoutPanel.TabIndex = 0;
 			this.tableLayoutPanel.TabStop = true;
 			// 
@@ -999,11 +1033,12 @@
 			this.labelMeanAxisData.AccessibleName = "Show the information of \"Mean axis\"";
 			this.labelMeanAxisData.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelMeanAxisData.AutoSize = true;
+			this.labelMeanAxisData.BackColor = System.Drawing.Color.Transparent;
 			this.labelMeanAxisData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelMeanAxisData.Font = new System.Drawing.Font("Consolas", 8.25F);
 			this.labelMeanAxisData.Location = new System.Drawing.Point(198, 291);
 			this.labelMeanAxisData.Name = "labelMeanAxisData";
-			this.labelMeanAxisData.Size = new System.Drawing.Size(186, 17);
+			this.labelMeanAxisData.Size = new System.Drawing.Size(186, 15);
 			this.labelMeanAxisData.TabIndex = 35;
 			this.labelMeanAxisData.Text = "...";
 			this.labelMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
@@ -1012,6 +1047,25 @@
 			this.labelMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMeanAxisData.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
+			// label2
+			// 
+			this.label2.AccessibleDescription = "Show the information of \"Standard gravitational parameter\"";
+			this.label2.AccessibleName = "Show the information of \"Standard gravitational parameter\"";
+			this.label2.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.label2.AutoSize = true;
+			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label2.Font = new System.Drawing.Font("Consolas", 8.25F);
+			this.label2.Location = new System.Drawing.Point(198, 308);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(186, 18);
+			this.label2.TabIndex = 37;
+			this.label2.Text = "...";
+			this.label2.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.label2.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.label2.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.label2.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// DerivatedOrbitElementsForm
 			// 
 			this.AccessibleDescription = "Calculate some derivated orbit elements";
@@ -1019,7 +1073,7 @@
 			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(389, 366);
+			this.ClientSize = new System.Drawing.Size(389, 384);
 			this.Controls.Add(this.tableLayoutPanel);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.statusStrip);
@@ -1088,5 +1142,7 @@
 		private System.Windows.Forms.Label labelOrbitalPerimeterData;
 		private System.Windows.Forms.Label labelSemiMeanAxisData;
 		private System.Windows.Forms.Label labelMeanAxisData;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.LinkLabel linkLabelStandardGravitationalParameterDesc;
 	}
 }

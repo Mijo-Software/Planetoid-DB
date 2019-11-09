@@ -1572,6 +1572,8 @@ namespace Planetoid_DB
 
 		private double CalculateMeanAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
 
+		private double CalculateStandardGravitationalParameter(double semiMajorAxis) => 4 * Math.Pow(x: Math.PI, y: 2) * Math.Pow(x: semiMajorAxis, y: 3) / CalculatePeriod(semiMajorAxis: semiMajorAxis);
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -1604,6 +1606,7 @@ namespace Planetoid_DB
 			derivatedOrbitElementsDatabase.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
 			derivatedOrbitElementsDatabase.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
 			derivatedOrbitElementsDatabase.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
+			derivatedOrbitElementsDatabase.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis));
 			using (DerivatedOrbitElementsForm formDerivatedOrbitElements = new DerivatedOrbitElementsForm())
 			{
 				formDerivatedOrbitElements.SetDatabase(arrayList: derivatedOrbitElementsDatabase);
