@@ -268,6 +268,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Planetoid-DB-3.ico" />
+    <None Include="Resources\terminology_TrueAnomaly.html" />
+    <None Include="Resources\terminology_StandardGravitationalParameter.html" />
+    <None Include="Resources\terminology_SemiMinorAxis.html" />
+    <None Include="Resources\terminology_SemiMeanAxis.html" />
+    <None Include="Resources\terminology_SemiLatusRectum.html" />
+    <None Include="Resources\terminology_Period.html" />
+    <None Include="Resources\terminology_PerihelionDistance.html" />
+    <None Include="Resources\terminology_OrbitalPerimeter.html" />
+    <None Include="Resources\terminology_OrbitalArea.html" />
+    <None Include="Resources\terminology_MinorAxis.html" />
+    <None Include="Resources\terminology_MeanAxis.html" />
+    <None Include="Resources\terminology_MajorAxis.html" />
+    <None Include="Resources\terminology_LongitudeDescendingNode.html" />
+    <None Include="Resources\terminology_LinearEccentricity.html" />
+    <None Include="Resources\terminology_LatusRectum.html" />
+    <None Include="Resources\terminology_FocalParameter.html" />
+    <None Include="Resources\terminology_EccenctricAnomaly.html" />
+    <None Include="Resources\terminology_ArgumentAphelion.html" />
+    <None Include="Resources\terminology_AphelionDistance.html" />
     <None Include="Resources\silk_arrow_branch.png" />
     <None Include="Resources\silk_arrow_divide.png" />
     <None Include="Resources\silk_bullet_green.png" />

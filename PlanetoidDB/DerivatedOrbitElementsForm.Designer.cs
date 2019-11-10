@@ -152,7 +152,7 @@
 			this.linkLabelLinearEccentricityDesc.TabStop = true;
 			this.linkLabelLinearEccentricityDesc.Text = "Linear eccentricity";
 			this.toolTip.SetToolTip(this.linkLabelLinearEccentricityDesc, "Linear eccentricity");
-			this.linkLabelLinearEccentricityDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLinearEccentricity_LinkClicked);
+			this.linkLabelLinearEccentricityDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLinearEccentricity_Clicked);
 			this.linkLabelLinearEccentricityDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLinearEccentricityDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelLinearEccentricityDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -221,7 +221,7 @@
 			this.linkLabelSemiMinorAxisDesc.TabStop = true;
 			this.linkLabelSemiMinorAxisDesc.Text = "Semi-minor axis (AU)";
 			this.toolTip.SetToolTip(this.linkLabelSemiMinorAxisDesc, "Semi-minor axis");
-			this.linkLabelSemiMinorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMinorAxis_LinkClicked);
+			this.linkLabelSemiMinorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMinorAxis_Clicked);
 			this.linkLabelSemiMinorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSemiMinorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelSemiMinorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -244,7 +244,7 @@
 			this.linkLabelMajorAxisDesc.TabStop = true;
 			this.linkLabelMajorAxisDesc.Text = "Major axis (AU)";
 			this.toolTip.SetToolTip(this.linkLabelMajorAxisDesc, "Major axis");
-			this.linkLabelMajorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMajorAxis_LinkClicked);
+			this.linkLabelMajorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMajorAxis_Clicked);
 			this.linkLabelMajorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMajorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelMajorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -267,7 +267,7 @@
 			this.linkLabelMinorAxisDesc.TabStop = true;
 			this.linkLabelMinorAxisDesc.Text = "Minor axis (AU)";
 			this.toolTip.SetToolTip(this.linkLabelMinorAxisDesc, "Minor axis");
-			this.linkLabelMinorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMinorAxis_LinkClicked);
+			this.linkLabelMinorAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMinorAxis_Clicked);
 			this.linkLabelMinorAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMinorAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelMinorAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -290,7 +290,7 @@
 			this.linkLabelEccenctricAnomalyDesc.TabStop = true;
 			this.linkLabelEccenctricAnomalyDesc.Text = "Eccentric anomaly (°)";
 			this.toolTip.SetToolTip(this.linkLabelEccenctricAnomalyDesc, "Eccentric anomaly");
-			this.linkLabelEccenctricAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelEccenctricAnomaly_LinkClicked);
+			this.linkLabelEccenctricAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelEccenctricAnomaly_Clicked);
 			this.linkLabelEccenctricAnomalyDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelEccenctricAnomalyDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelEccenctricAnomalyDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -313,7 +313,7 @@
 			this.linkLabelTrueAnomalyDesc.TabStop = true;
 			this.linkLabelTrueAnomalyDesc.Text = "True anomaly (°)";
 			this.toolTip.SetToolTip(this.linkLabelTrueAnomalyDesc, "True anomaly");
-			this.linkLabelTrueAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelTrueAnomaly_LinkClicked);
+			this.linkLabelTrueAnomalyDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelTrueAnomaly_Clicked);
 			this.linkLabelTrueAnomalyDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelTrueAnomalyDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelTrueAnomalyDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -336,7 +336,7 @@
 			this.linkLabelPerihelionDistanceDesc.TabStop = true;
 			this.linkLabelPerihelionDistanceDesc.Text = "Perihelion distance (AU)";
 			this.toolTip.SetToolTip(this.linkLabelPerihelionDistanceDesc, "Perihelion distance");
-			this.linkLabelPerihelionDistanceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPerihelionDistance_LinkClicked);
+			this.linkLabelPerihelionDistanceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPerihelionDistance_Clicked);
 			this.linkLabelPerihelionDistanceDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelPerihelionDistanceDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelPerihelionDistanceDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -359,7 +359,7 @@
 			this.linkLabelAphelionDistanceDesc.TabStop = true;
 			this.linkLabelAphelionDistanceDesc.Text = "Aphelion distance (AU)";
 			this.toolTip.SetToolTip(this.linkLabelAphelionDistanceDesc, "Aphelion distance");
-			this.linkLabelAphelionDistanceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAphelionDistance_LinkClicked);
+			this.linkLabelAphelionDistanceDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAphelionDistance_Clicked);
 			this.linkLabelAphelionDistanceDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelAphelionDistanceDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelAphelionDistanceDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -382,7 +382,7 @@
 			this.linkLabelLongitudeDescendingNodeDesc.TabStop = true;
 			this.linkLabelLongitudeDescendingNodeDesc.Text = "Longitude of descending node (°)";
 			this.toolTip.SetToolTip(this.linkLabelLongitudeDescendingNodeDesc, "Longitude of descending node");
-			this.linkLabelLongitudeDescendingNodeDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLongitudeDescendingNode_LinkClicked);
+			this.linkLabelLongitudeDescendingNodeDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLongitudeDescendingNode_Clicked);
 			this.linkLabelLongitudeDescendingNodeDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLongitudeDescendingNodeDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelLongitudeDescendingNodeDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -405,7 +405,7 @@
 			this.linkLabelArgumentAphelionDesc.TabStop = true;
 			this.linkLabelArgumentAphelionDesc.Text = "Argument of aphelion (°)";
 			this.toolTip.SetToolTip(this.linkLabelArgumentAphelionDesc, "Argument of aphelion");
-			this.linkLabelArgumentAphelionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelArgumentAphelion_LinkClicked);
+			this.linkLabelArgumentAphelionDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelArgumentAphelion_Clicked);
 			this.linkLabelArgumentAphelionDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelArgumentAphelionDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelArgumentAphelionDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -428,7 +428,7 @@
 			this.linkLabelFocalParameterDesc.TabStop = true;
 			this.linkLabelFocalParameterDesc.Text = "Focal parameter";
 			this.toolTip.SetToolTip(this.linkLabelFocalParameterDesc, "Focal parameter");
-			this.linkLabelFocalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelFocalParameter_LinkClicked);
+			this.linkLabelFocalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelFocalParameter_Clicked);
 			this.linkLabelFocalParameterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelFocalParameterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelFocalParameterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -451,7 +451,7 @@
 			this.linkLabelSemiLatusRectumDesc.TabStop = true;
 			this.linkLabelSemiLatusRectumDesc.Text = "Semi-latus rectum (AU)";
 			this.toolTip.SetToolTip(this.linkLabelSemiLatusRectumDesc, "Semi-latus rectum");
-			this.linkLabelSemiLatusRectumDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiLatusRectum_LinkClicked);
+			this.linkLabelSemiLatusRectumDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiLatusRectum_Clicked);
 			this.linkLabelSemiLatusRectumDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSemiLatusRectumDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelSemiLatusRectumDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -474,7 +474,7 @@
 			this.linkLabelLatusRectumDesc.TabStop = true;
 			this.linkLabelLatusRectumDesc.Text = "Latus rectum (AU)";
 			this.toolTip.SetToolTip(this.linkLabelLatusRectumDesc, "Latus rectum");
-			this.linkLabelLatusRectumDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLatusRectum_LinkClicked);
+			this.linkLabelLatusRectumDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLatusRectum_Clicked);
 			this.linkLabelLatusRectumDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLatusRectumDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelLatusRectumDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -497,7 +497,7 @@
 			this.linkLabelPeriodDesc.TabStop = true;
 			this.linkLabelPeriodDesc.Text = "Period (years)";
 			this.toolTip.SetToolTip(this.linkLabelPeriodDesc, "Period");
-			this.linkLabelPeriodDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPeriod_LinkClicked);
+			this.linkLabelPeriodDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelPeriod_Clicked);
 			this.linkLabelPeriodDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelPeriodDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelPeriodDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -793,7 +793,7 @@
 			this.linkLabelOrbitalAreaDesc.TabStop = true;
 			this.linkLabelOrbitalAreaDesc.Text = "Orbital area (AU²)";
 			this.toolTip.SetToolTip(this.linkLabelOrbitalAreaDesc, "Orbital area");
-			this.linkLabelOrbitalAreaDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalArea_LinkClicked);
+			this.linkLabelOrbitalAreaDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalArea_Clicked);
 			this.linkLabelOrbitalAreaDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelOrbitalAreaDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelOrbitalAreaDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -816,7 +816,7 @@
 			this.linkLabelOrbitalPerimeterDesc.TabStop = true;
 			this.linkLabelOrbitalPerimeterDesc.Text = "Orbital perimeter (AU)";
 			this.toolTip.SetToolTip(this.linkLabelOrbitalPerimeterDesc, "Orbital perimeter");
-			this.linkLabelOrbitalPerimeterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalPerimeter_LinkClicked);
+			this.linkLabelOrbitalPerimeterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelOrbitalPerimeter_Clicked);
 			this.linkLabelOrbitalPerimeterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelOrbitalPerimeterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelOrbitalPerimeterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -839,7 +839,7 @@
 			this.linkLabelSemiMeanAxisDesc.TabStop = true;
 			this.linkLabelSemiMeanAxisDesc.Text = "Semi-mean axis (AU)";
 			this.toolTip.SetToolTip(this.linkLabelSemiMeanAxisDesc, "Semi-mean axis");
-			this.linkLabelSemiMeanAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMeanAxis_LinkClicked);
+			this.linkLabelSemiMeanAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelSemiMeanAxis_Clicked);
 			this.linkLabelSemiMeanAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelSemiMeanAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelSemiMeanAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -861,7 +861,7 @@
 			this.linkLabelMeanAxisDesc.TabStop = true;
 			this.linkLabelMeanAxisDesc.Text = "Mean axis (AU)";
 			this.toolTip.SetToolTip(this.linkLabelMeanAxisDesc, "Mean axis");
-			this.linkLabelMeanAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMeanAxis_LinkClicked);
+			this.linkLabelMeanAxisDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelMeanAxis_Clicked);
 			this.linkLabelMeanAxisDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMeanAxisDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelMeanAxisDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -947,7 +947,7 @@
 			this.linkLabelStandardGravitationalParameterDesc.TabStop = true;
 			this.linkLabelStandardGravitationalParameterDesc.Text = "Standard gravitational parameter (AU³/a²)";
 			this.toolTip.SetToolTip(this.linkLabelStandardGravitationalParameterDesc, "Standard gravitational parameter");
-			this.linkLabelStandardGravitationalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelStandardGravitationalParameterDesc_LinkClicked);
+			this.linkLabelStandardGravitationalParameterDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelStandardGravitationalParameterDesc_Clicked);
 			this.linkLabelStandardGravitationalParameterDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelStandardGravitationalParameterDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.linkLabelStandardGravitationalParameterDesc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);

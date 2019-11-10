@@ -198,7 +198,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Enter-Handler
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
@@ -291,7 +291,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Leave-Handler
+		#region Leave event handlers
 
 		/// <summary>
 		/// 
@@ -302,7 +302,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region SelectedIndexChanged-Handler
+		#region SelectedIndexChanged event handlers
 
 		/// <summary>
 		/// 
@@ -322,7 +322,7 @@ namespace Planetoid_DB
 		}
 		#endregion
 
-		#region Clicks-Handler
+		#region Clicks event handlers
 
 		/// <summary>
 		/// 
@@ -461,7 +461,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Double-Click-Handler
+		#region DoubleClick event handlers
 
 		/// <summary>
 		/// 

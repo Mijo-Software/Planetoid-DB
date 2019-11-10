@@ -9,16 +9,6 @@ namespace Planetoid_DB
 	/// </summary>
 	public partial class TerminologyForm : Form
 	{
-		private const int FEATURE_DISABLE_NAVIGATION_SOUNDS = 21;
-		private const int SET_FEATURE_ON_THREAD = 0x00000001;
-		private const int SET_FEATURE_ON_PROCESS = 0x00000002;
-		private const int SET_FEATURE_IN_REGISTRY = 0x00000004;
-		private const int SET_FEATURE_ON_THREAD_LOCALMACHINE = 0x00000008;
-		private const int SET_FEATURE_ON_THREAD_INTRANET = 0x00000010;
-		private const int SET_FEATURE_ON_THREAD_TRUSTED = 0x00000020;
-		private const int SET_FEATURE_ON_THREAD_INTERNET = 0x00000040;
-		private const int SET_FEATURE_ON_THREAD_RESTRICTED = 0x00000080;
-
 		private bool
 			isLabelIndexActive = false,
 			isLabelDesgnNameActive = false,
@@ -39,7 +29,26 @@ namespace Planetoid_DB
 			isLabelRmsResidualActive = false,
 			isLabelComputerNameActive = false,
 			isLabelFlagsActive = false,
-			isLabelObsLastDateActive = false;
+			isLabelObsLastDateActive = false,
+			isLabelLinearEccentricityActive = false,
+			isLabelSemiMinorAxisActive = false,
+			isLabelMajorAxisActive = false,
+			isLabelMinorAxisActive = false,
+			isLabelEccenctricAnomalyActive = false,
+			isLabelTrueAnomalyActive = false,
+			isLabelPerihelionDistanceActive = false,
+			isLabelAphelionDistanceActive = false,
+			isLabelLongitudeDescendingNodeActive = false,
+			isLabelArgumentAphelionActive = false,
+			isLabelFocalParameterActive = false,
+			isLabelSemiLatusRectumActive = false,
+			isLabelLatusRectumActive = false,
+			isLabelPeriodActive = false,
+			isLabelOrbitalAreaActive = false,
+			isLabelOrbitalPerimeterActive = false,
+			isLabelSemiMeanAxisActive = false,
+			isLabelMeanAxisActive = false,
+			isLabelStandardGravitationalParameterActive = false;
 
 		#region local methods
 
@@ -186,6 +195,140 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelLinearEccentricityActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelSemiMinorAxisActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+	
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelMajorAxisActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelMinorAxisActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelEccenctricAnomalyActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelTrueAnomalyActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelPerihelionDistanceActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelAphelionDistanceActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelLongitudeDescendingNodeActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelArgumentAphelionActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelFocalParameterActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelSemiLatusRectumActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelLatusRectumActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelPeriodActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelOrbitalAreaActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelOrbitalPerimeterActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelSemiMeanAxisActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelMeanAxisActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void SetLabelStandardGravitationalParameterActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="text"></param>
 		private void SetStatusbar(string text)
 		{
@@ -218,6 +361,25 @@ namespace Planetoid_DB
 			isLabelComputerNameActive = false;
 			isLabelFlagsActive = false;
 			isLabelObsLastDateActive = false;
+			isLabelLinearEccentricityActive = false;
+			isLabelSemiMinorAxisActive = false;
+			isLabelMajorAxisActive = false;
+			isLabelMinorAxisActive = false;
+			isLabelEccenctricAnomalyActive = false;
+			isLabelTrueAnomalyActive = false;
+			isLabelPerihelionDistanceActive = false;
+			isLabelAphelionDistanceActive = false;
+			isLabelLongitudeDescendingNodeActive = false;
+			isLabelArgumentAphelionActive = false;
+			isLabelFocalParameterActive = false;
+			isLabelSemiLatusRectumActive = false;
+			isLabelLatusRectumActive = false;
+			isLabelPeriodActive = false;
+			isLabelOrbitalAreaActive = false;
+			isLabelOrbitalPerimeterActive = false;
+			isLabelSemiMeanAxisActive = false;
+			isLabelMeanAxisActive = false;
+			isLabelStandardGravitationalParameterActive = false;
 			LabelIndex_Leave(sender: null, e: null);
 			LabelDesgnName_Leave(sender: null, e: null);
 			LabelEpoch_Leave(sender: null, e: null);
@@ -238,6 +400,25 @@ namespace Planetoid_DB
 			LabelComputerName_Leave(sender: null, e: null);
 			LabelFlags_Leave(sender: null, e: null);
 			LabelObsLastDate_Leave(sender: null, e: null);
+			LabelLinearEccentricity_Leave(sender: null, e: null);
+			LabelSemiMinorAxis_Leave(sender: null, e: null);
+			LabelMajorAxis_Leave(sender: null, e: null);
+			LabelMinorAxis_Leave(sender: null, e: null);
+			LabelEccenctricAnomaly_Leave(sender: null, e: null);
+			LabelTrueAnomaly_Leave(sender: null, e: null);
+			LabelPerihelionDistance_Leave(sender: null, e: null);
+			LabelAphelionDistance_Leave(sender: null, e: null);
+			LabelLongitudeDescendingNode_Leave(sender: null, e: null);
+			LabelArgumentAphelion_Leave(sender: null, e: null);
+			LabelFocalParameter_Leave(sender: null, e: null);
+			LabelSemiLatusRectum_Leave(sender: null, e: null);
+			LabelLatusRectum_Leave(sender: null, e: null);
+			LabelPeriod_Leave(sender: null, e: null);
+			LabelOrbitalArea_Leave(sender: null, e: null);
+			LabelOrbitalPerimeter_Leave(sender: null, e: null);
+			LabelSemiMeanAxis_Leave(sender: null, e: null);
+			LabelMeanAxis_Leave(sender: null, e: null);
+			LabelStandardGravitationalParameter_Leave(sender: null, e: null);
 		}
 
 		/// <summary>
@@ -281,7 +462,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Enter-Eventhandler
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
@@ -657,11 +838,277 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void LabelSemiMinorAxis_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelSemiMinorAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelSemiMinorAxis, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMinorAxis_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelMinorAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelMinorAxis, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelEccenctricAnomaly_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelEccenctricAnomalyActive)
+			{
+				SetBackAndForeColors(label: ref labelEccenctricAnomaly, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelTrueAnomaly_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelTrueAnomalyActive)
+			{
+				SetBackAndForeColors(label: ref labelTrueAnomaly, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelPerihelionDistance_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelPerihelionDistanceActive)
+			{
+				SetBackAndForeColors(label: ref labelPerihelionDistance, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAphelionDistance_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelAphelionDistanceActive)
+			{
+				SetBackAndForeColors(label: ref labelAphelionDistance, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLongitudeDescendingNode_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelLongitudeDescendingNodeActive)
+			{
+				SetBackAndForeColors(label: ref labelLongitudeDescendingNode, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelArgumentAphelion_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelArgumentAphelionActive)
+			{
+				SetBackAndForeColors(label: ref labelArgumentAphelion, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelFocalParameter_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelFocalParameterActive)
+			{
+				SetBackAndForeColors(label: ref labelFocalParameter, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiLatusRectum_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelSemiLatusRectumActive)
+			{
+				SetBackAndForeColors(label: ref labelSemiLatusRectum, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLatusRectum_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelLatusRectumActive)
+			{
+				SetBackAndForeColors(label: ref labelLatusRectum, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelPeriod_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelPeriodActive)
+			{
+				SetBackAndForeColors(label: ref labelPeriod, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelOrbitalArea_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelOrbitalAreaActive)
+			{
+				SetBackAndForeColors(label: ref labelOrbitalArea, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelOrbitalPerimeter_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelOrbitalPerimeterActive)
+			{
+				SetBackAndForeColors(label: ref labelOrbitalPerimeter, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiMeanAxis_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelSemiMeanAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelSemiMeanAxis, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMeanAxis_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelMeanAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelMeanAxis, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStandardGravitationalParameter_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelStandardGravitationalParameterActive)
+			{
+				SetBackAndForeColors(label: ref labelStandardGravitationalParameter, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMajorAxis_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelMajorAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelMajorAxis, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLinearEccentricity_Enter(object sender, EventArgs e)
+		{
+			if (!isLabelLinearEccentricityActive)
+			{
+				SetBackAndForeColors(label: ref labelLinearEccentricity, backColor: SystemColors.Highlight, foreColor: SystemColors.HighlightText);
+			}
+			SetStatusbar_Enter(sender: sender, e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ButtonOK_Enter(object sender, EventArgs e) => SetStatusbar_Enter(sender: sender, e: e);
 
 		#endregion
 
-		#region Leave-Eventhandler
+		#region Leave event handlers
 
 		/// <summary>
 		/// 
@@ -948,11 +1395,277 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void LabelLinearEccentricity_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelLinearEccentricityActive)
+			{
+				SetBackAndForeColors(label: ref labelLinearEccentricity, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiMinorAxis_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelSemiMinorAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelSemiMinorAxis, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMajorAxis_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelMajorAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelMajorAxis, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMinorAxis_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelMinorAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelMinorAxis, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelEccenctricAnomaly_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelEccenctricAnomalyActive)
+			{
+				SetBackAndForeColors(label: ref labelEccenctricAnomaly, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelTrueAnomaly_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelTrueAnomalyActive)
+			{
+				SetBackAndForeColors(label: ref labelTrueAnomaly, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelPerihelionDistance_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelPerihelionDistanceActive)
+			{
+				SetBackAndForeColors(label: ref labelPerihelionDistance, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAphelionDistance_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelAphelionDistanceActive)
+			{
+				SetBackAndForeColors(label: ref labelAphelionDistance, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLongitudeDescendingNode_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelLongitudeDescendingNodeActive)
+			{
+				SetBackAndForeColors(label: ref labelLongitudeDescendingNode, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelArgumentAphelion_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelArgumentAphelionActive)
+			{
+				SetBackAndForeColors(label: ref labelArgumentAphelion, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelFocalParameter_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelFocalParameterActive)
+			{
+				SetBackAndForeColors(label: ref labelFocalParameter, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiLatusRectum_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelSemiLatusRectumActive)
+			{
+				SetBackAndForeColors(label: ref labelSemiLatusRectum, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLatusRectum_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelLatusRectumActive)
+			{
+				SetBackAndForeColors(label: ref labelLatusRectum, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelPeriod_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelPeriodActive)
+			{
+				SetBackAndForeColors(label: ref labelPeriod, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelOrbitalArea_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelOrbitalAreaActive)
+			{
+				SetBackAndForeColors(label: ref labelOrbitalArea, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelOrbitalPerimeter_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelOrbitalPerimeterActive)
+			{
+				SetBackAndForeColors(label: ref labelOrbitalPerimeter, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiMeanAxis_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelSemiMeanAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelSemiMeanAxis, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMeanAxis_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelMeanAxisActive)
+			{
+				SetBackAndForeColors(label: ref labelMeanAxis, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStandardGravitationalParameter_Leave(object sender, EventArgs e)
+		{
+			if (!isLabelStandardGravitationalParameterActive)
+			{
+				SetBackAndForeColors(label: ref labelStandardGravitationalParameter, backColor: SystemColors.Control, foreColor: SystemColors.ControlText);
+			}
+			SetStatusbar(text: "");
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ButtonOK_Leave(object sender, EventArgs e) => SetStatusbar(text: "");
 
 		#endregion
 
-		#region Click-Eventhandler
+		#region Click event handlers
 
 		/// <summary>
 		/// 
@@ -973,121 +1686,6 @@ namespace Planetoid_DB
 			labelIndex.BackColor = SystemColors.ControlText;
 			labelIndex.ForeColor = SystemColors.Control;
 			webBrowser.DocumentText = I10nStrings.terminology_IndexNo;
-		}
-
-		private void labelLinearEccentricity_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelSemiMinorAxis_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelMajorAxis_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelMinorAxis_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelEccenctricAnomaly_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelTrueAnomaly_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelPerihelionDistance_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelAphelionDistance_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelLongitudeDescendingNode_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelArgumentAphelion_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelFocalParameter_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelSemiLatusRectum_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelLatusRectum_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelPeriod_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelOrbitalArea_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelOrbitalPerimeter_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelSemiMeanAxis_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelMeanAxis_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelStandardGravitationalParameter_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelSemiMinorAxis_Enter(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelMinorAxis_Enter(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelEccenctricAnomaly_Enter(object sender, EventArgs e)
-		{
-
-		}
-
-		private void labelTrueAnomaly_Enter(object sender, EventArgs e)
-		{
-
 		}
 
 		/// <summary>
@@ -1355,6 +1953,273 @@ namespace Planetoid_DB
 			labelObsLastDate.ForeColor = SystemColors.Control;
 			webBrowser.DocumentText = I10nStrings.terminology_ObsLastDate;
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLinearEccentricity_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelLinearEccentricityActive = true;
+			labelLinearEccentricity.BackColor = SystemColors.ControlText;
+			labelLinearEccentricity.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_LinearEccentricity;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiMinorAxis_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelSemiMinorAxisActive = true;
+			labelSemiMinorAxis.BackColor = SystemColors.ControlText;
+			labelSemiMinorAxis.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_SemiMinorAxis;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMajorAxis_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelMajorAxisActive = true;
+			labelMajorAxis.BackColor = SystemColors.ControlText;
+			labelMajorAxis.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_MajorAxis;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMinorAxis_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelMinorAxisActive = true;
+			labelMinorAxis.BackColor = SystemColors.ControlText;
+			labelMinorAxis.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_MinorAxis;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelEccenctricAnomaly_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelEccenctricAnomalyActive = true;
+			labelEccenctricAnomaly.BackColor = SystemColors.ControlText;
+			labelEccenctricAnomaly.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_EccenctricAnomaly;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelTrueAnomaly_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelTrueAnomalyActive = true;
+			labelTrueAnomaly.BackColor = SystemColors.ControlText;
+			labelTrueAnomaly.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_TrueAnomaly;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelPerihelionDistance_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelPerihelionDistanceActive = true;
+			labelPerihelionDistance.BackColor = SystemColors.ControlText;
+			labelPerihelionDistance.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_PerihelionDistance;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelAphelionDistance_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelAphelionDistanceActive = true;
+			labelAphelionDistance.BackColor = SystemColors.ControlText;
+			labelAphelionDistance.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_AphelionDistance;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLongitudeDescendingNode_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelLongitudeDescendingNodeActive = true;
+			labelLongitudeDescendingNode.BackColor = SystemColors.ControlText;
+			labelLongitudeDescendingNode.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_LongitudeDescendingNode;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelArgumentAphelion_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelArgumentAphelionActive = true;
+			labelArgumentAphelion.BackColor = SystemColors.ControlText;
+			labelArgumentAphelion.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_ArgumentAphelion;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelFocalParameter_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelFocalParameterActive = true;
+			labelFocalParameter.BackColor = SystemColors.ControlText;
+			labelFocalParameter.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_FocalParameter;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiLatusRectum_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelSemiLatusRectumActive = true;
+			labelSemiLatusRectum.BackColor = SystemColors.ControlText;
+			labelSemiLatusRectum.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_SemiLatusRectum;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelLatusRectum_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelLatusRectumActive = true;
+			labelLatusRectum.BackColor = SystemColors.ControlText;
+			labelLatusRectum.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_LatusRectum;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelPeriod_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelPeriodActive = true;
+			labelPeriod.BackColor = SystemColors.ControlText;
+			labelPeriod.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_Period;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelOrbitalArea_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelOrbitalAreaActive = true;
+			labelOrbitalArea.BackColor = SystemColors.ControlText;
+			labelOrbitalArea.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_OrbitalArea;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelOrbitalPerimeter_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelOrbitalPerimeterActive = true;
+			labelOrbitalPerimeter.BackColor = SystemColors.ControlText;
+			labelOrbitalPerimeter.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_OrbitalPerimeter;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelSemiMeanAxis_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelSemiMeanAxisActive = true;
+			labelSemiMeanAxis.BackColor = SystemColors.ControlText;
+			labelSemiMeanAxis.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_SemiMeanAxis;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelMeanAxis_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelMeanAxisActive = true;
+			labelMeanAxis.BackColor = SystemColors.ControlText;
+			labelMeanAxis.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_MeanAxis;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LabelStandardGravitationalParameter_Click(object sender, EventArgs e)
+		{
+			DeselectAllFields();
+			isLabelStandardGravitationalParameterActive = true;
+			labelStandardGravitationalParameter.BackColor = SystemColors.ControlText;
+			labelStandardGravitationalParameter.ForeColor = SystemColors.Control;
+			webBrowser.DocumentText = I10nStrings.terminology_StandardGravitationalParameter;
+		}
+
 
 		#endregion
 	}

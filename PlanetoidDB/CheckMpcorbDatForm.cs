@@ -10,12 +10,16 @@ namespace Planetoid_DB
 	/// </summary>
 	public partial class CheckMpcorbDatForm : Form
 	{
-		#region Constructor and Form-Handler
+		#region Constructor
 
 		/// <summary>
 		/// 
 		/// </summary>
 		public CheckMpcorbDatForm() => InitializeComponent();
+
+		#endregion
+
+		#region Form* event handlers
 
 		/// <summary>
 		/// 
@@ -104,7 +108,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Enter-Eventhandler
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
@@ -197,7 +201,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Leave-Eventhandler
+		#region Leave event handlers
 
 		/// <summary>
 		/// 
@@ -208,7 +212,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click-Eventhandler
+		#region Click event handlers
 
 		/// <summary>
 		/// 

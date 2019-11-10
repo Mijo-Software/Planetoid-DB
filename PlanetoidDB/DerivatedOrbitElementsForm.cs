@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
@@ -17,6 +10,40 @@ namespace Planetoid_DB
 		private ArrayList derivatedOrbitElementsDatabase = new ArrayList(capacity: 0);
 
 		#region Local methods
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void OpenTerminology(uint index)
+		{
+			using (TerminologyForm formTerminology = new TerminologyForm())
+			{
+				switch (index)
+				{
+					case 0: formTerminology.SetLabelLinearEccentricityActive(sender: null, e: null); break;
+					case 1: formTerminology.SetLabelSemiMinorAxisActive(sender: null, e: null); break;
+					case 2: formTerminology.SetLabelMajorAxisActive(sender: null, e: null); break;
+					case 3: formTerminology.SetLabelMinorAxisActive(sender: null, e: null); break;
+					case 4: formTerminology.SetLabelEccenctricAnomalyActive(sender: null, e: null); break;
+					case 5: formTerminology.SetLabelTrueAnomalyActive(sender: null, e: null); break;
+					case 6: formTerminology.SetLabelPerihelionDistanceActive(sender: null, e: null); break;
+					case 7: formTerminology.SetLabelAphelionDistanceActive(sender: null, e: null); break;
+					case 8: formTerminology.SetLabelLongitudeDescendingNodeActive(sender: null, e: null); break;
+					case 9: formTerminology.SetLabelArgumentAphelionActive(sender: null, e: null); break;
+					case 10: formTerminology.SetLabelFocalParameterActive(sender: null, e: null); break;
+					case 11: formTerminology.SetLabelSemiLatusRectumActive(sender: null, e: null); break;
+					case 12: formTerminology.SetLabelLatusRectumActive(sender: null, e: null); break;
+					case 13: formTerminology.SetLabelPeriodActive(sender: null, e: null); break;
+					case 14: formTerminology.SetLabelOrbitalAreaActive(sender: null, e: null); break;
+					case 15: formTerminology.SetLabelOrbitalPerimeterActive(sender: null, e: null); break;
+					case 16: formTerminology.SetLabelSemiMeanAxisActive(sender: null, e: null); break;
+					case 17: formTerminology.SetLabelMeanAxisActive(sender: null, e: null); break;
+					case 18: formTerminology.SetLabelStandardGravitationalParameterActive(sender: null, e: null); break;
+					default: break;
+				}
+				formTerminology.ShowDialog();
+			}
+		}
 
 		/// <summary>
 		/// 
@@ -52,18 +79,36 @@ namespace Planetoid_DB
 			labelInformation.Text = text;
 		}
 
-		#endregion
-
-		public DerivatedOrbitElementsForm()
-		{
-			InitializeComponent();
-		}
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="arrayList"></param>
 		public void SetDatabase(ArrayList arrayList)
 		{
 			derivatedOrbitElementsDatabase = arrayList;
 		}
 
+		#endregion
+
+		#region Constructor
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public DerivatedOrbitElementsForm()
+		{
+			InitializeComponent();
+		}
+
+		#endregion
+
+		#region Form* event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e)
 		{
 			SetDoubleBuffered(control: tableLayoutPanel);
@@ -88,8 +133,22 @@ namespace Planetoid_DB
 			labelStandardGravitationalParameterData.Text = derivatedOrbitElementsDatabase[18].ToString();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void DerivatedOrbitElementsForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
+		#endregion
+
+		#region Enter event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
 			if (sender is TextBox)
@@ -174,10 +233,33 @@ namespace Planetoid_DB
 			}
 		}
 
+		#endregion
+
+		#region Leave event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => SetStatusbar(text: "");
 
+		#endregion
+
+		#region Click event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ButtonOK_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void CopyToClipboard_Click(object sender, EventArgs e)
 		{
 			if (sender is TextBox)
@@ -258,99 +340,139 @@ namespace Planetoid_DB
 			}
 		}
 
-		private void LinkLabelLinearEccentricity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelLinearEccentricity_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 0);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelSemiMinorAxis_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 1);
 
-		private void LinkLabelSemiMinorAxis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelMajorAxis_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 2);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelMinorAxis_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 3);
 
-		private void LinkLabelMajorAxis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelEccenctricAnomaly_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 4);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelTrueAnomaly_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 5);
 
-		private void LinkLabelMinorAxis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelPerihelionDistance_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 6);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelAphelionDistance_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 7);
 
-		private void LinkLabelEccenctricAnomaly_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelLongitudeDescendingNode_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 8);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelArgumentAphelion_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 9);
 
-		private void LinkLabelTrueAnomaly_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelFocalParameter_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 10);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelSemiLatusRectum_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 11);
 
-		private void LinkLabelPerihelionDistance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelLatusRectum_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 12);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelPeriod_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 13);
 
-		private void LinkLabelAphelionDistance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelOrbitalArea_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 14);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelOrbitalPerimeter_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 15);
 
-		private void LinkLabelLongitudeDescendingNode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelSemiMeanAxis_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 16);
 
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelMeanAxis_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 17);
 
-		private void LinkLabelArgumentAphelion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelStandardGravitationalParameterDesc_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 18);
 
-		}
-
-		private void LinkLabelFocalParameter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelSemiLatusRectum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelLatusRectum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelPeriod_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelOrbitalArea_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelOrbitalPerimeter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelSemiMeanAxis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelMeanAxis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
-
-		private void LinkLabelStandardGravitationalParameterDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-
-		}
+		#endregion
 	}
 }

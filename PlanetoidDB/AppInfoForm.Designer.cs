@@ -134,7 +134,7 @@
 			this.linkLabelMailAddress.TabStop = true;
 			this.linkLabelMailAddress.Text = "Mail address";
 			this.toolTip.SetToolTip(this.linkLabelMailAddress, "Show the mail address");
-			this.linkLabelMailAddress.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelCopyright_LinkClicked);
+			this.linkLabelMailAddress.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelCopyright_Clicked);
 			this.linkLabelMailAddress.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.linkLabelMailAddress.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelMailAddress.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -160,7 +160,7 @@
 			this.linkLabelWWW.Text = "[Website]";
 			this.linkLabelWWW.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.toolTip.SetToolTip(this.linkLabelWWW, "Visit the website!");
-			this.linkLabelWWW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelWWW_LinkClicked);
+			this.linkLabelWWW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelWWW_Clicked);
 			this.linkLabelWWW.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
 			this.linkLabelWWW.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelWWW.Leave += new System.EventHandler(this.ClearStatusbar_Leave);

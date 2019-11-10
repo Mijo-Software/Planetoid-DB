@@ -7,7 +7,6 @@ using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Office2007Rendering;
 using VS2008StripRenderingLibrary;
@@ -27,30 +26,6 @@ namespace Planetoid_DB
 		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
 		private readonly string filenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
 		private readonly Uri uriMpcorb = new Uri(uriString: Properties.Resources.MpcorbUrl);
-
-		private const int FEATURE_DISABLE_NAVIGATION_SOUNDS = 21;
-		private const int SET_FEATURE_ON_THREAD = 0x00000001;
-		private const int SET_FEATURE_ON_PROCESS = 0x00000002;
-		private const int SET_FEATURE_IN_REGISTRY = 0x00000004;
-		private const int SET_FEATURE_ON_THREAD_LOCALMACHINE = 0x00000008;
-		private const int SET_FEATURE_ON_THREAD_INTRANET = 0x00000010;
-		private const int SET_FEATURE_ON_THREAD_TRUSTED = 0x00000020;
-		private const int SET_FEATURE_ON_THREAD_INTERNET = 0x00000040;
-		private const int SET_FEATURE_ON_THREAD_RESTRICTED = 0x00000080;
-
-		// Necessary dll import
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="FeatureEntry"></param>
-		/// <param name="dwFlags"></param>
-		/// <param name="fEnable"></param>
-		/// <returns></returns>
-		[DllImport("urlmon.dll")]
-		[PreserveSig]
-		[return: MarshalAs(UnmanagedType.Error)]
-
-		static extern int CoInternetSetFeatureEnabled(int FeatureEntry, [MarshalAs(UnmanagedType.U4)] int dwFlags, bool fEnable);
 
 		#region Local methods
 
@@ -358,6 +333,237 @@ namespace Planetoid_DB
 			labelInformation.Text = text;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateSemiMinorAxis(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * Math.Sqrt(1 - Math.Pow(x: numericalEccentricity, y: 2));
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateLinearEccentricity(double semiMajorAxis, double numericalEccentricity)
+		{
+			if (numericalEccentricity == 0)
+			{
+				return 0;
+			}
+			else if (numericalEccentricity < 1 && numericalEccentricity > 0)
+			{
+				return Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+			}
+			else if (numericalEccentricity > 1)
+			{
+				return Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+			}
+			return 0;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <returns></returns>
+		private double CalculateMajorAxis(double semiMajorAxis) => 2 * semiMajorAxis;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateMinorAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="meanAnomaly"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <param name="numberDecimalPlaces"></param>
+		/// <returns></returns>
+		private double CalculateEccentricAnomaly(double meanAnomaly, double numericalEccentricity, double numberDecimalPlaces)
+		{
+			double K = Math.PI / 180.0;
+			int maxIteration = 30, i = 0;
+			double delta = Math.Pow(x: 10, y: -numberDecimalPlaces);
+			double E, F;
+			meanAnomaly /= 360.0;
+			meanAnomaly = 2.0 * Math.PI * (meanAnomaly - Math.Floor(d: meanAnomaly));
+			if (numericalEccentricity < 0.8)
+			{
+				E = meanAnomaly;
+			}
+			else
+			{
+				E = Math.PI;
+			}
+			F = E - numericalEccentricity * Math.Sin(a: meanAnomaly) - meanAnomaly;
+			while ((Math.Abs(value: F) > delta) && (i < maxIteration))
+			{
+				E -= F / (1.0 - (numericalEccentricity * Math.Cos(d: E)));
+				F = E - numericalEccentricity * Math.Sin(a: E) - meanAnomaly;
+				i += 1;
+			}
+			E /= K;
+			return Math.Round(a: E * Math.Pow(x: 10, y: numberDecimalPlaces)) / Math.Pow(x: 10, y: numberDecimalPlaces);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="meanAnomaly"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <param name="numberDecimalPlaces"></param>
+		/// <returns></returns>
+		private double CalculateTrueAnomaly(double meanAnomaly, double numericalEccentricity, double numberDecimalPlaces)
+		{
+			double E = CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: numberDecimalPlaces);
+			double K = Math.PI / 180.0;
+			double S = Math.Sin(a: E);
+			double C = Math.Cos(d: E);
+			double fak = Math.Sqrt(d: 1.0 - (numericalEccentricity * numericalEccentricity));
+			double phi = Math.Atan2(y: fak * S, x: C - numericalEccentricity) / K;
+			return Math.Round(a: phi * Math.Pow(x: 10, y: numberDecimalPlaces)) / Math.Pow(x: 10, y: numberDecimalPlaces);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculatePerihelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 - numericalEccentricity) * semiMajorAxis;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateAphelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 + numericalEccentricity) * semiMajorAxis;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="longitudeAscendingNode"></param>
+		/// <returns></returns>
+		private double CalculateLongitudeDescendingNode(double longitudeAscendingNode)
+		{
+			if (longitudeAscendingNode >= 0 && longitudeAscendingNode < 180)
+			{
+				return longitudeAscendingNode + 180;
+			}
+			else if (longitudeAscendingNode >= 180 && longitudeAscendingNode < 360)
+			{
+				return longitudeAscendingNode - 180;
+			}
+			return -1;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="argumentAphelion"></param>
+		/// <returns></returns>
+		private double CalculateArgumenOfAphelion(double argumentAphelion)
+		{
+			if (argumentAphelion >= 0 && argumentAphelion < 180)
+			{
+				return argumentAphelion + 180;
+			}
+			else if (argumentAphelion >= 180 && argumentAphelion < 360)
+			{
+				return argumentAphelion - 180;
+			}
+			return -1;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateFocalParameter(double semiMajorAxis, double numericalEccentricity)
+		{
+			if (numericalEccentricity > 1)
+			{
+				return Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+			}
+			else if (numericalEccentricity > 0 && numericalEccentricity < 1)
+			{
+				return Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
+			}
+			return 2 * semiMajorAxis;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateSemiLatusRectum(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * (1 - Math.Pow(x: numericalEccentricity, y: 2));
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateLatusRectum(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <returns></returns>
+		private double CalculatePeriod(double semiMajorAxis) => Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 3));
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateOrbitalArea(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) + ((3 * Math.Pow(x: semiMajorAxis - CalculateSemiMinorAxis(semiMajorAxis, numericalEccentricity), y: 2) / 10 * (semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity))) + Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + (14 * semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity)) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis, numericalEccentricity), y: 2)));
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateOrbitalPerimeter(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) * Math.PI;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateSemiMeanAxis(double semiMajorAxis, double numericalEccentricity) => (semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity)) / 2;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <param name="numericalEccentricity"></param>
+		/// <returns></returns>
+		private double CalculateMeanAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="semiMajorAxis"></param>
+		/// <returns></returns>
+		private double CalculateStandardGravitationalParameter(double semiMajorAxis) => 4 * Math.Pow(x: Math.PI, y: 2) * Math.Pow(x: semiMajorAxis, y: 3) / CalculatePeriod(semiMajorAxis: semiMajorAxis);
+
 		#endregion
 
 		#region Constructor
@@ -383,7 +589,6 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void PlanetoidDBForm_Load(object sender, EventArgs e)
 		{
-			CoInternetSetFeatureEnabled(FeatureEntry: FEATURE_DISABLE_NAVIGATION_SOUNDS, dwFlags: SET_FEATURE_ON_PROCESS, fEnable: true);
 			SetDoubleBuffered(control: tableLayoutPanelData);
 			ToolStripManager.Renderer = new Office2007Renderer();
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
@@ -1476,111 +1681,6 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void ToolStripMenuItemRestart_Click(object sender, EventArgs e) => Restart();
-
-		private double CalculateSemiMinorAxis(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * Math.Sqrt(1 - Math.Pow(x: numericalEccentricity, y: 2));
-
-		private double CalculateLinearEccentricity(double semiMajorAxis, double numericalEccentricity) => Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
-
-		private double CalculateMajorAxis(double semiMajorAxis) => 2 * semiMajorAxis;
-
-		private double CalculateMinorAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
-
-		private double CalculateEccentricAnomaly(double meanAnomaly, double numericalEccentricity, double numberDecimalPlaces)
-		{
-			double K = Math.PI / 180.0;
-			int maxIteration = 30, i = 0;
-			double delta = Math.Pow(x: 10, y: -numberDecimalPlaces);
-			double E, F;
-			meanAnomaly /= 360.0;
-			meanAnomaly = 2.0 * Math.PI * (meanAnomaly - Math.Floor(d: meanAnomaly));
-			if (numericalEccentricity < 0.8)
-			{
-				E = meanAnomaly;
-			}
-			else
-			{
-				E = Math.PI;
-			}
-			F = E - numericalEccentricity * Math.Sin(a: meanAnomaly) - meanAnomaly;
-			while ((Math.Abs(value: F) > delta) && (i < maxIteration))
-			{
-				E -= F / (1.0 - (numericalEccentricity * Math.Cos(d: E)));
-				F = E - numericalEccentricity * Math.Sin(a: E) - meanAnomaly;
-				i += 1;
-			}
-			E /= K;
-			return Math.Round(a: E * Math.Pow(x: 10, y: numberDecimalPlaces)) / Math.Pow(x: 10, y: numberDecimalPlaces);
-		}
-
-		private double CalculateTrueAnomaly(double meanAnomaly, double numericalEccentricity, double numberDecimalPlaces)
-		{
-			double E = CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: numberDecimalPlaces);
-			double K = Math.PI / 180.0;
-			double S = Math.Sin(a: E);
-			double C = Math.Cos(d: E);
-			double fak = Math.Sqrt(d: 1.0 - (numericalEccentricity * numericalEccentricity));
-			double phi = Math.Atan2(y: fak * S, x: C - numericalEccentricity) / K;
-			return Math.Round(a: phi * Math.Pow(x: 10, y: numberDecimalPlaces)) / Math.Pow(x: 10, y: numberDecimalPlaces);
-		}
-
-		private double CalculatePerihelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 - numericalEccentricity) * semiMajorAxis;
-
-		private double CalculateAphelionDistance(double semiMajorAxis, double numericalEccentricity) => (1 + numericalEccentricity) * semiMajorAxis;
-
-		private double CalculateLongitudeDescendingNode(double longitudeAscendingNode)
-		{
-			if (longitudeAscendingNode >= 0 && longitudeAscendingNode < 180)
-			{
-				return longitudeAscendingNode + 180;
-			}
-			else if (longitudeAscendingNode >= 180 && longitudeAscendingNode < 360)
-			{
-				return longitudeAscendingNode - 180;
-			}
-			return -1;
-		}
-
-		private double CalculateArgumenOfAphelion(double argumentAphelion)
-		{
-			if (argumentAphelion >= 0 && argumentAphelion < 180)
-			{
-				return argumentAphelion + 180;
-			}
-			else if (argumentAphelion >= 180 && argumentAphelion < 360)
-			{
-				return argumentAphelion - 180;
-			}
-			return -1;
-		}
-
-		private double CalculateFocalParameter(double semiMajorAxis, double numericalEccentricity)
-		{
-			if (numericalEccentricity > 1)
-			{
-				return Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
-			}
-			else if (numericalEccentricity > 0 && numericalEccentricity < 1)
-			{
-				return Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2) / Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) - Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity), y: 2));
-			}
-			return 2 * semiMajorAxis;
-		}
-
-		private double CalculateSemiLatusRectum(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * (1 - Math.Pow(x: numericalEccentricity, y: 2));
-
-		private double CalculateLatusRectum(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
-
-		private double CalculatePeriod(double semiMajorAxis) => Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 3));
-
-		private double CalculateOrbitalArea(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) + ((3 * Math.Pow(x: semiMajorAxis - CalculateSemiMinorAxis(semiMajorAxis, numericalEccentricity), y: 2) / 10 * (semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity))) + Math.Sqrt(d: Math.Pow(x: semiMajorAxis, y: 2) + (14 * semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity)) + Math.Pow(x: CalculateSemiMinorAxis(semiMajorAxis, numericalEccentricity), y: 2)));
-
-		private double CalculateOrbitalPerimeter(double semiMajorAxis, double numericalEccentricity) => semiMajorAxis * CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity) * Math.PI;
-
-		private double CalculateSemiMeanAxis(double semiMajorAxis, double numericalEccentricity) => (semiMajorAxis + CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity)) / 2;
-
-		private double CalculateMeanAxis(double semiMajorAxis, double numericalEccentricity) => 2 * CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity);
-
-		private double CalculateStandardGravitationalParameter(double semiMajorAxis) => 4 * Math.Pow(x: Math.PI, y: 2) * Math.Pow(x: semiMajorAxis, y: 3) / CalculatePeriod(semiMajorAxis: semiMajorAxis);
 
 		/// <summary>
 		/// 

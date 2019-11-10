@@ -346,6 +346,34 @@ namespace Planetoid_DB {
         ///		&lt;meta charset=&quot;utf-8&quot;&gt;
         ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
         ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Aphelion distance&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Aphelion distance&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_AphelionDistance {
+            get {
+                return ResourceManager.GetString("terminology_AphelionDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
         ///		&lt;title&gt;Argument of perihelion, J2000.0 (degrees)&lt;/title&gt;
         ///		&lt;style&gt;
         ///			* {font-family:sans-serif;}
@@ -362,6 +390,34 @@ namespace Planetoid_DB {
         internal static string terminology_ArgPeri {
             get {
                 return ResourceManager.GetString("terminology_ArgPeri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Argument of aphelion&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Argument of aphelion&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_ArgumentAphelion {
+            get {
+                return ResourceManager.GetString("terminology_ArgumentAphelion", resourceCulture);
             }
         }
         
@@ -427,6 +483,34 @@ namespace Planetoid_DB {
         ///		&lt;meta charset=&quot;utf-8&quot;&gt;
         ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
         ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Eccenctric anomaly&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Eccenctric anomaly&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_EccenctricAnomaly {
+            get {
+                return ResourceManager.GetString("terminology_EccenctricAnomaly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
         ///		&lt;title&gt;Terminology: Epoch (in packed form, .0 TT)&lt;/title&gt;
         ///		&lt;style&gt;
         ///			* {font-family:sans-serif;}
@@ -469,6 +553,34 @@ namespace Planetoid_DB {
         internal static string terminology_Flags {
             get {
                 return ResourceManager.GetString("terminology_Flags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Focal parameter&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Focal parameter&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_FocalParameter {
+            get {
+                return ResourceManager.GetString("terminology_FocalParameter", resourceCulture);
             }
         }
         
@@ -533,6 +645,62 @@ namespace Planetoid_DB {
         ///		&lt;meta charset=&quot;utf-8&quot;&gt;
         ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
         ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Latus rectum&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Latus rectum&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_LatusRectum {
+            get {
+                return ResourceManager.GetString("terminology_LatusRectum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Linear eccentricity&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Linear eccentricity&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_LinearEccentricity {
+            get {
+                return ResourceManager.GetString("terminology_LinearEccentricity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
         ///		&lt;title&gt;Longitude of the ascending node, J2000.0&lt;/title&gt;
         ///		&lt;style&gt;
         ///			* {font-family:sans-serif;}
@@ -549,6 +717,34 @@ namespace Planetoid_DB {
         internal static string terminology_LongAscNode {
             get {
                 return ResourceManager.GetString("terminology_LongAscNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Longitude of Descending node&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Longitude of Descending node&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_LongitudeDescendingNode {
+            get {
+                return ResourceManager.GetString("terminology_LongitudeDescendingNode", resourceCulture);
             }
         }
         
@@ -585,6 +781,34 @@ namespace Planetoid_DB {
         ///		&lt;meta charset=&quot;utf-8&quot;&gt;
         ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
         ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Major axis&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Major axis&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_MajorAxis {
+            get {
+                return ResourceManager.GetString("terminology_MajorAxis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
         ///		&lt;title&gt;Terminology: Mean anomaly at the epoch, in degrees&lt;/title&gt;
         ///		&lt;style&gt;
         ///			* {font-family:sans-serif;}
@@ -601,6 +825,62 @@ namespace Planetoid_DB {
         internal static string terminology_MeanAnomaly {
             get {
                 return ResourceManager.GetString("terminology_MeanAnomaly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Mean axis&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Mean axis&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_MeanAxis {
+            get {
+                return ResourceManager.GetString("terminology_MeanAxis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Minor axis&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Minor axis&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_MinorAxis {
+            get {
+                return ResourceManager.GetString("terminology_MinorAxis", resourceCulture);
             }
         }
         
@@ -770,6 +1050,118 @@ namespace Planetoid_DB {
         ///		&lt;meta charset=&quot;utf-8&quot;&gt;
         ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
         ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Orbital area&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Orbital area&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_OrbitalArea {
+            get {
+                return ResourceManager.GetString("terminology_OrbitalArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Orbital perimeter&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Orbital perimeter&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_OrbitalPerimeter {
+            get {
+                return ResourceManager.GetString("terminology_OrbitalPerimeter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Perihelion distance&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Perihelion distance&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_PerihelionDistance {
+            get {
+                return ResourceManager.GetString("terminology_PerihelionDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Period&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Period&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_Period {
+            get {
+                return ResourceManager.GetString("terminology_Period", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
         ///		&lt;title&gt;Reference&lt;/title&gt;
         ///		&lt;style&gt;
         ///			* {font-family:sans-serif;}
@@ -824,6 +1216,34 @@ namespace Planetoid_DB {
         ///		&lt;meta charset=&quot;utf-8&quot;&gt;
         ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
         ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Semi-latus rectum&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Semi-latus rectum&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_SemiLatusRectum {
+            get {
+                return ResourceManager.GetString("terminology_SemiLatusRectum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
         ///		&lt;title&gt;Semimajor axis (AU)&lt;/title&gt;
         ///		&lt;style&gt;
         ///			* {font-family:sans-serif;}
@@ -840,6 +1260,62 @@ namespace Planetoid_DB {
         internal static string terminology_SemiMajorAxis {
             get {
                 return ResourceManager.GetString("terminology_SemiMajorAxis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Semi-mean axis&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Semi-mean axis&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_SemiMeanAxis {
+            get {
+                return ResourceManager.GetString("terminology_SemiMeanAxis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Semi-minor axis&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Semi-minor axis&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_SemiMinorAxis {
+            get {
+                return ResourceManager.GetString("terminology_SemiMinorAxis", resourceCulture);
             }
         }
         
@@ -868,6 +1344,62 @@ namespace Planetoid_DB {
         internal static string terminology_SlopeParam {
             get {
                 return ResourceManager.GetString("terminology_SlopeParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Standard gravitational parameter&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;Standard gravitational parameter&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_StandardGravitationalParameter {
+            get {
+                return ResourceManager.GetString("terminology_StandardGravitationalParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;True anomaly&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///		&lt;h1&gt;True anomaly&lt;/h1&gt;
+        ///		&lt;p&gt;&lt;/p&gt;
+        ///	&lt;/body&gt;
+        ///&lt;/html&gt; ähnelt.
+        /// </summary>
+        internal static string terminology_TrueAnomaly {
+            get {
+                return ResourceManager.GetString("terminology_TrueAnomaly", resourceCulture);
             }
         }
         

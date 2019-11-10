@@ -174,7 +174,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Enter-Eventhandler
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
@@ -267,7 +267,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Leave-Eventhandler
+		#region Leave event handlers
 
 		/// <summary>
 		/// 
@@ -278,7 +278,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click-Eventhandler
+		#region Click event handlers
 
 		/// <summary>
 		/// 

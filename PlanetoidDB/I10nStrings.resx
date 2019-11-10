@@ -280,4 +280,61 @@
   <data name="Mail" xml:space="preserve">
     <value>mail</value>
   </data>
+  <data name="terminology_AphelionDistance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_AphelionDistance.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_ArgumentAphelion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_ArgumentAphelion.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_EccenctricAnomaly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_EccenctricAnomaly.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_FocalParameter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_FocalParameter.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_LatusRectum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_LatusRectum.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_LinearEccentricity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_LinearEccentricity.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_LongitudeDescendingNode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_LongitudeDescendingNode.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_MajorAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_MajorAxis.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_MeanAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_MeanAxis.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_MinorAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_MinorAxis.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_OrbitalArea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_OrbitalArea.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_OrbitalPerimeter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_OrbitalPerimeter.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_PerihelionDistance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_PerihelionDistance.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_Period" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_Period.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_SemiLatusRectum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_SemiLatusRectum.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_SemiMeanAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_SemiMeanAxis.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_SemiMinorAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_SemiMinorAxis.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_StandardGravitationalParameter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_StandardGravitationalParameter.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="terminology_TrueAnomaly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\terminology_TrueAnomaly.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

@@ -174,7 +174,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click-Handler
+		#region Click event handlers
 
 		/// <summary>
 		/// 

@@ -571,7 +571,11 @@
 			this.labelLinearEccentricity.Text = "Linear eccentricity";
 			this.labelLinearEccentricity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelLinearEccentricity, "Linear eccentricity");
-			this.labelLinearEccentricity.Click += new System.EventHandler(this.labelLinearEccentricity_Click);
+			this.labelLinearEccentricity.Click += new System.EventHandler(this.LabelLinearEccentricity_Click);
+			this.labelLinearEccentricity.Enter += new System.EventHandler(this.LabelLinearEccentricity_Enter);
+			this.labelLinearEccentricity.Leave += new System.EventHandler(this.LabelLinearEccentricity_Leave);
+			this.labelLinearEccentricity.MouseEnter += new System.EventHandler(this.LabelLinearEccentricity_Enter);
+			this.labelLinearEccentricity.MouseLeave += new System.EventHandler(this.LabelLinearEccentricity_Leave);
 			// 
 			// labelSemiMinorAxis
 			// 
@@ -589,9 +593,11 @@
 			this.labelSemiMinorAxis.Text = "Semi-minor axis";
 			this.labelSemiMinorAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSemiMinorAxis, "Semi-minor axis");
-			this.labelSemiMinorAxis.Click += new System.EventHandler(this.labelSemiMinorAxis_Click);
-			this.labelSemiMinorAxis.Enter += new System.EventHandler(this.labelSemiMinorAxis_Enter);
-			this.labelSemiMinorAxis.MouseEnter += new System.EventHandler(this.labelSemiMinorAxis_Enter);
+			this.labelSemiMinorAxis.Click += new System.EventHandler(this.LabelSemiMinorAxis_Click);
+			this.labelSemiMinorAxis.Enter += new System.EventHandler(this.LabelSemiMinorAxis_Enter);
+			this.labelSemiMinorAxis.Leave += new System.EventHandler(this.LabelSemiMinorAxis_Leave);
+			this.labelSemiMinorAxis.MouseEnter += new System.EventHandler(this.LabelSemiMinorAxis_Enter);
+			this.labelSemiMinorAxis.MouseLeave += new System.EventHandler(this.LabelSemiMinorAxis_Leave);
 			// 
 			// labelMajorAxis
 			// 
@@ -609,7 +615,11 @@
 			this.labelMajorAxis.Text = "Major axis";
 			this.labelMajorAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMajorAxis, "Major axis");
-			this.labelMajorAxis.Click += new System.EventHandler(this.labelMajorAxis_Click);
+			this.labelMajorAxis.Click += new System.EventHandler(this.LabelMajorAxis_Click);
+			this.labelMajorAxis.Enter += new System.EventHandler(this.LabelMajorAxis_Enter);
+			this.labelMajorAxis.Leave += new System.EventHandler(this.LabelMajorAxis_Leave);
+			this.labelMajorAxis.MouseEnter += new System.EventHandler(this.LabelMajorAxis_Enter);
+			this.labelMajorAxis.MouseLeave += new System.EventHandler(this.LabelMajorAxis_Leave);
 			// 
 			// labelMinorAxis
 			// 
@@ -627,9 +637,11 @@
 			this.labelMinorAxis.Text = "Minor axis";
 			this.labelMinorAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMinorAxis, "Minor axis");
-			this.labelMinorAxis.Click += new System.EventHandler(this.labelMinorAxis_Click);
-			this.labelMinorAxis.Enter += new System.EventHandler(this.labelMinorAxis_Enter);
-			this.labelMinorAxis.MouseEnter += new System.EventHandler(this.labelMinorAxis_Enter);
+			this.labelMinorAxis.Click += new System.EventHandler(this.LabelMinorAxis_Click);
+			this.labelMinorAxis.Enter += new System.EventHandler(this.LabelMinorAxis_Enter);
+			this.labelMinorAxis.Leave += new System.EventHandler(this.LabelMinorAxis_Leave);
+			this.labelMinorAxis.MouseEnter += new System.EventHandler(this.LabelMinorAxis_Enter);
+			this.labelMinorAxis.MouseLeave += new System.EventHandler(this.LabelMinorAxis_Leave);
 			// 
 			// labelEccenctricAnomaly
 			// 
@@ -647,9 +659,11 @@
 			this.labelEccenctricAnomaly.Text = "Eccentric anomaly";
 			this.labelEccenctricAnomaly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelEccenctricAnomaly, "Eccentric anomaly");
-			this.labelEccenctricAnomaly.Click += new System.EventHandler(this.labelEccenctricAnomaly_Click);
-			this.labelEccenctricAnomaly.Enter += new System.EventHandler(this.labelEccenctricAnomaly_Enter);
-			this.labelEccenctricAnomaly.MouseEnter += new System.EventHandler(this.labelEccenctricAnomaly_Enter);
+			this.labelEccenctricAnomaly.Click += new System.EventHandler(this.LabelEccenctricAnomaly_Click);
+			this.labelEccenctricAnomaly.Enter += new System.EventHandler(this.LabelEccenctricAnomaly_Enter);
+			this.labelEccenctricAnomaly.Leave += new System.EventHandler(this.LabelEccenctricAnomaly_Leave);
+			this.labelEccenctricAnomaly.MouseEnter += new System.EventHandler(this.LabelEccenctricAnomaly_Enter);
+			this.labelEccenctricAnomaly.MouseLeave += new System.EventHandler(this.LabelEccenctricAnomaly_Leave);
 			// 
 			// labelPerihelionDistance
 			// 
@@ -667,7 +681,11 @@
 			this.labelPerihelionDistance.Text = "Perihelion distance";
 			this.labelPerihelionDistance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelPerihelionDistance, "Perihelion distance");
-			this.labelPerihelionDistance.Click += new System.EventHandler(this.labelPerihelionDistance_Click);
+			this.labelPerihelionDistance.Click += new System.EventHandler(this.LabelPerihelionDistance_Click);
+			this.labelPerihelionDistance.Enter += new System.EventHandler(this.LabelPerihelionDistance_Enter);
+			this.labelPerihelionDistance.Leave += new System.EventHandler(this.LabelPerihelionDistance_Leave);
+			this.labelPerihelionDistance.MouseEnter += new System.EventHandler(this.LabelPerihelionDistance_Enter);
+			this.labelPerihelionDistance.MouseLeave += new System.EventHandler(this.LabelPerihelionDistance_Leave);
 			// 
 			// labelAphelionDistance
 			// 
@@ -685,7 +703,11 @@
 			this.labelAphelionDistance.Text = "Aphelion distance";
 			this.labelAphelionDistance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelAphelionDistance, "Aphelion distance");
-			this.labelAphelionDistance.Click += new System.EventHandler(this.labelAphelionDistance_Click);
+			this.labelAphelionDistance.Click += new System.EventHandler(this.LabelAphelionDistance_Click);
+			this.labelAphelionDistance.Enter += new System.EventHandler(this.LabelAphelionDistance_Enter);
+			this.labelAphelionDistance.Leave += new System.EventHandler(this.LabelAphelionDistance_Leave);
+			this.labelAphelionDistance.MouseEnter += new System.EventHandler(this.LabelAphelionDistance_Enter);
+			this.labelAphelionDistance.MouseLeave += new System.EventHandler(this.LabelAphelionDistance_Leave);
 			// 
 			// labelLongitudeDescendingNode
 			// 
@@ -703,7 +725,11 @@
 			this.labelLongitudeDescendingNode.Text = "Longitude of descending node";
 			this.labelLongitudeDescendingNode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelLongitudeDescendingNode, "Longitude of descending node");
-			this.labelLongitudeDescendingNode.Click += new System.EventHandler(this.labelLongitudeDescendingNode_Click);
+			this.labelLongitudeDescendingNode.Click += new System.EventHandler(this.LabelLongitudeDescendingNode_Click);
+			this.labelLongitudeDescendingNode.Enter += new System.EventHandler(this.LabelLongitudeDescendingNode_Enter);
+			this.labelLongitudeDescendingNode.Leave += new System.EventHandler(this.LabelLongitudeDescendingNode_Leave);
+			this.labelLongitudeDescendingNode.MouseEnter += new System.EventHandler(this.LabelLongitudeDescendingNode_Enter);
+			this.labelLongitudeDescendingNode.MouseLeave += new System.EventHandler(this.LabelLongitudeDescendingNode_Leave);
 			// 
 			// labelArgumentAphelion
 			// 
@@ -721,7 +747,11 @@
 			this.labelArgumentAphelion.Text = "Argument of aphelion";
 			this.labelArgumentAphelion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelArgumentAphelion, "Argument of aphelion");
-			this.labelArgumentAphelion.Click += new System.EventHandler(this.labelArgumentAphelion_Click);
+			this.labelArgumentAphelion.Click += new System.EventHandler(this.LabelArgumentAphelion_Click);
+			this.labelArgumentAphelion.Enter += new System.EventHandler(this.LabelArgumentAphelion_Enter);
+			this.labelArgumentAphelion.Leave += new System.EventHandler(this.LabelArgumentAphelion_Leave);
+			this.labelArgumentAphelion.MouseEnter += new System.EventHandler(this.LabelArgumentAphelion_Enter);
+			this.labelArgumentAphelion.MouseLeave += new System.EventHandler(this.LabelArgumentAphelion_Leave);
 			// 
 			// labelFocalParameter
 			// 
@@ -739,7 +769,11 @@
 			this.labelFocalParameter.Text = "Focal parameter";
 			this.labelFocalParameter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelFocalParameter, "Focal parameter");
-			this.labelFocalParameter.Click += new System.EventHandler(this.labelFocalParameter_Click);
+			this.labelFocalParameter.Click += new System.EventHandler(this.LabelFocalParameter_Click);
+			this.labelFocalParameter.Enter += new System.EventHandler(this.LabelFocalParameter_Enter);
+			this.labelFocalParameter.Leave += new System.EventHandler(this.LabelFocalParameter_Leave);
+			this.labelFocalParameter.MouseEnter += new System.EventHandler(this.LabelFocalParameter_Enter);
+			this.labelFocalParameter.MouseLeave += new System.EventHandler(this.LabelFocalParameter_Leave);
 			// 
 			// labelSemiLatusRectum
 			// 
@@ -757,7 +791,11 @@
 			this.labelSemiLatusRectum.Text = "Semi-latus rectum";
 			this.labelSemiLatusRectum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSemiLatusRectum, "Semi-latus rectum");
-			this.labelSemiLatusRectum.Click += new System.EventHandler(this.labelSemiLatusRectum_Click);
+			this.labelSemiLatusRectum.Click += new System.EventHandler(this.LabelSemiLatusRectum_Click);
+			this.labelSemiLatusRectum.Enter += new System.EventHandler(this.LabelSemiLatusRectum_Enter);
+			this.labelSemiLatusRectum.Leave += new System.EventHandler(this.LabelSemiLatusRectum_Leave);
+			this.labelSemiLatusRectum.MouseEnter += new System.EventHandler(this.LabelSemiLatusRectum_Enter);
+			this.labelSemiLatusRectum.MouseLeave += new System.EventHandler(this.LabelSemiLatusRectum_Leave);
 			// 
 			// labelLatusRectum
 			// 
@@ -775,7 +813,11 @@
 			this.labelLatusRectum.Text = "Latus rectum";
 			this.labelLatusRectum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelLatusRectum, "Latus rectum");
-			this.labelLatusRectum.Click += new System.EventHandler(this.labelLatusRectum_Click);
+			this.labelLatusRectum.Click += new System.EventHandler(this.LabelLatusRectum_Click);
+			this.labelLatusRectum.Enter += new System.EventHandler(this.LabelLatusRectum_Enter);
+			this.labelLatusRectum.Leave += new System.EventHandler(this.LabelLatusRectum_Leave);
+			this.labelLatusRectum.MouseEnter += new System.EventHandler(this.LabelLatusRectum_Enter);
+			this.labelLatusRectum.MouseLeave += new System.EventHandler(this.LabelLatusRectum_Leave);
 			// 
 			// labelPeriod
 			// 
@@ -793,7 +835,11 @@
 			this.labelPeriod.Text = "Period";
 			this.labelPeriod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelPeriod, "Period");
-			this.labelPeriod.Click += new System.EventHandler(this.labelPeriod_Click);
+			this.labelPeriod.Click += new System.EventHandler(this.LabelPeriod_Click);
+			this.labelPeriod.Enter += new System.EventHandler(this.LabelPeriod_Enter);
+			this.labelPeriod.Leave += new System.EventHandler(this.LabelPeriod_Leave);
+			this.labelPeriod.MouseEnter += new System.EventHandler(this.LabelPeriod_Enter);
+			this.labelPeriod.MouseLeave += new System.EventHandler(this.LabelPeriod_Leave);
 			// 
 			// labelOrbitalArea
 			// 
@@ -811,7 +857,11 @@
 			this.labelOrbitalArea.Text = "Orbital area";
 			this.labelOrbitalArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelOrbitalArea, "Orbital area");
-			this.labelOrbitalArea.Click += new System.EventHandler(this.labelOrbitalArea_Click);
+			this.labelOrbitalArea.Click += new System.EventHandler(this.LabelOrbitalArea_Click);
+			this.labelOrbitalArea.Enter += new System.EventHandler(this.LabelOrbitalArea_Enter);
+			this.labelOrbitalArea.Leave += new System.EventHandler(this.LabelOrbitalArea_Leave);
+			this.labelOrbitalArea.MouseEnter += new System.EventHandler(this.LabelOrbitalArea_Enter);
+			this.labelOrbitalArea.MouseLeave += new System.EventHandler(this.LabelOrbitalArea_Leave);
 			// 
 			// labelOrbitalPerimeter
 			// 
@@ -829,7 +879,11 @@
 			this.labelOrbitalPerimeter.Text = "Orbital perimeter";
 			this.labelOrbitalPerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelOrbitalPerimeter, "Orbital perimeter");
-			this.labelOrbitalPerimeter.Click += new System.EventHandler(this.labelOrbitalPerimeter_Click);
+			this.labelOrbitalPerimeter.Click += new System.EventHandler(this.LabelOrbitalPerimeter_Click);
+			this.labelOrbitalPerimeter.Enter += new System.EventHandler(this.LabelOrbitalPerimeter_Enter);
+			this.labelOrbitalPerimeter.Leave += new System.EventHandler(this.LabelOrbitalPerimeter_Leave);
+			this.labelOrbitalPerimeter.MouseEnter += new System.EventHandler(this.LabelOrbitalPerimeter_Enter);
+			this.labelOrbitalPerimeter.MouseLeave += new System.EventHandler(this.LabelOrbitalPerimeter_Leave);
 			// 
 			// labelSemiMeanAxis
 			// 
@@ -847,7 +901,11 @@
 			this.labelSemiMeanAxis.Text = "Semi-mean axis";
 			this.labelSemiMeanAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelSemiMeanAxis, "Semi-mean axis");
-			this.labelSemiMeanAxis.Click += new System.EventHandler(this.labelSemiMeanAxis_Click);
+			this.labelSemiMeanAxis.Click += new System.EventHandler(this.LabelSemiMeanAxis_Click);
+			this.labelSemiMeanAxis.Enter += new System.EventHandler(this.LabelSemiMeanAxis_Enter);
+			this.labelSemiMeanAxis.Leave += new System.EventHandler(this.LabelSemiMeanAxis_Leave);
+			this.labelSemiMeanAxis.MouseEnter += new System.EventHandler(this.LabelSemiMeanAxis_Enter);
+			this.labelSemiMeanAxis.MouseLeave += new System.EventHandler(this.LabelSemiMeanAxis_Leave);
 			// 
 			// labelMeanAxis
 			// 
@@ -865,7 +923,11 @@
 			this.labelMeanAxis.Text = "Mean axis";
 			this.labelMeanAxis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelMeanAxis, "Mean axis");
-			this.labelMeanAxis.Click += new System.EventHandler(this.labelMeanAxis_Click);
+			this.labelMeanAxis.Click += new System.EventHandler(this.LabelMeanAxis_Click);
+			this.labelMeanAxis.Enter += new System.EventHandler(this.LabelMeanAxis_Enter);
+			this.labelMeanAxis.Leave += new System.EventHandler(this.LabelMeanAxis_Leave);
+			this.labelMeanAxis.MouseEnter += new System.EventHandler(this.LabelMeanAxis_Enter);
+			this.labelMeanAxis.MouseLeave += new System.EventHandler(this.LabelMeanAxis_Leave);
 			// 
 			// labelStandardGravitationalParameter
 			// 
@@ -883,7 +945,11 @@
 			this.labelStandardGravitationalParameter.Text = "Standard gravitational parameter";
 			this.labelStandardGravitationalParameter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelStandardGravitationalParameter, "Standard gravitational parameter");
-			this.labelStandardGravitationalParameter.Click += new System.EventHandler(this.labelStandardGravitationalParameter_Click);
+			this.labelStandardGravitationalParameter.Click += new System.EventHandler(this.LabelStandardGravitationalParameter_Click);
+			this.labelStandardGravitationalParameter.Enter += new System.EventHandler(this.LabelStandardGravitationalParameter_Enter);
+			this.labelStandardGravitationalParameter.Leave += new System.EventHandler(this.LabelStandardGravitationalParameter_Leave);
+			this.labelStandardGravitationalParameter.MouseEnter += new System.EventHandler(this.LabelStandardGravitationalParameter_Enter);
+			this.labelStandardGravitationalParameter.MouseLeave += new System.EventHandler(this.LabelStandardGravitationalParameter_Leave);
 			// 
 			// labelTrueAnomaly
 			// 
@@ -901,9 +967,11 @@
 			this.labelTrueAnomaly.Text = "True anomaly";
 			this.labelTrueAnomaly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.toolTip.SetToolTip(this.labelTrueAnomaly, "True anomaly");
-			this.labelTrueAnomaly.Click += new System.EventHandler(this.labelTrueAnomaly_Click);
-			this.labelTrueAnomaly.Enter += new System.EventHandler(this.labelTrueAnomaly_Enter);
-			this.labelTrueAnomaly.MouseEnter += new System.EventHandler(this.labelTrueAnomaly_Enter);
+			this.labelTrueAnomaly.Click += new System.EventHandler(this.LabelTrueAnomaly_Click);
+			this.labelTrueAnomaly.Enter += new System.EventHandler(this.LabelTrueAnomaly_Enter);
+			this.labelTrueAnomaly.Leave += new System.EventHandler(this.LabelTrueAnomaly_Leave);
+			this.labelTrueAnomaly.MouseEnter += new System.EventHandler(this.LabelTrueAnomaly_Enter);
+			this.labelTrueAnomaly.MouseLeave += new System.EventHandler(this.LabelTrueAnomaly_Leave);
 			// 
 			// statusStrip
 			// 

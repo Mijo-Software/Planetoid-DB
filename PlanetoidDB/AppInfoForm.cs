@@ -70,25 +70,7 @@ namespace Planetoid_DB
 
 		#endregion		
 
-		#region LinkClicked-Eventhandler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LinkLabelCopyright_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LinkLabelWWW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
-
-		#endregion
-
-		#region Enter-Eventhandler
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
@@ -181,7 +163,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Leave-Eventhandler
+		#region Leave event handlers
 
 		/// <summary>
 		/// 
@@ -192,7 +174,21 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click-Eventhandler
+		#region Click event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelCopyright_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LinkLabelWWW_Clicked(object sender, LinkLabelLinkClickedEventArgs e) => System.Diagnostics.Process.Start(fileName: e.Link.LinkData.ToString());
 
 		/// <summary>
 		/// 
