@@ -30,20 +30,21 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.buttonFind = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.labelSearchterm = new System.Windows.Forms.Label();
+			this.textBoxSearchfield = new System.Windows.Forms.TextBox();
+			this.buttonFindSearchterm = new System.Windows.Forms.Button();
+			this.buttonCancelSearch = new System.Windows.Forms.Button();
 			this.groupBoxSearchIn = new System.Windows.Forms.GroupBox();
+			this.buttonUnselectAllItems = new System.Windows.Forms.Button();
 			this.checkedListBoxSearchIn = new System.Windows.Forms.CheckedListBox();
-			this.groupBoxOptions = new System.Windows.Forms.GroupBox();
+			this.buttonSelectAllItems = new System.Windows.Forms.Button();
+			this.groupBoxSearchOptions = new System.Windows.Forms.GroupBox();
 			this.radioButtonFulltext = new System.Windows.Forms.RadioButton();
 			this.radioButtonParttext = new System.Windows.Forms.RadioButton();
-			this.buttonSelectAll = new System.Windows.Forms.Button();
-			this.label2 = new System.Windows.Forms.Label();
-			this.progressBar1 = new System.Windows.Forms.ProgressBar();
-			this.label3 = new System.Windows.Forms.Label();
-			this.listViewTableMode = new System.Windows.Forms.ListView();
+			this.labelProgress = new System.Windows.Forms.Label();
+			this.progressBar = new System.Windows.Forms.ProgressBar();
+			this.labelProgressPercent = new System.Windows.Forms.Label();
+			this.listViewResults = new System.Windows.Forms.ListView();
 			this.columnHeaderIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderReadableDesignation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,65 +54,113 @@
 			this.buttonOpenSelectedObject = new System.Windows.Forms.Button();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.buttonOK = new System.Windows.Forms.Button();
+			this.numericUpDownRangeMaximum = new System.Windows.Forms.NumericUpDown();
+			this.labelRangeMaximum = new System.Windows.Forms.Label();
+			this.numericUpDownRangeMinimum = new System.Windows.Forms.NumericUpDown();
+			this.labelRangeMinimum = new System.Windows.Forms.Label();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.groupBoxRange = new System.Windows.Forms.GroupBox();
+			this.buttonSetDefaultSettings = new System.Windows.Forms.Button();
 			this.groupBoxSearchIn.SuspendLayout();
-			this.groupBoxOptions.SuspendLayout();
+			this.groupBoxSearchOptions.SuspendLayout();
 			this.statusBar.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRangeMaximum)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRangeMinimum)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+			this.groupBoxRange.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// label1
+			// labelSearchterm
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(38, 15);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "&Term:";
+			this.labelSearchterm.AutoSize = true;
+			this.labelSearchterm.Location = new System.Drawing.Point(12, 9);
+			this.labelSearchterm.Name = "labelSearchterm";
+			this.labelSearchterm.Size = new System.Drawing.Size(38, 15);
+			this.labelSearchterm.TabIndex = 0;
+			this.labelSearchterm.Text = "&Term:";
+			this.labelSearchterm.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSearchterm.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelSearchterm.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelSearchterm.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// textBox1
+			// textBoxSearchfield
 			// 
-			this.textBox1.Location = new System.Drawing.Point(52, 6);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(233, 23);
-			this.textBox1.TabIndex = 1;
+			this.textBoxSearchfield.Location = new System.Drawing.Point(52, 6);
+			this.textBoxSearchfield.Name = "textBoxSearchfield";
+			this.textBoxSearchfield.Size = new System.Drawing.Size(253, 23);
+			this.textBoxSearchfield.TabIndex = 1;
+			this.textBoxSearchfield.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxSearchfield.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.textBoxSearchfield.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxSearchfield.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// buttonFind
+			// buttonFindSearchterm
 			// 
-			this.buttonFind.Image = global::Planetoid_DB.Properties.Resources.silk_find;
-			this.buttonFind.Location = new System.Drawing.Point(291, 4);
-			this.buttonFind.Name = "buttonFind";
-			this.buttonFind.Size = new System.Drawing.Size(69, 23);
-			this.buttonFind.TabIndex = 2;
-			this.buttonFind.Text = "&Find";
-			this.buttonFind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.buttonFind.UseVisualStyleBackColor = true;
+			this.buttonFindSearchterm.Image = global::Planetoid_DB.Properties.Resources.silk_find;
+			this.buttonFindSearchterm.Location = new System.Drawing.Point(311, 4);
+			this.buttonFindSearchterm.Name = "buttonFindSearchterm";
+			this.buttonFindSearchterm.Size = new System.Drawing.Size(69, 25);
+			this.buttonFindSearchterm.TabIndex = 2;
+			this.buttonFindSearchterm.Text = "&Find";
+			this.buttonFindSearchterm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonFindSearchterm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.buttonFindSearchterm.UseVisualStyleBackColor = true;
+			this.buttonFindSearchterm.Click += new System.EventHandler(this.ButtonFindSearchterm_Click);
+			this.buttonFindSearchterm.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonFindSearchterm.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonFindSearchterm.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonFindSearchterm.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// button2
+			// buttonCancelSearch
 			// 
-			this.button2.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
-			this.button2.Location = new System.Drawing.Point(366, 4);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(69, 23);
-			this.button2.TabIndex = 3;
-			this.button2.Text = "&Cancel";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.button2.UseVisualStyleBackColor = true;
+			this.buttonCancelSearch.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
+			this.buttonCancelSearch.Location = new System.Drawing.Point(386, 4);
+			this.buttonCancelSearch.Name = "buttonCancelSearch";
+			this.buttonCancelSearch.Size = new System.Drawing.Size(69, 25);
+			this.buttonCancelSearch.TabIndex = 3;
+			this.buttonCancelSearch.Text = "&Cancel";
+			this.buttonCancelSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonCancelSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.buttonCancelSearch.UseVisualStyleBackColor = true;
+			this.buttonCancelSearch.Click += new System.EventHandler(this.ButtonCancelSearch_Click);
+			this.buttonCancelSearch.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancelSearch.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonCancelSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancelSearch.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// groupBoxSearchIn
 			// 
+			this.groupBoxSearchIn.Controls.Add(this.buttonUnselectAllItems);
 			this.groupBoxSearchIn.Controls.Add(this.checkedListBoxSearchIn);
+			this.groupBoxSearchIn.Controls.Add(this.buttonSelectAllItems);
 			this.groupBoxSearchIn.Location = new System.Drawing.Point(15, 32);
 			this.groupBoxSearchIn.Name = "groupBoxSearchIn";
-			this.groupBoxSearchIn.Size = new System.Drawing.Size(254, 99);
+			this.groupBoxSearchIn.Size = new System.Drawing.Size(354, 99);
 			this.groupBoxSearchIn.TabIndex = 4;
 			this.groupBoxSearchIn.TabStop = false;
 			this.groupBoxSearchIn.Text = "&Search in";
 			// 
+			// buttonUnselectAllItems
+			// 
+			this.buttonUnselectAllItems.Image = global::Planetoid_DB.Properties.Resources.silk_asterisk_yellow;
+			this.buttonUnselectAllItems.Location = new System.Drawing.Point(254, 47);
+			this.buttonUnselectAllItems.Name = "buttonUnselectAllItems";
+			this.buttonUnselectAllItems.Size = new System.Drawing.Size(94, 23);
+			this.buttonUnselectAllItems.TabIndex = 2;
+			this.buttonUnselectAllItems.Text = "&Unselect all";
+			this.buttonUnselectAllItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonUnselectAllItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.buttonUnselectAllItems.UseVisualStyleBackColor = true;
+			this.buttonUnselectAllItems.Click += new System.EventHandler(this.ButtonUnselectAllItems_Click);
+			this.buttonUnselectAllItems.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonUnselectAllItems.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonUnselectAllItems.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonUnselectAllItems.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
 			// checkedListBoxSearchIn
 			// 
 			this.checkedListBoxSearchIn.CheckOnClick = true;
-			this.checkedListBoxSearchIn.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.checkedListBoxSearchIn.Dock = System.Windows.Forms.DockStyle.Left;
 			this.checkedListBoxSearchIn.FormattingEnabled = true;
 			this.checkedListBoxSearchIn.HorizontalScrollbar = true;
 			this.checkedListBoxSearchIn.Items.AddRange(new object[] {
@@ -136,19 +185,40 @@
             "Date of last observation"});
 			this.checkedListBoxSearchIn.Location = new System.Drawing.Point(3, 19);
 			this.checkedListBoxSearchIn.Name = "checkedListBoxSearchIn";
-			this.checkedListBoxSearchIn.Size = new System.Drawing.Size(248, 77);
+			this.checkedListBoxSearchIn.Size = new System.Drawing.Size(243, 77);
 			this.checkedListBoxSearchIn.TabIndex = 0;
+			this.checkedListBoxSearchIn.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.checkedListBoxSearchIn.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.checkedListBoxSearchIn.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.checkedListBoxSearchIn.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// groupBoxOptions
+			// buttonSelectAllItems
 			// 
-			this.groupBoxOptions.Controls.Add(this.radioButtonFulltext);
-			this.groupBoxOptions.Controls.Add(this.radioButtonParttext);
-			this.groupBoxOptions.Location = new System.Drawing.Point(366, 35);
-			this.groupBoxOptions.Name = "groupBoxOptions";
-			this.groupBoxOptions.Size = new System.Drawing.Size(79, 96);
-			this.groupBoxOptions.TabIndex = 5;
-			this.groupBoxOptions.TabStop = false;
-			this.groupBoxOptions.Text = "&Options";
+			this.buttonSelectAllItems.Image = global::Planetoid_DB.Properties.Resources.silk_asterisk_yellow;
+			this.buttonSelectAllItems.Location = new System.Drawing.Point(254, 18);
+			this.buttonSelectAllItems.Name = "buttonSelectAllItems";
+			this.buttonSelectAllItems.Size = new System.Drawing.Size(94, 23);
+			this.buttonSelectAllItems.TabIndex = 1;
+			this.buttonSelectAllItems.Text = "Select &all";
+			this.buttonSelectAllItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSelectAllItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.buttonSelectAllItems.UseVisualStyleBackColor = true;
+			this.buttonSelectAllItems.Click += new System.EventHandler(this.ButtonSelectAllItems_Click);
+			this.buttonSelectAllItems.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSelectAllItems.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSelectAllItems.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSelectAllItems.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// groupBoxSearchOptions
+			// 
+			this.groupBoxSearchOptions.Controls.Add(this.radioButtonFulltext);
+			this.groupBoxSearchOptions.Controls.Add(this.radioButtonParttext);
+			this.groupBoxSearchOptions.Location = new System.Drawing.Point(375, 35);
+			this.groupBoxSearchOptions.Name = "groupBoxSearchOptions";
+			this.groupBoxSearchOptions.Size = new System.Drawing.Size(79, 96);
+			this.groupBoxSearchOptions.TabIndex = 5;
+			this.groupBoxSearchOptions.TabStop = false;
+			this.groupBoxSearchOptions.Text = "T&ext";
 			// 
 			// radioButtonFulltext
 			// 
@@ -157,8 +227,12 @@
 			this.radioButtonFulltext.Name = "radioButtonFulltext";
 			this.radioButtonFulltext.Size = new System.Drawing.Size(64, 19);
 			this.radioButtonFulltext.TabIndex = 1;
-			this.radioButtonFulltext.Text = "full text";
+			this.radioButtonFulltext.Text = "full &text";
 			this.radioButtonFulltext.UseVisualStyleBackColor = true;
+			this.radioButtonFulltext.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonFulltext.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonFulltext.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonFulltext.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonParttext
 			// 
@@ -169,70 +243,76 @@
 			this.radioButtonParttext.Size = new System.Drawing.Size(68, 19);
 			this.radioButtonParttext.TabIndex = 0;
 			this.radioButtonParttext.TabStop = true;
-			this.radioButtonParttext.Text = "part text";
+			this.radioButtonParttext.Text = "&part text";
 			this.radioButtonParttext.UseVisualStyleBackColor = true;
+			this.radioButtonParttext.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonParttext.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonParttext.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonParttext.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// buttonSelectAll
+			// labelProgress
 			// 
-			this.buttonSelectAll.Image = global::Planetoid_DB.Properties.Resources.silk_asterisk_yellow;
-			this.buttonSelectAll.Location = new System.Drawing.Point(275, 48);
-			this.buttonSelectAll.Name = "buttonSelectAll";
-			this.buttonSelectAll.Size = new System.Drawing.Size(85, 23);
-			this.buttonSelectAll.TabIndex = 6;
-			this.buttonSelectAll.Text = "Select &all";
-			this.buttonSelectAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSelectAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.buttonSelectAll.UseVisualStyleBackColor = true;
+			this.labelProgress.AutoSize = true;
+			this.labelProgress.Location = new System.Drawing.Point(15, 200);
+			this.labelProgress.Name = "labelProgress";
+			this.labelProgress.Size = new System.Drawing.Size(55, 15);
+			this.labelProgress.TabIndex = 8;
+			this.labelProgress.Text = "Pro&gress:";
+			this.labelProgress.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelProgress.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelProgress.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelProgress.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// label2
+			// progressBar
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(15, 146);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(55, 15);
-			this.label2.TabIndex = 7;
-			this.label2.Text = "&Progress:";
+			this.progressBar.Location = new System.Drawing.Point(76, 200);
+			this.progressBar.Name = "progressBar";
+			this.progressBar.Size = new System.Drawing.Size(339, 13);
+			this.progressBar.TabIndex = 9;
+			this.progressBar.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.progressBar.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// progressBar1
+			// labelProgressPercent
 			// 
-			this.progressBar1.Location = new System.Drawing.Point(72, 146);
-			this.progressBar1.Name = "progressBar1";
-			this.progressBar1.Size = new System.Drawing.Size(331, 13);
-			this.progressBar1.TabIndex = 8;
+			this.labelProgressPercent.AutoSize = true;
+			this.labelProgressPercent.Location = new System.Drawing.Point(421, 200);
+			this.labelProgressPercent.Name = "labelProgressPercent";
+			this.labelProgressPercent.Size = new System.Drawing.Size(38, 15);
+			this.labelProgressPercent.TabIndex = 10;
+			this.labelProgressPercent.Text = "100 &%";
+			this.labelProgressPercent.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelProgressPercent.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelProgressPercent.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelProgressPercent.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// label3
+			// listViewResults
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(409, 146);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(38, 15);
-			this.label3.TabIndex = 9;
-			this.label3.Text = "100 %";
-			// 
-			// listViewTableMode
-			// 
-			this.listViewTableMode.AccessibleDescription = "Show the list with the items";
-			this.listViewTableMode.AccessibleName = "List";
-			this.listViewTableMode.AccessibleRole = System.Windows.Forms.AccessibleRole.ListItem;
-			this.listViewTableMode.Activation = System.Windows.Forms.ItemActivation.OneClick;
-			this.listViewTableMode.AllowColumnReorder = true;
-			this.listViewTableMode.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.listViewResults.AccessibleDescription = "Show the list with the items";
+			this.listViewResults.AccessibleName = "List";
+			this.listViewResults.AccessibleRole = System.Windows.Forms.AccessibleRole.ListItem;
+			this.listViewResults.Activation = System.Windows.Forms.ItemActivation.OneClick;
+			this.listViewResults.AllowColumnReorder = true;
+			this.listViewResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderIndex,
             this.columnHeaderReadableDesignation,
             this.columnHeaderItem,
             this.columnHeaderValue});
-			this.listViewTableMode.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.listViewTableMode.FullRowSelect = true;
-			this.listViewTableMode.GridLines = true;
-			this.listViewTableMode.HideSelection = false;
-			this.listViewTableMode.Location = new System.Drawing.Point(15, 165);
-			this.listViewTableMode.MultiSelect = false;
-			this.listViewTableMode.Name = "listViewTableMode";
-			this.listViewTableMode.ShowItemToolTips = true;
-			this.listViewTableMode.Size = new System.Drawing.Size(430, 166);
-			this.listViewTableMode.TabIndex = 10;
-			this.listViewTableMode.UseCompatibleStateImageBehavior = false;
-			this.listViewTableMode.View = System.Windows.Forms.View.Details;
+			this.listViewResults.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.listViewResults.FullRowSelect = true;
+			this.listViewResults.GridLines = true;
+			this.listViewResults.HideSelection = false;
+			this.listViewResults.Location = new System.Drawing.Point(15, 219);
+			this.listViewResults.MultiSelect = false;
+			this.listViewResults.Name = "listViewResults";
+			this.listViewResults.ShowItemToolTips = true;
+			this.listViewResults.Size = new System.Drawing.Size(440, 166);
+			this.listViewResults.TabIndex = 11;
+			this.listViewResults.UseCompatibleStateImageBehavior = false;
+			this.listViewResults.View = System.Windows.Forms.View.Details;
+			this.listViewResults.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.listViewResults.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.listViewResults.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.listViewResults.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// columnHeaderIndex
 			// 
@@ -265,11 +345,11 @@
 			this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelInformation});
 			this.statusBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-			this.statusBar.Location = new System.Drawing.Point(0, 369);
+			this.statusBar.Location = new System.Drawing.Point(0, 426);
 			this.statusBar.Name = "statusBar";
 			this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			this.statusBar.ShowItemToolTips = true;
-			this.statusBar.Size = new System.Drawing.Size(457, 21);
+			this.statusBar.Size = new System.Drawing.Size(471, 21);
 			this.statusBar.SizingGrip = false;
 			this.statusBar.TabIndex = 14;
 			this.statusBar.TabStop = true;
@@ -292,53 +372,160 @@
 			// buttonOpenSelectedObject
 			// 
 			this.buttonOpenSelectedObject.Image = global::Planetoid_DB.Properties.Resources.silk_application_go;
-			this.buttonOpenSelectedObject.Location = new System.Drawing.Point(291, 337);
+			this.buttonOpenSelectedObject.Location = new System.Drawing.Point(301, 391);
 			this.buttonOpenSelectedObject.Name = "buttonOpenSelectedObject";
 			this.buttonOpenSelectedObject.Size = new System.Drawing.Size(154, 23);
-			this.buttonOpenSelectedObject.TabIndex = 15;
+			this.buttonOpenSelectedObject.TabIndex = 13;
 			this.buttonOpenSelectedObject.Text = "Open selected o&bject";
 			this.buttonOpenSelectedObject.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonOpenSelectedObject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.buttonOpenSelectedObject.UseVisualStyleBackColor = true;
+			this.buttonOpenSelectedObject.Click += new System.EventHandler(this.ButtonOpenSelectedObject_Click);
+			this.buttonOpenSelectedObject.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonOpenSelectedObject.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonOpenSelectedObject.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonOpenSelectedObject.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonOK
 			// 
 			this.buttonOK.AccessibleDescription = "Okay";
 			this.buttonOK.AccessibleName = "OK";
 			this.buttonOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
-			this.buttonOK.Location = new System.Drawing.Point(210, 337);
+			this.buttonOK.Location = new System.Drawing.Point(222, 391);
 			this.buttonOK.Name = "buttonOK";
 			this.buttonOK.Size = new System.Drawing.Size(75, 23);
-			this.buttonOK.TabIndex = 16;
+			this.buttonOK.TabIndex = 12;
 			this.buttonOK.Text = "&OK";
 			this.buttonOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.buttonOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.toolTip.SetToolTip(this.buttonOK, "OK");
 			this.buttonOK.UseVisualStyleBackColor = true;
+			this.buttonOK.Click += new System.EventHandler(this.ButtonOK_Click);
+			this.buttonOK.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonOK.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonOK.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonOK.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// numericUpDownRangeMaximum
+			// 
+			this.numericUpDownRangeMaximum.AccessibleDescription = "Show the maximum value";
+			this.numericUpDownRangeMaximum.AccessibleName = "Maximum value";
+			this.numericUpDownRangeMaximum.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
+			this.numericUpDownRangeMaximum.Location = new System.Drawing.Point(215, 16);
+			this.numericUpDownRangeMaximum.Name = "numericUpDownRangeMaximum";
+			this.numericUpDownRangeMaximum.Size = new System.Drawing.Size(64, 23);
+			this.numericUpDownRangeMaximum.TabIndex = 3;
+			this.numericUpDownRangeMaximum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.toolTip.SetToolTip(this.numericUpDownRangeMaximum, "Maximum value for the list");
+			this.numericUpDownRangeMaximum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.numericUpDownRangeMaximum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelRangeMaximum
+			// 
+			this.labelRangeMaximum.AccessibleDescription = "Show the maximum";
+			this.labelRangeMaximum.AccessibleName = "Maximum";
+			this.labelRangeMaximum.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelRangeMaximum.AutoSize = true;
+			this.labelRangeMaximum.BackColor = System.Drawing.Color.Transparent;
+			this.labelRangeMaximum.Location = new System.Drawing.Point(145, 19);
+			this.labelRangeMaximum.Name = "labelRangeMaximum";
+			this.labelRangeMaximum.Size = new System.Drawing.Size(64, 15);
+			this.labelRangeMaximum.TabIndex = 2;
+			this.labelRangeMaximum.Text = "M&aximum:";
+			this.toolTip.SetToolTip(this.labelRangeMaximum, "Maximum");
+			this.labelRangeMaximum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelRangeMaximum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelRangeMaximum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelRangeMaximum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// numericUpDownRangeMinimum
+			// 
+			this.numericUpDownRangeMinimum.AccessibleDescription = "Show the minimum value";
+			this.numericUpDownRangeMinimum.AccessibleName = "Minimum value";
+			this.numericUpDownRangeMinimum.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
+			this.numericUpDownRangeMinimum.Location = new System.Drawing.Point(75, 16);
+			this.numericUpDownRangeMinimum.Name = "numericUpDownRangeMinimum";
+			this.numericUpDownRangeMinimum.Size = new System.Drawing.Size(64, 23);
+			this.numericUpDownRangeMinimum.TabIndex = 1;
+			this.numericUpDownRangeMinimum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.toolTip.SetToolTip(this.numericUpDownRangeMinimum, "Minimum value for the list");
+			this.numericUpDownRangeMinimum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.numericUpDownRangeMinimum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelRangeMinimum
+			// 
+			this.labelRangeMinimum.AccessibleDescription = "Show the minimum";
+			this.labelRangeMinimum.AccessibleName = "Minimum";
+			this.labelRangeMinimum.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+			this.labelRangeMinimum.AutoSize = true;
+			this.labelRangeMinimum.BackColor = System.Drawing.Color.Transparent;
+			this.labelRangeMinimum.Location = new System.Drawing.Point(6, 19);
+			this.labelRangeMinimum.Name = "labelRangeMinimum";
+			this.labelRangeMinimum.Size = new System.Drawing.Size(63, 15);
+			this.labelRangeMinimum.TabIndex = 0;
+			this.labelRangeMinimum.Text = "M&inimum:";
+			this.toolTip.SetToolTip(this.labelRangeMinimum, "Minimum");
+			this.labelRangeMinimum.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelRangeMinimum.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelRangeMinimum.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelRangeMinimum.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
+			// 
+			// groupBoxRange
+			// 
+			this.groupBoxRange.Controls.Add(this.labelRangeMinimum);
+			this.groupBoxRange.Controls.Add(this.numericUpDownRangeMaximum);
+			this.groupBoxRange.Controls.Add(this.numericUpDownRangeMinimum);
+			this.groupBoxRange.Controls.Add(this.labelRangeMaximum);
+			this.groupBoxRange.Location = new System.Drawing.Point(18, 135);
+			this.groupBoxRange.Name = "groupBoxRange";
+			this.groupBoxRange.Size = new System.Drawing.Size(351, 50);
+			this.groupBoxRange.TabIndex = 6;
+			this.groupBoxRange.TabStop = false;
+			this.groupBoxRange.Text = "Range";
+			// 
+			// buttonSetDefaultSettings
+			// 
+			this.buttonSetDefaultSettings.Image = global::Planetoid_DB.Properties.Resources.silk_control_blank;
+			this.buttonSetDefaultSettings.Location = new System.Drawing.Point(376, 137);
+			this.buttonSetDefaultSettings.Name = "buttonSetDefaultSettings";
+			this.buttonSetDefaultSettings.Size = new System.Drawing.Size(79, 48);
+			this.buttonSetDefaultSettings.TabIndex = 7;
+			this.buttonSetDefaultSettings.Text = "&Default settings";
+			this.buttonSetDefaultSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.buttonSetDefaultSettings.UseVisualStyleBackColor = true;
+			this.buttonSetDefaultSettings.Click += new System.EventHandler(this.ButtonSetDefaultSettings_Click);
+			this.buttonSetDefaultSettings.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSetDefaultSettings.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSetDefaultSettings.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSetDefaultSettings.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// SearchForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(457, 390);
+			this.ClientSize = new System.Drawing.Size(471, 447);
+			this.Controls.Add(this.buttonSetDefaultSettings);
+			this.Controls.Add(this.groupBoxRange);
 			this.Controls.Add(this.buttonOK);
 			this.Controls.Add(this.buttonOpenSelectedObject);
 			this.Controls.Add(this.statusBar);
-			this.Controls.Add(this.listViewTableMode);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.progressBar1);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.buttonSelectAll);
-			this.Controls.Add(this.groupBoxOptions);
+			this.Controls.Add(this.listViewResults);
+			this.Controls.Add(this.labelProgressPercent);
+			this.Controls.Add(this.progressBar);
+			this.Controls.Add(this.labelProgress);
+			this.Controls.Add(this.groupBoxSearchOptions);
 			this.Controls.Add(this.groupBoxSearchIn);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.buttonFind);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.buttonCancelSearch);
+			this.Controls.Add(this.buttonFindSearchterm);
+			this.Controls.Add(this.textBoxSearchfield);
+			this.Controls.Add(this.labelSearchterm);
 			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -347,11 +534,18 @@
 			this.Name = "SearchForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Search";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchForm_FormClosing);
+			this.Load += new System.EventHandler(this.SearchForm_Load);
 			this.groupBoxSearchIn.ResumeLayout(false);
-			this.groupBoxOptions.ResumeLayout(false);
-			this.groupBoxOptions.PerformLayout();
+			this.groupBoxSearchOptions.ResumeLayout(false);
+			this.groupBoxSearchOptions.PerformLayout();
 			this.statusBar.ResumeLayout(false);
 			this.statusBar.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRangeMaximum)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownRangeMinimum)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+			this.groupBoxRange.ResumeLayout(false);
+			this.groupBoxRange.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -359,20 +553,20 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Button buttonFind;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Label labelSearchterm;
+		private System.Windows.Forms.TextBox textBoxSearchfield;
+		private System.Windows.Forms.Button buttonFindSearchterm;
+		private System.Windows.Forms.Button buttonCancelSearch;
 		private System.Windows.Forms.GroupBox groupBoxSearchIn;
 		private System.Windows.Forms.CheckedListBox checkedListBoxSearchIn;
-		private System.Windows.Forms.GroupBox groupBoxOptions;
+		private System.Windows.Forms.GroupBox groupBoxSearchOptions;
 		private System.Windows.Forms.RadioButton radioButtonFulltext;
 		private System.Windows.Forms.RadioButton radioButtonParttext;
-		private System.Windows.Forms.Button buttonSelectAll;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ProgressBar progressBar1;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ListView listViewTableMode;
+		private System.Windows.Forms.Button buttonSelectAllItems;
+		private System.Windows.Forms.Label labelProgress;
+		private System.Windows.Forms.ProgressBar progressBar;
+		private System.Windows.Forms.Label labelProgressPercent;
+		private System.Windows.Forms.ListView listViewResults;
 		private System.Windows.Forms.ColumnHeader columnHeaderIndex;
 		private System.Windows.Forms.ColumnHeader columnHeaderReadableDesignation;
 		private System.Windows.Forms.ColumnHeader columnHeaderItem;
@@ -382,5 +576,13 @@
 		private System.Windows.Forms.Button buttonOpenSelectedObject;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.Button buttonOK;
+		private System.Windows.Forms.Button buttonUnselectAllItems;
+		private System.Windows.Forms.NumericUpDown numericUpDownRangeMaximum;
+		private System.Windows.Forms.Label labelRangeMaximum;
+		private System.Windows.Forms.NumericUpDown numericUpDownRangeMinimum;
+		private System.Windows.Forms.Label labelRangeMinimum;
+		private System.Windows.Forms.ErrorProvider errorProvider;
+		private System.Windows.Forms.Button buttonSetDefaultSettings;
+		private System.Windows.Forms.GroupBox groupBoxRange;
 	}
 }
