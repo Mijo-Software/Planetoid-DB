@@ -210,6 +210,7 @@
             this.toolStripMenuItem10000,
             this.toolStripMenuItem100000});
 			this.contextMenuNavigationStep.Name = "contextMenu";
+			this.contextMenuNavigationStep.OwnerItem = this.toolStripSplitButtonStepForward;
 			this.contextMenuNavigationStep.ShowCheckMargin = true;
 			this.contextMenuNavigationStep.ShowImageMargin = false;
 			this.contextMenuNavigationStep.Size = new System.Drawing.Size(111, 114);
@@ -1646,7 +1647,7 @@
 			this.toolStripMenuItemCopytoClipboard.Image = global::Planetoid_DB.Properties.Resources.silk_page_copy;
 			this.toolStripMenuItemCopytoClipboard.Name = "toolStripMenuItemCopytoClipboard";
 			this.toolStripMenuItemCopytoClipboard.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(145, 22);
+			this.toolStripMenuItemCopytoClipboard.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemCopytoClipboard.Text = "&Copy";
 			this.toolStripMenuItemCopytoClipboard.Click += new System.EventHandler(this.ToolStripMenuItemCopytoClipboard_Click);
 			this.toolStripMenuItemCopytoClipboard.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1659,11 +1660,10 @@
 			this.toolStripMenuItemSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItemSearch.AutoToolTip = true;
 			this.toolStripMenuItemSearch.DoubleClickEnabled = true;
-			this.toolStripMenuItemSearch.Enabled = false;
-			this.toolStripMenuItemSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
+			this.toolStripMenuItemSearch.Image = global::Planetoid_DB.Properties.Resources.silk_find;
 			this.toolStripMenuItemSearch.Name = "toolStripMenuItemSearch";
 			this.toolStripMenuItemSearch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(145, 22);
+			this.toolStripMenuItemSearch.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemSearch.Text = "&Search";
 			this.toolStripMenuItemSearch.Click += new System.EventHandler(this.ToolStripMenuItemSearch_Click);
 			this.toolStripMenuItemSearch.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -2487,7 +2487,6 @@
 			this.toolStripLabelQuickSearch.AccessibleName = "Quick search";
 			this.toolStripLabelQuickSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.toolStripLabelQuickSearch.AutoToolTip = true;
-			this.toolStripLabelQuickSearch.Enabled = false;
 			this.toolStripLabelQuickSearch.Name = "toolStripLabelQuickSearch";
 			this.toolStripLabelQuickSearch.Size = new System.Drawing.Size(78, 22);
 			this.toolStripLabelQuickSearch.Text = "Quick search:";
@@ -2501,7 +2500,6 @@
 			this.toolStripTextBoxSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
 			this.toolStripTextBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.toolStripTextBoxSearch.AutoToolTip = true;
-			this.toolStripTextBoxSearch.Enabled = false;
 			this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
 			this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
 			this.toolStripTextBoxSearch.ToolTipText = "Search";
@@ -2517,8 +2515,7 @@
 			this.toolStripButtonSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.toolStripButtonSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.toolStripButtonSearch.DoubleClickEnabled = true;
-			this.toolStripButtonSearch.Enabled = false;
-			this.toolStripButtonSearch.Image = global::Planetoid_DB.Properties.Resources.silk_magnifier;
+			this.toolStripButtonSearch.Image = global::Planetoid_DB.Properties.Resources.silk_find;
 			this.toolStripButtonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButtonSearch.Name = "toolStripButtonSearch";
 			this.toolStripButtonSearch.Size = new System.Drawing.Size(23, 22);

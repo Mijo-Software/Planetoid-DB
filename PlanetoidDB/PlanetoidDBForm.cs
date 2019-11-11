@@ -265,6 +265,17 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+		private void OpenSearch()
+		{
+			using (SearchForm formSearch = new SearchForm())
+			{
+				formSearch.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		private void ShowAppInfo()
 		{
 			using (AppInfoForm formAppInfo = new AppInfoForm())
@@ -1559,10 +1570,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonSearch_Click(object sender, EventArgs e)
-		{
-			//todo: add Search here
-		}
+		private void ToolStripButtonSearch_Click(object sender, EventArgs e) => OpenSearch();
 
 		/// <summary>
 		/// 
@@ -1579,10 +1587,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemSearch_Click(object sender, EventArgs e)
-		{
-			//todo: add Search here
-		}
+		private void ToolStripMenuItemSearch_Click(object sender, EventArgs e) => OpenSearch();
 
 		/// <summary>
 		/// 

@@ -254,7 +254,9 @@
 			this.listViewTableMode.GridLines = true;
 			this.listViewTableMode.HideSelection = false;
 			this.listViewTableMode.Location = new System.Drawing.Point(12, 77);
+			this.listViewTableMode.MultiSelect = false;
 			this.listViewTableMode.Name = "listViewTableMode";
+			this.listViewTableMode.ShowItemToolTips = true;
 			this.listViewTableMode.Size = new System.Drawing.Size(720, 299);
 			this.listViewTableMode.TabIndex = 9;
 			this.listViewTableMode.UseCompatibleStateImageBehavior = false;
