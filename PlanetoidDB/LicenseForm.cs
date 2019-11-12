@@ -1,27 +1,18 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Planetoid_DB
 {
-	public partial class SearchForm : Form
+	public partial class LicenseForm : Form
 	{
-		private ArrayList planetoidDatabase = new ArrayList(capacity: 0);
-		private int numberPlanetoids = 0;
-		private bool isCancelled = false;
-		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
-
 		#region local methods
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="arrTemp"></param>
-		public void FillDatabase(ArrayList arrTemp)
-		{
-			planetoidDatabase = arrTemp;
-			numberPlanetoids = planetoidDatabase.Count;
-		}
 
 		/// <summary>
 		/// 
@@ -35,6 +26,15 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region Constructor
+
+		public LicenseForm()
+		{
+			InitializeComponent();
+		}
+
+		#endregion
+
 		#region Form* event handlers
 
 		/// <summary>
@@ -42,40 +42,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SearchForm_Load(object sender, EventArgs e)
-		{
-			buttonUnselectAllItems.Enabled = false;
-			buttonCancelSearch.Enabled = false;
-			buttonOpenSelectedObject.Enabled = false;
-			listViewResults.Enabled = false;
-		}
+		private void LicenseForm_Load(object sender, EventArgs e) => webBrowser.DocumentText = I10nStrings.license;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SearchForm_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			listViewResults.Dispose();
-			Dispose();
-		}
+		private void LicenseForm_FormClosing(object sender, FormClosingEventArgs e) => Dispose();
 
 		#endregion
 
-		#region Constructor
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public SearchForm()
-		{
-			InitializeComponent();
-		}
-
-		#endregion
-
-		#region Enter-Handler
+		#region Enter event handlers
 
 		/// <summary>
 		/// 
@@ -168,7 +146,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Leave-Handler
+		#region Leave event handlers
 
 		/// <summary>
 		/// 
@@ -181,52 +159,13 @@ namespace Planetoid_DB
 
 		#region Click event handlers
 
-		private void ButtonFindSearchterm_Click(object sender, EventArgs e)
-		{
-			buttonFindSearchterm.Enabled = !buttonFindSearchterm.Enabled;
-			buttonCancelSearch.Enabled = !buttonCancelSearch.Enabled;
-			buttonSetDefaultSettings.Enabled = !buttonSetDefaultSettings.Enabled;
-			groupBoxSearchIn.Enabled = !groupBoxSearchIn.Enabled;
-			groupBoxSearchOptions.Enabled = !groupBoxSearchOptions.Enabled;
-			groupBoxRange.Enabled = !groupBoxRange.Enabled;
-			listViewResults.Enabled = !listViewResults.Enabled;
-		}
-
-		private void ButtonCancelSearch_Click(object sender, EventArgs e)
-		{
-			buttonFindSearchterm.Enabled = !buttonFindSearchterm.Enabled;
-			buttonCancelSearch.Enabled = !buttonCancelSearch.Enabled;
-			buttonSetDefaultSettings.Enabled = !buttonSetDefaultSettings.Enabled;
-			groupBoxSearchIn.Enabled = !groupBoxSearchIn.Enabled;
-			groupBoxSearchOptions.Enabled = !groupBoxSearchOptions.Enabled;
-			groupBoxRange.Enabled = !groupBoxRange.Enabled;
-		}
-
-		private void ButtonSelectAllItems_Click(object sender, EventArgs e)
-		{
-			buttonSelectAllItems.Enabled = !buttonSelectAllItems.Enabled;
-			buttonUnselectAllItems.Enabled = !buttonUnselectAllItems.Enabled;
-		}
-
-		private void ButtonUnselectAllItems_Click(object sender, EventArgs e)
-		{
-			buttonSelectAllItems.Enabled = !buttonSelectAllItems.Enabled;
-			buttonUnselectAllItems.Enabled = !buttonUnselectAllItems.Enabled;
-		}
-
-		private void ButtonSetDefaultSettings_Click(object sender, EventArgs e)
-		{
-
-		}
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ButtonOK_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
-		private void ButtonOpenSelectedObject_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		#endregion
-
 	}
 }

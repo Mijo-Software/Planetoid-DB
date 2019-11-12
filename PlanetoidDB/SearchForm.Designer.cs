@@ -213,9 +213,9 @@
 			// 
 			this.groupBoxSearchOptions.Controls.Add(this.radioButtonFulltext);
 			this.groupBoxSearchOptions.Controls.Add(this.radioButtonParttext);
-			this.groupBoxSearchOptions.Location = new System.Drawing.Point(375, 35);
+			this.groupBoxSearchOptions.Location = new System.Drawing.Point(375, 32);
 			this.groupBoxSearchOptions.Name = "groupBoxSearchOptions";
-			this.groupBoxSearchOptions.Size = new System.Drawing.Size(79, 96);
+			this.groupBoxSearchOptions.Size = new System.Drawing.Size(79, 99);
 			this.groupBoxSearchOptions.TabIndex = 5;
 			this.groupBoxSearchOptions.TabStop = false;
 			this.groupBoxSearchOptions.Text = "T&ext";

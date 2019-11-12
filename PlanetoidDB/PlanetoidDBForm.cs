@@ -257,7 +257,7 @@ namespace Planetoid_DB
 		{
 			using (TableModeForm formTableMode = new TableModeForm())
 			{
-				formTableMode.FillArray(arrTemp: planetoidDatabase);
+				formTableMode.FillDatabase(arrTemp: planetoidDatabase);
 				formTableMode.ShowDialog();
 			}
 		}
@@ -269,6 +269,7 @@ namespace Planetoid_DB
 		{
 			using (SearchForm formSearch = new SearchForm())
 			{
+				formSearch.FillDatabase(arrTemp: planetoidDatabase);
 				formSearch.ShowDialog();
 			}
 		}
@@ -1724,6 +1725,19 @@ namespace Planetoid_DB
 			{
 				formDerivatedOrbitElements.SetDatabase(arrayList: derivatedOrbitElementsDatabase);
 				formDerivatedOrbitElements.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuItemLicense_Click(object sender, EventArgs e)
+		{
+			using (LicenseForm formLicense = new LicenseForm())
+			{
+				formLicense.ShowDialog();
 			}
 		}
 
