@@ -196,6 +196,32 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///	&lt;head&gt;
+        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
+        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+        ///		&lt;title&gt;Aphelion distance&lt;/title&gt;
+        ///		&lt;style&gt;
+        ///			* {font-family:sans-serif;}
+        ///			.bold {font-weight: bold;}
+        ///			.italic {font-variant: italic;}
+        ///			.sup {vertical-align: super; font-size: smaller;}
+        ///			.sub {vertical-align: sub; font-size: smaller;}
+        ///		&lt;/style&gt;
+        ///	&lt;/head&gt;
+        ///	&lt;body&gt;
+        ///&lt;h3 style=&quot;text-align: center;&quot;&gt;GNU GENERAL PUBLIC LICENSE&lt;/h3&gt;
+        ///&lt;p style=&quot;text-align: center;&quot;&gt;Ver [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string license {
+            get {
+                return ResourceManager.GetString("license", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die mail ähnelt.
         /// </summary>
         internal static string Mail {
@@ -357,9 +383,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Aphelion distance&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Apsis&lt;/span&gt; (Greek: á¼ÏˆÎ¯Ï‚; plural &lt;span  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_AphelionDistance {
             get {
@@ -411,9 +435,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Argument of aphelion&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;argument of aphelion&lt;/span&gt; is the  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_ArgumentAphelion {
             get {
@@ -494,9 +516,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Eccenctric anomaly&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In orbital mechanics, the &lt;span class=&quot;bold&quot;&gt;eccentric anomaly [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_EccenctricAnomaly {
             get {
@@ -574,9 +594,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Focal parameter&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/span&gt;), foc [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_FocalParameter {
             get {
@@ -656,9 +674,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Latus rectum&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/span&gt;), foci, and [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_LatusRectum {
             get {
@@ -684,9 +700,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Linear eccentricity&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/spa [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_LinearEccentricity {
             get {
@@ -738,9 +752,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Longitude of Descending node&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;longitude of the de [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_LongitudeDescendingNode {
             get {
@@ -792,9 +804,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Major axis&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/span&gt;), foci, and dir [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_MajorAxis {
             get {
@@ -846,9 +856,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Mean axis&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;mean axis&lt;/span&gt; is the arithmetic mean of the major axis [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_MeanAxis {
             get {
@@ -874,9 +882,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Minor axis&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/span&gt;), foci, and dir [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_MinorAxis {
             get {
@@ -1061,9 +1067,8 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Orbital area&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;orbital area&lt;/span&gt; is the area of the orbit.&lt;/p&gt;
+        ///	 [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_OrbitalArea {
             get {
@@ -1089,9 +1094,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Orbital perimeter&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;orbital perimeter&lt;/span&gt; is the perimeter [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_OrbitalPerimeter {
             get {
@@ -1117,9 +1120,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Perihelion distance&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;&lt;span class=&quot;bold&quot;&gt;Apsis&lt;/span&gt; (Greek: á¼ÏˆÎ¯Ï‚; plural &lt;s [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_PerihelionDistance {
             get {
@@ -1145,9 +1146,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Period&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The &lt;span class=&quot;bold&quot;&gt;orbital period&lt;/span&gt; is the time a given astronomical object t [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_Period {
             get {
@@ -1227,9 +1226,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Semi-latus rectum&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/span&gt;), [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_SemiLatusRectum {
             get {
@@ -1281,9 +1278,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Semi-mean axis&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;The mean axis is the arithmetic mean of the major axis and the minor a [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_SemiMeanAxis {
             get {
@@ -1309,9 +1304,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Semi-minor axis&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In addition to the eccentricity (&lt;span class=&quot;italic&quot;&gt;e&lt;/span&gt;), foc [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_SemiMinorAxis {
             get {
@@ -1365,9 +1358,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;Standard gravitational parameter&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In celestial mechanics, the &lt;span  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_StandardGravitationalParameter {
             get {
@@ -1393,9 +1384,7 @@ namespace Planetoid_DB {
         ///	&lt;/head&gt;
         ///	&lt;body&gt;
         ///		&lt;h1&gt;True anomaly&lt;/h1&gt;
-        ///		&lt;p&gt;&lt;/p&gt;
-        ///	&lt;/body&gt;
-        ///&lt;/html&gt; ähnelt.
+        ///		&lt;p&gt;In celestial mechanics, &lt;span class=&quot;bold&quot;&gt;true anomaly&lt;/span&gt; is an angul [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string terminology_TrueAnomaly {
             get {

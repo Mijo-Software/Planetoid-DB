@@ -325,7 +325,6 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		public void SetLabelStandardGravitationalParameterActive(object sender, EventArgs e) => LabelObsLastDate_Click(sender: sender, e: e);
 
-
 		/// <summary>
 		/// 
 		/// </summary>

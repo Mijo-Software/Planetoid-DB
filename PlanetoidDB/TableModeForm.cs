@@ -20,14 +20,8 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="value"></param>
-		public void SetProgressbar(int value) => progressBar.Value = value;
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="arrTemp"></param>
-		public void FillArray(ArrayList arrTemp)
+		public void FillDatabase(ArrayList arrTemp)
 		{
 			planetoidDatabase = arrTemp;
 			numberPlanetoids = planetoidDatabase.Count;
