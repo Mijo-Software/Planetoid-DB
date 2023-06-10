@@ -19,7 +19,7 @@ namespace Planetoid_DB {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class I10nStrings {
@@ -61,20 +61,20 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want download the lastest MPCORB.DAT file? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want download the latest MPCORB.DAT file? ähnelt.
         /// </summary>
-        internal static string AskForDownloadingLastestMpcorbDatFile {
+        internal static string AskForDownloadingLatestMpcorbDatFile {
             get {
-                return ResourceManager.GetString("AskForDownloadingLastestMpcorbDatFile", resourceCulture);
+                return ResourceManager.GetString("AskForDownloadingLatestMpcorbDatFile", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Download MPCORB.DAT? ähnelt.
         /// </summary>
-        internal static string AskForDownloadingLastestMpcorbDatFileCaption {
+        internal static string AskForDownloadingLatestMpcorbDatFileCaption {
             get {
-                return ResourceManager.GetString("AskForDownloadingLastestMpcorbDatFileCaption", resourceCulture);
+                return ResourceManager.GetString("AskForDownloadingLatestMpcorbDatFileCaption", resourceCulture);
             }
         }
         
@@ -196,32 +196,6 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;!DOCTYPE html&gt;
-        ///&lt;html lang=&quot;en&quot;&gt;
-        ///	&lt;head&gt;
-        ///		&lt;meta charset=&quot;utf-8&quot;&gt;
-        ///		&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
-        ///		&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-        ///		&lt;title&gt;Aphelion distance&lt;/title&gt;
-        ///		&lt;style&gt;
-        ///			* {font-family:sans-serif;}
-        ///			.bold {font-weight: bold;}
-        ///			.italic {font-variant: italic;}
-        ///			.sup {vertical-align: super; font-size: smaller;}
-        ///			.sub {vertical-align: sub; font-size: smaller;}
-        ///		&lt;/style&gt;
-        ///	&lt;/head&gt;
-        ///	&lt;body&gt;
-        ///&lt;h3 style=&quot;text-align: center;&quot;&gt;GNU GENERAL PUBLIC LICENSE&lt;/h3&gt;
-        ///&lt;p style=&quot;text-align: center;&quot;&gt;Ver [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
-        /// </summary>
-        internal static string license {
-            get {
-                return ResourceManager.GetString("license", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die mail ähnelt.
         /// </summary>
         internal static string Mail {
@@ -231,7 +205,7 @@ namespace Planetoid_DB {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT infomation ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die MPCORB.DAT information ähnelt.
         /// </summary>
         internal static string MpcorbDatInformationCaption {
             get {
