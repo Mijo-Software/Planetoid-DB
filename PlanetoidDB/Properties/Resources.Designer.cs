@@ -1087,6 +1087,16 @@ namespace Planetoid_DB.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap silk_page_save {
+            get {
+                object obj = ResourceManager.GetObject("silk_page_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap silk_page_white_acrobat {
             get {
                 object obj = ResourceManager.GetObject("silk_page_white_acrobat", resourceCulture);
@@ -1300,6 +1310,16 @@ namespace Planetoid_DB.Properties {
         internal static System.Drawing.Bitmap silk_text_list_bullets {
             get {
                 object obj = ResourceManager.GetObject("silk_text_list_bullets", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silk_text_list_numbers {
+            get {
+                object obj = ResourceManager.GetObject("silk_text_list_numbers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

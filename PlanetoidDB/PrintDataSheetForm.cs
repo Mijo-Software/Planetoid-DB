@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 using Krypton.Toolkit;
 
@@ -10,19 +10,9 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class DatabaseInformationForm : KryptonForm
+	public partial class PrintDataSheetForm : KryptonForm
 	{
-		#region local methods
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private void CopyToClipboard(string text)
-		{
-			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-		}
+		#region Local methods
 
 		/// <summary>
 		/// 
@@ -53,7 +43,10 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-		public DatabaseInformationForm() => InitializeComponent();
+		public PrintDataSheetForm()
+		{
+			InitializeComponent();
+		}
 
 		#endregion
 
@@ -64,16 +57,15 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DatabaseInformationForm_Load(object sender, EventArgs e)
+		private void PrintDataSheetForm_Load(object sender, EventArgs e)
 		{
-			FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.FilenameMpcorb);
-			labelNameValue.Text = fileInfo.Name;
-			labelDirectoryValue.Text = fileInfo.DirectoryName;
-			labelSizeValue.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
-			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
-			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
-			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
-			labelAttributesValue.Text = fileInfo.Attributes.ToString();
+			if (checkedListBoxOrbitalElements.Items.Count != 0)
+			{
+				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
+				{
+					checkedListBoxOrbitalElements.SetItemChecked(index: i, value: true);
+				}
+			}
 		}
 
 		/// <summary>
@@ -81,7 +73,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+		private void PrintDataSheetForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 
@@ -170,77 +162,31 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void PictureBoxInformation_Click(object sender, EventArgs e)
+		private void ButtonPrintDataSheet_Click(object sender, EventArgs e)
 		{
-			//todo: add something here
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonOK_Click(object sender, EventArgs e) => Close();
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyToClipboard_Click(object sender, EventArgs e)
-		{
-			switch (sender)
+			using (PrintDialog dialogPrint = new PrintDialog())
 			{
-				case TextBox box:
-					CopyToClipboard(text: box.Text);
-					break;
-				case Button button:
-					CopyToClipboard(text: button.Text);
-					break;
-				case RadioButton buttonRadio:
-					CopyToClipboard(text: buttonRadio.Text);
-					break;
-				case CheckBox boxCheck:
-					CopyToClipboard(text: boxCheck.Text);
-					break;
-				case DateTimePicker pickerDateTime:
-					CopyToClipboard(text: pickerDateTime.Text);
-					break;
-				case Label label:
-					CopyToClipboard(text: label.Text);
-					break;
-				case ToolStripButton buttonToolStrip:
-					CopyToClipboard(text: buttonToolStrip.Text);
-					break;
-				case ToolStripMenuItem itemToolStripMenu:
-					CopyToClipboard(text: itemToolStripMenu.Text);
-					break;
-				case ToolStripLabel labelToolStrip:
-					CopyToClipboard(text: labelToolStrip.Text);
-					break;
-				case ToolStripComboBox boxToolStripCombo:
-					CopyToClipboard(text: boxToolStripCombo.Text);
-					break;
-				case ToolStripDropDown downToolStripDrop:
-					CopyToClipboard(text: downToolStripDrop.Text);
-					break;
-				case ToolStripDropDownButton buttonToolStripDropDown:
-					CopyToClipboard(text: buttonToolStripDropDown.Text);
-					break;
-				case ToolStripDropDownItem itemToolStripDropDown:
-					CopyToClipboard(text: itemToolStripDropDown.Text);
-					break;
-				case ToolStripProgressBar bar:
-					CopyToClipboard(text: bar.Text);
-					break;
-				case ToolStripSeparator separator:
-					CopyToClipboard(text: separator.Text);
-					break;
-				case ToolStripTextBox boxToolStripText:
-					CopyToClipboard(text: boxToolStripText.Text);
-					break;
+				PrintDocument printDoc = new PrintDocument
+				{
+					DocumentName = "Data sheet"
+				};
+				dialogPrint.Document = printDoc;
+				dialogPrint.AllowSelection = true;
+				dialogPrint.AllowSomePages = true;
+				if (dialogPrint.ShowDialog() == DialogResult.OK)
+				{
+					printDoc.Print();
+					Close();
+				}
 			}
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonCancelPrint_Click(object sender, EventArgs e) => Close();
 
 		private string GetDebuggerDisplay()
 		{
@@ -248,5 +194,6 @@ namespace Planetoid_DB
 		}
 
 		#endregion
+
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace Planetoid_DB
+﻿using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class DerivatedOrbitElementsForm
 	{
@@ -74,7 +76,7 @@
 			this.linkLabelStandardGravitationalParameterDesc = new System.Windows.Forms.LinkLabel();
 			this.labelMeanAxisData = new System.Windows.Forms.Label();
 			this.labelStandardGravitationalParameterData = new System.Windows.Forms.Label();
-			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
 			this.statusStrip.SuspendLayout();
 			this.contextMenuCopyToClipboard.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
@@ -85,6 +87,7 @@
 			this.statusStrip.AccessibleDescription = "Show the status";
 			this.statusStrip.AccessibleName = "Status bar";
 			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
+			this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelInformation});
@@ -137,8 +140,8 @@
 			// 
 			// linkLabelLinearEccentricityDesc
 			// 
-			this.linkLabelLinearEccentricityDesc.AccessibleDescription = "Linear eccentricity";
-			this.linkLabelLinearEccentricityDesc.AccessibleName = "Linear eccentricity";
+			this.linkLabelLinearEccentricityDesc.AccessibleDescription = "Linear eccentricity (AU)";
+			this.linkLabelLinearEccentricityDesc.AccessibleName = "Linear eccentricity (AU)";
 			this.linkLabelLinearEccentricityDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelLinearEccentricityDesc.AutoSize = true;
 			this.linkLabelLinearEccentricityDesc.BackColor = System.Drawing.Color.Transparent;
@@ -150,8 +153,8 @@
 			this.linkLabelLinearEccentricityDesc.Size = new System.Drawing.Size(228, 15);
 			this.linkLabelLinearEccentricityDesc.TabIndex = 0;
 			this.linkLabelLinearEccentricityDesc.TabStop = true;
-			this.linkLabelLinearEccentricityDesc.Text = "Linear eccentricity";
-			this.toolTip.SetToolTip(this.linkLabelLinearEccentricityDesc, "Linear eccentricity");
+			this.linkLabelLinearEccentricityDesc.Text = "Linear eccentricity (AU)";
+			this.toolTip.SetToolTip(this.linkLabelLinearEccentricityDesc, "Linear eccentricity (AU)");
 			this.linkLabelLinearEccentricityDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLinearEccentricity_Clicked);
 			this.linkLabelLinearEccentricityDesc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.linkLabelLinearEccentricityDesc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -196,9 +199,9 @@
 			this.labelLinearEccentricityData.Name = "labelLinearEccentricityData";
 			this.labelLinearEccentricityData.Size = new System.Drawing.Size(229, 15);
 			this.labelLinearEccentricityData.TabIndex = 1;
-			this.labelLinearEccentricityData.Text = "...";
+			this.labelLinearEccentricityData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelLinearEccentricityData, "Show the information of \"Linear eccentricity\"");
-			this.labelLinearEccentricityData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLinearEccentricityData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelLinearEccentricityData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelLinearEccentricityData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelLinearEccentricityData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -516,9 +519,9 @@
 			this.labelSemiMinorAxisData.Name = "labelSemiMinorAxisData";
 			this.labelSemiMinorAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelSemiMinorAxisData.TabIndex = 3;
-			this.labelSemiMinorAxisData.Text = "...";
+			this.labelSemiMinorAxisData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelSemiMinorAxisData, "Show the information of \"Semi-minor axis\"");
-			this.labelSemiMinorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiMinorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelSemiMinorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiMinorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSemiMinorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -537,9 +540,9 @@
 			this.labelMajorAxisData.Name = "labelMajorAxisData";
 			this.labelMajorAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelMajorAxisData.TabIndex = 5;
-			this.labelMajorAxisData.Text = "...";
+			this.labelMajorAxisData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelMajorAxisData, "Show the information of \"Major axis\"");
-			this.labelMajorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMajorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelMajorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMajorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMajorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -558,9 +561,9 @@
 			this.labelMinorAxisData.Name = "labelMinorAxisData";
 			this.labelMinorAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelMinorAxisData.TabIndex = 7;
-			this.labelMinorAxisData.Text = "...";
+			this.labelMinorAxisData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelMinorAxisData, "Show the information of \"Minor axis\"");
-			this.labelMinorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMinorAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelMinorAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMinorAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMinorAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -579,9 +582,9 @@
 			this.labelEccentricAnomalyData.Name = "labelEccentricAnomalyData";
 			this.labelEccentricAnomalyData.Size = new System.Drawing.Size(229, 15);
 			this.labelEccentricAnomalyData.TabIndex = 9;
-			this.labelEccentricAnomalyData.Text = "...";
+			this.labelEccentricAnomalyData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelEccentricAnomalyData, "Show the information of \"Eccentric anomaly\"");
-			this.labelEccentricAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelEccentricAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelEccentricAnomalyData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelEccentricAnomalyData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelEccentricAnomalyData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -600,9 +603,9 @@
 			this.labelTrueAnomalyData.Name = "labelTrueAnomalyData";
 			this.labelTrueAnomalyData.Size = new System.Drawing.Size(229, 15);
 			this.labelTrueAnomalyData.TabIndex = 11;
-			this.labelTrueAnomalyData.Text = "...";
+			this.labelTrueAnomalyData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelTrueAnomalyData, "Show the information of \"True anomaly\"");
-			this.labelTrueAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelTrueAnomalyData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelTrueAnomalyData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelTrueAnomalyData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelTrueAnomalyData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -621,9 +624,9 @@
 			this.labelPerihelionDistanceData.Name = "labelPerihelionDistanceData";
 			this.labelPerihelionDistanceData.Size = new System.Drawing.Size(229, 15);
 			this.labelPerihelionDistanceData.TabIndex = 13;
-			this.labelPerihelionDistanceData.Text = "...";
+			this.labelPerihelionDistanceData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelPerihelionDistanceData, "Show the information of \"Perihelion distance\"");
-			this.labelPerihelionDistanceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelPerihelionDistanceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelPerihelionDistanceData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelPerihelionDistanceData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelPerihelionDistanceData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -642,9 +645,9 @@
 			this.labelAphelionDistanceData.Name = "labelAphelionDistanceData";
 			this.labelAphelionDistanceData.Size = new System.Drawing.Size(229, 15);
 			this.labelAphelionDistanceData.TabIndex = 15;
-			this.labelAphelionDistanceData.Text = "...";
+			this.labelAphelionDistanceData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelAphelionDistanceData, "Show the information of \"Aphelion distance\"");
-			this.labelAphelionDistanceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelAphelionDistanceData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelAphelionDistanceData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelAphelionDistanceData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelAphelionDistanceData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -663,9 +666,9 @@
 			this.labelLongitudeDescendingNodeData.Name = "labelLongitudeDescendingNodeData";
 			this.labelLongitudeDescendingNodeData.Size = new System.Drawing.Size(229, 15);
 			this.labelLongitudeDescendingNodeData.TabIndex = 17;
-			this.labelLongitudeDescendingNodeData.Text = "...";
+			this.labelLongitudeDescendingNodeData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelLongitudeDescendingNodeData, "Show the information of \"Longitude of descending node\"");
-			this.labelLongitudeDescendingNodeData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLongitudeDescendingNodeData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelLongitudeDescendingNodeData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelLongitudeDescendingNodeData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelLongitudeDescendingNodeData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -684,9 +687,9 @@
 			this.labelArgumentAphelionData.Name = "labelArgumentAphelionData";
 			this.labelArgumentAphelionData.Size = new System.Drawing.Size(229, 15);
 			this.labelArgumentAphelionData.TabIndex = 19;
-			this.labelArgumentAphelionData.Text = "...";
+			this.labelArgumentAphelionData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelArgumentAphelionData, "Show the information of \"Argument of aphelion\"");
-			this.labelArgumentAphelionData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelArgumentAphelionData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelArgumentAphelionData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelArgumentAphelionData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelArgumentAphelionData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -705,9 +708,9 @@
 			this.labelFocalParameterData.Name = "labelFocalParameterData";
 			this.labelFocalParameterData.Size = new System.Drawing.Size(229, 15);
 			this.labelFocalParameterData.TabIndex = 21;
-			this.labelFocalParameterData.Text = "...";
+			this.labelFocalParameterData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelFocalParameterData, "Show the information of \"Focal parameter\"");
-			this.labelFocalParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelFocalParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelFocalParameterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelFocalParameterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelFocalParameterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -726,9 +729,9 @@
 			this.labelSemiLatusRectumData.Name = "labelSemiLatusRectumData";
 			this.labelSemiLatusRectumData.Size = new System.Drawing.Size(229, 15);
 			this.labelSemiLatusRectumData.TabIndex = 23;
-			this.labelSemiLatusRectumData.Text = "...";
+			this.labelSemiLatusRectumData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelSemiLatusRectumData, "Show the information of \"Semi-latus rectum\"");
-			this.labelSemiLatusRectumData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiLatusRectumData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelSemiLatusRectumData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiLatusRectumData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSemiLatusRectumData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -747,9 +750,9 @@
 			this.labelLatusRectumData.Name = "labelLatusRectumData";
 			this.labelLatusRectumData.Size = new System.Drawing.Size(229, 15);
 			this.labelLatusRectumData.TabIndex = 25;
-			this.labelLatusRectumData.Text = "...";
+			this.labelLatusRectumData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelLatusRectumData, "Show the information of \"Latus rectum\"");
-			this.labelLatusRectumData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelLatusRectumData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelLatusRectumData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelLatusRectumData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelLatusRectumData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -768,9 +771,9 @@
 			this.labelPeriodData.Name = "labelPeriodData";
 			this.labelPeriodData.Size = new System.Drawing.Size(229, 15);
 			this.labelPeriodData.TabIndex = 27;
-			this.labelPeriodData.Text = "...";
+			this.labelPeriodData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelPeriodData, "Show the information of \"Period\"");
-			this.labelPeriodData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelPeriodData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelPeriodData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelPeriodData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelPeriodData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -851,6 +854,7 @@
 			this.linkLabelMeanAxisDesc.AccessibleName = "Mean axis";
 			this.linkLabelMeanAxisDesc.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
 			this.linkLabelMeanAxisDesc.AutoSize = true;
+			this.linkLabelMeanAxisDesc.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabelMeanAxisDesc.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.linkLabelMeanAxisDesc.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
 			this.linkLabelMeanAxisDesc.LinkColor = System.Drawing.SystemColors.ControlText;
@@ -880,9 +884,9 @@
 			this.labelOrbitalAreaData.Name = "labelOrbitalAreaData";
 			this.labelOrbitalAreaData.Size = new System.Drawing.Size(229, 15);
 			this.labelOrbitalAreaData.TabIndex = 29;
-			this.labelOrbitalAreaData.Text = "...";
+			this.labelOrbitalAreaData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelOrbitalAreaData, "Show the information of \"Orbital area\"");
-			this.labelOrbitalAreaData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelOrbitalAreaData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelOrbitalAreaData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelOrbitalAreaData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelOrbitalAreaData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -901,9 +905,9 @@
 			this.labelOrbitalPerimeterData.Name = "labelOrbitalPerimeterData";
 			this.labelOrbitalPerimeterData.Size = new System.Drawing.Size(229, 15);
 			this.labelOrbitalPerimeterData.TabIndex = 31;
-			this.labelOrbitalPerimeterData.Text = "...";
+			this.labelOrbitalPerimeterData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelOrbitalPerimeterData, "Show the information of \"Orbital perimeter\"");
-			this.labelOrbitalPerimeterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelOrbitalPerimeterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelOrbitalPerimeterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelOrbitalPerimeterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelOrbitalPerimeterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -922,9 +926,9 @@
 			this.labelSemiMeanAxisData.Name = "labelSemiMeanAxisData";
 			this.labelSemiMeanAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelSemiMeanAxisData.TabIndex = 33;
-			this.labelSemiMeanAxisData.Text = "...";
+			this.labelSemiMeanAxisData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelSemiMeanAxisData, "Show the information of \"Semi-mean axis\"");
-			this.labelSemiMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelSemiMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelSemiMeanAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelSemiMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelSemiMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -966,9 +970,9 @@
 			this.labelMeanAxisData.Name = "labelMeanAxisData";
 			this.labelMeanAxisData.Size = new System.Drawing.Size(229, 15);
 			this.labelMeanAxisData.TabIndex = 35;
-			this.labelMeanAxisData.Text = "...";
+			this.labelMeanAxisData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelMeanAxisData, "Show the information of \"Mean axis\"");
-			this.labelMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelMeanAxisData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelMeanAxisData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelMeanAxisData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelMeanAxisData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -987,9 +991,9 @@
 			this.labelStandardGravitationalParameterData.Name = "labelStandardGravitationalParameterData";
 			this.labelStandardGravitationalParameterData.Size = new System.Drawing.Size(229, 18);
 			this.labelStandardGravitationalParameterData.TabIndex = 37;
-			this.labelStandardGravitationalParameterData.Text = "...";
+			this.labelStandardGravitationalParameterData.Text = "..................";
 			this.toolTip.SetToolTip(this.labelStandardGravitationalParameterData, "Show the information of \"Standard gravitational parameter\"");
-			this.labelStandardGravitationalParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_Click);
+			this.labelStandardGravitationalParameterData.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
 			this.labelStandardGravitationalParameterData.Enter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.labelStandardGravitationalParameterData.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.labelStandardGravitationalParameterData.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -1000,6 +1004,8 @@
 			this.tableLayoutPanel.AccessibleDescription = "Group the data";
 			this.tableLayoutPanel.AccessibleName = "Table pane";
 			this.tableLayoutPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
+			this.tableLayoutPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel.BackgroundImage")));
+			this.tableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.tableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
 			this.tableLayoutPanel.ColumnCount = 2;
 			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1045,6 +1051,7 @@
 			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel.Name = "tableLayoutPanel";
+			this.tableLayoutPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
 			this.tableLayoutPanel.RowCount = 19;
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1106,7 +1113,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.Button buttonOK;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+		private KryptonTableLayoutPanel tableLayoutPanel;
 		private System.Windows.Forms.Label labelLinearEccentricityData;
 		private System.Windows.Forms.LinkLabel linkLabelLinearEccentricityDesc;
 		private System.Windows.Forms.LinkLabel linkLabelSemiMinorAxisDesc;
