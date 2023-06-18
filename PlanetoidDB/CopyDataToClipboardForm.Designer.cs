@@ -34,8 +34,6 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CopyDataToClipboardForm));
 			this.kryptonButtonIndexNumber = new Krypton.Toolkit.KryptonButton();
-			this.statusBar = new System.Windows.Forms.StatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.kryptonButtonReadableDesignation = new Krypton.Toolkit.KryptonButton();
 			this.kryptonButtonEpoch = new Krypton.Toolkit.KryptonButton();
@@ -57,9 +55,11 @@
 			this.kryptonButtonRmsResidual = new Krypton.Toolkit.KryptonButton();
 			this.kryptonButtonDateOfLastObservation = new Krypton.Toolkit.KryptonButton();
 			this.kryptonPanel = new Krypton.Toolkit.KryptonPanel();
-			this.statusBar.SuspendLayout();
+			this.kryptonStatusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
 			this.kryptonPanel.SuspendLayout();
+			this.kryptonStatusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// kryptonButtonIndexNumber
@@ -80,40 +80,6 @@
 			this.kryptonButtonIndexNumber.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
 			this.kryptonButtonIndexNumber.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.kryptonButtonIndexNumber.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-			// 
-			// statusBar
-			// 
-			this.statusBar.AccessibleDescription = "Shows some information";
-			this.statusBar.AccessibleName = "Status bar of some information";
-			this.statusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-			this.statusBar.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.statusBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-			this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelInformation});
-			this.statusBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-			this.statusBar.Location = new System.Drawing.Point(0, 325);
-			this.statusBar.Name = "statusBar";
-			this.statusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusBar.ShowItemToolTips = true;
-			this.statusBar.Size = new System.Drawing.Size(552, 21);
-			this.statusBar.SizingGrip = false;
-			this.statusBar.TabIndex = 1;
-			this.statusBar.TabStop = true;
-			this.statusBar.Text = "statusStrip";
-			// 
-			// labelInformation
-			// 
-			this.labelInformation.AccessibleDescription = "Show some information";
-			this.labelInformation.AccessibleName = "Show some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelInformation.AutoToolTip = true;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(144, 16);
-			this.labelInformation.Spring = true;
-			this.labelInformation.Text = "some information here";
-			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// kryptonButtonReadableDesignation
 			// 
@@ -479,6 +445,7 @@
 			// kryptonPanel
 			// 
 			this.kryptonPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
+			this.kryptonPanel.Controls.Add(this.kryptonStatusStrip);
 			this.kryptonPanel.Controls.Add(this.kryptonButtonDateOfLastObservation);
 			this.kryptonPanel.Controls.Add(this.kryptonButtonFlags);
 			this.kryptonPanel.Controls.Add(this.kryptonButtonComputername);
@@ -502,9 +469,39 @@
 			this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
 			this.kryptonPanel.Name = "kryptonPanel";
-			this.kryptonPanel.Size = new System.Drawing.Size(552, 325);
+			this.kryptonPanel.Size = new System.Drawing.Size(552, 346);
 			this.kryptonPanel.TabIndex = 0;
 			this.kryptonPanel.TabStop = true;
+			// 
+			// kryptonStatusStrip
+			// 
+			this.kryptonStatusStrip.AccessibleDescription = "Shows some information";
+			this.kryptonStatusStrip.AccessibleName = "Status bar of some information";
+			this.kryptonStatusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
+			this.kryptonStatusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.kryptonStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelInformation});
+			this.kryptonStatusStrip.Location = new System.Drawing.Point(0, 324);
+			this.kryptonStatusStrip.Name = "kryptonStatusStrip";
+			this.kryptonStatusStrip.ProgressBars = null;
+			this.kryptonStatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+			this.kryptonStatusStrip.Size = new System.Drawing.Size(552, 22);
+			this.kryptonStatusStrip.SizingGrip = false;
+			this.kryptonStatusStrip.TabIndex = 20;
+			this.kryptonStatusStrip.Text = "status bar";
+			// 
+			// labelInformation
+			// 
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Show some information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelInformation.AutoToolTip = true;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(144, 17);
+			this.labelInformation.Text = "some information here";
+			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// CopyDataToClipboardForm
 			// 
@@ -515,7 +512,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(552, 346);
 			this.Controls.Add(this.kryptonPanel);
-			this.Controls.Add(this.statusBar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -524,20 +520,18 @@
 			this.Text = "Copy data to clipboard";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CopyDataToClipboardForm_FormClosed);
 			this.Load += new System.EventHandler(this.CopyDataToClipboardForm_Load);
-			this.statusBar.ResumeLayout(false);
-			this.statusBar.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
 			this.kryptonPanel.ResumeLayout(false);
+			this.kryptonPanel.PerformLayout();
+			this.kryptonStatusStrip.ResumeLayout(false);
+			this.kryptonStatusStrip.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private Krypton.Toolkit.KryptonButton kryptonButtonIndexNumber;
-		private System.Windows.Forms.StatusStrip statusBar;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 		private System.Windows.Forms.ToolTip toolTip;
 		private Krypton.Toolkit.KryptonButton kryptonButtonReadableDesignation;
 		private Krypton.Toolkit.KryptonPanel kryptonPanel;
@@ -559,5 +553,7 @@
 		private Krypton.Toolkit.KryptonButton kryptonButtonObservationSpan;
 		private Krypton.Toolkit.KryptonButton kryptonButtonNumberOfObservations;
 		private Krypton.Toolkit.KryptonButton kryptonButtonNumberOfOppositions;
+		private Krypton.Toolkit.KryptonStatusStrip kryptonStatusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 	}
 }

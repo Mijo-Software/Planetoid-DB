@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics;
-using System.Globalization;
 using System.Windows.Forms;
 using Krypton.Toolkit;
 
@@ -151,6 +150,9 @@ namespace Planetoid_DB
 				case Label label:
 					SetStatusbar(text: $"{label.AccessibleDescription} ➔ {label.Tag}");
 					break;
+				case KryptonLabel label:
+					SetStatusbar(text: $"{label.AccessibleDescription} ➔ {label.Tag}");
+					break;
 				case PictureBox boxPicture:
 					SetStatusbar(text: $"{boxPicture.AccessibleDescription} ➔ {boxPicture.Tag}");
 					break;
@@ -183,6 +185,114 @@ namespace Planetoid_DB
 					break;
 				case ToolStripTextBox boxToolStripText:
 					SetStatusbar(text: $"{boxToolStripText.AccessibleDescription} ➔ {boxToolStripText.Tag}");
+					break;
+				case KryptonTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonRadioButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case KryptonCheckBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case CheckedListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonCheckedListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonDateTimePicker picker:
+					SetStatusbar(text: picker.AccessibleDescription);
+					break;
+				case ComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case DataGridView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case KryptonDropButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case GroupBox group:
+					SetStatusbar(text: group.AccessibleDescription);
+					break;
+				case KryptonGroupBox group:
+					SetStatusbar(text: group.AccessibleDescription);
+					break;
+				case ListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ListView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case MaskedTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonMaskedTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case NumericUpDown numericUpDown:
+					SetStatusbar(text: numericUpDown.AccessibleDescription);
+					break;
+				case KryptonNumericUpDown numericUpDown:
+					SetStatusbar(text: numericUpDown.AccessibleDescription);
+					break;
+				case MonthCalendar calender:
+					SetStatusbar(text: calender.AccessibleDescription);
+					break;
+				case KryptonMonthCalendar calender:
+					SetStatusbar(text: calender.AccessibleDescription);
+					break;
+				case PropertyGrid grid:
+					SetStatusbar(text: grid.AccessibleDescription);
+					break;
+				case RichTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonRichTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonSeparator separator:
+					SetStatusbar(text: separator.AccessibleDescription);
+					break;
+				case ScrollBar scroll:
+					SetStatusbar(text: scroll.AccessibleDescription);
+					break;
+				case KryptonScrollBar scroll:
+					SetStatusbar(text: scroll.AccessibleDescription);
+					break;
+				case TrackBar track:
+					SetStatusbar(text: track.AccessibleDescription);
+					break;
+				case KryptonTrackBar track:
+					SetStatusbar(text: track.AccessibleDescription);
+					break;
+				case TreeView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case KryptonTreeView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case WebBrowser browser:
+					SetStatusbar(text: browser.AccessibleDescription);
+					break;
+				case KryptonColorButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case KryptonBreadCrumb breadCrumb:
+					SetStatusbar(text: breadCrumb.AccessibleDescription);
+					break;
+				case DomainUpDown domainUpDown:
+					SetStatusbar(text: domainUpDown.AccessibleDescription);
+					break;
+				case KryptonDomainUpDown domainUpDown:
+					SetStatusbar(text: domainUpDown.AccessibleDescription);
 					break;
 			}
 		}

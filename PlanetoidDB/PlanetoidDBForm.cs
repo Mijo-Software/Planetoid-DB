@@ -32,6 +32,12 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <returns></returns>
+		private string GetDebuggerDisplay() => ToString();
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="control"></param>
 		private static void SetDoubleBuffered(Control control)
 		{
@@ -71,49 +77,27 @@ namespace Planetoid_DB
 		{
 			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
 			// if (teilstring == "0") zahl = 0; ...
-			labelIndexData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-			labelAbsoluteMagnitudeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			labelSlopeParameterData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			labelEpochData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			labelMeanAnomalyData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			labelArgumentPerihelionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			labelLongitudeAscendingNodeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			labelInclinationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			labelOrbitalEccentricityData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			labelMeanDailyMotionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			labelSemiMajorAxisData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			labelReferenceData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			labelNumberObservationsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			labelNumberOppositionsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			labelObservationSpanData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			labelRmsResidualData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			labelComputerNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			labelFlagsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-			labelDesignationNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			labelDateLastObservationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+			kryptonLabelIndexData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			kryptonLabelAbsoluteMagnitudeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			kryptonLabelSlopeParameterData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			kryptonLabelEpochData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			kryptonLabelMeanAnomalyData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			kryptonLabelArgumentPerihelionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			kryptonLabelLongitudeAscendingNodeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			kryptonLabelInclinationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			kryptonLabelOrbitalEccentricityData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			kryptonLabelMeanDailyMotionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			kryptonLabelSemiMajorAxisData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			kryptonLabelReferenceData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			kryptonLabelNumberObservationsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			kryptonLabelNumberOppositionsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			kryptonLabelObservationSpanData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			kryptonLabelRmsResidualData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			kryptonLabelComputerNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			kryptonLabelFlagsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			kryptonLabelDesignationNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			kryptonLabelDateLastObservationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 			toolStripLabelIndexPosition.Text = $"{I10nStrings.Index}: {currentPosition + 1} / {planetoidDatabase.Count}";
-			labelIndexData.Tag = labelIndexData.Text;
-			labelAbsoluteMagnitudeData.Tag = labelAbsoluteMagnitudeData.Text;
-			labelSlopeParameterData.Tag = labelSlopeParameterData.Text;
-			labelEpochData.Tag = labelEpochData.Text;
-			labelMeanAnomalyData.Tag = labelMeanAnomalyData.Text;
-			labelArgumentPerihelionData.Tag = labelArgumentPerihelionData.Text;
-			labelLongitudeAscendingNodeData.Tag = labelLongitudeAscendingNodeData.Text;
-			labelInclinationData.Tag = labelInclinationData.Text;
-			labelOrbitalEccentricityData.Tag = labelOrbitalEccentricityData.Text;
-			labelMeanDailyMotionData.Tag = labelMeanDailyMotionData.Text;
-			labelSemiMajorAxisData.Tag = labelSemiMajorAxisData.Text;
-			labelReferenceData.Tag = labelReferenceData.Text;
-			labelNumberObservationsData.Tag = labelNumberObservationsData.Text;
-			labelNumberOppositionsData.Tag = labelNumberOppositionsData.Text;
-			labelObservationSpanData.Tag = labelObservationSpanData.Text;
-			labelRmsResidualData.Tag = labelRmsResidualData.Text;
-			labelComputerNameData.Tag = labelComputerNameData.Text;
-			labelFlagsData.Tag = labelFlagsData.Text;
-			labelDesignationNameData.Tag = labelDesignationNameData.Text;
-			labelDateLastObservationData.Tag = labelDateLastObservationData.Text;
-			toolStripLabelIndexPosition.Tag = toolStripLabelIndexPosition.Text;
-
 		}
 
 		/// <summary>
@@ -275,6 +259,17 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+		private void OpenTerminology2(uint index)
+		{
+			using (Terminology2Form formTerminology2 = new Terminology2Form())
+			{
+				formTerminology2.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		private void OpenTableMode()
 		{
 			using (TableModeForm formTableMode = new TableModeForm())
@@ -292,6 +287,28 @@ namespace Planetoid_DB
 			using (AppInfoForm formAppInfo = new AppInfoForm())
 			{
 				formAppInfo.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ShowRecordsSelection()
+		{
+			using (RecordsSelectionForm formRecordsSelection = new RecordsSelectionForm())
+			{
+				formRecordsSelection.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ShowRecordsMain()
+		{
+			using (RecordsMainForm formRecordsMain = new RecordsMainForm())
+			{
+				formRecordsMain.ShowDialog();
 			}
 		}
 
@@ -352,31 +369,75 @@ namespace Planetoid_DB
 		{
 			ArrayList dataToCopy = new ArrayList(capacity: 0)
 			{
-				labelIndexData.Text,
-				labelDesignationNameData.Text,
-				labelEpochData.Text,
-				labelMeanAnomalyData.Text,
-				labelArgumentPerihelionData.Text,
-				labelLongitudeAscendingNodeData.Text,
-				labelInclinationData.Text,
-				labelOrbitalEccentricityData.Text,
-				labelMeanDailyMotionData.Text,
-				labelSemiMajorAxisData.Text,
-				labelAbsoluteMagnitudeData.Text,
-				labelSlopeParameterData.Text,
-				labelReferenceData.Text,
-				labelNumberOppositionsData.Text,
-				labelNumberObservationsData.Text,
-				labelObservationSpanData.Text,
-				labelRmsResidualData.Text,
-				labelComputerNameData.Text,
-				labelFlagsData.Text,
-				labelDateLastObservationData.Text
+				kryptonLabelIndexData.Text,
+				kryptonLabelDesignationNameData.Text,
+				kryptonLabelEpochData.Text,
+				kryptonLabelMeanAnomalyData.Text,
+				kryptonLabelArgumentPerihelionData.Text,
+				kryptonLabelLongitudeAscendingNodeData.Text,
+				kryptonLabelInclinationData.Text,
+				kryptonLabelOrbitalEccentricityData.Text,
+				kryptonLabelMeanDailyMotionData.Text,
+				kryptonLabelSemiMajorAxisData.Text,
+				kryptonLabelAbsoluteMagnitudeData.Text,
+				kryptonLabelSlopeParameterData.Text,
+				kryptonLabelReferenceData.Text,
+				kryptonLabelNumberOppositionsData.Text,
+				kryptonLabelNumberObservationsData.Text,
+				kryptonLabelObservationSpanData.Text,
+				kryptonLabelRmsResidualData.Text,
+				kryptonLabelComputerNameData.Text,
+				kryptonLabelFlagsData.Text,
+				kryptonLabelDateLastObservationData.Text
 			};
 			using (CopyDataToClipboardForm formCopyDataToClipboard = new CopyDataToClipboardForm())
 			{
 				formCopyDataToClipboard.SetDatabase(arrayList: dataToCopy);
 				formCopyDataToClipboard.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ShowSearch()
+		{
+			using (SearchForm formSearch = new SearchForm())
+			{
+				formSearch.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ShowFilter()
+		{
+			using (FilterForm formFilter = new FilterForm())
+			{
+				formFilter.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ShowSettings()
+		{
+			using (SettingsForm formSettings = new SettingsForm())
+			{
+				formSettings.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ExportDataSheet()
+		{
+			using (ExportDataSheetForm formExportDataSheet = new ExportDataSheetForm())
+			{
+				formExportDataSheet.ShowDialog();
 			}
 		}
 
@@ -647,7 +708,7 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-		private void CheckStayOnTop() => TopMost = toolStripMenuItemStayOnTop.Checked;
+		private void CheckStayOnTop() => TopMost = menuitemOptionStayOnTop.Checked;
 
 		#endregion
 
@@ -869,11 +930,11 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ToolStripMenuItem_Clear()
 		{
-			toolStripMenuItem10.Checked = false;
-			toolStripMenuItem100.Checked = false;
-			toolStripMenuItem1000.Checked = false;
-			toolStripMenuItem10000.Checked = false;
-			toolStripMenuItem100000.Checked = false;
+			menuitemNavigateStep10.Checked = false;
+			menuitemNavigateStep100.Checked = false;
+			menuitemNavigateStep1000.Checked = false;
+			menuitemNavigateStep10000.Checked = false;
+			menuitemNavigateStep100000.Checked = false;
 		}
 
 		#endregion
@@ -913,47 +974,68 @@ namespace Planetoid_DB
 				case TextBox box:
 					SetStatusbar(text: box.AccessibleDescription);
 					break;
+				case KryptonTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
 				case Button button:
 					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case KryptonButton kryptonButton:
-					SetStatusbar(text: kryptonButton.AccessibleDescription);
+				case KryptonButton button:
+					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case RadioButton buttonRadio:
-					SetStatusbar(text: buttonRadio.AccessibleDescription);
+				case RadioButton button:
+					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case CheckBox boxCheck:
-					SetStatusbar(text: boxCheck.AccessibleDescription);
+				case KryptonRadioButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case CheckBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonCheckBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case CheckedListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonCheckedListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
 					break;
 				case DateTimePicker picker:
+					SetStatusbar(text: picker.AccessibleDescription);
+					break;
+				case KryptonDateTimePicker picker:
 					SetStatusbar(text: picker.AccessibleDescription);
 					break;
 				case Label label:
 					SetStatusbar(text: label.AccessibleDescription);
 					break;
+				case KryptonLabel label:
+					SetStatusbar(text: label.AccessibleDescription);
+					break;
 				case PictureBox boxPicture:
 					SetStatusbar(text: boxPicture.AccessibleDescription);
 					break;
-				case ToolStripButton buttonToolStrip:
-					SetStatusbar(text: buttonToolStrip.AccessibleDescription);
+				case ToolStripButton button:
+					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case ToolStripMenuItem item:
+				case ToolStripMenuItem menuitem:
+					SetStatusbar(text: menuitem.AccessibleDescription);
+					break;
+				case ToolStripLabel label:
+					SetStatusbar(text: label.AccessibleDescription);
+					break;
+				case ToolStripComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ToolStripDropDown dropdown:
+					SetStatusbar(text: dropdown.AccessibleDescription);
+					break;
+				case ToolStripDropDownButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case ToolStripDropDownItem item:
 					SetStatusbar(text: item.AccessibleDescription);
-					break;
-				case ToolStripLabel labelToolStrip:
-					SetStatusbar(text: labelToolStrip.AccessibleDescription);
-					break;
-				case ToolStripComboBox boxToolStripCombo:
-					SetStatusbar(text: boxToolStripCombo.AccessibleDescription);
-					break;
-				case ToolStripDropDown downToolStripDrop:
-					SetStatusbar(text: downToolStripDrop.AccessibleDescription);
-					break;
-				case ToolStripDropDownButton buttonToolStripDropDown:
-					SetStatusbar(text: buttonToolStripDropDown.AccessibleDescription);
-					break;
-				case ToolStripDropDownItem itemToolStripDropDown:
-					SetStatusbar(text: itemToolStripDropDown.AccessibleDescription);
 					break;
 				case ToolStripProgressBar bar:
 					SetStatusbar(text: bar.AccessibleDescription);
@@ -961,23 +1043,100 @@ namespace Planetoid_DB
 				case ToolStripSeparator separator:
 					SetStatusbar(text: separator.AccessibleDescription);
 					break;
-				case ToolStripTextBox boxToolStripText:
-					SetStatusbar(text: boxToolStripText.AccessibleDescription);
+				case ToolStripTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case DataGridView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case KryptonDropButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case GroupBox group:
+					SetStatusbar(text: group.AccessibleDescription);
+					break;
+				case KryptonGroupBox group:
+					SetStatusbar(text: group.AccessibleDescription);
+					break;
+				case ListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ListView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case MaskedTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonMaskedTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case NumericUpDown numericUpDown:
+					SetStatusbar(text: numericUpDown.AccessibleDescription);
+					break;
+				case KryptonNumericUpDown numericUpDown:
+					SetStatusbar(text: numericUpDown.AccessibleDescription);
+					break;
+				case MonthCalendar calender:
+					SetStatusbar(text: calender.AccessibleDescription);
+					break;
+				case KryptonMonthCalendar calender:
+					SetStatusbar(text: calender.AccessibleDescription);
+					break;
+				case PropertyGrid grid:
+					SetStatusbar(text: grid.AccessibleDescription);
+					break;
+				case RichTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonRichTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonSeparator separator:
+					SetStatusbar(text: separator.AccessibleDescription);
+					break;
+				case ScrollBar scroll:
+					SetStatusbar(text: scroll.AccessibleDescription);
+					break;
+				case KryptonScrollBar scroll:
+					SetStatusbar(text: scroll.AccessibleDescription);
+					break;
+				case TrackBar track:
+					SetStatusbar(text: track.AccessibleDescription);
+					break;
+				case KryptonTrackBar track:
+					SetStatusbar(text: track.AccessibleDescription);
+					break;
+				case TreeView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case KryptonTreeView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case WebBrowser browser:
+					SetStatusbar(text: browser.AccessibleDescription);
+					break;
+				case KryptonColorButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case KryptonBreadCrumb breadCrumb:
+					SetStatusbar(text: breadCrumb.AccessibleDescription);
+					break;
+				case DomainUpDown domainUpDown:
+					SetStatusbar(text: domainUpDown.AccessibleDescription);
+					break;
+				case KryptonDomainUpDown domainUpDown:
+					SetStatusbar(text: domainUpDown.AccessibleDescription);
 					break;
 			}
-		}
-
-		#endregion
-
-		#region MouseEnter-Handler
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripStatusLabelUpdate_MouseEnter(object sender, EventArgs e)
-		{
 		}
 
 		#endregion
@@ -993,7 +1152,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click-Handler
+		#region Click & ButtonClick Event Handler
 
 		/// <summary>
 		/// 
@@ -1076,7 +1235,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonTerminology_Click(object sender, EventArgs e) => OpenTerminology(index: 0);
+		private void ToolStripButtonTerminology_Click(object sender, EventArgs e) => OpenTerminology2(index: 0);
 
 		/// <summary>
 		/// 
@@ -1103,7 +1262,7 @@ namespace Planetoid_DB
 		{
 			stepPosition = 10;
 			ToolStripMenuItem_Clear();
-			toolStripMenuItem10.Checked = true;
+			menuitemNavigateStep10.Checked = true;
 		}
 
 		/// <summary>
@@ -1115,7 +1274,7 @@ namespace Planetoid_DB
 		{
 			stepPosition = 100;
 			ToolStripMenuItem_Clear();
-			toolStripMenuItem100.Checked = true;
+			menuitemNavigateStep100.Checked = true;
 		}
 
 		/// <summary>
@@ -1127,7 +1286,7 @@ namespace Planetoid_DB
 		{
 			stepPosition = 1000;
 			ToolStripMenuItem_Clear();
-			toolStripMenuItem1000.Checked = true;
+			menuitemNavigateStep1000.Checked = true;
 		}
 
 		/// <summary>
@@ -1139,7 +1298,7 @@ namespace Planetoid_DB
 		{
 			stepPosition = 10000;
 			ToolStripMenuItem_Clear();
-			toolStripMenuItem10000.Checked = true;
+			menuitemNavigateStep10000.Checked = true;
 		}
 
 		/// <summary>
@@ -1151,7 +1310,7 @@ namespace Planetoid_DB
 		{
 			stepPosition = 100000;
 			ToolStripMenuItem_Clear();
-			toolStripMenuItem100000.Checked = true;
+			menuitemNavigateStep100000.Checked = true;
 		}
 
 		/// <summary>
@@ -1202,147 +1361,6 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void MenuitemCheckMpcorbDat_Click(object sender, EventArgs e) => ShowMpcorbDatCheck();
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIndex_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 0);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelDesgnName_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 1);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelEpoch_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 2);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMeanAnomaly_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 3);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelArgPeri_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 4);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelLongAscNode_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 5);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelIncl_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 6);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelOrbEcc_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 7);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMotion_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 8);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSemiMajorAxis_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 9);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelMagAbs_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 10);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelSlopeParam_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 11);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRef_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 12);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbOppos_Enter(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 13);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelNumbObs_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 14);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsSpan_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 15);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelRmsResidual_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 16);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelComputerName_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 17);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelFlags_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 18);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void LabelObsLastDate_Click(object sender, LinkLabelLinkClickedEventArgs e) => OpenTerminology(index: 19);
 
 		/// <summary>
 		/// 
@@ -1462,30 +1480,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonSearch_Click(object sender, EventArgs e)
-		{
-			//todo: add Search here
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemCopytoClipboard_Click(object sender, EventArgs e)
-		{
-			//todo: add CopyToClipboard here
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ToolStripMenuItemSearch_Click(object sender, EventArgs e)
-		{
-			//todo: add Search here
-		}
+		private void ToolStripMenuItemSearch_Click(object sender, EventArgs e) => ShowSearch();
 
 		/// <summary>
 		/// 
@@ -1555,20 +1550,14 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
-		{
-			//todo: add Settings here
-		}
+		private void ToolStripMenuItemSettings_Click(object sender, EventArgs e) => ShowSettings();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemFilter_Click(object sender, EventArgs e)
-		{
-			//todo: add Filter here
-		}
+		private void ToolStripMenuItemFilter_Click(object sender, EventArgs e) => ShowFilter();
 
 		/// <summary>
 		/// 
@@ -1594,11 +1583,11 @@ namespace Planetoid_DB
 		{
 			ArrayList derivatedOrbitElementsDatabase = new ArrayList(capacity: 0);
 			IFormatProvider provider = CultureInfo.CreateSpecificCulture(name: "en");
-			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisData.Text, provider: provider);
-			double numericalEccentricity = double.Parse(s: labelOrbitalEccentricityData.Text, provider: provider);
-			double meanAnomaly = double.Parse(s: labelMeanAnomalyData.Text, provider: provider);
-			double longitudeAscendingNode = double.Parse(s: labelLongitudeAscendingNodeData.Text, provider: provider);
-			double argumentAphelion = double.Parse(s: labelArgumentPerihelionData.Text, provider: provider);
+			double semiMajorAxis = double.Parse(s: kryptonLabelSemiMajorAxisData.Text, provider: provider);
+			double numericalEccentricity = double.Parse(s: kryptonLabelOrbitalEccentricityData.Text, provider: provider);
+			double meanAnomaly = double.Parse(s: kryptonLabelMeanAnomalyData.Text, provider: provider);
+			double longitudeAscendingNode = double.Parse(s: kryptonLabelLongitudeAscendingNodeData.Text, provider: provider);
+			double argumentAphelion = double.Parse(s: kryptonLabelArgumentPerihelionData.Text, provider: provider);
 			derivatedOrbitElementsDatabase.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
 			derivatedOrbitElementsDatabase.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity));
 			derivatedOrbitElementsDatabase.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis));
@@ -1682,140 +1671,354 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardIndexNumber_Click(object sender, EventArgs e) => CopyToClipboard(text: labelIndexData.Text);
+		private void ToolStripMenuItemCopyToClipboardIndexNumber_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelIndexData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardReadableDesignation_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDesignationNameData.Text);
+		private void ToolStripMenuItemCopyToClipboardReadableDesignation_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelDesignationNameData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardEpoch_Click(object sender, EventArgs e) => CopyToClipboard(text: labelEpochData.Text);
+		private void ToolStripMenuItemCopyToClipboardEpoch_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelEpochData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardMeanAnomaly_Click(object sender, EventArgs e) => CopyToClipboard(text: labelMeanAnomalyData.Text);
+		private void ToolStripMenuItemCopyToClipboardMeanAnomaly_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelMeanAnomalyData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardArgumentOfPerihelion_Click(object sender, EventArgs e) => CopyToClipboard(text: labelArgumentPerihelionData.Text);
+		private void ToolStripMenuItemCopyToClipboardArgumentOfPerihelion_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelArgumentPerihelionData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardLongitudeOfTheAscendingNode_Click(object sender, EventArgs e) => CopyToClipboard(text: labelLongitudeAscendingNodeData.Text);
+		private void ToolStripMenuItemCopyToClipboardLongitudeOfTheAscendingNode_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelLongitudeAscendingNodeData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardInclination_Click(object sender, EventArgs e) => CopyToClipboard(text: labelInclinationData.Text);
+		private void ToolStripMenuItemCopyToClipboardInclination_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelInclinationData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardOrbitalEccentricity_Click(object sender, EventArgs e) => CopyToClipboard(text: labelOrbitalEccentricityData.Text);
+		private void ToolStripMenuItemCopyToClipboardOrbitalEccentricity_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelOrbitalEccentricityData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardMeanDailyMotion_Click(object sender, EventArgs e) => CopyToClipboard(text: labelMeanDailyMotionData.Text);
+		private void ToolStripMenuItemCopyToClipboardMeanDailyMotion_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelMeanDailyMotionData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardSemimajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: labelSemiMajorAxisData.Text);
+		private void ToolStripMenuItemCopyToClipboardSemimajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelSemiMajorAxisData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardAbsoluteMagnitude_Click(object sender, EventArgs e) => CopyToClipboard(text: labelAbsoluteMagnitudeData.Text);
+		private void ToolStripMenuItemCopyToClipboardAbsoluteMagnitude_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelAbsoluteMagnitudeData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardSlopeParameter_Click(object sender, EventArgs e) => CopyToClipboard(text: labelSlopeParameterData.Text);
+		private void ToolStripMenuItemCopyToClipboardSlopeParameter_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelSlopeParameterData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardReference_Click(object sender, EventArgs e) => CopyToClipboard(text: labelReferenceData.Text);
+		private void ToolStripMenuItemCopyToClipboardReference_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelReferenceData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardNumberOfOppositions_Click(object sender, EventArgs e) => CopyToClipboard(text: labelNumberOppositionsData.Text);
+		private void ToolStripMenuItemCopyToClipboardNumberOfOppositions_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelNumberOppositionsData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardNumberOfObservations_Click(object sender, EventArgs e) => CopyToClipboard(text: labelNumberObservationsData.Text);
+		private void ToolStripMenuItemCopyToClipboardNumberOfObservations_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelNumberObservationsData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardObservationSpan_Click(object sender, EventArgs e) => CopyToClipboard(text: labelObservationSpanData.Text);
+		private void ToolStripMenuItemCopyToClipboardObservationSpan_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelObservationSpanData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardRmsResidual_Click(object sender, EventArgs e) => CopyToClipboard(text: labelRmsResidualData.Text);
+		private void ToolStripMenuItemCopyToClipboardRmsResidual_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelRmsResidualData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardComputername_Click(object sender, EventArgs e) => CopyToClipboard(text: labelComputerNameData.Text);
+		private void ToolStripMenuItemCopyToClipboardComputername_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelComputerNameData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardDateOfLastObservation_Click(object sender, EventArgs e) => CopyToClipboard(text: labelDateLastObservationData.Text);
+		private void ToolStripMenuItemCopyToClipboardDateOfLastObservation_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelDateLastObservationData.Text);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemCopyToClipboardFlags_Click(object sender, EventArgs e) => CopyToClipboard(text: labelFlagsData.Text);
+		private void ToolStripMenuItemCopyToClipboardFlags_Click(object sender, EventArgs e) => CopyToClipboard(text: kryptonLabelFlagsData.Text);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ExportDataEntryToolStripMenuItem_Click(object sender, EventArgs e) => ExportDataSheet();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripSplitButtonExport_ButtonClick(object sender, EventArgs e) => ExportDataSheet();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemExportDataEntryAsTxt_Click(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemExportDataEntryAsHtml_Click(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemExportDataEntryAsXml_Click(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemExportDataEntryAsJson_Click(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemTopTenRecords_Click(object sender, EventArgs e) => ShowRecordsSelection();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SplitbuttonTopTenRecords_ButtonClick(object sender, EventArgs e) => ShowRecordsSelection();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsMeanAnomalyAtTheEpoch_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsArgumentOfPerihelion_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsLongitudeOfTheAscendingNode_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsInclination_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsOrbitalEccentricity_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsMeanDailyMotion_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsSemiMajorAxis_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsAbsoluteMagnitude_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsSlopeParameter_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsNumberOfOppositions_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsNumberOfObservations_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsObservationSpan_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsRmsResidual_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsComputername_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemRecordsDateOfTheLastObservation_Click(object sender, EventArgs e)
+		{
+			ShowRecordsMain();
+		}
 
 		#endregion
 
@@ -1828,7 +2031,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			if (toolStripMenuItemEnabledCopyingByDoubleClicking.Checked)
+			if (menuitemOptionEnabledCopyingByDoubleClicking.Checked)
 			{
 				switch (sender)
 				{
@@ -1837,6 +2040,9 @@ namespace Planetoid_DB
 						break;
 					case Button button:
 						CopyToClipboard(text: button.Text);
+						break;
+					case KryptonButton kryptonButton:
+						CopyToClipboard(text: kryptonButton.Text);
 						break;
 					case RadioButton radioButton:
 						CopyToClipboard(text: radioButton.Text);
@@ -1849,6 +2055,9 @@ namespace Planetoid_DB
 						break;
 					case Label label:
 						CopyToClipboard(text: label.Text);
+						break;
+					case KryptonLabel kryptonLabel:
+						CopyToClipboard(text: kryptonLabel.Text);
 						break;
 					case ToolStripButton buttonToolStrip:
 						CopyToClipboard(text: buttonToolStrip.Text);
@@ -1891,11 +2100,152 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void EasterEgg_DoubleClick(object sender, EventArgs e) => MessageBox.Show(text: I10nStrings.EasterEgg, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 
-		private string GetDebuggerDisplay()
-		{
-			return ToString();
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelIndexDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 0);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelDesignationNameDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 1);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelEpochDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 2);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelArgumentPerihelionDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 3);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelLongitudeAscendingNodeDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 4);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelMeanAnomalyDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 5);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelInclinationDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 6);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelOrbitalEccentricityDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 7);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelMeanDailyMotionDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 8);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelSemiMajorAxisDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 9);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelAbsoluteMagnitudeDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 10);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelSlopeParameterDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 11);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelReferenceDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 12);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelNumberOppositionsDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 13);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelNumberObservationsDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 14);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelObservationSpanDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 15);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelRmsResidualDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 16);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelComputerNameDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 17);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelFlagsDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 18);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonLabelDateLastObservationDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 19);
 
 		#endregion
+
+		private void tableLayoutPanelData_Scroll(object sender, ScrollEventArgs e)
+		{
+			MessageBox.Show("Scroll");
+		}
+
 	}
 }

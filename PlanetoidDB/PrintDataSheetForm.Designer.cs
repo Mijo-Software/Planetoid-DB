@@ -28,29 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintDataSheetForm));
-            this.checkedListBoxOrbitalElements = new System.Windows.Forms.CheckedListBox();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonPrintDataSheet = new System.Windows.Forms.Button();
-            this.buttonCancelPrint = new System.Windows.Forms.Button();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
-            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
-            this.kryptonPanel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // checkedListBoxOrbitalElements
-            // 
-            this.checkedListBoxOrbitalElements.AccessibleDescription = "Check some orbital elements to print on a data sheet";
-            this.checkedListBoxOrbitalElements.AccessibleName = "Check orbital elements";
-            this.checkedListBoxOrbitalElements.AccessibleRole = System.Windows.Forms.AccessibleRole.List;
-            this.checkedListBoxOrbitalElements.CheckOnClick = true;
-            this.checkedListBoxOrbitalElements.FormattingEnabled = true;
-            this.checkedListBoxOrbitalElements.HorizontalScrollbar = true;
-            this.checkedListBoxOrbitalElements.Items.AddRange(new object[] {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintDataSheetForm));
+			this.checkedListBoxOrbitalElements = new Krypton.Toolkit.KryptonCheckedListBox();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.buttonPrintDataSheet = new Krypton.Toolkit.KryptonButton();
+			this.buttonCancelPrint = new Krypton.Toolkit.KryptonButton();
+			this.kryptonPanel = new Krypton.Toolkit.KryptonPanel();
+			this.kryptonStatusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
+			this.kryptonPanel.SuspendLayout();
+			this.kryptonStatusStrip.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// checkedListBoxOrbitalElements
+			// 
+			this.checkedListBoxOrbitalElements.AccessibleDescription = "Check some orbital elements to print on a data sheet";
+			this.checkedListBoxOrbitalElements.AccessibleName = "Check orbital elements";
+			this.checkedListBoxOrbitalElements.AccessibleRole = System.Windows.Forms.AccessibleRole.List;
+			this.checkedListBoxOrbitalElements.BackStyle = Krypton.Toolkit.PaletteBackStyle.InputControlRibbon;
+			this.checkedListBoxOrbitalElements.CheckOnClick = true;
+			this.checkedListBoxOrbitalElements.CornerRoundingRadius = -1F;
+			this.checkedListBoxOrbitalElements.FormattingEnabled = true;
+			this.checkedListBoxOrbitalElements.HorizontalScrollbar = true;
+			this.checkedListBoxOrbitalElements.ItemCornerRoundingRadius = -1F;
+			this.checkedListBoxOrbitalElements.Items.AddRange(new object[] {
             "Index No.",
             "Readable designation",
             "Epoch (in packed form, .0 TT)",
@@ -90,140 +93,135 @@
             "Semi-mean axis",
             "Mean axis",
             "Standard gravitational parameter"});
-            this.checkedListBoxOrbitalElements.Location = new System.Drawing.Point(12, 12);
-            this.checkedListBoxOrbitalElements.Name = "checkedListBoxOrbitalElements";
-            this.checkedListBoxOrbitalElements.Size = new System.Drawing.Size(280, 220);
-            this.checkedListBoxOrbitalElements.TabIndex = 0;
-            this.checkedListBoxOrbitalElements.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-            this.checkedListBoxOrbitalElements.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-            this.checkedListBoxOrbitalElements.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-            this.checkedListBoxOrbitalElements.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-            // 
-            // buttonPrintDataSheet
-            // 
-            this.buttonPrintDataSheet.AccessibleDescription = "Print a data sheet with some orbit elements";
-            this.buttonPrintDataSheet.AccessibleName = "Print data sheet";
-            this.buttonPrintDataSheet.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonPrintDataSheet.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.buttonPrintDataSheet.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
-            this.buttonPrintDataSheet.Location = new System.Drawing.Point(12, 238);
-            this.buttonPrintDataSheet.Name = "buttonPrintDataSheet";
-            this.buttonPrintDataSheet.Size = new System.Drawing.Size(132, 36);
-            this.buttonPrintDataSheet.TabIndex = 1;
-            this.buttonPrintDataSheet.Text = "&Print the sheet";
-            this.buttonPrintDataSheet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPrintDataSheet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip.SetToolTip(this.buttonPrintDataSheet, "Print a data sheet with some orbit elements");
-            this.buttonPrintDataSheet.UseVisualStyleBackColor = true;
-            this.buttonPrintDataSheet.Click += new System.EventHandler(this.ButtonPrintDataSheet_Click);
-            this.buttonPrintDataSheet.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-            this.buttonPrintDataSheet.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-            this.buttonPrintDataSheet.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-            this.buttonPrintDataSheet.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-            // 
-            // buttonCancelPrint
-            // 
-            this.buttonCancelPrint.AccessibleDescription = "Cancel the print";
-            this.buttonCancelPrint.AccessibleName = "Cancel print";
-            this.buttonCancelPrint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonCancelPrint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.buttonCancelPrint.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
-            this.buttonCancelPrint.Location = new System.Drawing.Point(164, 238);
-            this.buttonCancelPrint.Name = "buttonCancelPrint";
-            this.buttonCancelPrint.Size = new System.Drawing.Size(128, 36);
-            this.buttonCancelPrint.TabIndex = 2;
-            this.buttonCancelPrint.Text = "&Cancel print";
-            this.buttonCancelPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCancelPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip.SetToolTip(this.buttonCancelPrint, "Cancel the print");
-            this.buttonCancelPrint.UseVisualStyleBackColor = true;
-            this.buttonCancelPrint.Click += new System.EventHandler(this.ButtonCancelPrint_Click);
-            this.buttonCancelPrint.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-            this.buttonCancelPrint.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-            this.buttonCancelPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-            this.buttonCancelPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.AccessibleDescription = "Show the status";
-            this.statusStrip.AccessibleName = "Status bar";
-            this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-            this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.checkedListBoxOrbitalElements.Location = new System.Drawing.Point(12, 12);
+			this.checkedListBoxOrbitalElements.Name = "checkedListBoxOrbitalElements";
+			this.checkedListBoxOrbitalElements.Size = new System.Drawing.Size(280, 220);
+			this.checkedListBoxOrbitalElements.TabIndex = 0;
+			this.checkedListBoxOrbitalElements.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.checkedListBoxOrbitalElements.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.checkedListBoxOrbitalElements.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.checkedListBoxOrbitalElements.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// buttonPrintDataSheet
+			// 
+			this.buttonPrintDataSheet.AccessibleDescription = "Print a data sheet with some orbit elements";
+			this.buttonPrintDataSheet.AccessibleName = "Print data sheet";
+			this.buttonPrintDataSheet.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonPrintDataSheet.CornerRoundingRadius = -1F;
+			this.buttonPrintDataSheet.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.buttonPrintDataSheet.Location = new System.Drawing.Point(12, 238);
+			this.buttonPrintDataSheet.Name = "buttonPrintDataSheet";
+			this.buttonPrintDataSheet.Size = new System.Drawing.Size(132, 36);
+			this.buttonPrintDataSheet.TabIndex = 1;
+			this.toolTip.SetToolTip(this.buttonPrintDataSheet, "Print a data sheet with some orbit elements");
+			this.buttonPrintDataSheet.Values.Image = global::Planetoid_DB.Properties.Resources.silk_printer;
+			this.buttonPrintDataSheet.Values.Text = "&Print the sheet";
+			this.buttonPrintDataSheet.Click += new System.EventHandler(this.ButtonPrintDataSheet_Click);
+			this.buttonPrintDataSheet.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonPrintDataSheet.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonPrintDataSheet.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonPrintDataSheet.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// buttonCancelPrint
+			// 
+			this.buttonCancelPrint.AccessibleDescription = "Cancel the print";
+			this.buttonCancelPrint.AccessibleName = "Cancel print";
+			this.buttonCancelPrint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonCancelPrint.CornerRoundingRadius = -1F;
+			this.buttonCancelPrint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.buttonCancelPrint.Location = new System.Drawing.Point(164, 238);
+			this.buttonCancelPrint.Name = "buttonCancelPrint";
+			this.buttonCancelPrint.Size = new System.Drawing.Size(128, 36);
+			this.buttonCancelPrint.TabIndex = 2;
+			this.toolTip.SetToolTip(this.buttonCancelPrint, "Cancel the print");
+			this.buttonCancelPrint.Values.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
+			this.buttonCancelPrint.Values.Text = "&Cancel print";
+			this.buttonCancelPrint.Click += new System.EventHandler(this.ButtonCancelPrint_Click);
+			this.buttonCancelPrint.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancelPrint.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonCancelPrint.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonCancelPrint.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// kryptonPanel
+			// 
+			this.kryptonPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
+			this.kryptonPanel.Controls.Add(this.kryptonStatusStrip);
+			this.kryptonPanel.Controls.Add(this.checkedListBoxOrbitalElements);
+			this.kryptonPanel.Controls.Add(this.buttonPrintDataSheet);
+			this.kryptonPanel.Controls.Add(this.buttonCancelPrint);
+			this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
+			this.kryptonPanel.Name = "kryptonPanel";
+			this.kryptonPanel.Size = new System.Drawing.Size(306, 308);
+			this.kryptonPanel.TabIndex = 0;
+			this.kryptonPanel.TabStop = true;
+			// 
+			// kryptonStatusStrip
+			// 
+			this.kryptonStatusStrip.AccessibleDescription = "Shows some information";
+			this.kryptonStatusStrip.AccessibleName = "Status bar of some information";
+			this.kryptonStatusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
+			this.kryptonStatusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.kryptonStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelInformation});
-            this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip.Location = new System.Drawing.Point(0, 287);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.statusStrip.ShowItemToolTips = true;
-            this.statusStrip.Size = new System.Drawing.Size(306, 21);
-            this.statusStrip.SizingGrip = false;
-            this.statusStrip.TabIndex = 3;
-            this.statusStrip.TabStop = true;
-            this.statusStrip.Text = "statusStrip";
-            // 
-            // labelInformation
-            // 
-            this.labelInformation.AccessibleDescription = "Show some important informations";
-            this.labelInformation.AccessibleName = "Information field";
-            this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-            this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-            this.labelInformation.Name = "labelInformation";
-            this.labelInformation.Size = new System.Drawing.Size(170, 16);
-            this.labelInformation.Text = "Show informative messages";
-            this.labelInformation.ToolTipText = "Show informative messages";
-            // 
-            // kryptonPanel1
-            // 
-            this.kryptonPanel1.Controls.Add(this.checkedListBoxOrbitalElements);
-            this.kryptonPanel1.Controls.Add(this.buttonPrintDataSheet);
-            this.kryptonPanel1.Controls.Add(this.buttonCancelPrint);
-            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(306, 287);
-            this.kryptonPanel1.TabIndex = 0;
-            this.kryptonPanel1.TabStop = true;
-            // 
-            // PrintDataSheetForm
-            // 
-            this.AccessibleDescription = "Print a data sheet with some orbit elements";
-            this.AccessibleName = "Print data sheet";
-            this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 308);
-            this.Controls.Add(this.kryptonPanel1);
-            this.Controls.Add(this.statusStrip);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "PrintDataSheetForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Print data sheet";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PrintDataSheetForm_FormClosed);
-            this.Load += new System.EventHandler(this.PrintDataSheetForm_Load);
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
-            this.kryptonPanel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.kryptonStatusStrip.Location = new System.Drawing.Point(0, 286);
+			this.kryptonStatusStrip.Name = "kryptonStatusStrip";
+			this.kryptonStatusStrip.ProgressBars = null;
+			this.kryptonStatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+			this.kryptonStatusStrip.Size = new System.Drawing.Size(306, 22);
+			this.kryptonStatusStrip.SizingGrip = false;
+			this.kryptonStatusStrip.TabIndex = 3;
+			this.kryptonStatusStrip.Text = "status bar";
+			// 
+			// labelInformation
+			// 
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Show some information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelInformation.AutoToolTip = true;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(144, 17);
+			this.labelInformation.Text = "some information here";
+			this.labelInformation.ToolTipText = "Show some information";
+			// 
+			// PrintDataSheetForm
+			// 
+			this.AccessibleDescription = "Print a data sheet with some orbit elements";
+			this.AccessibleName = "Print data sheet";
+			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(306, 308);
+			this.Controls.Add(this.kryptonPanel);
+			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "PrintDataSheetForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Print data sheet";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PrintDataSheetForm_FormClosed);
+			this.Load += new System.EventHandler(this.PrintDataSheetForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
+			this.kryptonPanel.ResumeLayout(false);
+			this.kryptonPanel.PerformLayout();
+			this.kryptonStatusStrip.ResumeLayout(false);
+			this.kryptonStatusStrip.PerformLayout();
+			this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBoxOrbitalElements;
+        private Krypton.Toolkit.KryptonCheckedListBox checkedListBoxOrbitalElements;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-        private System.Windows.Forms.Button buttonPrintDataSheet;
-        private System.Windows.Forms.Button buttonCancelPrint;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
-    }
+        private Krypton.Toolkit.KryptonButton buttonPrintDataSheet;
+        private Krypton.Toolkit.KryptonButton buttonCancelPrint;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel;
+		private Krypton.Toolkit.KryptonStatusStrip kryptonStatusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+	}
 }

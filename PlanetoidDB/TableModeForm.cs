@@ -74,26 +74,26 @@ namespace Planetoid_DB
 		/// <param name="currentPosition"></param>
 		private void FormatRow(int currentPosition)
 		{
-			strIndex = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-			strMagAbs = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			strSlopeParam = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			strEpoch = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			strMeanAnomaly = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			strArgPeri = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			strLongAscNode = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			strIncl = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			strOrbEcc = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			strMotion = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			strSemiMajorAxis = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			strRef = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			strNumbObs = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			strNumbOppos = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			strObsSpan = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			strRmsResdiual = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			strComputerName = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			strFlags = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-			strDesgnName = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			strObsLastDate = planetoidDatabase[currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+			strIndex = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			strMagAbs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			strSlopeParam = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			strEpoch = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			strMeanAnomaly = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			strArgPeri = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			strLongAscNode = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			strIncl = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			strOrbEcc = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			strMotion = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			strSemiMajorAxis = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			strRef = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			strNumbObs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			strNumbOppos = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			strObsSpan = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			strRmsResdiual = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			strComputerName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			strObsLastDate = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 			ListViewItem listViewItem = new ListViewItem(text: strIndex)
 			{
 				ToolTipText = $"{strIndex}: {strDesgnName}"
@@ -227,44 +227,68 @@ namespace Planetoid_DB
 				case TextBox box:
 					SetStatusbar(text: box.AccessibleDescription);
 					break;
+				case KryptonTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
 				case Button button:
 					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case RadioButton buttonRadio:
-					SetStatusbar(text: buttonRadio.AccessibleDescription);
+				case KryptonButton button:
+					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case CheckBox boxCheck:
-					SetStatusbar(text: boxCheck.AccessibleDescription);
+				case RadioButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case KryptonRadioButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case CheckBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonCheckBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case CheckedListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonCheckedListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
 					break;
 				case DateTimePicker picker:
+					SetStatusbar(text: picker.AccessibleDescription);
+					break;
+				case KryptonDateTimePicker picker:
 					SetStatusbar(text: picker.AccessibleDescription);
 					break;
 				case Label label:
 					SetStatusbar(text: label.AccessibleDescription);
 					break;
+				case KryptonLabel label:
+					SetStatusbar(text: label.AccessibleDescription);
+					break;
 				case PictureBox boxPicture:
 					SetStatusbar(text: boxPicture.AccessibleDescription);
 					break;
-				case ToolStripButton buttonToolStrip:
-					SetStatusbar(text: buttonToolStrip.AccessibleDescription);
+				case ToolStripButton button:
+					SetStatusbar(text: button.AccessibleDescription);
 					break;
-				case ToolStripMenuItem item:
+				case ToolStripMenuItem menuitem:
+					SetStatusbar(text: menuitem.AccessibleDescription);
+					break;
+				case ToolStripLabel label:
+					SetStatusbar(text: label.AccessibleDescription);
+					break;
+				case ToolStripComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ToolStripDropDown dropdown:
+					SetStatusbar(text: dropdown.AccessibleDescription);
+					break;
+				case ToolStripDropDownButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case ToolStripDropDownItem item:
 					SetStatusbar(text: item.AccessibleDescription);
-					break;
-				case ToolStripLabel labelToolStrip:
-					SetStatusbar(text: labelToolStrip.AccessibleDescription);
-					break;
-				case ToolStripComboBox boxToolStripCombo:
-					SetStatusbar(text: boxToolStripCombo.AccessibleDescription);
-					break;
-				case ToolStripDropDown downToolStripDrop:
-					SetStatusbar(text: downToolStripDrop.AccessibleDescription);
-					break;
-				case ToolStripDropDownButton buttonToolStripDropDown:
-					SetStatusbar(text: buttonToolStripDropDown.AccessibleDescription);
-					break;
-				case ToolStripDropDownItem itemToolStripDropDown:
-					SetStatusbar(text: itemToolStripDropDown.AccessibleDescription);
 					break;
 				case ToolStripProgressBar bar:
 					SetStatusbar(text: bar.AccessibleDescription);
@@ -272,8 +296,98 @@ namespace Planetoid_DB
 				case ToolStripSeparator separator:
 					SetStatusbar(text: separator.AccessibleDescription);
 					break;
-				case ToolStripTextBox boxToolStripText:
-					SetStatusbar(text: boxToolStripText.AccessibleDescription);
+				case ToolStripTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonComboBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case DataGridView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case KryptonDropButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case GroupBox group:
+					SetStatusbar(text: group.AccessibleDescription);
+					break;
+				case KryptonGroupBox group:
+					SetStatusbar(text: group.AccessibleDescription);
+					break;
+				case ListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonListBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case ListView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case MaskedTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonMaskedTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case NumericUpDown numericUpDown:
+					SetStatusbar(text: numericUpDown.AccessibleDescription);
+					break;
+				case KryptonNumericUpDown numericUpDown:
+					SetStatusbar(text: numericUpDown.AccessibleDescription);
+					break;
+				case MonthCalendar calender:
+					SetStatusbar(text: calender.AccessibleDescription);
+					break;
+				case KryptonMonthCalendar calender:
+					SetStatusbar(text: calender.AccessibleDescription);
+					break;
+				case PropertyGrid grid:
+					SetStatusbar(text: grid.AccessibleDescription);
+					break;
+				case RichTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonRichTextBox box:
+					SetStatusbar(text: box.AccessibleDescription);
+					break;
+				case KryptonSeparator separator:
+					SetStatusbar(text: separator.AccessibleDescription);
+					break;
+				case ScrollBar scroll:
+					SetStatusbar(text: scroll.AccessibleDescription);
+					break;
+				case KryptonScrollBar scroll:
+					SetStatusbar(text: scroll.AccessibleDescription);
+					break;
+				case TrackBar track:
+					SetStatusbar(text: track.AccessibleDescription);
+					break;
+				case KryptonTrackBar track:
+					SetStatusbar(text: track.AccessibleDescription);
+					break;
+				case TreeView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case KryptonTreeView view:
+					SetStatusbar(text: view.AccessibleDescription);
+					break;
+				case WebBrowser browser:
+					SetStatusbar(text: browser.AccessibleDescription);
+					break;
+				case KryptonColorButton button:
+					SetStatusbar(text: button.AccessibleDescription);
+					break;
+				case KryptonBreadCrumb breadCrumb:
+					SetStatusbar(text: breadCrumb.AccessibleDescription);
+					break;
+				case DomainUpDown domainUpDown:
+					SetStatusbar(text: domainUpDown.AccessibleDescription);
+					break;
+				case KryptonDomainUpDown domainUpDown:
+					SetStatusbar(text: domainUpDown.AccessibleDescription);
 					break;
 			}
 		}

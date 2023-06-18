@@ -32,8 +32,6 @@ namespace Planetoid_DB
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DerivatedOrbitElementsForm));
-			this.statusStrip = new System.Windows.Forms.StatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.buttonOK = new System.Windows.Forms.Button();
 			this.linkLabelLinearEccentricityDesc = new System.Windows.Forms.LinkLabel();
@@ -77,42 +75,12 @@ namespace Planetoid_DB
 			this.labelMeanAxisData = new System.Windows.Forms.Label();
 			this.labelStandardGravitationalParameterData = new System.Windows.Forms.Label();
 			this.tableLayoutPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			this.statusStrip.SuspendLayout();
+			this.kryptonStatusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
 			this.contextMenuCopyToClipboard.SuspendLayout();
 			this.tableLayoutPanel.SuspendLayout();
+			this.kryptonStatusStrip.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// statusStrip
-			// 
-			this.statusStrip.AccessibleDescription = "Show the status";
-			this.statusStrip.AccessibleName = "Status bar";
-			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-			this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelInformation});
-			this.statusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-			this.statusStrip.Location = new System.Drawing.Point(0, 363);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip.ShowItemToolTips = true;
-			this.statusStrip.Size = new System.Drawing.Size(475, 21);
-			this.statusStrip.SizingGrip = false;
-			this.statusStrip.TabIndex = 2;
-			this.statusStrip.TabStop = true;
-			this.statusStrip.Text = "statusStrip";
-			// 
-			// labelInformation
-			// 
-			this.labelInformation.AccessibleDescription = "Show some important informations";
-			this.labelInformation.AccessibleName = "Information field";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(170, 16);
-			this.labelInformation.Text = "Show informative messages";
-			this.labelInformation.ToolTipText = "Show informative messages";
 			// 
 			// buttonOK
 			// 
@@ -120,7 +88,6 @@ namespace Planetoid_DB
 			this.buttonOK.AccessibleName = "OK";
 			this.buttonOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonOK.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.buttonOK.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonOK.Image = global::Planetoid_DB.Properties.Resources.silk_tick;
 			this.buttonOK.Location = new System.Drawing.Point(0, 327);
@@ -1072,9 +1039,40 @@ namespace Planetoid_DB
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel.Size = new System.Drawing.Size(475, 328);
 			this.tableLayoutPanel.TabIndex = 0;
 			this.tableLayoutPanel.TabStop = true;
+			// 
+			// kryptonStatusStrip
+			// 
+			this.kryptonStatusStrip.AccessibleDescription = "Shows some information";
+			this.kryptonStatusStrip.AccessibleName = "Status bar of some information";
+			this.kryptonStatusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
+			this.kryptonStatusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.kryptonStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelInformation});
+			this.kryptonStatusStrip.Location = new System.Drawing.Point(0, 362);
+			this.kryptonStatusStrip.Name = "kryptonStatusStrip";
+			this.kryptonStatusStrip.ProgressBars = null;
+			this.kryptonStatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+			this.kryptonStatusStrip.Size = new System.Drawing.Size(475, 22);
+			this.kryptonStatusStrip.SizingGrip = false;
+			this.kryptonStatusStrip.TabIndex = 3;
+			this.kryptonStatusStrip.Text = "status bar";
+			// 
+			// labelInformation
+			// 
+			this.labelInformation.AccessibleDescription = "Show some information";
+			this.labelInformation.AccessibleName = "Show some information";
+			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelInformation.AutoToolTip = true;
+			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
+			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+			this.labelInformation.Name = "labelInformation";
+			this.labelInformation.Size = new System.Drawing.Size(144, 17);
+			this.labelInformation.Text = "some information here";
+			this.labelInformation.ToolTipText = "Show some information";
 			// 
 			// DerivatedOrbitElementsForm
 			// 
@@ -1084,9 +1082,9 @@ namespace Planetoid_DB
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(475, 384);
+			this.Controls.Add(this.kryptonStatusStrip);
 			this.Controls.Add(this.tableLayoutPanel);
 			this.Controls.Add(this.buttonOK);
-			this.Controls.Add(this.statusStrip);
 			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1097,20 +1095,17 @@ namespace Planetoid_DB
 			this.Text = "Derivated orbit elements";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DerivatedOrbitElementsForm_FormClosed);
 			this.Load += new System.EventHandler(this.DerivatedOrbitElementsForm_Load);
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
 			this.contextMenuCopyToClipboard.ResumeLayout(false);
 			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel.PerformLayout();
+			this.kryptonStatusStrip.ResumeLayout(false);
+			this.kryptonStatusStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.StatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.Button buttonOK;
 		private KryptonTableLayoutPanel tableLayoutPanel;
@@ -1154,5 +1149,7 @@ namespace Planetoid_DB
 		private System.Windows.Forms.Label labelMeanAxisData;
 		private System.Windows.Forms.Label labelStandardGravitationalParameterData;
 		private System.Windows.Forms.LinkLabel linkLabelStandardGravitationalParameterDesc;
+		private KryptonStatusStrip kryptonStatusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
 	}
 }

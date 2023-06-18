@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
 using System.Windows.Forms;
 using Krypton.Toolkit;
 
@@ -11,67 +9,27 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class CheckMpcorbDatForm : KryptonForm
+	public partial class RecordsSelectionForm : KryptonForm
 	{
 		#region Constructor
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public CheckMpcorbDatForm() => InitializeComponent();
+		public RecordsSelectionForm()
+		{
+			InitializeComponent();
+		}
 
 		#endregion
 
-		#region Form* event handlers
+		#region Local Methods
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CheckMpcorbDatForm_Load(object sender, EventArgs e)
-		{
-			Uri uriMPCORB = new Uri(uriString: Properties.Resources.MpcorbUrl);
-			DateTime
-				datetimeFileLocal = DateTime.MinValue,
-				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
-			if (!File.Exists(path: Properties.Resources.FilenameMpcorb))
-			{
-				labelContentLengthValueLocal.Text = I10nStrings.NoFileFoundText;
-				labelModifiedDateValueLocal.Text = I10nStrings.NoFileFoundText;
-			}
-			else
-			{
-				FileInfo fileInfo = new FileInfo(fileName: Properties.Resources.FilenameMpcorb);
-				datetimeFileLocal = fileInfo.LastWriteTime;
-				labelContentLengthValueLocal.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
-				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
-			}
-			labelContentLengthValueOnline.Text = $"{GetContentLength(uri: uriMPCORB)} {I10nStrings.BytesText}";
-			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
-			labelUpdateNeeded.Text = datetimeFileOnline > datetimeFileLocal ? I10nStrings.UpdateRecommendedText : I10nStrings.NoUpdateNeededText;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CheckMpcorbDatForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
-
-		#endregion
-
-		#region local methods
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private void CopyToClipboard(string text)
-		{
-			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-		}
+		/// <returns></returns>
+		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
 		/// 
@@ -98,32 +56,17 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>
-		private DateTime GetLastModified(Uri uri)
+		private void ShowRecordsMain()
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			resp.Close();
-			return resp.LastModified;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>
-		private long GetContentLength(Uri uri)
-		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			resp.Close();
-			return Convert.ToInt64(value: resp.ContentLength);
+			using (RecordsMainForm formRecordsMain = new RecordsMainForm())
+			{
+				formRecordsMain.ShowDialog();
+			}
 		}
 
 		#endregion
 
-		#region Enter event handlers
+		#region Enter-Handler
 
 		/// <summary>
 		/// 
@@ -304,7 +247,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Leave event handlers
+		#region Leave-Handler
 
 		/// <summary>
 		/// 
@@ -315,78 +258,176 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click event handlers
+		#region Click & ButtonClick event handlers
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonOK_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyToClipboard_Click(object sender, EventArgs e)
+		private void KryptonButtonMeanAnomaly_Click(object sender, System.EventArgs e)
 		{
-			switch (sender)
-			{
-				case TextBox box:
-					CopyToClipboard(text: box.Text);
-					break;
-				case Button button:
-					CopyToClipboard(text: button.Text);
-					break;
-				case RadioButton buttonRadio:
-					CopyToClipboard(text: buttonRadio.Text);
-					break;
-				case CheckBox boxCheck:
-					CopyToClipboard(text: boxCheck.Text);
-					break;
-				case DateTimePicker pickerDateTime:
-					CopyToClipboard(text: pickerDateTime.Text);
-					break;
-				case Label label:
-					CopyToClipboard(text: label.Text);
-					break;
-				case ToolStripButton buttonToolStrip:
-					CopyToClipboard(text: buttonToolStrip.Text);
-					break;
-				case ToolStripMenuItem itemToolStripMenu:
-					CopyToClipboard(text: itemToolStripMenu.Text);
-					break;
-				case ToolStripLabel labelToolStrip:
-					CopyToClipboard(text: labelToolStrip.Text);
-					break;
-				case ToolStripComboBox boxToolStripCombo:
-					CopyToClipboard(text: boxToolStripCombo.Text);
-					break;
-				case ToolStripDropDown downToolStripDrop:
-					CopyToClipboard(text: downToolStripDrop.Text);
-					break;
-				case ToolStripDropDownButton buttonToolStripDropDown:
-					CopyToClipboard(text: buttonToolStripDropDown.Text);
-					break;
-				case ToolStripDropDownItem itemToolStripDropDown:
-					CopyToClipboard(text: itemToolStripDropDown.Text);
-					break;
-				case ToolStripProgressBar barToolStripProgress:
-					CopyToClipboard(text: barToolStripProgress.Text);
-					break;
-				case ToolStripSeparator separatorToolStrip:
-					CopyToClipboard(text: separatorToolStrip.Text);
-					break;
-				case ToolStripTextBox boxToolStripText:
-					CopyToClipboard(text: boxToolStripText.Text);
-					break;
-			}
+			ShowRecordsMain();
 		}
 
-		private string GetDebuggerDisplay()
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonArgumentOfPerihelion_Click(object sender, System.EventArgs e)
 		{
-			return ToString();
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonLongitudeOfTheAscendingNode_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonInclination_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonOrbitalEccentricity_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonMeanDailyMotion_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonSemiMajorAxis_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonAbsoluteMagnitude_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonSlopeParameter_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonNumberOfOppositions_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonNumberOfObservations_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonObservationSpan_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonRmsResidual_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonComputername_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonButtonDateOfLastObservation_Click(object sender, System.EventArgs e)
+		{
+			ShowRecordsMain();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonCheckButtonRecordSortDirectionAscending_Click(object sender, System.EventArgs e)
+		{
+			kryptonCheckButtonRecordSortDirectionDescending.Checked = !kryptonCheckButtonRecordSortDirectionAscending.Checked;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void KryptonCheckButtonRecordSortDirectionDescending_Click(object sender, System.EventArgs e)
+		{
+			kryptonCheckButtonRecordSortDirectionAscending.Checked = !kryptonCheckButtonRecordSortDirectionDescending.Checked;
 		}
 
 		#endregion
