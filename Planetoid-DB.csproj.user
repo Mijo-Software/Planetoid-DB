@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\mj-pr\OneDrive\Programming\Visual Studio 2022\Planetoid-DB\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="AppInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CheckMpcorbDatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CopyDataToClipboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DatabaseDifferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DatabaseInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DerivatedOrbitElementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DownloadUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="EphemeridesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ExportDataSheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PlanetoidDBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PrintDataSheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecordsMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecordsSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SplashScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TableModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TerminologyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
