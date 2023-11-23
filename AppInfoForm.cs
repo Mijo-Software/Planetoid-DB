@@ -67,10 +67,10 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void AppInfoForm_Load(object sender, EventArgs e)
 		{
-			labelTitle.Text = new AssemblyInfo().AssemblyProduct;
-			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: new AssemblyInfo().AssemblyVersion);
-			labelDescription.Text = new AssemblyInfo().AssemblyDescription;
-			labelCopyright.Text = new AssemblyInfo().AssemblyCopyright;
+			labelTitle.Text = AssemblyInfo.AssemblyProduct;
+			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
+			labelDescription.Text = AssemblyInfo.AssemblyDescription;
+			labelCopyright.Text = AssemblyInfo.AssemblyCopyright;
 		}
 
 		/// <summary>

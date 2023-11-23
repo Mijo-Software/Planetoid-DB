@@ -1,28 +1,27 @@
-﻿using System.Diagnostics;
+﻿using System.IO;
 using System.Reflection;
 
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Provide some assembly information
 	/// </summary>
-	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-
-	public class AssemblyInfo
+	public static class AssemblyInfo
 	{
-		#region Assemblyattributaccessoren
+		#region Assembly attribute accessors
 
 		/// <summary>
-		/// 
+		/// Return the title of the assembly
 		/// </summary>
-		public string AssemblyTitle
+		public static string AssemblyTitle
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyTitleAttribute), inherit: false);
+				object[] attributes = Assembly.GetExecutingAssembly()
+					.GetCustomAttributes(attributeType: typeof(AssemblyTitleAttribute), inherit: false);
 				if (attributes.Length > 0)
 				{
-					AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+					AssemblyTitleAttribute titleAttribute = attributes[0] as AssemblyTitleAttribute;
 					if (!string.IsNullOrEmpty(value: titleAttribute.Title))
 					{
 						return titleAttribute.Title;
@@ -33,64 +32,61 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Return the version of the assembly
 		/// </summary>
-		public string AssemblyVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
+		public static string AssemblyVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
 		/// <summary>
-		/// 
+		/// Return the description of the assembly
 		/// </summary>
-		public string AssemblyDescription
+		public static string AssemblyDescription
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyDescriptionAttribute), inherit: false);
+				object[] attributes = Assembly.GetExecutingAssembly()
+					.GetCustomAttributes(attributeType: typeof(AssemblyDescriptionAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyDescriptionAttribute)attributes[0]).Description;
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Return the product name of the assembly
 		/// </summary>
-		public string AssemblyProduct
+		public static string AssemblyProduct
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyProductAttribute), inherit: false);
+				object[] attributes = Assembly.GetExecutingAssembly()
+					.GetCustomAttributes(attributeType: typeof(AssemblyProductAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyProductAttribute)attributes[0]).Product;
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Return the copyright of the assembly
 		/// </summary>
-		public string AssemblyCopyright
+		public static string AssemblyCopyright
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyCopyrightAttribute), inherit: false);
+				object[] attributes = Assembly.GetExecutingAssembly()
+					.GetCustomAttributes(attributeType: typeof(AssemblyCopyrightAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Return the company name of the assembly
 		/// </summary>
-		public string AssemblyCompany
+		public static string AssemblyCompany
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyCompanyAttribute), inherit: false);
+				object[] attributes = Assembly.GetExecutingAssembly()
+					.GetCustomAttributes(attributeType: typeof(AssemblyCompanyAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyCompanyAttribute)attributes[0]).Company;
 			}
 		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
-		private string GetDebuggerDisplay() => ToString();
-
 		#endregion
 	}
 }
