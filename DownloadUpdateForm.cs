@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using Krypton.Toolkit;
 
@@ -17,6 +19,8 @@ namespace Planetoid_DB
 		private readonly string strFilenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
 		private readonly Uri uriMPCORB = new(uriString: Properties.Resources.MpcorbUrl);
 		private readonly WebClient webClient = new();
+
+		private static readonly HttpClient client = new();
 
 		#region Constructor
 
@@ -42,10 +46,9 @@ namespace Planetoid_DB
 		/// <returns></returns>
 		private static DateTime GetLastModified(Uri uri)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			resp.Close();
-			return resp.LastModified;
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
 		}
 
 		/// <summary>
@@ -53,12 +56,11 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="uri"></param>
 		/// <returns></returns>
-		private static long GetContentLength(Uri uri)
+		private long GetContentLength(Uri uri)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			resp.Close();
-			return Convert.ToInt64(value: resp.ContentLength);
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
 		}
 
 		/// <summary>

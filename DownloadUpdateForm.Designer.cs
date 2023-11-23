@@ -2,432 +2,457 @@
 
 namespace Planetoid_DB
 {
-  partial class DownloadUpdateForm
-  {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+	partial class DownloadUpdateForm
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
-    {
-      if (disposing && (components != null))
-      {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-    #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
-			this.components = new System.ComponentModel.Container();
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadUpdateForm));
-			this.progressBarDownload = new Krypton.Toolkit.KryptonProgressBar();
-			this.labelStatusValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelDownload = new Krypton.Toolkit.KryptonLabel();
-			this.buttonCancelDownload = new Krypton.Toolkit.KryptonButton();
-			this.buttonDownload = new Krypton.Toolkit.KryptonButton();
-			this.labelSourceValue = new Krypton.Toolkit.KryptonLabel();
-			this.buttonCheckForUpdate = new Krypton.Toolkit.KryptonButton();
-			this.labelDateValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelSizeValue = new Krypton.Toolkit.KryptonLabel();
-			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.labelStatusText = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateText = new Krypton.Toolkit.KryptonLabel();
-			this.labelSourceText = new Krypton.Toolkit.KryptonLabel();
-			this.labelSizeText = new Krypton.Toolkit.KryptonLabel();
-			this.tableLayoutPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			this.panel = new Krypton.Toolkit.KryptonPanel();
-			this.statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
-			this.tableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
-			this.panel.SuspendLayout();
-			this.statusStrip.SuspendLayout();
-			this.SuspendLayout();
+			progressBarDownload = new KryptonProgressBar();
+			labelStatusValue = new KryptonLabel();
+			labelDownload = new KryptonLabel();
+			buttonCancelDownload = new KryptonButton();
+			buttonDownload = new KryptonButton();
+			labelSourceValue = new KryptonLabel();
+			buttonCheckForUpdate = new KryptonButton();
+			labelDateValue = new KryptonLabel();
+			labelSizeValue = new KryptonLabel();
+			toolTip = new ToolTip(components);
+			labelStatusText = new KryptonLabel();
+			labelDateText = new KryptonLabel();
+			labelSourceText = new KryptonLabel();
+			labelSizeText = new KryptonLabel();
+			tableLayoutPanel = new KryptonTableLayoutPanel();
+			panel = new KryptonPanel();
+			statusStrip = new KryptonStatusStrip();
+			labelInformation = new ToolStripStatusLabel();
+			toolStripContainer = new ToolStripContainer();
+			tableLayoutPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			panel.SuspendLayout();
+			statusStrip.SuspendLayout();
+			toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			toolStripContainer.ContentPanel.SuspendLayout();
+			toolStripContainer.SuspendLayout();
+			SuspendLayout();
 			// 
 			// progressBarDownload
 			// 
-			this.progressBarDownload.AccessibleDescription = "Shows the progress of the download";
-			this.progressBarDownload.AccessibleName = "Progress of the download";
-			this.progressBarDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.ProgressBar;
-			this.progressBarDownload.Location = new System.Drawing.Point(12, 121);
-			this.progressBarDownload.Name = "progressBarDownload";
-			this.progressBarDownload.Size = new System.Drawing.Size(408, 18);
-			this.progressBarDownload.TabIndex = 1;
-			this.toolTip.SetToolTip(this.progressBarDownload, "Shows the progress of the download");
-			this.progressBarDownload.UseKrypton = true;
-			this.progressBarDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.progressBarDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			progressBarDownload.AccessibleDescription = "Shows the progress of the download";
+			progressBarDownload.AccessibleName = "Progress of the download";
+			progressBarDownload.AccessibleRole = AccessibleRole.ProgressBar;
+			progressBarDownload.Location = new Point(12, 121);
+			progressBarDownload.Name = "progressBarDownload";
+			progressBarDownload.Size = new Size(408, 18);
+			progressBarDownload.TabIndex = 1;
+			toolTip.SetToolTip(progressBarDownload, "Shows the progress of the download");
+			progressBarDownload.UseKrypton = true;
+			progressBarDownload.MouseEnter += SetStatusbar_Enter;
+			progressBarDownload.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelStatusValue
 			// 
-			this.labelStatusValue.AccessibleDescription = "Shows the status of the download";
-			this.labelStatusValue.AccessibleName = "Status of the download";
-			this.labelStatusValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelStatusValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelStatusValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelStatusValue.Location = new System.Drawing.Point(59, 3);
-			this.labelStatusValue.Name = "labelStatusValue";
-			this.labelStatusValue.Size = new System.Drawing.Size(411, 20);
-			this.labelStatusValue.TabIndex = 1;
-			this.toolTip.SetToolTip(this.labelStatusValue, "Shows the status of the download");
-			this.labelStatusValue.Values.Text = "...";
-			this.labelStatusValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelStatusValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelStatusValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelStatusValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelStatusValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelStatusValue.AccessibleDescription = "Shows the status of the download";
+			labelStatusValue.AccessibleName = "Status of the download";
+			labelStatusValue.AccessibleRole = AccessibleRole.Text;
+			labelStatusValue.Dock = DockStyle.Fill;
+			labelStatusValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelStatusValue.Location = new Point(59, 3);
+			labelStatusValue.Name = "labelStatusValue";
+			labelStatusValue.Size = new Size(411, 20);
+			labelStatusValue.TabIndex = 1;
+			toolTip.SetToolTip(labelStatusValue, "Shows the status of the download");
+			labelStatusValue.Values.Text = "...";
+			labelStatusValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelStatusValue.Enter += SetStatusbar_Enter;
+			labelStatusValue.Leave += ClearStatusbar_Leave;
+			labelStatusValue.MouseEnter += SetStatusbar_Enter;
+			labelStatusValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDownload
 			// 
-			this.labelDownload.AccessibleDescription = "Shows the percent of the downloaded bytes";
-			this.labelDownload.AccessibleName = "Download in percent";
-			this.labelDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDownload.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDownload.Location = new System.Drawing.Point(426, 124);
-			this.labelDownload.Name = "labelDownload";
-			this.labelDownload.Size = new System.Drawing.Size(41, 20);
-			this.labelDownload.TabIndex = 2;
-			this.toolTip.SetToolTip(this.labelDownload, "Shows the percent of the downloaded bytes");
-			this.labelDownload.Values.Text = "xxx %";
-			this.labelDownload.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDownload.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDownload.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDownload.AccessibleDescription = "Shows the percent of the downloaded bytes";
+			labelDownload.AccessibleName = "Download in percent";
+			labelDownload.AccessibleRole = AccessibleRole.Text;
+			labelDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelDownload.Location = new Point(426, 124);
+			labelDownload.Name = "labelDownload";
+			labelDownload.Size = new Size(41, 20);
+			labelDownload.TabIndex = 2;
+			toolTip.SetToolTip(labelDownload, "Shows the percent of the downloaded bytes");
+			labelDownload.Values.Text = "xxx %";
+			labelDownload.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDownload.Enter += SetStatusbar_Enter;
+			labelDownload.Leave += ClearStatusbar_Leave;
+			labelDownload.MouseEnter += SetStatusbar_Enter;
+			labelDownload.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// buttonCancelDownload
 			// 
-			this.buttonCancelDownload.AccessibleDescription = "Cancels the download";
-			this.buttonCancelDownload.AccessibleName = "Cancel download";
-			this.buttonCancelDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCancelDownload.CornerRoundingRadius = -1F;
-			this.buttonCancelDownload.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.buttonCancelDownload.Location = new System.Drawing.Point(333, 155);
-			this.buttonCancelDownload.Name = "buttonCancelDownload";
-			this.buttonCancelDownload.Size = new System.Drawing.Size(128, 36);
-			this.buttonCancelDownload.TabIndex = 5;
-			this.toolTip.SetToolTip(this.buttonCancelDownload, "Cancel download");
-			this.buttonCancelDownload.Values.Image = global::Planetoid_DB.Properties.Resources.silk_cancel;
-			this.buttonCancelDownload.Values.Text = "&Cancel download";
-			this.buttonCancelDownload.Click += new System.EventHandler(this.ButtonCancelDownload_Click);
-			this.buttonCancelDownload.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonCancelDownload.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.buttonCancelDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonCancelDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			buttonCancelDownload.AccessibleDescription = "Cancels the download";
+			buttonCancelDownload.AccessibleName = "Cancel download";
+			buttonCancelDownload.AccessibleRole = AccessibleRole.PushButton;
+			buttonCancelDownload.CornerRoundingRadius = -1F;
+			buttonCancelDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancelDownload.Location = new Point(333, 155);
+			buttonCancelDownload.Name = "buttonCancelDownload";
+			buttonCancelDownload.Size = new Size(128, 36);
+			buttonCancelDownload.TabIndex = 5;
+			toolTip.SetToolTip(buttonCancelDownload, "Cancel download");
+			buttonCancelDownload.Values.Image = Properties.Resources.silk_cancel;
+			buttonCancelDownload.Values.Text = "&Cancel download";
+			buttonCancelDownload.Click += ButtonCancelDownload_Click;
+			buttonCancelDownload.Enter += SetStatusbar_Enter;
+			buttonCancelDownload.Leave += ClearStatusbar_Leave;
+			buttonCancelDownload.MouseEnter += SetStatusbar_Enter;
+			buttonCancelDownload.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// buttonDownload
 			// 
-			this.buttonDownload.AccessibleDescription = "Downloads the database";
-			this.buttonDownload.AccessibleName = "Download MPCORB.DAT";
-			this.buttonDownload.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonDownload.CornerRoundingRadius = -1F;
-			this.buttonDownload.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.buttonDownload.Location = new System.Drawing.Point(150, 155);
-			this.buttonDownload.Name = "buttonDownload";
-			this.buttonDownload.Size = new System.Drawing.Size(177, 36);
-			this.buttonDownload.TabIndex = 4;
-			this.toolTip.SetToolTip(this.buttonDownload, "Download MPCORB.DAT");
-			this.buttonDownload.Values.Image = global::Planetoid_DB.Properties.Resources.silk_package_go;
-			this.buttonDownload.Values.Text = "&Download MPCORB.DAT";
-			this.buttonDownload.Click += new System.EventHandler(this.ButtonDownload_Click);
-			this.buttonDownload.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonDownload.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.buttonDownload.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonDownload.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			buttonDownload.AccessibleDescription = "Downloads the database";
+			buttonDownload.AccessibleName = "Download MPCORB.DAT";
+			buttonDownload.AccessibleRole = AccessibleRole.PushButton;
+			buttonDownload.CornerRoundingRadius = -1F;
+			buttonDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonDownload.Location = new Point(150, 155);
+			buttonDownload.Name = "buttonDownload";
+			buttonDownload.Size = new Size(177, 36);
+			buttonDownload.TabIndex = 4;
+			toolTip.SetToolTip(buttonDownload, "Download MPCORB.DAT");
+			buttonDownload.Values.Image = Properties.Resources.silk_package_go;
+			buttonDownload.Values.Text = "&Download MPCORB.DAT";
+			buttonDownload.Click += ButtonDownload_Click;
+			buttonDownload.Enter += SetStatusbar_Enter;
+			buttonDownload.Leave += ClearStatusbar_Leave;
+			buttonDownload.MouseEnter += SetStatusbar_Enter;
+			buttonDownload.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelSourceValue
 			// 
-			this.labelSourceValue.AccessibleDescription = "Shows the download source";
-			this.labelSourceValue.AccessibleName = "Source of the download";
-			this.labelSourceValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelSourceValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSourceValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelSourceValue.Location = new System.Drawing.Point(59, 55);
-			this.labelSourceValue.Name = "labelSourceValue";
-			this.labelSourceValue.Size = new System.Drawing.Size(411, 20);
-			this.labelSourceValue.TabIndex = 5;
-			this.toolTip.SetToolTip(this.labelSourceValue, "Shows the download source");
-			this.labelSourceValue.Values.Text = "...";
-			this.labelSourceValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelSourceValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSourceValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSourceValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSourceValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelSourceValue.AccessibleDescription = "Shows the download source";
+			labelSourceValue.AccessibleName = "Source of the download";
+			labelSourceValue.AccessibleRole = AccessibleRole.Text;
+			labelSourceValue.Dock = DockStyle.Fill;
+			labelSourceValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelSourceValue.Location = new Point(59, 55);
+			labelSourceValue.Name = "labelSourceValue";
+			labelSourceValue.Size = new Size(411, 20);
+			labelSourceValue.TabIndex = 5;
+			toolTip.SetToolTip(labelSourceValue, "Shows the download source");
+			labelSourceValue.Values.Text = "...";
+			labelSourceValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelSourceValue.Enter += SetStatusbar_Enter;
+			labelSourceValue.Leave += ClearStatusbar_Leave;
+			labelSourceValue.MouseEnter += SetStatusbar_Enter;
+			labelSourceValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// buttonCheckForUpdate
 			// 
-			this.buttonCheckForUpdate.AccessibleDescription = "Checks updates of the database";
-			this.buttonCheckForUpdate.AccessibleName = "Check updates";
-			this.buttonCheckForUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCheckForUpdate.CornerRoundingRadius = -1F;
-			this.buttonCheckForUpdate.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.buttonCheckForUpdate.Location = new System.Drawing.Point(12, 155);
-			this.buttonCheckForUpdate.Name = "buttonCheckForUpdate";
-			this.buttonCheckForUpdate.Size = new System.Drawing.Size(132, 36);
-			this.buttonCheckForUpdate.TabIndex = 3;
-			this.toolTip.SetToolTip(this.buttonCheckForUpdate, "Check updates");
-			this.buttonCheckForUpdate.Values.Image = global::Planetoid_DB.Properties.Resources.silk_lightning;
-			this.buttonCheckForUpdate.Values.Text = "C&heck for update";
-			this.buttonCheckForUpdate.Click += new System.EventHandler(this.ButtonCheckForUpdate_Click);
-			this.buttonCheckForUpdate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonCheckForUpdate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.buttonCheckForUpdate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.buttonCheckForUpdate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			buttonCheckForUpdate.AccessibleDescription = "Checks updates of the database";
+			buttonCheckForUpdate.AccessibleName = "Check updates";
+			buttonCheckForUpdate.AccessibleRole = AccessibleRole.PushButton;
+			buttonCheckForUpdate.CornerRoundingRadius = -1F;
+			buttonCheckForUpdate.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCheckForUpdate.Location = new Point(12, 155);
+			buttonCheckForUpdate.Name = "buttonCheckForUpdate";
+			buttonCheckForUpdate.Size = new Size(132, 36);
+			buttonCheckForUpdate.TabIndex = 3;
+			toolTip.SetToolTip(buttonCheckForUpdate, "Check updates");
+			buttonCheckForUpdate.Values.Image = Properties.Resources.silk_lightning;
+			buttonCheckForUpdate.Values.Text = "C&heck for update";
+			buttonCheckForUpdate.Click += ButtonCheckForUpdate_Click;
+			buttonCheckForUpdate.Enter += SetStatusbar_Enter;
+			buttonCheckForUpdate.Leave += ClearStatusbar_Leave;
+			buttonCheckForUpdate.MouseEnter += SetStatusbar_Enter;
+			buttonCheckForUpdate.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateValue
 			// 
-			this.labelDateValue.AccessibleDescription = "Shows the last modified date of the download file";
-			this.labelDateValue.AccessibleName = "Date of the download file";
-			this.labelDateValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateValue.Location = new System.Drawing.Point(59, 29);
-			this.labelDateValue.Name = "labelDateValue";
-			this.labelDateValue.Size = new System.Drawing.Size(411, 20);
-			this.labelDateValue.TabIndex = 3;
-			this.toolTip.SetToolTip(this.labelDateValue, "Shows the last modified date of the download");
-			this.labelDateValue.Values.Text = "...";
-			this.labelDateValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateValue.AccessibleDescription = "Shows the last modified date of the download file";
+			labelDateValue.AccessibleName = "Date of the download file";
+			labelDateValue.AccessibleRole = AccessibleRole.Text;
+			labelDateValue.Dock = DockStyle.Fill;
+			labelDateValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelDateValue.Location = new Point(59, 29);
+			labelDateValue.Name = "labelDateValue";
+			labelDateValue.Size = new Size(411, 20);
+			labelDateValue.TabIndex = 3;
+			toolTip.SetToolTip(labelDateValue, "Shows the last modified date of the download");
+			labelDateValue.Values.Text = "...";
+			labelDateValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateValue.Enter += SetStatusbar_Enter;
+			labelDateValue.Leave += ClearStatusbar_Leave;
+			labelDateValue.MouseEnter += SetStatusbar_Enter;
+			labelDateValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelSizeValue
 			// 
-			this.labelSizeValue.AccessibleDescription = "Shows the file size of the download";
-			this.labelSizeValue.AccessibleName = "Size of the dowload file";
-			this.labelSizeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelSizeValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSizeValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelSizeValue.Location = new System.Drawing.Point(59, 81);
-			this.labelSizeValue.Name = "labelSizeValue";
-			this.labelSizeValue.Size = new System.Drawing.Size(411, 22);
-			this.labelSizeValue.TabIndex = 7;
-			this.toolTip.SetToolTip(this.labelSizeValue, "Shows the file size of the download");
-			this.labelSizeValue.Values.Text = "...";
-			this.labelSizeValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelSizeValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSizeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSizeValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSizeValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelSizeValue.AccessibleDescription = "Shows the file size of the download";
+			labelSizeValue.AccessibleName = "Size of the dowload file";
+			labelSizeValue.AccessibleRole = AccessibleRole.Text;
+			labelSizeValue.Dock = DockStyle.Fill;
+			labelSizeValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelSizeValue.Location = new Point(59, 81);
+			labelSizeValue.Name = "labelSizeValue";
+			labelSizeValue.Size = new Size(411, 22);
+			labelSizeValue.TabIndex = 7;
+			toolTip.SetToolTip(labelSizeValue, "Shows the file size of the download");
+			labelSizeValue.Values.Text = "...";
+			labelSizeValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelSizeValue.Enter += SetStatusbar_Enter;
+			labelSizeValue.Leave += ClearStatusbar_Leave;
+			labelSizeValue.MouseEnter += SetStatusbar_Enter;
+			labelSizeValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelStatusText
 			// 
-			this.labelStatusText.AccessibleDescription = "Status of the download";
-			this.labelStatusText.AccessibleName = "Status";
-			this.labelStatusText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelStatusText.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelStatusText.Location = new System.Drawing.Point(3, 3);
-			this.labelStatusText.Name = "labelStatusText";
-			this.labelStatusText.Size = new System.Drawing.Size(50, 20);
-			this.labelStatusText.TabIndex = 0;
-			this.toolTip.SetToolTip(this.labelStatusText, "Status");
-			this.labelStatusText.Values.Text = "Status:";
-			this.labelStatusText.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelStatusText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelStatusText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelStatusText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelStatusText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelStatusText.AccessibleDescription = "Status of the download";
+			labelStatusText.AccessibleName = "Status";
+			labelStatusText.AccessibleRole = AccessibleRole.Text;
+			labelStatusText.Dock = DockStyle.Fill;
+			labelStatusText.Location = new Point(3, 3);
+			labelStatusText.Name = "labelStatusText";
+			labelStatusText.Size = new Size(50, 20);
+			labelStatusText.TabIndex = 0;
+			toolTip.SetToolTip(labelStatusText, "Status");
+			labelStatusText.Values.Text = "Status:";
+			labelStatusText.DoubleClick += CopyToClipboard_DoubleClick;
+			labelStatusText.Enter += SetStatusbar_Enter;
+			labelStatusText.Leave += ClearStatusbar_Leave;
+			labelStatusText.MouseEnter += SetStatusbar_Enter;
+			labelStatusText.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateText
 			// 
-			this.labelDateText.AccessibleDescription = "Date of the download file";
-			this.labelDateText.AccessibleName = "Date";
-			this.labelDateText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateText.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateText.Location = new System.Drawing.Point(3, 29);
-			this.labelDateText.Name = "labelDateText";
-			this.labelDateText.Size = new System.Drawing.Size(50, 20);
-			this.labelDateText.TabIndex = 2;
-			this.toolTip.SetToolTip(this.labelDateText, "Date");
-			this.labelDateText.Values.Text = "Date:";
-			this.labelDateText.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateText.AccessibleDescription = "Date of the download file";
+			labelDateText.AccessibleName = "Date";
+			labelDateText.AccessibleRole = AccessibleRole.Text;
+			labelDateText.Dock = DockStyle.Fill;
+			labelDateText.Location = new Point(3, 29);
+			labelDateText.Name = "labelDateText";
+			labelDateText.Size = new Size(50, 20);
+			labelDateText.TabIndex = 2;
+			toolTip.SetToolTip(labelDateText, "Date");
+			labelDateText.Values.Text = "Date:";
+			labelDateText.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateText.Enter += SetStatusbar_Enter;
+			labelDateText.Leave += ClearStatusbar_Leave;
+			labelDateText.MouseEnter += SetStatusbar_Enter;
+			labelDateText.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelSourceText
 			// 
-			this.labelSourceText.AccessibleDescription = "Shows the download source";
-			this.labelSourceText.AccessibleName = "Source";
-			this.labelSourceText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelSourceText.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSourceText.Location = new System.Drawing.Point(3, 55);
-			this.labelSourceText.Name = "labelSourceText";
-			this.labelSourceText.Size = new System.Drawing.Size(50, 20);
-			this.labelSourceText.TabIndex = 4;
-			this.toolTip.SetToolTip(this.labelSourceText, "Source");
-			this.labelSourceText.Values.Text = "Source:";
-			this.labelSourceText.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelSourceText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSourceText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSourceText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSourceText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelSourceText.AccessibleDescription = "Shows the download source";
+			labelSourceText.AccessibleName = "Source";
+			labelSourceText.AccessibleRole = AccessibleRole.Text;
+			labelSourceText.Dock = DockStyle.Fill;
+			labelSourceText.Location = new Point(3, 55);
+			labelSourceText.Name = "labelSourceText";
+			labelSourceText.Size = new Size(50, 20);
+			labelSourceText.TabIndex = 4;
+			toolTip.SetToolTip(labelSourceText, "Source");
+			labelSourceText.Values.Text = "Source:";
+			labelSourceText.DoubleClick += CopyToClipboard_DoubleClick;
+			labelSourceText.Enter += SetStatusbar_Enter;
+			labelSourceText.Leave += ClearStatusbar_Leave;
+			labelSourceText.MouseEnter += SetStatusbar_Enter;
+			labelSourceText.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelSizeText
 			// 
-			this.labelSizeText.AccessibleDescription = "Shows the file size of the download";
-			this.labelSizeText.AccessibleName = "Size";
-			this.labelSizeText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelSizeText.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSizeText.Location = new System.Drawing.Point(3, 81);
-			this.labelSizeText.Name = "labelSizeText";
-			this.labelSizeText.Size = new System.Drawing.Size(50, 22);
-			this.labelSizeText.TabIndex = 6;
-			this.toolTip.SetToolTip(this.labelSizeText, "Size");
-			this.labelSizeText.Values.Text = "Size:";
-			this.labelSizeText.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelSizeText.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSizeText.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSizeText.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSizeText.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelSizeText.AccessibleDescription = "Shows the file size of the download";
+			labelSizeText.AccessibleName = "Size";
+			labelSizeText.AccessibleRole = AccessibleRole.Text;
+			labelSizeText.Dock = DockStyle.Fill;
+			labelSizeText.Location = new Point(3, 81);
+			labelSizeText.Name = "labelSizeText";
+			labelSizeText.Size = new Size(50, 22);
+			labelSizeText.TabIndex = 6;
+			toolTip.SetToolTip(labelSizeText, "Size");
+			labelSizeText.Values.Text = "Size:";
+			labelSizeText.DoubleClick += CopyToClipboard_DoubleClick;
+			labelSizeText.Enter += SetStatusbar_Enter;
+			labelSizeText.Leave += ClearStatusbar_Leave;
+			labelSizeText.MouseEnter += SetStatusbar_Enter;
+			labelSizeText.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// tableLayoutPanel
 			// 
-			this.tableLayoutPanel.AccessibleDescription = "Groups the data";
-			this.tableLayoutPanel.AccessibleName = "Information";
-			this.tableLayoutPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-			this.tableLayoutPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel.BackgroundImage")));
-			this.tableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.tableLayoutPanel.ColumnCount = 2;
-			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel.Controls.Add(this.labelStatusText, 0, 0);
-			this.tableLayoutPanel.Controls.Add(this.labelSizeValue, 1, 3);
-			this.tableLayoutPanel.Controls.Add(this.labelSizeText, 0, 3);
-			this.tableLayoutPanel.Controls.Add(this.labelDateValue, 1, 1);
-			this.tableLayoutPanel.Controls.Add(this.labelSourceValue, 1, 2);
-			this.tableLayoutPanel.Controls.Add(this.labelDateText, 0, 1);
-			this.tableLayoutPanel.Controls.Add(this.labelSourceText, 0, 2);
-			this.tableLayoutPanel.Controls.Add(this.labelStatusValue, 1, 0);
-			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel.Name = "tableLayoutPanel";
-			this.tableLayoutPanel.RowCount = 4;
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.Size = new System.Drawing.Size(473, 106);
-			this.tableLayoutPanel.TabIndex = 0;
-			this.toolTip.SetToolTip(this.tableLayoutPanel, "Groups the data");
+			tableLayoutPanel.AccessibleDescription = "Groups the data";
+			tableLayoutPanel.AccessibleName = "Information";
+			tableLayoutPanel.AccessibleRole = AccessibleRole.Pane;
+			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
+			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
+			tableLayoutPanel.ColumnCount = 2;
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
+			tableLayoutPanel.Controls.Add(labelStatusText, 0, 0);
+			tableLayoutPanel.Controls.Add(labelSizeValue, 1, 3);
+			tableLayoutPanel.Controls.Add(labelSizeText, 0, 3);
+			tableLayoutPanel.Controls.Add(labelDateValue, 1, 1);
+			tableLayoutPanel.Controls.Add(labelSourceValue, 1, 2);
+			tableLayoutPanel.Controls.Add(labelDateText, 0, 1);
+			tableLayoutPanel.Controls.Add(labelSourceText, 0, 2);
+			tableLayoutPanel.Controls.Add(labelStatusValue, 1, 0);
+			tableLayoutPanel.Dock = DockStyle.Top;
+			tableLayoutPanel.Location = new Point(0, 0);
+			tableLayoutPanel.Name = "tableLayoutPanel";
+			tableLayoutPanel.RowCount = 4;
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.Size = new Size(473, 106);
+			tableLayoutPanel.TabIndex = 0;
+			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
 			// panel
 			// 
-			this.panel.AccessibleDescription = "Groups the data";
-			this.panel.AccessibleName = "pane";
-			this.panel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-			this.panel.Controls.Add(this.statusStrip);
-			this.panel.Controls.Add(this.tableLayoutPanel);
-			this.panel.Controls.Add(this.progressBarDownload);
-			this.panel.Controls.Add(this.labelDownload);
-			this.panel.Controls.Add(this.buttonCheckForUpdate);
-			this.panel.Controls.Add(this.buttonCancelDownload);
-			this.panel.Controls.Add(this.buttonDownload);
-			this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel.Location = new System.Drawing.Point(0, 0);
-			this.panel.Name = "panel";
-			this.panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			this.panel.Size = new System.Drawing.Size(473, 216);
-			this.panel.TabIndex = 0;
-			this.panel.TabStop = true;
+			panel.AccessibleDescription = "Groups the data";
+			panel.AccessibleName = "pane";
+			panel.AccessibleRole = AccessibleRole.Pane;
+			panel.Controls.Add(tableLayoutPanel);
+			panel.Controls.Add(progressBarDownload);
+			panel.Controls.Add(labelDownload);
+			panel.Controls.Add(buttonCheckForUpdate);
+			panel.Controls.Add(buttonCancelDownload);
+			panel.Controls.Add(buttonDownload);
+			panel.Dock = DockStyle.Fill;
+			panel.Location = new Point(0, 0);
+			panel.Name = "panel";
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
+			panel.Size = new Size(473, 194);
+			panel.TabIndex = 0;
+			panel.TabStop = true;
 			// 
 			// statusStrip
 			// 
-			this.statusStrip.AccessibleDescription = "Showss some information";
-			this.statusStrip.AccessibleName = "Status bar of some information";
-			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-			this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelInformation});
-			this.statusStrip.Location = new System.Drawing.Point(0, 194);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.ProgressBars = null;
-			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip.Size = new System.Drawing.Size(473, 22);
-			this.statusStrip.SizingGrip = false;
-			this.statusStrip.TabIndex = 6;
-			this.statusStrip.Text = "status bar";
+			statusStrip.AccessibleDescription = "Showss some information";
+			statusStrip.AccessibleName = "Status bar of some information";
+			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
+			statusStrip.Dock = DockStyle.None;
+			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
+			statusStrip.Location = new Point(0, 0);
+			statusStrip.Name = "statusStrip";
+			statusStrip.ProgressBars = null;
+			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
+			statusStrip.Size = new Size(473, 22);
+			statusStrip.SizingGrip = false;
+			statusStrip.TabIndex = 6;
+			statusStrip.Text = "status bar";
 			// 
 			// labelInformation
 			// 
-			this.labelInformation.AccessibleDescription = "Shows some information";
-			this.labelInformation.AccessibleName = "Shows some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelInformation.AutoToolTip = true;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(144, 17);
-			this.labelInformation.Text = "some information here";
-			this.labelInformation.ToolTipText = "Shows some information";
+			labelInformation.AccessibleDescription = "Shows some information";
+			labelInformation.AccessibleName = "Shows some information";
+			labelInformation.AccessibleRole = AccessibleRole.StaticText;
+			labelInformation.AutoToolTip = true;
+			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Margin = new Padding(5, 3, 0, 2);
+			labelInformation.Name = "labelInformation";
+			labelInformation.Size = new Size(144, 17);
+			labelInformation.Text = "some information here";
+			labelInformation.ToolTipText = "Shows some information";
+			// 
+			// toolStripContainer
+			// 
+			// 
+			// toolStripContainer.BottomToolStripPanel
+			// 
+			toolStripContainer.BottomToolStripPanel.Controls.Add(statusStrip);
+			// 
+			// toolStripContainer.ContentPanel
+			// 
+			toolStripContainer.ContentPanel.Controls.Add(panel);
+			toolStripContainer.ContentPanel.Size = new Size(473, 194);
+			toolStripContainer.Dock = DockStyle.Fill;
+			toolStripContainer.Location = new Point(0, 0);
+			toolStripContainer.Name = "toolStripContainer";
+			toolStripContainer.Size = new Size(473, 216);
+			toolStripContainer.TabIndex = 1;
 			// 
 			// DownloadUpdateForm
 			// 
-			this.AccessibleDescription = "Downloads the MPCORB.DAT";
-			this.AccessibleName = "Download MPCORB.DAT";
-			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(473, 216);
-			this.Controls.Add(this.panel);
-			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "DownloadUpdateForm";
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Download MPCORB.DAT";
-			this.toolTip.SetToolTip(this, "Download MPCORB.DAT");
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DownloadUpdateForm_FormClosing);
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DownloadUpdateForm_FormClosed);
-			this.Load += new System.EventHandler(this.DownloadUpdateForm_Load);
-			this.tableLayoutPanel.ResumeLayout(false);
-			this.tableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
-			this.panel.ResumeLayout(false);
-			this.panel.PerformLayout();
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
-			this.ResumeLayout(false);
+			AccessibleDescription = "Downloads the MPCORB.DAT";
+			AccessibleName = "Download MPCORB.DAT";
+			AccessibleRole = AccessibleRole.Dialog;
+			AutoScaleDimensions = new SizeF(6F, 13F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(473, 216);
+			Controls.Add(toolStripContainer);
+			Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			FormBorderStyle = FormBorderStyle.FixedToolWindow;
+			Icon = (Icon)resources.GetObject("$this.Icon");
+			MaximizeBox = false;
+			MinimizeBox = false;
+			Name = "DownloadUpdateForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Download MPCORB.DAT";
+			toolTip.SetToolTip(this, "Download MPCORB.DAT");
+			FormClosing += DownloadUpdateForm_FormClosing;
+			FormClosed += DownloadUpdateForm_FormClosed;
+			Load += DownloadUpdateForm_Load;
+			tableLayoutPanel.ResumeLayout(false);
+			tableLayoutPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			panel.ResumeLayout(false);
+			panel.PerformLayout();
+			statusStrip.ResumeLayout(false);
+			statusStrip.PerformLayout();
+			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			toolStripContainer.BottomToolStripPanel.PerformLayout();
+			toolStripContainer.ContentPanel.ResumeLayout(false);
+			toolStripContainer.ResumeLayout(false);
+			toolStripContainer.PerformLayout();
+			ResumeLayout(false);
+		}
 
-    }
+		#endregion
 
-    #endregion
-
-    private KryptonButton buttonDownload;
-    private KryptonLabel labelStatusValue;
-    private KryptonLabel labelDownload;
-    private KryptonButton buttonCancelDownload;
-    private KryptonLabel labelSourceValue;
-    private KryptonButton buttonCheckForUpdate;
-    private KryptonLabel labelDateValue;
-    private KryptonLabel labelSizeValue;
-    private System.Windows.Forms.ToolTip toolTip;
+		private KryptonButton buttonDownload;
+		private KryptonLabel labelStatusValue;
+		private KryptonLabel labelDownload;
+		private KryptonButton buttonCancelDownload;
+		private KryptonLabel labelSourceValue;
+		private KryptonButton buttonCheckForUpdate;
+		private KryptonLabel labelDateValue;
+		private KryptonLabel labelSizeValue;
+		private ToolTip toolTip;
 		private KryptonLabel labelStatusText;
 		private KryptonLabel labelDateText;
 		private KryptonLabel labelSourceText;
 		private KryptonLabel labelSizeText;
 		private KryptonTableLayoutPanel tableLayoutPanel;
-        private KryptonPanel panel;
+		private KryptonPanel panel;
 		private KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+		private ToolStripStatusLabel labelInformation;
 		private KryptonProgressBar progressBarDownload;
+		private ToolStripContainer toolStripContainer;
 	}
 }

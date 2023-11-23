@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
@@ -8,7 +6,7 @@ namespace Planetoid_DB
 	/// <summary>
 	/// 
 	/// </summary>
-	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
+	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SplashScreenForm : KryptonForm
 	{
 		#region local methods
@@ -57,8 +55,8 @@ namespace Planetoid_DB
 		private void SplashScreenForm_Load(object sender, EventArgs e)
 		{
 			labelDataLoading.Text = I10nStrings.DataLoading;
-			labelTitle.Text = new AssemblyInfo().AssemblyProduct;
-			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: new AssemblyInfo().AssemblyVersion);
+			labelTitle.Text = AssemblyInfo.AssemblyProduct;
+			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
 		}
 
 		/// <summary>

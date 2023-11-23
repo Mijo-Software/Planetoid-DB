@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -18,11 +19,11 @@ namespace Planetoid_DB
 	{
 		private int currentPosition = 0, stepPosition = 0;
 		private readonly ArrayList planetoidDatabase = new(capacity: 0);
-		private readonly WebClient webClient = new WebClient();
-		private readonly SplashScreenForm formSplashScreen = new SplashScreenForm();
+		private readonly WebClient webClient = new();
+		private readonly SplashScreenForm formSplashScreen = new();
 		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
 		private readonly string filenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
-		private readonly Uri uriMpcorb = new Uri(uriString: Properties.Resources.MpcorbUrl);
+		private readonly Uri uriMpcorb = new(uriString: Properties.Resources.MpcorbUrl);
 
 		#region Constructor
 
@@ -118,13 +119,11 @@ namespace Planetoid_DB
 		/// <returns></returns>
 		private static DateTime GetLastModified(Uri uri)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			resp.Close();
-			return resp.LastModified;
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
 		}
 
-		/*
 		/// <summary>
 		/// 
 		/// </summary>
@@ -132,12 +131,10 @@ namespace Planetoid_DB
 		/// <returns></returns>		
 		private long GetContentLength(Uri uri)
 		{
-			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-			resp.Close();
-			return Convert.ToInt64(value: resp.ContentLength);
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
 		}
-		*/
 
 		/// <summary>
 		/// 
@@ -897,7 +894,6 @@ namespace Planetoid_DB
 				fileStream.Close();
 				streamReader.Close();
 			}
-
 			formSplashScreen.Close();
 		}
 
@@ -1338,7 +1334,7 @@ namespace Planetoid_DB
 				toolStripStatusLabelBackgroundDownload.Enabled = true;
 				toolStripProgressBarBackgroundDownload.Enabled = true;
 				toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
-				webClient.Proxy = null;
+				webClient.Proxy = WebRequest.DefaultWebProxy;
 				webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
 				webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 				try
