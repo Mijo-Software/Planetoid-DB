@@ -34,6 +34,9 @@
     <Compile Update="FilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ListReadableDesignationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PlanetoidDBForm.cs">
       <SubType>Form</SubType>
     </Compile>

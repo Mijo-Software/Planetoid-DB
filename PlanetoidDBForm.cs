@@ -14,7 +14,9 @@ namespace Planetoid_DB
 	/// <summary>
 	/// 
 	/// </summary>
+
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
+
 	public partial class PlanetoidDBForm : KryptonForm
 	{
 		private int currentPosition = 0, stepPosition = 0;
@@ -46,6 +48,15 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <returns></returns>
 		private string GetDebuggerDisplay() => ToString();
+
+		[System.Runtime.InteropServices.DllImport(dllName: "wininet.dll")]
+		private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+
+		/// <summary>
+		/// Check if internet is aviable
+		/// </summary>
+		/// <returns>true if internet is aviable, otherwise false</returns>
+		private static bool CheckNet() => InternetGetConnectedState(Description: out int desc, ReservedValue: 0);
 
 		/// <summary>
 		/// 
@@ -87,8 +98,9 @@ namespace Planetoid_DB
 		/// <param name="currentPosition"></param>
 		private void GotoCurrentPosition(int currentPosition)
 		{
-			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Lerrstrings sind.
+			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Leerstrings sind.
 			// if (teilstring == "0") zahl = 0; ...
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			labelIndexData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
 			labelAbsoluteMagnitudeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
 			labelSlopeParameterData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
@@ -109,6 +121,7 @@ namespace Planetoid_DB
 			labelFlagsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			labelReadableDesignationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
 			labelDateLastObservationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			toolStripLabelIndexPosition.Text = $"{I10nStrings.Index}: {currentPosition + 1} / {planetoidDatabase.Count}";
 		}
 
@@ -129,7 +142,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="uri"></param>
 		/// <returns></returns>		
-		private long GetContentLength(Uri uri)
+		private static long GetContentLength(Uri uri)
 		{
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -414,6 +427,7 @@ namespace Planetoid_DB
 		{
 			using SearchForm formSearch = new();
 			formSearch.TopMost = TopMost;
+			formSearch.FillArray(arrTemp: planetoidDatabase);
 			formSearch.ShowDialog();
 		}
 
@@ -445,6 +459,22 @@ namespace Planetoid_DB
 			using DatabaseDifferencesForm formDatabaseDifferences = new();
 			formDatabaseDifferences.TopMost = TopMost;
 			formDatabaseDifferences.ShowDialog();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void ListReadableDesignations()
+		{
+			using ListReadableDesignationsForm formListReadableDesignations = new();
+			formListReadableDesignations.TopMost = TopMost;
+			formListReadableDesignations.FillArray(arrTemp: planetoidDatabase);
+			formListReadableDesignations.SetMaxIndex(maxIndex: planetoidDatabase.Count);
+			formListReadableDesignations.ShowDialog();
+			if (formListReadableDesignations.DialogResult == DialogResult.OK && formListReadableDesignations.GetSelectedIndex() > 0)
+			{
+				GotoCurrentPosition(currentPosition: formListReadableDesignations.GetSelectedIndex());
+			}
 		}
 
 		/// <summary>
@@ -514,6 +544,9 @@ namespace Planetoid_DB
 			formPrintDataSheet.ShowDialog();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		private void ShowDerivatedOrbitElements()
 		{
 			ArrayList derivatedOrbitElements = new(capacity: 0);
@@ -1539,6 +1572,16 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		private void MenuitemRestartWithDemoData_Click(object sender, EventArgs e)
+		{
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ToolStripMenuItemDerivatedOrbitElements_Click(object sender, EventArgs e) => ShowDerivatedOrbitElements();
 
 		/// <summary>
@@ -2057,6 +2100,26 @@ namespace Planetoid_DB
 			OpenDatabaseDifferences();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripButtonListReadableDesignations_Click(object sender, EventArgs e)
+		{
+			ListReadableDesignations();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MenuitemListReadableDesignations_Click(object sender, EventArgs e)
+		{
+			ListReadableDesignations();
+		}
+
 		#endregion
 
 		#region DoubleClick-Handler
@@ -2072,15 +2135,9 @@ namespace Planetoid_DB
 			{
 				switch (sender)
 				{
-					case Label label:
-						CopyToClipboard(text: label.Text);
-						break;
-					case KryptonLabel kryptonLabel:
-						CopyToClipboard(text: kryptonLabel.Text);
-						break;
-					case ToolStripLabel labelToolStripCombo:
-						CopyToClipboard(text: labelToolStripCombo.Text);
-						break;
+					case Label label: CopyToClipboard(text: label.Text); break;
+					case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
+					case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
 				}
 			}
 		}

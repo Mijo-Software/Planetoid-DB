@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
@@ -9,19 +10,19 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class TableModeForm : KryptonForm
+	public partial class ListReadableDesignationsForm : KryptonForm
 	{
 		private ArrayList planetoidDatabase = new(capacity: 0);
-		private int numberPlanetoids = 0;
+		private int numberPlanetoids = 0, selectedIndex = 0;
 		private bool isCancelled = false;
-		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
+		private string strIndex, strDesgnName;
 
 		#region Constructor
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public TableModeForm() => InitializeComponent();
+		public ListReadableDesignationsForm() => InitializeComponent();
 
 		#endregion
 
@@ -36,12 +37,8 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="arrTemp"></param>
-		public void FillArray(ArrayList arrTemp)
-		{
-			planetoidDatabase = arrTemp;
-			numberPlanetoids = planetoidDatabase.Count;
-		}
+		/// <param name="value"></param>
+		public void SetProgressbar(int value) => progressBar.Value = value;
 
 		/// <summary>
 		/// 
@@ -82,50 +79,36 @@ namespace Planetoid_DB
 		private void FormatRow(int currentPosition)
 		{
 			strIndex = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-			strMagAbs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			strSlopeParam = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			strEpoch = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			strMeanAnomaly = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			strArgPeri = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			strLongAscNode = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			strIncl = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			strOrbEcc = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			strMotion = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			strSemiMajorAxis = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			strRef = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			strNumbObs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			strNumbOppos = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			strObsSpan = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			strRmsResdiual = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			strComputerName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			strObsLastDate = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 			ListViewItem listViewItem = new(text: strIndex)
 			{
 				ToolTipText = $"{strIndex}: {strDesgnName}"
 			};
 			listViewItem.SubItems.Add(text: strDesgnName);
-			listViewItem.SubItems.Add(text: strEpoch);
-			listViewItem.SubItems.Add(text: strMeanAnomaly);
-			listViewItem.SubItems.Add(text: strArgPeri);
-			listViewItem.SubItems.Add(text: strLongAscNode);
-			listViewItem.SubItems.Add(text: strIncl);
-			listViewItem.SubItems.Add(text: strOrbEcc);
-			listViewItem.SubItems.Add(text: strMotion);
-			listViewItem.SubItems.Add(text: strSemiMajorAxis);
-			listViewItem.SubItems.Add(text: strMagAbs);
-			listViewItem.SubItems.Add(text: strSlopeParam);
-			listViewItem.SubItems.Add(text: strRef);
-			listViewItem.SubItems.Add(text: strNumbOppos);
-			listViewItem.SubItems.Add(text: strNumbObs);
-			listViewItem.SubItems.Add(text: strObsSpan);
-			listViewItem.SubItems.Add(text: strRmsResdiual);
-			listViewItem.SubItems.Add(text: strComputerName);
-			listViewItem.SubItems.Add(text: strFlags);
-			listViewItem.SubItems.Add(text: strObsLastDate);
 			listView.Items.Add(value: listViewItem);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="arrTemp"></param>
+		public void FillArray(ArrayList arrTemp)
+		{
+			planetoidDatabase = arrTemp;
+			numberPlanetoids = planetoidDatabase.Count;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="maxIndex"></param>
+		public void SetMaxIndex(int maxIndex) => numberPlanetoids = maxIndex;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public int GetSelectedIndex() => selectedIndex;
 
 		#endregion
 
@@ -136,10 +119,10 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TableModeForm_Load(object sender, EventArgs e)
+		private void ListReadableDesignationsForm_Load(object sender, EventArgs e)
 		{
 			labelInformation.Text = "";
-			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = false;
+			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = buttonLoad.Enabled = dropButtonSaveList.Enabled = false;
 			if (planetoidDatabase.Count > 0)
 			{
 				numericUpDownMinimum.Minimum = 1;
@@ -156,7 +139,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TableModeForm_FormClosed(object sender, FormClosedEventArgs e)
+		private void ListReadableDesignationsForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			listView.Dispose();
 			Dispose();
@@ -204,7 +187,9 @@ namespace Planetoid_DB
 			numericUpDownMinimum.Enabled = true;
 			numericUpDownMaximum.Enabled = true;
 			buttonList.Enabled = true;
+			dropButtonSaveList.Enabled = true;
 			buttonCancel.Enabled = false;
+			buttonLoad.Enabled = false;
 			progressBar.Enabled = false;
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
@@ -300,7 +285,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ListViewTableMode_SelectedIndexChanged(object sender, EventArgs e)
+		private void SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (listView.SelectedIndices.Count > 0)
 			{
@@ -309,8 +294,14 @@ namespace Planetoid_DB
 				{
 					SetStatusbar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
 				}
+				if (!buttonLoad.Enabled)
+				{
+					buttonLoad.Enabled = true;
+				}
+				this.selectedIndex = selectedIndex;
 			}
 		}
+
 		#endregion
 
 		#region Clicks event handlers
@@ -325,30 +316,14 @@ namespace Planetoid_DB
 			listView.Clear();
 			listView.Columns.AddRange(values: new ColumnHeader[] {
 				 columnHeaderIndex,
-				 columnHeaderReadableDesignation,
-				 columnHeaderEpoch,
-				 columnHeaderMeanAnomaly,
-				 columnHeaderArgumentPerihelion,
-				 columnHeaderLongitudeAscendingNode,
-				 columnHeaderInclination,
-				 columnHeaderOrbitalEccentricity,
-				 columnHeaderMeanDailyMotion,
-				 columnHeaderSemimajorAxis,
-				 columnHeaderAbsoluteMagnitude,
-				 columnHeaderSlopeParameter,
-				 columnHeaderReference,
-				 columnHeaderNumberOppositions,
-				 columnHeaderNumberObservations,
-				 columnHeaderObservationSpan,
-				 columnHeaderRmsResidual,
-				 columnHeaderComputerName,
-				 columnHeaderFlags,
-				 columnHeaderDateLastObservation});
+				 columnHeaderReadableDesignation,});
 			listView.Visible = false;
 			numericUpDownMinimum.Enabled = false;
 			numericUpDownMaximum.Enabled = false;
 			buttonCancel.Enabled = true;
+			buttonLoad.Enabled = false;
 			buttonList.Enabled = false;
+			dropButtonSaveList.Enabled = false;
 			isCancelled = false;
 			progressBar.Enabled = true;
 			backgroundWorker.WorkerReportsProgress = true;
@@ -364,6 +339,125 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void ButtonCancel_Click(object sender, EventArgs e) => isCancelled = true;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemSaveAsCsv_Click(object sender, EventArgs e)
+		{
+			saveFileDialogCsv.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			saveFileDialogCsv.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogCsv.DefaultExt}";
+			if (saveFileDialogCsv.ShowDialog() == DialogResult.OK)
+			{
+				using StreamWriter streamWriter = new(path: saveFileDialogCsv.FileName);
+				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+				{
+					streamWriter.Write(value: $"{listView.Items[index: i].SubItems[index: 0].Text}; {listView.Items[index: i].SubItems[index: 1].Text}");
+					if (i < listView.Items.Count - 1)
+					{
+						streamWriter.Write(value: Environment.NewLine);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemSaveAsHtml_Click(object sender, EventArgs e)
+		{
+			saveFileDialogHtml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			saveFileDialogHtml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogHtml.DefaultExt}";
+			if (saveFileDialogHtml.ShowDialog() == DialogResult.OK)
+			{
+				using StreamWriter streamWriter = new(path: saveFileDialogHtml.FileName);
+				streamWriter.WriteLine(value: $"<!DOCTYPE html>");
+				streamWriter.WriteLine(value: $"<html lang=\"en\">");
+				streamWriter.WriteLine(value: $"\t<head>");
+				streamWriter.WriteLine(value: $"\t\t<meta charset=\"utf-8\">");
+				streamWriter.WriteLine(value: $"\t\t<meta name=\"description\" content=\"\">");
+				streamWriter.WriteLine(value: $"\t\t<meta name=\"keywords\" content=\"\">");
+				streamWriter.WriteLine(value: $"\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
+				streamWriter.WriteLine(value: $"\t\t<title>List of readable designations</title>");
+				streamWriter.WriteLine(value: $"\t\t<style>");
+				streamWriter.WriteLine(value: $"\t\t\t* {{font-family: sans-serif;}}");
+				streamWriter.WriteLine(value: $"\t\t\t.italic {{font-style: italic;}}");
+				streamWriter.WriteLine(value: $"\t\t\t.bold {{font-weight: bold;}}");
+				streamWriter.WriteLine(value: $"\t\t\t.sup {{vertical-align: super; font-size: smaller;}}");
+				streamWriter.WriteLine(value: $"\t\t\t.sub {{vertical-align: sub; font-size: smaller;}}");
+				streamWriter.WriteLine(value: $"\t\t\t.block {{width:50px; display: inline-block;}}");
+				streamWriter.WriteLine(value: $"\t\t</style>");
+				streamWriter.WriteLine(value: $"\t</head>");
+				streamWriter.WriteLine(value: $"\t<body>");
+				streamWriter.WriteLine(value: $"\t\t<p>");
+				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+				{
+					streamWriter.Write(value: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{listView.Items[index: i].SubItems[index: 0].Text}:</span> <span xml:id=\"value-id-{i}\">{listView.Items[index: i].SubItems[index: 1].Text}</span>");
+					if (i < listView.Items.Count - 1)
+					{
+						streamWriter.WriteLine(value: "<br />");
+					}
+				}
+				streamWriter.WriteLine(value: $"\t\t</p>");
+				streamWriter.WriteLine(value: $"\t</body>");
+				streamWriter.Write(value: $"</html>");
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemSaveAsXml_Click(object sender, EventArgs e)
+		{
+			saveFileDialogXml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			saveFileDialogXml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogXml.DefaultExt}";
+			if (saveFileDialogXml.ShowDialog() == DialogResult.OK)
+			{
+				using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
+				streamWriter.WriteLine(value: $"<?xml version=\"1.0\" encoding=\"UTF.8\" standalone=\"yes\"?>");
+				streamWriter.WriteLine(value: $"<ListReadableDesignations xmlns=\"https://planet-db.de\">");
+				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+				{
+					streamWriter.Write(value: $"\t<item xml:id=\"element-id-{i}\" index=\"{listView.Items[index: i].SubItems[index: 0].Text}\" name=\"{listView.Items[index: i].SubItems[index: 1].Text}\" />");
+					if (i < listView.Items.Count - 1)
+					{
+						streamWriter.Write(value: Environment.NewLine);
+					}
+				}
+				streamWriter.Write(value: $"</ListReadableDesignations>");
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ToolStripMenuItemSaveAsJson_Click(object sender, EventArgs e)
+		{
+			saveFileDialogJson.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			saveFileDialogJson.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogJson.DefaultExt}";
+			if (saveFileDialogJson.ShowDialog() == DialogResult.OK)
+			{
+				using StreamWriter streamWriter = new(path: saveFileDialogJson.FileName);
+				streamWriter.WriteLine(value: $"{{");
+				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+				{
+					streamWriter.WriteLine(value: $"\t\"item\"");
+					streamWriter.WriteLine(value: $"\t{{");
+					streamWriter.WriteLine(value: $"\t\t\"index\": \"{listView.Items[index: i].SubItems[index: 0].Text}\",");
+					streamWriter.WriteLine(value: $"\t\t\"readable designations\": \"{listView.Items[index: i].SubItems[index: 1].Text}\"");
+					streamWriter.WriteLine(value: $"\t}}");
+				}
+				streamWriter.Write(value: $"}}");
+			}
+		}
 
 		#endregion
 

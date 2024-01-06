@@ -6,3 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Performance", "CA1806:Methodenergebnisse nicht ignorieren", Justification = "<Ausstehend>", Scope = "member", Target = "~M:Planetoid_DB.Program.Main")]
+[assembly: SuppressMessage("Style", "IDE0057:Bereichsoperator verwenden", Justification = "<Ausstehend>", Scope = "member", Target = "~M:Planetoid_DB.PlanetoidDBForm.GotoCurrentPosition(System.Int32)")]

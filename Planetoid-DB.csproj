@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows7.0</TargetFramework>
     <RootNamespace>Planetoid_DB</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -85,7 +85,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Krypton.Toolkit" Version="70.22.11.312" />
+    <PackageReference Include="Krypton.Toolkit" Version="80.23.11.321" />
   </ItemGroup>
 
   <ItemGroup>

@@ -196,7 +196,6 @@
 			this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.progressBar.TabIndex = 7;
 			this.toolTip.SetToolTip(this.progressBar, "Shows the progress status of the search");
-			this.progressBar.UseKrypton = true;
 			this.progressBar.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.progressBar.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 

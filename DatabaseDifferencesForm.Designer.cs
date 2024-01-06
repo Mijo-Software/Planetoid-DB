@@ -304,7 +304,6 @@
 			this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.progressBar.TabIndex = 8;
 			this.toolTip.SetToolTip(this.progressBar, "Shows the progress status of the comparison");
-			this.progressBar.UseKrypton = true;
 			this.progressBar.UseWaitCursor = true;
 			this.progressBar.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.progressBar.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);

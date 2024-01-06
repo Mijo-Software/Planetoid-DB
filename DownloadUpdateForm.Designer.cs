@@ -70,7 +70,6 @@ namespace Planetoid_DB
 			progressBarDownload.Size = new Size(408, 18);
 			progressBarDownload.TabIndex = 1;
 			toolTip.SetToolTip(progressBarDownload, "Shows the progress of the download");
-			progressBarDownload.UseKrypton = true;
 			progressBarDownload.MouseEnter += SetStatusbar_Enter;
 			progressBarDownload.MouseLeave += ClearStatusbar_Leave;
 			// 

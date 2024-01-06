@@ -10,7 +10,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class DerivatedOrbitElementsForm : KryptonForm
 	{
-		private ArrayList derivatedOrbitElements = new ArrayList(capacity: 0);
+		private ArrayList derivatedOrbitElements = new(capacity: 0);
 
 		#region Local methods
 
