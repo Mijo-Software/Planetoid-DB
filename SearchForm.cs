@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Collections;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows.Forms;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
@@ -11,6 +11,11 @@ namespace Planetoid_DB
 	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SearchForm : KryptonForm
 	{
+		private ArrayList planetoidDatabase = new(capacity: 0);
+		private int numberPlanetoids = 0, entriesFound = 0;
+		private bool isCancelled = false;
+		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
+
 		#region Constructor
 
 		/// <summary>
@@ -50,9 +55,124 @@ namespace Planetoid_DB
 			labelInformation.Text = string.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="check"></param>
+		private void CheckItems(bool check)
+		{
+			for (int i = 0; i < checkedListBox.Items.Count; i++)
+			{
+				checkedListBox.SetItemChecked(index: i, value: check);
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void MarkAll() => CheckItems(check: true);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void UnmarkAll() => CheckItems(check: false);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="arrTemp"></param>
+		public void FillArray(ArrayList arrTemp)
+		{
+			planetoidDatabase = arrTemp;
+			numberPlanetoids = planetoidDatabase.Count;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currentPosition"></param>
+		private void FormatRow(int currentPosition)
+		{
+			strIndex = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+			strMagAbs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
+			strSlopeParam = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
+			strEpoch = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
+			strMeanAnomaly = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
+			strArgPeri = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
+			strLongAscNode = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
+			strIncl = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
+			strOrbEcc = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
+			strMotion = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
+			strSemiMajorAxis = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
+			strRef = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
+			strNumbObs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
+			strNumbOppos = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
+			strObsSpan = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
+			strRmsResdiual = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			strComputerName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
+			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
+			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+			strObsLastDate = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+
+			//MessageBox.Show(textBox.Text.Contains(value: strDesgnName).ToString());
+
+			//if (String.Equals(textBox.Text, strDesgnName))
+
+			if (strDesgnName.Contains(value: textBox.Text))
+			{
+				entriesFound++;
+				ListViewItem listViewItem = new(text: strIndex)
+				{
+					ToolTipText = $"{strIndex}: {strDesgnName}"
+				};
+				listViewItem.SubItems.Add(text: "readable designation");
+				listViewItem.SubItems.Add(text: strDesgnName);
+				listView.Items.Add(value: listViewItem);
+				labelEntriesFound.Text = $"{entriesFound} entries found";
+			}
+
+
+
+			/**
+			listViewItem.SubItems.Add(text: strDesgnName);
+			listViewItem.SubItems.Add(text: strEpoch);
+			listViewItem.SubItems.Add(text: strMeanAnomaly);
+			listViewItem.SubItems.Add(text: strArgPeri);
+			listViewItem.SubItems.Add(text: strLongAscNode);
+			listViewItem.SubItems.Add(text: strIncl);
+			listViewItem.SubItems.Add(text: strOrbEcc);
+			listViewItem.SubItems.Add(text: strMotion);
+			listViewItem.SubItems.Add(text: strSemiMajorAxis);
+			listViewItem.SubItems.Add(text: strMagAbs);
+			listViewItem.SubItems.Add(text: strSlopeParam);
+			listViewItem.SubItems.Add(text: strRef);
+			listViewItem.SubItems.Add(text: strNumbOppos);
+			listViewItem.SubItems.Add(text: strNumbObs);
+			listViewItem.SubItems.Add(text: strObsSpan);
+			listViewItem.SubItems.Add(text: strRmsResdiual);
+			listViewItem.SubItems.Add(text: strComputerName);
+			listViewItem.SubItems.Add(text: strFlags);
+			listViewItem.SubItems.Add(text: strObsLastDate);
+
+			listView.Items.Add(value: listViewItem);
+			*/
+
+		}
+
 		#endregion
 
 		#region Form* event handlers
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SearchForm_Load(object sender, EventArgs e)
+		{
+			buttonOpen.Enabled = buttonSearch.Enabled = false;
+			MarkAll();
+		}
 
 		/// <summary>
 		/// 
@@ -70,8 +190,19 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+		private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
+			progressBar.Maximum = numberPlanetoids - 1;
+			for (int i = 0; i < numberPlanetoids; i++)
+			{
+				FormatRow(currentPosition: i);
+				backgroundWorker.ReportProgress(percentProgress: i);
+				TaskbarProgress.SetValue(windowHandle: Handle, progressValue: i, progressMax: numberPlanetoids);
+				if (isCancelled)
+				{
+					break;
+				}
+			}
 		}
 
 		/// <summary>
@@ -79,15 +210,20 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
+		private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+		private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+			listView.Visible = true;
+			buttonOpen.Enabled = true;
+			buttonCancel.Enabled = false;
+			progressBar.Enabled = false;
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
 		#endregion
@@ -160,6 +296,7 @@ namespace Planetoid_DB
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 			}
 		}
+
 		#endregion
 
 		#region Leave-Handler
@@ -182,6 +319,8 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ButtonClear_Click(object sender, EventArgs e)
 		{
+			textBox.Text = string.Empty;
+			buttonOpen.Enabled = buttonSearch.Enabled = false;
 		}
 
 		/// <summary>
@@ -189,18 +328,14 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonMarkAll_Click(object sender, EventArgs e)
-		{
-		}
+		private void ButtonMarkAll_Click(object sender, EventArgs e) => MarkAll();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonUnmarkAll_Click(object sender, EventArgs e)
-		{
-		}
+		private void ButtonUnmarkAll_Click(object sender, EventArgs e) => UnmarkAll();
 
 		/// <summary>
 		/// 
@@ -209,7 +344,23 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ButtonSearch_Click(object sender, EventArgs e)
 		{
+			entriesFound = 0;
+			isCancelled = false;
+			listView.Visible = false;
+			listView.Items.Clear();
+			buttonCancel.Enabled = progressBar.Enabled = true;
+			backgroundWorker.WorkerReportsProgress = backgroundWorker.WorkerSupportsCancellation = true;
+			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
+			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+			backgroundWorker.RunWorkerAsync();
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonCancel_Click(object sender, EventArgs e) => isCancelled = true;
 
 		/// <summary>
 		/// 
@@ -219,6 +370,16 @@ namespace Planetoid_DB
 		private void ButtonOpen_Click(object sender, EventArgs e)
 		{
 		}
+
+		#endregion
+
+		#region TextChanged event handlers
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TextBox_TextChanged(object sender, EventArgs e) => buttonSearch.Enabled = textBox.Text.Length > 0;
 
 		#endregion
 	}

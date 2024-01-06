@@ -1114,7 +1114,6 @@
 			this.progressBar.Size = new System.Drawing.Size(296, 25);
 			this.progressBar.TabIndex = 1;
 			this.toolTip.SetToolTip(this.progressBar, "Shows the progress status of the record detection");
-			this.progressBar.UseKrypton = true;
 			this.progressBar.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
 			this.progressBar.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 

@@ -8,7 +8,7 @@ namespace Planetoid_DB
 	/// <summary>
 	/// 
 	/// </summary>
-	[DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
+	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class ExportDataSheetForm : KryptonForm
 	{
 		private ArrayList orbitElements = new(capacity: 0);
@@ -61,32 +61,25 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-		private void MarkAll()
+		/// <param name="check"></param>
+		private void CheckIt(bool check)
 		{
 			for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 			{
-				checkedListBoxOrbitalElements.SetItemChecked(index: i, value: true);
+				checkedListBoxOrbitalElements.SetItemChecked(index: i, value: check);
 			}
-			buttonExportAsTxt.Enabled = true;
-			buttonExportAsHtml.Enabled = true;
-			buttonExportAsXml.Enabled = true;
-			buttonExportAsJson.Enabled = true;
+			buttonExportAsTxt.Enabled = buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = check;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		private void UnmarkAll()
-		{
-			for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
-			{
-				checkedListBoxOrbitalElements.SetItemChecked(index: i, value: false);
-			}
-			buttonExportAsTxt.Enabled = false;
-			buttonExportAsHtml.Enabled = false;
-			buttonExportAsXml.Enabled = false;
-			buttonExportAsJson.Enabled = false;
-		}
+		private void MarkAll() => CheckIt(check: true);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private void UnmarkAll() => CheckIt(check: false);
 
 		/// <summary>
 		/// 
@@ -263,7 +256,7 @@ namespace Planetoid_DB
 				streamWriter.WriteLine(value: $"\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
 				streamWriter.WriteLine(value: $"\t\t<title>Export for [{orbitElements[index: 0]}] {orbitElements[index: 1]}</title>");
 				streamWriter.WriteLine(value: $"\t\t<style>");
-				streamWriter.WriteLine(value: $"\t\t\t* {{font-family:sans-serif;}}");
+				streamWriter.WriteLine(value: $"\t\t\t* {{font-family: sans-serif;}}");
 				streamWriter.WriteLine(value: $"\t\t\t.italic {{font-style: italic;}}");
 				streamWriter.WriteLine(value: $"\t\t\t.bold {{font-weight: bold;}}");
 				streamWriter.WriteLine(value: $"\t\t\t.sup {{vertical-align: super; font-size: smaller;}}");
@@ -300,7 +293,7 @@ namespace Planetoid_DB
 			{
 				using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
 				streamWriter.WriteLine(value: $"<?xml version=\"1.0\" encoding=\"UTF.8\" standalone=\"yes\"?>");
-				streamWriter.WriteLine(value: $"<MinorPlanet xmlns=\"https://planet-db.org\">");
+				streamWriter.WriteLine(value: $"<MinorPlanet xmlns=\"https://planet-db.de\">");
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
@@ -440,20 +433,9 @@ namespace Planetoid_DB
 
 		private void CheckedListBoxOrbitalElements_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (IsAllUnmarked())
-			{
-				buttonExportAsTxt.Enabled = false;
-				buttonExportAsHtml.Enabled = false;
-				buttonExportAsXml.Enabled = false;
-				buttonExportAsJson.Enabled = false;
-			}
-			else
-			{
-				buttonExportAsTxt.Enabled = true;
-				buttonExportAsHtml.Enabled = true;
-				buttonExportAsXml.Enabled = true;
-				buttonExportAsJson.Enabled = true;
-			}
+			buttonExportAsTxt.Enabled = IsAllUnmarked()
+				? (buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = false)
+				: (buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = true);
 		}
 	}
 }

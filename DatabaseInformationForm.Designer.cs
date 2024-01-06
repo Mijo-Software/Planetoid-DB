@@ -476,8 +476,8 @@ namespace Planetoid_DB
     private KryptonLabel labelDateAccessedValue;
     private KryptonLabel labelDateWritedValue;
     private KryptonLabel labelAttributesValue;
-		private KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolStripContainer toolStripContainer;
+	private KryptonStatusStrip statusStrip;
+	private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+	private System.Windows.Forms.ToolStripContainer toolStripContainer;
 	}
 }
