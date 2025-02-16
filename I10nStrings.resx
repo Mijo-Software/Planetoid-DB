@@ -343,4 +343,10 @@
   <data name="ValueWithinValidRange" xml:space="preserve">
     <value>The value must be within the valid range.</value>
   </data>
+  <data name="ErrorTaskbarSet" xml:space="preserve">
+    <value>Error setting taskbar status</value>
+  </data>
+  <data name="ErrorOpeningWebsite" xml:space="preserve">
+    <value>Error opening the website: </value>
+  </data>
 </root>

@@ -13,34 +13,22 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Return the title of the assembly
 		/// </summary>
-		public static string AssemblyTitle
+		public static string? AssemblyTitle
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly()
+				var attributes = Assembly.GetExecutingAssembly()
 					.GetCustomAttributes(attributeType: typeof(AssemblyTitleAttribute), inherit: false);
-				if (attributes.Length > 0)
-				{
-					AssemblyTitleAttribute? titleAttribute = attributes[0] as AssemblyTitleAttribute;
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-					if (!string.IsNullOrEmpty(value: titleAttribute.Title))
-					{
-						return titleAttribute.Title;
-					}
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
-				}
-#pragma warning disable CS8603 // Mögliche Nullverweisrückgabe.
-				return Path.GetFileNameWithoutExtension(path: Assembly.GetExecutingAssembly().CodeBase);
-#pragma warning restore CS8603 // Mögliche Nullverweisrückgabe.
+				return attributes.Length > 0 && attributes[0] is AssemblyTitleAttribute titleAttribute
+					? !string.IsNullOrEmpty(value: titleAttribute.Title) ? titleAttribute.Title : Path.GetFileNameWithoutExtension(path: Assembly.GetExecutingAssembly().Location)
+					: Path.GetFileNameWithoutExtension(path: Assembly.GetExecutingAssembly().Location);
 			}
 		}
 
 		/// <summary>
 		/// Return the version of the assembly
 		/// </summary>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-		public static string AssemblyVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		public static string AssemblyVersion => Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Unknown Version";
 
 		/// <summary>
 		/// Return the description of the assembly
@@ -49,7 +37,7 @@ namespace Planetoid_DB
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly()
+				var attributes = Assembly.GetExecutingAssembly()
 					.GetCustomAttributes(attributeType: typeof(AssemblyDescriptionAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyDescriptionAttribute)attributes[0]).Description;
 			}
@@ -62,7 +50,7 @@ namespace Planetoid_DB
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly()
+				var attributes = Assembly.GetExecutingAssembly()
 					.GetCustomAttributes(attributeType: typeof(AssemblyProductAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyProductAttribute)attributes[0]).Product;
 			}
@@ -75,7 +63,7 @@ namespace Planetoid_DB
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly()
+				var attributes = Assembly.GetExecutingAssembly()
 					.GetCustomAttributes(attributeType: typeof(AssemblyCopyrightAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
 			}
@@ -88,7 +76,7 @@ namespace Planetoid_DB
 		{
 			get
 			{
-				object[] attributes = Assembly.GetExecutingAssembly()
+				var attributes = Assembly.GetExecutingAssembly()
 					.GetCustomAttributes(attributeType: typeof(AssemblyCompanyAttribute), inherit: false);
 				return attributes.Length == 0 ? string.Empty : ((AssemblyCompanyAttribute)attributes[0]).Company;
 			}

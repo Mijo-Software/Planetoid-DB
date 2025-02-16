@@ -109,7 +109,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Asynchronous initialization
+		#region asynchronous initialization
 
 		/// <summary>
 		/// Initializes the application asynchronously.
