@@ -337,4 +337,10 @@
   <data name="terminology_TrueAnomaly" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\terminology_TrueAnomaly.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="ClipboardCopyingError" xml:space="preserve">
+    <value>Error copying to clipboard: </value>
+  </data>
+  <data name="ValueWithinValidRange" xml:space="preserve">
+    <value>The value must be within the valid range.</value>
+  </data>
 </root>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows7.0</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <RootNamespace>Planetoid_DB</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -11,10 +11,10 @@
     <StartupObject>Planetoid_DB.Program</StartupObject>
     <ApplicationIcon>Planetoid-DB-3.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>0.7.0.25</Version>
+    <Version>0.7.1.26</Version>
     <Company>Mijo Software</Company>
     <Description>Viewer for the MPC Orbit (MPCORB) Database</Description>
-    <Copyright>2010-2023 Michael Johne</Copyright>
+    <Copyright>2010-2025 Michael Johne</Copyright>
     <PackageIcon>PlanetoidDB3.png</PackageIcon>
     <PackageProjectUrl>https://planetoid-db.de</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -28,6 +28,7 @@
     <SignAssembly>False</SignAssembly>
     <Title>$(AssemblyName)</Title>
     <Authors>Michael Johne @ Mijo Software</Authors>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
