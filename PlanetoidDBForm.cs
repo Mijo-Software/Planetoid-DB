@@ -44,19 +44,36 @@ namespace Planetoid_DB
 		#region Local methods
 
 		/// <summary>
-		/// 
+		/// Returns a string representation of the object for the debugger.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>A string representation of the object.</returns>
 		private string GetDebuggerDisplay() => ToString();
 
+		/// <summary>
+		/// Copies the specified text to the clipboard and displays a confirmation message.
+		/// </summary>
+		/// <param name="text">The text to be copied.</param>
+		private static void CopyToClipboard(string text)
+		{
+			try
+			{
+				Clipboard.SetText(text: text);
+				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
+
 		[System.Runtime.InteropServices.DllImport(dllName: "wininet.dll")]
-		private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+		private static extern bool InternetGetConnectedState(out int Description, int ReservedValue);
 
 		/// <summary>
 		/// Check if internet is aviable
 		/// </summary>
 		/// <returns>true if internet is aviable, otherwise false</returns>
-		private static bool CheckNet() => InternetGetConnectedState(Description: out int desc, ReservedValue: 0);
+		private static bool CheckNet() => InternetGetConnectedState(Description: out _, ReservedValue: 0);
 
 		/// <summary>
 		/// 
@@ -81,7 +98,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void Restart()
 		{
-			Process.Start(fileName: Application.ExecutablePath);
+			_ = Process.Start(fileName: Application.ExecutablePath);
 			Close();
 		}
 
@@ -163,16 +180,6 @@ namespace Planetoid_DB
 			DateTime datetimeFileLocal = fileInfo.LastWriteTime;
 			DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
 			return datetimeFileOnline > datetimeFileLocal;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private static void CopyToClipboard(string text)
-		{
-			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -299,7 +306,7 @@ namespace Planetoid_DB
 				default: formTerminology.SetIndexNumberActive(); break;
 			}
 			formTerminology.TopMost = TopMost;
-			formTerminology.ShowDialog();
+			_ = formTerminology.ShowDialog();
 		}
 
 		/// <summary>
@@ -310,7 +317,7 @@ namespace Planetoid_DB
 			using TableModeForm formTableMode = new();
 			formTableMode.TopMost = TopMost;
 			formTableMode.FillArray(arrTemp: planetoidDatabase);
-			formTableMode.ShowDialog();
+			_ = formTableMode.ShowDialog();
 		}
 
 		/// <summary>
@@ -320,7 +327,7 @@ namespace Planetoid_DB
 		{
 			using AppInfoForm formAppInfo = new();
 			formAppInfo.TopMost = TopMost;
-			formAppInfo.ShowDialog();
+			_ = formAppInfo.ShowDialog();
 		}
 
 		/// <summary>
@@ -330,7 +337,7 @@ namespace Planetoid_DB
 		{
 			using RecordsSelectionForm formRecordsSelection = new();
 			formRecordsSelection.TopMost = TopMost;
-			formRecordsSelection.ShowDialog();
+			_ = formRecordsSelection.ShowDialog();
 		}
 
 		/// <summary>
@@ -340,7 +347,7 @@ namespace Planetoid_DB
 		{
 			using RecordsMainForm formRecordsMain = new();
 			formRecordsMain.TopMost = TopMost;
-			formRecordsMain.ShowDialog();
+			_ = formRecordsMain.ShowDialog();
 		}
 
 		/// <summary>
@@ -350,13 +357,13 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
 				using CheckMpcorbDatForm formCeckMpcorbDat = new();
 				formCeckMpcorbDat.TopMost = TopMost;
-				formCeckMpcorbDat.ShowDialog();
+				_ = formCeckMpcorbDat.ShowDialog();
 			}
 		}
 
@@ -367,7 +374,7 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -387,7 +394,7 @@ namespace Planetoid_DB
 		{
 			using DatabaseInformationForm formDatabaseInformation = new();
 			formDatabaseInformation.TopMost = TopMost;
-			formDatabaseInformation.ShowDialog();
+			_ = formDatabaseInformation.ShowDialog();
 		}
 
 		/// <summary>
@@ -421,7 +428,7 @@ namespace Planetoid_DB
 			using CopyDataToClipboardForm formCopyDataToClipboard = new();
 			formCopyDataToClipboard.TopMost = TopMost;
 			formCopyDataToClipboard.SetDatabase(arrayList: dataToCopy);
-			formCopyDataToClipboard.ShowDialog();
+			_ = formCopyDataToClipboard.ShowDialog();
 		}
 
 		/// <summary>
@@ -433,9 +440,9 @@ namespace Planetoid_DB
 			formSearch.TopMost = TopMost;
 			formSearch.FillArray(arrTemp: planetoidDatabase);
 			formSearch.SetMaxIndex(maxIndex: planetoidDatabase.Count);
-			formSearch.ShowDialog();
+			_ = formSearch.ShowDialog();
 
-			MessageBox.Show(formSearch.GetSelectedIndex().ToString());
+			_ = MessageBox.Show(formSearch.GetSelectedIndex().ToString());
 
 			if (formSearch.DialogResult == DialogResult.OK && formSearch.GetSelectedIndex() > 0)
 			{
@@ -451,7 +458,7 @@ namespace Planetoid_DB
 		{
 			using FilterForm formFilter = new();
 			formFilter.TopMost = TopMost;
-			formFilter.ShowDialog();
+			_ = formFilter.ShowDialog();
 		}
 
 		/// <summary>
@@ -461,7 +468,7 @@ namespace Planetoid_DB
 		{
 			using SettingsForm formSettings = new();
 			formSettings.TopMost = TopMost;
-			formSettings.ShowDialog();
+			_ = formSettings.ShowDialog();
 		}
 
 		/// <summary>
@@ -471,7 +478,7 @@ namespace Planetoid_DB
 		{
 			using DatabaseDifferencesForm formDatabaseDifferences = new();
 			formDatabaseDifferences.TopMost = TopMost;
-			formDatabaseDifferences.ShowDialog();
+			_ = formDatabaseDifferences.ShowDialog();
 		}
 
 		/// <summary>
@@ -483,7 +490,7 @@ namespace Planetoid_DB
 			formListReadableDesignations.TopMost = TopMost;
 			formListReadableDesignations.FillArray(arrTemp: planetoidDatabase);
 			formListReadableDesignations.SetMaxIndex(maxIndex: planetoidDatabase.Count);
-			formListReadableDesignations.ShowDialog();
+			_ = formListReadableDesignations.ShowDialog();
 			if (formListReadableDesignations.DialogResult == DialogResult.OK && formListReadableDesignations.GetSelectedIndex() > 0)
 			{
 				GotoCurrentPosition(currentPosition: formListReadableDesignations.GetSelectedIndex());
@@ -502,49 +509,49 @@ namespace Planetoid_DB
 			double meanAnomaly = double.Parse(s: labelMeanAnomalyAtTheEpochData.Text, provider: provider);
 			double longitudeAscendingNode = double.Parse(s: labelLongitudeOfTheAscendingNodeData.Text, provider: provider);
 			double argumentAphelion = double.Parse(s: labelArgumentOfPerihelionData.Text, provider: provider);
-			orbitalElements.Add(value: labelIndexData.Text);
-			orbitalElements.Add(value: labelReadableDesignationData.Text);
-			orbitalElements.Add(value: labelEpochData.Text);
-			orbitalElements.Add(value: labelMeanAnomalyAtTheEpochData.Text);
-			orbitalElements.Add(value: labelArgumentOfPerihelionData.Text);
-			orbitalElements.Add(value: labelLongitudeOfTheAscendingNodeData.Text);
-			orbitalElements.Add(value: labelInclinationToTheEclipticData.Text);
-			orbitalElements.Add(value: labelOrbitalEccentricityData.Text);
-			orbitalElements.Add(value: labelMeanDailyMotionData.Text);
-			orbitalElements.Add(value: labelSemiMajorAxisData.Text);
-			orbitalElements.Add(value: labelAbsoluteMagnitudeData.Text);
-			orbitalElements.Add(value: labelSlopeParameterData.Text);
-			orbitalElements.Add(value: labelReferenceData.Text);
-			orbitalElements.Add(value: labelNumberOfOppositionsData.Text);
-			orbitalElements.Add(value: labelNumberOfObservationsData.Text);
-			orbitalElements.Add(value: labelObservationSpanData.Text);
-			orbitalElements.Add(value: labelRmsResidualData.Text);
-			orbitalElements.Add(value: labelComputerNameData.Text);
-			orbitalElements.Add(value: labelFlagsData.Text);
-			orbitalElements.Add(value: labelDateLastObservationData.Text);
-			orbitalElements.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
-			orbitalElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			orbitalElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = orbitalElements.Add(value: labelIndexData.Text);
+			_ = orbitalElements.Add(value: labelReadableDesignationData.Text);
+			_ = orbitalElements.Add(value: labelEpochData.Text);
+			_ = orbitalElements.Add(value: labelMeanAnomalyAtTheEpochData.Text);
+			_ = orbitalElements.Add(value: labelArgumentOfPerihelionData.Text);
+			_ = orbitalElements.Add(value: labelLongitudeOfTheAscendingNodeData.Text);
+			_ = orbitalElements.Add(value: labelInclinationToTheEclipticData.Text);
+			_ = orbitalElements.Add(value: labelOrbitalEccentricityData.Text);
+			_ = orbitalElements.Add(value: labelMeanDailyMotionData.Text);
+			_ = orbitalElements.Add(value: labelSemiMajorAxisData.Text);
+			_ = orbitalElements.Add(value: labelAbsoluteMagnitudeData.Text);
+			_ = orbitalElements.Add(value: labelSlopeParameterData.Text);
+			_ = orbitalElements.Add(value: labelReferenceData.Text);
+			_ = orbitalElements.Add(value: labelNumberOfOppositionsData.Text);
+			_ = orbitalElements.Add(value: labelNumberOfObservationsData.Text);
+			_ = orbitalElements.Add(value: labelObservationSpanData.Text);
+			_ = orbitalElements.Add(value: labelRmsResidualData.Text);
+			_ = orbitalElements.Add(value: labelComputerNameData.Text);
+			_ = orbitalElements.Add(value: labelFlagsData.Text);
+			_ = orbitalElements.Add(value: labelDateLastObservationData.Text);
+			_ = orbitalElements.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
 			using ExportDataSheetForm formExportDataSheet = new();
 			formExportDataSheet.TopMost = TopMost;
 			formExportDataSheet.SetDatabase(arrayList: orbitalElements);
-			formExportDataSheet.ShowDialog();
+			_ = formExportDataSheet.ShowDialog();
 		}
 
 		/// <summary>
@@ -554,7 +561,7 @@ namespace Planetoid_DB
 		{
 			using PrintDataSheetForm formPrintDataSheet = new();
 			formPrintDataSheet.TopMost = TopMost;
-			formPrintDataSheet.ShowDialog();
+			_ = formPrintDataSheet.ShowDialog();
 		}
 
 		/// <summary>
@@ -569,29 +576,29 @@ namespace Planetoid_DB
 			double meanAnomaly = double.Parse(s: labelMeanAnomalyAtTheEpochData.Text, provider: provider);
 			double longitudeAscendingNode = double.Parse(s: labelLongitudeOfTheAscendingNodeData.Text, provider: provider);
 			double argumentAphelion = double.Parse(s: labelArgumentOfPerihelionData.Text, provider: provider);
-			derivatedOrbitElements.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			derivatedOrbitElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivatedOrbitElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
 			using DerivatedOrbitElementsForm formDerivatedOrbitElements = new();
 			formDerivatedOrbitElements.TopMost = TopMost;
 			formDerivatedOrbitElements.SetDatabase(arrayList: derivatedOrbitElements);
-			formDerivatedOrbitElements.ShowDialog();
+			_ = formDerivatedOrbitElements.ShowDialog();
 		}
 
 		/// <summary>
@@ -940,7 +947,7 @@ namespace Planetoid_DB
 					lineNum++;
 					if ((lineNum >= 44) && (!string.IsNullOrEmpty(value: readLine)))
 					{
-						planetoidDatabase.Add(value: readLine);
+						_ = planetoidDatabase.Add(value: readLine);
 					}
 				}
 				fileStream.Close();
@@ -995,11 +1002,11 @@ namespace Planetoid_DB
 			{
 				if (e.Cancelled)
 				{
-					MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+					_ = MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
 				}
 				else
 				{
-					MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+					_ = MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				}
 				File.Delete(path: filenameMpcorbTemp);
 			}
@@ -1217,11 +1224,11 @@ namespace Planetoid_DB
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			if (pos <= 0 || pos >= planetoidDatabase.Count + 1)
 			{
-				MessageBox.Show(text: I10nStrings.IndexOutOfRange, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				_ = MessageBox.Show(text: I10nStrings.IndexOutOfRange, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -1399,7 +1406,7 @@ namespace Planetoid_DB
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+					_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
 					toolStripStatusLabelUpdate.IsLink = true;
 					toolStripStatusLabelUpdate.Enabled = true;
 					toolStripStatusLabelUpdate.Visible = true;

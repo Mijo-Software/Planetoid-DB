@@ -21,10 +21,27 @@ namespace Planetoid_DB
 		#region Local methods
 
 		/// <summary>
-		/// 
+		/// Returns a string representation of the object for the debugger.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>A string representation of the object.</returns>
 		private string GetDebuggerDisplay() => ToString();
+
+		/// <summary>
+		/// Copies the specified text to the clipboard and displays a confirmation message.
+		/// </summary>
+		/// <param name="text">The text to be copied.</param>
+		private static void CopyToClipboard(string text)
+		{
+			try
+			{
+				Clipboard.SetText(text: text);
+				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
 
 		/// <summary>
 		/// 

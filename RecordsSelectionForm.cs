@@ -21,9 +21,9 @@ namespace Planetoid_DB
 		#region Local Methods
 
 		/// <summary>
-		/// 
+		/// Returns a string representation of the object for the debugger.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>A string representation of the object.</returns>
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
