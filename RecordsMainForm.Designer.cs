@@ -146,7 +146,6 @@
 			this.buttonExportAsJson.AccessibleDescription = "Exports the data sheet as JSON file";
 			this.buttonExportAsJson.AccessibleName = "Export as JSON";
 			this.buttonExportAsJson.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonExportAsJson.CornerRoundingRadius = -1F;
 			this.buttonExportAsJson.Location = new System.Drawing.Point(306, 6);
 			this.buttonExportAsJson.Name = "buttonExportAsJson";
 			this.buttonExportAsJson.Size = new System.Drawing.Size(97, 40);
@@ -166,7 +165,6 @@
 			this.buttonExportAsXml.AccessibleDescription = "Exports the data sheet as XML file";
 			this.buttonExportAsXml.AccessibleName = "Export as XML";
 			this.buttonExportAsXml.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonExportAsXml.CornerRoundingRadius = -1F;
 			this.buttonExportAsXml.Location = new System.Drawing.Point(205, 6);
 			this.buttonExportAsXml.Name = "buttonExportAsXml";
 			this.buttonExportAsXml.Size = new System.Drawing.Size(95, 40);
@@ -186,7 +184,6 @@
 			this.buttonExportAsTxt.AccessibleDescription = "Exports the data sheet as text file";
 			this.buttonExportAsTxt.AccessibleName = "Export as TXT";
 			this.buttonExportAsTxt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonExportAsTxt.CornerRoundingRadius = -1F;
 			this.buttonExportAsTxt.Location = new System.Drawing.Point(3, 6);
 			this.buttonExportAsTxt.Name = "buttonExportAsTxt";
 			this.buttonExportAsTxt.Size = new System.Drawing.Size(95, 40);
@@ -206,7 +203,6 @@
 			this.buttonExportAsHtml.AccessibleDescription = "Exports the data sheet as HTML file";
 			this.buttonExportAsHtml.AccessibleName = "Export as HTML";
 			this.buttonExportAsHtml.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonExportAsHtml.CornerRoundingRadius = -1F;
 			this.buttonExportAsHtml.Location = new System.Drawing.Point(104, 6);
 			this.buttonExportAsHtml.Name = "buttonExportAsHtml";
 			this.buttonExportAsHtml.Size = new System.Drawing.Size(95, 40);
@@ -299,7 +295,6 @@
 			this.buttonGoto10.AccessibleName = "Go to the element of the place no. 10";
 			this.buttonGoto10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto10.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto10.CornerRoundingRadius = -1F;
 			this.buttonGoto10.Location = new System.Drawing.Point(358, 279);
 			this.buttonGoto10.Name = "buttonGoto10";
 			this.buttonGoto10.Size = new System.Drawing.Size(60, 20);
@@ -319,7 +314,6 @@
 			this.buttonGoto09.AccessibleName = "Go to the element of the place no. 9";
 			this.buttonGoto09.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto09.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto09.CornerRoundingRadius = -1F;
 			this.buttonGoto09.Location = new System.Drawing.Point(358, 253);
 			this.buttonGoto09.Name = "buttonGoto09";
 			this.buttonGoto09.Size = new System.Drawing.Size(60, 20);
@@ -339,7 +333,6 @@
 			this.buttonGoto08.AccessibleName = "Go to the element of the place no. 8";
 			this.buttonGoto08.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto08.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto08.CornerRoundingRadius = -1F;
 			this.buttonGoto08.Location = new System.Drawing.Point(358, 227);
 			this.buttonGoto08.Name = "buttonGoto08";
 			this.buttonGoto08.Size = new System.Drawing.Size(60, 20);
@@ -359,7 +352,6 @@
 			this.buttonGoto07.AccessibleName = "Go to the element of the place no. 7";
 			this.buttonGoto07.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto07.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto07.CornerRoundingRadius = -1F;
 			this.buttonGoto07.Location = new System.Drawing.Point(358, 201);
 			this.buttonGoto07.Name = "buttonGoto07";
 			this.buttonGoto07.Size = new System.Drawing.Size(60, 20);
@@ -379,7 +371,6 @@
 			this.buttonGoto06.AccessibleName = "Go to the element of the place no. 6";
 			this.buttonGoto06.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto06.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto06.CornerRoundingRadius = -1F;
 			this.buttonGoto06.Location = new System.Drawing.Point(358, 175);
 			this.buttonGoto06.Name = "buttonGoto06";
 			this.buttonGoto06.Size = new System.Drawing.Size(60, 20);
@@ -399,7 +390,6 @@
 			this.buttonGoto05.AccessibleName = "Go to the element of the place no. 5";
 			this.buttonGoto05.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto05.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto05.CornerRoundingRadius = -1F;
 			this.buttonGoto05.Location = new System.Drawing.Point(358, 149);
 			this.buttonGoto05.Name = "buttonGoto05";
 			this.buttonGoto05.Size = new System.Drawing.Size(60, 20);
@@ -419,7 +409,6 @@
 			this.buttonGoto04.AccessibleName = "Go to the element of the place no. 4";
 			this.buttonGoto04.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto04.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto04.CornerRoundingRadius = -1F;
 			this.buttonGoto04.Location = new System.Drawing.Point(358, 123);
 			this.buttonGoto04.Name = "buttonGoto04";
 			this.buttonGoto04.Size = new System.Drawing.Size(60, 20);
@@ -439,7 +428,6 @@
 			this.buttonGoto03.AccessibleName = "Go to the element of the place no. 3";
 			this.buttonGoto03.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto03.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto03.CornerRoundingRadius = -1F;
 			this.buttonGoto03.Location = new System.Drawing.Point(358, 97);
 			this.buttonGoto03.Name = "buttonGoto03";
 			this.buttonGoto03.Size = new System.Drawing.Size(60, 20);
@@ -459,7 +447,6 @@
 			this.buttonGoto02.AccessibleName = "Go to the element of the place no. 2";
 			this.buttonGoto02.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto02.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto02.CornerRoundingRadius = -1F;
 			this.buttonGoto02.Location = new System.Drawing.Point(358, 71);
 			this.buttonGoto02.Name = "buttonGoto02";
 			this.buttonGoto02.Size = new System.Drawing.Size(60, 20);
@@ -659,7 +646,6 @@
 			this.buttonGoto01.AccessibleName = "Go to the element of the place no. 1";
 			this.buttonGoto01.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonGoto01.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonGoto01.CornerRoundingRadius = -1F;
 			this.buttonGoto01.Location = new System.Drawing.Point(358, 45);
 			this.buttonGoto01.Name = "buttonGoto01";
 			this.buttonGoto01.Size = new System.Drawing.Size(60, 20);
@@ -1074,7 +1060,6 @@
 			this.buttonStart.AccessibleDescription = "Detects the records";
 			this.buttonStart.AccessibleName = "Detect the records";
 			this.buttonStart.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonStart.CornerRoundingRadius = -1F;
 			this.buttonStart.Location = new System.Drawing.Point(12, 12);
 			this.buttonStart.Name = "buttonStart";
 			this.buttonStart.Size = new System.Drawing.Size(73, 25);

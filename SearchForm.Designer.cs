@@ -34,6 +34,7 @@
 			panel = new Krypton.Toolkit.KryptonPanel();
 			listView = new ListView();
 			columnHeaderIndex = new ColumnHeader();
+			columnHeaderIndexNo = new ColumnHeader();
 			columnHeaderProperty = new ColumnHeader();
 			columnHeaderValue = new ColumnHeader();
 			buttonCancel = new Krypton.Toolkit.KryptonButton();
@@ -44,7 +45,7 @@
 			groupBox = new Krypton.Toolkit.KryptonGroupBox();
 			buttonClear = new Krypton.Toolkit.KryptonButton();
 			textBox = new Krypton.Toolkit.KryptonTextBox();
-			buttonOpen = new Krypton.Toolkit.KryptonButton();
+			buttonLoad = new Krypton.Toolkit.KryptonButton();
 			buttonUnmarkAll = new Krypton.Toolkit.KryptonButton();
 			buttonMarkAll = new Krypton.Toolkit.KryptonButton();
 			buttonSearch = new Krypton.Toolkit.KryptonButton();
@@ -88,7 +89,7 @@
 			panel.Controls.Add(labelEntriesFound);
 			panel.Controls.Add(progressBar);
 			panel.Controls.Add(groupBox);
-			panel.Controls.Add(buttonOpen);
+			panel.Controls.Add(buttonLoad);
 			panel.Controls.Add(buttonUnmarkAll);
 			panel.Controls.Add(buttonMarkAll);
 			panel.Controls.Add(buttonSearch);
@@ -105,7 +106,7 @@
 			// 
 			listView.AccessibleDescription = "Shows the search results";
 			listView.AccessibleName = "Search results";
-			listView.Columns.AddRange(new ColumnHeader[] { columnHeaderIndex, columnHeaderProperty, columnHeaderValue });
+			listView.Columns.AddRange(new ColumnHeader[] { columnHeaderIndex, columnHeaderIndexNo, columnHeaderProperty, columnHeaderValue });
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.Location = new Point(4, 300);
@@ -116,6 +117,7 @@
 			toolTip.SetToolTip(listView, "Shows the search results");
 			listView.UseCompatibleStateImageBehavior = false;
 			listView.View = View.Details;
+			listView.SelectedIndexChanged += ListView_SelectedIndexChanged;
 			listView.Enter += SetStatusbar_Enter;
 			listView.Leave += ClearStatusbar_Leave;
 			listView.MouseEnter += SetStatusbar_Enter;
@@ -124,6 +126,11 @@
 			// columnHeaderIndex
 			// 
 			columnHeaderIndex.Text = "Index";
+			// 
+			// columnHeaderIndexNo
+			// 
+			columnHeaderIndexNo.Text = "Index No.";
+			columnHeaderIndexNo.Width = 70;
 			// 
 			// columnHeaderProperty
 			// 
@@ -281,24 +288,25 @@
 			textBox.MouseEnter += SetStatusbar_Enter;
 			textBox.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// buttonOpen
+			// buttonLoad
 			// 
-			buttonOpen.AccessibleDescription = "Opens the selected result item";
-			buttonOpen.AccessibleName = "Open the selected result item";
-			buttonOpen.AccessibleRole = AccessibleRole.PushButton;
-			buttonOpen.Location = new Point(276, 239);
-			buttonOpen.Margin = new Padding(4, 3, 4, 3);
-			buttonOpen.Name = "buttonOpen";
-			buttonOpen.Size = new Size(105, 29);
-			buttonOpen.TabIndex = 6;
-			toolTip.SetToolTip(buttonOpen, "Open the selected result item");
-			buttonOpen.Values.Image = Properties.Resources.silk_go;
-			buttonOpen.Values.Text = "&Open";
-			buttonOpen.Click += ButtonOpen_Click;
-			buttonOpen.Enter += SetStatusbar_Enter;
-			buttonOpen.Leave += ClearStatusbar_Leave;
-			buttonOpen.MouseEnter += SetStatusbar_Enter;
-			buttonOpen.MouseLeave += ClearStatusbar_Leave;
+			buttonLoad.AccessibleDescription = "Load the selected result item";
+			buttonLoad.AccessibleName = "Load the selected result item";
+			buttonLoad.AccessibleRole = AccessibleRole.PushButton;
+			buttonLoad.DialogResult = DialogResult.OK;
+			buttonLoad.Location = new Point(276, 239);
+			buttonLoad.Margin = new Padding(4, 3, 4, 3);
+			buttonLoad.Name = "buttonLoad";
+			buttonLoad.Size = new Size(105, 29);
+			buttonLoad.TabIndex = 6;
+			toolTip.SetToolTip(buttonLoad, "Load the selected result item");
+			buttonLoad.Values.Image = Properties.Resources.silk_go;
+			buttonLoad.Values.Text = "&Load";
+			buttonLoad.Click += ButtonLoad_Click;
+			buttonLoad.Enter += SetStatusbar_Enter;
+			buttonLoad.Leave += ClearStatusbar_Leave;
+			buttonLoad.MouseEnter += SetStatusbar_Enter;
+			buttonLoad.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// buttonUnmarkAll
 			// 
@@ -405,7 +413,7 @@
 		private Krypton.Toolkit.KryptonButton buttonUnmarkAll;
 		private Krypton.Toolkit.KryptonButton buttonMarkAll;
 		private Krypton.Toolkit.KryptonButton buttonSearch;
-		private Krypton.Toolkit.KryptonButton buttonOpen;
+		private Krypton.Toolkit.KryptonButton buttonLoad;
 		private Krypton.Toolkit.KryptonGroupBox groupBox;
 		private Krypton.Toolkit.KryptonTextBox textBox;
 		private Krypton.Toolkit.KryptonButton buttonClear;
@@ -417,8 +425,9 @@
 		private System.ComponentModel.BackgroundWorker backgroundWorker;
 		private Krypton.Toolkit.KryptonButton buttonCancel;
 		private ListView listView;
-		private ColumnHeader columnHeaderIndex;
+		private ColumnHeader columnHeaderIndexNo;
 		private ColumnHeader columnHeaderProperty;
 		private ColumnHeader columnHeaderValue;
+		private ColumnHeader columnHeaderIndex;
 	}
 }

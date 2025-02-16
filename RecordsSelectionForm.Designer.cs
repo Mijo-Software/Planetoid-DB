@@ -123,7 +123,6 @@
 			this.checkButtonRecordSortDirectionDescending.AccessibleName = "Sorted descending";
 			this.checkButtonRecordSortDirectionDescending.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.checkButtonRecordSortDirectionDescending.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.checkButtonRecordSortDirectionDescending.CornerRoundingRadius = -1F;
 			this.checkButtonRecordSortDirectionDescending.Location = new System.Drawing.Point(417, 229);
 			this.checkButtonRecordSortDirectionDescending.Name = "checkButtonRecordSortDirectionDescending";
 			this.checkButtonRecordSortDirectionDescending.Size = new System.Drawing.Size(125, 25);
@@ -143,7 +142,6 @@
 			this.checkButtonRecordSortDirectionAscending.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.checkButtonRecordSortDirectionAscending.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
 			this.checkButtonRecordSortDirectionAscending.Checked = true;
-			this.checkButtonRecordSortDirectionAscending.CornerRoundingRadius = -1F;
 			this.checkButtonRecordSortDirectionAscending.Location = new System.Drawing.Point(280, 229);
 			this.checkButtonRecordSortDirectionAscending.Name = "checkButtonRecordSortDirectionAscending";
 			this.checkButtonRecordSortDirectionAscending.Size = new System.Drawing.Size(125, 25);
@@ -162,7 +160,6 @@
 			this.buttonDateOfLastObservation.AccessibleName = "Copy to clipboard: Date of last observation (YYYMMDD)";
 			this.buttonDateOfLastObservation.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonDateOfLastObservation.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonDateOfLastObservation.CornerRoundingRadius = -1F;
 			this.buttonDateOfLastObservation.Location = new System.Drawing.Point(280, 198);
 			this.buttonDateOfLastObservation.Name = "buttonDateOfLastObservation";
 			this.buttonDateOfLastObservation.Size = new System.Drawing.Size(262, 25);
@@ -181,7 +178,6 @@
 			this.buttonComputerName.AccessibleName = "Copy to clipboard: Computer name";
 			this.buttonComputerName.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonComputerName.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonComputerName.CornerRoundingRadius = -1F;
 			this.buttonComputerName.Location = new System.Drawing.Point(280, 167);
 			this.buttonComputerName.Name = "buttonComputerName";
 			this.buttonComputerName.Size = new System.Drawing.Size(262, 25);
@@ -200,7 +196,6 @@
 			this.buttonRmsResidual.AccessibleName = "Copy to clipboard: r.m.s. residual (\")";
 			this.buttonRmsResidual.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonRmsResidual.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonRmsResidual.CornerRoundingRadius = -1F;
 			this.buttonRmsResidual.Location = new System.Drawing.Point(280, 136);
 			this.buttonRmsResidual.Name = "buttonRmsResidual";
 			this.buttonRmsResidual.Size = new System.Drawing.Size(262, 25);
@@ -219,7 +214,6 @@
 			this.buttonObservationSpan.AccessibleName = "Copy to clipboard: Observation span";
 			this.buttonObservationSpan.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonObservationSpan.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonObservationSpan.CornerRoundingRadius = -1F;
 			this.buttonObservationSpan.Location = new System.Drawing.Point(280, 105);
 			this.buttonObservationSpan.Name = "buttonObservationSpan";
 			this.buttonObservationSpan.Size = new System.Drawing.Size(262, 25);
@@ -238,7 +232,6 @@
 			this.buttonNumberOfObservations.AccessibleName = "Copy to clipboard: Number of observations";
 			this.buttonNumberOfObservations.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonNumberOfObservations.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonNumberOfObservations.CornerRoundingRadius = -1F;
 			this.buttonNumberOfObservations.Location = new System.Drawing.Point(280, 74);
 			this.buttonNumberOfObservations.Name = "buttonNumberOfObservations";
 			this.buttonNumberOfObservations.Size = new System.Drawing.Size(262, 25);
@@ -257,7 +250,6 @@
 			this.buttonNumberOfOppositions.AccessibleName = "Copy to clipboard: Number of oppositions";
 			this.buttonNumberOfOppositions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonNumberOfOppositions.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonNumberOfOppositions.CornerRoundingRadius = -1F;
 			this.buttonNumberOfOppositions.Location = new System.Drawing.Point(280, 43);
 			this.buttonNumberOfOppositions.Name = "buttonNumberOfOppositions";
 			this.buttonNumberOfOppositions.Size = new System.Drawing.Size(262, 25);
@@ -276,7 +268,6 @@
 			this.buttonSlopeParameter.AccessibleName = "Copy to clipboard: Slope parameter, G";
 			this.buttonSlopeParameter.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonSlopeParameter.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonSlopeParameter.CornerRoundingRadius = -1F;
 			this.buttonSlopeParameter.Location = new System.Drawing.Point(280, 12);
 			this.buttonSlopeParameter.Name = "buttonSlopeParameter";
 			this.buttonSlopeParameter.Size = new System.Drawing.Size(262, 25);
@@ -295,7 +286,6 @@
 			this.buttonAbsoluteMagnitude.AccessibleName = "Copy to clipboard: Absolute magnitude, H";
 			this.buttonAbsoluteMagnitude.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonAbsoluteMagnitude.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonAbsoluteMagnitude.CornerRoundingRadius = -1F;
 			this.buttonAbsoluteMagnitude.Location = new System.Drawing.Point(12, 229);
 			this.buttonAbsoluteMagnitude.Name = "buttonAbsoluteMagnitude";
 			this.buttonAbsoluteMagnitude.Size = new System.Drawing.Size(262, 25);
@@ -314,7 +304,6 @@
 			this.buttonSemiMajorAxis.AccessibleName = "Copy to clipboard: Semi-major axis (AU)";
 			this.buttonSemiMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonSemiMajorAxis.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonSemiMajorAxis.CornerRoundingRadius = -1F;
 			this.buttonSemiMajorAxis.Location = new System.Drawing.Point(12, 198);
 			this.buttonSemiMajorAxis.Name = "buttonSemiMajorAxis";
 			this.buttonSemiMajorAxis.Size = new System.Drawing.Size(262, 25);
@@ -333,7 +322,6 @@
 			this.buttonMeanDailyMotion.AccessibleName = "Copy to clipboard: Mean daily motion (degrees per day)";
 			this.buttonMeanDailyMotion.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonMeanDailyMotion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonMeanDailyMotion.CornerRoundingRadius = -1F;
 			this.buttonMeanDailyMotion.Location = new System.Drawing.Point(12, 167);
 			this.buttonMeanDailyMotion.Name = "buttonMeanDailyMotion";
 			this.buttonMeanDailyMotion.Size = new System.Drawing.Size(262, 25);
@@ -352,7 +340,6 @@
 			this.buttonOrbitalEccentricity.AccessibleName = "Copy to clipboard: Orbital eccentricity";
 			this.buttonOrbitalEccentricity.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonOrbitalEccentricity.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonOrbitalEccentricity.CornerRoundingRadius = -1F;
 			this.buttonOrbitalEccentricity.Location = new System.Drawing.Point(12, 136);
 			this.buttonOrbitalEccentricity.Name = "buttonOrbitalEccentricity";
 			this.buttonOrbitalEccentricity.Size = new System.Drawing.Size(262, 25);
@@ -371,7 +358,6 @@
 			this.buttonInclination.AccessibleName = "Copy to clipboard: Inclination to the ecliptic, J2000.0 (degrees)";
 			this.buttonInclination.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonInclination.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonInclination.CornerRoundingRadius = -1F;
 			this.buttonInclination.Location = new System.Drawing.Point(12, 105);
 			this.buttonInclination.Name = "buttonInclination";
 			this.buttonInclination.Size = new System.Drawing.Size(262, 25);
@@ -390,7 +376,6 @@
 			this.buttonArgumentOfPerihelion.AccessibleName = "Copy to clipboard: Argument of perihelion, J2000.0 (degrees)";
 			this.buttonArgumentOfPerihelion.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonArgumentOfPerihelion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonArgumentOfPerihelion.CornerRoundingRadius = -1F;
 			this.buttonArgumentOfPerihelion.Location = new System.Drawing.Point(12, 43);
 			this.buttonArgumentOfPerihelion.Name = "buttonArgumentOfPerihelion";
 			this.buttonArgumentOfPerihelion.Size = new System.Drawing.Size(262, 25);
@@ -409,7 +394,6 @@
 			this.buttonLongitudeOfTheAscendingNode.AccessibleName = "Copy to clipboard: Longitude of the ascending node, J2000.0 (degrees)";
 			this.buttonLongitudeOfTheAscendingNode.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonLongitudeOfTheAscendingNode.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonLongitudeOfTheAscendingNode.CornerRoundingRadius = -1F;
 			this.buttonLongitudeOfTheAscendingNode.Location = new System.Drawing.Point(12, 74);
 			this.buttonLongitudeOfTheAscendingNode.Name = "buttonLongitudeOfTheAscendingNode";
 			this.buttonLongitudeOfTheAscendingNode.Size = new System.Drawing.Size(262, 25);
@@ -428,7 +412,6 @@
 			this.buttonMeanAnomaly.AccessibleName = "Copy to clipboard: Mean anomaly at the epoch (degrees)";
 			this.buttonMeanAnomaly.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonMeanAnomaly.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonMeanAnomaly.CornerRoundingRadius = -1F;
 			this.buttonMeanAnomaly.Location = new System.Drawing.Point(12, 12);
 			this.buttonMeanAnomaly.Name = "buttonMeanAnomaly";
 			this.buttonMeanAnomaly.Size = new System.Drawing.Size(262, 25);

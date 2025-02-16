@@ -41,10 +41,10 @@ namespace Planetoid_DB
 			menuitemNavigateStep1000 = new ToolStripMenuItem();
 			menuitemNavigateStep10000 = new ToolStripMenuItem();
 			menuitemNavigateStep100000 = new ToolStripMenuItem();
-			menuitemNavigateSomeDataForward = new ToolStripMenuItem();
 			toolStripSplitButtonStepForward = new ToolStripSplitButton();
 			toolStripSplitButtonStepBackward = new ToolStripSplitButton();
 			menuitemNavigateSomeDataBackward = new ToolStripMenuItem();
+			menuitemNavigateSomeDataForward = new ToolStripMenuItem();
 			tableLayoutPanelData = new KryptonTableLayoutPanel();
 			labelIndexData = new KryptonLabel();
 			labelReadableDesignationData = new KryptonLabel();
@@ -107,7 +107,7 @@ namespace Planetoid_DB
 			menuitemRecordsRmsResidual = new ToolStripMenuItem();
 			menuitemRecordsComputername = new ToolStripMenuItem();
 			menuitemRecordsDateOfTheLastObservation = new ToolStripMenuItem();
-			menuitemRecords = new ToolStripMenuItem();
+			splitbuttonTopTenRecords = new ToolStripSplitButton();
 			contextMenuDistributions = new ContextMenuStrip(components);
 			menuitemDistributionMeanAnomalyAtTheEpoch = new ToolStripMenuItem();
 			menuitemDistributionArgumentOfPerihelion = new ToolStripMenuItem();
@@ -123,7 +123,7 @@ namespace Planetoid_DB
 			menuitemDistributionObservationSpan = new ToolStripMenuItem();
 			menuitemDistributionRmsResidual = new ToolStripMenuItem();
 			menuitemDistributionComputerName = new ToolStripMenuItem();
-			menuitemDistribution = new ToolStripMenuItem();
+			splitbuttonDistribution = new ToolStripSplitButton();
 			contextMenuCopyToClipboardOrbitalElements = new ContextMenuStrip(components);
 			menuitemCopyToClipboardIndexNumber = new ToolStripMenuItem();
 			menuitemCopyToClipboardReadableDesignation = new ToolStripMenuItem();
@@ -145,7 +145,7 @@ namespace Planetoid_DB
 			menuitemCopyToClipboardComputerName = new ToolStripMenuItem();
 			menuitemCopyToClipboardDateOfTheLastObservation = new ToolStripMenuItem();
 			menuitemCopyToClipboardFlags = new ToolStripMenuItem();
-			menuitemCopytoClipboard = new ToolStripMenuItem();
+			splitbuttonCopyToClipboard = new ToolStripSplitButton();
 			menu = new MenuStrip();
 			menuitemFile = new ToolStripMenuItem();
 			menuitemOpenALocalMpcorbdatFile = new ToolStripMenuItem();
@@ -157,6 +157,7 @@ namespace Planetoid_DB
 			menuitemRestartWithDemoData = new ToolStripMenuItem();
 			menuitemExit = new ToolStripMenuItem();
 			menuitemEdit = new ToolStripMenuItem();
+			menuitemCopytoClipboard = new ToolStripMenuItem();
 			menuitemSearch = new ToolStripMenuItem();
 			menuitemNavigation = new ToolStripMenuItem();
 			menuitemRandomMinorPlanet = new ToolStripMenuItem();
@@ -171,7 +172,9 @@ namespace Planetoid_DB
 			menuitemDerivatedOrbitElements = new ToolStripMenuItem();
 			menuitemFilter = new ToolStripMenuItem();
 			toolStripSeparatorTools1 = new ToolStripSeparator();
+			menuitemRecords = new ToolStripMenuItem();
 			toolStripSeparator10 = new ToolStripSeparator();
+			menuitemDistribution = new ToolStripMenuItem();
 			toolStripSeparatorTools2 = new ToolStripSeparator();
 			menuitemDatabaseInformation = new ToolStripMenuItem();
 			menuitemTableMode = new ToolStripMenuItem();
@@ -206,21 +209,18 @@ namespace Planetoid_DB
 			toolStripButtonOpen = new ToolStripButton();
 			toolStripButtonExport = new ToolStripButton();
 			toolStripButtonPrint = new ToolStripButton();
-			splitbuttonCopyToClipboard = new ToolStripSplitButton();
+			toolStripButtonSearch = new ToolStripButton();
 			toolStripSeparator4 = new ToolStripSeparator();
 			toolStripButtonDatabaseInformation = new ToolStripButton();
 			toolStripButtonTableMode = new ToolStripButton();
 			toolStripButtonTerminology = new ToolStripButton();
 			toolStripSeparator3 = new ToolStripSeparator();
-			splitbuttonTopTenRecords = new ToolStripSplitButton();
-			splitbuttonDistribution = new ToolStripSplitButton();
 			toolStripSeparator5 = new ToolStripSeparator();
 			toolStripButtonCheckMpcorbDat = new ToolStripButton();
 			toolStripButtonDownloadMpcorbDat = new ToolStripButton();
 			toolStripSeparator1 = new ToolStripSeparator();
 			toolStripButtonAbout = new ToolStripButton();
 			toolStripButtonOpenWebsitePDB = new ToolStripButton();
-			toolStripButtonSearch = new ToolStripButton();
 			toolStripNavigation = new ToolStrip();
 			toolStripButtonLoadRandomMinorPlanet = new ToolStripButton();
 			toolStripSeparator8 = new ToolStripSeparator();
@@ -263,10 +263,10 @@ namespace Planetoid_DB
 			contextMenuNavigationStep.AccessibleDescription = "Shows the context menu of data items";
 			contextMenuNavigationStep.AccessibleName = "Context menu of items";
 			contextMenuNavigationStep.AccessibleRole = AccessibleRole.MenuPopup;
-			contextMenuNavigationStep.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			contextMenuNavigationStep.Font = new Font("Segoe UI", 9F);
 			contextMenuNavigationStep.Items.AddRange(new ToolStripItem[] { menuitemNavigateStep10, menuitemNavigateStep100, menuitemNavigateStep1000, menuitemNavigateStep10000, menuitemNavigateStep100000 });
 			contextMenuNavigationStep.Name = "contextMenu";
-			contextMenuNavigationStep.OwnerItem = menuitemNavigateSomeDataBackward;
+			contextMenuNavigationStep.OwnerItem = menuitemNavigateSomeDataForward;
 			contextMenuNavigationStep.ShowCheckMargin = true;
 			contextMenuNavigationStep.ShowImageMargin = false;
 			contextMenuNavigationStep.Size = new Size(111, 114);
@@ -348,23 +348,6 @@ namespace Planetoid_DB
 			menuitemNavigateStep100000.MouseEnter += SetStatusbar_Enter;
 			menuitemNavigateStep100000.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// menuitemNavigateSomeDataForward
-			// 
-			menuitemNavigateSomeDataForward.AccessibleDescription = "Navigates some data forward";
-			menuitemNavigateSomeDataForward.AccessibleName = "Navigates some data forward";
-			menuitemNavigateSomeDataForward.AccessibleRole = AccessibleRole.MenuItem;
-			menuitemNavigateSomeDataForward.AutoToolTip = true;
-			menuitemNavigateSomeDataForward.DoubleClickEnabled = true;
-			menuitemNavigateSomeDataForward.DropDown = contextMenuNavigationStep;
-			menuitemNavigateSomeDataForward.Image = Properties.Resources.silk_forward_green;
-			menuitemNavigateSomeDataForward.Name = "menuitemNavigateSomeDataForward";
-			menuitemNavigateSomeDataForward.ShortcutKeys = Keys.Control | Keys.D5;
-			menuitemNavigateSomeDataForward.Size = new Size(275, 22);
-			menuitemNavigateSomeDataForward.Text = "Navigate some data &forward";
-			menuitemNavigateSomeDataForward.Click += ToolStripMenuItemNavigateSomeDataForward_Click;
-			menuitemNavigateSomeDataForward.MouseEnter += SetStatusbar_Enter;
-			menuitemNavigateSomeDataForward.MouseLeave += ClearStatusbar_Leave;
-			// 
 			// toolStripSplitButtonStepForward
 			// 
 			toolStripSplitButtonStepForward.AccessibleDescription = "Navigates some data forward";
@@ -413,6 +396,23 @@ namespace Planetoid_DB
 			menuitemNavigateSomeDataBackward.Click += ToolStripMenuItemNavigateSomeDataBackward_Click;
 			menuitemNavigateSomeDataBackward.MouseEnter += SetStatusbar_Enter;
 			menuitemNavigateSomeDataBackward.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// menuitemNavigateSomeDataForward
+			// 
+			menuitemNavigateSomeDataForward.AccessibleDescription = "Navigates some data forward";
+			menuitemNavigateSomeDataForward.AccessibleName = "Navigates some data forward";
+			menuitemNavigateSomeDataForward.AccessibleRole = AccessibleRole.MenuItem;
+			menuitemNavigateSomeDataForward.AutoToolTip = true;
+			menuitemNavigateSomeDataForward.DoubleClickEnabled = true;
+			menuitemNavigateSomeDataForward.DropDown = contextMenuNavigationStep;
+			menuitemNavigateSomeDataForward.Image = Properties.Resources.silk_forward_green;
+			menuitemNavigateSomeDataForward.Name = "menuitemNavigateSomeDataForward";
+			menuitemNavigateSomeDataForward.ShortcutKeys = Keys.Control | Keys.D5;
+			menuitemNavigateSomeDataForward.Size = new Size(275, 22);
+			menuitemNavigateSomeDataForward.Text = "Navigate some data &forward";
+			menuitemNavigateSomeDataForward.Click += ToolStripMenuItemNavigateSomeDataForward_Click;
+			menuitemNavigateSomeDataForward.MouseEnter += SetStatusbar_Enter;
+			menuitemNavigateSomeDataForward.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// tableLayoutPanelData
 			// 
@@ -1241,10 +1241,10 @@ namespace Planetoid_DB
 			contextMenuTopTenRecords.AccessibleDescription = "Shows the context menu of the top ten records";
 			contextMenuTopTenRecords.AccessibleName = "context menu of the top ten records";
 			contextMenuTopTenRecords.AccessibleRole = AccessibleRole.MenuPopup;
-			contextMenuTopTenRecords.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			contextMenuTopTenRecords.Font = new Font("Segoe UI", 9F);
 			contextMenuTopTenRecords.Items.AddRange(new ToolStripItem[] { menuitemRecordsSortDirection, toolStripSeparator12, menuitemRecordsMeanAnomalyAtTheEpoch, menuitemRecordsArgumentOfPerihelion, menuitemRecordsLongitudeOfTheAscendingNode, menuitemRecordsInclination, menuitemRecordsOrbitalEccentricity, menuitemRecordsMeanDailyMotion, menuitemRecordsSemiMajorAxis, menuitemRecordsAbsoluteMagnitude, menuitemRecordsSlopeParameter, menuitemRecordsNumberOfOppositions, menuitemRecordsNumberOfObservations, menuitemRecordsObservationSpan, menuitemRecordsRmsResidual, menuitemRecordsComputername, menuitemRecordsDateOfTheLastObservation });
 			contextMenuTopTenRecords.Name = "contextMenuTopTenRecords";
-			contextMenuTopTenRecords.OwnerItem = splitbuttonTopTenRecords;
+			contextMenuTopTenRecords.OwnerItem = menuitemRecords;
 			contextMenuTopTenRecords.Size = new Size(250, 362);
 			contextMenuTopTenRecords.TabStop = true;
 			contextMenuTopTenRecords.Text = "Top ten records";
@@ -1517,32 +1517,32 @@ namespace Planetoid_DB
 			menuitemRecordsDateOfTheLastObservation.MouseEnter += SetStatusbar_Enter;
 			menuitemRecordsDateOfTheLastObservation.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// menuitemRecords
+			// splitbuttonTopTenRecords
 			// 
-			menuitemRecords.AccessibleDescription = "Shows some topn ten records";
-			menuitemRecords.AccessibleName = "Top ten records";
-			menuitemRecords.AccessibleRole = AccessibleRole.MenuItem;
-			menuitemRecords.AutoToolTip = true;
-			menuitemRecords.DropDown = contextMenuTopTenRecords;
-			menuitemRecords.Enabled = false;
-			menuitemRecords.Image = Properties.Resources.silk_text_list_numbers;
-			menuitemRecords.Name = "menuitemRecords";
-			menuitemRecords.ShortcutKeys = Keys.Control | Keys.T;
-			menuitemRecords.Size = new Size(227, 22);
-			menuitemRecords.Text = "Top ten &records";
-			menuitemRecords.Click += MenuitemTopTenRecords_Click;
-			menuitemRecords.MouseEnter += SetStatusbar_Enter;
-			menuitemRecords.MouseLeave += ClearStatusbar_Leave;
+			splitbuttonTopTenRecords.AccessibleDescription = "Shows the top ten records";
+			splitbuttonTopTenRecords.AccessibleName = "Top ten records";
+			splitbuttonTopTenRecords.AccessibleRole = AccessibleRole.SplitButton;
+			splitbuttonTopTenRecords.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			splitbuttonTopTenRecords.DropDown = contextMenuTopTenRecords;
+			splitbuttonTopTenRecords.Enabled = false;
+			splitbuttonTopTenRecords.Image = Properties.Resources.silk_text_list_numbers;
+			splitbuttonTopTenRecords.ImageTransparentColor = Color.Magenta;
+			splitbuttonTopTenRecords.Name = "splitbuttonTopTenRecords";
+			splitbuttonTopTenRecords.Size = new Size(32, 22);
+			splitbuttonTopTenRecords.Text = "Top ten records";
+			splitbuttonTopTenRecords.ButtonClick += SplitbuttonTopTenRecords_ButtonClick;
+			splitbuttonTopTenRecords.MouseEnter += SetStatusbar_Enter;
+			splitbuttonTopTenRecords.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// contextMenuDistributions
 			// 
 			contextMenuDistributions.AccessibleDescription = "Shows the context menu of the distributions";
 			contextMenuDistributions.AccessibleName = "context menu of the distributions";
 			contextMenuDistributions.AccessibleRole = AccessibleRole.MenuPopup;
-			contextMenuDistributions.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			contextMenuDistributions.Font = new Font("Segoe UI", 9F);
 			contextMenuDistributions.Items.AddRange(new ToolStripItem[] { menuitemDistributionMeanAnomalyAtTheEpoch, menuitemDistributionArgumentOfPerihelion, menuitemDistributionLongitudeOfTheAscendingNode, menuitemDistributionInclination, menuitemDistributionOrbitalEccentricity, menuitemDistributionMeanDailyMotion, menuitemDistributionSemiMajorAxis, menuitemDistributionAbsoluteMagnitude, menuitemDistributionSlopeParameter, menuitemDistributionNumberOfOppositions, menuitemDistributionNumberOfObservations, menuitemDistributionObservationSpan, menuitemDistributionRmsResidual, menuitemDistributionComputerName });
 			contextMenuDistributions.Name = "contextMenuDistributions";
-			contextMenuDistributions.OwnerItem = splitbuttonDistribution;
+			contextMenuDistributions.OwnerItem = menuitemDistribution;
 			contextMenuDistributions.Size = new Size(250, 312);
 			contextMenuDistributions.Text = "Distributions";
 			toolTip.SetToolTip(contextMenuDistributions, "Distributions");
@@ -1757,33 +1757,32 @@ namespace Planetoid_DB
 			menuitemDistributionComputerName.MouseEnter += SetStatusbar_Enter;
 			menuitemDistributionComputerName.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// menuitemDistribution
+			// splitbuttonDistribution
 			// 
-			menuitemDistribution.AccessibleDescription = "Shows some distributions";
-			menuitemDistribution.AccessibleName = "Distributions";
-			menuitemDistribution.AccessibleRole = AccessibleRole.MenuItem;
-			menuitemDistribution.AutoToolTip = true;
-			menuitemDistribution.DoubleClickEnabled = true;
-			menuitemDistribution.DropDown = contextMenuDistributions;
-			menuitemDistribution.Enabled = false;
-			menuitemDistribution.Image = Properties.Resources.silk_chart_bar;
-			menuitemDistribution.Name = "menuitemDistribution";
-			menuitemDistribution.ShortcutKeys = Keys.Control | Keys.D;
-			menuitemDistribution.Size = new Size(227, 22);
-			menuitemDistribution.Text = "&Distributions";
-			menuitemDistribution.Click += MenuitemDistribution_Click;
-			menuitemDistribution.MouseEnter += SetStatusbar_Enter;
-			menuitemDistribution.MouseLeave += ClearStatusbar_Leave;
+			splitbuttonDistribution.AccessibleDescription = "Shows some distributions";
+			splitbuttonDistribution.AccessibleName = "Distributions";
+			splitbuttonDistribution.AccessibleRole = AccessibleRole.SplitButton;
+			splitbuttonDistribution.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			splitbuttonDistribution.DropDown = contextMenuDistributions;
+			splitbuttonDistribution.Enabled = false;
+			splitbuttonDistribution.Image = Properties.Resources.silk_chart_bar;
+			splitbuttonDistribution.ImageTransparentColor = Color.Magenta;
+			splitbuttonDistribution.Name = "splitbuttonDistribution";
+			splitbuttonDistribution.Size = new Size(32, 22);
+			splitbuttonDistribution.Text = "Distributions";
+			splitbuttonDistribution.ButtonClick += SplitbuttonDistribution_ButtonClick;
+			splitbuttonDistribution.MouseEnter += SetStatusbar_Enter;
+			splitbuttonDistribution.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// contextMenuCopyToClipboardOrbitalElements
 			// 
 			contextMenuCopyToClipboardOrbitalElements.AccessibleDescription = "Shows the context menu of the orbital elements to copy to clipboard";
 			contextMenuCopyToClipboardOrbitalElements.AccessibleName = "context menu of the orbital elements to copy to clipboard";
 			contextMenuCopyToClipboardOrbitalElements.AccessibleRole = AccessibleRole.MenuPopup;
-			contextMenuCopyToClipboardOrbitalElements.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			contextMenuCopyToClipboardOrbitalElements.Font = new Font("Segoe UI", 9F);
 			contextMenuCopyToClipboardOrbitalElements.Items.AddRange(new ToolStripItem[] { menuitemCopyToClipboardIndexNumber, menuitemCopyToClipboardReadableDesignation, menuitemCopyToClipboardEpoch, menuitemCopyToClipboardMeanAnomalyAtTheEpoch, menuitemCopyToClipboardArgumentOfPerihelion, menuitemCopyToClipboardLongitudeOfTheAscendingNode, menuitemCopyToClipboardInclinationToTheEcliptic, menuitemCopyToClipboardOrbitalEccentricity, menuitemCopyToClipboardMeanDailyMotion, menuitemCopyToClipboardSemiMajorAxis, menuitemCopyToClipboardAbsoluteMagnitude, menuitemCopyToClipboardSlopeParameter, menuitemCopyToClipboardReference, menuitemCopyToClipboardNumberOfOppositions, menuitemCopyToClipboardNumberOfObservations, menuitemCopyToClipboardObservationSpan, menuitemCopyToClipboardRmsResidual, menuitemCopyToClipboardComputerName, menuitemCopyToClipboardDateOfTheLastObservation, menuitemCopyToClipboardFlags });
 			contextMenuCopyToClipboardOrbitalElements.Name = "contextMenuCopyToClipboardOrbitalElements";
-			contextMenuCopyToClipboardOrbitalElements.OwnerItem = splitbuttonCopyToClipboard;
+			contextMenuCopyToClipboardOrbitalElements.OwnerItem = menuitemCopytoClipboard;
 			contextMenuCopyToClipboardOrbitalElements.Size = new Size(309, 444);
 			contextMenuCopyToClipboardOrbitalElements.Text = "Copy to clipboard";
 			toolTip.SetToolTip(contextMenuCopyToClipboardOrbitalElements, "Copy to clipboard");
@@ -2068,22 +2067,21 @@ namespace Planetoid_DB
 			menuitemCopyToClipboardFlags.MouseEnter += SetStatusbar_Enter;
 			menuitemCopyToClipboardFlags.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// menuitemCopytoClipboard
+			// splitbuttonCopyToClipboard
 			// 
-			menuitemCopytoClipboard.AccessibleDescription = "Copy to clipboard";
-			menuitemCopytoClipboard.AccessibleName = "Copy to clipboard";
-			menuitemCopytoClipboard.AccessibleRole = AccessibleRole.MenuItem;
-			menuitemCopytoClipboard.AutoToolTip = true;
-			menuitemCopytoClipboard.DoubleClickEnabled = true;
-			menuitemCopytoClipboard.DropDown = contextMenuCopyToClipboardOrbitalElements;
-			menuitemCopytoClipboard.Image = Properties.Resources.silk_page_copy;
-			menuitemCopytoClipboard.Name = "menuitemCopytoClipboard";
-			menuitemCopytoClipboard.ShortcutKeys = Keys.Control | Keys.C;
-			menuitemCopytoClipboard.Size = new Size(151, 22);
-			menuitemCopytoClipboard.Text = "&Copy";
-			menuitemCopytoClipboard.Click += ToolStripButtonCopyToClipboard_Click;
-			menuitemCopytoClipboard.MouseEnter += SetStatusbar_Enter;
-			menuitemCopytoClipboard.MouseLeave += ClearStatusbar_Leave;
+			splitbuttonCopyToClipboard.AccessibleDescription = "Copys to clipboard";
+			splitbuttonCopyToClipboard.AccessibleName = "Copy to clipboard";
+			splitbuttonCopyToClipboard.AccessibleRole = AccessibleRole.SplitButton;
+			splitbuttonCopyToClipboard.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			splitbuttonCopyToClipboard.DropDown = contextMenuCopyToClipboardOrbitalElements;
+			splitbuttonCopyToClipboard.Image = Properties.Resources.silk_page_copy;
+			splitbuttonCopyToClipboard.ImageTransparentColor = Color.Magenta;
+			splitbuttonCopyToClipboard.Name = "splitbuttonCopyToClipboard";
+			splitbuttonCopyToClipboard.Size = new Size(32, 22);
+			splitbuttonCopyToClipboard.Text = "Copy to clipboard";
+			splitbuttonCopyToClipboard.ButtonClick += ToolStripButtonCopyToClipboard_Click;
+			splitbuttonCopyToClipboard.MouseEnter += SetStatusbar_Enter;
+			splitbuttonCopyToClipboard.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// menu
 			// 
@@ -2092,7 +2090,7 @@ namespace Planetoid_DB
 			menu.AccessibleRole = AccessibleRole.MenuBar;
 			menu.AllowItemReorder = true;
 			menu.Dock = DockStyle.None;
-			menu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			menu.Font = new Font("Segoe UI", 9F);
 			menu.GripMargin = new Padding(0);
 			menu.GripStyle = ToolStripGripStyle.Visible;
 			menu.Items.AddRange(new ToolStripItem[] { menuitemFile, menuitemEdit, menuitemNavigation, menuitemTools, menuitemUpdate, menuitemOptions, menuitemHelp });
@@ -2211,7 +2209,7 @@ namespace Planetoid_DB
 			menuitemRestartWithDemoData.Image = Properties.Resources.silk_reload;
 			menuitemRestartWithDemoData.Name = "menuitemRestartWithDemoData";
 			menuitemRestartWithDemoData.Size = new Size(326, 22);
-			menuitemRestartWithDemoData.Text = "Restart with &demo data (10000-20231226133106)";
+			menuitemRestartWithDemoData.Text = "Restart with &demo data (10000-20240107135241)";
 			menuitemRestartWithDemoData.Click += MenuitemRestartWithDemoData_Click;
 			menuitemRestartWithDemoData.MouseEnter += SetStatusbar_Enter;
 			menuitemRestartWithDemoData.MouseLeave += ClearStatusbar_Leave;
@@ -2246,6 +2244,23 @@ namespace Planetoid_DB
 			menuitemEdit.MouseEnter += SetStatusbar_Enter;
 			menuitemEdit.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// menuitemCopytoClipboard
+			// 
+			menuitemCopytoClipboard.AccessibleDescription = "Copy to clipboard";
+			menuitemCopytoClipboard.AccessibleName = "Copy to clipboard";
+			menuitemCopytoClipboard.AccessibleRole = AccessibleRole.MenuItem;
+			menuitemCopytoClipboard.AutoToolTip = true;
+			menuitemCopytoClipboard.DoubleClickEnabled = true;
+			menuitemCopytoClipboard.DropDown = contextMenuCopyToClipboardOrbitalElements;
+			menuitemCopytoClipboard.Image = Properties.Resources.silk_page_copy;
+			menuitemCopytoClipboard.Name = "menuitemCopytoClipboard";
+			menuitemCopytoClipboard.ShortcutKeys = Keys.Control | Keys.C;
+			menuitemCopytoClipboard.Size = new Size(180, 22);
+			menuitemCopytoClipboard.Text = "&Copy";
+			menuitemCopytoClipboard.Click += ToolStripButtonCopyToClipboard_Click;
+			menuitemCopytoClipboard.MouseEnter += SetStatusbar_Enter;
+			menuitemCopytoClipboard.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// menuitemSearch
 			// 
 			menuitemSearch.AccessibleDescription = "Search";
@@ -2253,10 +2268,11 @@ namespace Planetoid_DB
 			menuitemSearch.AccessibleRole = AccessibleRole.MenuItem;
 			menuitemSearch.AutoToolTip = true;
 			menuitemSearch.DoubleClickEnabled = true;
+			menuitemSearch.Enabled = false;
 			menuitemSearch.Image = Properties.Resources.silk_magnifier;
 			menuitemSearch.Name = "menuitemSearch";
 			menuitemSearch.ShortcutKeys = Keys.Control | Keys.S;
-			menuitemSearch.Size = new Size(151, 22);
+			menuitemSearch.Size = new Size(180, 22);
 			menuitemSearch.Text = "&Search";
 			menuitemSearch.Click += ToolStripMenuItemSearch_Click;
 			menuitemSearch.MouseEnter += SetStatusbar_Enter;
@@ -2441,6 +2457,23 @@ namespace Planetoid_DB
 			toolStripSeparatorTools1.MouseEnter += SetStatusbar_Enter;
 			toolStripSeparatorTools1.MouseLeave += ClearStatusbar_Leave;
 			// 
+			// menuitemRecords
+			// 
+			menuitemRecords.AccessibleDescription = "Shows some topn ten records";
+			menuitemRecords.AccessibleName = "Top ten records";
+			menuitemRecords.AccessibleRole = AccessibleRole.MenuItem;
+			menuitemRecords.AutoToolTip = true;
+			menuitemRecords.DropDown = contextMenuTopTenRecords;
+			menuitemRecords.Enabled = false;
+			menuitemRecords.Image = Properties.Resources.silk_text_list_numbers;
+			menuitemRecords.Name = "menuitemRecords";
+			menuitemRecords.ShortcutKeys = Keys.Control | Keys.T;
+			menuitemRecords.Size = new Size(227, 22);
+			menuitemRecords.Text = "Top ten &records";
+			menuitemRecords.Click += MenuitemTopTenRecords_Click;
+			menuitemRecords.MouseEnter += SetStatusbar_Enter;
+			menuitemRecords.MouseLeave += ClearStatusbar_Leave;
+			// 
 			// toolStripSeparator10
 			// 
 			toolStripSeparator10.AccessibleDescription = "Just a separator";
@@ -2448,6 +2481,24 @@ namespace Planetoid_DB
 			toolStripSeparator10.AccessibleRole = AccessibleRole.Separator;
 			toolStripSeparator10.Name = "toolStripSeparator10";
 			toolStripSeparator10.Size = new Size(224, 6);
+			// 
+			// menuitemDistribution
+			// 
+			menuitemDistribution.AccessibleDescription = "Shows some distributions";
+			menuitemDistribution.AccessibleName = "Distributions";
+			menuitemDistribution.AccessibleRole = AccessibleRole.MenuItem;
+			menuitemDistribution.AutoToolTip = true;
+			menuitemDistribution.DoubleClickEnabled = true;
+			menuitemDistribution.DropDown = contextMenuDistributions;
+			menuitemDistribution.Enabled = false;
+			menuitemDistribution.Image = Properties.Resources.silk_chart_bar;
+			menuitemDistribution.Name = "menuitemDistribution";
+			menuitemDistribution.ShortcutKeys = Keys.Control | Keys.D;
+			menuitemDistribution.Size = new Size(227, 22);
+			menuitemDistribution.Text = "&Distributions";
+			menuitemDistribution.Click += MenuitemDistribution_Click;
+			menuitemDistribution.MouseEnter += SetStatusbar_Enter;
+			menuitemDistribution.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// toolStripSeparatorTools2
 			// 
@@ -2673,7 +2724,7 @@ namespace Planetoid_DB
 			menuitemOptionEnabledCopyingByDoubleClicking.Checked = true;
 			menuitemOptionEnabledCopyingByDoubleClicking.CheckOnClick = true;
 			menuitemOptionEnabledCopyingByDoubleClicking.CheckState = CheckState.Checked;
-			menuitemOptionEnabledCopyingByDoubleClicking.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			menuitemOptionEnabledCopyingByDoubleClicking.Font = new Font("Segoe UI", 9F);
 			menuitemOptionEnabledCopyingByDoubleClicking.Name = "menuitemOptionEnabledCopyingByDoubleClicking";
 			menuitemOptionEnabledCopyingByDoubleClicking.Size = new Size(264, 22);
 			menuitemOptionEnabledCopyingByDoubleClicking.Text = "Enabled &copying by double-clicking";
@@ -2844,7 +2895,7 @@ namespace Planetoid_DB
 			statusBar.AccessibleName = "Status bar of some information";
 			statusBar.AccessibleRole = AccessibleRole.StatusBar;
 			statusBar.Dock = DockStyle.None;
-			statusBar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusBar.Font = new Font("Segoe UI", 9F);
 			statusBar.GripStyle = ToolStripGripStyle.Visible;
 			statusBar.Items.AddRange(new ToolStripItem[] { toolStripStatusLabelUpdate, toolStripStatusLabelBackgroundDownload, toolStripProgressBarBackgroundDownload, toolStripStatusLabelCancelBackgroundDownload, labelInformation });
 			statusBar.LayoutStyle = ToolStripLayoutStyle.Flow;
@@ -2880,7 +2931,7 @@ namespace Planetoid_DB
 			// 
 			// toolStripStatusLabelBackgroundDownload
 			// 
-			toolStripStatusLabelBackgroundDownload.AccessibleDescription = "Shows the download progres";
+			toolStripStatusLabelBackgroundDownload.AccessibleDescription = "Shows the download progress";
 			toolStripStatusLabelBackgroundDownload.AccessibleName = "Download progress";
 			toolStripStatusLabelBackgroundDownload.AccessibleRole = AccessibleRole.StatusBar;
 			toolStripStatusLabelBackgroundDownload.AutoToolTip = true;
@@ -2889,14 +2940,14 @@ namespace Planetoid_DB
 			toolStripStatusLabelBackgroundDownload.Name = "toolStripStatusLabelBackgroundDownload";
 			toolStripStatusLabelBackgroundDownload.Size = new Size(80, 16);
 			toolStripStatusLabelBackgroundDownload.Text = "Download:";
-			toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progres";
+			toolStripStatusLabelBackgroundDownload.ToolTipText = "Show the download progress";
 			toolStripStatusLabelBackgroundDownload.DoubleClick += EasterEgg_DoubleClick;
 			toolStripStatusLabelBackgroundDownload.MouseEnter += SetStatusbar_Enter;
 			toolStripStatusLabelBackgroundDownload.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// toolStripProgressBarBackgroundDownload
 			// 
-			toolStripProgressBarBackgroundDownload.AccessibleDescription = "Shows the download progres";
+			toolStripProgressBarBackgroundDownload.AccessibleDescription = "Shows the download progress";
 			toolStripProgressBarBackgroundDownload.AccessibleName = "Download progress";
 			toolStripProgressBarBackgroundDownload.AccessibleRole = AccessibleRole.ProgressBar;
 			toolStripProgressBarBackgroundDownload.AutoToolTip = true;
@@ -2904,7 +2955,7 @@ namespace Planetoid_DB
 			toolStripProgressBarBackgroundDownload.Name = "toolStripProgressBarBackgroundDownload";
 			toolStripProgressBarBackgroundDownload.Size = new Size(100, 16);
 			toolStripProgressBarBackgroundDownload.Style = ProgressBarStyle.Continuous;
-			toolStripProgressBarBackgroundDownload.ToolTipText = "Show the download progres";
+			toolStripProgressBarBackgroundDownload.ToolTipText = "Show the download progress";
 			toolStripProgressBarBackgroundDownload.DoubleClick += EasterEgg_DoubleClick;
 			toolStripProgressBarBackgroundDownload.MouseEnter += SetStatusbar_Enter;
 			toolStripProgressBarBackgroundDownload.MouseLeave += ClearStatusbar_Leave;
@@ -2943,7 +2994,7 @@ namespace Planetoid_DB
 			toolStripIcons.AccessibleName = "Toolbar of main functions";
 			toolStripIcons.AccessibleRole = AccessibleRole.ToolBar;
 			toolStripIcons.Dock = DockStyle.None;
-			toolStripIcons.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			toolStripIcons.Font = new Font("Segoe UI", 9F);
 			toolStripIcons.Items.AddRange(new ToolStripItem[] { toolStripButtonOpen, toolStripButtonExport, toolStripButtonPrint, splitbuttonCopyToClipboard, toolStripButtonSearch, toolStripSeparator4, toolStripButtonDatabaseInformation, toolStripButtonTableMode, toolStripButtonTerminology, toolStripSeparator3, splitbuttonTopTenRecords, splitbuttonDistribution, toolStripSeparator5, toolStripButtonCheckMpcorbDat, toolStripButtonDownloadMpcorbDat, toolStripSeparator1, toolStripButtonAbout, toolStripButtonOpenWebsitePDB });
 			toolStripIcons.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
 			toolStripIcons.Location = new Point(0, 24);
@@ -3004,21 +3055,21 @@ namespace Planetoid_DB
 			toolStripButtonPrint.MouseEnter += SetStatusbar_Enter;
 			toolStripButtonPrint.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// splitbuttonCopyToClipboard
+			// toolStripButtonSearch
 			// 
-			splitbuttonCopyToClipboard.AccessibleDescription = "Copys to clipboard";
-			splitbuttonCopyToClipboard.AccessibleName = "Copy to clipboard";
-			splitbuttonCopyToClipboard.AccessibleRole = AccessibleRole.SplitButton;
-			splitbuttonCopyToClipboard.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			splitbuttonCopyToClipboard.DropDown = contextMenuCopyToClipboardOrbitalElements;
-			splitbuttonCopyToClipboard.Image = Properties.Resources.silk_page_copy;
-			splitbuttonCopyToClipboard.ImageTransparentColor = Color.Magenta;
-			splitbuttonCopyToClipboard.Name = "splitbuttonCopyToClipboard";
-			splitbuttonCopyToClipboard.Size = new Size(32, 22);
-			splitbuttonCopyToClipboard.Text = "Copy to clipboard";
-			splitbuttonCopyToClipboard.ButtonClick += ToolStripButtonCopyToClipboard_Click;
-			splitbuttonCopyToClipboard.MouseEnter += SetStatusbar_Enter;
-			splitbuttonCopyToClipboard.MouseLeave += ClearStatusbar_Leave;
+			toolStripButtonSearch.AccessibleDescription = "Search";
+			toolStripButtonSearch.AccessibleName = "Search";
+			toolStripButtonSearch.AccessibleRole = AccessibleRole.PushButton;
+			toolStripButtonSearch.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			toolStripButtonSearch.Enabled = false;
+			toolStripButtonSearch.Image = Properties.Resources.silk_magnifier;
+			toolStripButtonSearch.ImageTransparentColor = Color.Magenta;
+			toolStripButtonSearch.Name = "toolStripButtonSearch";
+			toolStripButtonSearch.Size = new Size(23, 22);
+			toolStripButtonSearch.Text = "Search";
+			toolStripButtonSearch.Click += ToolStripMenuItemSearch_Click;
+			toolStripButtonSearch.MouseEnter += SetStatusbar_Enter;
+			toolStripButtonSearch.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// toolStripSeparator4
 			// 
@@ -3086,40 +3137,6 @@ namespace Planetoid_DB
 			toolStripSeparator3.Size = new Size(6, 25);
 			toolStripSeparator3.MouseEnter += SetStatusbar_Enter;
 			toolStripSeparator3.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// splitbuttonTopTenRecords
-			// 
-			splitbuttonTopTenRecords.AccessibleDescription = "Shows the top ten records";
-			splitbuttonTopTenRecords.AccessibleName = "Top ten records";
-			splitbuttonTopTenRecords.AccessibleRole = AccessibleRole.SplitButton;
-			splitbuttonTopTenRecords.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			splitbuttonTopTenRecords.DropDown = contextMenuTopTenRecords;
-			splitbuttonTopTenRecords.Enabled = false;
-			splitbuttonTopTenRecords.Image = Properties.Resources.silk_text_list_numbers;
-			splitbuttonTopTenRecords.ImageTransparentColor = Color.Magenta;
-			splitbuttonTopTenRecords.Name = "splitbuttonTopTenRecords";
-			splitbuttonTopTenRecords.Size = new Size(32, 22);
-			splitbuttonTopTenRecords.Text = "Top ten records";
-			splitbuttonTopTenRecords.ButtonClick += SplitbuttonTopTenRecords_ButtonClick;
-			splitbuttonTopTenRecords.MouseEnter += SetStatusbar_Enter;
-			splitbuttonTopTenRecords.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// splitbuttonDistribution
-			// 
-			splitbuttonDistribution.AccessibleDescription = "Shows some distributions";
-			splitbuttonDistribution.AccessibleName = "Distributions";
-			splitbuttonDistribution.AccessibleRole = AccessibleRole.SplitButton;
-			splitbuttonDistribution.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			splitbuttonDistribution.DropDown = contextMenuDistributions;
-			splitbuttonDistribution.Enabled = false;
-			splitbuttonDistribution.Image = Properties.Resources.silk_chart_bar;
-			splitbuttonDistribution.ImageTransparentColor = Color.Magenta;
-			splitbuttonDistribution.Name = "splitbuttonDistribution";
-			splitbuttonDistribution.Size = new Size(32, 22);
-			splitbuttonDistribution.Text = "Distributions";
-			splitbuttonDistribution.ButtonClick += SplitbuttonDistribution_ButtonClick;
-			splitbuttonDistribution.MouseEnter += SetStatusbar_Enter;
-			splitbuttonDistribution.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// toolStripSeparator5
 			// 
@@ -3204,28 +3221,13 @@ namespace Planetoid_DB
 			toolStripButtonOpenWebsitePDB.MouseEnter += SetStatusbar_Enter;
 			toolStripButtonOpenWebsitePDB.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// toolStripButtonSearch
-			// 
-			toolStripButtonSearch.AccessibleDescription = "Search";
-			toolStripButtonSearch.AccessibleName = "Search";
-			toolStripButtonSearch.AccessibleRole = AccessibleRole.PushButton;
-			toolStripButtonSearch.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			toolStripButtonSearch.Image = Properties.Resources.silk_magnifier;
-			toolStripButtonSearch.ImageTransparentColor = Color.Magenta;
-			toolStripButtonSearch.Name = "toolStripButtonSearch";
-			toolStripButtonSearch.Size = new Size(23, 22);
-			toolStripButtonSearch.Text = "Search";
-			toolStripButtonSearch.Click += ToolStripMenuItemSearch_Click;
-			toolStripButtonSearch.MouseEnter += SetStatusbar_Enter;
-			toolStripButtonSearch.MouseLeave += ClearStatusbar_Leave;
-			// 
 			// toolStripNavigation
 			// 
 			toolStripNavigation.AccessibleDescription = "Toolbar of the navigation";
 			toolStripNavigation.AccessibleName = "Toolbar of the navigation";
 			toolStripNavigation.AccessibleRole = AccessibleRole.ToolBar;
 			toolStripNavigation.Dock = DockStyle.None;
-			toolStripNavigation.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			toolStripNavigation.Font = new Font("Segoe UI", 9F);
 			toolStripNavigation.Items.AddRange(new ToolStripItem[] { toolStripButtonLoadRandomMinorPlanet, toolStripSeparator8, toolStripButtonStepToBegin, toolStripSplitButtonStepBackward, toolStripButtonStepBackwardOne, toolStripButtonStepForwardOne, toolStripSplitButtonStepForward, toolStripButtonStepToEnd, toolStripSeparator6, toolStripLabelIndexPosition, toolStripSeparator7, toolStripLabelGoToIndex, toolStripTextBoxGotoIndex, toolStripButtonGoToIndex, toolStripButtonListReadableDesignations, toolStripSeparator9, toolStripButtonDerivatedOrbitElements, toolStripButtonFilter });
 			toolStripNavigation.Location = new Point(0, 49);
 			toolStripNavigation.Name = "toolStripNavigation";
@@ -3499,8 +3501,7 @@ namespace Planetoid_DB
 			AutoValidate = AutoValidate.EnablePreventFocusChange;
 			ClientSize = new Size(804, 386);
 			Controls.Add(toolStripContainer);
-			CornerRoundingRadius = 5F;
-			Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			MainMenuStrip = menu;

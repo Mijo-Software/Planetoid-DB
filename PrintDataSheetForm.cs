@@ -1,7 +1,5 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Drawing.Printing;
-using System.Windows.Forms;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
@@ -89,6 +87,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -146,6 +145,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 
@@ -171,20 +171,18 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void ButtonPrintDataSheet_Click(object sender, EventArgs e)
 		{
-			using (PrintDialog dialogPrint = new PrintDialog())
+			using PrintDialog dialogPrint = new();
+			PrintDocument printDoc = new()
 			{
-				PrintDocument printDoc = new PrintDocument
-				{
-					DocumentName = "Data sheet"
-				};
-				dialogPrint.Document = printDoc;
-				dialogPrint.AllowSelection = true;
-				dialogPrint.AllowSomePages = true;
-				if (dialogPrint.ShowDialog() == DialogResult.OK)
-				{
-					printDoc.Print();
-					Close();
-				}
+				DocumentName = "Data sheet"
+			};
+			dialogPrint.Document = printDoc;
+			dialogPrint.AllowSelection = true;
+			dialogPrint.AllowSomePages = true;
+			if (dialogPrint.ShowDialog() == DialogResult.OK)
+			{
+				printDoc.Print();
+				Close();
 			}
 		}
 

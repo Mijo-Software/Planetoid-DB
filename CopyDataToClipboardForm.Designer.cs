@@ -72,7 +72,6 @@
 			buttonIndexNumber.AccessibleName = "Copy to clipboard: Index No.";
 			buttonIndexNumber.AccessibleRole = AccessibleRole.PushButton;
 			buttonIndexNumber.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonIndexNumber.CornerRoundingRadius = -1F;
 			buttonIndexNumber.Location = new Point(14, 14);
 			buttonIndexNumber.Margin = new Padding(4, 3, 4, 3);
 			buttonIndexNumber.Name = "buttonIndexNumber";
@@ -92,7 +91,6 @@
 			buttonReadableDesignation.AccessibleName = "Copy to clipboard: Readable designation";
 			buttonReadableDesignation.AccessibleRole = AccessibleRole.PushButton;
 			buttonReadableDesignation.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonReadableDesignation.CornerRoundingRadius = -1F;
 			buttonReadableDesignation.Location = new Point(14, 50);
 			buttonReadableDesignation.Margin = new Padding(4, 3, 4, 3);
 			buttonReadableDesignation.Name = "buttonReadableDesignation";
@@ -112,7 +110,6 @@
 			buttonEpoch.AccessibleName = "Copy to clipboard: Epoch (in packed form, .0 TT)";
 			buttonEpoch.AccessibleRole = AccessibleRole.PushButton;
 			buttonEpoch.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonEpoch.CornerRoundingRadius = -1F;
 			buttonEpoch.Location = new Point(14, 85);
 			buttonEpoch.Margin = new Padding(4, 3, 4, 3);
 			buttonEpoch.Name = "buttonEpoch";
@@ -132,7 +129,6 @@
 			buttonMeanAnomaly.AccessibleName = "Copy to clipboard: Mean anomaly at the epoch (degrees)";
 			buttonMeanAnomaly.AccessibleRole = AccessibleRole.PushButton;
 			buttonMeanAnomaly.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonMeanAnomaly.CornerRoundingRadius = -1F;
 			buttonMeanAnomaly.Location = new Point(14, 121);
 			buttonMeanAnomaly.Margin = new Padding(4, 3, 4, 3);
 			buttonMeanAnomaly.Name = "buttonMeanAnomaly";
@@ -152,7 +148,6 @@
 			buttonArgumentOfPerihelion.AccessibleName = "Copy to clipboard: Argument of perihelion, J2000.0 (degrees)";
 			buttonArgumentOfPerihelion.AccessibleRole = AccessibleRole.PushButton;
 			buttonArgumentOfPerihelion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonArgumentOfPerihelion.CornerRoundingRadius = -1F;
 			buttonArgumentOfPerihelion.Location = new Point(14, 157);
 			buttonArgumentOfPerihelion.Margin = new Padding(4, 3, 4, 3);
 			buttonArgumentOfPerihelion.Name = "buttonArgumentOfPerihelion";
@@ -172,7 +167,6 @@
 			buttonLongitudeOfTheAscendingNode.AccessibleName = "Copy to clipboard: Longitude of the ascending node, J2000.0 (degrees)";
 			buttonLongitudeOfTheAscendingNode.AccessibleRole = AccessibleRole.PushButton;
 			buttonLongitudeOfTheAscendingNode.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonLongitudeOfTheAscendingNode.CornerRoundingRadius = -1F;
 			buttonLongitudeOfTheAscendingNode.Location = new Point(14, 193);
 			buttonLongitudeOfTheAscendingNode.Margin = new Padding(4, 3, 4, 3);
 			buttonLongitudeOfTheAscendingNode.Name = "buttonLongitudeOfTheAscendingNode";
@@ -192,7 +186,6 @@
 			buttonInclination.AccessibleName = "Copy to clipboard: Inclination to the ecliptic, J2000.0 (degrees)";
 			buttonInclination.AccessibleRole = AccessibleRole.PushButton;
 			buttonInclination.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonInclination.CornerRoundingRadius = -1F;
 			buttonInclination.Location = new Point(14, 228);
 			buttonInclination.Margin = new Padding(4, 3, 4, 3);
 			buttonInclination.Name = "buttonInclination";
@@ -212,7 +205,6 @@
 			buttonOrbitalEccentricity.AccessibleName = "Copy to clipboard: Orbital eccentricity";
 			buttonOrbitalEccentricity.AccessibleRole = AccessibleRole.PushButton;
 			buttonOrbitalEccentricity.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonOrbitalEccentricity.CornerRoundingRadius = -1F;
 			buttonOrbitalEccentricity.Location = new Point(14, 264);
 			buttonOrbitalEccentricity.Margin = new Padding(4, 3, 4, 3);
 			buttonOrbitalEccentricity.Name = "buttonOrbitalEccentricity";
@@ -232,7 +224,6 @@
 			buttonMeanDailyMotion.AccessibleName = "Copy to clipboard: Mean daily motion (degrees per day)";
 			buttonMeanDailyMotion.AccessibleRole = AccessibleRole.PushButton;
 			buttonMeanDailyMotion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonMeanDailyMotion.CornerRoundingRadius = -1F;
 			buttonMeanDailyMotion.Location = new Point(14, 300);
 			buttonMeanDailyMotion.Margin = new Padding(4, 3, 4, 3);
 			buttonMeanDailyMotion.Name = "buttonMeanDailyMotion";
@@ -252,7 +243,6 @@
 			buttonSemimajorAxis.AccessibleName = "Copy to clipboard: Semi-major axis (AU)";
 			buttonSemimajorAxis.AccessibleRole = AccessibleRole.PushButton;
 			buttonSemimajorAxis.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonSemimajorAxis.CornerRoundingRadius = -1F;
 			buttonSemimajorAxis.Location = new Point(14, 336);
 			buttonSemimajorAxis.Margin = new Padding(4, 3, 4, 3);
 			buttonSemimajorAxis.Name = "buttonSemimajorAxis";
@@ -272,7 +262,6 @@
 			buttonAbsoluteMagnitude.AccessibleName = "Copy to clipboard: Absolute magnitude, H";
 			buttonAbsoluteMagnitude.AccessibleRole = AccessibleRole.PushButton;
 			buttonAbsoluteMagnitude.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonAbsoluteMagnitude.CornerRoundingRadius = -1F;
 			buttonAbsoluteMagnitude.Location = new Point(327, 14);
 			buttonAbsoluteMagnitude.Margin = new Padding(4, 3, 4, 3);
 			buttonAbsoluteMagnitude.Name = "buttonAbsoluteMagnitude";
@@ -292,7 +281,6 @@
 			buttonSlopeParameter.AccessibleName = "Copy to clipboard: Slope parameter, G";
 			buttonSlopeParameter.AccessibleRole = AccessibleRole.PushButton;
 			buttonSlopeParameter.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonSlopeParameter.CornerRoundingRadius = -1F;
 			buttonSlopeParameter.Location = new Point(327, 50);
 			buttonSlopeParameter.Margin = new Padding(4, 3, 4, 3);
 			buttonSlopeParameter.Name = "buttonSlopeParameter";
@@ -312,7 +300,6 @@
 			buttonReference.AccessibleName = "Copy to clipboard: Reference";
 			buttonReference.AccessibleRole = AccessibleRole.PushButton;
 			buttonReference.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonReference.CornerRoundingRadius = -1F;
 			buttonReference.Location = new Point(327, 85);
 			buttonReference.Margin = new Padding(4, 3, 4, 3);
 			buttonReference.Name = "buttonReference";
@@ -332,7 +319,6 @@
 			buttonObservationSpan.AccessibleName = "Copy to clipboard: Observation span";
 			buttonObservationSpan.AccessibleRole = AccessibleRole.PushButton;
 			buttonObservationSpan.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonObservationSpan.CornerRoundingRadius = -1F;
 			buttonObservationSpan.Location = new Point(327, 193);
 			buttonObservationSpan.Margin = new Padding(4, 3, 4, 3);
 			buttonObservationSpan.Name = "buttonObservationSpan";
@@ -352,7 +338,6 @@
 			buttonNumberOfObservations.AccessibleName = "Copy to clipboard: Number of observations";
 			buttonNumberOfObservations.AccessibleRole = AccessibleRole.PushButton;
 			buttonNumberOfObservations.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonNumberOfObservations.CornerRoundingRadius = -1F;
 			buttonNumberOfObservations.Location = new Point(327, 157);
 			buttonNumberOfObservations.Margin = new Padding(4, 3, 4, 3);
 			buttonNumberOfObservations.Name = "buttonNumberOfObservations";
@@ -372,7 +357,6 @@
 			buttonNumberOfOppositions.AccessibleName = "Copy to clipboard: Number of oppositions";
 			buttonNumberOfOppositions.AccessibleRole = AccessibleRole.PushButton;
 			buttonNumberOfOppositions.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonNumberOfOppositions.CornerRoundingRadius = -1F;
 			buttonNumberOfOppositions.Location = new Point(327, 121);
 			buttonNumberOfOppositions.Margin = new Padding(4, 3, 4, 3);
 			buttonNumberOfOppositions.Name = "buttonNumberOfOppositions";
@@ -392,7 +376,6 @@
 			buttonFlags.AccessibleName = "Copy to clipboard: 4-hexdigit flags";
 			buttonFlags.AccessibleRole = AccessibleRole.PushButton;
 			buttonFlags.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonFlags.CornerRoundingRadius = -1F;
 			buttonFlags.Location = new Point(327, 300);
 			buttonFlags.Margin = new Padding(4, 3, 4, 3);
 			buttonFlags.Name = "buttonFlags";
@@ -412,7 +395,6 @@
 			buttonComputername.AccessibleName = "Copy to clipboard: Computer name";
 			buttonComputername.AccessibleRole = AccessibleRole.PushButton;
 			buttonComputername.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonComputername.CornerRoundingRadius = -1F;
 			buttonComputername.Location = new Point(327, 264);
 			buttonComputername.Margin = new Padding(4, 3, 4, 3);
 			buttonComputername.Name = "buttonComputername";
@@ -432,7 +414,6 @@
 			buttonRmsResidual.AccessibleName = "Copy to clipboard: r.m.s. residual (\")";
 			buttonRmsResidual.AccessibleRole = AccessibleRole.PushButton;
 			buttonRmsResidual.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonRmsResidual.CornerRoundingRadius = -1F;
 			buttonRmsResidual.Location = new Point(327, 228);
 			buttonRmsResidual.Margin = new Padding(4, 3, 4, 3);
 			buttonRmsResidual.Name = "buttonRmsResidual";
@@ -452,7 +433,6 @@
 			buttonDateOfLastObservation.AccessibleName = "Copy to clipboard: Date of last observation (YYYMMDD)";
 			buttonDateOfLastObservation.AccessibleRole = AccessibleRole.PushButton;
 			buttonDateOfLastObservation.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonDateOfLastObservation.CornerRoundingRadius = -1F;
 			buttonDateOfLastObservation.Location = new Point(327, 336);
 			buttonDateOfLastObservation.Margin = new Padding(4, 3, 4, 3);
 			buttonDateOfLastObservation.Name = "buttonDateOfLastObservation";

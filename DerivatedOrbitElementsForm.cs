@@ -70,7 +70,7 @@ namespace Planetoid_DB
 				default: formTerminology.SetIndexNumberActive(); break;
 			}
 			formTerminology.TopMost = TopMost;
-			formTerminology.ShowDialog();
+			_ = formTerminology.ShowDialog();
 		}
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace Planetoid_DB
 		private static void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -131,6 +131,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e)
 		{
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			labelLinearEccentricityData.Text = derivatedOrbitElements[index: 0].ToString();
 			labelSemiMinorAxisData.Text = derivatedOrbitElements[index: 1].ToString();
 			labelMajorAxisData.Text = derivatedOrbitElements[index: 2].ToString();
@@ -150,6 +151,7 @@ namespace Planetoid_DB
 			labelSemiMeanAxisData.Text = derivatedOrbitElements[index: 16].ToString();
 			labelMeanAxisData.Text = derivatedOrbitElements[index: 17].ToString();
 			labelStandardGravitationalParameterData.Text = derivatedOrbitElements[index: 18].ToString();
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 		}
 
 		/// <summary>
@@ -170,6 +172,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -227,6 +230,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 

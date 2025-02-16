@@ -10,7 +10,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class CopyDataToClipboardForm : KryptonForm
 	{
-		private ArrayList dataToCopy = new ArrayList(capacity: 0);
+		private ArrayList dataToCopy = new(capacity: 0);
 
 		#region Constructor
 
@@ -36,7 +36,7 @@ namespace Planetoid_DB
 		private static void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -120,6 +120,7 @@ namespace Planetoid_DB
 		{
 			switch (sender)
 			{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 				case TextBox box:
 					SetStatusbar(text: $"{box.AccessibleDescription} ➔ {box.Tag}");
 					break;
@@ -285,6 +286,7 @@ namespace Planetoid_DB
 				case KryptonDomainUpDown domainUpDown:
 					SetStatusbar(text: domainUpDown.AccessibleDescription);
 					break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 
@@ -308,141 +310,222 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonIndexNumber_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonIndexNumber.Tag.ToString());
+#pragma warning restore CS8604 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 		private void ButtonReadableDesignation_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonReadableDesignation.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonEpoch_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonEpoch.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonMeanAnomaly_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanAnomaly.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonArgumentOfPerihelion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonArgumentOfPerihelion.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonLongitudeOfTheAscendingNode_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonLongitudeOfTheAscendingNode.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonInclination_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonInclination.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonOrbitalEccentricity_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonOrbitalEccentricity.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonMeanDailyMotion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanDailyMotion.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonSemimajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSemimajorAxis.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonAbsoluteMagnitude_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonAbsoluteMagnitude.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonSlopeParameter_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSlopeParameter.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonReference_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonReference.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonNumberOfOppositions_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonNumberOfOppositions.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonNumberOfObservations_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonNumberOfObservations.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonObservationSpan_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonObservationSpan.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonRmsResidual_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonRmsResidual.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonComputername_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonComputername.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonFlags_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonFlags.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
 		private void ButtonDateOfLastObservation_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonDateOfLastObservation.Tag.ToString());
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		#endregion
+
 	}
 }

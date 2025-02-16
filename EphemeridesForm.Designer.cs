@@ -132,7 +132,6 @@
 			this.buttonCalculate.AccessibleDescription = "Calculates the ephemerides";
 			this.buttonCalculate.AccessibleName = "Calculate the ephemerides";
 			this.buttonCalculate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCalculate.CornerRoundingRadius = -1F;
 			this.buttonCalculate.Location = new System.Drawing.Point(246, 100);
 			this.buttonCalculate.Name = "buttonCalculate";
 			this.buttonCalculate.Size = new System.Drawing.Size(90, 25);
@@ -152,16 +151,11 @@
 			this.listView.AccessibleName = "Search results";
 			this.listView.AccessibleRole = System.Windows.Forms.AccessibleRole.List;
 			this.listView.HideSelection = false;
-			this.listView.ItemStyle = Krypton.Toolkit.ButtonStyle.ListItem;
 			this.listView.Location = new System.Drawing.Point(12, 176);
 			this.listView.MultiSelect = false;
 			this.listView.Name = "listView";
-			this.listView.OwnerDraw = true;
 			this.listView.ShowItemToolTips = true;
 			this.listView.Size = new System.Drawing.Size(324, 181);
-			this.listView.StateCommon.Item.Content.ShortText.MultiLine = Krypton.Toolkit.InheritBool.True;
-			this.listView.StateCommon.Item.Content.ShortText.MultiLineH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-			this.listView.StateCommon.Item.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
 			this.listView.TabIndex = 9;
 			this.toolTip.SetToolTip(this.listView, "Search results");
 			this.listView.Enter += new System.EventHandler(this.SetStatusbar_Enter);
@@ -246,7 +240,6 @@
 			// dateTimePickerEphemeridesEnd
 			// 
 			this.dateTimePickerEphemeridesEnd.AccessibleRole = System.Windows.Forms.AccessibleRole.DropList;
-			this.dateTimePickerEphemeridesEnd.CornerRoundingRadius = -1F;
 			this.dateTimePickerEphemeridesEnd.Location = new System.Drawing.Point(136, 38);
 			this.dateTimePickerEphemeridesEnd.Name = "dateTimePickerEphemeridesEnd";
 			this.dateTimePickerEphemeridesEnd.Size = new System.Drawing.Size(148, 21);
@@ -276,7 +269,6 @@
 			// dateTimePickerEphemeridesBegin
 			// 
 			this.dateTimePickerEphemeridesBegin.AccessibleRole = System.Windows.Forms.AccessibleRole.DropList;
-			this.dateTimePickerEphemeridesBegin.CornerRoundingRadius = -1F;
 			this.dateTimePickerEphemeridesBegin.Location = new System.Drawing.Point(136, 11);
 			this.dateTimePickerEphemeridesBegin.Name = "dateTimePickerEphemeridesBegin";
 			this.dateTimePickerEphemeridesBegin.Size = new System.Drawing.Size(148, 21);

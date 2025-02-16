@@ -21,7 +21,9 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+#pragma warning disable CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
 		public TableModeForm() => InitializeComponent();
+#pragma warning restore CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
 
 		#endregion
 
@@ -50,7 +52,7 @@ namespace Planetoid_DB
 		private static void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
@@ -81,7 +83,8 @@ namespace Planetoid_DB
 		/// <param name="currentPosition"></param>
 		private void FormatRow(int currentPosition)
 		{
-			strIndex = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+			strIndex = planetoidDatabase[index: currentPosition].ToString()[..7].Trim();
 			strMagAbs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
 			strSlopeParam = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
 			strEpoch = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
@@ -101,30 +104,31 @@ namespace Planetoid_DB
 			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
 			strObsLastDate = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			ListViewItem listViewItem = new(text: strIndex)
 			{
 				ToolTipText = $"{strIndex}: {strDesgnName}"
 			};
-			listViewItem.SubItems.Add(text: strDesgnName);
-			listViewItem.SubItems.Add(text: strEpoch);
-			listViewItem.SubItems.Add(text: strMeanAnomaly);
-			listViewItem.SubItems.Add(text: strArgPeri);
-			listViewItem.SubItems.Add(text: strLongAscNode);
-			listViewItem.SubItems.Add(text: strIncl);
-			listViewItem.SubItems.Add(text: strOrbEcc);
-			listViewItem.SubItems.Add(text: strMotion);
-			listViewItem.SubItems.Add(text: strSemiMajorAxis);
-			listViewItem.SubItems.Add(text: strMagAbs);
-			listViewItem.SubItems.Add(text: strSlopeParam);
-			listViewItem.SubItems.Add(text: strRef);
-			listViewItem.SubItems.Add(text: strNumbOppos);
-			listViewItem.SubItems.Add(text: strNumbObs);
-			listViewItem.SubItems.Add(text: strObsSpan);
-			listViewItem.SubItems.Add(text: strRmsResdiual);
-			listViewItem.SubItems.Add(text: strComputerName);
-			listViewItem.SubItems.Add(text: strFlags);
-			listViewItem.SubItems.Add(text: strObsLastDate);
-			listView.Items.Add(value: listViewItem);
+			_ = listViewItem.SubItems.Add(text: strDesgnName);
+			_ = listViewItem.SubItems.Add(text: strEpoch);
+			_ = listViewItem.SubItems.Add(text: strMeanAnomaly);
+			_ = listViewItem.SubItems.Add(text: strArgPeri);
+			_ = listViewItem.SubItems.Add(text: strLongAscNode);
+			_ = listViewItem.SubItems.Add(text: strIncl);
+			_ = listViewItem.SubItems.Add(text: strOrbEcc);
+			_ = listViewItem.SubItems.Add(text: strMotion);
+			_ = listViewItem.SubItems.Add(text: strSemiMajorAxis);
+			_ = listViewItem.SubItems.Add(text: strMagAbs);
+			_ = listViewItem.SubItems.Add(text: strSlopeParam);
+			_ = listViewItem.SubItems.Add(text: strRef);
+			_ = listViewItem.SubItems.Add(text: strNumbOppos);
+			_ = listViewItem.SubItems.Add(text: strNumbObs);
+			_ = listViewItem.SubItems.Add(text: strObsSpan);
+			_ = listViewItem.SubItems.Add(text: strRmsResdiual);
+			_ = listViewItem.SubItems.Add(text: strComputerName);
+			_ = listViewItem.SubItems.Add(text: strFlags);
+			_ = listViewItem.SubItems.Add(text: strObsLastDate);
+			_ = listView.Items.Add(value: listViewItem);
 		}
 
 		#endregion
@@ -220,6 +224,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -277,6 +282,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 
@@ -353,8 +359,10 @@ namespace Planetoid_DB
 			progressBar.Enabled = true;
 			backgroundWorker.WorkerReportsProgress = true;
 			backgroundWorker.WorkerSupportsCancellation = true;
+#pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
 			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+#pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorker.RunWorkerAsync();
 		}
 
@@ -374,7 +382,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
+		private static void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
 			switch (sender)
 			{

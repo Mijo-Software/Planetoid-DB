@@ -21,20 +21,26 @@ namespace Planetoid_DB
 					.GetCustomAttributes(attributeType: typeof(AssemblyTitleAttribute), inherit: false);
 				if (attributes.Length > 0)
 				{
-					AssemblyTitleAttribute titleAttribute = attributes[0] as AssemblyTitleAttribute;
+					AssemblyTitleAttribute? titleAttribute = attributes[0] as AssemblyTitleAttribute;
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
 					if (!string.IsNullOrEmpty(value: titleAttribute.Title))
 					{
 						return titleAttribute.Title;
 					}
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 				}
+#pragma warning disable CS8603 // Mögliche Nullverweisrückgabe.
 				return Path.GetFileNameWithoutExtension(path: Assembly.GetExecutingAssembly().CodeBase);
+#pragma warning restore CS8603 // Mögliche Nullverweisrückgabe.
 			}
 		}
 
 		/// <summary>
 		/// Return the version of the assembly
 		/// </summary>
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
 		public static string AssemblyVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 		/// <summary>
 		/// Return the description of the assembly

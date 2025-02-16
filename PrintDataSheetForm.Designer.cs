@@ -49,10 +49,8 @@
 			this.checkedListBoxOrbitalElements.AccessibleRole = System.Windows.Forms.AccessibleRole.List;
 			this.checkedListBoxOrbitalElements.BackStyle = Krypton.Toolkit.PaletteBackStyle.InputControlRibbon;
 			this.checkedListBoxOrbitalElements.CheckOnClick = true;
-			this.checkedListBoxOrbitalElements.CornerRoundingRadius = -1F;
 			this.checkedListBoxOrbitalElements.FormattingEnabled = true;
 			this.checkedListBoxOrbitalElements.HorizontalScrollbar = true;
-			this.checkedListBoxOrbitalElements.ItemCornerRoundingRadius = -1F;
 			this.checkedListBoxOrbitalElements.Items.AddRange(new object[] {
             "Index No.",
             "Readable designation",
@@ -108,7 +106,6 @@
 			this.buttonPrintDataSheet.AccessibleDescription = "Prints a data sheet with some orbit elements";
 			this.buttonPrintDataSheet.AccessibleName = "Print data sheet";
 			this.buttonPrintDataSheet.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonPrintDataSheet.CornerRoundingRadius = -1F;
 			this.buttonPrintDataSheet.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonPrintDataSheet.Location = new System.Drawing.Point(12, 238);
 			this.buttonPrintDataSheet.Name = "buttonPrintDataSheet";
@@ -128,7 +125,6 @@
 			this.buttonCancelPrint.AccessibleDescription = "Cancels the print";
 			this.buttonCancelPrint.AccessibleName = "Cancel print";
 			this.buttonCancelPrint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCancelPrint.CornerRoundingRadius = -1F;
 			this.buttonCancelPrint.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonCancelPrint.Location = new System.Drawing.Point(164, 238);
 			this.buttonCancelPrint.Name = "buttonCancelPrint";
