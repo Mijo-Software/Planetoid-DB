@@ -3,33 +3,33 @@
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// Stellt Methoden zur Steuerung des Taskleistenfortschritts bereit.
+	/// Provides methods to control taskbar progress.
 	/// </summary>
 	public static class TaskbarProgress
 	{
 		/// <summary>
-		/// Definiert die verschiedenen Zustände des Taskleistenfortschritts.
+		/// Defines the different states of the taskbar progress.
 		/// </summary>
 		public enum TaskbarStates
 		{
 			/// <summary>
-			/// Kein Fortschritt.
+			/// No progress.
 			/// </summary>
 			NoProgress = 0,
 			/// <summary>
-			/// Unbestimmter Fortschritt.
+			/// Indeterminate Progress.
 			/// </summary>
 			Indeterminate = 0x1,
 			/// <summary>
-			/// Normaler Fortschritt.
+			/// Normal progress.
 			/// </summary>
 			Normal = 0x2,
 			/// <summary>
-			/// Fehlerhafter Fortschritt.
+			/// Faulty progress.
 			/// </summary>
 			Error = 0x4,
 			/// <summary>
-			/// Pausierter Fortschritt.
+			/// Paused progress.
 			/// </summary>
 			Paused = 0x8
 		}
@@ -73,10 +73,10 @@ namespace Planetoid_DB
 		private static readonly bool taskbarSupported = Environment.OSVersion.Version >= new Version(major: 6, minor: 1);
 
 		/// <summary>
-		/// Setzt den Zustand des Taskleistenfortschritts.
+		/// Sets the state of the taskbar progress.
 		/// </summary>
-		/// <param name="windowHandle">Das Handle des Fensters.</param>
-		/// <param name="taskbarState">Der neue Zustand des Taskleistenfortschritts.</param>
+		/// <param name="windowHandle">The handle of the window.</param>
+		/// <param name="taskbarState">The new state of the taskbar progress.</param>
 		public static void SetState(IntPtr windowHandle, TaskbarStates taskbarState)
 		{
 			if (taskbarSupported)
@@ -88,18 +88,18 @@ namespace Planetoid_DB
 				catch (Exception ex)
 				{
 					// Fehlerbehandlung hinzufügen
-					string value = $"Fehler beim Setzen des Taskleistenstatus: {ex.Message}";
+					string value = $"Error setting taskbar status: {ex.Message}";
 					Console.WriteLine(value: value);
 				}
 			}
 		}
 
 		/// <summary>
-		/// Setzt den Fortschrittswert des Taskleistenfortschritts.
+		/// Sets the progress value of the taskbar progress.
 		/// </summary>
-		/// <param name="windowHandle">Das Handle des Fensters.</param>
-		/// <param name="progressValue">Der aktuelle Fortschrittswert.</param>
-		/// <param name="progressMax">Der maximale Fortschrittswert.</param>
+		/// <param name="windowHandle">The handle of the window.</param>
+		/// <param name="progressValue">The current progress value.</param>
+		/// <param name="progressMax">The maximum progress value.</param>
 		public static void SetValue(IntPtr windowHandle, double progressValue, double progressMax)
 		{
 			if (taskbarSupported)
@@ -111,7 +111,7 @@ namespace Planetoid_DB
 				catch (Exception ex)
 				{
 					// Fehlerbehandlung hinzufügen
-					Console.WriteLine(value: $"Fehler beim Setzen des Taskleistenfortschrittswerts: {ex.Message}");
+					Console.WriteLine(value: $"Error setting taskbar progress value: {ex.Message}");
 				}
 			}
 		}

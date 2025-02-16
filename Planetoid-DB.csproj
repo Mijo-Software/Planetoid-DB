@@ -87,6 +87,7 @@
 
   <ItemGroup>
     <PackageReference Include="Krypton.Toolkit" Version="90.24.11.317" />
+    <PackageReference Include="NLog" Version="5.4.0" />
   </ItemGroup>
 
   <ItemGroup>
