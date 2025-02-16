@@ -59,7 +59,6 @@
 			buttonExportAsJson.AccessibleDescription = "Exports the data sheet as JSON file";
 			buttonExportAsJson.AccessibleName = "Export as JSON";
 			buttonExportAsJson.AccessibleRole = AccessibleRole.PushButton;
-			buttonExportAsJson.CornerRoundingRadius = -1F;
 			buttonExportAsJson.Location = new Point(348, 245);
 			buttonExportAsJson.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsJson.Name = "buttonExportAsJson";
@@ -80,7 +79,6 @@
 			buttonExportAsTxt.AccessibleDescription = "Exports the data sheet as text file";
 			buttonExportAsTxt.AccessibleName = "Export as TXT";
 			buttonExportAsTxt.AccessibleRole = AccessibleRole.PushButton;
-			buttonExportAsTxt.CornerRoundingRadius = -1F;
 			buttonExportAsTxt.Location = new Point(348, 85);
 			buttonExportAsTxt.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsTxt.Name = "buttonExportAsTxt";
@@ -101,7 +99,6 @@
 			buttonExportAsXml.AccessibleDescription = "Exports the data sheet as XML file";
 			buttonExportAsXml.AccessibleName = "Export as XML";
 			buttonExportAsXml.AccessibleRole = AccessibleRole.PushButton;
-			buttonExportAsXml.CornerRoundingRadius = -1F;
 			buttonExportAsXml.Location = new Point(349, 192);
 			buttonExportAsXml.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsXml.Name = "buttonExportAsXml";
@@ -122,7 +119,6 @@
 			buttonExportAsHtml.AccessibleDescription = "Exports the data sheet as HTML file";
 			buttonExportAsHtml.AccessibleName = "Export as HTML";
 			buttonExportAsHtml.AccessibleRole = AccessibleRole.PushButton;
-			buttonExportAsHtml.CornerRoundingRadius = -1F;
 			buttonExportAsHtml.Location = new Point(348, 138);
 			buttonExportAsHtml.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsHtml.Name = "buttonExportAsHtml";
@@ -174,7 +170,6 @@
 			buttonUnmarkAll.AccessibleName = "Umark all orbital elements";
 			buttonUnmarkAll.AccessibleRole = AccessibleRole.PushButton;
 			buttonUnmarkAll.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonUnmarkAll.CornerRoundingRadius = -1F;
 			buttonUnmarkAll.Location = new Point(349, 50);
 			buttonUnmarkAll.Margin = new Padding(4, 3, 4, 3);
 			buttonUnmarkAll.Name = "buttonUnmarkAll";
@@ -194,7 +189,6 @@
 			buttonMarkAll.AccessibleName = "Mark all orbital elements";
 			buttonMarkAll.AccessibleRole = AccessibleRole.PushButton;
 			buttonMarkAll.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			buttonMarkAll.CornerRoundingRadius = -1F;
 			buttonMarkAll.Location = new Point(349, 14);
 			buttonMarkAll.Margin = new Padding(4, 3, 4, 3);
 			buttonMarkAll.Name = "buttonMarkAll";
@@ -260,10 +254,8 @@
 			checkedListBoxOrbitalElements.AccessibleRole = AccessibleRole.List;
 			checkedListBoxOrbitalElements.BackStyle = Krypton.Toolkit.PaletteBackStyle.InputControlRibbon;
 			checkedListBoxOrbitalElements.CheckOnClick = true;
-			checkedListBoxOrbitalElements.CornerRoundingRadius = -1F;
 			checkedListBoxOrbitalElements.FormattingEnabled = true;
 			checkedListBoxOrbitalElements.HorizontalScrollbar = true;
-			checkedListBoxOrbitalElements.ItemCornerRoundingRadius = -1F;
 			checkedListBoxOrbitalElements.Items.AddRange(new object[] { "Index No.", "Readable designation", "Epoch (in packed form, .0 TT)", "Mean anomaly at the epoch (degrees)", "Argument of perihelion, J2000.0 (degrees)", "Longitude of the ascending node, J2000.0", "Inclination to the ecliptic, J2000.0 (degrees)", "Orbital eccentricity", "Mean daily motion (degrees per day)", "Semimajor axis (AU)", "Absolute magnitude, H (mag)", "Slope parameter, G", "Reference", "Number of oppositions", "Number of observations", "Observation span", "r.m.s. residual (arseconds)", "Computer name", "4-hexdigit flags", "Date of last observation (YYYMMDD)", "Linear eccentricity (AU)", "Semi-minor axis (AU)", "Major axis (AU)", "Minor axis (AU)", "Eccenctric anomaly (degrees)", "True anomaly (degrees)", "Perihelion distance (AU)", "Aphelion distance (AU)", "Longitude of Descending node (degrees)", "Argument of aphelion (degrees)", "Focal parameter (AU)", "Semi-latus rectum (AU)", "Latus rectum (AU)", "Orbital period (years)", "Orbital area (AU²)", "Orbital perimeter (AU)", "Semi-mean axis (AU)", "Mean axis (AU)", "Standard gravitational parameter (AU³/a²)" });
 			checkedListBoxOrbitalElements.Location = new Point(14, 14);
 			checkedListBoxOrbitalElements.Margin = new Padding(4, 3, 4, 3);

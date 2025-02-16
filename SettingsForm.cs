@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
@@ -63,6 +61,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -120,6 +119,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 		#endregion

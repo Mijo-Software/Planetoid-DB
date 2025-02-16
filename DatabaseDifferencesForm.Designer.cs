@@ -224,7 +224,6 @@
 			this.buttonCancel.AccessibleDescription = "Cancels the progress";
 			this.buttonCancel.AccessibleName = "Cancel";
 			this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCancel.CornerRoundingRadius = -1F;
 			this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonCancel.Location = new System.Drawing.Point(99, 155);
 			this.buttonCancel.Name = "buttonCancel";
@@ -245,7 +244,6 @@
 			this.buttonCompare.AccessibleDescription = "Starts the progress and compare";
 			this.buttonCompare.AccessibleName = "Compare";
 			this.buttonCompare.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCompare.CornerRoundingRadius = -1F;
 			this.buttonCompare.Font = new System.Drawing.Font("Segoe UI", 8.5F);
 			this.buttonCompare.Location = new System.Drawing.Point(12, 155);
 			this.buttonCompare.Name = "buttonCompare";
@@ -410,7 +408,6 @@
 			this.buttonOpen2ndMpcorbDatFileDatabase.AccessibleName = "Open the second MPRCORB.DAT file";
 			this.buttonOpen2ndMpcorbDatFileDatabase.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.kryptonTableLayoutPanel1.SetColumnSpan(this.buttonOpen2ndMpcorbDatFileDatabase, 2);
-			this.buttonOpen2ndMpcorbDatFileDatabase.CornerRoundingRadius = -1F;
 			this.buttonOpen2ndMpcorbDatFileDatabase.Location = new System.Drawing.Point(3, 3);
 			this.buttonOpen2ndMpcorbDatFileDatabase.Name = "buttonOpen2ndMpcorbDatFileDatabase";
 			this.buttonOpen2ndMpcorbDatFileDatabase.Size = new System.Drawing.Size(184, 25);
@@ -611,7 +608,6 @@
 			this.buttonOpen1stMpcorbDatFileDatabase.AccessibleName = "Open the first MPRCORB.DAT file";
 			this.buttonOpen1stMpcorbDatFileDatabase.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.tableLayoutPanel1stMpcorbDatFile.SetColumnSpan(this.buttonOpen1stMpcorbDatFileDatabase, 2);
-			this.buttonOpen1stMpcorbDatFileDatabase.CornerRoundingRadius = -1F;
 			this.buttonOpen1stMpcorbDatFileDatabase.Location = new System.Drawing.Point(3, 3);
 			this.buttonOpen1stMpcorbDatFileDatabase.Name = "buttonOpen1stMpcorbDatFileDatabase";
 			this.buttonOpen1stMpcorbDatFileDatabase.Size = new System.Drawing.Size(184, 25);

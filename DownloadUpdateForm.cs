@@ -56,7 +56,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="uri"></param>
 		/// <returns></returns>
-		private long GetContentLength(Uri uri)
+		private static long GetContentLength(Uri uri)
 		{
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -70,14 +70,14 @@ namespace Planetoid_DB
 		private static void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		private void SetStatusbar(string? text)
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
@@ -102,12 +102,12 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
 				using CheckMpcorbDatForm formCeckMpcorbDat = new();
-				formCeckMpcorbDat.ShowDialog();
+				_ = formCeckMpcorbDat.ShowDialog();
 			}
 		}
 
@@ -120,7 +120,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DownloadUpdateForm_Load(object sender, EventArgs e)
+		private void DownloadUpdateForm_Load(object? sender, EventArgs? e)
 		{
 			labelStatusValue.Text = I10nStrings.StatusNothingToDoText;
 			labelDateValue.Text = labelSizeValue.Text = labelSourceValue.Text = "";
@@ -136,7 +136,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DownloadUpdateForm_FormClosed(object sender, FormClosedEventArgs e)
+		private void DownloadUpdateForm_FormClosed(object? sender, FormClosedEventArgs? e)
 		{
 			webClient.CancelAsync();
 			webClient.Dispose();
@@ -148,7 +148,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+		private void ProgressChanged(object? sender, DownloadProgressChangedEventArgs e)
 		{
 			progressBarDownload.Value = e.ProgressPercentage;
 			labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.PercentSign;
@@ -160,7 +160,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void Completed(object sender, AsyncCompletedEventArgs e)
+		private void Completed(object? sender, AsyncCompletedEventArgs e)
 		{
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 			if (e.Error == null)
@@ -193,7 +193,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusbar_Enter(object? sender, EventArgs? e)
 		{
 			switch (sender)
 			{
@@ -264,7 +264,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => ClearStatusbar();
 
 		#endregion
 
@@ -275,7 +275,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonDownload_Click(object sender, EventArgs e)
+		private void ButtonDownload_Click(object? sender, EventArgs? e)
 		{
 			buttonDownload.Enabled = false;
 			buttonCancelDownload.Enabled = true;
@@ -297,7 +297,7 @@ namespace Planetoid_DB
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
-				MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
 			}
 		}
 
@@ -306,14 +306,14 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonCancelDownload_Click(object sender, EventArgs e) => webClient.CancelAsync();
+		private void ButtonCancelDownload_Click(object? sender, EventArgs? e) => webClient.CancelAsync();
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void DownloadUpdateForm_FormClosing(object sender, FormClosingEventArgs e)
+		private void DownloadUpdateForm_FormClosing(object? sender, FormClosingEventArgs? e)
 		{
 			webClient.CancelAsync();
 			if (File.Exists(path: strFilenameMpcorbTemp))
@@ -327,7 +327,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonCheckForUpdate_Click(object sender, EventArgs e) => ShowMpcorbDatCheck();
+		private void ButtonCheckForUpdate_Click(object? sender, EventArgs? e) => ShowMpcorbDatCheck();
 
 		#endregion
 
@@ -338,7 +338,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
+		private void CopyToClipboard_DoubleClick(object? sender, EventArgs? e)
 		{
 			switch (sender)
 			{

@@ -68,8 +68,12 @@ namespace Planetoid_DB
 			{
 				return;
 			}
+#pragma warning disable CS8600 // Das NULL-Literal oder ein möglicher NULL-Wert wird in einen Non-Nullable-Typ konvertiert.
 			PropertyInfo aProp = typeof(Control).GetProperty(name: "DoubleBuffered", bindingAttr: BindingFlags.NonPublic | BindingFlags.Instance);
+#pragma warning restore CS8600 // Das NULL-Literal oder ein möglicher NULL-Wert wird in einen Non-Nullable-Typ konvertiert.
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			aProp.SetValue(obj: control, value: true, index: null);
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 		}
 
 		/// <summary>
@@ -428,7 +432,16 @@ namespace Planetoid_DB
 			using SearchForm formSearch = new();
 			formSearch.TopMost = TopMost;
 			formSearch.FillArray(arrTemp: planetoidDatabase);
+			formSearch.SetMaxIndex(maxIndex: planetoidDatabase.Count);
 			formSearch.ShowDialog();
+
+			MessageBox.Show(formSearch.GetSelectedIndex().ToString());
+
+			if (formSearch.DialogResult == DialogResult.OK && formSearch.GetSelectedIndex() > 0)
+			{
+				GotoCurrentPosition(currentPosition: formSearch.GetSelectedIndex());
+			}
+
 		}
 
 		/// <summary>
@@ -845,8 +858,10 @@ namespace Planetoid_DB
 			SetDoubleBuffered(control: tableLayoutPanelData);
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
 			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
+#pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorkerLoadingDatabase.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDatabase_ProgressChanged);
 			backgroundWorkerLoadingDatabase.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDatabase_RunWorkerCompleted);
+#pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorkerLoadingDatabase.RunWorkerAsync();
 			formSplashScreen.Show();
 		}
@@ -914,8 +929,12 @@ namespace Planetoid_DB
 				formSplashScreen.Show();
 				while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
 				{
+#pragma warning disable CS8600 // Das NULL-Literal oder ein möglicher NULL-Wert wird in einen Non-Nullable-Typ konvertiert.
 					readLine = streamReader.ReadLine();
+#pragma warning restore CS8600 // Das NULL-Literal oder ein möglicher NULL-Wert wird in einen Non-Nullable-Typ konvertiert.
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
 					fileSizeReaded += readLine.Length;
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 					percent = 100 * fileSizeReaded / fileSize;
 					formSplashScreen.SetProgressbar(value: (int)percent);
 					lineNum++;
@@ -935,7 +954,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorkerLoadingDatabase_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		private static void BackgroundWorkerLoadingDatabase_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 		}
 
@@ -1065,6 +1084,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -1122,6 +1142,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 
@@ -1187,7 +1208,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripButtonGoToIndex_Click(object sender, EventArgs e)
+		private void ToolStripButtonGoToIndex_Click(object? sender, EventArgs? e)
 		{
 			int pos = 0;
 			try
@@ -1368,7 +1389,9 @@ namespace Planetoid_DB
 				toolStripProgressBarBackgroundDownload.Enabled = true;
 				toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
 				webClient.Proxy = WebRequest.DefaultWebProxy;
+#pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 				webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+#pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 				webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 				try
 				{
@@ -1572,7 +1595,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemRestartWithDemoData_Click(object sender, EventArgs e)
+		private static void MenuitemRestartWithDemoData_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1596,7 +1619,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemEnableCopyingByDoubleClicking_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemEnableCopyingByDoubleClicking_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1605,7 +1628,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemEnableLinkingToTerminology_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemEnableLinkingToTerminology_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1614,7 +1637,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemIconsetSilk_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemIconsetSilk_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1623,7 +1646,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemIconsetFugue_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemIconsetFugue_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1632,7 +1655,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemIconsetFatcow_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemIconsetFatcow_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1946,7 +1969,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionMeanAnomalyAtTheEpoch_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionMeanAnomalyAtTheEpoch_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1955,7 +1978,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionArgumentOfPerihelion_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionArgumentOfPerihelion_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1964,7 +1987,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionLongitudeOfTheAscendingNode_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionLongitudeOfTheAscendingNode_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1973,7 +1996,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionInclination_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionInclination_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1982,7 +2005,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionOrbitalEccentricity_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionOrbitalEccentricity_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1991,20 +2014,11 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionMeanDailyMotion_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionMeanDailyMotion_Click(object sender, EventArgs e)
 		{
 		}
 
-		private void MenuitemDistributionSemiMajorAxis_Click(object sender, EventArgs e)
-		{
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void MenuitemDistributionAbsoluteMagnitude_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionSemiMajorAxis_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2013,7 +2027,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionSlopeParameter_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionAbsoluteMagnitude_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2022,7 +2036,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionNumberOfOppositions_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionSlopeParameter_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2031,7 +2045,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionNumberOfObservations_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionNumberOfOppositions_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2040,7 +2054,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionObservationSpan_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionNumberOfObservations_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2049,7 +2063,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionRmsResidual_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionObservationSpan_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2058,7 +2072,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistributionComputerName_Click(object sender, EventArgs e)
+		private static void MenuitemDistributionRmsResidual_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2067,7 +2081,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SplitbuttonDistribution_ButtonClick(object sender, EventArgs e)
+		private static void MenuitemDistributionComputerName_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -2076,7 +2090,16 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void MenuitemDistribution_Click(object sender, EventArgs e)
+		private static void SplitbuttonDistribution_ButtonClick(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private static void MenuitemDistribution_Click(object sender, EventArgs e)
 		{
 		}
 

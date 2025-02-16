@@ -147,7 +147,6 @@
 			this.buttonReset.AccessibleDescription = "Resets the filter settings";
 			this.buttonReset.AccessibleName = "Reset the filter settings";
 			this.buttonReset.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonReset.CornerRoundingRadius = -1F;
 			this.buttonReset.Location = new System.Drawing.Point(285, 366);
 			this.buttonReset.Name = "buttonReset";
 			this.buttonReset.Size = new System.Drawing.Size(90, 25);
@@ -166,7 +165,6 @@
 			this.buttonCancel.AccessibleDescription = "Cancels the filter settings";
 			this.buttonCancel.AccessibleName = "Cancel the filter settings";
 			this.buttonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonCancel.CornerRoundingRadius = -1F;
 			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.buttonCancel.Location = new System.Drawing.Point(189, 366);
 			this.buttonCancel.Name = "buttonCancel";
@@ -186,7 +184,6 @@
 			this.buttonApply.AccessibleDescription = "Applys the filter settings";
 			this.buttonApply.AccessibleName = "Apply the filter settings";
 			this.buttonApply.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonApply.CornerRoundingRadius = -1F;
 			this.buttonApply.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.buttonApply.Location = new System.Drawing.Point(93, 366);
 			this.buttonApply.Name = "buttonApply";
@@ -346,7 +343,6 @@
 			this.buttonResetRmsResidual.AccessibleName = "Reset the minimum and maximum of ";
 			this.buttonResetRmsResidual.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetRmsResidual.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetRmsResidual.CornerRoundingRadius = -1F;
 			this.buttonResetRmsResidual.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetRmsResidual.Location = new System.Drawing.Point(465, 331);
 			this.buttonResetRmsResidual.Name = "buttonResetRmsResidual";
@@ -368,7 +364,6 @@
 			this.buttonResetNumberOfObservations.AccessibleName = "Reset the minimum and maximum of number of observations";
 			this.buttonResetNumberOfObservations.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetNumberOfObservations.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetNumberOfObservations.CornerRoundingRadius = -1F;
 			this.buttonResetNumberOfObservations.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetNumberOfObservations.Location = new System.Drawing.Point(465, 303);
 			this.buttonResetNumberOfObservations.Name = "buttonResetNumberOfObservations";
@@ -390,7 +385,6 @@
 			this.buttonNumberOfOppositions.AccessibleName = "Reset the minimum and maximum of number of oppositions";
 			this.buttonNumberOfOppositions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonNumberOfOppositions.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonNumberOfOppositions.CornerRoundingRadius = -1F;
 			this.buttonNumberOfOppositions.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonNumberOfOppositions.Location = new System.Drawing.Point(465, 275);
 			this.buttonNumberOfOppositions.Name = "buttonNumberOfOppositions";
@@ -412,7 +406,6 @@
 			this.buttonResetSlopeParameter.AccessibleName = "Reset the minimum and maximum of slope parameter";
 			this.buttonResetSlopeParameter.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetSlopeParameter.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetSlopeParameter.CornerRoundingRadius = -1F;
 			this.buttonResetSlopeParameter.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetSlopeParameter.Location = new System.Drawing.Point(465, 247);
 			this.buttonResetSlopeParameter.Name = "buttonResetSlopeParameter";
@@ -434,7 +427,6 @@
 			this.buttonResetAbsoluteMagnitude.AccessibleName = "Reset the minimum and maximum of absolute magnitude";
 			this.buttonResetAbsoluteMagnitude.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetAbsoluteMagnitude.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetAbsoluteMagnitude.CornerRoundingRadius = -1F;
 			this.buttonResetAbsoluteMagnitude.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetAbsoluteMagnitude.Location = new System.Drawing.Point(465, 219);
 			this.buttonResetAbsoluteMagnitude.Name = "buttonResetAbsoluteMagnitude";
@@ -456,7 +448,6 @@
 			this.buttonResetSemiMajorAxis.AccessibleName = "Reset the minimum and maximum of semi-major axis";
 			this.buttonResetSemiMajorAxis.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetSemiMajorAxis.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetSemiMajorAxis.CornerRoundingRadius = -1F;
 			this.buttonResetSemiMajorAxis.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetSemiMajorAxis.Location = new System.Drawing.Point(465, 191);
 			this.buttonResetSemiMajorAxis.Name = "buttonResetSemiMajorAxis";
@@ -478,7 +469,6 @@
 			this.buttonResetMeanDailyMotion.AccessibleName = "Reset the minimum and maximum of mean daily motion";
 			this.buttonResetMeanDailyMotion.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetMeanDailyMotion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetMeanDailyMotion.CornerRoundingRadius = -1F;
 			this.buttonResetMeanDailyMotion.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetMeanDailyMotion.Location = new System.Drawing.Point(465, 163);
 			this.buttonResetMeanDailyMotion.Name = "buttonResetMeanDailyMotion";
@@ -500,7 +490,6 @@
 			this.buttonResetLongitudeOfTheAscendingNode.AccessibleName = "Reset the minimum and maximum of longitude of the ascending node";
 			this.buttonResetLongitudeOfTheAscendingNode.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetLongitudeOfTheAscendingNode.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetLongitudeOfTheAscendingNode.CornerRoundingRadius = -1F;
 			this.buttonResetLongitudeOfTheAscendingNode.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetLongitudeOfTheAscendingNode.Location = new System.Drawing.Point(465, 79);
 			this.buttonResetLongitudeOfTheAscendingNode.Name = "buttonResetLongitudeOfTheAscendingNode";
@@ -522,7 +511,6 @@
 			this.buttonResetArgumentOfPerihelion.AccessibleName = "Reset the minimum and maximum of argument of perihelion";
 			this.buttonResetArgumentOfPerihelion.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetArgumentOfPerihelion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetArgumentOfPerihelion.CornerRoundingRadius = -1F;
 			this.buttonResetArgumentOfPerihelion.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetArgumentOfPerihelion.Location = new System.Drawing.Point(465, 51);
 			this.buttonResetArgumentOfPerihelion.Name = "buttonResetArgumentOfPerihelion";
@@ -544,7 +532,6 @@
 			this.buttonResetMeanAnomalyAtTheEpoch.AccessibleName = "Reset the minimum and maximum of mean anomaly at the epoch";
 			this.buttonResetMeanAnomalyAtTheEpoch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetMeanAnomalyAtTheEpoch.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetMeanAnomalyAtTheEpoch.CornerRoundingRadius = -1F;
 			this.buttonResetMeanAnomalyAtTheEpoch.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetMeanAnomalyAtTheEpoch.Location = new System.Drawing.Point(465, 23);
 			this.buttonResetMeanAnomalyAtTheEpoch.Name = "buttonResetMeanAnomalyAtTheEpoch";
@@ -1250,7 +1237,6 @@
 			this.buttonResetInclination.AccessibleName = "Reset the minimum and maximum of inclination to the ecliptic";
 			this.buttonResetInclination.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetInclination.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetInclination.CornerRoundingRadius = -1F;
 			this.buttonResetInclination.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetInclination.Location = new System.Drawing.Point(465, 107);
 			this.buttonResetInclination.Name = "buttonResetInclination";
@@ -1272,7 +1258,6 @@
 			this.buttonResetOrbitalEccentricity.AccessibleName = "Reset the minimum and maximum of orbital eccentricity";
 			this.buttonResetOrbitalEccentricity.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonResetOrbitalEccentricity.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
-			this.buttonResetOrbitalEccentricity.CornerRoundingRadius = -1F;
 			this.buttonResetOrbitalEccentricity.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.buttonResetOrbitalEccentricity.Location = new System.Drawing.Point(465, 135);
 			this.buttonResetOrbitalEccentricity.Name = "buttonResetOrbitalEccentricity";

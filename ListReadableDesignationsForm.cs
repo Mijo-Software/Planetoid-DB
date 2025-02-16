@@ -22,7 +22,9 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+#pragma warning disable CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
 		public ListReadableDesignationsForm() => InitializeComponent();
+#pragma warning restore CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
 
 		#endregion
 
@@ -47,14 +49,14 @@ namespace Planetoid_DB
 		private static void CopyToClipboard(string text)
 		{
 			Clipboard.SetText(text: text);
-			MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		private void SetStatusbar(string? text)
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
@@ -78,14 +80,16 @@ namespace Planetoid_DB
 		/// <param name="currentPosition"></param>
 		private void FormatRow(int currentPosition)
 		{
-			strIndex = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+			strIndex = planetoidDatabase[index: currentPosition].ToString()[..7].Trim();
 			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			ListViewItem listViewItem = new(text: strIndex)
 			{
 				ToolTipText = $"{strIndex}: {strDesgnName}"
 			};
-			listViewItem.SubItems.Add(text: strDesgnName);
-			listView.Items.Add(value: listViewItem);
+			_ = listViewItem.SubItems.Add(text: strDesgnName);
+			_ = listView.Items.Add(value: listViewItem);
 		}
 
 		/// <summary>
@@ -119,7 +123,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ListReadableDesignationsForm_Load(object sender, EventArgs e)
+		private void ListReadableDesignationsForm_Load(object? sender, EventArgs? e)
 		{
 			labelInformation.Text = "";
 			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = buttonLoad.Enabled = dropButtonSaveList.Enabled = false;
@@ -139,7 +143,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ListReadableDesignationsForm_FormClosed(object sender, FormClosedEventArgs e)
+		private void ListReadableDesignationsForm_FormClosed(object? sender, FormClosedEventArgs? e)
 		{
 			listView.Dispose();
 			Dispose();
@@ -154,7 +158,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+		private void BackgroundWorker_DoWork(object? sender, DoWorkEventArgs? e)
 		{
 			progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
 			for (int i = (int)numericUpDownMinimum.Value - 1; i < (int)numericUpDownMaximum.Value; i++)
@@ -174,14 +178,14 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
+		private void BackgroundWorker_ProgressChanged(object? sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs? e)
 		{
 			listView.Visible = true;
 			numericUpDownMinimum.Enabled = true;
@@ -203,7 +207,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusbar_Enter(object? sender, EventArgs? e)
 		{
 			switch (sender)
 			{
@@ -274,7 +278,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => ClearStatusbar();
 
 		#endregion
 
@@ -285,7 +289,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void SelectedIndexChanged(object sender, EventArgs e)
+		private void SelectedIndexChanged(object? sender, EventArgs? e)
 		{
 			if (listView.SelectedIndices.Count > 0)
 			{
@@ -311,7 +315,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonList_Click(object sender, EventArgs e)
+		private void ButtonList_Click(object? sender, EventArgs? e)
 		{
 			listView.Clear();
 			listView.Columns.AddRange(values: new ColumnHeader[] {
@@ -337,15 +341,15 @@ namespace Planetoid_DB
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonCancel_Click(object sender, EventArgs e) => isCancelled = true;
+		/// <param name="e"></param>														  
+		private void ButtonCancel_Click(object? sender, EventArgs? e) => isCancelled = true;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemSaveAsCsv_Click(object sender, EventArgs e)
+		private void ToolStripMenuItemSaveAsCsv_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogCsv.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
 			saveFileDialogCsv.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogCsv.DefaultExt}";
@@ -368,7 +372,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemSaveAsHtml_Click(object sender, EventArgs e)
+		private void ToolStripMenuItemSaveAsHtml_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogHtml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
 			saveFileDialogHtml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogHtml.DefaultExt}";
@@ -413,7 +417,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemSaveAsXml_Click(object sender, EventArgs e)
+		private void ToolStripMenuItemSaveAsXml_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogXml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
 			saveFileDialogXml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogXml.DefaultExt}";
@@ -439,7 +443,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ToolStripMenuItemSaveAsJson_Click(object sender, EventArgs e)
+		private void ToolStripMenuItemSaveAsJson_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogJson.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
 			saveFileDialogJson.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogJson.DefaultExt}";
@@ -468,7 +472,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
+		private void CopyToClipboard_DoubleClick(object? sender, EventArgs? e)
 		{
 			switch (sender)
 			{

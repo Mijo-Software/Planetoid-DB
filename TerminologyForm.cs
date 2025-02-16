@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
@@ -32,49 +30,49 @@ namespace Planetoid_DB
 
 		private void SetActiveElement()
 		{
-			switch (selectedElement)
+			webBrowser.DocumentText = selectedElement switch
 			{
-				case 0: webBrowser.DocumentText = I10nStrings.terminology_IndexNumber; break;
-				case 1: webBrowser.DocumentText = I10nStrings.terminology_ReadableDesignaton; break;
-				case 2: webBrowser.DocumentText = I10nStrings.terminology_Epoch; break;
-				case 3: webBrowser.DocumentText = I10nStrings.terminology_MeanAnomalyAtTheEpoch; break;
-				case 4: webBrowser.DocumentText = I10nStrings.terminology_ArgumentOfPerihelion; break;
-				case 5: webBrowser.DocumentText = I10nStrings.terminology_LongitudeOfTheAscendingNode; break;
-				case 6: webBrowser.DocumentText = I10nStrings.terminology_InclinationToTheEcliptic; break;
-				case 7: webBrowser.DocumentText = I10nStrings.terminology_OrbitalEccentricity; break;
-				case 8: webBrowser.DocumentText = I10nStrings.terminology_MeanDailyMotion; break;
-				case 9: webBrowser.DocumentText = I10nStrings.terminology_SemiMajorAxis; break;
-				case 10: webBrowser.DocumentText = I10nStrings.terminology_AbsoluteMagnitude; break;
-				case 11: webBrowser.DocumentText = I10nStrings.terminology_SlopeParameter; break;
-				case 12: webBrowser.DocumentText = I10nStrings.terminology_Reference; break;
-				case 13: webBrowser.DocumentText = I10nStrings.terminology_NumberOfOppositions; break;
-				case 14: webBrowser.DocumentText = I10nStrings.terminology_NumberOfObservations; break;
-				case 15: webBrowser.DocumentText = I10nStrings.terminology_ObservationSpan; break;
-				case 16: webBrowser.DocumentText = I10nStrings.terminology_RmsResidual; break;
-				case 17: webBrowser.DocumentText = I10nStrings.terminology_ComputerName; break;
-				case 18: webBrowser.DocumentText = I10nStrings.terminology_Flags; break;
-				case 19: webBrowser.DocumentText = I10nStrings.terminology_DateOfLastObservation; break;
-				case 20: webBrowser.DocumentText = I10nStrings.terminology_LinearEccentricity; break;
-				case 21: webBrowser.DocumentText = I10nStrings.terminology_SemiMinorAxis; break;
-				case 22: webBrowser.DocumentText = I10nStrings.terminology_MajorAxis; break;
-				case 23: webBrowser.DocumentText = I10nStrings.terminology_MinorAxis; break;
-				case 24: webBrowser.DocumentText = I10nStrings.terminology_EccenctricAnomaly; break;
-				case 25: webBrowser.DocumentText = I10nStrings.terminology_TrueAnomaly; break;
-				case 26: webBrowser.DocumentText = I10nStrings.terminology_PerihelionDistance; break;
-				case 27: webBrowser.DocumentText = I10nStrings.terminology_AphelionDistance; break;
-				case 28: webBrowser.DocumentText = I10nStrings.terminology_LongitudeOfTheDescendingNode; break;
-				case 29: webBrowser.DocumentText = I10nStrings.terminology_ArgumentOfAphelion; break;
-				case 30: webBrowser.DocumentText = I10nStrings.terminology_FocalParameter; break;
-				case 31: webBrowser.DocumentText = I10nStrings.terminology_SemiLatusRectum; break;
-				case 32: webBrowser.DocumentText = I10nStrings.terminology_LatusRectum; break;
-				case 33: webBrowser.DocumentText = I10nStrings.terminology_OrbitalPeriod; break;
-				case 34: webBrowser.DocumentText = I10nStrings.terminology_OrbitalArea; break;
-				case 35: webBrowser.DocumentText = I10nStrings.terminology_OrbitalPerimeter; break;
-				case 36: webBrowser.DocumentText = I10nStrings.terminology_SemiMeanAxis; break;
-				case 37: webBrowser.DocumentText = I10nStrings.terminology_MeanAxis; break;
-				case 38: webBrowser.DocumentText = I10nStrings.terminology_StandardGravitationalParameter; break;
-				default: webBrowser.DocumentText = I10nStrings.terminology_IndexNumber; break;
-			}
+				0 => I10nStrings.terminology_IndexNumber,
+				1 => I10nStrings.terminology_ReadableDesignaton,
+				2 => I10nStrings.terminology_Epoch,
+				3 => I10nStrings.terminology_MeanAnomalyAtTheEpoch,
+				4 => I10nStrings.terminology_ArgumentOfPerihelion,
+				5 => I10nStrings.terminology_LongitudeOfTheAscendingNode,
+				6 => I10nStrings.terminology_InclinationToTheEcliptic,
+				7 => I10nStrings.terminology_OrbitalEccentricity,
+				8 => I10nStrings.terminology_MeanDailyMotion,
+				9 => I10nStrings.terminology_SemiMajorAxis,
+				10 => I10nStrings.terminology_AbsoluteMagnitude,
+				11 => I10nStrings.terminology_SlopeParameter,
+				12 => I10nStrings.terminology_Reference,
+				13 => I10nStrings.terminology_NumberOfOppositions,
+				14 => I10nStrings.terminology_NumberOfObservations,
+				15 => I10nStrings.terminology_ObservationSpan,
+				16 => I10nStrings.terminology_RmsResidual,
+				17 => I10nStrings.terminology_ComputerName,
+				18 => I10nStrings.terminology_Flags,
+				19 => I10nStrings.terminology_DateOfLastObservation,
+				20 => I10nStrings.terminology_LinearEccentricity,
+				21 => I10nStrings.terminology_SemiMinorAxis,
+				22 => I10nStrings.terminology_MajorAxis,
+				23 => I10nStrings.terminology_MinorAxis,
+				24 => I10nStrings.terminology_EccenctricAnomaly,
+				25 => I10nStrings.terminology_TrueAnomaly,
+				26 => I10nStrings.terminology_PerihelionDistance,
+				27 => I10nStrings.terminology_AphelionDistance,
+				28 => I10nStrings.terminology_LongitudeOfTheDescendingNode,
+				29 => I10nStrings.terminology_ArgumentOfAphelion,
+				30 => I10nStrings.terminology_FocalParameter,
+				31 => I10nStrings.terminology_SemiLatusRectum,
+				32 => I10nStrings.terminology_LatusRectum,
+				33 => I10nStrings.terminology_OrbitalPeriod,
+				34 => I10nStrings.terminology_OrbitalArea,
+				35 => I10nStrings.terminology_OrbitalPerimeter,
+				36 => I10nStrings.terminology_SemiMeanAxis,
+				37 => I10nStrings.terminology_MeanAxis,
+				38 => I10nStrings.terminology_StandardGravitationalParameter,
+				_ => I10nStrings.terminology_IndexNumber,
+			};
 		}
 
 		/// <summary>
@@ -323,6 +321,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -380,6 +379,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 

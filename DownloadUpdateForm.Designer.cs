@@ -115,7 +115,6 @@ namespace Planetoid_DB
 			buttonCancelDownload.AccessibleDescription = "Cancels the download";
 			buttonCancelDownload.AccessibleName = "Cancel download";
 			buttonCancelDownload.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancelDownload.CornerRoundingRadius = -1F;
 			buttonCancelDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
 			buttonCancelDownload.Location = new Point(333, 155);
 			buttonCancelDownload.Name = "buttonCancelDownload";
@@ -135,7 +134,6 @@ namespace Planetoid_DB
 			buttonDownload.AccessibleDescription = "Downloads the database";
 			buttonDownload.AccessibleName = "Download MPCORB.DAT";
 			buttonDownload.AccessibleRole = AccessibleRole.PushButton;
-			buttonDownload.CornerRoundingRadius = -1F;
 			buttonDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
 			buttonDownload.Location = new Point(150, 155);
 			buttonDownload.Name = "buttonDownload";
@@ -174,7 +172,6 @@ namespace Planetoid_DB
 			buttonCheckForUpdate.AccessibleDescription = "Checks updates of the database";
 			buttonCheckForUpdate.AccessibleName = "Check updates";
 			buttonCheckForUpdate.AccessibleRole = AccessibleRole.PushButton;
-			buttonCheckForUpdate.CornerRoundingRadius = -1F;
 			buttonCheckForUpdate.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
 			buttonCheckForUpdate.Location = new Point(12, 155);
 			buttonCheckForUpdate.Name = "buttonCheckForUpdate";

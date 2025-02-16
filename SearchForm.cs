@@ -12,7 +12,7 @@ namespace Planetoid_DB
 	public partial class SearchForm : KryptonForm
 	{
 		private ArrayList planetoidDatabase = new(capacity: 0);
-		private int numberPlanetoids = 0, entriesFound = 0;
+		private int numberPlanetoids = 0, entriesFound = 0, selectedIndex = 0;
 		private bool isCancelled = false;
 		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
 
@@ -21,7 +21,9 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
+#pragma warning disable CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
 		public SearchForm() => InitializeComponent();
+#pragma warning restore CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
 
 		#endregion
 
@@ -93,7 +95,8 @@ namespace Planetoid_DB
 		/// <param name="currentPosition"></param>
 		private void FormatRow(int currentPosition)
 		{
-			strIndex = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
+#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
+			strIndex = planetoidDatabase[index: currentPosition].ToString()[..7].Trim();
 			strMagAbs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
 			strSlopeParam = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
 			strEpoch = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
@@ -113,6 +116,7 @@ namespace Planetoid_DB
 			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
 			strObsLastDate = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 
 			//MessageBox.Show(textBox.Text.Contains(value: strDesgnName).ToString());
 
@@ -125,9 +129,9 @@ namespace Planetoid_DB
 				{
 					ToolTipText = $"{strIndex}: {strDesgnName}"
 				};
-				listViewItem.SubItems.Add(text: "readable designation");
-				listViewItem.SubItems.Add(text: strDesgnName);
-				listView.Items.Add(value: listViewItem);
+				_ = listViewItem.SubItems.Add(text: "readable designation");
+				_ = listViewItem.SubItems.Add(text: strDesgnName);
+				_ = listView.Items.Add(value: listViewItem);
 				labelEntriesFound.Text = $"{entriesFound} entries found";
 			}
 
@@ -159,6 +163,18 @@ namespace Planetoid_DB
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="maxIndex"></param>
+		public void SetMaxIndex(int maxIndex) => numberPlanetoids = maxIndex;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public int GetSelectedIndex() => selectedIndex;
+
 		#endregion
 
 		#region Form* event handlers
@@ -170,7 +186,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SearchForm_Load(object sender, EventArgs e)
 		{
-			buttonOpen.Enabled = buttonSearch.Enabled = false;
+			buttonLoad.Enabled = buttonSearch.Enabled = false;
 			MarkAll();
 		}
 
@@ -220,7 +236,6 @@ namespace Planetoid_DB
 		private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			listView.Visible = true;
-			buttonOpen.Enabled = true;
 			buttonCancel.Enabled = false;
 			progressBar.Enabled = false;
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
@@ -237,6 +252,7 @@ namespace Planetoid_DB
 		/// <param name="e"></param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+#pragma warning disable CS8604 // Mögliches Nullverweisargument.
 			switch (sender)
 			{
 				case TextBox box: SetStatusbar(text: box.AccessibleDescription); break;
@@ -294,6 +310,7 @@ namespace Planetoid_DB
 				case KryptonBreadCrumb breadCrumb: SetStatusbar(text: breadCrumb.AccessibleDescription); break;
 				case DomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
 				case KryptonDomainUpDown domainUpDown: SetStatusbar(text: domainUpDown.AccessibleDescription); break;
+#pragma warning restore CS8604 // Mögliches Nullverweisargument.
 			}
 		}
 
@@ -320,7 +337,7 @@ namespace Planetoid_DB
 		private void ButtonClear_Click(object sender, EventArgs e)
 		{
 			textBox.Text = string.Empty;
-			buttonOpen.Enabled = buttonSearch.Enabled = false;
+			buttonSearch.Enabled = false;
 		}
 
 		/// <summary>
@@ -348,10 +365,13 @@ namespace Planetoid_DB
 			isCancelled = false;
 			listView.Visible = false;
 			listView.Items.Clear();
+			buttonLoad.Enabled = false;
 			buttonCancel.Enabled = progressBar.Enabled = true;
 			backgroundWorker.WorkerReportsProgress = backgroundWorker.WorkerSupportsCancellation = true;
+#pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
 			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+#pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorker.RunWorkerAsync();
 		}
 
@@ -367,7 +387,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void ButtonOpen_Click(object sender, EventArgs e)
+		private static void ButtonLoad_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -380,6 +400,26 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void TextBox_TextChanged(object sender, EventArgs e) => buttonSearch.Enabled = textBox.Text.Length > 0;
+
+		#endregion
+
+		#region SelectedIndexChanged
+		private void ListView_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listView.SelectedIndices.Count > 0)
+			{
+				int selectedIndex = listView.SelectedIndices[index: 0];
+				if (selectedIndex >= 0)
+				{
+					SetStatusbar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
+				}
+				if (!buttonLoad.Enabled)
+				{
+					buttonLoad.Enabled = true;
+				}
+				this.selectedIndex = selectedIndex;
+			}
+		}
 
 		#endregion
 	}
