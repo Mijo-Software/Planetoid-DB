@@ -11,7 +11,7 @@
     <StartupObject>Planetoid_DB.Program</StartupObject>
     <ApplicationIcon>Planetoid-DB-3.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>0.7.1.26</Version>
+    <Version>0.7.2.27</Version>
     <Company>Mijo Software</Company>
     <Description>Viewer for the MPC Orbit (MPCORB) Database</Description>
     <Copyright>2010-2025 Michael Johne</Copyright>
@@ -80,6 +80,15 @@
     <WarningLevel>9999</WarningLevel>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="PlanetoidDBForm.CalculateDerivatedElements.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="PlanetoidDBForm.CalculateDerivatedElements.resx" />
+    <EmbeddedResource Remove="PlanetoidDBForm.DerivatedElements.resx" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Planetoid-DB-3.ico" />

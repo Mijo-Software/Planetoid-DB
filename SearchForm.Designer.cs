@@ -153,6 +153,7 @@
 			buttonCancel.Size = new Size(105, 29);
 			buttonCancel.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancel, "Cancel");
+			buttonCancel.Values.DropDownArrowColor = Color.Empty;
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
@@ -166,7 +167,7 @@
 			statusStrip.AccessibleDescription = "Shows some information";
 			statusStrip.AccessibleName = "Status bar of some information";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
-			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
 			statusStrip.Location = new Point(0, 503);
 			statusStrip.Name = "statusStrip";
@@ -263,6 +264,7 @@
 			buttonClear.Size = new Size(68, 25);
 			buttonClear.TabIndex = 1;
 			toolTip.SetToolTip(buttonClear, "Clear the search box");
+			buttonClear.Values.DropDownArrowColor = Color.Empty;
 			buttonClear.Values.Image = Properties.Resources.silk_cross;
 			buttonClear.Values.Text = "&Clear";
 			buttonClear.Click += ButtonClear_Click;
@@ -300,6 +302,7 @@
 			buttonLoad.Size = new Size(105, 29);
 			buttonLoad.TabIndex = 6;
 			toolTip.SetToolTip(buttonLoad, "Load the selected result item");
+			buttonLoad.Values.DropDownArrowColor = Color.Empty;
 			buttonLoad.Values.Image = Properties.Resources.silk_go;
 			buttonLoad.Values.Text = "&Load";
 			buttonLoad.Click += ButtonLoad_Click;
@@ -320,6 +323,7 @@
 			buttonUnmarkAll.Size = new Size(105, 29);
 			buttonUnmarkAll.TabIndex = 3;
 			toolTip.SetToolTip(buttonUnmarkAll, "Umark all orbital elements");
+			buttonUnmarkAll.Values.DropDownArrowColor = Color.Empty;
 			buttonUnmarkAll.Values.Text = "&Unmark all";
 			buttonUnmarkAll.Click += ButtonUnmarkAll_Click;
 			buttonUnmarkAll.Enter += SetStatusbar_Enter;
@@ -339,6 +343,7 @@
 			buttonMarkAll.Size = new Size(105, 29);
 			buttonMarkAll.TabIndex = 2;
 			toolTip.SetToolTip(buttonMarkAll, "Mark all orbital elements");
+			buttonMarkAll.Values.DropDownArrowColor = Color.Empty;
 			buttonMarkAll.Values.Image = Properties.Resources.silk_asterisk_orange;
 			buttonMarkAll.Values.Text = "&Mark all";
 			buttonMarkAll.Click += ButtonMarkAll_Click;
@@ -358,6 +363,7 @@
 			buttonSearch.Size = new Size(105, 29);
 			buttonSearch.TabIndex = 4;
 			toolTip.SetToolTip(buttonSearch, "Search");
+			buttonSearch.Values.DropDownArrowColor = Color.Empty;
 			buttonSearch.Values.Image = Properties.Resources.silk_magnifier;
 			buttonSearch.Values.Text = "&Search";
 			buttonSearch.Click += ButtonSearch_Click;
@@ -393,6 +399,7 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Search";
 			toolTip.SetToolTip(this, "Search");
+			UseDropShadow = true;
 			FormClosed += SearchForm_FormClosed;
 			Load += SearchForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

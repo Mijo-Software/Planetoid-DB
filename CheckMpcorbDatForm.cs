@@ -16,6 +16,9 @@ namespace Planetoid_DB
 		/// </summary>
 		private static readonly HttpClient client = new();
 
+		// Indicates whether the application is currently busy.
+		private bool isBusy = false;
+
 		#region constructor
 
 		/// <summary>
@@ -58,14 +61,14 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text">Der anzuzeigende Text.</param>
-		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		/// <param name="text">The main text to be displayed on the status bar.</param>
+		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (!string.IsNullOrEmpty(value: text))
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
@@ -125,6 +128,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private async void CheckMpcorbDatForm_Load(object sender, EventArgs e)
 		{
+			isBusy = true;
 			Uri uriMPCORB = new(uriString: Properties.Resources.MpcorbUrl);
 			DateTime datetimeFileLocal = DateTime.MinValue;
 			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false);
@@ -155,6 +159,7 @@ namespace Planetoid_DB
 				labelUpdateNeeded.Values.Image = Properties.Resources.silk_decline;
 				labelUpdateNeeded.Text = I10nStrings.NoUpdateNeededText;
 			}
+			isBusy = false;
 		}
 
 		/// <summary>
@@ -222,7 +227,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CheckMpcorbDatForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Escape)
+			if (!isBusy && e.KeyCode == Keys.Escape)
 			{
 				this.Close();
 			}

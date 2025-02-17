@@ -315,6 +315,7 @@
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Export data sheet";
 			toolTip.SetToolTip(this, "Export data sheet");
+			UseDropShadow = true;
 			Load += ExportDataSheetForm_Load;
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();

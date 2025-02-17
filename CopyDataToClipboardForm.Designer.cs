@@ -78,6 +78,7 @@
 			buttonIndexNumber.Size = new Size(306, 29);
 			buttonIndexNumber.TabIndex = 0;
 			toolTip.SetToolTip(buttonIndexNumber, "Index No.");
+			buttonIndexNumber.Values.DropDownArrowColor = Color.Empty;
 			buttonIndexNumber.Values.Text = "Index No.";
 			buttonIndexNumber.Click += ButtonIndexNumber_Click;
 			buttonIndexNumber.Enter += SetStatusbar_Enter;
@@ -97,6 +98,7 @@
 			buttonReadableDesignation.Size = new Size(306, 29);
 			buttonReadableDesignation.TabIndex = 1;
 			toolTip.SetToolTip(buttonReadableDesignation, "Readable designation");
+			buttonReadableDesignation.Values.DropDownArrowColor = Color.Empty;
 			buttonReadableDesignation.Values.Text = "Readable designation";
 			buttonReadableDesignation.Click += ButtonReadableDesignation_Click;
 			buttonReadableDesignation.Enter += SetStatusbar_Enter;
@@ -116,6 +118,7 @@
 			buttonEpoch.Size = new Size(306, 29);
 			buttonEpoch.TabIndex = 2;
 			toolTip.SetToolTip(buttonEpoch, "Epoch (in packed form, .0 TT)");
+			buttonEpoch.Values.DropDownArrowColor = Color.Empty;
 			buttonEpoch.Values.Text = "Epoch (in packed form, .0 TT)";
 			buttonEpoch.Click += ButtonEpoch_Click;
 			buttonEpoch.Enter += SetStatusbar_Enter;
@@ -135,6 +138,7 @@
 			buttonMeanAnomaly.Size = new Size(306, 29);
 			buttonMeanAnomaly.TabIndex = 3;
 			toolTip.SetToolTip(buttonMeanAnomaly, "Mean anomaly at the epoch (degrees)");
+			buttonMeanAnomaly.Values.DropDownArrowColor = Color.Empty;
 			buttonMeanAnomaly.Values.Text = "Mean anomaly at the epoch (°)";
 			buttonMeanAnomaly.Click += ButtonMeanAnomaly_Click;
 			buttonMeanAnomaly.Enter += SetStatusbar_Enter;
@@ -154,6 +158,7 @@
 			buttonArgumentOfPerihelion.Size = new Size(306, 29);
 			buttonArgumentOfPerihelion.TabIndex = 4;
 			toolTip.SetToolTip(buttonArgumentOfPerihelion, "Argument of perihelion, J2000.0 (degrees)");
+			buttonArgumentOfPerihelion.Values.DropDownArrowColor = Color.Empty;
 			buttonArgumentOfPerihelion.Values.Text = "Argument of perihelion, J2000.0 (°)";
 			buttonArgumentOfPerihelion.Click += ButtonArgumentOfPerihelion_Click;
 			buttonArgumentOfPerihelion.Enter += SetStatusbar_Enter;
@@ -173,6 +178,7 @@
 			buttonLongitudeOfTheAscendingNode.Size = new Size(306, 29);
 			buttonLongitudeOfTheAscendingNode.TabIndex = 5;
 			toolTip.SetToolTip(buttonLongitudeOfTheAscendingNode, "Longitude of the ascending node, J2000.0 (degrees)");
+			buttonLongitudeOfTheAscendingNode.Values.DropDownArrowColor = Color.Empty;
 			buttonLongitudeOfTheAscendingNode.Values.Text = "Longitude of the ascending node, J2000.0 (°)";
 			buttonLongitudeOfTheAscendingNode.Click += ButtonLongitudeOfTheAscendingNode_Click;
 			buttonLongitudeOfTheAscendingNode.Enter += SetStatusbar_Enter;
@@ -192,6 +198,7 @@
 			buttonInclination.Size = new Size(306, 29);
 			buttonInclination.TabIndex = 6;
 			toolTip.SetToolTip(buttonInclination, "Inclination to the ecliptic, J2000.0 (degrees)");
+			buttonInclination.Values.DropDownArrowColor = Color.Empty;
 			buttonInclination.Values.Text = "Inclination to the ecliptic, J2000.0 (°)";
 			buttonInclination.Click += ButtonInclination_Click;
 			buttonInclination.Enter += SetStatusbar_Enter;
@@ -211,6 +218,7 @@
 			buttonOrbitalEccentricity.Size = new Size(306, 29);
 			buttonOrbitalEccentricity.TabIndex = 7;
 			toolTip.SetToolTip(buttonOrbitalEccentricity, "Orbital eccentricity");
+			buttonOrbitalEccentricity.Values.DropDownArrowColor = Color.Empty;
 			buttonOrbitalEccentricity.Values.Text = "Orbital eccentricity";
 			buttonOrbitalEccentricity.Click += ButtonOrbitalEccentricity_Click;
 			buttonOrbitalEccentricity.Enter += SetStatusbar_Enter;
@@ -230,6 +238,7 @@
 			buttonMeanDailyMotion.Size = new Size(306, 29);
 			buttonMeanDailyMotion.TabIndex = 8;
 			toolTip.SetToolTip(buttonMeanDailyMotion, "Mean daily motion (degrees per day)");
+			buttonMeanDailyMotion.Values.DropDownArrowColor = Color.Empty;
 			buttonMeanDailyMotion.Values.Text = "Mean daily motion (°/day)";
 			buttonMeanDailyMotion.Click += ButtonMeanDailyMotion_Click;
 			buttonMeanDailyMotion.Enter += SetStatusbar_Enter;
@@ -249,6 +258,7 @@
 			buttonSemimajorAxis.Size = new Size(306, 29);
 			buttonSemimajorAxis.TabIndex = 9;
 			toolTip.SetToolTip(buttonSemimajorAxis, "Semi-major axis (AU)");
+			buttonSemimajorAxis.Values.DropDownArrowColor = Color.Empty;
 			buttonSemimajorAxis.Values.Text = "Semi-major axis (AU)";
 			buttonSemimajorAxis.Click += ButtonSemimajorAxis_Click;
 			buttonSemimajorAxis.Enter += SetStatusbar_Enter;
@@ -268,6 +278,7 @@
 			buttonAbsoluteMagnitude.Size = new Size(306, 29);
 			buttonAbsoluteMagnitude.TabIndex = 10;
 			toolTip.SetToolTip(buttonAbsoluteMagnitude, "Absolute magnitude, H");
+			buttonAbsoluteMagnitude.Values.DropDownArrowColor = Color.Empty;
 			buttonAbsoluteMagnitude.Values.Text = "Absolute magnitude, H";
 			buttonAbsoluteMagnitude.Click += ButtonAbsoluteMagnitude_Click;
 			buttonAbsoluteMagnitude.Enter += SetStatusbar_Enter;
@@ -287,6 +298,7 @@
 			buttonSlopeParameter.Size = new Size(306, 29);
 			buttonSlopeParameter.TabIndex = 11;
 			toolTip.SetToolTip(buttonSlopeParameter, "Slope parameter, G");
+			buttonSlopeParameter.Values.DropDownArrowColor = Color.Empty;
 			buttonSlopeParameter.Values.Text = "Slope parameter, G";
 			buttonSlopeParameter.Click += ButtonSlopeParameter_Click;
 			buttonSlopeParameter.Enter += SetStatusbar_Enter;
@@ -306,6 +318,7 @@
 			buttonReference.Size = new Size(306, 29);
 			buttonReference.TabIndex = 12;
 			toolTip.SetToolTip(buttonReference, "Reference");
+			buttonReference.Values.DropDownArrowColor = Color.Empty;
 			buttonReference.Values.Text = "Reference";
 			buttonReference.Click += ButtonReference_Click;
 			buttonReference.Enter += SetStatusbar_Enter;
@@ -325,6 +338,7 @@
 			buttonObservationSpan.Size = new Size(306, 29);
 			buttonObservationSpan.TabIndex = 15;
 			toolTip.SetToolTip(buttonObservationSpan, "Observation span");
+			buttonObservationSpan.Values.DropDownArrowColor = Color.Empty;
 			buttonObservationSpan.Values.Text = "Observation span";
 			buttonObservationSpan.Click += ButtonObservationSpan_Click;
 			buttonObservationSpan.Enter += SetStatusbar_Enter;
@@ -344,6 +358,7 @@
 			buttonNumberOfObservations.Size = new Size(306, 29);
 			buttonNumberOfObservations.TabIndex = 14;
 			toolTip.SetToolTip(buttonNumberOfObservations, "Number of observations");
+			buttonNumberOfObservations.Values.DropDownArrowColor = Color.Empty;
 			buttonNumberOfObservations.Values.Text = "Number of observations";
 			buttonNumberOfObservations.Click += ButtonNumberOfObservations_Click;
 			buttonNumberOfObservations.Enter += SetStatusbar_Enter;
@@ -363,6 +378,7 @@
 			buttonNumberOfOppositions.Size = new Size(306, 29);
 			buttonNumberOfOppositions.TabIndex = 13;
 			toolTip.SetToolTip(buttonNumberOfOppositions, "Number of oppositions");
+			buttonNumberOfOppositions.Values.DropDownArrowColor = Color.Empty;
 			buttonNumberOfOppositions.Values.Text = "Number of oppositions";
 			buttonNumberOfOppositions.Click += ButtonNumberOfOppositions_Click;
 			buttonNumberOfOppositions.Enter += SetStatusbar_Enter;
@@ -382,6 +398,7 @@
 			buttonFlags.Size = new Size(306, 29);
 			buttonFlags.TabIndex = 18;
 			toolTip.SetToolTip(buttonFlags, "4-hexdigit flags");
+			buttonFlags.Values.DropDownArrowColor = Color.Empty;
 			buttonFlags.Values.Text = "4-hexdigit flags";
 			buttonFlags.Click += ButtonFlags_Click;
 			buttonFlags.Enter += SetStatusbar_Enter;
@@ -401,6 +418,7 @@
 			buttonComputername.Size = new Size(306, 29);
 			buttonComputername.TabIndex = 17;
 			toolTip.SetToolTip(buttonComputername, "Computer name");
+			buttonComputername.Values.DropDownArrowColor = Color.Empty;
 			buttonComputername.Values.Text = "Computer name";
 			buttonComputername.Click += ButtonComputername_Click;
 			buttonComputername.Enter += SetStatusbar_Enter;
@@ -420,6 +438,7 @@
 			buttonRmsResidual.Size = new Size(306, 29);
 			buttonRmsResidual.TabIndex = 16;
 			toolTip.SetToolTip(buttonRmsResidual, "r.m.s. residual (\")");
+			buttonRmsResidual.Values.DropDownArrowColor = Color.Empty;
 			buttonRmsResidual.Values.Text = "r.m.s. residual (\")";
 			buttonRmsResidual.Click += ButtonRmsResidual_Click;
 			buttonRmsResidual.Enter += SetStatusbar_Enter;
@@ -439,6 +458,7 @@
 			buttonDateOfLastObservation.Size = new Size(306, 29);
 			buttonDateOfLastObservation.TabIndex = 19;
 			toolTip.SetToolTip(buttonDateOfLastObservation, "Date of last observation (YYYMMDD)");
+			buttonDateOfLastObservation.Values.DropDownArrowColor = Color.Empty;
 			buttonDateOfLastObservation.Values.Text = "Date of last observation (YYYMMDD)";
 			buttonDateOfLastObservation.Click += ButtonDateOfLastObservation_Click;
 			buttonDateOfLastObservation.Enter += SetStatusbar_Enter;
@@ -476,7 +496,7 @@
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
 			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			panel.Size = new Size(644, 377);
+			panel.Size = new Size(644, 352);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -486,7 +506,7 @@
 			statusStrip.AccessibleName = "Status bar of some information";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Dock = DockStyle.None;
-			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
 			statusStrip.Location = new Point(0, 0);
 			statusStrip.Name = "statusStrip";
@@ -521,7 +541,7 @@
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
-			toolStripContainer.ContentPanel.Size = new Size(644, 377);
+			toolStripContainer.ContentPanel.Size = new Size(644, 352);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
@@ -547,6 +567,7 @@
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Copy data to clipboard";
 			toolTip.SetToolTip(this, "Copy data to clipboard");
+			UseDropShadow = true;
 			FormClosed += CopyDataToClipboardForm_FormClosed;
 			Load += CopyDataToClipboardForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

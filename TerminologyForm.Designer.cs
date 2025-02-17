@@ -30,214 +30,167 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TerminologyForm));
-			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
-			this.statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
-			this.splitContainer = new Krypton.Toolkit.KryptonSplitContainer();
-			this.listBox = new Krypton.Toolkit.KryptonListBox();
-			this.webBrowser = new Krypton.Toolkit.KryptonWebBrowser();
-			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
-			this.toolStripContainer.ContentPanel.SuspendLayout();
-			this.toolStripContainer.SuspendLayout();
-			this.statusStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer.Panel1)).BeginInit();
-			this.splitContainer.Panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer.Panel2)).BeginInit();
-			this.splitContainer.Panel2.SuspendLayout();
-			this.splitContainer.SuspendLayout();
-			this.SuspendLayout();
+			toolTip = new ToolTip(components);
+			toolStripContainer = new ToolStripContainer();
+			statusStrip = new KryptonStatusStrip();
+			labelInformation = new ToolStripStatusLabel();
+			splitContainer = new KryptonSplitContainer();
+			listBox = new KryptonListBox();
+			webBrowser = new KryptonWebBrowser();
+			toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			toolStripContainer.ContentPanel.SuspendLayout();
+			toolStripContainer.SuspendLayout();
+			statusStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+			(splitContainer.Panel1).BeginInit();
+			splitContainer.Panel1.SuspendLayout();
+			(splitContainer.Panel2).BeginInit();
+			splitContainer.Panel2.SuspendLayout();
+			SuspendLayout();
 			// 
 			// toolStripContainer
 			// 
-			this.toolStripContainer.AccessibleDescription = "Container to arrange the toolbars";
-			this.toolStripContainer.AccessibleName = "Container to arrange the toolbars";
-			this.toolStripContainer.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+			toolStripContainer.AccessibleDescription = "Container to arrange the toolbars";
+			toolStripContainer.AccessibleName = "Container to arrange the toolbars";
+			toolStripContainer.AccessibleRole = AccessibleRole.Grouping;
 			// 
 			// toolStripContainer.BottomToolStripPanel
 			// 
-			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusStrip);
+			toolStripContainer.BottomToolStripPanel.Controls.Add(statusStrip);
 			// 
 			// toolStripContainer.ContentPanel
 			// 
-			this.toolStripContainer.ContentPanel.Controls.Add(this.splitContainer);
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(609, 478);
-			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.toolStripContainer.Location = new System.Drawing.Point(0, 0);
-			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new System.Drawing.Size(609, 525);
-			this.toolStripContainer.TabIndex = 5;
-			this.toolStripContainer.Text = "toolStripContainer";
-			this.toolTip.SetToolTip(this.toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.ContentPanel.Controls.Add(splitContainer);
+			toolStripContainer.ContentPanel.Size = new Size(609, 478);
+			toolStripContainer.Dock = DockStyle.Fill;
+			toolStripContainer.Location = new Point(0, 0);
+			toolStripContainer.Name = "toolStripContainer";
+			toolStripContainer.Size = new Size(609, 525);
+			toolStripContainer.TabIndex = 5;
+			toolStripContainer.Text = "toolStripContainer";
+			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
 			// 
 			// statusStrip
 			// 
-			this.statusStrip.AccessibleDescription = "Shows some information";
-			this.statusStrip.AccessibleName = "Status bar with some information";
-			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-			this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
-			this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelInformation});
-			this.statusStrip.Location = new System.Drawing.Point(0, 0);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.ProgressBars = null;
-			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip.ShowItemToolTips = true;
-			this.statusStrip.Size = new System.Drawing.Size(609, 22);
-			this.statusStrip.TabIndex = 4;
-			this.statusStrip.Text = "status bar";
+			statusStrip.AccessibleDescription = "Shows some information";
+			statusStrip.AccessibleName = "Status bar with some information";
+			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
+			statusStrip.Dock = DockStyle.None;
+			statusStrip.Font = new Font("Segoe UI", 9F);
+			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
+			statusStrip.Location = new Point(0, 0);
+			statusStrip.Name = "statusStrip";
+			statusStrip.ProgressBars = null;
+			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
+			statusStrip.ShowItemToolTips = true;
+			statusStrip.Size = new Size(609, 22);
+			statusStrip.TabIndex = 4;
+			statusStrip.Text = "status bar";
 			// 
 			// labelInformation
 			// 
-			this.labelInformation.AccessibleDescription = "Shows some information";
-			this.labelInformation.AccessibleName = "Shows some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelInformation.AutoToolTip = true;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(144, 17);
-			this.labelInformation.Text = "some information here";
-			this.labelInformation.ToolTipText = "Shows some information";
+			labelInformation.AccessibleDescription = "Shows some information";
+			labelInformation.AccessibleName = "Shows some information";
+			labelInformation.AccessibleRole = AccessibleRole.StaticText;
+			labelInformation.AutoToolTip = true;
+			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Margin = new Padding(5, 3, 0, 2);
+			labelInformation.Name = "labelInformation";
+			labelInformation.Size = new Size(144, 17);
+			labelInformation.Text = "some information here";
+			labelInformation.ToolTipText = "Shows some information";
 			// 
 			// splitContainer
 			// 
-			this.splitContainer.AccessibleDescription = "Splits the pane in half with the list of terms you can look up and in the other h" +
-    "alf with the web browser";
-			this.splitContainer.AccessibleName = "Splits the pane in half with the list of terms you can look up and in the other h" +
-    "alf with the web browser";
-			this.splitContainer.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-			this.splitContainer.ContainerBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			this.splitContainer.Cursor = System.Windows.Forms.Cursors.Default;
-			this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer.Location = new System.Drawing.Point(0, 0);
-			this.splitContainer.Name = "splitContainer";
+			splitContainer.AccessibleDescription = "Splits the pane in half with the list of terms you can look up and in the other half with the web browser";
+			splitContainer.AccessibleName = "Splits the pane in half with the list of terms you can look up and in the other half with the web browser";
+			splitContainer.AccessibleRole = AccessibleRole.Pane;
+			splitContainer.ContainerBackStyle = PaletteBackStyle.FormMain;
+			splitContainer.Dock = DockStyle.Fill;
+			splitContainer.Location = new Point(0, 0);
+			splitContainer.Name = "splitContainer";
 			// 
-			// splitContainer.Panel1
 			// 
-			this.splitContainer.Panel1.Controls.Add(this.listBox);
 			// 
-			// splitContainer.Panel2
+			splitContainer.Panel1.Controls.Add(listBox);
 			// 
-			this.splitContainer.Panel2.Controls.Add(this.webBrowser);
-			this.splitContainer.SeparatorStyle = Krypton.Toolkit.SeparatorStyle.HighProfile;
-			this.splitContainer.Size = new System.Drawing.Size(609, 478);
-			this.splitContainer.SplitterDistance = 263;
-			this.splitContainer.TabIndex = 8;
-			this.toolTip.SetToolTip(this.splitContainer, "Splits the pane in half with the list of terms you can look up and in the other h" +
-        "alf with the web browser");
+			// 
+			// 
+			splitContainer.Panel2.Controls.Add(webBrowser);
+			splitContainer.SeparatorStyle = SeparatorStyle.HighProfile;
+			splitContainer.Size = new Size(609, 478);
+			splitContainer.SplitterDistance = 263;
+			splitContainer.TabIndex = 8;
+			toolTip.SetToolTip(splitContainer, "Splits the pane in half with the list of terms you can look up and in the other half with the web browser");
 			// 
 			// listBox
 			// 
-			this.listBox.AccessibleDescription = "Lists the terms that can be looked up";
-			this.listBox.AccessibleName = "Terms that can be looked up";
-			this.listBox.AccessibleRole = System.Windows.Forms.AccessibleRole.List;
-			this.listBox.BackStyle = Krypton.Toolkit.PaletteBackStyle.PanelClient;
-			this.listBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listBox.Items.AddRange(new object[] {
-            "Index No.",
-            "Readable designation",
-            "Epoch (in packed form, .0 TT)",
-            "Mean anomaly at the epoch",
-            "Argument of perihelion, J2000.0",
-            "Longitude of the ascending node, J2000.0",
-            "Inclination to the ecliptic, J2000.0",
-            "Orbital eccentricity",
-            "Mean daily motion",
-            "Semi-major axis",
-            "Absolute magnitude, H",
-            "Slope parameter, G",
-            "Reference",
-            "Number of oppositions",
-            "Number of observations",
-            "Observation span",
-            "r.m.s. residual",
-            "Computer name",
-            "4-hexdigit flags",
-            "Date of last observation",
-            "Linear eccentricity",
-            "Semi-minor axis",
-            "Major axis",
-            "Minor axis",
-            "Eccenctric anomaly",
-            "True anomaly",
-            "Perihelion distance",
-            "Aphelion distance",
-            "Longitude of the descending node",
-            "Argument of aphelion",
-            "Focal parameter",
-            "Semi-latus rectum",
-            "Latus rectum",
-            "Orbital period",
-            "Orbital area",
-            "Orbital perimeter",
-            "Semi-mean axis",
-            "Mean axis",
-            "Standard gravitational parameter"});
-			this.listBox.Location = new System.Drawing.Point(0, 0);
-			this.listBox.Name = "listBox";
-			this.listBox.Size = new System.Drawing.Size(263, 478);
-			this.listBox.TabIndex = 7;
-			this.toolTip.SetToolTip(this.listBox, "Terms that can be looked up");
-			this.listBox.SelectedValueChanged += new System.EventHandler(this.ListBox_SelectedValueChanged);
-			this.listBox.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.listBox.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.listBox.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.listBox.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			listBox.AccessibleDescription = "Lists the terms that can be looked up";
+			listBox.AccessibleName = "Terms that can be looked up";
+			listBox.AccessibleRole = AccessibleRole.List;
+			listBox.BackStyle = PaletteBackStyle.PanelClient;
+			listBox.Dock = DockStyle.Fill;
+			listBox.Items.AddRange(new object[] { "Index No.", "Readable designation", "Epoch (in packed form, .0 TT)", "Mean anomaly at the epoch", "Argument of perihelion, J2000.0", "Longitude of the ascending node, J2000.0", "Inclination to the ecliptic, J2000.0", "Orbital eccentricity", "Mean daily motion", "Semi-major axis", "Absolute magnitude, H", "Slope parameter, G", "Reference", "Number of oppositions", "Number of observations", "Observation span", "r.m.s. residual", "Computer name", "4-hexdigit flags", "Date of last observation", "Linear eccentricity", "Semi-minor axis", "Major axis", "Minor axis", "Eccenctric anomaly", "True anomaly", "Perihelion distance", "Aphelion distance", "Longitude of the descending node", "Argument of aphelion", "Focal parameter", "Semi-latus rectum", "Latus rectum", "Orbital period", "Orbital area", "Orbital perimeter", "Semi-mean axis", "Mean axis", "Standard gravitational parameter" });
+			listBox.Location = new Point(0, 0);
+			listBox.Name = "listBox";
+			listBox.Size = new Size(263, 478);
+			listBox.TabIndex = 7;
+			toolTip.SetToolTip(listBox, "Terms that can be looked up");
+			listBox.SelectedValueChanged += ListBox_SelectedValueChanged;
+			listBox.Enter += SetStatusbar_Enter;
+			listBox.Leave += ClearStatusbar_Leave;
+			listBox.MouseEnter += SetStatusbar_Enter;
+			listBox.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// webBrowser
 			// 
-			this.webBrowser.AccessibleDescription = "Informs about some definitions";
-			this.webBrowser.AccessibleName = "Webbrowser";
-			this.webBrowser.AccessibleRole = System.Windows.Forms.AccessibleRole.Document;
-			this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.webBrowser.Location = new System.Drawing.Point(0, 0);
-			this.webBrowser.Name = "webBrowser";
-			this.webBrowser.Size = new System.Drawing.Size(341, 478);
-			this.webBrowser.TabIndex = 1;
-			this.toolTip.SetToolTip(this.webBrowser, "Webbrowser");
+			webBrowser.AccessibleDescription = "Informs about some definitions";
+			webBrowser.AccessibleName = "Webbrowser";
+			webBrowser.AccessibleRole = AccessibleRole.Document;
+			webBrowser.Dock = DockStyle.Fill;
+			webBrowser.Location = new Point(0, 0);
+			webBrowser.Name = "webBrowser";
+			webBrowser.Size = new Size(341, 478);
+			webBrowser.TabIndex = 1;
+			toolTip.SetToolTip(webBrowser, "Webbrowser");
 			// 
 			// TerminologyForm
 			// 
-			this.AccessibleDescription = "Informs about some definitions";
-			this.AccessibleName = "Terminology";
-			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(609, 525);
-			this.Controls.Add(this.toolStripContainer);
-			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "TerminologyForm";
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.Text = "Terminology";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TerminologyForm_FormClosed);
-			this.Load += new System.EventHandler(this.TerminologyForm_Load);
-			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
-			this.toolStripContainer.BottomToolStripPanel.PerformLayout();
-			this.toolStripContainer.ContentPanel.ResumeLayout(false);
-			this.toolStripContainer.ResumeLayout(false);
-			this.toolStripContainer.PerformLayout();
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer.Panel1)).EndInit();
-			this.splitContainer.Panel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer.Panel2)).EndInit();
-			this.splitContainer.Panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
-			this.splitContainer.ResumeLayout(false);
-			this.ResumeLayout(false);
+			AccessibleDescription = "Informs about some definitions";
+			AccessibleName = "Terminology";
+			AccessibleRole = AccessibleRole.Window;
+			AutoScaleDimensions = new SizeF(6F, 13F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(609, 525);
+			Controls.Add(toolStripContainer);
+			Font = new Font("Segoe UI", 8.5F);
+			FormBorderStyle = FormBorderStyle.SizableToolWindow;
+			Icon = (Icon)resources.GetObject("$this.Icon");
+			MaximizeBox = false;
+			MinimizeBox = false;
+			Name = "TerminologyForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+			Text = "Terminology";
+			UseDropShadow = true;
+			FormClosed += TerminologyForm_FormClosed;
+			Load += TerminologyForm_Load;
+			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			toolStripContainer.BottomToolStripPanel.PerformLayout();
+			toolStripContainer.ContentPanel.ResumeLayout(false);
+			toolStripContainer.ResumeLayout(false);
+			toolStripContainer.PerformLayout();
+			statusStrip.ResumeLayout(false);
+			statusStrip.PerformLayout();
+			(splitContainer.Panel1).EndInit();
+			splitContainer.Panel1.ResumeLayout(false);
+			(splitContainer.Panel2).EndInit();
+			splitContainer.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
+			ResumeLayout(false);
 
 		}
 

@@ -91,7 +91,7 @@ namespace Planetoid_DB
 			labelMinimum.AccessibleDescription = "Shows the minimum";
 			labelMinimum.AccessibleName = "Minimum";
 			labelMinimum.AccessibleRole = AccessibleRole.Text;
-			labelMinimum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelMinimum.Font = new Font("Segoe UI", 8.5F);
 			labelMinimum.Location = new Point(13, 21);
 			labelMinimum.Name = "labelMinimum";
 			labelMinimum.Size = new Size(66, 20);
@@ -109,7 +109,7 @@ namespace Planetoid_DB
 			numericUpDownMinimum.AccessibleDescription = "Shows the minimum value";
 			numericUpDownMinimum.AccessibleName = "Minimum value";
 			numericUpDownMinimum.AccessibleRole = AccessibleRole.SpinButton;
-			numericUpDownMinimum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			numericUpDownMinimum.Font = new Font("Segoe UI", 8.5F);
 			numericUpDownMinimum.Increment = new decimal(new int[] { 1, 0, 0, 0 });
 			numericUpDownMinimum.Location = new Point(82, 18);
 			numericUpDownMinimum.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
@@ -128,7 +128,7 @@ namespace Planetoid_DB
 			numericUpDownMaximum.AccessibleDescription = "Shows the maximum value";
 			numericUpDownMaximum.AccessibleName = "Maximum value";
 			numericUpDownMaximum.AccessibleRole = AccessibleRole.SpinButton;
-			numericUpDownMaximum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			numericUpDownMaximum.Font = new Font("Segoe UI", 8.5F);
 			numericUpDownMaximum.Increment = new decimal(new int[] { 1, 0, 0, 0 });
 			numericUpDownMaximum.Location = new Point(222, 18);
 			numericUpDownMaximum.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
@@ -147,7 +147,7 @@ namespace Planetoid_DB
 			labelMaximum.AccessibleDescription = "Shows the maximum";
 			labelMaximum.AccessibleName = "Maximum";
 			labelMaximum.AccessibleRole = AccessibleRole.Text;
-			labelMaximum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelMaximum.Font = new Font("Segoe UI", 8.5F);
 			labelMaximum.Location = new Point(152, 21);
 			labelMaximum.Name = "labelMaximum";
 			labelMaximum.Size = new Size(68, 20);
@@ -165,12 +165,13 @@ namespace Planetoid_DB
 			buttonList.AccessibleDescription = "Starts the progress and list";
 			buttonList.AccessibleName = "List";
 			buttonList.AccessibleRole = AccessibleRole.PushButton;
-			buttonList.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonList.Font = new Font("Segoe UI", 8.5F);
 			buttonList.Location = new Point(292, 14);
 			buttonList.Name = "buttonList";
 			buttonList.Size = new Size(52, 31);
 			buttonList.TabIndex = 4;
 			toolTip.SetToolTip(buttonList, "Start the progress and list");
+			buttonList.Values.DropDownArrowColor = Color.Empty;
 			buttonList.Values.Image = Properties.Resources.silk_table;
 			buttonList.Values.Text = "&List";
 			buttonList.Click += ButtonList_Click;
@@ -186,7 +187,7 @@ namespace Planetoid_DB
 			labelWarning.AccessibleRole = AccessibleRole.Text;
 			labelWarning.BackColor = Color.SeaShell;
 			labelWarning.BorderStyle = BorderStyle.Fixed3D;
-			labelWarning.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+			labelWarning.Font = new Font("Segoe UI", 7F);
 			labelWarning.Location = new Point(425, 14);
 			labelWarning.Name = "labelWarning";
 			labelWarning.Size = new Size(308, 39);
@@ -205,12 +206,13 @@ namespace Planetoid_DB
 			buttonCancel.AccessibleDescription = "Cancels the progress";
 			buttonCancel.AccessibleName = "Cancel";
 			buttonCancel.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancel.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancel.Font = new Font("Segoe UI", 8.5F);
 			buttonCancel.Location = new Point(350, 14);
 			buttonCancel.Name = "buttonCancel";
 			buttonCancel.Size = new Size(69, 31);
 			buttonCancel.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancel, "Cancel the progress");
+			buttonCancel.Values.DropDownArrowColor = Color.Empty;
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
@@ -219,7 +221,7 @@ namespace Planetoid_DB
 			buttonCancel.MouseEnter += SetStatusbar_Enter;
 			buttonCancel.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// listViewTableMode
+			// listView
 			// 
 			listView.AccessibleDescription = "Shows the list with the items";
 			listView.AccessibleName = "List";
@@ -227,12 +229,12 @@ namespace Planetoid_DB
 			listView.Activation = ItemActivation.OneClick;
 			listView.AllowColumnReorder = true;
 			listView.Columns.AddRange(new ColumnHeader[] { columnHeaderIndex, columnHeaderReadableDesignation, columnHeaderEpoch, columnHeaderMeanAnomaly, columnHeaderArgumentPerihelion, columnHeaderLongitudeAscendingNode, columnHeaderInclination, columnHeaderOrbitalEccentricity, columnHeaderMeanDailyMotion, columnHeaderSemimajorAxis, columnHeaderAbsoluteMagnitude, columnHeaderSlopeParameter, columnHeaderReference, columnHeaderNumberOppositions, columnHeaderNumberObservations, columnHeaderObservationSpan, columnHeaderRmsResidual, columnHeaderComputerName, columnHeaderFlags, columnHeaderDateLastObservation });
-			listView.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			listView.Font = new Font("Segoe UI", 8.5F);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.Location = new Point(13, 81);
 			listView.MultiSelect = false;
-			listView.Name = "listViewTableMode";
+			listView.Name = "listView";
 			listView.ShowItemToolTips = true;
 			listView.Size = new Size(720, 299);
 			listView.TabIndex = 8;
@@ -388,7 +390,7 @@ namespace Planetoid_DB
 			statusStrip.AccessibleDescription = "Shows some information";
 			statusStrip.AccessibleName = "Status bar of some information";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
-			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
 			statusStrip.Location = new Point(0, 393);
 			statusStrip.Name = "statusStrip";
@@ -421,7 +423,7 @@ namespace Planetoid_DB
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(744, 415);
 			Controls.Add(panel);
-			Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			MaximizeBox = false;
@@ -431,6 +433,7 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Table Mode";
 			toolTip.SetToolTip(this, "Table Mode");
+			UseDropShadow = true;
 			FormClosed += TableModeForm_FormClosed;
 			Load += TableModeForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

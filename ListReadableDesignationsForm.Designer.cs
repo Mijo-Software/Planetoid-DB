@@ -68,7 +68,7 @@
 			statusStrip.AccessibleDescription = "Shows some information";
 			statusStrip.AccessibleName = "Status bar of some information";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
-			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
 			statusStrip.Location = new Point(0, 393);
 			statusStrip.Name = "statusStrip";
@@ -105,12 +105,13 @@
 			buttonCancel.AccessibleDescription = "Cancels the progress";
 			buttonCancel.AccessibleName = "Cancel";
 			buttonCancel.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancel.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancel.Font = new Font("Segoe UI", 8.5F);
 			buttonCancel.Location = new Point(70, 38);
 			buttonCancel.Name = "buttonCancel";
 			buttonCancel.Size = new Size(69, 31);
 			buttonCancel.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancel, "Cancel the progress");
+			buttonCancel.Values.DropDownArrowColor = Color.Empty;
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
@@ -139,12 +140,13 @@
 			buttonList.AccessibleDescription = "Starts the progress and list";
 			buttonList.AccessibleName = "List";
 			buttonList.AccessibleRole = AccessibleRole.PushButton;
-			buttonList.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonList.Font = new Font("Segoe UI", 8.5F);
 			buttonList.Location = new Point(12, 38);
 			buttonList.Name = "buttonList";
 			buttonList.Size = new Size(52, 31);
 			buttonList.TabIndex = 4;
 			toolTip.SetToolTip(buttonList, "Start the progress and list");
+			buttonList.Values.DropDownArrowColor = Color.Empty;
 			buttonList.Values.Image = Properties.Resources.silk_page_white_text;
 			buttonList.Values.Text = "&List";
 			buttonList.Click += ButtonList_Click;
@@ -160,7 +162,7 @@
 			labelWarning.AccessibleRole = AccessibleRole.Text;
 			labelWarning.BackColor = Color.SeaShell;
 			labelWarning.BorderStyle = BorderStyle.Fixed3D;
-			labelWarning.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+			labelWarning.Font = new Font("Segoe UI", 7F);
 			labelWarning.Location = new Point(12, 97);
 			labelWarning.Name = "labelWarning";
 			labelWarning.Size = new Size(288, 35);
@@ -180,12 +182,13 @@
 			buttonLoad.AccessibleName = "Load";
 			buttonLoad.AccessibleRole = AccessibleRole.PushButton;
 			buttonLoad.DialogResult = DialogResult.OK;
-			buttonLoad.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonLoad.Font = new Font("Segoe UI", 8.5F);
 			buttonLoad.Location = new Point(145, 38);
 			buttonLoad.Name = "buttonLoad";
 			buttonLoad.Size = new Size(56, 31);
 			buttonLoad.TabIndex = 6;
 			toolTip.SetToolTip(buttonLoad, "Load the selected planetoid");
+			buttonLoad.Values.DropDownArrowColor = Color.Empty;
 			buttonLoad.Values.Image = Properties.Resources.silk_go;
 			buttonLoad.Values.Text = "L&oad";
 			buttonLoad.Enter += SetStatusbar_Enter;
@@ -198,7 +201,7 @@
 			labelMinimum.AccessibleDescription = "Shows the minimum";
 			labelMinimum.AccessibleName = "Minimum";
 			labelMinimum.AccessibleRole = AccessibleRole.Text;
-			labelMinimum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelMinimum.Font = new Font("Segoe UI", 8.5F);
 			labelMinimum.Location = new Point(12, 12);
 			labelMinimum.Name = "labelMinimum";
 			labelMinimum.Size = new Size(66, 20);
@@ -216,7 +219,7 @@
 			numericUpDownMinimum.AccessibleDescription = "Shows the minimum value";
 			numericUpDownMinimum.AccessibleName = "Minimum value";
 			numericUpDownMinimum.AccessibleRole = AccessibleRole.SpinButton;
-			numericUpDownMinimum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			numericUpDownMinimum.Font = new Font("Segoe UI", 8.5F);
 			numericUpDownMinimum.Increment = new decimal(new int[] { 1, 0, 0, 0 });
 			numericUpDownMinimum.Location = new Point(84, 10);
 			numericUpDownMinimum.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
@@ -237,7 +240,7 @@
 			numericUpDownMaximum.AccessibleDescription = "Shows the maximum value";
 			numericUpDownMaximum.AccessibleName = "Maximum value";
 			numericUpDownMaximum.AccessibleRole = AccessibleRole.SpinButton;
-			numericUpDownMaximum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			numericUpDownMaximum.Font = new Font("Segoe UI", 8.5F);
 			numericUpDownMaximum.Increment = new decimal(new int[] { 1, 0, 0, 0 });
 			numericUpDownMaximum.Location = new Point(226, 10);
 			numericUpDownMaximum.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
@@ -258,7 +261,7 @@
 			labelMaximum.AccessibleDescription = "Shows the maximum";
 			labelMaximum.AccessibleName = "Maximum";
 			labelMaximum.AccessibleRole = AccessibleRole.Text;
-			labelMaximum.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelMaximum.Font = new Font("Segoe UI", 8.5F);
 			labelMaximum.Location = new Point(154, 12);
 			labelMaximum.Name = "labelMaximum";
 			labelMaximum.Size = new Size(68, 20);
@@ -276,7 +279,7 @@
 			contextMenuStripSaveList.AccessibleDescription = "Save the list as file";
 			contextMenuStripSaveList.AccessibleName = "Save list";
 			contextMenuStripSaveList.AccessibleRole = AccessibleRole.MenuPopup;
-			contextMenuStripSaveList.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			contextMenuStripSaveList.Font = new Font("Segoe UI", 9F);
 			contextMenuStripSaveList.Items.AddRange(new ToolStripItem[] { toolStripMenuItemSaveAsCsv, toolStripMenuItemSaveAsHtml, toolStripMenuItemSaveAsXml, toolStripMenuItemSaveAsJson });
 			contextMenuStripSaveList.Name = "contextMenuStrip1";
 			contextMenuStripSaveList.Size = new Size(148, 92);
@@ -354,6 +357,7 @@
 			dropButtonSaveList.Splitter = false;
 			dropButtonSaveList.TabIndex = 7;
 			toolTip.SetToolTip(dropButtonSaveList, "Save List");
+			dropButtonSaveList.Values.DropDownArrowColor = Color.Empty;
 			dropButtonSaveList.Values.ImageStates.ImageCheckedNormal = null;
 			dropButtonSaveList.Values.ImageStates.ImageCheckedPressed = null;
 			dropButtonSaveList.Values.ImageStates.ImageCheckedTracking = null;
@@ -399,7 +403,7 @@
 			listView.Activation = ItemActivation.OneClick;
 			listView.AllowColumnReorder = true;
 			listView.Columns.AddRange(new ColumnHeader[] { columnHeaderIndex, columnHeaderReadableDesignation });
-			listView.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			listView.Font = new Font("Segoe UI", 8.5F);
 			listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.Location = new Point(12, 135);
