@@ -3,6 +3,9 @@ using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
+	/// <summary>
+	/// A form that displays application information.
+	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class AppInfoForm : KryptonForm
 	{
@@ -11,7 +14,12 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AppInfoForm"/> class.
 		/// </summary>
-		public AppInfoForm() => InitializeComponent();
+		public AppInfoForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(AppInfoForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -43,13 +51,14 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text">The text to be displayed.</param>
-		private void SetStatusbar(string text)
+		/// <param name="text">Der anzuzeigende Text.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (!string.IsNullOrEmpty(value: text))
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
@@ -127,7 +136,7 @@ namespace Planetoid_DB
 		{
 			try
 			{
-				using var process = new Process { StartInfo = new ProcessStartInfo(fileName: "https://planetoid-db.de") { UseShellExecute = true } };
+				using Process process = new() { StartInfo = new ProcessStartInfo(fileName: "https://planetoid-db.de") { UseShellExecute = true } };
 				_ = await Task.Run(function: process.Start);
 			}
 			catch (Exception ex)
@@ -145,7 +154,7 @@ namespace Planetoid_DB
 		{
 			try
 			{
-				using var process = new Process { StartInfo = new ProcessStartInfo(fileName: "mailto:info@planetoid-db.de") { UseShellExecute = true } };
+				using Process process = new() { StartInfo = new ProcessStartInfo(fileName: "mailto:info@planetoid-db.de") { UseShellExecute = true } };
 				_ = await Task.Run(function: process.Start);
 			}
 			catch (Exception ex)
@@ -165,9 +174,28 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
 				CopyToClipboard(text: control.Text);
+			}
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void AppInfoForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
 			}
 		}
 

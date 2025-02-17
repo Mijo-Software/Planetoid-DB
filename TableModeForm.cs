@@ -6,24 +6,137 @@ using Krypton.Toolkit;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Represents the form for displaying planetoid data in table mode.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class TableModeForm : KryptonForm
 	{
-		private ArrayList planetoidDatabase = new(capacity: 0);
+		/// <summary>
+		/// The database of planetoids.
+		/// </summary>
+		private List<string> planetoidDatabase = [];
+
+		/// <summary>
+		/// The number of planetoids in the database.
+		/// </summary>
 		private int numberPlanetoids = 0;
+
+		/// <summary>
+		/// Indicates whether the operation is cancelled.
+		/// </summary>
 		private bool isCancelled = false;
-		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
+
+		/// <summary>
+		/// The index of the planetoid.
+		/// </summary>
+		private string strIndex = string.Empty;
+
+		/// <summary>
+		/// The absolute magnitude of the planetoid.
+		/// </summary>
+		private string strMagAbs = string.Empty;
+
+		/// <summary>
+		/// The slope parameter of the planetoid.
+		/// </summary>
+		private string strSlopeParam = string.Empty;
+
+		/// <summary>
+		/// The epoch of the planetoid.
+		/// </summary>
+		private string strEpoch = string.Empty;
+
+		/// <summary>
+		/// The mean anomaly of the planetoid.
+		/// </summary>
+		private string strMeanAnomaly = string.Empty;
+
+		/// <summary>
+		/// The argument of perihelion of the planetoid.
+		/// </summary>
+		private string strArgPeri = string.Empty;
+
+		/// <summary>
+		/// The longitude of the ascending node of the planetoid.
+		/// </summary>
+		private string strLongAscNode = string.Empty;
+
+		/// <summary>
+		/// The inclination of the planetoid.
+		/// </summary>
+		private string strIncl = string.Empty;
+
+		/// <summary>
+		/// The orbital eccentricity of the planetoid.
+		/// </summary>
+		private string strOrbEcc = string.Empty;
+
+		/// <summary>
+		/// The mean daily motion of the planetoid.
+		/// </summary>
+		private string strMotion = string.Empty;
+
+		/// <summary>
+		/// The semi-major axis of the planetoid.
+		/// </summary>
+		private string strSemiMajorAxis = string.Empty;
+
+		/// <summary>
+		/// The reference for the planetoid data.
+		/// </summary>
+		private string strRef = string.Empty;
+
+		/// <summary>
+		/// The number of observations of the planetoid.
+		/// </summary>
+		private string strNumbObs = string.Empty;
+
+		/// <summary>
+		/// The number of oppositions of the planetoid.
+		/// </summary>
+		private string strNumbOppos = string.Empty;
+
+		/// <summary>
+		/// The observation span of the planetoid.
+		/// </summary>
+		private string strObsSpan = string.Empty;
+
+		/// <summary>
+		/// The RMS residual of the planetoid.
+		/// </summary>
+		private string strRmsResdiual = string.Empty;
+
+		/// <summary>
+		/// The name of the computer that processed the planetoid data.
+		/// </summary>
+		private string strComputerName = string.Empty;
+
+		/// <summary>
+		/// The flags associated with the planetoid.
+		/// </summary>
+		private string strFlags = string.Empty;
+
+		/// <summary>
+		/// The designation name of the planetoid.
+		/// </summary>
+		private string strDesgnName = string.Empty;
+
+		/// <summary>
+		/// The date of the last observation of the planetoid.
+		/// </summary>
+		private string strObsLastDate = string.Empty;
 
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="TableModeForm"/> class.
 		/// </summary>
-#pragma warning disable CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
-		public TableModeForm() => InitializeComponent();
-#pragma warning restore CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
+		public TableModeForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(TableModeForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -53,30 +166,31 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Fills the planetoid database with the specified array.
 		/// </summary>
-		/// <param name="arrTemp"></param>
+		/// <param name="arrTemp">The array to fill the database with.</param>
 		public void FillArray(ArrayList arrTemp)
 		{
-			planetoidDatabase = arrTemp;
+			planetoidDatabase = [.. arrTemp.Cast<string>()];
 			numberPlanetoids = planetoidDatabase.Count;
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">The text to be displayed.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (!string.IsNullOrEmpty(value: text))
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -85,68 +199,71 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Formats the row at the specified position.
 		/// </summary>
-		/// <param name="currentPosition"></param>
+		/// <param name="currentPosition">The position of the row to format.</param>
 		private void FormatRow(int currentPosition)
 		{
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			strIndex = planetoidDatabase[index: currentPosition].ToString()[..7].Trim();
-			strMagAbs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			strSlopeParam = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			strEpoch = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			strMeanAnomaly = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			strArgPeri = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			strLongAscNode = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			strIncl = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			strOrbEcc = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			strMotion = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			strSemiMajorAxis = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			strRef = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			strNumbObs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			strNumbOppos = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			strObsSpan = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			strRmsResdiual = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			strComputerName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			strObsLastDate = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			ListViewItem listViewItem = new(text: strIndex)
+			string? planetoid = planetoidDatabase[index: currentPosition]?.ToString();
+			if (planetoid != null)
 			{
-				ToolTipText = $"{strIndex}: {strDesgnName}"
-			};
-			_ = listViewItem.SubItems.Add(text: strDesgnName);
-			_ = listViewItem.SubItems.Add(text: strEpoch);
-			_ = listViewItem.SubItems.Add(text: strMeanAnomaly);
-			_ = listViewItem.SubItems.Add(text: strArgPeri);
-			_ = listViewItem.SubItems.Add(text: strLongAscNode);
-			_ = listViewItem.SubItems.Add(text: strIncl);
-			_ = listViewItem.SubItems.Add(text: strOrbEcc);
-			_ = listViewItem.SubItems.Add(text: strMotion);
-			_ = listViewItem.SubItems.Add(text: strSemiMajorAxis);
-			_ = listViewItem.SubItems.Add(text: strMagAbs);
-			_ = listViewItem.SubItems.Add(text: strSlopeParam);
-			_ = listViewItem.SubItems.Add(text: strRef);
-			_ = listViewItem.SubItems.Add(text: strNumbOppos);
-			_ = listViewItem.SubItems.Add(text: strNumbObs);
-			_ = listViewItem.SubItems.Add(text: strObsSpan);
-			_ = listViewItem.SubItems.Add(text: strRmsResdiual);
-			_ = listViewItem.SubItems.Add(text: strComputerName);
-			_ = listViewItem.SubItems.Add(text: strFlags);
-			_ = listViewItem.SubItems.Add(text: strObsLastDate);
-			_ = listView.Items.Add(value: listViewItem);
+				strIndex = planetoid[..7].Trim();
+				strMagAbs = planetoid.Substring(startIndex: 8, length: 5).Trim();
+				strSlopeParam = planetoid.Substring(startIndex: 14, length: 5).Trim();
+				strEpoch = planetoid.Substring(startIndex: 20, length: 5).Trim();
+				strMeanAnomaly = planetoid.Substring(startIndex: 26, length: 9).Trim();
+				strArgPeri = planetoid.Substring(startIndex: 37, length: 9).Trim();
+				strLongAscNode = planetoid.Substring(startIndex: 48, length: 9).Trim();
+				strIncl = planetoid.Substring(startIndex: 59, length: 9).Trim();
+				strOrbEcc = planetoid.Substring(startIndex: 70, length: 9).Trim();
+				strMotion = planetoid.Substring(startIndex: 80, length: 11).Trim();
+				strSemiMajorAxis = planetoid.Substring(startIndex: 92, length: 11).Trim();
+				strRef = planetoid.Substring(startIndex: 107, length: 9).Trim();
+				strNumbObs = planetoid.Substring(startIndex: 117, length: 5).Trim();
+				strNumbOppos = planetoid.Substring(startIndex: 123, length: 3).Trim();
+				strObsSpan = planetoid.Substring(startIndex: 127, length: 9).Trim();
+				strRmsResdiual = planetoid.Substring(startIndex: 137, length: 4).Trim();
+				strComputerName = planetoid.Substring(startIndex: 150, length: 10).Trim();
+				strFlags = planetoid.Substring(startIndex: 161, length: 4).Trim();
+				strDesgnName = planetoid.Substring(startIndex: 166, length: 28).Trim();
+				strObsLastDate = planetoid.Substring(startIndex: 194, length: 8).Trim();
+				ListViewItem listViewItem = new(text: strIndex)
+				{
+					ToolTipText = $"{strIndex}: {strDesgnName}"
+				};
+				_ = listViewItem.SubItems.Add(text: strDesgnName);
+				_ = listViewItem.SubItems.Add(text: strEpoch);
+				_ = listViewItem.SubItems.Add(text: strMeanAnomaly);
+				_ = listViewItem.SubItems.Add(text: strArgPeri);
+				_ = listViewItem.SubItems.Add(text: strLongAscNode);
+				_ = listViewItem.SubItems.Add(text: strIncl);
+				_ = listViewItem.SubItems.Add(text: strOrbEcc);
+				_ = listViewItem.SubItems.Add(text: strMotion);
+				_ = listViewItem.SubItems.Add(text: strSemiMajorAxis);
+				_ = listViewItem.SubItems.Add(text: strMagAbs);
+				_ = listViewItem.SubItems.Add(text: strSlopeParam);
+				_ = listViewItem.SubItems.Add(text: strRef);
+				_ = listViewItem.SubItems.Add(text: strNumbOppos);
+				_ = listViewItem.SubItems.Add(text: strNumbObs);
+				_ = listViewItem.SubItems.Add(text: strObsSpan);
+				_ = listViewItem.SubItems.Add(text: strRmsResdiual);
+				_ = listViewItem.SubItems.Add(text: strComputerName);
+				_ = listViewItem.SubItems.Add(text: strFlags);
+				_ = listViewItem.SubItems.Add(text: strObsLastDate);
+				_ = listView.Items.Add(value: listViewItem);
+			}
 		}
 
 		#endregion
 
-		#region Form* event handlers
+		#region Form event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the TableModeForm.
+		/// Initializes the form controls and sets their initial values.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void TableModeForm_Load(object sender, EventArgs e)
 		{
 			labelInformation.Text = "";
@@ -163,10 +280,11 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosed event of the TableModeForm.
+		/// Disposes the list view and the form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void TableModeForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			listView.Dispose();
@@ -178,10 +296,11 @@ namespace Planetoid_DB
 		#region BackgroundWorker
 
 		/// <summary>
-		/// 
+		/// Handles the DoWork event of the BackgroundWorker.
+		/// Processes the planetoid data in the background.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
@@ -198,18 +317,20 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the ProgressChanged event of the BackgroundWorker.
+		/// Updates the progress bar with the current progress.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="ProgressChangedEventArgs"/> instance that contains the event data.</param>
+		private void BackgroundWorker_ProgressChanged(object? sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
 
 		/// <summary>
-		/// 
+		/// Handles the RunWorkerCompleted event of the BackgroundWorker.
+		/// Finalizes the background work and updates the UI.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
+		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
 		{
 			listView.Visible = true;
 			numericUpDownMinimum.Enabled = true;
@@ -226,6 +347,7 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
+		/// Sets the status bar text to the control's accessible description.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
@@ -237,16 +359,16 @@ namespace Planetoid_DB
 			}
 		}
 
-
 		#endregion
 
 		#region Leave event handlers
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
+		/// Clears the status bar text.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -254,10 +376,11 @@ namespace Planetoid_DB
 		#region SelectedIndexChanged event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the SelectedIndexChanged event of the ListView.
+		/// Updates the status bar with the selected planetoid's index and designation name.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListViewTableMode_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (listView.SelectedIndices.Count > 0)
@@ -274,14 +397,15 @@ namespace Planetoid_DB
 		#region Clicks event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the List button.
+		/// Starts the background worker to process the planetoid data.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonList_Click(object sender, EventArgs e)
 		{
 			listView.Clear();
-			listView.Columns.AddRange(values: new ColumnHeader[] {
+			listView.Columns.AddRange(values: [
 				 columnHeaderIndex,
 				 columnHeaderReadableDesignation,
 				 columnHeaderEpoch,
@@ -301,7 +425,7 @@ namespace Planetoid_DB
 				 columnHeaderRmsResidual,
 				 columnHeaderComputerName,
 				 columnHeaderFlags,
-				 columnHeaderDateLastObservation});
+				 columnHeaderDateLastObservation]);
 			listView.Visible = false;
 			numericUpDownMinimum.Enabled = false;
 			numericUpDownMaximum.Enabled = false;
@@ -311,18 +435,17 @@ namespace Planetoid_DB
 			progressBar.Enabled = true;
 			backgroundWorker.WorkerReportsProgress = true;
 			backgroundWorker.WorkerSupportsCancellation = true;
-#pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
 			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
-#pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
 			backgroundWorker.RunWorkerAsync();
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Cancel button.
+		/// Cancels the background worker operation.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonCancel_Click(object sender, EventArgs e) => isCancelled = true;
 
 		#endregion
@@ -330,17 +453,34 @@ namespace Planetoid_DB
 		#region DoubleClick event handlers
 
 		/// <summary>
-		/// 
+		/// Called when a control is double-clicked to copy the text to the clipboard.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private static void CopyToClipboard_DoubleClick(object sender, EventArgs e)
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			switch (sender)
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			if (sender is Control control)
 			{
-				case Label label: CopyToClipboard(text: label.Text); break;
-				case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
-				case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
+				CopyToClipboard(text: control.Text);
+			}
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void TableModeForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
 			}
 		}
 

@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Text;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Form to display database information.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class DatabaseInformationForm : KryptonForm
@@ -14,13 +15,18 @@ namespace Planetoid_DB
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="DatabaseInformationForm"/> class.
 		/// </summary>
-		public DatabaseInformationForm() => InitializeComponent();
+		public DatabaseInformationForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(DatabaseInformationForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
-		#region local methods
+		#region Local methods
 
 		/// <summary>
 		/// Returns a string representation of the object for the debugger.
@@ -39,27 +45,28 @@ namespace Planetoid_DB
 				Clipboard.SetText(text: text);
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
-			catch (Exception ex)
+			catch (System.Runtime.InteropServices.ExternalException ex)
 			{
 				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">The text to display.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -69,55 +76,65 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Form* event handlers
+		#region Form event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the DatabaseInformationForm control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
 		{
 			FileInfo fileInfo = new(fileName: Properties.Resources.FilenameMpcorb);
-			bool isArchive = (File.GetAttributes(path: fileInfo.FullName) & FileAttributes.Archive) == FileAttributes.Archive;
-			bool isCompressed = (File.GetAttributes(path: fileInfo.FullName) & FileAttributes.Compressed) == FileAttributes.Compressed;
-			bool isHidden = (File.GetAttributes(path: fileInfo.FullName) & FileAttributes.Hidden) == FileAttributes.Hidden;
-			bool isReadOnly = (File.GetAttributes(path: fileInfo.FullName) & FileAttributes.ReadOnly) == FileAttributes.ReadOnly;
-			bool isSystem = (File.GetAttributes(path: fileInfo.FullName) & FileAttributes.System) == FileAttributes.System;
+			FileAttributes attributes = File.GetAttributes(path: fileInfo.FullName);
+
+			bool isArchive = (attributes & FileAttributes.Archive) == FileAttributes.Archive;
+			bool isCompressed = (attributes & FileAttributes.Compressed) == FileAttributes.Compressed;
+			bool isHidden = (attributes & FileAttributes.Hidden) == FileAttributes.Hidden;
+			bool isReadOnly = (attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly;
+			bool isSystem = (attributes & FileAttributes.System) == FileAttributes.System;
+
 			labelNameValue.Text = fileInfo.Name;
 			labelDirectoryValue.Text = fileInfo.DirectoryName;
 			labelSizeValue.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
 			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString(provider: CultureInfo.InvariantCulture);
 			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString(provider: CultureInfo.InvariantCulture);
 			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString(provider: CultureInfo.InvariantCulture);
-			labelAttributesValue.Text = $"({fileInfo.Attributes})";
+
+			StringBuilder attributesText = new(value: $"({fileInfo.Attributes})");
 			if (isArchive)
 			{
-				labelAttributesValue.Text = $"archive {labelAttributesValue.Text}";
+				_ = attributesText.Insert(0, value: "archive ");
 			}
+
 			if (isCompressed)
 			{
-				labelAttributesValue.Text = $"compressed {labelAttributesValue.Text}";
+				_ = attributesText.Insert(0, value: "compressed ");
 			}
+
 			if (isHidden)
 			{
-				labelAttributesValue.Text = $"hidden {labelAttributesValue.Text}";
+				_ = attributesText.Insert(0, value: "hidden ");
 			}
+
 			if (isReadOnly)
 			{
-				labelAttributesValue.Text = $"readonly {labelAttributesValue.Text}";
+				_ = attributesText.Insert(0, value: "readonly ");
 			}
+
 			if (isSystem)
 			{
-				labelAttributesValue.Text = $"system {labelAttributesValue.Text}";
+				_ = attributesText.Insert(0, value: "system ");
 			}
+
+			labelAttributesValue.Text = attributesText.ToString();
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosed event of the DatabaseInformationForm control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void DatabaseInformationForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
@@ -142,10 +159,10 @@ namespace Planetoid_DB
 		#region Leave event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Leave event of a control to clear the status bar.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -153,17 +170,34 @@ namespace Planetoid_DB
 		#region DoubleClick event handlers
 
 		/// <summary>
-		/// 
+		/// Called when a control is double-clicked to copy the text to the clipboard.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			switch (sender)
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			if (sender is Control control)
 			{
-				case Label label: CopyToClipboard(text: label.Text); break;
-				case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
-				case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
+				CopyToClipboard(text: control.Text);
+			}
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void DatabaseInformationForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
 			}
 		}
 

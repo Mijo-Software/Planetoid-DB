@@ -20,7 +20,7 @@ namespace Planetoid_DB
 	public partial class PlanetoidDBForm : KryptonForm
 	{
 		private int currentPosition = 0, stepPosition = 0;
-		private readonly ArrayList planetoidDatabase = new(capacity: 0);
+		private readonly ArrayList planetoidDatabase = [];
 		private readonly WebClient webClient = new();
 		private readonly SplashScreenForm formSplashScreen = new();
 		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
@@ -30,11 +30,13 @@ namespace Planetoid_DB
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="PlanetoidDBForm"/> class.
 		/// </summary>
 		public PlanetoidDBForm()
 		{
 			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
 			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
 			SetStatusbar(text: string.Empty);
 		}
@@ -403,31 +405,38 @@ namespace Planetoid_DB
 		private void ShowCopyDataToClipboard()
 		{
 			ArrayList dataToCopy = new(capacity: 0)
+									{
+										labelIndexData.Text,
+										labelReadableDesignationData.Text,
+										labelEpochData.Text,
+										labelMeanAnomalyAtTheEpochData.Text,
+										labelArgumentOfPerihelionData.Text,
+										labelLongitudeOfTheAscendingNodeData.Text,
+										labelInclinationToTheEclipticData.Text,
+										labelOrbitalEccentricityData.Text,
+										labelMeanDailyMotionData.Text,
+										labelSemiMajorAxisData.Text,
+										labelAbsoluteMagnitudeData.Text,
+										labelSlopeParameterData.Text,
+										labelReferenceData.Text,
+										labelNumberOfOppositionsData.Text,
+										labelNumberOfObservationsData.Text,
+										labelObservationSpanData.Text,
+										labelRmsResidualData.Text,
+										labelComputerNameData.Text,
+										labelFlagsData.Text,
+										labelDateLastObservationData.Text
+									};
+
+			List<string> dataToCopyList = new();
+			foreach (object? item in dataToCopy)
 			{
-				labelIndexData.Text,
-				labelReadableDesignationData.Text,
-				labelEpochData.Text,
-				labelMeanAnomalyAtTheEpochData.Text,
-				labelArgumentOfPerihelionData.Text,
-				labelLongitudeOfTheAscendingNodeData.Text,
-				labelInclinationToTheEclipticData.Text,
-				labelOrbitalEccentricityData.Text,
-				labelMeanDailyMotionData.Text,
-				labelSemiMajorAxisData.Text,
-				labelAbsoluteMagnitudeData.Text,
-				labelSlopeParameterData.Text,
-				labelReferenceData.Text,
-				labelNumberOfOppositionsData.Text,
-				labelNumberOfObservationsData.Text,
-				labelObservationSpanData.Text,
-				labelRmsResidualData.Text,
-				labelComputerNameData.Text,
-				labelFlagsData.Text,
-				labelDateLastObservationData.Text
-			};
+				dataToCopyList.Add(item.ToString());
+			}
+
 			using CopyDataToClipboardForm formCopyDataToClipboard = new();
 			formCopyDataToClipboard.TopMost = TopMost;
-			formCopyDataToClipboard.SetDatabase(arrayList: dataToCopy);
+			formCopyDataToClipboard.SetDatabase(list: dataToCopyList);
 			_ = formCopyDataToClipboard.ShowDialog();
 		}
 
@@ -550,7 +559,7 @@ namespace Planetoid_DB
 			_ = orbitalElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
 			using ExportDataSheetForm formExportDataSheet = new();
 			formExportDataSheet.TopMost = TopMost;
-			formExportDataSheet.SetDatabase(arrayList: orbitalElements);
+			formExportDataSheet.SetDatabase(list: orbitalElements.Cast<string>().ToList());
 			_ = formExportDataSheet.ShowDialog();
 		}
 
@@ -597,25 +606,26 @@ namespace Planetoid_DB
 			_ = derivatedOrbitElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
 			using DerivatedOrbitElementsForm formDerivatedOrbitElements = new();
 			formDerivatedOrbitElements.TopMost = TopMost;
-			formDerivatedOrbitElements.SetDatabase(arrayList: derivatedOrbitElements);
+			formDerivatedOrbitElements.SetDatabase(list: [.. derivatedOrbitElements.Cast<object>()]);
 			_ = formDerivatedOrbitElements.ShowDialog();
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">Der anzuzeigende Text.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -1000,14 +1010,9 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				if (e.Cancelled)
-				{
-					_ = MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
-				}
-				else
-				{
-					_ = MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
+				_ = e.Cancelled
+					? MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning)
+					: MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				File.Delete(path: filenameMpcorbTemp);
 			}
 			webClient.Dispose();
@@ -1102,10 +1107,10 @@ namespace Planetoid_DB
 		#region Leave-Handler
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -2099,20 +2104,16 @@ namespace Planetoid_DB
 		#region DoubleClick-Handler
 
 		/// <summary>
-		/// 
+		/// Called when a control is double-clicked to copy the text to the clipboard.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			if (menuitemOptionEnabledCopyingByDoubleClicking.Checked)
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			if (sender is Control control)
 			{
-				switch (sender)
-				{
-					case Label label: CopyToClipboard(text: label.Text); break;
-					case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
-					case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
-				}
+				CopyToClipboard(text: control.Text);
 			}
 		}
 
@@ -2262,6 +2263,24 @@ namespace Planetoid_DB
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void LabelDateLastObservationDesc_DoubleClick(object sender, EventArgs e) => OpenTerminology(index: 19);
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void PlanetoidDBForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
+		}
 
 		#endregion
 	}

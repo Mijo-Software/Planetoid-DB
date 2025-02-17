@@ -1,22 +1,32 @@
 ﻿using System.Diagnostics;
 using System.IO;
-using System.Net;
+using System.Net.Http;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// MPCORB Data Verification Form.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class CheckMpcorbDatForm : KryptonForm
 	{
-		#region Constructor
+		/// <summary>
+		/// The HttpClient instance used for making HTTP requests.
+		/// </summary>
+		private static readonly HttpClient client = new();
+
+		#region constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="CheckMpcorbDatForm"/> class.
 		/// </summary>
-		public CheckMpcorbDatForm() => InitializeComponent();
+		public CheckMpcorbDatForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(CheckMpcorbDatForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -46,20 +56,21 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">Der anzuzeigende Text.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -67,45 +78,57 @@ namespace Planetoid_DB
 			labelInformation.Text = string.Empty;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>
-		private static DateTime GetLastModified(Uri uri)
-		{
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>		
-		private static long GetContentLength(Uri uri)
-		{
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
-		}
-
 		#endregion
 
-		#region Form* event handlers
+		/// <summary>
+		/// Retrieves the last modified date of the specified URI.
+		/// </summary>
+		/// <param name="uri">The URI of the resource.</param>
+		/// <returns>The date of the last modification or <see cref="DateTime.MinValue"/> in case of an error.</returns>
+		private static async Task<DateTime> GetLastModifiedAsync(Uri uri)
+		{
+			try
+			{
+				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(false);
+				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
+			}
+			catch (HttpRequestException)
+			{
+				return DateTime.MinValue;
+			}
+		}
 
 		/// <summary>
-		/// 
+		/// The content length of the specified URI.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CheckMpcorbDatForm_Load(object sender, EventArgs e)
+		/// <param name="uri">The URI of the resource.</param>
+		/// <returns>The content length or 0 in case of error.</returns>
+		private static async Task<long> GetContentLengthAsync(Uri uri)
+		{
+			try
+			{
+				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(false);
+				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
+			}
+			catch (HttpRequestException)
+			{
+				return 0;
+			}
+		}
+
+		#region form event handler
+
+		/// <summary>
+		/// Event handler for loading the form.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private async void CheckMpcorbDatForm_Load(object sender, EventArgs e)
 		{
 			Uri uriMPCORB = new(uriString: Properties.Resources.MpcorbUrl);
-			DateTime
-				datetimeFileLocal = DateTime.MinValue,
-				datetimeFileOnline = GetLastModified(uri: uriMPCORB);
+			DateTime datetimeFileLocal = DateTime.MinValue;
+			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false);
+
 			if (!File.Exists(path: Properties.Resources.FilenameMpcorb))
 			{
 				labelContentLengthValueLocal.Text = I10nStrings.NoFileFoundText;
@@ -118,8 +141,10 @@ namespace Planetoid_DB
 				labelContentLengthValueLocal.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
 				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
 			}
-			labelContentLengthValueOnline.Text = $"{GetContentLength(uri: uriMPCORB)} {I10nStrings.BytesText}";
+
+			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false)} {I10nStrings.BytesText}";
 			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
+
 			if (datetimeFileOnline > datetimeFileLocal)
 			{
 				labelUpdateNeeded.Values.Image = Properties.Resources.silk_new;
@@ -133,15 +158,15 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Event handler for closing the form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void CheckMpcorbDatForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 
-		#region Enter event handlers
+		#region enter event handlers
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
@@ -156,35 +181,50 @@ namespace Planetoid_DB
 			}
 		}
 
-
 		#endregion
 
-		#region Leave event handlers
+		#region leave event handlers
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
 
-		#region DoubleClick event handlers
+		#region double-click event handlers
 
 		/// <summary>
-		/// 
+		/// Event handler for double-clicking a control to copy the text to the clipboard.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>			
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			ArgumentNullException.ThrowIfNull(sender);
-			switch (sender)
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			if (sender is Control control)
 			{
-				case Label label: CopyToClipboard(text: label.Text); break;
-				case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
-				case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
+				CopyToClipboard(text: control.Text);
+			}
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void CheckMpcorbDatForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
 			}
 		}
 

@@ -66,6 +66,7 @@
 			buttonExportAsJson.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
 			buttonExportAsJson.TabIndex = 6;
 			toolTip.SetToolTip(buttonExportAsJson, "Export as JSON");
+			buttonExportAsJson.Values.DropDownArrowColor = Color.Empty;
 			buttonExportAsJson.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsJson.Values.Text = "Export as JSON";
 			buttonExportAsJson.Click += ButtonExportAsJson_Click;
@@ -86,6 +87,7 @@
 			buttonExportAsTxt.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
 			buttonExportAsTxt.TabIndex = 3;
 			toolTip.SetToolTip(buttonExportAsTxt, "Export as TXT");
+			buttonExportAsTxt.Values.DropDownArrowColor = Color.Empty;
 			buttonExportAsTxt.Values.Image = Properties.Resources.silk_page_white_text;
 			buttonExportAsTxt.Values.Text = "Export as TXT";
 			buttonExportAsTxt.Click += ButtonExportAsTxt_Click;
@@ -106,6 +108,7 @@
 			buttonExportAsXml.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
 			buttonExportAsXml.TabIndex = 5;
 			toolTip.SetToolTip(buttonExportAsXml, "Export as XML");
+			buttonExportAsXml.Values.DropDownArrowColor = Color.Empty;
 			buttonExportAsXml.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsXml.Values.Text = "Export as XML";
 			buttonExportAsXml.Click += ButtonExportAsXml_Click;
@@ -126,6 +129,7 @@
 			buttonExportAsHtml.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
 			buttonExportAsHtml.TabIndex = 4;
 			toolTip.SetToolTip(buttonExportAsHtml, "Export as HTML");
+			buttonExportAsHtml.Values.DropDownArrowColor = Color.Empty;
 			buttonExportAsHtml.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsHtml.Values.Text = "Export as HTML";
 			buttonExportAsHtml.Click += ButtonExportAsHtml_Click;
@@ -140,7 +144,7 @@
 			statusStrip.AccessibleName = "Status bar of some information";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Dock = DockStyle.None;
-			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
 			statusStrip.Location = new Point(0, 0);
 			statusStrip.Name = "statusStrip";
@@ -176,6 +180,7 @@
 			buttonUnmarkAll.Size = new Size(110, 29);
 			buttonUnmarkAll.TabIndex = 2;
 			toolTip.SetToolTip(buttonUnmarkAll, "Umark all orbital elements");
+			buttonUnmarkAll.Values.DropDownArrowColor = Color.Empty;
 			buttonUnmarkAll.Values.Text = "&Unmark all";
 			buttonUnmarkAll.Click += ButtonUnmarkAll_Click;
 			buttonUnmarkAll.Enter += SetStatusbar_Enter;
@@ -195,6 +200,7 @@
 			buttonMarkAll.Size = new Size(110, 29);
 			buttonMarkAll.TabIndex = 1;
 			toolTip.SetToolTip(buttonMarkAll, "Mark all orbital elements");
+			buttonMarkAll.Values.DropDownArrowColor = Color.Empty;
 			buttonMarkAll.Values.Image = Properties.Resources.silk_asterisk_orange;
 			buttonMarkAll.Values.Text = "&Mark all";
 			buttonMarkAll.Click += ButtonMarkAll_Click;
@@ -217,7 +223,7 @@
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(474, 308);
+			toolStripContainer.ContentPanel.Size = new Size(474, 283);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Margin = new Padding(4, 3, 4, 3);
@@ -243,7 +249,7 @@
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
 			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			panel.Size = new Size(474, 308);
+			panel.Size = new Size(474, 283);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 

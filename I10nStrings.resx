@@ -349,4 +349,7 @@
   <data name="ErrorOpeningWebsite" xml:space="preserve">
     <value>Error opening the website: </value>
   </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Invalid data</value>
+  </data>
 </root>
