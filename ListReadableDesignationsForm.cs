@@ -7,12 +7,12 @@ using Krypton.Toolkit;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Form to list readable designations from the planetoid database.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class ListReadableDesignationsForm : KryptonForm
 	{
-		private ArrayList planetoidDatabase = new(capacity: 0);
+		private List<string> planetoidDatabase = [];
 		private int numberPlanetoids = 0, selectedIndex = 0;
 		private bool isCancelled = false;
 		private string strIndex, strDesgnName;
@@ -20,11 +20,16 @@ namespace Planetoid_DB
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="AppInfoForm"/> class.
 		/// </summary>
-#pragma warning disable CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
-		public ListReadableDesignationsForm() => InitializeComponent();
-#pragma warning restore CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
+		public ListReadableDesignationsForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(ListReadableDesignationsForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			strIndex = string.Empty;
+			strDesgnName = string.Empty;
+		}
 
 		#endregion
 
@@ -54,26 +59,21 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="value"></param>
-		public void SetProgressbar(int value) => progressBar.Value = value;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string? text)
+		/// <param name="text">Der anzuzeigende Text.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -82,54 +82,56 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Formats a row in the list view with the current planetoid data.
 		/// </summary>
-		/// <param name="currentPosition"></param>
+		/// <param name="currentPosition">The current position in the planetoid database.</param>
 		private void FormatRow(int currentPosition)
 		{
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			strIndex = planetoidDatabase[index: currentPosition].ToString()[..7].Trim();
-			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+			string currentData = planetoidDatabase[index: currentPosition];
+			strIndex = currentData[..7].Trim();
+			strDesgnName = currentData.Substring(startIndex: 166, length: 28).Trim();
+
 			ListViewItem listViewItem = new(text: strIndex)
 			{
 				ToolTipText = $"{strIndex}: {strDesgnName}"
 			};
 			_ = listViewItem.SubItems.Add(text: strDesgnName);
+
 			_ = listView.Items.Add(value: listViewItem);
 		}
 
 		/// <summary>
-		/// 
+		/// Fills the planetoid database with the provided array list.
 		/// </summary>
-		/// <param name="arrTemp"></param>
+		/// <param name="arrTemp">The array list to fill the database with.</param>
 		public void FillArray(ArrayList arrTemp)
 		{
-			planetoidDatabase = arrTemp;
+			planetoidDatabase = [.. arrTemp.Cast<string>()];
 			numberPlanetoids = planetoidDatabase.Count;
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the maximum index for the planetoid database.
 		/// </summary>
-		/// <param name="maxIndex"></param>
+		/// <param name="maxIndex">The maximum index.</param>
 		public void SetMaxIndex(int maxIndex) => numberPlanetoids = maxIndex;
 
 		/// <summary>
-		/// 
+		/// Gets the selected index in the list view.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>The selected index.</returns>
 		public int GetSelectedIndex() => selectedIndex;
 
 		#endregion
 
-		#region Form* event handlers
+		#region Form event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the form.
+		/// Initializes the form controls based on the planetoid database.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListReadableDesignationsForm_Load(object? sender, EventArgs? e)
 		{
 			labelInformation.Text = "";
@@ -146,10 +148,11 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosed event of the form.
+		/// Disposes the list view and the form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void ListReadableDesignationsForm_FormClosed(object? sender, FormClosedEventArgs? e)
 		{
 			listView.Dispose();
@@ -161,10 +164,11 @@ namespace Planetoid_DB
 		#region BackgroundWorker
 
 		/// <summary>
-		/// 
+		/// Handles the DoWork event of the background worker.
+		/// Formats rows in the list view based on the planetoid database.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_DoWork(object? sender, DoWorkEventArgs? e)
 		{
 			progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
@@ -181,17 +185,19 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the RunWorkerCompleted event of the background worker.
+		/// Updates the form controls after the background worker completes its task.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_ProgressChanged(object? sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer moves over a control.
+		/// Sets the status bar text based on the control's accessible description.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs? e)
 		{
 			listView.Visible = true;
@@ -227,21 +233,22 @@ namespace Planetoid_DB
 		#region Leave event handlers
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => ClearStatusbar();
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
 
 		#region SelectedIndexChanged event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the SelectedIndexChanged event of the list view.
+		/// Updates the status bar and enables the load button based on the selected index.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SelectedIndexChanged(object? sender, EventArgs? e)
 		{
 			if (listView.SelectedIndices.Count > 0)
@@ -264,16 +271,17 @@ namespace Planetoid_DB
 		#region Clicks event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the List button.
+		/// Initializes the list view and starts the background worker to format rows.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonList_Click(object? sender, EventArgs? e)
 		{
 			listView.Clear();
-			listView.Columns.AddRange(values: new ColumnHeader[] {
+			listView.Columns.AddRange(values: [
 				 columnHeaderIndex,
-				 columnHeaderReadableDesignation,});
+				 columnHeaderReadableDesignation,]);
 			listView.Visible = false;
 			numericUpDownMinimum.Enabled = false;
 			numericUpDownMaximum.Enabled = false;
@@ -291,17 +299,17 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Cancel button.
+		/// Cancels the background worker operation.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>														  
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonCancel_Click(object? sender, EventArgs? e) => isCancelled = true;
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Save As CSV menu item.
+		/// Saves the list view data as a CSV file.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void ToolStripMenuItemSaveAsCsv_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogCsv.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -321,10 +329,11 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Save As HTML menu item.
+		/// Saves the list view data as an HTML file.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemSaveAsHtml_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogHtml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -366,10 +375,11 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Save As XML menu item.
+		/// Saves the list view data as an XML file.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemSaveAsXml_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogXml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -392,10 +402,11 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Save As Json menu item.
+		/// Saves the list view data as an Json file.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemSaveAsJson_Click(object? sender, EventArgs? e)
 		{
 			saveFileDialogJson.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -421,17 +432,34 @@ namespace Planetoid_DB
 		#region DoubleClick event handlers
 
 		/// <summary>
-		/// 
+		/// Called when a control is double-clicked to copy the text to the clipboard.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyToClipboard_DoubleClick(object? sender, EventArgs? e)
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			switch (sender)
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			if (sender is Control control)
 			{
-				case Label label: CopyToClipboard(text: label.Text); break;
-				case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
-				case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
+				CopyToClipboard(text: control.Text);
+			}
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ListReadableDesignationsForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
 			}
 		}
 

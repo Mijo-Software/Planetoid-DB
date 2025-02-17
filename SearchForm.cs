@@ -8,7 +8,7 @@ namespace Planetoid_DB
 	/// <summary>
 	/// 
 	/// </summary>
-	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
+	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SearchForm : KryptonForm
 	{
 		private ArrayList planetoidDatabase = new(capacity: 0);
@@ -21,9 +21,12 @@ namespace Planetoid_DB
 		/// <summary>
 		/// 
 		/// </summary>
-#pragma warning disable CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
-		public SearchForm() => InitializeComponent();
-#pragma warning restore CS8618 // Ein Non-Nullable-Feld muss beim Beenden des Konstruktors einen Wert ungleich NULL enthalten. Fügen Sie ggf. den „erforderlichen“ Modifizierer hinzu, oder deklarieren Sie den Modifizierer als NULL-Werte zulassend.
+		public SearchForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(SearchForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -36,20 +39,21 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">Der anzuzeigende Text.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -263,10 +267,10 @@ namespace Planetoid_DB
 		#region Leave-Handler
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -348,6 +352,7 @@ namespace Planetoid_DB
 		#endregion
 
 		#region SelectedIndexChanged
+
 		private void ListView_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (listView.SelectedIndices.Count > 0)
@@ -362,6 +367,24 @@ namespace Planetoid_DB
 					buttonLoad.Enabled = true;
 				}
 				this.selectedIndex = selectedIndex;
+			}
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void SearchForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
 			}
 		}
 

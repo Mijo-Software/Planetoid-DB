@@ -4,7 +4,7 @@ using Krypton.Toolkit;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Represents the form for displaying ephemerides.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class EphemeridesForm : KryptonForm
@@ -12,9 +12,14 @@ namespace Planetoid_DB
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="EphemeridesForm"/> class.
 		/// </summary>
-		public EphemeridesForm() => InitializeComponent();
+		public EphemeridesForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(EphemeridesForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -44,20 +49,21 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">Der anzuzeigende Text.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -67,13 +73,13 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Form* event handlers
+		#region Form event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the form closed event.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void EphemeridesForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
@@ -81,28 +87,33 @@ namespace Planetoid_DB
 		#region BackgroundWorker event handler
 
 		/// <summary>
-		/// 
+		/// Handles the DoWork event of the BackgroundWorker.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="System.ComponentModel.DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
 		{
+			// Implement background work here
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the ProgressChanged event of the BackgroundWorker.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void BackgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="System.ComponentModel.ProgressChangedEventArgs"/> instance that contains the event data.</param>
+		private void BackgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+		{
+			progressBar.Value = e.ProgressPercentage;
+		}
 
 		/// <summary>
-		/// 
+		/// Handles the RunWorkerCompleted event of the BackgroundWorker.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
 		{
+			// Implement completion logic here
 		}
 
 		#endregion
@@ -127,17 +138,42 @@ namespace Planetoid_DB
 		#region Leave-Handler
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
 
 		#region Click-Handler
+
+		/// <summary>
+		/// Handles the Click event of the Calculate button.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonCalculate_Click(object sender, EventArgs e)
 		{
+			// Implement calculation logic here
+		}
+
+		#endregion
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void EphemeridesForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
 		}
 
 		#endregion

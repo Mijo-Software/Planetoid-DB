@@ -5,17 +5,26 @@ using Krypton.Toolkit;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Represents a form for printing data sheets.
 	/// </summary>
-	[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
+	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class PrintDataSheetForm : KryptonForm
 	{
+		private readonly PrintDocument printDoc;
+
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="PrintDataSheetForm"/> class.
 		/// </summary>
-		public PrintDataSheetForm() => InitializeComponent();
+		public PrintDataSheetForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(PrintDataSheetForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			printDoc = new PrintDocument();
+			printDoc.PrintPage += new PrintPageEventHandler(PrintDoc_PrintPage);
+		}
 
 		#endregion
 
@@ -28,20 +37,21 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">The text to be displayed.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -51,13 +61,14 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Form* event handlers
+		#region Form event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the form.
+		/// Checks all items in the checked list box when the form loads.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PrintDataSheetForm_Load(object sender, EventArgs e)
 		{
 			if (checkedListBoxOrbitalElements.Items.Count != 0)
@@ -70,10 +81,11 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosed event of the form.
+		/// Disposes the form when it is closed.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void PrintDataSheetForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
@@ -82,6 +94,7 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
+		/// Sets the status bar text to the control's accessible description.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
@@ -98,10 +111,11 @@ namespace Planetoid_DB
 		#region Leave event handlers
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
+		/// Clears the status bar text.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -109,35 +123,112 @@ namespace Planetoid_DB
 		#region Click event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the print button.
+		/// Opens a print dialog and prints the document if the user confirms.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonPrintDataSheet_Click(object sender, EventArgs e)
 		{
 			using PrintDialog dialogPrint = new();
-			PrintDocument printDoc = new()
-			{
-				DocumentName = "Data sheet"
-			};
 			dialogPrint.Document = printDoc;
 			dialogPrint.AllowSelection = true;
 			dialogPrint.AllowSomePages = true;
 			if (dialogPrint.ShowDialog() == DialogResult.OK)
 			{
-				printDoc.Print();
+				try
+				{
+					printDoc.Print();
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error while printing: {ex.Message}", caption: "Printing error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
 				Close();
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the cancel button.
+		/// Closes the form without printing.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonCancelPrint_Click(object sender, EventArgs e) => Close();
+
+		/// <summary>
+		/// Handles the Click event of the print preview button.
+		/// Opens a print preview dialog to preview the document before printing.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonPrintPreview_Click(object sender, EventArgs e)
+		{
+			using PrintPreviewDialog previewDialog = new();
+			previewDialog.Document = printDoc;
+			_ = previewDialog.ShowDialog();
+		}
+
+		/// <summary>
+		/// Handles the Click event of the page setup button.
+		/// Opens a page setup dialog to configure page settings.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonPageSetup_Click(object sender, EventArgs e)
+		{
+			using PageSetupDialog pageSetupDialog = new();
+			pageSetupDialog.Document = printDoc;
+			pageSetupDialog.PageSettings = printDoc.DefaultPageSettings;
+			pageSetupDialog.PrinterSettings = printDoc.PrinterSettings;
+			if (pageSetupDialog.ShowDialog() == DialogResult.OK)
+			{
+				printDoc.DefaultPageSettings = pageSetupDialog.PageSettings;
+			}
+		}
 
 		#endregion
 
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the form.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="KeyEventArgs"/> instance that contains the event data.</param>
+		private void PrintDataSheetForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
+		}
+
+		#endregion
+
+		#region PrintPage event handler
+
+		/// <summary>
+		/// Handles the PrintPage event of the PrintDocument.
+		/// Configures the print settings and content.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="PrintPageEventArgs"/> instance that contains the event data.</param>
+		private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
+		{
+			if (e.Graphics != null)
+			{
+				// Example: Draw a simple string on the document
+				string textToPrint = "This is a sample data sheet.";
+				Font printFont = new(familyName: "Arial", emSize: 12);
+				e.Graphics.DrawString(s: textToPrint, font: printFont, brush: Brushes.Black, point: new PointF(x: 100, y: 100));
+
+				// Indicate that no more pages are to be printed
+				e.HasMorePages = false;
+			}
+		}
+
+		#endregion
 	}
 }

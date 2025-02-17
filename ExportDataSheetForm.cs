@@ -1,24 +1,32 @@
-﻿using System.Collections;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
+using System.Text;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Form for exporting data sheets with various formats.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class ExportDataSheetForm : KryptonForm
 	{
-		private ArrayList orbitElements = new(capacity: 0);
+		/// <summary>
+		/// List of orbit elements to be exported.
+		/// </summary>
+		private List<string> orbitElements = [];
 
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="ExportDataSheetForm"/> class.
 		/// </summary>
-		public ExportDataSheetForm() => InitializeComponent();
+		public ExportDataSheetForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(ExportDataSheetForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -31,20 +39,21 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">The text to display.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (!string.IsNullOrEmpty(value: text))
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -53,15 +62,15 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the database with the provided list of orbit elements.
 		/// </summary>
-		/// <param name="arrayList"></param>
-		public void SetDatabase(ArrayList arrayList) => orbitElements = arrayList;
+		/// <param name="list">The list of orbit elements.</param>
+		public void SetDatabase(List<string> list) => orbitElements = list;
 
 		/// <summary>
-		/// 
+		/// Checks or unchecks all items in the list.
 		/// </summary>
-		/// <param name="check"></param>
+		/// <param name="check">True to check all items, false to uncheck all items.</param>
 		private void CheckIt(bool check)
 		{
 			for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
@@ -72,55 +81,45 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Marks all items in the list.
 		/// </summary>
 		private void MarkAll() => CheckIt(check: true);
 
 		/// <summary>
-		/// 
+		/// Unmarks all items in the list.
 		/// </summary>
 		private void UnmarkAll() => CheckIt(check: false);
 
 		/// <summary>
-		/// 
+		/// Determines whether all items are unmarked.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>True if all items are unmarked, otherwise false.</returns>
 		private bool IsAllUnmarked()
 		{
-			int unMarked = 0;
-			foreach (string item in checkedListBoxOrbitalElements.Items)
+			foreach (object? item in checkedListBoxOrbitalElements.Items)
 			{
-				bool isChecked = checkedListBoxOrbitalElements.GetItemChecked(index: checkedListBoxOrbitalElements.FindStringExact(str: item));
-				if (!isChecked)
+				if (item != null)
 				{
-					unMarked++;
+					string itemString = item.ToString() ?? string.Empty;
+					bool isChecked = checkedListBoxOrbitalElements.GetItemChecked(index: checkedListBoxOrbitalElements.FindStringExact(str: itemString));
+					if (isChecked)
+					{
+						return false;
+					}
 				}
 			}
-			return unMarked == checkedListBoxOrbitalElements.Items.Count;
-			/*
-			int unMarked = 0;
-			for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count + 0; i++)
-			{
-				if (checkedListBoxOrbitalElements.GetItemChecked(index: i) == false)
-				{
-					unMarked++;
-					toolStripStatusLabel1.Text = "Item " + i.ToString() + " ist unmarkiert. Unmarked: " + unMarked.ToString();
-				}
-			}
-			bool allUnmarked = unMarked == checkedListBoxOrbitalElements.Items.Count;
-			return allUnmarked;
-			*/
+			return true;
 		}
 
 		#endregion
 
-		#region Form* event handler
+		#region Form event handler
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ExportDataSheetForm_Load(object sender, EventArgs e) => MarkAll();
 
 		#endregion
@@ -136,7 +135,7 @@ namespace Planetoid_DB
 		{
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
-				SetStatusbar(text: control.AccessibleDescription);
+				SetStatusbar(control.AccessibleDescription);
 			}
 		}
 
@@ -145,10 +144,10 @@ namespace Planetoid_DB
 		#region Leave-Handler
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -156,10 +155,10 @@ namespace Planetoid_DB
 		#region Click & ButtonClick event handler
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the ButtonExportAsTxt control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsTxt_Click(object sender, EventArgs e)
 		{
 			saveFileDialogTxt.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -182,10 +181,10 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the ButtonExportAsHtml control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsHtml_Click(object sender, EventArgs e)
 		{
 			saveFileDialogHtml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -193,110 +192,114 @@ namespace Planetoid_DB
 			if (saveFileDialogHtml.ShowDialog() == DialogResult.OK)
 			{
 				using StreamWriter streamWriter = new(path: saveFileDialogHtml.FileName);
-				streamWriter.WriteLine(value: $"<!DOCTYPE html>");
-				streamWriter.WriteLine(value: $"<html lang=\"en\">");
-				streamWriter.WriteLine(value: $"\t<head>");
-				streamWriter.WriteLine(value: $"\t\t<meta charset=\"utf-8\">");
-				streamWriter.WriteLine(value: $"\t\t<meta name=\"description\" content=\"\">");
-				streamWriter.WriteLine(value: $"\t\t<meta name=\"keywords\" content=\"\">");
-				streamWriter.WriteLine(value: $"\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
-				streamWriter.WriteLine(value: $"\t\t<title>Export for [{orbitElements[index: 0]}] {orbitElements[index: 1]}</title>");
-				streamWriter.WriteLine(value: $"\t\t<style>");
-				streamWriter.WriteLine(value: $"\t\t\t* {{font-family: sans-serif;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.italic {{font-style: italic;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.bold {{font-weight: bold;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.sup {{vertical-align: super; font-size: smaller;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.sub {{vertical-align: sub; font-size: smaller;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.block {{width:350px; display: inline-block;}}");
-				streamWriter.WriteLine(value: $"\t\t</style>");
-				streamWriter.WriteLine(value: $"\t</head>");
-				streamWriter.WriteLine(value: $"\t<body>");
-				streamWriter.WriteLine(value: $"\t\t<p>");
+				StringBuilder sb = new();
+				_ = sb.AppendLine(value: "<!DOCTYPE html>");
+				_ = sb.AppendLine(value: "<html lang=\"en\">");
+				_ = sb.AppendLine(value: "\t<head>");
+				_ = sb.AppendLine(value: "\t\t<meta charset=\"utf-8\">");
+				_ = sb.AppendLine(value: "\t\t<meta name=\"description\" content=\"\">");
+				_ = sb.AppendLine(value: "\t\t<meta name=\"keywords\" content=\"\">");
+				_ = sb.AppendLine(value: "\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
+				_ = sb.AppendLine($"\t\t<title>Export for [{orbitElements[index: 0]}] {orbitElements[index: 1]}</title>");
+				_ = sb.AppendLine(value: "\t\t<style>");
+				_ = sb.AppendLine(value: "\t\t\t* {font-family: sans-serif;}");
+				_ = sb.AppendLine(value: "\t\t\t.italic {font-style: italic;}");
+				_ = sb.AppendLine(value: "\t\t\t.bold {font-weight: bold;}");
+				_ = sb.AppendLine(value: "\t\t\t.sup {vertical-align: super; font-size: smaller;}");
+				_ = sb.AppendLine(value: "\t\t\t.sub {vertical-align: sub; font-size: smaller;}");
+				_ = sb.AppendLine(value: "\t\t\t.block {width:350px; display: inline-block;}");
+				_ = sb.AppendLine(value: "\t\t</style>");
+				_ = sb.AppendLine(value: "\t</head>");
+				_ = sb.AppendLine(value: "\t<body>");
+				_ = sb.AppendLine(value: "\t\t<p>");
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
 					{
-						streamWriter.WriteLine(value: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{checkedListBoxOrbitalElements.Items[index: i]}:</span> <span xml:id=\"value-id-{i}\">{orbitElements[index: i]}</span><br />");
+						_ = sb.AppendLine(handler: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{checkedListBoxOrbitalElements.Items[index: i]}:</span> <span xml:id=\"value-id-{i}\">{orbitElements[index: i]}</span><br />");
 					}
 				}
-				streamWriter.WriteLine(value: $"\t\t</p>");
-				streamWriter.WriteLine(value: $"\t</body>");
-				streamWriter.Write(value: $"</html>");
+				_ = sb.AppendLine(value: "\t\t</p>");
+				_ = sb.AppendLine(value: "\t</body>");
+				_ = sb.Append(value: "</html>");
+				streamWriter.Write(value: sb.ToString());
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the ButtonExportAsXml control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsXml_Click(object sender, EventArgs e)
 		{
-
 			saveFileDialogXml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
 			saveFileDialogXml.FileName = $"{orbitElements[index: 0]}.{saveFileDialogXml.DefaultExt}";
 			if (saveFileDialogXml.ShowDialog() == DialogResult.OK)
 			{
 				using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
-				streamWriter.WriteLine(value: $"<?xml version=\"1.0\" encoding=\"UTF.8\" standalone=\"yes\"?>");
-				streamWriter.WriteLine(value: $"<MinorPlanet xmlns=\"https://planet-db.de\">");
+				StringBuilder sb = new();
+				_ = sb.AppendLine(value: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
+				_ = sb.AppendLine(value: "<MinorPlanet xmlns=\"https://planet-db.de\">");
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
 					{
-						switch (i)
+						_ = sb.AppendLine(value: i switch
 						{
-							case 0: streamWriter.WriteLine(value: $"\t<Index value=\"{orbitElements[index: i]}\"/>"); break;
-							case 1: streamWriter.WriteLine(value: $"\t<ReadableDesignation value=\"{orbitElements[index: i]}\"/>"); break;
-							case 2: streamWriter.WriteLine(value: $"\t<Epoch value=\"{orbitElements[index: i]}\"/>"); break;
-							case 3: streamWriter.WriteLine(value: $"\t<MeanAnomalyAtTheEpoch unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 4: streamWriter.WriteLine(value: $"\t<ArgumentOfPerihelion unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 5: streamWriter.WriteLine(value: $"\t<LongitudeOfTheAscendingNode unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 6: streamWriter.WriteLine(value: $"\t<InclinationToTheEcliptic unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 7: streamWriter.WriteLine(value: $"\t<OrbitalEcentricity value=\"{orbitElements[index: i]}\"/>"); break;
-							case 8: streamWriter.WriteLine(value: $"\t<MeanDailyMotion unit=\"degrees per day\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 9: streamWriter.WriteLine(value: $"\t<SemiMajorAxis unit=\"astronimical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 10: streamWriter.WriteLine(value: $"\t<AbsoluteMagnitude unit=\"mag\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 11: streamWriter.WriteLine(value: $"\t<SlopeParameter value=\"{orbitElements[index: i]}\"/>"); break;
-							case 12: streamWriter.WriteLine(value: $"\t<Reference value=\"{orbitElements[index: i]}\"/>"); break;
-							case 13: streamWriter.WriteLine(value: $"\t<NumberOfOppositions value=\"{orbitElements[index: i]}\"/>"); break;
-							case 14: streamWriter.WriteLine(value: $"\t<NumberOfObservations value=\"{orbitElements[index: i]}\"/>"); break;
-							case 15: streamWriter.WriteLine(value: $"\t<ObservationSpan value=\"{orbitElements[index: i]}\"/>"); break;
-							case 16: streamWriter.WriteLine(value: $"\t<RmsResidual unit=\"arcseconds\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 17: streamWriter.WriteLine(value: $"\t<ComputerName value=\"{orbitElements[index: i]}\"/>"); break;
-							case 18: streamWriter.WriteLine(value: $"\t<FourHexdigitFlags value=\"{orbitElements[index: i]}\"/>"); break;
-							case 19: streamWriter.WriteLine(value: $"\t<DateOfLastObservation unit=\"yyyymmdd\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 20: streamWriter.WriteLine(value: $"\t<LinearEccentricity value=\"{orbitElements[index: i]}\"/>"); break;
-							case 21: streamWriter.WriteLine(value: $"\t<SemiMinorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 22: streamWriter.WriteLine(value: $"\t<MajorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 23: streamWriter.WriteLine(value: $"\t<MinorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 24: streamWriter.WriteLine(value: $"\t<EccenctricAnomaly unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 25: streamWriter.WriteLine(value: $"\t<TrueAnomaly unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 26: streamWriter.WriteLine(value: $"\t<PerihelionDistance unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 27: streamWriter.WriteLine(value: $"\t<AphelionDistance unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 28: streamWriter.WriteLine(value: $"\t<LongitudeOfDescendingNode unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 29: streamWriter.WriteLine(value: $"\t<ArgumentOfAphelion unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 30: streamWriter.WriteLine(value: $"\t<FocalParameter unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 31: streamWriter.WriteLine(value: $"\t<SemiLatusRectum unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 32: streamWriter.WriteLine(value: $"\t<LatusRectum unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 33: streamWriter.WriteLine(value: $"\t<OrbitalPeriod unit=\"years\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 34: streamWriter.WriteLine(value: $"\t<OrbitalArea unit=\"squared astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 35: streamWriter.WriteLine(value: $"\t<OrbitalPerimeter unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 36: streamWriter.WriteLine(value: $"\t<SemiMeanAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 37: streamWriter.WriteLine(value: $"\t<MeanAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>"); break;
-							case 38: streamWriter.WriteLine(value: $"\t<StandardGravitationalParameter unit=\"AU³/a²\" value=\"{orbitElements[index: i]}\"/>"); break;
-						}
+							0 => $"\t<Index value=\"{orbitElements[index: i]}\"/>",
+							1 => $"\t<ReadableDesignation value=\"{orbitElements[index: i]}\"/>",
+							2 => $"\t<Epoch value=\"{orbitElements[index: i]}\"/>",
+							3 => $"\t<MeanAnomalyAtTheEpoch unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							4 => $"\t<ArgumentOfPerihelion unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							5 => $"\t<LongitudeOfTheAscendingNode unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							6 => $"\t<InclinationToTheEcliptic unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							7 => $"\t<OrbitalEcentricity value=\"{orbitElements[index: i]}\"/>",
+							8 => $"\t<MeanDailyMotion unit=\"degrees per day\" value=\"{orbitElements[index: i]}\"/>",
+							9 => $"\t<SemiMajorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							10 => $"\t<AbsoluteMagnitude unit=\"mag\" value=\"{orbitElements[index: i]}\"/>",
+							11 => $"\t<SlopeParameter value=\"{orbitElements[index: i]}\"/>",
+							12 => $"\t<Reference value=\"{orbitElements[index: i]}\"/>",
+							13 => $"\t<NumberOfOppositions value=\"{orbitElements[index: i]}\"/>",
+							14 => $"\t<NumberOfObservations value=\"{orbitElements[index: i]}\"/>",
+							15 => $"\t<ObservationSpan value=\"{orbitElements[index: i]}\"/>",
+							16 => $"\t<RmsResidual unit=\"arcseconds\" value=\"{orbitElements[index: i]}\"/>",
+							17 => $"\t<ComputerName value=\"{orbitElements[index: i]}\"/>",
+							18 => $"\t<FourHexdigitFlags value=\"{orbitElements[index: i]}\"/>",
+							19 => $"\t<DateOfLastObservation unit=\"yyyymmdd\" value=\"{orbitElements[index: i]}\"/>",
+							20 => $"\t<LinearEccentricity value=\"{orbitElements[index: i]}\"/>",
+							21 => $"\t<SemiMinorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							22 => $"\t<MajorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							23 => $"\t<MinorAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							24 => $"\t<EccenctricAnomaly unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							25 => $"\t<TrueAnomaly unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							26 => $"\t<PerihelionDistance unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							27 => $"\t<AphelionDistance unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							28 => $"\t<LongitudeOfDescendingNode unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							29 => $"\t<ArgumentOfAphelion unit=\"degrees\" value=\"{orbitElements[index: i]}\"/>",
+							30 => $"\t<FocalParameter unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							31 => $"\t<SemiLatusRectum unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							32 => $"\t<LatusRectum unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							33 => $"\t<OrbitalPeriod unit=\"years\" value=\"{orbitElements[index: i]}\"/>",
+							34 => $"\t<OrbitalArea unit=\"squared astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							35 => $"\t<OrbitalPerimeter unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							36 => $"\t<SemiMeanAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							37 => $"\t<MeanAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
+							38 => $"\t<StandardGravitationalParameter unit=\"AU³/a²\" value=\"{orbitElements[index: i]}\"/>",
+							_ => string.Empty
+						});
 					}
 				}
-				streamWriter.Write(value: $"</MinorPlanet>");
+				_ = sb.Append(value: "</MinorPlanet>");
+				streamWriter.Write(value: sb.ToString());
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the ButtonExportAsJson control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsJson_Click(object sender, EventArgs e)
 		{
 			saveFileDialogJson.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
@@ -304,84 +307,118 @@ namespace Planetoid_DB
 			if (saveFileDialogJson.ShowDialog() == DialogResult.OK)
 			{
 				using StreamWriter streamWriter = new(path: saveFileDialogJson.FileName);
-				streamWriter.WriteLine(value: $"{{");
+				StringBuilder sb = new();
+				_ = sb.AppendLine(value: "{");
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
 					{
-						switch (i)
+						_ = sb.AppendLine(value: i switch
 						{
-							case 0: streamWriter.WriteLine(value: $"\t\"Index\": \"{orbitElements[index: i]}\""); break;
-							case 1: streamWriter.WriteLine(value: $"\t\"ReadableDesignation\": \"{orbitElements[index: i]}\""); break;
-							case 2: streamWriter.WriteLine(value: $"\t\"Epoch\": \"{orbitElements[index: i]}\""); break;
-							case 3: streamWriter.WriteLine(value: $"\t\"MeanAnomalyAtTheEpoch\": {orbitElements[index: i]}"); break;
-							case 4: streamWriter.WriteLine(value: $"\t\"ArgumentOfPerihelion\": {orbitElements[index: i]}"); break;
-							case 5: streamWriter.WriteLine(value: $"\t\"LongitudeOfTheAscendingNode\": {orbitElements[index: i]}"); break;
-							case 6: streamWriter.WriteLine(value: $"\t\"InclinationToTheEcliptic\": {orbitElements[index: i]}"); break;
-							case 7: streamWriter.WriteLine(value: $"\t\"OrbitalEcentricity\": {orbitElements[index: i]}"); break;
-							case 8: streamWriter.WriteLine(value: $"\t\"MeanDailyMotion\": {orbitElements[index: i]}"); break;
-							case 9: streamWriter.WriteLine(value: $"\t\"SemiMajorAxis\": {orbitElements[index: i]}"); break;
-							case 10: streamWriter.WriteLine(value: $"\t\"AbsoluteMagnitude\": {orbitElements[index: i]}"); break;
-							case 11: streamWriter.WriteLine(value: $"\t\"SlopeParameter\": {orbitElements[index: i]}"); break;
-							case 12: streamWriter.WriteLine(value: $"\t\"Reference\": \"{orbitElements[index: i]}\""); break;
-							case 13: streamWriter.WriteLine(value: $"\t\"NumberOfOppositions\": {orbitElements[index: i]}"); break;
-							case 14: streamWriter.WriteLine(value: $"\t\"NumberOfObservations\": {orbitElements[index: i]}"); break;
-							case 15: streamWriter.WriteLine(value: $"\t\"ObservationSpan\": \"{orbitElements[index: i]}\""); break;
-							case 16: streamWriter.WriteLine(value: $"\t\"RmsResidual\": {orbitElements[index: i]}"); break;
-							case 17: streamWriter.WriteLine(value: $"\t\"ComputerName\": \"{orbitElements[index: i]}\""); break;
-							case 18: streamWriter.WriteLine(value: $"\t\"FourHexdigitFlags\": \"{orbitElements[index: i]}\""); break;
-							case 19: streamWriter.WriteLine(value: $"\t\"DateOfLastObservation\": \"{orbitElements[index: i]}\""); break;
-							case 20: streamWriter.WriteLine(value: $"\t\"LinearEccentricity\": {orbitElements[index: i]}"); break;
-							case 21: streamWriter.WriteLine(value: $"\t\"SemiMinorAxis\": {orbitElements[index: i]}"); break;
-							case 22: streamWriter.WriteLine(value: $"\t\"MajorAxis\": {orbitElements[index: i]}"); break;
-							case 23: streamWriter.WriteLine(value: $"\t\"MinorAxis\": {orbitElements[index: i]}"); break;
-							case 24: streamWriter.WriteLine(value: $"\t\"EccenctricAnomaly\": {orbitElements[index: i]}"); break;
-							case 25: streamWriter.WriteLine(value: $"\t\"TrueAnomaly\": {orbitElements[index: i]}"); break;
-							case 26: streamWriter.WriteLine(value: $"\t\"PerihelionDistance\": {orbitElements[index: i]}"); break;
-							case 27: streamWriter.WriteLine(value: $"\t\"AphelionDistance\": {orbitElements[index: i]}"); break;
-							case 28: streamWriter.WriteLine(value: $"\t\"LongitudeOfDescendingNode\": {orbitElements[index: i]}"); break;
-							case 29: streamWriter.WriteLine(value: $"\t\"ArgumentOfAphelion\": {orbitElements[index: i]}"); break;
-							case 30: streamWriter.WriteLine(value: $"\t\"FocalParameter\": {orbitElements[index: i]}"); break;
-							case 31: streamWriter.WriteLine(value: $"\t\"SemiLatusRectum\": {orbitElements[index: i]}"); break;
-							case 32: streamWriter.WriteLine(value: $"\t\"LatusRectum\": {orbitElements[index: i]}"); break;
-							case 33: streamWriter.WriteLine(value: $"\t\"OrbitalPeriod\": {orbitElements[index: i]}"); break;
-							case 34: streamWriter.WriteLine(value: $"\t\"OrbitalArea\": {orbitElements[index: i]}"); break;
-							case 35: streamWriter.WriteLine(value: $"\t\"OrbitalPerimeter\": {orbitElements[index: i]}"); break;
-							case 36: streamWriter.WriteLine(value: $"\t\"SemiMeanAxis\": {orbitElements[index: i]}"); break;
-							case 37: streamWriter.WriteLine(value: $"\t\"MeanAxis\": {orbitElements[index: i]}"); break;
-							case 38: streamWriter.WriteLine(value: $"\t\"StandardGravitationalParameter\": {orbitElements[index: i]}"); break;
-						}
+							0 => $"\t\"Index\": \"{orbitElements[index: i]}\",",
+							1 => $"\t\"ReadableDesignation\": \"{orbitElements[index: i]}\",",
+							2 => $"\t\"Epoch\": \"{orbitElements[index: i]}\",",
+							3 => $"\t\"MeanAnomalyAtTheEpoch\": {orbitElements[index: i]},",
+							4 => $"\t\"ArgumentOfPerihelion\": {orbitElements[index: i]},",
+							5 => $"\t\"LongitudeOfTheAscendingNode\": {orbitElements[index: i]},",
+							6 => $"\t\"InclinationToTheEcliptic\": {orbitElements[index: i]},",
+							7 => $"\t\"OrbitalEcentricity\": {orbitElements[index: i]},",
+							8 => $"\t\"MeanDailyMotion\": {orbitElements[index: i]},",
+							9 => $"\t\"SemiMajorAxis\": {orbitElements[index: i]},",
+							10 => $"\t\"AbsoluteMagnitude\": {orbitElements[index: i]},",
+							11 => $"\t\"SlopeParameter\": {orbitElements[index: i]} ",
+							12 => $"\t\"Reference\": \"{orbitElements[index: i]}\",",
+							13 => $"\t\"NumberOfOppositions\": {orbitElements[index: i]},",
+							14 => $"\t\"NumberOfObservations\": {orbitElements[index: i]},",
+							15 => $"\t\"ObservationSpan\": \"{orbitElements[index: i]}\",",
+							16 => $"\t\"RmsResidual\": {orbitElements[index: i]},",
+							17 => $"\t\"ComputerName\": \"{orbitElements[index: i]}\",",
+							18 => $"\t\"FourHexdigitFlags\": \"{orbitElements[index: i]}\",",
+							19 => $"\t\"DateOfLastObservation\": \"{orbitElements[index: i]}\",",
+							20 => $"\t\"LinearEccentricity\": {orbitElements[index: i]},",
+							21 => $"\t\"SemiMinorAxis\": {orbitElements[index: i]},",
+							22 => $"\t\"MajorAxis\": {orbitElements[index: i]},",
+							23 => $"\t\"MinorAxis\": {orbitElements[index: i]},",
+							24 => $"\t\"EccenctricAnomaly\": {orbitElements[index: i]},",
+							25 => $"\t\"TrueAnomaly\": {orbitElements[index: i]},",
+							26 => $"\t\"PerihelionDistance\": {orbitElements[index: i]},",
+							27 => $"\t\"AphelionDistance\": {orbitElements[index: i]},",
+							28 => $"\t\"LongitudeOfDescendingNode\": {orbitElements[index: i]},",
+							29 => $"\t\"ArgumentOfAphelion\": {orbitElements[index: i]},",
+							30 => $"\t\"FocalParameter\": {orbitElements[index: i]},",
+							31 => $"\t\"SemiLatusRectum\": {orbitElements[index: i]},",
+							32 => $"\t\"LatusRectum\": {orbitElements[index: i]},",
+							33 => $"\t\"OrbitalPeriod\": {orbitElements[index: i]},",
+							34 => $"\t\"OrbitalArea\": {orbitElements[index: i]},",
+							35 => $"\t\"OrbitalPerimeter\": {orbitElements[index: i]},",
+							36 => $"\t\"SemiMeanAxis\": {orbitElements[index: i]},",
+							37 => $"\t\"MeanAxis\": {orbitElements[index: i]},",
+							38 => $"\t\"StandardGravitationalParameter\": {orbitElements[index: i]}",
+							_ => string.Empty
+						});
 					}
 				}
-				streamWriter.Write(value: $"}}");
+				_ = sb.AppendLine(value: "}");
+				streamWriter.Write(value: sb.ToString());
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the ButtonMarkAll control.
+		/// Marks all items in the list.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonMarkAll_Click(object sender, EventArgs e) => MarkAll();
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the ButtonUnmarkAll control.
+		/// Unmarks all items in the list.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonUnmarkAll_Click(object sender, EventArgs e) => UnmarkAll();
 
 		#endregion
 
+		/// <summary>
+		/// Handles the ItemCheck event of the CheckedListBoxOrbitalElements control.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CheckedListBoxOrbitalElements_ItemCheck(object sender, ItemCheckEventArgs e)
 		{
 		}
 
+		/// <summary>
+		/// Handles the SelectedIndexChanged event of the CheckedListBoxOrbitalElements control.
+		/// Enables or disables export buttons based on whether all items are unmarked.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CheckedListBoxOrbitalElements_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			buttonExportAsTxt.Enabled = IsAllUnmarked()
 				? (buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = false)
 				: (buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = true);
 		}
+
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ExportDataSheetForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
+		}
+
+		#endregion
 	}
 }

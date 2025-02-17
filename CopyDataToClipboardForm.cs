@@ -1,23 +1,30 @@
-﻿using System.Collections;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// A form that allows users to copy data to the clipboard.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class CopyDataToClipboardForm : KryptonForm
 	{
-		private ArrayList dataToCopy = new(capacity: 0);
+		/// <summary>
+		/// The list of data to be copied to the clipboard.
+		/// </summary>
+		private List<string> dataToCopy = [];
 
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="CopyDataToClipboardForm"/> class.
 		/// </summary>
-		public CopyDataToClipboardForm() => InitializeComponent();
+		public CopyDataToClipboardForm()
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(CopyDataToClipboardForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+		}
 
 		#endregion
 
@@ -40,6 +47,10 @@ namespace Planetoid_DB
 				Clipboard.SetText(text: text);
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
+			catch (System.Runtime.InteropServices.ExternalException ex)
+			{
+				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
 			catch (Exception ex)
 			{
 				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
@@ -47,20 +58,21 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string text)
+		/// <param name="text">The text to be displayed.</param>
+		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -69,49 +81,41 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the data to be copied to the clipboard.
 		/// </summary>
-		/// <param name="arrayList"></param>
-		public void SetDatabase(ArrayList arrayList) => dataToCopy = arrayList;
+		/// <param name="list">The list of data to be copied.</param>
+		public void SetDatabase(List<string> list) => dataToCopy = list;
 
 		#endregion
 
 		#region Form* event handler
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyDataToClipboardForm_Load(object sender, EventArgs e)
 		{
-			buttonIndexNumber.Tag = dataToCopy[index: 0];
-			buttonReadableDesignation.Tag = dataToCopy[index: 1];
-			buttonEpoch.Tag = dataToCopy[index: 2];
-			buttonMeanAnomaly.Tag = dataToCopy[index: 3];
-			buttonArgumentOfPerihelion.Tag = dataToCopy[index: 4];
-			buttonLongitudeOfTheAscendingNode.Tag = dataToCopy[index: 5];
-			buttonInclination.Tag = dataToCopy[index: 6];
-			buttonOrbitalEccentricity.Tag = dataToCopy[index: 7];
-			buttonMeanDailyMotion.Tag = dataToCopy[index: 8];
-			buttonSemimajorAxis.Tag = dataToCopy[index: 9];
-			buttonAbsoluteMagnitude.Tag = dataToCopy[index: 10];
-			buttonSlopeParameter.Tag = dataToCopy[index: 11];
-			buttonReference.Tag = dataToCopy[index: 12];
-			buttonNumberOfOppositions.Tag = dataToCopy[index: 13];
-			buttonNumberOfObservations.Tag = dataToCopy[index: 14];
-			buttonObservationSpan.Tag = dataToCopy[index: 15];
-			buttonRmsResidual.Tag = dataToCopy[index: 16];
-			buttonComputername.Tag = dataToCopy[index: 17];
-			buttonFlags.Tag = dataToCopy[index: 18];
-			buttonDateOfLastObservation.Tag = dataToCopy[index: 19];
+			KryptonButton[] buttons =
+			[
+				buttonIndexNumber, buttonReadableDesignation, buttonEpoch, buttonMeanAnomaly, buttonArgumentOfPerihelion,
+				buttonLongitudeOfTheAscendingNode, buttonInclination, buttonOrbitalEccentricity, buttonMeanDailyMotion,
+				buttonSemimajorAxis, buttonAbsoluteMagnitude, buttonSlopeParameter, buttonReference, buttonNumberOfOppositions,
+				buttonNumberOfObservations, buttonObservationSpan, buttonRmsResidual, buttonComputername, buttonFlags, buttonDateOfLastObservation
+			];
+
+			for (int i = 0; i < buttons.Length; i++)
+			{
+				buttons[i].Tag = dataToCopy.Count > i ? dataToCopy[index: i] : string.Empty;
+			}
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosed event of the form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
 		private void CopyDataToClipboardForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
@@ -136,10 +140,10 @@ namespace Planetoid_DB
 		#region Leave-Handler
 
 		/// <summary>
-		/// 
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
 
 		#endregion
@@ -147,226 +151,163 @@ namespace Planetoid_DB
 		#region Click-Handler
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonIndexNumber control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonIndexNumber_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonIndexNumber.Tag.ToString());
-#pragma warning restore CS8604 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonIndexNumber_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonIndexNumber.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonReadableDesignation control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Mögliches Nullverweisargument.
-		private void ButtonReadableDesignation_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonReadableDesignation.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonReadableDesignation_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonReadableDesignation.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonEpoch control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonEpoch_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonEpoch.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonEpoch_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonEpoch.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonMeanAnomaly control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonMeanAnomaly_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanAnomaly.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonMeanAnomaly_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanAnomaly.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonArgumentOfPerihelion control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonArgumentOfPerihelion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonArgumentOfPerihelion.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonArgumentOfPerihelion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonArgumentOfPerihelion.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonLongitudeOfTheAscendingNode control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonLongitudeOfTheAscendingNode_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonLongitudeOfTheAscendingNode.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonLongitudeOfTheAscendingNode_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonLongitudeOfTheAscendingNode.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonInclination control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonInclination_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonInclination.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonInclination_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonInclination.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonOrbitalEccentricity control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonOrbitalEccentricity_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonOrbitalEccentricity.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonOrbitalEccentricity_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonOrbitalEccentricity.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonMeanDailyMotion control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonMeanDailyMotion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanDailyMotion.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonMeanDailyMotion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanDailyMotion.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonSemimajorAxis control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonSemimajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSemimajorAxis.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonSemimajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSemimajorAxis.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonAbsoluteMagnitude control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonAbsoluteMagnitude_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonAbsoluteMagnitude.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonAbsoluteMagnitude_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonAbsoluteMagnitude.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonSlopeParameter control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonSlopeParameter_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSlopeParameter.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonSlopeParameter_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSlopeParameter.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonReference control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonReference_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonReference.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonReference_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonReference.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonNumberOfOppositions control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonNumberOfOppositions_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonNumberOfOppositions.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonNumberOfOppositions_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonNumberOfOppositions.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonNumberOfObservations control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonNumberOfObservations_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonNumberOfObservations.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonNumberOfObservations_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonNumberOfObservations.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonObservationSpan control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonObservationSpan_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonObservationSpan.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonObservationSpan_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonObservationSpan.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonRmsResidual control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonRmsResidual_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonRmsResidual.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonRmsResidual_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonRmsResidual.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonComputername control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonComputername_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonComputername.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonComputername_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonComputername.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonFlags control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonFlags_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonFlags.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonFlags_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonFlags.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the buttonDateOfLastObservation control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-#pragma warning disable CS8604 // Dereferenzierung eines möglichen Nullverweises.
-		private void ButtonDateOfLastObservation_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonDateOfLastObservation.Tag.ToString());
-#pragma warning restore CS8604 // Mögliches Nullverweisargument.
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ButtonDateOfLastObservation_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonDateOfLastObservation.Tag?.ToString() ?? string.Empty);
 
 		#endregion
 
+		#region KeyDown event handler
+
+		/// <summary>
+		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Closes the form when the Escape key is pressed.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void CopyDataToClipboardForm_KeyDown(object? sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Escape)
+			{
+				this.Close();
+			}
+		}
+
+		#endregion
 	}
 }

@@ -10,7 +10,7 @@ using Krypton.Toolkit;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// 
+	/// Form to handle downloading updates for the application.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class DownloadUpdateForm : KryptonForm
@@ -25,7 +25,7 @@ namespace Planetoid_DB
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="DownloadUpdateForm"/> class.
 		/// </summary>
 		public DownloadUpdateForm() => InitializeComponent();
 
@@ -57,44 +57,59 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Gets the last modified date of the specified URI.
 		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>
-		private static DateTime GetLastModified(Uri uri)
+		/// <param name="uri">The URI to check.</param>
+		/// <returns>The last modified date of the URI.</returns>
+		private static async Task<DateTime> GetLastModifiedAsync(Uri uri)
 		{
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uri"></param>
-		/// <returns></returns>
-		private static long GetContentLength(Uri uri)
-		{
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="text"></param>
-		private void SetStatusbar(string? text)
-		{
-			if (!string.IsNullOrEmpty(value: text))
+			try
 			{
-				labelInformation.Enabled = true;
-				labelInformation.Text = text;
+				using HttpResponseMessage response = await client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead);
+				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"Error getting last modified date: {ex.Message}");
+				return DateTime.MinValue;
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Gets the content length of the specified URI.
+		/// </summary>
+		/// <param name="uri">The URI to check.</param>
+		/// <returns>The content length of the URI.</returns>
+		private static async Task<long> GetContentLengthAsync(Uri uri)
+		{
+			try
+			{
+				using HttpResponseMessage response = await client.GetAsync(uri, HttpCompletionOption.ResponseHeadersRead);
+				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"Error getting content length: {ex.Message}");
+				return 0;
+			}
+		}
+
+		/// <summary>
+		/// Sets the status bar text.
+		/// </summary>
+		/// <param name="text">The text to display.</param>
+		/// <param name="additionalInfo">Additional information to display.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
+		{
+			if (!string.IsNullOrEmpty(value: text))
+			{
+				labelInformation.Enabled = true;
+				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+			}
+		}
+
+		/// <summary>
+		/// Clears the status bar text.
 		/// </summary>
 		private void ClearStatusbar()
 		{
@@ -103,7 +118,7 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Shows the MPCORB data check form.
 		/// </summary>
 		private static void ShowMpcorbDatCheck()
 		{
@@ -123,54 +138,57 @@ namespace Planetoid_DB
 		#region Form* event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Load event of the DownloadUpdateForm control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void DownloadUpdateForm_Load(object? sender, EventArgs? e)
 		{
 			labelStatusValue.Text = I10nStrings.StatusNothingToDoText;
 			labelDateValue.Text = labelSizeValue.Text = labelSourceValue.Text = "";
-			labelDateValue.Visible = labelSizeValue.Visible = labelSizeValue.Visible = labelSourceValue.Visible = buttonCancelDownload.Enabled = false;
+			labelDateValue.Visible = labelSizeValue.Visible = labelSourceValue.Visible = buttonCancelDownload.Enabled = false;
 			labelDownload.Text = I10nStrings.NumberZero + I10nStrings.PercentSign;
+			client.DefaultRequestHeaders.ConnectionClose = true;
+			/*
 			webClient.Proxy = null;
 			webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
 			webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+			*/
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosed event of the DownloadUpdateForm control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
 		private void DownloadUpdateForm_FormClosed(object? sender, FormClosedEventArgs? e)
 		{
-			webClient.CancelAsync();
-			webClient.Dispose();
+			client.CancelPendingRequests();
 			Dispose();
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the DownloadProgressChanged event of the WebClient control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ProgressChanged(object? sender, DownloadProgressChangedEventArgs e)
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="DownloadProgressChangedEventArgs"/> instance containing the event data.</param>
+		private void ProgressChanged(long bytesReceived, long totalBytesToReceive)
 		{
-			progressBarDownload.Value = e.ProgressPercentage;
-			labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.PercentSign;
-			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: e.ProgressPercentage, progressMax: 100);
+			int progressPercentage = (int)(bytesReceived * 100 / totalBytesToReceive);
+			progressBarDownload.Value = progressPercentage;
+			labelDownload.Text = progressPercentage.ToString() + I10nStrings.PercentSign;
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: progressPercentage, progressMax: 100);
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the DownloadFileCompleted event of the WebClient control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void Completed(object? sender, AsyncCompletedEventArgs e)
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="AsyncCompletedEventArgs"/> instance containing the event data.</param>
+		private async void Completed(bool success, Exception? error)
 		{
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
-			if (e.Error == null)
+			if (success)
 			{
 				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
 				File.Delete(path: strFilenameMpcorb);
@@ -181,7 +199,7 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				labelStatusValue.Text = e.Cancelled ? I10nStrings.StatusDownloadCancelled : $"{I10nStrings.StatusUnknownError} {e.Error}";
+				labelStatusValue.Text = error == null ? I10nStrings.StatusDownloadCancelled : $"{I10nStrings.StatusUnknownError} {error.Message}";
 				labelSourceValue.Text = labelDateValue.Text = labelSizeValue.Text = string.Empty;
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
@@ -213,10 +231,10 @@ namespace Planetoid_DB
 		#region Leave event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Leave event of controls to clear the status bar.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => ClearStatusbar();
 
 		#endregion
@@ -224,26 +242,39 @@ namespace Planetoid_DB
 		#region Click event handlers
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Download button to start the download process.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonDownload_Click(object? sender, EventArgs? e)
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		private async void ButtonDownload_Click(object? sender, EventArgs? e)
 		{
 			buttonDownload.Enabled = false;
 			buttonCancelDownload.Enabled = true;
 			buttonCheckForUpdate.Enabled = false;
 			labelSourceValue.Text = uriMPCORB.AbsoluteUri;
 			labelSourceValue.Visible = true;
-			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToString(provider: CultureInfo.InvariantCulture);
+			labelDateValue.Text = (await GetLastModifiedAsync(uri: uriMPCORB)).ToString(provider: CultureInfo.InvariantCulture);
 			labelDateValue.Visible = true;
-			labelSizeValue.Text = $"{GetContentLength(uri: uriMPCORB)} {I10nStrings.BytesText}";
+			labelSizeValue.Text = $"{await GetContentLengthAsync(uri: uriMPCORB)} {I10nStrings.BytesText}";
 			labelSizeValue.Visible = true;
 			labelStatusValue.Text = I10nStrings.StatusTryToConnect;
 			try
 			{
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
-				webClient.DownloadFileAsync(address: uriMPCORB, fileName: strFilenameMpcorbTemp);
+				using HttpResponseMessage response = await client.GetAsync(uriMPCORB, HttpCompletionOption.ResponseHeadersRead);
+				_ = response.EnsureSuccessStatusCode();
+				using Stream contentStream = await response.Content.ReadAsStreamAsync();
+				using FileStream fileStream = new(strFilenameMpcorbTemp, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true);
+				byte[] buffer = new byte[8192];
+				long totalBytesRead = 0;
+				int bytesRead;
+				while ((bytesRead = await contentStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+				{
+					await fileStream.WriteAsync(buffer, 0, bytesRead);
+					totalBytesRead += bytesRead;
+					ProgressChanged(totalBytesRead, response.Content.Headers.ContentLength ?? 0);
+				}
+				Completed(true, null);
 			}
 			catch (Exception ex)
 			{
@@ -251,24 +282,25 @@ namespace Planetoid_DB
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
 				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+				Completed(false, ex);
 			}
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Cancel Download button to cancel the download process.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void ButtonCancelDownload_Click(object? sender, EventArgs? e) => webClient.CancelAsync();
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		private void ButtonCancelDownload_Click(object? sender, EventArgs? e) => client.CancelPendingRequests();
 
 		/// <summary>
-		/// 
+		/// Handles the FormClosing event of the DownloadUpdateForm control.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
 		private void DownloadUpdateForm_FormClosing(object? sender, FormClosingEventArgs? e)
 		{
-			webClient.CancelAsync();
+			client.CancelPendingRequests();
 			if (File.Exists(path: strFilenameMpcorbTemp))
 			{
 				File.Delete(path: strFilenameMpcorbTemp);
@@ -276,10 +308,10 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// 
+		/// Handles the Click event of the Check for Update button to show the MPCORB data check form.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void ButtonCheckForUpdate_Click(object? sender, EventArgs? e) => ShowMpcorbDatCheck();
 
 		#endregion
@@ -287,17 +319,16 @@ namespace Planetoid_DB
 		#region DoubleClick event handler
 
 		/// <summary>
-		/// 
+		/// Called when a control is double-clicked to copy the text to the clipboard.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void CopyToClipboard_DoubleClick(object? sender, EventArgs? e)
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
-			switch (sender)
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			if (sender is Control control)
 			{
-				case Label label: CopyToClipboard(text: label.Text); break;
-				case KryptonLabel kryptonLabel: CopyToClipboard(text: kryptonLabel.Text); break;
-				case ToolStripLabel labelToolStripCombo: CopyToClipboard(text: labelToolStripCombo.Text); break;
+				CopyToClipboard(text: control.Text);
 			}
 		}
 
