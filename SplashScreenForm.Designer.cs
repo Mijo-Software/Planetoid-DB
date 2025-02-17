@@ -1,4 +1,6 @@
-﻿namespace Planetoid_DB
+﻿using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
   partial class SplashScreenForm
   {
@@ -30,10 +32,9 @@
 		{
 			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreenForm));
-			progressBarSplash = new ProgressBar();
+			progressBarSplash = new KryptonProgressBar();
 			labelTitle = new Label();
 			labelVersion = new Label();
-			labelDataLoading = new Label();
 			toolTip = new ToolTip(components);
 			SuspendLayout();
 			// 
@@ -47,9 +48,10 @@
 			progressBarSplash.Name = "progressBarSplash";
 			progressBarSplash.Size = new Size(487, 20);
 			progressBarSplash.Step = 1;
-			progressBarSplash.Style = ProgressBarStyle.Continuous;
 			progressBarSplash.TabIndex = 3;
+			progressBarSplash.Text = "Loading data...";
 			toolTip.SetToolTip(progressBarSplash, "Loads the data");
+			progressBarSplash.Values.Text = "Loading data...";
 			// 
 			// labelTitle
 			// 
@@ -59,7 +61,7 @@
 			labelTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			labelTitle.AutoSize = true;
 			labelTitle.BackColor = Color.Transparent;
-			labelTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+			labelTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
 			labelTitle.ForeColor = Color.LightCyan;
 			labelTitle.Location = new Point(266, 22);
 			labelTitle.Name = "labelTitle";
@@ -76,7 +78,7 @@
 			labelVersion.AccessibleRole = AccessibleRole.Text;
 			labelVersion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			labelVersion.BackColor = Color.Transparent;
-			labelVersion.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelVersion.Font = new Font("Segoe UI", 8.5F);
 			labelVersion.ForeColor = Color.White;
 			labelVersion.Location = new Point(266, 67);
 			labelVersion.Name = "labelVersion";
@@ -86,24 +88,6 @@
 			labelVersion.TextAlign = ContentAlignment.MiddleCenter;
 			toolTip.SetToolTip(labelVersion, "Version number");
 			labelVersion.DoubleClick += CopyToClipboard_DoubleClick;
-			// 
-			// labelDataLoading
-			// 
-			labelDataLoading.AccessibleDescription = "Shows that data are loading";
-			labelDataLoading.AccessibleName = "Loading text";
-			labelDataLoading.AccessibleRole = AccessibleRole.Text;
-			labelDataLoading.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-			labelDataLoading.AutoSize = true;
-			labelDataLoading.BackColor = Color.Transparent;
-			labelDataLoading.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
-			labelDataLoading.ForeColor = Color.White;
-			labelDataLoading.Location = new Point(10, 279);
-			labelDataLoading.Name = "labelDataLoading";
-			labelDataLoading.Size = new Size(89, 15);
-			labelDataLoading.TabIndex = 2;
-			labelDataLoading.Text = "[ProcessAsText]";
-			toolTip.SetToolTip(labelDataLoading, "Loading data");
-			labelDataLoading.DoubleClick += CopyToClipboard_DoubleClick;
 			// 
 			// SplashScreenForm
 			// 
@@ -115,13 +99,13 @@
 			BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
 			BackgroundImageLayout = ImageLayout.Stretch;
 			ClientSize = new Size(487, 314);
-			Controls.Add(labelDataLoading);
+			CloseBox = false;
 			Controls.Add(labelVersion);
 			Controls.Add(labelTitle);
 			Controls.Add(progressBarSplash);
 			Cursor = Cursors.AppStarting;
-			Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
-			FormBorderStyle = FormBorderStyle.None;
+			Font = new Font("Segoe UI", 8.5F);
+			FormBorderStyle = FormBorderStyle.Fixed3D;
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			MaximizeBox = false;
 			MinimizeBox = false;
@@ -131,6 +115,7 @@
 			Text = "Splash Screen";
 			toolTip.SetToolTip(this, "splash screen");
 			TopMost = true;
+			UseDropShadow = true;
 			FormClosed += SplashScreenForm_FormClosed;
 			Load += SplashScreenForm_Load;
 			ResumeLayout(false);
@@ -139,10 +124,9 @@
 
 		#endregion
 
-		private System.Windows.Forms.ProgressBar progressBarSplash;
+		private KryptonProgressBar progressBarSplash;
     private System.Windows.Forms.Label labelTitle;
     private System.Windows.Forms.Label labelVersion;
-    private System.Windows.Forms.Label labelDataLoading;
 		private System.Windows.Forms.ToolTip toolTip;
 	}
 }

@@ -70,6 +70,7 @@ namespace Planetoid_DB
 			progressBarDownload.Size = new Size(408, 18);
 			progressBarDownload.TabIndex = 1;
 			toolTip.SetToolTip(progressBarDownload, "Shows the progress of the download");
+			progressBarDownload.Values.Text = "";
 			progressBarDownload.MouseEnter += SetStatusbar_Enter;
 			progressBarDownload.MouseLeave += ClearStatusbar_Leave;
 			// 
@@ -79,7 +80,7 @@ namespace Planetoid_DB
 			labelStatusValue.AccessibleName = "Status of the download";
 			labelStatusValue.AccessibleRole = AccessibleRole.Text;
 			labelStatusValue.Dock = DockStyle.Fill;
-			labelStatusValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelStatusValue.Font = new Font("Segoe UI", 8.5F);
 			labelStatusValue.Location = new Point(59, 3);
 			labelStatusValue.Name = "labelStatusValue";
 			labelStatusValue.Size = new Size(411, 20);
@@ -97,7 +98,7 @@ namespace Planetoid_DB
 			labelDownload.AccessibleDescription = "Shows the percent of the downloaded bytes";
 			labelDownload.AccessibleName = "Download in percent";
 			labelDownload.AccessibleRole = AccessibleRole.Text;
-			labelDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelDownload.Font = new Font("Segoe UI", 8.5F);
 			labelDownload.Location = new Point(426, 124);
 			labelDownload.Name = "labelDownload";
 			labelDownload.Size = new Size(41, 20);
@@ -115,12 +116,13 @@ namespace Planetoid_DB
 			buttonCancelDownload.AccessibleDescription = "Cancels the download";
 			buttonCancelDownload.AccessibleName = "Cancel download";
 			buttonCancelDownload.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancelDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancelDownload.Font = new Font("Segoe UI", 8.5F);
 			buttonCancelDownload.Location = new Point(333, 155);
 			buttonCancelDownload.Name = "buttonCancelDownload";
 			buttonCancelDownload.Size = new Size(128, 36);
 			buttonCancelDownload.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancelDownload, "Cancel download");
+			buttonCancelDownload.Values.DropDownArrowColor = Color.Empty;
 			buttonCancelDownload.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancelDownload.Values.Text = "&Cancel download";
 			buttonCancelDownload.Click += ButtonCancelDownload_Click;
@@ -134,12 +136,13 @@ namespace Planetoid_DB
 			buttonDownload.AccessibleDescription = "Downloads the database";
 			buttonDownload.AccessibleName = "Download MPCORB.DAT";
 			buttonDownload.AccessibleRole = AccessibleRole.PushButton;
-			buttonDownload.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonDownload.Font = new Font("Segoe UI", 8.5F);
 			buttonDownload.Location = new Point(150, 155);
 			buttonDownload.Name = "buttonDownload";
 			buttonDownload.Size = new Size(177, 36);
 			buttonDownload.TabIndex = 4;
 			toolTip.SetToolTip(buttonDownload, "Download MPCORB.DAT");
+			buttonDownload.Values.DropDownArrowColor = Color.Empty;
 			buttonDownload.Values.Image = Properties.Resources.silk_package_go;
 			buttonDownload.Values.Text = "&Download MPCORB.DAT";
 			buttonDownload.Click += ButtonDownload_Click;
@@ -154,7 +157,7 @@ namespace Planetoid_DB
 			labelSourceValue.AccessibleName = "Source of the download";
 			labelSourceValue.AccessibleRole = AccessibleRole.Text;
 			labelSourceValue.Dock = DockStyle.Fill;
-			labelSourceValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelSourceValue.Font = new Font("Segoe UI", 8.5F);
 			labelSourceValue.Location = new Point(59, 55);
 			labelSourceValue.Name = "labelSourceValue";
 			labelSourceValue.Size = new Size(411, 20);
@@ -172,12 +175,13 @@ namespace Planetoid_DB
 			buttonCheckForUpdate.AccessibleDescription = "Checks updates of the database";
 			buttonCheckForUpdate.AccessibleName = "Check updates";
 			buttonCheckForUpdate.AccessibleRole = AccessibleRole.PushButton;
-			buttonCheckForUpdate.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCheckForUpdate.Font = new Font("Segoe UI", 8.5F);
 			buttonCheckForUpdate.Location = new Point(12, 155);
 			buttonCheckForUpdate.Name = "buttonCheckForUpdate";
 			buttonCheckForUpdate.Size = new Size(132, 36);
 			buttonCheckForUpdate.TabIndex = 3;
 			toolTip.SetToolTip(buttonCheckForUpdate, "Check updates");
+			buttonCheckForUpdate.Values.DropDownArrowColor = Color.Empty;
 			buttonCheckForUpdate.Values.Image = Properties.Resources.silk_lightning;
 			buttonCheckForUpdate.Values.Text = "C&heck for update";
 			buttonCheckForUpdate.Click += ButtonCheckForUpdate_Click;
@@ -192,7 +196,7 @@ namespace Planetoid_DB
 			labelDateValue.AccessibleName = "Date of the download file";
 			labelDateValue.AccessibleRole = AccessibleRole.Text;
 			labelDateValue.Dock = DockStyle.Fill;
-			labelDateValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelDateValue.Font = new Font("Segoe UI", 8.5F);
 			labelDateValue.Location = new Point(59, 29);
 			labelDateValue.Name = "labelDateValue";
 			labelDateValue.Size = new Size(411, 20);
@@ -211,7 +215,7 @@ namespace Planetoid_DB
 			labelSizeValue.AccessibleName = "Size of the dowload file";
 			labelSizeValue.AccessibleRole = AccessibleRole.Text;
 			labelSizeValue.Dock = DockStyle.Fill;
-			labelSizeValue.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			labelSizeValue.Font = new Font("Segoe UI", 8.5F);
 			labelSizeValue.Location = new Point(59, 81);
 			labelSizeValue.Name = "labelSizeValue";
 			labelSizeValue.Size = new Size(411, 22);
@@ -341,7 +345,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(473, 194);
+			panel.Size = new Size(473, 169);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -351,7 +355,7 @@ namespace Planetoid_DB
 			statusStrip.AccessibleName = "Status bar of some information";
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Dock = DockStyle.None;
-			statusStrip.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
 			statusStrip.Location = new Point(0, 0);
 			statusStrip.Name = "statusStrip";
@@ -385,7 +389,7 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
-			toolStripContainer.ContentPanel.Size = new Size(473, 194);
+			toolStripContainer.ContentPanel.Size = new Size(473, 169);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
@@ -401,7 +405,7 @@ namespace Planetoid_DB
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(473, 216);
 			Controls.Add(toolStripContainer);
-			Font = new Font("Segoe UI", 8.5F, FontStyle.Regular, GraphicsUnit.Point);
+			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			MaximizeBox = false;
@@ -411,6 +415,7 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Download MPCORB.DAT";
 			toolTip.SetToolTip(this, "Download MPCORB.DAT");
+			UseDropShadow = true;
 			FormClosing += DownloadUpdateForm_FormClosing;
 			FormClosed += DownloadUpdateForm_FormClosed;
 			Load += DownloadUpdateForm_Load;

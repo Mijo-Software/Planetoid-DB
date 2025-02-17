@@ -12,10 +12,20 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class ListReadableDesignationsForm : KryptonForm
 	{
+		// List of the database
 		private List<string> planetoidDatabase = [];
+
+		// Number of planetoids and the selected index
 		private int numberPlanetoids = 0, selectedIndex = 0;
+
+		// Indicates whether the operation was aborted
 		private bool isCancelled = false;
+
+		// Index and label name as character strings
 		private string strIndex, strDesgnName;
+
+		// Indicates whether the application is currently busy
+		private bool isBusy = false;
 
 		#region Constructor
 
@@ -61,8 +71,8 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text">Der anzuzeigende Text.</param>
-		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		/// <param name="text">The main text to be displayed on the status bar.</param>
+		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrEmpty(value: text))
@@ -201,6 +211,7 @@ namespace Planetoid_DB
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs? e)
 		{
 			listView.Visible = true;
+			isBusy = false;
 			numericUpDownMinimum.Enabled = true;
 			numericUpDownMaximum.Enabled = true;
 			buttonList.Enabled = true;
@@ -291,6 +302,7 @@ namespace Planetoid_DB
 			dropButtonSaveList.Enabled = false;
 			isCancelled = false;
 			progressBar.Enabled = true;
+			isBusy = true;
 			backgroundWorker.WorkerReportsProgress = true;
 			backgroundWorker.WorkerSupportsCancellation = true;
 			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
@@ -457,7 +469,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListReadableDesignationsForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Escape)
+			if (!isBusy && e.KeyCode == Keys.Escape)
 			{
 				this.Close();
 			}

@@ -41,14 +41,14 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text">Der anzuzeigende Text.</param>
-		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		/// <param name="text">The main text to be displayed on the status bar.</param>
+		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (!string.IsNullOrEmpty(value: text))
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
 				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
@@ -335,7 +335,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private static void ButtonLoad_Click(object sender, EventArgs e)
+		private void ButtonLoad_Click(object sender, EventArgs e)
 		{
 		}
 

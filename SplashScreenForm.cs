@@ -67,7 +67,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private async void SplashScreenForm_Load(object sender, EventArgs e)
 		{
-			labelDataLoading.Text = I10nStrings.DataLoading;
 			labelTitle.Text = AssemblyInfo.AssemblyProduct;
 			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
 

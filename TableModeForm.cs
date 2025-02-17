@@ -16,6 +16,9 @@ namespace Planetoid_DB
 		/// </summary>
 		private List<string> planetoidDatabase = [];
 
+		// Indicates whether the application is currently busy.
+		private bool isBusy = false;
+
 		/// <summary>
 		/// The number of planetoids in the database.
 		/// </summary>
@@ -178,8 +181,8 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="text">The text to be displayed.</param>
-		/// <param name="additionalInfo">Additional information to be displayed.</param>
+		/// <param name="text">The main text to be displayed on the status bar.</param>
+		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
 			if (!string.IsNullOrWhiteSpace(value: text))
@@ -332,6 +335,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
 		{
+			isBusy = false;
 			listView.Visible = true;
 			numericUpDownMinimum.Enabled = true;
 			numericUpDownMaximum.Enabled = true;
@@ -433,6 +437,7 @@ namespace Planetoid_DB
 			buttonList.Enabled = false;
 			isCancelled = false;
 			progressBar.Enabled = true;
+			isBusy = true;
 			backgroundWorker.WorkerReportsProgress = true;
 			backgroundWorker.WorkerSupportsCancellation = true;
 			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
@@ -446,7 +451,11 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ButtonCancel_Click(object sender, EventArgs e) => isCancelled = true;
+		private void ButtonCancel_Click(object sender, EventArgs e)
+		{
+			isCancelled = true;
+			isBusy = false;
+		}
 
 		#endregion
 
@@ -478,7 +487,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void TableModeForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Escape)
+			if (!isBusy && e.KeyCode == Keys.Escape)
 			{
 				this.Close();
 			}

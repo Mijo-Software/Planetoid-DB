@@ -25,247 +25,247 @@ namespace Planetoid_DB
       base.Dispose(disposing);
     }
 
-    #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
-			this.components = new System.ComponentModel.Container();
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppInfoForm));
-			this.labelVersion = new Krypton.Toolkit.KryptonLabel();
-			this.labelTitle = new Krypton.Toolkit.KryptonLabel();
-			this.labelDescription = new Krypton.Toolkit.KryptonLabel();
-			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.pictureBoxBanner = new System.Windows.Forms.PictureBox();
-			this.labelCopyright = new Krypton.Toolkit.KryptonLabel();
-			this.linkLabelEmail = new Krypton.Toolkit.KryptonLinkLabel();
-			this.linkLabelWebsite = new Krypton.Toolkit.KryptonLinkLabel();
-			this.panel = new Krypton.Toolkit.KryptonPanel();
-			this.statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxBanner)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
-			this.panel.SuspendLayout();
-			this.statusStrip.SuspendLayout();
-			this.SuspendLayout();
+			labelVersion = new KryptonLabel();
+			labelTitle = new KryptonLabel();
+			labelDescription = new KryptonLabel();
+			toolTip = new ToolTip(components);
+			pictureBoxBanner = new PictureBox();
+			labelCopyright = new KryptonLabel();
+			linkLabelEmail = new KryptonLinkLabel();
+			linkLabelWebsite = new KryptonLinkLabel();
+			panel = new KryptonPanel();
+			statusStrip = new KryptonStatusStrip();
+			labelInformation = new ToolStripStatusLabel();
+			((System.ComponentModel.ISupportInitialize)pictureBoxBanner).BeginInit();
+			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			panel.SuspendLayout();
+			statusStrip.SuspendLayout();
+			SuspendLayout();
 			// 
 			// labelVersion
 			// 
-			this.labelVersion.AccessibleDescription = "Shows the version number";
-			this.labelVersion.AccessibleName = "Version";
-			this.labelVersion.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelVersion.BackColor = System.Drawing.Color.Black;
-			this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelVersion.ForeColor = System.Drawing.Color.White;
-			this.labelVersion.Location = new System.Drawing.Point(12, 154);
-			this.labelVersion.Name = "labelVersion";
-			this.labelVersion.Size = new System.Drawing.Size(95, 20);
-			this.labelVersion.TabIndex = 1;
-			this.toolTip.SetToolTip(this.labelVersion, "Shows the version number");
-			this.labelVersion.Values.Text = "Version: X.X.X.X";
-			this.labelVersion.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelVersion.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelVersion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelVersion.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelVersion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelVersion.AccessibleDescription = "Shows the version number";
+			labelVersion.AccessibleName = "Version";
+			labelVersion.AccessibleRole = AccessibleRole.StaticText;
+			labelVersion.BackColor = Color.Black;
+			labelVersion.Font = new Font("Segoe UI", 8.5F);
+			labelVersion.ForeColor = Color.White;
+			labelVersion.Location = new Point(12, 154);
+			labelVersion.Name = "labelVersion";
+			labelVersion.Size = new Size(95, 20);
+			labelVersion.TabIndex = 1;
+			toolTip.SetToolTip(labelVersion, "Shows the version number");
+			labelVersion.Values.Text = "Version: X.X.X.X";
+			labelVersion.DoubleClick += CopyToClipboard_DoubleClick;
+			labelVersion.Enter += SetStatusbar_Enter;
+			labelVersion.Leave += ClearStatusbar_Leave;
+			labelVersion.MouseEnter += SetStatusbar_Enter;
+			labelVersion.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelTitle
 			// 
-			this.labelTitle.AccessibleDescription = "Shows the application name";
-			this.labelTitle.AccessibleName = "Application Name";
-			this.labelTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelTitle.BackColor = System.Drawing.Color.Black;
-			this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-			this.labelTitle.ForeColor = System.Drawing.Color.LightCyan;
-			this.labelTitle.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
-			this.labelTitle.Location = new System.Drawing.Point(12, 129);
-			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(129, 29);
-			this.labelTitle.TabIndex = 0;
-			this.toolTip.SetToolTip(this.labelTitle, "Shows the application name");
-			this.labelTitle.Values.Text = "Planetoid-DB";
-			this.labelTitle.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelTitle.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelTitle.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelTitle.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelTitle.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelTitle.AccessibleDescription = "Shows the application name";
+			labelTitle.AccessibleName = "Application Name";
+			labelTitle.AccessibleRole = AccessibleRole.StaticText;
+			labelTitle.BackColor = Color.Black;
+			labelTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+			labelTitle.ForeColor = Color.LightCyan;
+			labelTitle.LabelStyle = LabelStyle.TitlePanel;
+			labelTitle.Location = new Point(12, 129);
+			labelTitle.Name = "labelTitle";
+			labelTitle.Size = new Size(129, 29);
+			labelTitle.TabIndex = 0;
+			toolTip.SetToolTip(labelTitle, "Shows the application name");
+			labelTitle.Values.Text = "Planetoid-DB";
+			labelTitle.DoubleClick += CopyToClipboard_DoubleClick;
+			labelTitle.Enter += SetStatusbar_Enter;
+			labelTitle.Leave += ClearStatusbar_Leave;
+			labelTitle.MouseEnter += SetStatusbar_Enter;
+			labelTitle.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDescription
 			// 
-			this.labelDescription.AccessibleDescription = "Shows the program description";
-			this.labelDescription.AccessibleName = "Program descripton";
-			this.labelDescription.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDescription.Location = new System.Drawing.Point(12, 180);
-			this.labelDescription.Name = "labelDescription";
-			this.labelDescription.Size = new System.Drawing.Size(80, 20);
-			this.labelDescription.TabIndex = 2;
-			this.toolTip.SetToolTip(this.labelDescription, "Shows the program description");
-			this.labelDescription.Values.Text = "[Description]";
-			this.labelDescription.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDescription.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDescription.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDescription.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDescription.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDescription.AccessibleDescription = "Shows the program description";
+			labelDescription.AccessibleName = "Program descripton";
+			labelDescription.AccessibleRole = AccessibleRole.StaticText;
+			labelDescription.Font = new Font("Segoe UI", 8.5F);
+			labelDescription.Location = new Point(12, 180);
+			labelDescription.Name = "labelDescription";
+			labelDescription.Size = new Size(80, 20);
+			labelDescription.TabIndex = 2;
+			toolTip.SetToolTip(labelDescription, "Shows the program description");
+			labelDescription.Values.Text = "[Description]";
+			labelDescription.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDescription.Enter += SetStatusbar_Enter;
+			labelDescription.Leave += ClearStatusbar_Leave;
+			labelDescription.MouseEnter += SetStatusbar_Enter;
+			labelDescription.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// pictureBoxBanner
 			// 
-			this.pictureBoxBanner.AccessibleDescription = "Shows the banner";
-			this.pictureBoxBanner.AccessibleName = "Banner";
-			this.pictureBoxBanner.AccessibleRole = System.Windows.Forms.AccessibleRole.Graphic;
-			this.pictureBoxBanner.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBanner.Image")));
-			this.pictureBoxBanner.Location = new System.Drawing.Point(3, 3);
-			this.pictureBoxBanner.Name = "pictureBoxBanner";
-			this.pictureBoxBanner.Size = new System.Drawing.Size(497, 120);
-			this.pictureBoxBanner.TabIndex = 0;
-			this.pictureBoxBanner.TabStop = false;
-			this.toolTip.SetToolTip(this.pictureBoxBanner, "On the graphic you see the minor planet \"(243) Ida \".");
-			this.pictureBoxBanner.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.pictureBoxBanner.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			pictureBoxBanner.AccessibleDescription = "Shows the banner";
+			pictureBoxBanner.AccessibleName = "Banner";
+			pictureBoxBanner.AccessibleRole = AccessibleRole.Graphic;
+			pictureBoxBanner.Image = (Image)resources.GetObject("pictureBoxBanner.Image");
+			pictureBoxBanner.Location = new Point(3, 3);
+			pictureBoxBanner.Name = "pictureBoxBanner";
+			pictureBoxBanner.Size = new Size(497, 120);
+			pictureBoxBanner.TabIndex = 0;
+			pictureBoxBanner.TabStop = false;
+			toolTip.SetToolTip(pictureBoxBanner, "On the graphic you see the minor planet \"(243) Ida \".");
+			pictureBoxBanner.MouseEnter += SetStatusbar_Enter;
+			pictureBoxBanner.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelCopyright
 			// 
-			this.labelCopyright.AccessibleDescription = "Shows the copyright";
-			this.labelCopyright.AccessibleName = "Copyright";
-			this.labelCopyright.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelCopyright.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelCopyright.Location = new System.Drawing.Point(12, 200);
-			this.labelCopyright.Name = "labelCopyright";
-			this.labelCopyright.Size = new System.Drawing.Size(72, 20);
-			this.labelCopyright.TabIndex = 3;
-			this.toolTip.SetToolTip(this.labelCopyright, "Shows the copyright");
-			this.labelCopyright.Values.Text = "[Copyright]";
-			this.labelCopyright.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelCopyright.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelCopyright.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelCopyright.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelCopyright.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelCopyright.AccessibleDescription = "Shows the copyright";
+			labelCopyright.AccessibleName = "Copyright";
+			labelCopyright.AccessibleRole = AccessibleRole.StaticText;
+			labelCopyright.Font = new Font("Segoe UI", 8.5F);
+			labelCopyright.Location = new Point(12, 200);
+			labelCopyright.Name = "labelCopyright";
+			labelCopyright.Size = new Size(72, 20);
+			labelCopyright.TabIndex = 3;
+			toolTip.SetToolTip(labelCopyright, "Shows the copyright");
+			labelCopyright.Values.Text = "[Copyright]";
+			labelCopyright.DoubleClick += CopyToClipboard_DoubleClick;
+			labelCopyright.Enter += SetStatusbar_Enter;
+			labelCopyright.Leave += ClearStatusbar_Leave;
+			labelCopyright.MouseEnter += SetStatusbar_Enter;
+			labelCopyright.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// linkLabelEmail
 			// 
-			this.linkLabelEmail.AccessibleDescription = "Opens the mail client";
-			this.linkLabelEmail.AccessibleName = "E-Mail";
-			this.linkLabelEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelEmail.LinkBehavior = Krypton.Toolkit.KryptonLinkBehavior.HoverUnderline;
-			this.linkLabelEmail.Location = new System.Drawing.Point(420, 200);
-			this.linkLabelEmail.Name = "linkLabelEmail";
-			this.linkLabelEmail.Size = new System.Drawing.Size(62, 20);
-			this.linkLabelEmail.TabIndex = 5;
-			this.toolTip.SetToolTip(this.linkLabelEmail, "E-Mail");
-			this.linkLabelEmail.Values.Image = global::Planetoid_DB.Properties.Resources.silk_email;
-			this.linkLabelEmail.Values.Text = "E-Mail";
-			this.linkLabelEmail.LinkClicked += new System.EventHandler(this.LinkLabelEmail_Clicked);
-			this.linkLabelEmail.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelEmail.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelEmail.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelEmail.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			linkLabelEmail.AccessibleDescription = "Opens the mail client";
+			linkLabelEmail.AccessibleName = "E-Mail";
+			linkLabelEmail.AccessibleRole = AccessibleRole.Link;
+			linkLabelEmail.LinkBehavior = KryptonLinkBehavior.HoverUnderline;
+			linkLabelEmail.Location = new Point(420, 200);
+			linkLabelEmail.Name = "linkLabelEmail";
+			linkLabelEmail.Size = new Size(62, 20);
+			linkLabelEmail.TabIndex = 5;
+			toolTip.SetToolTip(linkLabelEmail, "E-Mail");
+			linkLabelEmail.Values.Image = Properties.Resources.silk_email;
+			linkLabelEmail.Values.Text = "E-Mail";
+			linkLabelEmail.LinkClicked += LinkLabelEmail_Clicked;
+			linkLabelEmail.Enter += SetStatusbar_Enter;
+			linkLabelEmail.Leave += ClearStatusbar_Leave;
+			linkLabelEmail.MouseEnter += SetStatusbar_Enter;
+			linkLabelEmail.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// linkLabelWebsite
 			// 
-			this.linkLabelWebsite.AccessibleDescription = "Opens the website";
-			this.linkLabelWebsite.AccessibleName = "Website";
-			this.linkLabelWebsite.AccessibleRole = System.Windows.Forms.AccessibleRole.Link;
-			this.linkLabelWebsite.LinkBehavior = Krypton.Toolkit.KryptonLinkBehavior.HoverUnderline;
-			this.linkLabelWebsite.Location = new System.Drawing.Point(420, 174);
-			this.linkLabelWebsite.Name = "linkLabelWebsite";
-			this.linkLabelWebsite.Size = new System.Drawing.Size(72, 20);
-			this.linkLabelWebsite.TabIndex = 4;
-			this.toolTip.SetToolTip(this.linkLabelWebsite, "Website");
-			this.linkLabelWebsite.Values.Image = global::Planetoid_DB.Properties.Resources.silk_world;
-			this.linkLabelWebsite.Values.Text = "Website";
-			this.linkLabelWebsite.LinkClicked += new System.EventHandler(this.LinkLabelWebsite_Clicked);
-			this.linkLabelWebsite.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelWebsite.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.linkLabelWebsite.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.linkLabelWebsite.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			linkLabelWebsite.AccessibleDescription = "Opens the website";
+			linkLabelWebsite.AccessibleName = "Website";
+			linkLabelWebsite.AccessibleRole = AccessibleRole.Link;
+			linkLabelWebsite.LinkBehavior = KryptonLinkBehavior.HoverUnderline;
+			linkLabelWebsite.Location = new Point(420, 174);
+			linkLabelWebsite.Name = "linkLabelWebsite";
+			linkLabelWebsite.Size = new Size(72, 20);
+			linkLabelWebsite.TabIndex = 4;
+			toolTip.SetToolTip(linkLabelWebsite, "Website");
+			linkLabelWebsite.Values.Image = Properties.Resources.silk_world;
+			linkLabelWebsite.Values.Text = "Website";
+			linkLabelWebsite.LinkClicked += LinkLabelWebsite_Clicked;
+			linkLabelWebsite.Enter += SetStatusbar_Enter;
+			linkLabelWebsite.Leave += ClearStatusbar_Leave;
+			linkLabelWebsite.MouseEnter += SetStatusbar_Enter;
+			linkLabelWebsite.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// panel
 			// 
-			this.panel.AccessibleDescription = "Groups the data";
-			this.panel.AccessibleName = "pane";
-			this.panel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-			this.panel.Controls.Add(this.linkLabelEmail);
-			this.panel.Controls.Add(this.linkLabelWebsite);
-			this.panel.Controls.Add(this.statusStrip);
-			this.panel.Controls.Add(this.labelCopyright);
-			this.panel.Controls.Add(this.labelTitle);
-			this.panel.Controls.Add(this.labelVersion);
-			this.panel.Controls.Add(this.labelDescription);
-			this.panel.Controls.Add(this.pictureBoxBanner);
-			this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel.Location = new System.Drawing.Point(0, 0);
-			this.panel.Name = "panel";
-			this.panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			this.panel.Size = new System.Drawing.Size(504, 245);
-			this.panel.TabIndex = 0;
+			panel.AccessibleDescription = "Groups the data";
+			panel.AccessibleName = "pane";
+			panel.AccessibleRole = AccessibleRole.Pane;
+			panel.Controls.Add(linkLabelEmail);
+			panel.Controls.Add(linkLabelWebsite);
+			panel.Controls.Add(statusStrip);
+			panel.Controls.Add(labelCopyright);
+			panel.Controls.Add(labelTitle);
+			panel.Controls.Add(labelVersion);
+			panel.Controls.Add(labelDescription);
+			panel.Controls.Add(pictureBoxBanner);
+			panel.Dock = DockStyle.Fill;
+			panel.Location = new Point(0, 0);
+			panel.Name = "panel";
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
+			panel.Size = new Size(504, 245);
+			panel.TabIndex = 0;
 			// 
 			// statusStrip
 			// 
-			this.statusStrip.AccessibleDescription = "Shows some information";
-			this.statusStrip.AccessibleName = "Status bar of some information";
-			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-			this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelInformation});
-			this.statusStrip.Location = new System.Drawing.Point(0, 223);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.ProgressBars = null;
-			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip.Size = new System.Drawing.Size(504, 22);
-			this.statusStrip.SizingGrip = false;
-			this.statusStrip.TabIndex = 6;
-			this.statusStrip.Text = "status bar";
+			statusStrip.AccessibleDescription = "Shows some information";
+			statusStrip.AccessibleName = "Status bar of some information";
+			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
+			statusStrip.Font = new Font("Segoe UI", 9F);
+			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
+			statusStrip.Location = new Point(0, 223);
+			statusStrip.Name = "statusStrip";
+			statusStrip.ProgressBars = null;
+			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
+			statusStrip.Size = new Size(504, 22);
+			statusStrip.SizingGrip = false;
+			statusStrip.TabIndex = 6;
+			statusStrip.Text = "status bar";
 			// 
 			// labelInformation
 			// 
-			this.labelInformation.AccessibleDescription = "Shows some information";
-			this.labelInformation.AccessibleName = "Shows some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelInformation.AutoToolTip = true;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(144, 17);
-			this.labelInformation.Text = "some information here";
-			this.labelInformation.ToolTipText = "Shows some information";
+			labelInformation.AccessibleDescription = "Shows some information";
+			labelInformation.AccessibleName = "Shows some information";
+			labelInformation.AccessibleRole = AccessibleRole.StaticText;
+			labelInformation.AutoToolTip = true;
+			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Margin = new Padding(5, 3, 0, 2);
+			labelInformation.Name = "labelInformation";
+			labelInformation.Size = new Size(144, 17);
+			labelInformation.Text = "some information here";
+			labelInformation.ToolTipText = "Shows some information";
 			// 
 			// AppInfoForm
 			// 
-			this.AccessibleDescription = "Shows the program information";
-			this.AccessibleName = "Program information";
-			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(504, 245);
-			this.Controls.Add(this.panel);
-			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "AppInfoForm";
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Program information";
-			this.toolTip.SetToolTip(this, "Program information");
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppInfoForm_FormClosed);
-			this.Load += new System.EventHandler(this.AppInfoForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxBanner)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
-			this.panel.ResumeLayout(false);
-			this.panel.PerformLayout();
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
-			this.ResumeLayout(false);
+			AccessibleDescription = "Shows the program information";
+			AccessibleName = "Program information";
+			AccessibleRole = AccessibleRole.Dialog;
+			AutoScaleDimensions = new SizeF(6F, 13F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(504, 245);
+			Controls.Add(panel);
+			Font = new Font("Segoe UI", 8.5F);
+			FormBorderStyle = FormBorderStyle.FixedToolWindow;
+			Icon = (Icon)resources.GetObject("$this.Icon");
+			MaximizeBox = false;
+			MinimizeBox = false;
+			Name = "AppInfoForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Program information";
+			toolTip.SetToolTip(this, "Program information");
+			UseDropShadow = true;
+			FormClosed += AppInfoForm_FormClosed;
+			Load += AppInfoForm_Load;
+			((System.ComponentModel.ISupportInitialize)pictureBoxBanner).EndInit();
+			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			panel.ResumeLayout(false);
+			panel.PerformLayout();
+			statusStrip.ResumeLayout(false);
+			statusStrip.PerformLayout();
+			ResumeLayout(false);
 
-    }
+		}
 
-    #endregion
+		#endregion
 
-    private System.Windows.Forms.PictureBox pictureBoxBanner;
+		private System.Windows.Forms.PictureBox pictureBoxBanner;
     private KryptonLabel labelVersion;
     private KryptonLabel labelTitle;
     private KryptonLabel labelDescription;

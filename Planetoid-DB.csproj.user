@@ -40,6 +40,9 @@
     <Compile Update="PlanetoidDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PlanetoidDBForm.DerivatedElements.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PrintDataSheetForm.cs">
       <SubType>Form</SubType>
     </Compile>

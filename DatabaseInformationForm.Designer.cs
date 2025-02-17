@@ -22,445 +22,445 @@ namespace Planetoid_DB
       base.Dispose(disposing);
     }
 
-    #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
-			this.components = new System.ComponentModel.Container();
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseInformationForm));
-			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.labelName = new Krypton.Toolkit.KryptonLabel();
-			this.labelDirectory = new Krypton.Toolkit.KryptonLabel();
-			this.labelSize = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateCreated = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateAccessed = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateWrited = new Krypton.Toolkit.KryptonLabel();
-			this.labelAttributes = new Krypton.Toolkit.KryptonLabel();
-			this.labelNameValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelDirectoryValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelSizeValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateCreatedValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateAccessedValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelDateWritedValue = new Krypton.Toolkit.KryptonLabel();
-			this.labelAttributesValue = new Krypton.Toolkit.KryptonLabel();
-			this.tableLayoutPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			this.statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
-			this.labelInformation = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
-			this.tableLayoutPanel.SuspendLayout();
-			this.statusStrip.SuspendLayout();
-			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
-			this.toolStripContainer.ContentPanel.SuspendLayout();
-			this.toolStripContainer.SuspendLayout();
-			this.SuspendLayout();
+			toolTip = new ToolTip(components);
+			labelName = new KryptonLabel();
+			labelDirectory = new KryptonLabel();
+			labelSize = new KryptonLabel();
+			labelDateCreated = new KryptonLabel();
+			labelDateAccessed = new KryptonLabel();
+			labelDateWrited = new KryptonLabel();
+			labelAttributes = new KryptonLabel();
+			labelNameValue = new KryptonLabel();
+			labelDirectoryValue = new KryptonLabel();
+			labelSizeValue = new KryptonLabel();
+			labelDateCreatedValue = new KryptonLabel();
+			labelDateAccessedValue = new KryptonLabel();
+			labelDateWritedValue = new KryptonLabel();
+			labelAttributesValue = new KryptonLabel();
+			tableLayoutPanel = new KryptonTableLayoutPanel();
+			toolStripContainer = new ToolStripContainer();
+			statusStrip = new KryptonStatusStrip();
+			labelInformation = new ToolStripStatusLabel();
+			tableLayoutPanel.SuspendLayout();
+			toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			toolStripContainer.ContentPanel.SuspendLayout();
+			toolStripContainer.SuspendLayout();
+			statusStrip.SuspendLayout();
+			SuspendLayout();
 			// 
 			// labelName
 			// 
-			this.labelName.AccessibleDescription = "Shows the name of the database";
-			this.labelName.AccessibleName = "Name";
-			this.labelName.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelName.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelName.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelName.Location = new System.Drawing.Point(3, 3);
-			this.labelName.Name = "labelName";
-			this.labelName.Size = new System.Drawing.Size(102, 20);
-			this.labelName.TabIndex = 0;
-			this.toolTip.SetToolTip(this.labelName, "Name");
-			this.labelName.Values.Text = "Name";
-			this.labelName.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelName.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelName.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelName.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelName.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelName.AccessibleDescription = "Shows the name of the database";
+			labelName.AccessibleName = "Name";
+			labelName.AccessibleRole = AccessibleRole.Text;
+			labelName.Dock = DockStyle.Fill;
+			labelName.Font = new Font("Segoe UI", 8.5F);
+			labelName.LabelStyle = LabelStyle.BoldPanel;
+			labelName.Location = new Point(3, 3);
+			labelName.Name = "labelName";
+			labelName.Size = new Size(102, 20);
+			labelName.TabIndex = 0;
+			toolTip.SetToolTip(labelName, "Name");
+			labelName.Values.Text = "Name";
+			labelName.DoubleClick += CopyToClipboard_DoubleClick;
+			labelName.Enter += SetStatusbar_Enter;
+			labelName.Leave += ClearStatusbar_Leave;
+			labelName.MouseEnter += SetStatusbar_Enter;
+			labelName.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDirectory
 			// 
-			this.labelDirectory.AccessibleDescription = "Shows the directory of the database";
-			this.labelDirectory.AccessibleName = "Directory";
-			this.labelDirectory.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDirectory.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDirectory.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDirectory.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelDirectory.Location = new System.Drawing.Point(3, 29);
-			this.labelDirectory.Name = "labelDirectory";
-			this.labelDirectory.Size = new System.Drawing.Size(102, 20);
-			this.labelDirectory.TabIndex = 2;
-			this.toolTip.SetToolTip(this.labelDirectory, "Directory");
-			this.labelDirectory.Values.Text = "Directory";
-			this.labelDirectory.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDirectory.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDirectory.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDirectory.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDirectory.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDirectory.AccessibleDescription = "Shows the directory of the database";
+			labelDirectory.AccessibleName = "Directory";
+			labelDirectory.AccessibleRole = AccessibleRole.Text;
+			labelDirectory.Dock = DockStyle.Fill;
+			labelDirectory.Font = new Font("Segoe UI", 8.5F);
+			labelDirectory.LabelStyle = LabelStyle.BoldPanel;
+			labelDirectory.Location = new Point(3, 29);
+			labelDirectory.Name = "labelDirectory";
+			labelDirectory.Size = new Size(102, 20);
+			labelDirectory.TabIndex = 2;
+			toolTip.SetToolTip(labelDirectory, "Directory");
+			labelDirectory.Values.Text = "Directory";
+			labelDirectory.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDirectory.Enter += SetStatusbar_Enter;
+			labelDirectory.Leave += ClearStatusbar_Leave;
+			labelDirectory.MouseEnter += SetStatusbar_Enter;
+			labelDirectory.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelSize
 			// 
-			this.labelSize.AccessibleDescription = "Shows the size of the database";
-			this.labelSize.AccessibleName = "Size";
-			this.labelSize.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelSize.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSize.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelSize.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelSize.Location = new System.Drawing.Point(3, 55);
-			this.labelSize.Name = "labelSize";
-			this.labelSize.Size = new System.Drawing.Size(102, 20);
-			this.labelSize.TabIndex = 4;
-			this.toolTip.SetToolTip(this.labelSize, "Size");
-			this.labelSize.Values.Text = "Size";
-			this.labelSize.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelSize.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSize.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSize.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSize.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelSize.AccessibleDescription = "Shows the size of the database";
+			labelSize.AccessibleName = "Size";
+			labelSize.AccessibleRole = AccessibleRole.Text;
+			labelSize.Dock = DockStyle.Fill;
+			labelSize.Font = new Font("Segoe UI", 8.5F);
+			labelSize.LabelStyle = LabelStyle.BoldPanel;
+			labelSize.Location = new Point(3, 55);
+			labelSize.Name = "labelSize";
+			labelSize.Size = new Size(102, 20);
+			labelSize.TabIndex = 4;
+			toolTip.SetToolTip(labelSize, "Size");
+			labelSize.Values.Text = "Size";
+			labelSize.DoubleClick += CopyToClipboard_DoubleClick;
+			labelSize.Enter += SetStatusbar_Enter;
+			labelSize.Leave += ClearStatusbar_Leave;
+			labelSize.MouseEnter += SetStatusbar_Enter;
+			labelSize.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateCreated
 			// 
-			this.labelDateCreated.AccessibleDescription = "Shows the creation date of the database";
-			this.labelDateCreated.AccessibleName = "Creation date";
-			this.labelDateCreated.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateCreated.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateCreated.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateCreated.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelDateCreated.Location = new System.Drawing.Point(3, 81);
-			this.labelDateCreated.Name = "labelDateCreated";
-			this.labelDateCreated.Size = new System.Drawing.Size(102, 20);
-			this.labelDateCreated.TabIndex = 6;
-			this.toolTip.SetToolTip(this.labelDateCreated, "Creation date");
-			this.labelDateCreated.Values.Text = "Creation date";
-			this.labelDateCreated.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateCreated.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateCreated.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateCreated.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateCreated.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateCreated.AccessibleDescription = "Shows the creation date of the database";
+			labelDateCreated.AccessibleName = "Creation date";
+			labelDateCreated.AccessibleRole = AccessibleRole.Text;
+			labelDateCreated.Dock = DockStyle.Fill;
+			labelDateCreated.Font = new Font("Segoe UI", 8.5F);
+			labelDateCreated.LabelStyle = LabelStyle.BoldPanel;
+			labelDateCreated.Location = new Point(3, 81);
+			labelDateCreated.Name = "labelDateCreated";
+			labelDateCreated.Size = new Size(102, 20);
+			labelDateCreated.TabIndex = 6;
+			toolTip.SetToolTip(labelDateCreated, "Creation date");
+			labelDateCreated.Values.Text = "Creation date";
+			labelDateCreated.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateCreated.Enter += SetStatusbar_Enter;
+			labelDateCreated.Leave += ClearStatusbar_Leave;
+			labelDateCreated.MouseEnter += SetStatusbar_Enter;
+			labelDateCreated.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateAccessed
 			// 
-			this.labelDateAccessed.AccessibleDescription = "Shows the last access date of the database";
-			this.labelDateAccessed.AccessibleName = "Last access date";
-			this.labelDateAccessed.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateAccessed.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateAccessed.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateAccessed.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelDateAccessed.Location = new System.Drawing.Point(3, 107);
-			this.labelDateAccessed.Name = "labelDateAccessed";
-			this.labelDateAccessed.Size = new System.Drawing.Size(102, 20);
-			this.labelDateAccessed.TabIndex = 8;
-			this.toolTip.SetToolTip(this.labelDateAccessed, "Last access date");
-			this.labelDateAccessed.Values.Text = "Last access date";
-			this.labelDateAccessed.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateAccessed.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateAccessed.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateAccessed.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateAccessed.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateAccessed.AccessibleDescription = "Shows the last access date of the database";
+			labelDateAccessed.AccessibleName = "Last access date";
+			labelDateAccessed.AccessibleRole = AccessibleRole.Text;
+			labelDateAccessed.Dock = DockStyle.Fill;
+			labelDateAccessed.Font = new Font("Segoe UI", 8.5F);
+			labelDateAccessed.LabelStyle = LabelStyle.BoldPanel;
+			labelDateAccessed.Location = new Point(3, 107);
+			labelDateAccessed.Name = "labelDateAccessed";
+			labelDateAccessed.Size = new Size(102, 20);
+			labelDateAccessed.TabIndex = 8;
+			toolTip.SetToolTip(labelDateAccessed, "Last access date");
+			labelDateAccessed.Values.Text = "Last access date";
+			labelDateAccessed.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateAccessed.Enter += SetStatusbar_Enter;
+			labelDateAccessed.Leave += ClearStatusbar_Leave;
+			labelDateAccessed.MouseEnter += SetStatusbar_Enter;
+			labelDateAccessed.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateWrited
 			// 
-			this.labelDateWrited.AccessibleDescription = "Shows the last write date of the database";
-			this.labelDateWrited.AccessibleName = "Last write date";
-			this.labelDateWrited.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateWrited.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateWrited.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateWrited.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelDateWrited.Location = new System.Drawing.Point(3, 133);
-			this.labelDateWrited.Name = "labelDateWrited";
-			this.labelDateWrited.Size = new System.Drawing.Size(102, 20);
-			this.labelDateWrited.TabIndex = 10;
-			this.toolTip.SetToolTip(this.labelDateWrited, "Last write date");
-			this.labelDateWrited.Values.Text = "Last write date";
-			this.labelDateWrited.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateWrited.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateWrited.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateWrited.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateWrited.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateWrited.AccessibleDescription = "Shows the last write date of the database";
+			labelDateWrited.AccessibleName = "Last write date";
+			labelDateWrited.AccessibleRole = AccessibleRole.Text;
+			labelDateWrited.Dock = DockStyle.Fill;
+			labelDateWrited.Font = new Font("Segoe UI", 8.5F);
+			labelDateWrited.LabelStyle = LabelStyle.BoldPanel;
+			labelDateWrited.Location = new Point(3, 133);
+			labelDateWrited.Name = "labelDateWrited";
+			labelDateWrited.Size = new Size(102, 20);
+			labelDateWrited.TabIndex = 10;
+			toolTip.SetToolTip(labelDateWrited, "Last write date");
+			labelDateWrited.Values.Text = "Last write date";
+			labelDateWrited.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateWrited.Enter += SetStatusbar_Enter;
+			labelDateWrited.Leave += ClearStatusbar_Leave;
+			labelDateWrited.MouseEnter += SetStatusbar_Enter;
+			labelDateWrited.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelAttributes
 			// 
-			this.labelAttributes.AccessibleDescription = "Shows the attributes of the database";
-			this.labelAttributes.AccessibleName = "Attributes";
-			this.labelAttributes.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelAttributes.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelAttributes.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelAttributes.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-			this.labelAttributes.Location = new System.Drawing.Point(3, 159);
-			this.labelAttributes.Name = "labelAttributes";
-			this.labelAttributes.Size = new System.Drawing.Size(102, 20);
-			this.labelAttributes.TabIndex = 12;
-			this.toolTip.SetToolTip(this.labelAttributes, "Attributes");
-			this.labelAttributes.Values.Text = "Attributes";
-			this.labelAttributes.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelAttributes.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelAttributes.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelAttributes.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelAttributes.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelAttributes.AccessibleDescription = "Shows the attributes of the database";
+			labelAttributes.AccessibleName = "Attributes";
+			labelAttributes.AccessibleRole = AccessibleRole.Text;
+			labelAttributes.Dock = DockStyle.Fill;
+			labelAttributes.Font = new Font("Segoe UI", 8.5F);
+			labelAttributes.LabelStyle = LabelStyle.BoldPanel;
+			labelAttributes.Location = new Point(3, 159);
+			labelAttributes.Name = "labelAttributes";
+			labelAttributes.Size = new Size(102, 20);
+			labelAttributes.TabIndex = 12;
+			toolTip.SetToolTip(labelAttributes, "Attributes");
+			labelAttributes.Values.Text = "Attributes";
+			labelAttributes.DoubleClick += CopyToClipboard_DoubleClick;
+			labelAttributes.Enter += SetStatusbar_Enter;
+			labelAttributes.Leave += ClearStatusbar_Leave;
+			labelAttributes.MouseEnter += SetStatusbar_Enter;
+			labelAttributes.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelNameValue
 			// 
-			this.labelNameValue.AccessibleDescription = "Shows the name of the database";
-			this.labelNameValue.AccessibleName = "Name value";
-			this.labelNameValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelNameValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelNameValue.Location = new System.Drawing.Point(111, 3);
-			this.labelNameValue.Name = "labelNameValue";
-			this.labelNameValue.Size = new System.Drawing.Size(375, 20);
-			this.labelNameValue.TabIndex = 1;
-			this.toolTip.SetToolTip(this.labelNameValue, "Shows the name of the database");
-			this.labelNameValue.Values.Text = "..........";
-			this.labelNameValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelNameValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelNameValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelNameValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelNameValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelNameValue.AccessibleDescription = "Shows the name of the database";
+			labelNameValue.AccessibleName = "Name value";
+			labelNameValue.AccessibleRole = AccessibleRole.Text;
+			labelNameValue.Dock = DockStyle.Fill;
+			labelNameValue.Font = new Font("Segoe UI", 8.5F);
+			labelNameValue.Location = new Point(111, 3);
+			labelNameValue.Name = "labelNameValue";
+			labelNameValue.Size = new Size(375, 20);
+			labelNameValue.TabIndex = 1;
+			toolTip.SetToolTip(labelNameValue, "Shows the name of the database");
+			labelNameValue.Values.Text = "..........";
+			labelNameValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelNameValue.Enter += SetStatusbar_Enter;
+			labelNameValue.Leave += ClearStatusbar_Leave;
+			labelNameValue.MouseEnter += SetStatusbar_Enter;
+			labelNameValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDirectoryValue
 			// 
-			this.labelDirectoryValue.AccessibleDescription = "Shows the directory of the database";
-			this.labelDirectoryValue.AccessibleName = "Directory value";
-			this.labelDirectoryValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDirectoryValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDirectoryValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDirectoryValue.Location = new System.Drawing.Point(111, 29);
-			this.labelDirectoryValue.Name = "labelDirectoryValue";
-			this.labelDirectoryValue.Size = new System.Drawing.Size(375, 20);
-			this.labelDirectoryValue.TabIndex = 3;
-			this.toolTip.SetToolTip(this.labelDirectoryValue, "Shows the directory of the database");
-			this.labelDirectoryValue.Values.Text = "..........";
-			this.labelDirectoryValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDirectoryValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDirectoryValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDirectoryValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDirectoryValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDirectoryValue.AccessibleDescription = "Shows the directory of the database";
+			labelDirectoryValue.AccessibleName = "Directory value";
+			labelDirectoryValue.AccessibleRole = AccessibleRole.Text;
+			labelDirectoryValue.Dock = DockStyle.Fill;
+			labelDirectoryValue.Font = new Font("Segoe UI", 8.5F);
+			labelDirectoryValue.Location = new Point(111, 29);
+			labelDirectoryValue.Name = "labelDirectoryValue";
+			labelDirectoryValue.Size = new Size(375, 20);
+			labelDirectoryValue.TabIndex = 3;
+			toolTip.SetToolTip(labelDirectoryValue, "Shows the directory of the database");
+			labelDirectoryValue.Values.Text = "..........";
+			labelDirectoryValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDirectoryValue.Enter += SetStatusbar_Enter;
+			labelDirectoryValue.Leave += ClearStatusbar_Leave;
+			labelDirectoryValue.MouseEnter += SetStatusbar_Enter;
+			labelDirectoryValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelSizeValue
 			// 
-			this.labelSizeValue.AccessibleDescription = "Shows the size of the database";
-			this.labelSizeValue.AccessibleName = "size value";
-			this.labelSizeValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelSizeValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelSizeValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelSizeValue.Location = new System.Drawing.Point(111, 55);
-			this.labelSizeValue.Name = "labelSizeValue";
-			this.labelSizeValue.Size = new System.Drawing.Size(375, 20);
-			this.labelSizeValue.TabIndex = 5;
-			this.toolTip.SetToolTip(this.labelSizeValue, "Shows the size of the database");
-			this.labelSizeValue.Values.Text = "..........";
-			this.labelSizeValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelSizeValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSizeValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelSizeValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelSizeValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelSizeValue.AccessibleDescription = "Shows the size of the database";
+			labelSizeValue.AccessibleName = "size value";
+			labelSizeValue.AccessibleRole = AccessibleRole.Text;
+			labelSizeValue.Dock = DockStyle.Fill;
+			labelSizeValue.Font = new Font("Segoe UI", 8.5F);
+			labelSizeValue.Location = new Point(111, 55);
+			labelSizeValue.Name = "labelSizeValue";
+			labelSizeValue.Size = new Size(375, 20);
+			labelSizeValue.TabIndex = 5;
+			toolTip.SetToolTip(labelSizeValue, "Shows the size of the database");
+			labelSizeValue.Values.Text = "..........";
+			labelSizeValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelSizeValue.Enter += SetStatusbar_Enter;
+			labelSizeValue.Leave += ClearStatusbar_Leave;
+			labelSizeValue.MouseEnter += SetStatusbar_Enter;
+			labelSizeValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateCreatedValue
 			// 
-			this.labelDateCreatedValue.AccessibleDescription = "Shows the creation date of the database";
-			this.labelDateCreatedValue.AccessibleName = "Creation date value";
-			this.labelDateCreatedValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateCreatedValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateCreatedValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateCreatedValue.Location = new System.Drawing.Point(111, 81);
-			this.labelDateCreatedValue.Name = "labelDateCreatedValue";
-			this.labelDateCreatedValue.Size = new System.Drawing.Size(375, 20);
-			this.labelDateCreatedValue.TabIndex = 7;
-			this.toolTip.SetToolTip(this.labelDateCreatedValue, "Shows the creation date of the database");
-			this.labelDateCreatedValue.Values.Text = "..........";
-			this.labelDateCreatedValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateCreatedValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateCreatedValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateCreatedValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateCreatedValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateCreatedValue.AccessibleDescription = "Shows the creation date of the database";
+			labelDateCreatedValue.AccessibleName = "Creation date value";
+			labelDateCreatedValue.AccessibleRole = AccessibleRole.Text;
+			labelDateCreatedValue.Dock = DockStyle.Fill;
+			labelDateCreatedValue.Font = new Font("Segoe UI", 8.5F);
+			labelDateCreatedValue.Location = new Point(111, 81);
+			labelDateCreatedValue.Name = "labelDateCreatedValue";
+			labelDateCreatedValue.Size = new Size(375, 20);
+			labelDateCreatedValue.TabIndex = 7;
+			toolTip.SetToolTip(labelDateCreatedValue, "Shows the creation date of the database");
+			labelDateCreatedValue.Values.Text = "..........";
+			labelDateCreatedValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateCreatedValue.Enter += SetStatusbar_Enter;
+			labelDateCreatedValue.Leave += ClearStatusbar_Leave;
+			labelDateCreatedValue.MouseEnter += SetStatusbar_Enter;
+			labelDateCreatedValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateAccessedValue
 			// 
-			this.labelDateAccessedValue.AccessibleDescription = "Shows the last access date of the database";
-			this.labelDateAccessedValue.AccessibleName = "Last access date value";
-			this.labelDateAccessedValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateAccessedValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateAccessedValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateAccessedValue.Location = new System.Drawing.Point(111, 107);
-			this.labelDateAccessedValue.Name = "labelDateAccessedValue";
-			this.labelDateAccessedValue.Size = new System.Drawing.Size(375, 20);
-			this.labelDateAccessedValue.TabIndex = 9;
-			this.toolTip.SetToolTip(this.labelDateAccessedValue, "Shows the last access date of the database");
-			this.labelDateAccessedValue.Values.Text = "..........";
-			this.labelDateAccessedValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateAccessedValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateAccessedValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateAccessedValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateAccessedValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateAccessedValue.AccessibleDescription = "Shows the last access date of the database";
+			labelDateAccessedValue.AccessibleName = "Last access date value";
+			labelDateAccessedValue.AccessibleRole = AccessibleRole.Text;
+			labelDateAccessedValue.Dock = DockStyle.Fill;
+			labelDateAccessedValue.Font = new Font("Segoe UI", 8.5F);
+			labelDateAccessedValue.Location = new Point(111, 107);
+			labelDateAccessedValue.Name = "labelDateAccessedValue";
+			labelDateAccessedValue.Size = new Size(375, 20);
+			labelDateAccessedValue.TabIndex = 9;
+			toolTip.SetToolTip(labelDateAccessedValue, "Shows the last access date of the database");
+			labelDateAccessedValue.Values.Text = "..........";
+			labelDateAccessedValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateAccessedValue.Enter += SetStatusbar_Enter;
+			labelDateAccessedValue.Leave += ClearStatusbar_Leave;
+			labelDateAccessedValue.MouseEnter += SetStatusbar_Enter;
+			labelDateAccessedValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelDateWritedValue
 			// 
-			this.labelDateWritedValue.AccessibleDescription = "Shows the last write date of the database";
-			this.labelDateWritedValue.AccessibleName = "Last write date value";
-			this.labelDateWritedValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelDateWritedValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelDateWritedValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelDateWritedValue.Location = new System.Drawing.Point(111, 133);
-			this.labelDateWritedValue.Name = "labelDateWritedValue";
-			this.labelDateWritedValue.Size = new System.Drawing.Size(375, 20);
-			this.labelDateWritedValue.TabIndex = 11;
-			this.toolTip.SetToolTip(this.labelDateWritedValue, "Shows the last write date of the database");
-			this.labelDateWritedValue.Values.Text = "..........";
-			this.labelDateWritedValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelDateWritedValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateWritedValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelDateWritedValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelDateWritedValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelDateWritedValue.AccessibleDescription = "Shows the last write date of the database";
+			labelDateWritedValue.AccessibleName = "Last write date value";
+			labelDateWritedValue.AccessibleRole = AccessibleRole.Text;
+			labelDateWritedValue.Dock = DockStyle.Fill;
+			labelDateWritedValue.Font = new Font("Segoe UI", 8.5F);
+			labelDateWritedValue.Location = new Point(111, 133);
+			labelDateWritedValue.Name = "labelDateWritedValue";
+			labelDateWritedValue.Size = new Size(375, 20);
+			labelDateWritedValue.TabIndex = 11;
+			toolTip.SetToolTip(labelDateWritedValue, "Shows the last write date of the database");
+			labelDateWritedValue.Values.Text = "..........";
+			labelDateWritedValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelDateWritedValue.Enter += SetStatusbar_Enter;
+			labelDateWritedValue.Leave += ClearStatusbar_Leave;
+			labelDateWritedValue.MouseEnter += SetStatusbar_Enter;
+			labelDateWritedValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// labelAttributesValue
 			// 
-			this.labelAttributesValue.AccessibleDescription = "Shows the attributes of the database";
-			this.labelAttributesValue.AccessibleName = "Attributes value";
-			this.labelAttributesValue.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-			this.labelAttributesValue.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelAttributesValue.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.labelAttributesValue.Location = new System.Drawing.Point(111, 159);
-			this.labelAttributesValue.Name = "labelAttributesValue";
-			this.labelAttributesValue.Size = new System.Drawing.Size(375, 20);
-			this.labelAttributesValue.TabIndex = 13;
-			this.toolTip.SetToolTip(this.labelAttributesValue, "Shows the attributes of the database");
-			this.labelAttributesValue.Values.Text = "..........";
-			this.labelAttributesValue.DoubleClick += new System.EventHandler(this.CopyToClipboard_DoubleClick);
-			this.labelAttributesValue.Enter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelAttributesValue.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
-			this.labelAttributesValue.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
-			this.labelAttributesValue.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			labelAttributesValue.AccessibleDescription = "Shows the attributes of the database";
+			labelAttributesValue.AccessibleName = "Attributes value";
+			labelAttributesValue.AccessibleRole = AccessibleRole.Text;
+			labelAttributesValue.Dock = DockStyle.Fill;
+			labelAttributesValue.Font = new Font("Segoe UI", 8.5F);
+			labelAttributesValue.Location = new Point(111, 159);
+			labelAttributesValue.Name = "labelAttributesValue";
+			labelAttributesValue.Size = new Size(375, 20);
+			labelAttributesValue.TabIndex = 13;
+			toolTip.SetToolTip(labelAttributesValue, "Shows the attributes of the database");
+			labelAttributesValue.Values.Text = "..........";
+			labelAttributesValue.DoubleClick += CopyToClipboard_DoubleClick;
+			labelAttributesValue.Enter += SetStatusbar_Enter;
+			labelAttributesValue.Leave += ClearStatusbar_Leave;
+			labelAttributesValue.MouseEnter += SetStatusbar_Enter;
+			labelAttributesValue.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// tableLayoutPanel
 			// 
-			this.tableLayoutPanel.AccessibleDescription = "Groups the information";
-			this.tableLayoutPanel.AccessibleName = "Information";
-			this.tableLayoutPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-			this.tableLayoutPanel.AutoScroll = true;
-			this.tableLayoutPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel.BackgroundImage")));
-			this.tableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.tableLayoutPanel.ColumnCount = 2;
-			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel.Controls.Add(this.labelName, 0, 0);
-			this.tableLayoutPanel.Controls.Add(this.labelDirectory, 0, 1);
-			this.tableLayoutPanel.Controls.Add(this.labelSize, 0, 2);
-			this.tableLayoutPanel.Controls.Add(this.labelDateCreated, 0, 3);
-			this.tableLayoutPanel.Controls.Add(this.labelDateAccessed, 0, 4);
-			this.tableLayoutPanel.Controls.Add(this.labelDateWrited, 0, 5);
-			this.tableLayoutPanel.Controls.Add(this.labelAttributes, 0, 6);
-			this.tableLayoutPanel.Controls.Add(this.labelNameValue, 1, 0);
-			this.tableLayoutPanel.Controls.Add(this.labelDirectoryValue, 1, 1);
-			this.tableLayoutPanel.Controls.Add(this.labelSizeValue, 1, 2);
-			this.tableLayoutPanel.Controls.Add(this.labelDateCreatedValue, 1, 3);
-			this.tableLayoutPanel.Controls.Add(this.labelDateAccessedValue, 1, 4);
-			this.tableLayoutPanel.Controls.Add(this.labelDateWritedValue, 1, 5);
-			this.tableLayoutPanel.Controls.Add(this.labelAttributesValue, 1, 6);
-			this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel.Name = "tableLayoutPanel";
-			this.tableLayoutPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			this.tableLayoutPanel.RowCount = 7;
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel.Size = new System.Drawing.Size(489, 162);
-			this.tableLayoutPanel.TabIndex = 0;
-			this.tableLayoutPanel.TabStop = true;
-			this.toolTip.SetToolTip(this.tableLayoutPanel, "Groups the information");
-			// 
-			// statusStrip
-			// 
-			this.statusStrip.AccessibleDescription = "Shows some information";
-			this.statusStrip.AccessibleName = "Status bar of some information";
-			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
-			this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
-			this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelInformation});
-			this.statusStrip.Location = new System.Drawing.Point(0, 0);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.ProgressBars = null;
-			this.statusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip.Size = new System.Drawing.Size(489, 22);
-			this.statusStrip.TabIndex = 2;
-			this.statusStrip.Text = "status bar";
-			// 
-			// labelInformation
-			// 
-			this.labelInformation.AccessibleDescription = "Shows some information";
-			this.labelInformation.AccessibleName = "Shows some information";
-			this.labelInformation.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelInformation.AutoToolTip = true;
-			this.labelInformation.Image = global::Planetoid_DB.Properties.Resources.silk_lightbulb;
-			this.labelInformation.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
-			this.labelInformation.Name = "labelInformation";
-			this.labelInformation.Size = new System.Drawing.Size(144, 17);
-			this.labelInformation.Text = "some information here";
-			this.labelInformation.ToolTipText = "Shows some information";
+			tableLayoutPanel.AccessibleDescription = "Groups the information";
+			tableLayoutPanel.AccessibleName = "Information";
+			tableLayoutPanel.AccessibleRole = AccessibleRole.Grouping;
+			tableLayoutPanel.AutoScroll = true;
+			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
+			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
+			tableLayoutPanel.ColumnCount = 2;
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
+			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+			tableLayoutPanel.Controls.Add(labelName, 0, 0);
+			tableLayoutPanel.Controls.Add(labelDirectory, 0, 1);
+			tableLayoutPanel.Controls.Add(labelSize, 0, 2);
+			tableLayoutPanel.Controls.Add(labelDateCreated, 0, 3);
+			tableLayoutPanel.Controls.Add(labelDateAccessed, 0, 4);
+			tableLayoutPanel.Controls.Add(labelDateWrited, 0, 5);
+			tableLayoutPanel.Controls.Add(labelAttributes, 0, 6);
+			tableLayoutPanel.Controls.Add(labelNameValue, 1, 0);
+			tableLayoutPanel.Controls.Add(labelDirectoryValue, 1, 1);
+			tableLayoutPanel.Controls.Add(labelSizeValue, 1, 2);
+			tableLayoutPanel.Controls.Add(labelDateCreatedValue, 1, 3);
+			tableLayoutPanel.Controls.Add(labelDateAccessedValue, 1, 4);
+			tableLayoutPanel.Controls.Add(labelDateWritedValue, 1, 5);
+			tableLayoutPanel.Controls.Add(labelAttributesValue, 1, 6);
+			tableLayoutPanel.Dock = DockStyle.Fill;
+			tableLayoutPanel.Location = new Point(0, 0);
+			tableLayoutPanel.Name = "tableLayoutPanel";
+			tableLayoutPanel.PanelBackStyle = PaletteBackStyle.FormMain;
+			tableLayoutPanel.RowCount = 7;
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.RowStyles.Add(new RowStyle());
+			tableLayoutPanel.Size = new Size(489, 162);
+			tableLayoutPanel.TabIndex = 0;
+			tableLayoutPanel.TabStop = true;
+			toolTip.SetToolTip(tableLayoutPanel, "Groups the information");
 			// 
 			// toolStripContainer
 			// 
-			this.toolStripContainer.AccessibleDescription = "Container to arrange the toolbars";
-			this.toolStripContainer.AccessibleName = "Container to arrange the toolbars";
-			this.toolStripContainer.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+			toolStripContainer.AccessibleDescription = "Container to arrange the toolbars";
+			toolStripContainer.AccessibleName = "Container to arrange the toolbars";
+			toolStripContainer.AccessibleRole = AccessibleRole.Grouping;
 			// 
 			// toolStripContainer.BottomToolStripPanel
 			// 
-			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusStrip);
+			toolStripContainer.BottomToolStripPanel.Controls.Add(statusStrip);
 			// 
 			// toolStripContainer.ContentPanel
 			// 
-			this.toolStripContainer.ContentPanel.Controls.Add(this.tableLayoutPanel);
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(489, 162);
-			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.toolStripContainer.Location = new System.Drawing.Point(0, 0);
-			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new System.Drawing.Size(489, 209);
-			this.toolStripContainer.TabIndex = 3;
-			this.toolStripContainer.Text = "toolStripContainer";
-			this.toolTip.SetToolTip(this.toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanel);
+			toolStripContainer.ContentPanel.Size = new Size(489, 162);
+			toolStripContainer.Dock = DockStyle.Fill;
+			toolStripContainer.Location = new Point(0, 0);
+			toolStripContainer.Name = "toolStripContainer";
+			toolStripContainer.Size = new Size(489, 209);
+			toolStripContainer.TabIndex = 3;
+			toolStripContainer.Text = "toolStripContainer";
+			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
+			// 
+			// statusStrip
+			// 
+			statusStrip.AccessibleDescription = "Shows some information";
+			statusStrip.AccessibleName = "Status bar of some information";
+			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
+			statusStrip.Dock = DockStyle.None;
+			statusStrip.Font = new Font("Segoe UI", 9F);
+			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
+			statusStrip.Location = new Point(0, 0);
+			statusStrip.Name = "statusStrip";
+			statusStrip.ProgressBars = null;
+			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
+			statusStrip.Size = new Size(489, 22);
+			statusStrip.TabIndex = 2;
+			statusStrip.Text = "status bar";
+			// 
+			// labelInformation
+			// 
+			labelInformation.AccessibleDescription = "Shows some information";
+			labelInformation.AccessibleName = "Shows some information";
+			labelInformation.AccessibleRole = AccessibleRole.StaticText;
+			labelInformation.AutoToolTip = true;
+			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Margin = new Padding(5, 3, 0, 2);
+			labelInformation.Name = "labelInformation";
+			labelInformation.Size = new Size(144, 17);
+			labelInformation.Text = "some information here";
+			labelInformation.ToolTipText = "Shows some information";
 			// 
 			// DatabaseInformationForm
 			// 
-			this.AccessibleDescription = "Shows the informations about the MPCORB.DAT database";
-			this.AccessibleName = "Database Information";
-			this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(489, 209);
-			this.Controls.Add(this.toolStripContainer);
-			this.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "DatabaseInformationForm";
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Database information";
-			this.toolTip.SetToolTip(this, "Database Information");
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DatabaseInformationForm_FormClosed);
-			this.Load += new System.EventHandler(this.DatabaseInformationForm_Load);
-			this.tableLayoutPanel.ResumeLayout(false);
-			this.tableLayoutPanel.PerformLayout();
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
-			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
-			this.toolStripContainer.BottomToolStripPanel.PerformLayout();
-			this.toolStripContainer.ContentPanel.ResumeLayout(false);
-			this.toolStripContainer.ResumeLayout(false);
-			this.toolStripContainer.PerformLayout();
-			this.ResumeLayout(false);
+			AccessibleDescription = "Shows the informations about the MPCORB.DAT database";
+			AccessibleName = "Database Information";
+			AccessibleRole = AccessibleRole.Dialog;
+			AutoScaleDimensions = new SizeF(6F, 13F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(489, 209);
+			Controls.Add(toolStripContainer);
+			Font = new Font("Segoe UI", 8.5F);
+			FormBorderStyle = FormBorderStyle.SizableToolWindow;
+			Icon = (Icon)resources.GetObject("$this.Icon");
+			MaximizeBox = false;
+			MinimizeBox = false;
+			Name = "DatabaseInformationForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Database information";
+			toolTip.SetToolTip(this, "Database Information");
+			UseDropShadow = true;
+			FormClosed += DatabaseInformationForm_FormClosed;
+			Load += DatabaseInformationForm_Load;
+			tableLayoutPanel.ResumeLayout(false);
+			tableLayoutPanel.PerformLayout();
+			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			toolStripContainer.BottomToolStripPanel.PerformLayout();
+			toolStripContainer.ContentPanel.ResumeLayout(false);
+			toolStripContainer.ResumeLayout(false);
+			toolStripContainer.PerformLayout();
+			statusStrip.ResumeLayout(false);
+			statusStrip.PerformLayout();
+			ResumeLayout(false);
 
-    }
+		}
 
-    #endregion
-    private System.Windows.Forms.ToolTip toolTip;
+		#endregion
+		private System.Windows.Forms.ToolTip toolTip;
     private KryptonTableLayoutPanel tableLayoutPanel;
     private KryptonLabel labelName;
     private KryptonLabel labelDirectory;
