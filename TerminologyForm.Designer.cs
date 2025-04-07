@@ -175,7 +175,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
 			Text = "Terminology";
-			UseDropShadow = true;
 			FormClosed += TerminologyForm_FormClosed;
 			Load += TerminologyForm_Load;
 			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);

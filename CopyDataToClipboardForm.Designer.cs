@@ -567,7 +567,6 @@
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Copy data to clipboard";
 			toolTip.SetToolTip(this, "Copy data to clipboard");
-			UseDropShadow = true;
 			FormClosed += CopyDataToClipboardForm_FormClosed;
 			Load += CopyDataToClipboardForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

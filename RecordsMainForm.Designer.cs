@@ -1219,7 +1219,6 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Top ten records";
 			toolTip.SetToolTip(this, "Top ten records");
-			UseDropShadow = true;
 			FormClosed += RecordsMainForm_FormClosed;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);

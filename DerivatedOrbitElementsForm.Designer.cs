@@ -971,7 +971,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Derivated orbit elements";
 			toolTip.SetToolTip(this, "Derivated orbit elements");
-			UseDropShadow = true;
 			FormClosed += DerivatedOrbitElementsForm_FormClosed;
 			Load += DerivatedOrbitElementsForm_Load;
 			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
