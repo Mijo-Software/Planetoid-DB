@@ -322,7 +322,6 @@
 			ShowInTaskbar = false;
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Ephemerides";
-			UseDropShadow = true;
 			FormClosed += EphemeridesForm_FormClosed;
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();

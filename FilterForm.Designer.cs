@@ -1478,7 +1478,6 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Filter";
 			toolTip.SetToolTip(this, "Filter");
-			UseDropShadow = true;
 			FormClosed += FilterForm_FormClosed;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);

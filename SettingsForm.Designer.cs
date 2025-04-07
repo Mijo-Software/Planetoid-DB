@@ -510,7 +510,6 @@
 			ShowInTaskbar = false;
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Settings";
-			UseDropShadow = true;
 			tabControlSettings.ResumeLayout(false);
 			tabPageGeneral.ResumeLayout(false);
 			tabPageGeneral.PerformLayout();

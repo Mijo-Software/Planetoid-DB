@@ -115,7 +115,6 @@ namespace Planetoid_DB
 			Text = "Splash Screen";
 			toolTip.SetToolTip(this, "splash screen");
 			TopMost = true;
-			UseDropShadow = true;
 			FormClosed += SplashScreenForm_FormClosed;
 			Load += SplashScreenForm_Load;
 			ResumeLayout(false);

@@ -399,7 +399,6 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Search";
 			toolTip.SetToolTip(this, "Search");
-			UseDropShadow = true;
 			FormClosed += SearchForm_FormClosed;
 			Load += SearchForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

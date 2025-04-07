@@ -65,13 +65,13 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private async void SplashScreenForm_Load(object sender, EventArgs e)
+		private void SplashScreenForm_Load(object sender, EventArgs e)
 		{
 			labelTitle.Text = AssemblyInfo.AssemblyProduct;
 			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
 
 			// Asynchronous initialization
-			await InitializeAsync();
+			//await InitializeAsync();
 		}
 
 		/// <summary>

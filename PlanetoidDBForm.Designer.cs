@@ -200,11 +200,11 @@ namespace Planetoid_DB
 			menuitemOpenMPCORBWebsite = new ToolStripMenuItem();
 			toolStripContainer = new ToolStripContainer();
 			statusBar = new KryptonStatusStrip();
+			labelInformation = new ToolStripStatusLabel();
 			toolStripStatusLabelUpdate = new ToolStripStatusLabel();
 			toolStripStatusLabelBackgroundDownload = new ToolStripStatusLabel();
 			toolStripProgressBarBackgroundDownload = new ToolStripProgressBar();
 			toolStripStatusLabelCancelBackgroundDownload = new ToolStripStatusLabel();
-			labelInformation = new ToolStripStatusLabel();
 			toolStripIcons = new ToolStrip();
 			toolStripButtonOpen = new ToolStripButton();
 			toolStripButtonExport = new ToolStripButton();
@@ -2255,7 +2255,7 @@ namespace Planetoid_DB
 			menuitemCopytoClipboard.Image = Properties.Resources.silk_page_copy;
 			menuitemCopytoClipboard.Name = "menuitemCopytoClipboard";
 			menuitemCopytoClipboard.ShortcutKeys = Keys.Control | Keys.C;
-			menuitemCopytoClipboard.Size = new Size(180, 22);
+			menuitemCopytoClipboard.Size = new Size(151, 22);
 			menuitemCopytoClipboard.Text = "&Copy";
 			menuitemCopytoClipboard.Click += ToolStripButtonCopyToClipboard_Click;
 			menuitemCopytoClipboard.MouseEnter += SetStatusbar_Enter;
@@ -2272,7 +2272,7 @@ namespace Planetoid_DB
 			menuitemSearch.Image = Properties.Resources.silk_magnifier;
 			menuitemSearch.Name = "menuitemSearch";
 			menuitemSearch.ShortcutKeys = Keys.Control | Keys.S;
-			menuitemSearch.Size = new Size(180, 22);
+			menuitemSearch.Size = new Size(151, 22);
 			menuitemSearch.Text = "&Search";
 			menuitemSearch.Click += ToolStripMenuItemSearch_Click;
 			menuitemSearch.MouseEnter += SetStatusbar_Enter;
@@ -2910,6 +2910,20 @@ namespace Planetoid_DB
 			statusBar.TabStop = true;
 			statusBar.Text = "statusStrip";
 			// 
+			// labelInformation
+			// 
+			labelInformation.AccessibleDescription = "Shows some information";
+			labelInformation.AccessibleName = "Shows some information";
+			labelInformation.AccessibleRole = AccessibleRole.StaticText;
+			labelInformation.AutoToolTip = true;
+			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Margin = new Padding(5, 3, 0, 2);
+			labelInformation.Name = "labelInformation";
+			labelInformation.Size = new Size(144, 16);
+			labelInformation.Spring = true;
+			labelInformation.Text = "some information here";
+			labelInformation.ToolTipText = "Shows some information";
+			// 
 			// toolStripStatusLabelUpdate
 			// 
 			toolStripStatusLabelUpdate.AccessibleDescription = "Shows that an MPCORB.DAT update is aviable";
@@ -2974,19 +2988,6 @@ namespace Planetoid_DB
 			toolStripStatusLabelCancelBackgroundDownload.Click += ToolStripStatusLabelCancelBackgroundDownload_Click;
 			toolStripStatusLabelCancelBackgroundDownload.MouseEnter += SetStatusbar_Enter;
 			toolStripStatusLabelCancelBackgroundDownload.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// labelInformation
-			// 
-			labelInformation.AccessibleDescription = "Shows some information";
-			labelInformation.AccessibleName = "Shows some information";
-			labelInformation.AccessibleRole = AccessibleRole.StaticText;
-			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
-			labelInformation.Margin = new Padding(5, 3, 0, 2);
-			labelInformation.Name = "labelInformation";
-			labelInformation.Size = new Size(144, 16);
-			labelInformation.Text = "some information here";
-			labelInformation.ToolTipText = "Shows some information";
 			// 
 			// toolStripIcons
 			// 

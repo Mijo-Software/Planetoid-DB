@@ -250,7 +250,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Program information";
 			toolTip.SetToolTip(this, "Program information");
-			UseDropShadow = true;
 			FormClosed += AppInfoForm_FormClosed;
 			Load += AppInfoForm_Load;
 			((System.ComponentModel.ISupportInitialize)pictureBoxBanner).EndInit();

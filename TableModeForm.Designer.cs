@@ -433,7 +433,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Table Mode";
 			toolTip.SetToolTip(this, "Table Mode");
-			UseDropShadow = true;
 			FormClosed += TableModeForm_FormClosed;
 			Load += TableModeForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

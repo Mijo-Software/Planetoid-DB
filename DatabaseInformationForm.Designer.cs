@@ -443,7 +443,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Database information";
 			toolTip.SetToolTip(this, "Database Information");
-			UseDropShadow = true;
 			FormClosed += DatabaseInformationForm_FormClosed;
 			Load += DatabaseInformationForm_Load;
 			tableLayoutPanel.ResumeLayout(false);

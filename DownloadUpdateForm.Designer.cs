@@ -415,7 +415,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Download MPCORB.DAT";
 			toolTip.SetToolTip(this, "Download MPCORB.DAT");
-			UseDropShadow = true;
 			FormClosing += DownloadUpdateForm_FormClosing;
 			FormClosed += DownloadUpdateForm_FormClosed;
 			Load += DownloadUpdateForm_Load;

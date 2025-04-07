@@ -324,7 +324,6 @@ namespace Planetoid_DB
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Check MPCORB.DAT";
 			toolTip.SetToolTip(this, "Check MPCORB.DAT");
-			UseDropShadow = true;
 			FormClosed += CheckMpcorbDatForm_FormClosed;
 			Load += CheckMpcorbDatForm_Load;
 			tableLayoutPanel.ResumeLayout(false);

@@ -759,7 +759,6 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Database Differences";
 			toolTip.SetToolTip(this, "Database Differences");
-			UseDropShadow = true;
 			UseWaitCursor = true;
 			FormClosed += DatabaseDifferencesForm_FormClosed;
 			statusStrip.ResumeLayout(false);

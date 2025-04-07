@@ -167,7 +167,6 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Print data sheet";
 			toolTip.SetToolTip(this, "Print data sheet");
-			UseDropShadow = true;
 			FormClosed += PrintDataSheetForm_FormClosed;
 			Load += PrintDataSheetForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();

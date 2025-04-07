@@ -11,7 +11,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SearchForm : KryptonForm
 	{
-		private ArrayList planetoidDatabase = new(capacity: 0);
+		private ArrayList planetoidDatabase = [];
 		private int numberPlanetoids = 0, entriesFound = 0, selectedIndex = 0;
 		private bool isCancelled = false;
 		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
@@ -141,7 +141,7 @@ namespace Planetoid_DB
 
 
 
-			/**
+			/*
 			listViewItem.SubItems.Add(text: strDesgnName);
 			listViewItem.SubItems.Add(text: strEpoch);
 			listViewItem.SubItems.Add(text: strMeanAnomaly);
