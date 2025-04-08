@@ -11,7 +11,7 @@
     <StartupObject>Planetoid_DB.Program</StartupObject>
     <ApplicationIcon>Planetoid-DB-3.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>0.7.3.28</Version>
+    <Version>0.7.4.29</Version>
     <Company>Mijo Software</Company>
     <Description>Viewer for the MPC Orbit (MPCORB) Database</Description>
     <Copyright>2010-2025 Michael Johne</Copyright>
@@ -95,7 +95,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Krypton.Toolkit" Version="90.24.11.317" />
+    <PackageReference Include="Krypton.Toolkit" Version="90.25.2.55" />
     <PackageReference Include="NLog" Version="5.4.0" />
   </ItemGroup>
 
