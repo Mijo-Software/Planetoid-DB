@@ -100,6 +100,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonLoadInternalDemoData.StateCommon.Content.ShortText.TextV = PaletteRelativeAlign.Center;
 			kryptonCommandLinkButtonLoadInternalDemoData.TabIndex = 2;
 			toolTip.SetToolTip(kryptonCommandLinkButtonLoadInternalDemoData, "Load internal demo data");
+			kryptonCommandLinkButtonLoadInternalDemoData.Click += KryptonCommandLinkButtonLoadInternalDemoData_Click;
 			kryptonCommandLinkButtonLoadInternalDemoData.Enter += SetStatusbar_Enter;
 			kryptonCommandLinkButtonLoadInternalDemoData.Leave += ClearStatusbar_Leave;
 			kryptonCommandLinkButtonLoadInternalDemoData.MouseEnter += SetStatusbar_Enter;
@@ -129,6 +130,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonDownloadMprcorbDat.StateCommon.Content.ShortText.TextV = PaletteRelativeAlign.Center;
 			kryptonCommandLinkButtonDownloadMprcorbDat.TabIndex = 1;
 			toolTip.SetToolTip(kryptonCommandLinkButtonDownloadMprcorbDat, "Download MPCORB.DAT");
+			kryptonCommandLinkButtonDownloadMprcorbDat.Click += KryptonCommandLinkButtonDownloadMprcorbDat_Click;
 			kryptonCommandLinkButtonDownloadMprcorbDat.Enter += SetStatusbar_Enter;
 			kryptonCommandLinkButtonDownloadMprcorbDat.Leave += ClearStatusbar_Leave;
 			kryptonCommandLinkButtonDownloadMprcorbDat.MouseEnter += SetStatusbar_Enter;
@@ -158,6 +160,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonOpenLocalFile.StateCommon.Content.ShortText.TextV = PaletteRelativeAlign.Center;
 			kryptonCommandLinkButtonOpenLocalFile.TabIndex = 0;
 			toolTip.SetToolTip(kryptonCommandLinkButtonOpenLocalFile, "Open a local MPCORB.DAT file");
+			kryptonCommandLinkButtonOpenLocalFile.Click += KryptonCommandLinkButtonOpenLocalFile_Click;
 			kryptonCommandLinkButtonOpenLocalFile.Enter += SetStatusbar_Enter;
 			kryptonCommandLinkButtonOpenLocalFile.Leave += ClearStatusbar_Leave;
 			kryptonCommandLinkButtonOpenLocalFile.MouseEnter += SetStatusbar_Enter;
@@ -170,11 +173,11 @@ namespace Planetoid_DB
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
-			statusStrip.Location = new Point(0, 269);
+			statusStrip.Location = new Point(0, 278);
 			statusStrip.Name = "statusStrip";
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(378, 22);
+			statusStrip.Size = new Size(376, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 1;
 			statusStrip.Text = "status bar";
@@ -205,7 +208,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(378, 269);
+			panel.Size = new Size(376, 278);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -216,7 +219,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Window;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(378, 291);
+			ClientSize = new Size(376, 300);
 			Controls.Add(panel);
 			Controls.Add(statusStrip);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -226,7 +229,7 @@ namespace Planetoid_DB
 			Name = "PreloaderForm";
 			ShowInTaskbar = false;
 			StartPosition = FormStartPosition.CenterScreen;
-			Text = "Preloader";
+			Text = "Planetoid-DB Preloader";
 			toolTip.SetToolTip(this, "Preloader");
 			FormClosed += PreloaderForm_FormClosed;
 			Load += PreloaderForm_Load;

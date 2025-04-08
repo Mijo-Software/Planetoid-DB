@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Net.NetworkInformation;
 using Krypton.Toolkit;
 using NLog;
 
@@ -180,5 +181,37 @@ namespace Planetoid_DB
 		}
 
 		#endregion
+
+		private void KryptonCommandLinkButtonOpenLocalFile_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void KryptonCommandLinkButtonDownloadMprcorbDat_Click(object sender, EventArgs e)
+		{
+			if (!NetworkInterface.GetIsNetworkAvailable())
+			{
+				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
+				Environment.Exit(exitCode: Environment.ExitCode);
+			}
+			else
+			{
+				using DownloadUpdateForm formDownloaderForMpcorbDat = new();
+				if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
+				{
+					//Application.Run(mainForm: new PlanetoidDBForm());
+				}
+				else
+				{
+					Environment.Exit(exitCode: Environment.ExitCode);
+				}
+			}
+		}
+
+
+		private void KryptonCommandLinkButtonLoadInternalDemoData_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

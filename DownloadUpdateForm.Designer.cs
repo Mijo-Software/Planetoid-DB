@@ -80,10 +80,9 @@ namespace Planetoid_DB
 			labelStatusValue.AccessibleName = "Status of the download";
 			labelStatusValue.AccessibleRole = AccessibleRole.Text;
 			labelStatusValue.Dock = DockStyle.Fill;
-			labelStatusValue.Font = new Font("Segoe UI", 8.5F);
 			labelStatusValue.Location = new Point(59, 3);
 			labelStatusValue.Name = "labelStatusValue";
-			labelStatusValue.Size = new Size(411, 20);
+			labelStatusValue.Size = new Size(423, 20);
 			labelStatusValue.TabIndex = 1;
 			toolTip.SetToolTip(labelStatusValue, "Shows the status of the download");
 			labelStatusValue.Values.Text = "...";
@@ -98,7 +97,6 @@ namespace Planetoid_DB
 			labelDownload.AccessibleDescription = "Shows the percent of the downloaded bytes";
 			labelDownload.AccessibleName = "Download in percent";
 			labelDownload.AccessibleRole = AccessibleRole.Text;
-			labelDownload.Font = new Font("Segoe UI", 8.5F);
 			labelDownload.Location = new Point(426, 124);
 			labelDownload.Name = "labelDownload";
 			labelDownload.Size = new Size(41, 20);
@@ -116,7 +114,6 @@ namespace Planetoid_DB
 			buttonCancelDownload.AccessibleDescription = "Cancels the download";
 			buttonCancelDownload.AccessibleName = "Cancel download";
 			buttonCancelDownload.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancelDownload.Font = new Font("Segoe UI", 8.5F);
 			buttonCancelDownload.Location = new Point(333, 155);
 			buttonCancelDownload.Name = "buttonCancelDownload";
 			buttonCancelDownload.Size = new Size(128, 36);
@@ -136,7 +133,6 @@ namespace Planetoid_DB
 			buttonDownload.AccessibleDescription = "Downloads the database";
 			buttonDownload.AccessibleName = "Download MPCORB.DAT";
 			buttonDownload.AccessibleRole = AccessibleRole.PushButton;
-			buttonDownload.Font = new Font("Segoe UI", 8.5F);
 			buttonDownload.Location = new Point(150, 155);
 			buttonDownload.Name = "buttonDownload";
 			buttonDownload.Size = new Size(177, 36);
@@ -157,10 +153,9 @@ namespace Planetoid_DB
 			labelSourceValue.AccessibleName = "Source of the download";
 			labelSourceValue.AccessibleRole = AccessibleRole.Text;
 			labelSourceValue.Dock = DockStyle.Fill;
-			labelSourceValue.Font = new Font("Segoe UI", 8.5F);
 			labelSourceValue.Location = new Point(59, 55);
 			labelSourceValue.Name = "labelSourceValue";
-			labelSourceValue.Size = new Size(411, 20);
+			labelSourceValue.Size = new Size(423, 20);
 			labelSourceValue.TabIndex = 5;
 			toolTip.SetToolTip(labelSourceValue, "Shows the download source");
 			labelSourceValue.Values.Text = "...";
@@ -175,7 +170,6 @@ namespace Planetoid_DB
 			buttonCheckForUpdate.AccessibleDescription = "Checks updates of the database";
 			buttonCheckForUpdate.AccessibleName = "Check updates";
 			buttonCheckForUpdate.AccessibleRole = AccessibleRole.PushButton;
-			buttonCheckForUpdate.Font = new Font("Segoe UI", 8.5F);
 			buttonCheckForUpdate.Location = new Point(12, 155);
 			buttonCheckForUpdate.Name = "buttonCheckForUpdate";
 			buttonCheckForUpdate.Size = new Size(132, 36);
@@ -196,10 +190,9 @@ namespace Planetoid_DB
 			labelDateValue.AccessibleName = "Date of the download file";
 			labelDateValue.AccessibleRole = AccessibleRole.Text;
 			labelDateValue.Dock = DockStyle.Fill;
-			labelDateValue.Font = new Font("Segoe UI", 8.5F);
 			labelDateValue.Location = new Point(59, 29);
 			labelDateValue.Name = "labelDateValue";
-			labelDateValue.Size = new Size(411, 20);
+			labelDateValue.Size = new Size(423, 20);
 			labelDateValue.TabIndex = 3;
 			toolTip.SetToolTip(labelDateValue, "Shows the last modified date of the download");
 			labelDateValue.Values.Text = "...";
@@ -215,10 +208,9 @@ namespace Planetoid_DB
 			labelSizeValue.AccessibleName = "Size of the dowload file";
 			labelSizeValue.AccessibleRole = AccessibleRole.Text;
 			labelSizeValue.Dock = DockStyle.Fill;
-			labelSizeValue.Font = new Font("Segoe UI", 8.5F);
 			labelSizeValue.Location = new Point(59, 81);
 			labelSizeValue.Name = "labelSizeValue";
-			labelSizeValue.Size = new Size(411, 22);
+			labelSizeValue.Size = new Size(423, 22);
 			labelSizeValue.TabIndex = 7;
 			toolTip.SetToolTip(labelSizeValue, "Shows the file size of the download");
 			labelSizeValue.Values.Text = "...";
@@ -305,8 +297,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Groups the data";
 			tableLayoutPanel.AccessibleName = "Information";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Pane;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 2;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
@@ -326,7 +316,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(473, 106);
+			tableLayoutPanel.Size = new Size(485, 106);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -345,7 +335,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(473, 169);
+			panel.Size = new Size(485, 186);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -361,7 +351,7 @@ namespace Planetoid_DB
 			statusStrip.Name = "statusStrip";
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(473, 22);
+			statusStrip.Size = new Size(485, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 6;
 			statusStrip.Text = "status bar";
@@ -389,11 +379,11 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
-			toolStripContainer.ContentPanel.Size = new Size(473, 169);
+			toolStripContainer.ContentPanel.Size = new Size(485, 186);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
-			toolStripContainer.Size = new Size(473, 216);
+			toolStripContainer.Size = new Size(485, 208);
 			toolStripContainer.TabIndex = 1;
 			// 
 			// DownloadUpdateForm
@@ -403,7 +393,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(473, 216);
+			ClientSize = new Size(485, 208);
 			Controls.Add(toolStripContainer);
 			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;

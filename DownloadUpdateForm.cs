@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
@@ -215,6 +216,14 @@ namespace Planetoid_DB
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: e.ProgressPercentage, progressMax: 100);
 		}
 
+		private static void ExtractGzipFile(string gzipFilePath, string outputFilePath)
+		{
+			using FileStream originalFileStream = new(path: gzipFilePath, mode: FileMode.Open, access: FileAccess.Read);
+			using FileStream decompressedFileStream = new(path: outputFilePath, mode: FileMode.Create, access: FileAccess.Write);
+			using GZipStream decompressionStream = new(stream: originalFileStream, mode: CompressionMode.Decompress);
+			decompressionStream.CopyTo(destination: decompressedFileStream);
+		}
+
 		/// <summary>
 		/// Handles the DownloadFileCompleted event of the WebClient control.
 		/// </summary>
@@ -227,7 +236,8 @@ namespace Planetoid_DB
 			{
 				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
 				File.Delete(path: strFilenameMpcorb);
-				File.Copy(sourceFileName: strFilenameMpcorbTemp, destFileName: strFilenameMpcorb);
+				ExtractGzipFile(gzipFilePath: strFilenameMpcorbTemp, outputFilePath: strFilenameMpcorb);
+				//File.Copy(sourceFileName: strFilenameMpcorbTemp, destFileName: strFilenameMpcorb);
 				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
 				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
 				DialogResult = DialogResult.OK;
