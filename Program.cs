@@ -53,21 +53,21 @@ namespace Planetoid_DB
 			}
 			catch (FileNotFoundException ex)
 			{
-				Logger.Error(ex, message: "File not found");
+				Logger.Error(exception: ex, message: "File not found");
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
-				Environment.ExitCode = 1;
+				Environment.Exit(exitCode: Environment.ExitCode);
 			}
 			catch (NetworkInformationException ex)
 			{
-				Logger.Error(ex, message: "network error");
+				Logger.Error(exception: ex, message: "network error");
 				ShowErrorMessage(message: $"network error: {ex.Message}");
-				Environment.ExitCode = 2;
+				Environment.Exit(exitCode: Environment.ExitCode);
 			}
 			catch (Exception ex)
 			{
-				Logger.Error(ex, message: "An unexpected error occurred.");
+				Logger.Error(exception: ex, message: "An unexpected error occurred.");
 				ShowErrorMessage(message: $"An unexpected error occurred: {ex.Message}");
-				Environment.ExitCode = 3;
+				Environment.Exit(exitCode: Environment.ExitCode);
 			}
 			finally
 			{
@@ -88,12 +88,21 @@ namespace Planetoid_DB
 		/// </summary>
 		private static void HandleMissingFile()
 		{
+			using PreloaderForm formPreloader = new();
+			formPreloader.TopMost = true;
+
+			if (formPreloader.ShowDialog() == DialogResult.Cancel)
+			{
+				Environment.Exit(exitCode: Environment.ExitCode);
+			}
+
+
 			if (MessageBox.Show(text: I10nStrings.MpcorbDatNotFoundText, caption: I10nStrings.MpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 			{
 				if (!NetworkInterface.GetIsNetworkAvailable())
 				{
 					ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
-					Environment.ExitCode = 4;
+					Environment.Exit(exitCode: Environment.ExitCode);
 				}
 				else
 				{
@@ -102,7 +111,7 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				Environment.ExitCode = 0;
+				Environment.Exit(exitCode: Environment.ExitCode);
 			}
 		}
 
@@ -118,7 +127,7 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				Environment.ExitCode = 5;
+				Environment.Exit(exitCode: Environment.ExitCode);
 			}
 		}
 
