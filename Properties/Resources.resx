@@ -527,7 +527,7 @@
     <value>..\Resources\silk_go.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MpcorbUrl" xml:space="preserve">
-    <value>http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT</value>
+    <value>http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT.gz</value>
   </data>
   <data name="silk_time" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

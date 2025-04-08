@@ -89,43 +89,8 @@ namespace Planetoid_DB
 		private static void HandleMissingFile()
 		{
 			using PreloaderForm formPreloader = new();
-			formPreloader.TopMost = true;
 
 			if (formPreloader.ShowDialog() == DialogResult.Cancel)
-			{
-				Environment.Exit(exitCode: Environment.ExitCode);
-			}
-
-
-			if (MessageBox.Show(text: I10nStrings.MpcorbDatNotFoundText, caption: I10nStrings.MpcorbDatNotFoundCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-			{
-				if (!NetworkInterface.GetIsNetworkAvailable())
-				{
-					ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
-					Environment.Exit(exitCode: Environment.ExitCode);
-				}
-				else
-				{
-					DownloadAndRunApplication();
-				}
-			}
-			else
-			{
-				Environment.Exit(exitCode: Environment.ExitCode);
-			}
-		}
-
-		/// <summary>
-		/// Downloads and runs the application.
-		/// </summary>
-		private static void DownloadAndRunApplication()
-		{
-			using DownloadUpdateForm formDownloaderForMpcorbDat = new();
-			if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
-			{
-				Application.Run(mainForm: new PlanetoidDBForm());
-			}
-			else
 			{
 				Environment.Exit(exitCode: Environment.ExitCode);
 			}

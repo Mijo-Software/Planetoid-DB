@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -779,6 +780,14 @@ namespace Planetoid_DB
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
+		private static void ExtractGzipFile(string gzipFilePath, string outputFilePath)
+		{
+			using FileStream originalFileStream = new(path: gzipFilePath, mode: FileMode.Open, access: FileAccess.Read);
+			using FileStream decompressedFileStream = new(path: outputFilePath, mode: FileMode.Create, access: FileAccess.Write);
+			using GZipStream decompressionStream = new(stream: originalFileStream, mode: CompressionMode.Decompress);
+			decompressionStream.CopyTo(destination: decompressedFileStream);
+		}
+
 		/// <summary>
 		/// Handles the completion of the download process.
 		/// Manages file operations and updates the UI accordingly.
@@ -791,7 +800,8 @@ namespace Planetoid_DB
 			if (e.Error == null)
 			{
 				File.Delete(path: filenameMpcorb);
-				File.Copy(sourceFileName: filenameMpcorbTemp, destFileName: Properties.Resources.FilenameMpcorb);
+				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Properties.Resources.FilenameMpcorb);
+				//File.Copy(sourceFileName: filenameMpcorbTemp, destFileName: Properties.Resources.FilenameMpcorb);
 				File.Delete(path: filenameMpcorbTemp);
 				AskForRestartAfterDownloadingDatabase();
 			}
