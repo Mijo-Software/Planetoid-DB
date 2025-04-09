@@ -404,33 +404,40 @@ namespace Planetoid_DB
 		private void ShowCopyDataToClipboard()
 		{
 			ArrayList dataToCopy = new(capacity: 0)
-									{
-										labelIndexData.Text,
-										labelReadableDesignationData.Text,
-										labelEpochData.Text,
-										labelMeanAnomalyAtTheEpochData.Text,
-										labelArgumentOfPerihelionData.Text,
-										labelLongitudeOfTheAscendingNodeData.Text,
-										labelInclinationToTheEclipticData.Text,
-										labelOrbitalEccentricityData.Text,
-										labelMeanDailyMotionData.Text,
-										labelSemiMajorAxisData.Text,
-										labelAbsoluteMagnitudeData.Text,
-										labelSlopeParameterData.Text,
-										labelReferenceData.Text,
-										labelNumberOfOppositionsData.Text,
-										labelNumberOfObservationsData.Text,
-										labelObservationSpanData.Text,
-										labelRmsResidualData.Text,
-										labelComputerNameData.Text,
-										labelFlagsData.Text,
-										labelDateLastObservationData.Text
-									};
+								   {
+									   labelIndexData.Text,
+									   labelReadableDesignationData.Text,
+									   labelEpochData.Text,
+									   labelMeanAnomalyAtTheEpochData.Text,
+									   labelArgumentOfPerihelionData.Text,
+									   labelLongitudeOfTheAscendingNodeData.Text,
+									   labelInclinationToTheEclipticData.Text,
+									   labelOrbitalEccentricityData.Text,
+									   labelMeanDailyMotionData.Text,
+									   labelSemiMajorAxisData.Text,
+									   labelAbsoluteMagnitudeData.Text,
+									   labelSlopeParameterData.Text,
+									   labelReferenceData.Text,
+									   labelNumberOfOppositionsData.Text,
+									   labelNumberOfObservationsData.Text,
+									   labelObservationSpanData.Text,
+									   labelRmsResidualData.Text,
+									   labelComputerNameData.Text,
+									   labelFlagsData.Text,
+									   labelDateLastObservationData.Text
+								   };
 
 			List<string> dataToCopyList = [];
 			foreach (object? item in dataToCopy)
 			{
-				dataToCopyList.Add(item: item.ToString());
+				if (item != null)
+				{
+					string? itemString = item.ToString();
+					if (!string.IsNullOrEmpty(value: itemString))
+					{
+						dataToCopyList.Add(item: itemString);
+					}
+				}
 			}
 
 			using CopyDataToClipboardForm formCopyDataToClipboard = new();
@@ -800,6 +807,7 @@ namespace Planetoid_DB
 			if (e.Error == null)
 			{
 				File.Delete(path: filenameMpcorb);
+				toolStripProgressBarBackgroundDownload.Style = ProgressBarStyle.Marquee;
 				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Properties.Resources.FilenameMpcorb);
 				//File.Copy(sourceFileName: filenameMpcorbTemp, destFileName: Properties.Resources.FilenameMpcorb);
 				File.Delete(path: filenameMpcorbTemp);
