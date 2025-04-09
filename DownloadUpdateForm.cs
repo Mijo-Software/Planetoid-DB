@@ -236,6 +236,7 @@ namespace Planetoid_DB
 			{
 				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
 				File.Delete(path: strFilenameMpcorb);
+				progressBarDownload.Style = ProgressBarStyle.Marquee;
 				ExtractGzipFile(gzipFilePath: strFilenameMpcorbTemp, outputFilePath: strFilenameMpcorb);
 				//File.Copy(sourceFileName: strFilenameMpcorbTemp, destFileName: strFilenameMpcorb);
 				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
