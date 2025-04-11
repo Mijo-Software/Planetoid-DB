@@ -21,7 +21,7 @@ namespace Planetoid_DB
 		// Temporary filename for the MPCORB data file during download
 		private readonly string strFilenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
 		// URI for the MPCORB data file
-		private readonly Uri uriMPCORB = new(uriString: Properties.Resources.MpcorbUrl);
+		private readonly Uri uriMPCORB = new(uriString: Properties.Settings.Default.systemMpcorbDatGzUrl);
 		// WebClient instance for handling the download
 		private readonly WebClient webClient = new();
 

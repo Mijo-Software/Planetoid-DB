@@ -104,16 +104,7 @@ namespace Planetoid_DB.Properties {
                 return ResourceManager.GetString("HomepageMailIntern", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT ähnelt.
-        /// </summary>
-        internal static string MpcorbUrl {
-            get {
-                return ResourceManager.GetString("MpcorbUrl", resourceCulture);
-            }
-        }
-        
+
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>

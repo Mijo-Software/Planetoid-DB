@@ -30,7 +30,7 @@ namespace Planetoid_DB
 		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
 		private readonly string filenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
 		// URI for the MPCORB database
-		private readonly Uri uriMpcorb = new(uriString: Properties.Resources.MpcorbUrl);
+		private readonly Uri uriMpcorb = new(uriString: Properties.Settings.Default.systemMpcorbDatGzUrl);
 
 		// Flag to indicate if a download is in progress
 		private bool isBusy = false;
@@ -636,7 +636,6 @@ namespace Planetoid_DB
 			labelInformation.Text = string.Empty;
 		}
 
-
 		/// <summary>
 		/// Checks if the form should stay on top of other windows.
 		/// </summary>
@@ -653,6 +652,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PlanetoidDBForm_Load(object sender, EventArgs e)
 		{
+			ClearStatusbar();
 			SetDoubleBuffered(control: tableLayoutPanelData);
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
 			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
@@ -665,7 +665,7 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// Handles the Shown event of the PlanetoidDBForm.
+		/// Handles the shown event of the PlanetoidDBForm.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>

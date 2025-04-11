@@ -83,6 +83,8 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region Task methods
+
 		/// <summary>
 		/// Retrieves the last modified date of the specified URI.
 		/// </summary>
@@ -119,6 +121,8 @@ namespace Planetoid_DB
 			}
 		}
 
+		#endregion
+
 		#region form event handler
 
 		/// <summary>
@@ -129,7 +133,7 @@ namespace Planetoid_DB
 		private async void CheckMpcorbDatForm_Load(object sender, EventArgs e)
 		{
 			isBusy = true;
-			Uri uriMPCORB = new(uriString: Properties.Resources.MpcorbUrl);
+			Uri uriMPCORB = new(uriString: Properties.Settings.Default.systemMpcorbDatUrl);
 			DateTime datetimeFileLocal = DateTime.MinValue;
 			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false);
 
@@ -214,6 +218,25 @@ namespace Planetoid_DB
 				CopyToClipboard(text: control.Text);
 			}
 		}
+
+		/// <summary>
+		/// Event handler for double-clicking the "Update Needed" label to check for updates.
+		/// Resets the displayed information and reloads the form data.
+		/// </summary>
+		/// <param name="sender">The event source, typically the label being double-clicked.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		private void LabelUpdateNeeded_DoubleClick(object sender, EventArgs e)
+		{
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			labelContentLengthValueLocal.Text = string.Empty;
+			labelModifiedDateValueLocal.Text = string.Empty;
+			labelContentLengthValueOnline.Text = string.Empty;
+			labelModifiedDateValueOnline.Text = string.Empty;
+			labelUpdateNeeded.Text = string.Empty;
+			labelUpdateNeeded.Values.Image = null;
+			CheckMpcorbDatForm_Load(sender: sender, e: e);
+		}
+
 
 		#endregion
 
