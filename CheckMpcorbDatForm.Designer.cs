@@ -69,6 +69,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelUpdateNeeded, "Informs if an update is recommended");
 			labelUpdateNeeded.Values.Image = Properties.Resources.silk_help;
 			labelUpdateNeeded.Values.Text = "Update needed?";
+			labelUpdateNeeded.DoubleClick += LabelUpdateNeeded_DoubleClick;
 			labelUpdateNeeded.Enter += SetStatusbar_Enter;
 			labelUpdateNeeded.Leave += ClearStatusbar_Leave;
 			labelUpdateNeeded.MouseEnter += SetStatusbar_Enter;
@@ -250,7 +251,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(372, 86);
+			tableLayoutPanel.Size = new Size(372, 111);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -267,7 +268,7 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanel);
-			toolStripContainer.ContentPanel.Size = new Size(372, 86);
+			toolStripContainer.ContentPanel.Size = new Size(372, 111);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
