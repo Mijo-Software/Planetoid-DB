@@ -56,6 +56,22 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region form event handlers
+
+		private void SettingsForm_Load(object sender, EventArgs e)
+		{
+			ClearStatusbar();
+		}
+
+		/// <summary>
+		/// Event handler for closing the form.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
+		private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+
+		#endregion
+
 		#region Enter event handler
 
 		/// <summary>
@@ -84,6 +100,8 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region click event handlers
+
 		/// <summary>
 		/// Handles the click event of the Print button.
 		/// </summary>
@@ -91,7 +109,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonPrint_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -101,7 +118,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonCopyToClipboard_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -111,7 +127,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonDatabaseInformation_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -121,7 +136,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonTableMode_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -131,7 +145,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonTerminology_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -141,7 +154,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonCheckMpcorbDat_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -151,7 +163,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonDownloadMpcorbDat_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -161,7 +172,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonAbout_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -171,7 +181,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e)
 		{
-
 		}
 
 		/// <summary>
@@ -181,8 +190,9 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonSearch_Click(object sender, EventArgs e)
 		{
-
 		}
+
+		#endregion
 
 		#region KeyDown event handler
 

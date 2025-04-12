@@ -132,6 +132,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private async void CheckMpcorbDatForm_Load(object sender, EventArgs e)
 		{
+			ClearStatusbar();
 			isBusy = true;
 			Uri uriMPCORB = new(uriString: Properties.Settings.Default.systemMpcorbDatUrl);
 			DateTime datetimeFileLocal = DateTime.MinValue;

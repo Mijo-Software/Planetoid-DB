@@ -86,6 +86,7 @@ namespace Planetoid_DB
 			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
 			labelDescription.Text = AssemblyInfo.AssemblyDescription;
 			labelCopyright.Text = AssemblyInfo.AssemblyCopyright;
+			ClearStatusbar();
 		}
 
 		/// <summary>

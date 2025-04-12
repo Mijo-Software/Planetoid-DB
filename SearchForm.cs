@@ -192,6 +192,7 @@ namespace Planetoid_DB
 		{
 			buttonLoad.Enabled = buttonSearch.Enabled = false;
 			MarkAll();
+			ClearStatusbar();
 		}
 
 		/// <summary>

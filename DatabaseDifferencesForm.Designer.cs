@@ -133,7 +133,7 @@
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(981, 494);
+			toolStripContainer.ContentPanel.Size = new Size(981, 498);
 			toolStripContainer.ContentPanel.UseWaitCursor = true;
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
@@ -171,7 +171,7 @@
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.Size = new Size(981, 494);
+			panel.Size = new Size(981, 498);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			panel.UseWaitCursor = true;
@@ -761,6 +761,7 @@
 			toolTip.SetToolTip(this, "Database Differences");
 			UseWaitCursor = true;
 			FormClosed += DatabaseDifferencesForm_FormClosed;
+			Load += DatabaseDifferencesForm_Load;
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
 			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);

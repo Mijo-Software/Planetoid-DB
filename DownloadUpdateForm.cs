@@ -183,6 +183,7 @@ namespace Planetoid_DB
 
 		private void DownloadUpdateForm_Load(object? sender, EventArgs? e)
 		{
+			ClearStatusbar();
 			labelStatusValue.Text = I10nStrings.StatusNothingToDoText;
 			labelDateValue.Text = labelSizeValue.Text = labelSourceValue.Text = "";
 			labelDateValue.Visible = labelSizeValue.Visible = labelSizeValue.Visible = labelSourceValue.Visible = buttonCancelDownload.Enabled = false;
