@@ -144,7 +144,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListReadableDesignationsForm_Load(object? sender, EventArgs? e)
 		{
-			labelInformation.Text = "";
+			ClearStatusbar();
 			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = buttonLoad.Enabled = dropButtonSaveList.Enabled = false;
 			if (planetoidDatabase.Count > 0)
 			{

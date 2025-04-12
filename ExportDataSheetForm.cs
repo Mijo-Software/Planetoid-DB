@@ -120,7 +120,11 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ExportDataSheetForm_Load(object sender, EventArgs e) => MarkAll();
+		private void ExportDataSheetForm_Load(object sender, EventArgs e)
+		{
+			ClearStatusbar();
+			MarkAll();
+		}
 
 		#endregion
 

@@ -479,6 +479,7 @@
 			Text = "Top ten records";
 			toolTip.SetToolTip(this, "Top ten records");
 			FormClosed += RecordsSelectionForm_FormClosed;
+			Load += RecordsSelectionForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();

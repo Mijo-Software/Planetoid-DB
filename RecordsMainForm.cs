@@ -76,6 +76,16 @@ namespace Planetoid_DB
 		#region Form event handler
 
 		/// <summary>
+		/// Handles the Load event of the form.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void RecordsMainForm_Load(object sender, EventArgs e)
+		{
+			ClearStatusbar();
+		}
+
+		/// <summary>
 		/// Handles the FormClosed event of the RecordsMainForm.
 		/// Disposes the form when it is closed.
 		/// </summary>

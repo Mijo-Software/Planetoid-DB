@@ -313,7 +313,11 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void TerminologyForm_Load(object sender, EventArgs e) => SetActiveElement();
+		private void TerminologyForm_Load(object sender, EventArgs e)
+		{
+			SetActiveElement();
+			ClearStatusbar();
+		}
 
 		/// <summary>
 		/// Fired when the form closes.

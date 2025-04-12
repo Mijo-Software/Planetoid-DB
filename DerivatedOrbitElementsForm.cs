@@ -147,6 +147,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e)
 		{
+			ClearStatusbar();
 			if (derivatedOrbitElements == null || derivatedOrbitElements.Count < 19)
 			{
 				_ = MessageBox.Show(text: "Invalid data", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);

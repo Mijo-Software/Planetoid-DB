@@ -148,10 +148,10 @@
 			tabPageNavigator.Controls.Add(radioButton3);
 			tabPageNavigator.Controls.Add(radioButton2);
 			tabPageNavigator.Controls.Add(radioButton1);
-			tabPageNavigator.Location = new Point(4, 22);
+			tabPageNavigator.Location = new Point(4, 24);
 			tabPageNavigator.Name = "tabPageNavigator";
 			tabPageNavigator.Padding = new Padding(3);
-			tabPageNavigator.Size = new Size(407, 226);
+			tabPageNavigator.Size = new Size(407, 224);
 			tabPageNavigator.TabIndex = 0;
 			tabPageNavigator.Text = "Navigator";
 			tabPageNavigator.UseVisualStyleBackColor = true;
@@ -222,10 +222,10 @@
 			// 
 			tabPageUpdate.Controls.Add(groupBox2);
 			tabPageUpdate.Controls.Add(groupBox1);
-			tabPageUpdate.Location = new Point(4, 22);
+			tabPageUpdate.Location = new Point(4, 24);
 			tabPageUpdate.Name = "tabPageUpdate";
 			tabPageUpdate.Padding = new Padding(3);
-			tabPageUpdate.Size = new Size(407, 226);
+			tabPageUpdate.Size = new Size(407, 224);
 			tabPageUpdate.TabIndex = 1;
 			tabPageUpdate.Text = "MPCORB.DAT Update";
 			tabPageUpdate.UseVisualStyleBackColor = true;
@@ -319,10 +319,10 @@
 			// tabPageLookAndFeel
 			// 
 			tabPageLookAndFeel.Controls.Add(groupBox4);
-			tabPageLookAndFeel.Location = new Point(4, 22);
+			tabPageLookAndFeel.Location = new Point(4, 24);
 			tabPageLookAndFeel.Name = "tabPageLookAndFeel";
 			tabPageLookAndFeel.Padding = new Padding(3);
-			tabPageLookAndFeel.Size = new Size(407, 226);
+			tabPageLookAndFeel.Size = new Size(407, 224);
 			tabPageLookAndFeel.TabIndex = 2;
 			tabPageLookAndFeel.Text = "Look and feel";
 			tabPageLookAndFeel.UseVisualStyleBackColor = true;
@@ -510,6 +510,8 @@
 			ShowInTaskbar = false;
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Settings";
+			FormClosed += SettingsForm_FormClosed;
+			Load += SettingsForm_Load;
 			tabControlSettings.ResumeLayout(false);
 			tabPageGeneral.ResumeLayout(false);
 			tabPageGeneral.PerformLayout();

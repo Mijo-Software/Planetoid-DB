@@ -98,7 +98,7 @@
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(406, 402);
+			toolStripContainer.ContentPanel.Size = new Size(406, 406);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Margin = new Padding(4, 3, 4, 3);
@@ -126,7 +126,7 @@
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.Size = new Size(406, 402);
+			panel.Size = new Size(406, 406);
 			panel.TabIndex = 0;
 			// 
 			// buttonCalculate
@@ -323,6 +323,7 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Ephemerides";
 			FormClosed += EphemeridesForm_FormClosed;
+			Load += EphemeridesForm_Load;
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
 			toolStripContainer.BottomToolStripPanel.ResumeLayout(false);

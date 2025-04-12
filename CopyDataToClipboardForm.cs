@@ -97,6 +97,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyDataToClipboardForm_Load(object sender, EventArgs e)
 		{
+			ClearStatusbar();
 			KryptonButton[] buttons =
 			[
 				buttonIndexNumber, buttonReadableDesignation, buttonEpoch, buttonMeanAnomaly, buttonArgumentOfPerihelion,

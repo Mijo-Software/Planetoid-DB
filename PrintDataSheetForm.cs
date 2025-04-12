@@ -71,6 +71,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PrintDataSheetForm_Load(object sender, EventArgs e)
 		{
+			ClearStatusbar();
 			if (checkedListBoxOrbitalElements.Items.Count != 0)
 			{
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)

@@ -617,7 +617,7 @@
 			numericUpDownMaximumNumberOfObservations.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumNumberOfObservations.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumNumberOfObservations.Name = "numericUpDownMaximumNumberOfObservations";
-			numericUpDownMaximumNumberOfObservations.Size = new Size(120, 25);
+			numericUpDownMaximumNumberOfObservations.Size = new Size(120, 22);
 			numericUpDownMaximumNumberOfObservations.TabIndex = 46;
 			numericUpDownMaximumNumberOfObservations.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumNumberOfObservations, "Maximum of number of observations");
@@ -642,7 +642,7 @@
 			numericUpDownMaximumNumberOfOppositions.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumNumberOfOppositions.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumNumberOfOppositions.Name = "numericUpDownMaximumNumberOfOppositions";
-			numericUpDownMaximumNumberOfOppositions.Size = new Size(120, 25);
+			numericUpDownMaximumNumberOfOppositions.Size = new Size(120, 22);
 			numericUpDownMaximumNumberOfOppositions.TabIndex = 42;
 			numericUpDownMaximumNumberOfOppositions.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumNumberOfOppositions, "Maximum of number of oppositions");
@@ -667,7 +667,7 @@
 			numericUpDownMaximumSlopeParameter.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumSlopeParameter.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumSlopeParameter.Name = "numericUpDownMaximumSlopeParameter";
-			numericUpDownMaximumSlopeParameter.Size = new Size(120, 25);
+			numericUpDownMaximumSlopeParameter.Size = new Size(120, 22);
 			numericUpDownMaximumSlopeParameter.TabIndex = 38;
 			numericUpDownMaximumSlopeParameter.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumSlopeParameter, "Maximum of slope parameter");
@@ -692,7 +692,7 @@
 			numericUpDownMaximumAbsoluteMagnitude.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumAbsoluteMagnitude.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumAbsoluteMagnitude.Name = "numericUpDownMaximumAbsoluteMagnitude";
-			numericUpDownMaximumAbsoluteMagnitude.Size = new Size(120, 25);
+			numericUpDownMaximumAbsoluteMagnitude.Size = new Size(120, 22);
 			numericUpDownMaximumAbsoluteMagnitude.TabIndex = 34;
 			numericUpDownMaximumAbsoluteMagnitude.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumAbsoluteMagnitude, "Maximum of absolute magnitude");
@@ -717,7 +717,7 @@
 			numericUpDownMaximumSemiMajorAxis.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumSemiMajorAxis.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumSemiMajorAxis.Name = "numericUpDownMaximumSemiMajorAxis";
-			numericUpDownMaximumSemiMajorAxis.Size = new Size(120, 25);
+			numericUpDownMaximumSemiMajorAxis.Size = new Size(120, 22);
 			numericUpDownMaximumSemiMajorAxis.TabIndex = 30;
 			numericUpDownMaximumSemiMajorAxis.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumSemiMajorAxis, "Maximum of semi-major axis");
@@ -742,7 +742,7 @@
 			numericUpDownMaximumMeanDailyMotion.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumMeanDailyMotion.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumMeanDailyMotion.Name = "numericUpDownMaximumMeanDailyMotion";
-			numericUpDownMaximumMeanDailyMotion.Size = new Size(120, 25);
+			numericUpDownMaximumMeanDailyMotion.Size = new Size(120, 22);
 			numericUpDownMaximumMeanDailyMotion.TabIndex = 26;
 			numericUpDownMaximumMeanDailyMotion.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumMeanDailyMotion, "Maximum of mean daily motion");
@@ -767,7 +767,7 @@
 			numericUpDownMaximumOrbitalEccentricity.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumOrbitalEccentricity.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumOrbitalEccentricity.Name = "numericUpDownMaximumOrbitalEccentricity";
-			numericUpDownMaximumOrbitalEccentricity.Size = new Size(120, 25);
+			numericUpDownMaximumOrbitalEccentricity.Size = new Size(120, 22);
 			numericUpDownMaximumOrbitalEccentricity.TabIndex = 22;
 			numericUpDownMaximumOrbitalEccentricity.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumOrbitalEccentricity, "Maximum of orbital eccentricity");
@@ -792,7 +792,7 @@
 			numericUpDownMaximumInclination.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumInclination.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumInclination.Name = "numericUpDownMaximumInclination";
-			numericUpDownMaximumInclination.Size = new Size(120, 25);
+			numericUpDownMaximumInclination.Size = new Size(120, 22);
 			numericUpDownMaximumInclination.TabIndex = 18;
 			numericUpDownMaximumInclination.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumInclination, "Maximum of inclination to the ecliptic");
@@ -817,7 +817,7 @@
 			numericUpDownMaximumLongitudeOfTheAscendingNode.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumLongitudeOfTheAscendingNode.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumLongitudeOfTheAscendingNode.Name = "numericUpDownMaximumLongitudeOfTheAscendingNode";
-			numericUpDownMaximumLongitudeOfTheAscendingNode.Size = new Size(120, 25);
+			numericUpDownMaximumLongitudeOfTheAscendingNode.Size = new Size(120, 22);
 			numericUpDownMaximumLongitudeOfTheAscendingNode.TabIndex = 14;
 			numericUpDownMaximumLongitudeOfTheAscendingNode.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumLongitudeOfTheAscendingNode, "Maximum of longitude of the ascending node");
@@ -842,7 +842,7 @@
 			numericUpDownMaximumArgumentOfPerihelion.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumArgumentOfPerihelion.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumArgumentOfPerihelion.Name = "numericUpDownMaximumArgumentOfPerihelion";
-			numericUpDownMaximumArgumentOfPerihelion.Size = new Size(120, 25);
+			numericUpDownMaximumArgumentOfPerihelion.Size = new Size(120, 22);
 			numericUpDownMaximumArgumentOfPerihelion.TabIndex = 10;
 			numericUpDownMaximumArgumentOfPerihelion.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumArgumentOfPerihelion, "Maximum of argument of perihelion");
@@ -867,7 +867,7 @@
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.Name = "numericUpDownMaximumMeanAnomalyAtTheEpoch";
-			numericUpDownMaximumMeanAnomalyAtTheEpoch.Size = new Size(120, 25);
+			numericUpDownMaximumMeanAnomalyAtTheEpoch.Size = new Size(120, 22);
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.TabIndex = 6;
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMaximumMeanAnomalyAtTheEpoch, "Maximum of mean anomaly at the epoch");
@@ -917,7 +917,7 @@
 			numericUpDownMinimumNumberOfObservations.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumNumberOfObservations.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumNumberOfObservations.Name = "numericUpDownMinimumNumberOfObservations";
-			numericUpDownMinimumNumberOfObservations.Size = new Size(120, 25);
+			numericUpDownMinimumNumberOfObservations.Size = new Size(120, 22);
 			numericUpDownMinimumNumberOfObservations.TabIndex = 45;
 			numericUpDownMinimumNumberOfObservations.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumNumberOfObservations, "Minimum of number of observations");
@@ -942,7 +942,7 @@
 			numericUpDownMinimumNumberOfOppositions.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumNumberOfOppositions.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumNumberOfOppositions.Name = "numericUpDownMinimumNumberOfOppositions";
-			numericUpDownMinimumNumberOfOppositions.Size = new Size(120, 25);
+			numericUpDownMinimumNumberOfOppositions.Size = new Size(120, 22);
 			numericUpDownMinimumNumberOfOppositions.TabIndex = 41;
 			numericUpDownMinimumNumberOfOppositions.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumNumberOfOppositions, "Minimum of number of oppositions");
@@ -967,7 +967,7 @@
 			numericUpDownMinimumSlopeParameter.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumSlopeParameter.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumSlopeParameter.Name = "numericUpDownMinimumSlopeParameter";
-			numericUpDownMinimumSlopeParameter.Size = new Size(120, 25);
+			numericUpDownMinimumSlopeParameter.Size = new Size(120, 22);
 			numericUpDownMinimumSlopeParameter.TabIndex = 37;
 			numericUpDownMinimumSlopeParameter.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumSlopeParameter, "Minimum of slope parameter");
@@ -992,7 +992,7 @@
 			numericUpDownMinimumAbsoluteMagnitude.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumAbsoluteMagnitude.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumAbsoluteMagnitude.Name = "numericUpDownMinimumAbsoluteMagnitude";
-			numericUpDownMinimumAbsoluteMagnitude.Size = new Size(120, 25);
+			numericUpDownMinimumAbsoluteMagnitude.Size = new Size(120, 22);
 			numericUpDownMinimumAbsoluteMagnitude.TabIndex = 33;
 			numericUpDownMinimumAbsoluteMagnitude.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumAbsoluteMagnitude, "Minimum of absolute magnitude");
@@ -1017,7 +1017,7 @@
 			numericUpDownMinimumSemiMajorAxis.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumSemiMajorAxis.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumSemiMajorAxis.Name = "numericUpDownMinimumSemiMajorAxis";
-			numericUpDownMinimumSemiMajorAxis.Size = new Size(120, 25);
+			numericUpDownMinimumSemiMajorAxis.Size = new Size(120, 22);
 			numericUpDownMinimumSemiMajorAxis.TabIndex = 29;
 			numericUpDownMinimumSemiMajorAxis.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumSemiMajorAxis, "Minimum of semi-major axis");
@@ -1042,7 +1042,7 @@
 			numericUpDownMinimumMeanDailyMotion.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumMeanDailyMotion.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumMeanDailyMotion.Name = "numericUpDownMinimumMeanDailyMotion";
-			numericUpDownMinimumMeanDailyMotion.Size = new Size(120, 25);
+			numericUpDownMinimumMeanDailyMotion.Size = new Size(120, 22);
 			numericUpDownMinimumMeanDailyMotion.TabIndex = 25;
 			numericUpDownMinimumMeanDailyMotion.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumMeanDailyMotion, "Minimum of mean daily motion");
@@ -1067,7 +1067,7 @@
 			numericUpDownMinimumOrbitalEccentricity.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumOrbitalEccentricity.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumOrbitalEccentricity.Name = "numericUpDownMinimumOrbitalEccentricity";
-			numericUpDownMinimumOrbitalEccentricity.Size = new Size(120, 25);
+			numericUpDownMinimumOrbitalEccentricity.Size = new Size(120, 22);
 			numericUpDownMinimumOrbitalEccentricity.TabIndex = 21;
 			numericUpDownMinimumOrbitalEccentricity.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumOrbitalEccentricity, "Minimum of orbital eccentricity");
@@ -1092,7 +1092,7 @@
 			numericUpDownMinimumInclination.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumInclination.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumInclination.Name = "numericUpDownMinimumInclination";
-			numericUpDownMinimumInclination.Size = new Size(120, 25);
+			numericUpDownMinimumInclination.Size = new Size(120, 22);
 			numericUpDownMinimumInclination.TabIndex = 17;
 			numericUpDownMinimumInclination.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumInclination, "Minimum of inclination to the ecliptic");
@@ -1117,7 +1117,7 @@
 			numericUpDownMinimumLongitudeOfTheAscendingNode.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumLongitudeOfTheAscendingNode.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumLongitudeOfTheAscendingNode.Name = "numericUpDownMinimumLongitudeOfTheAscendingNode";
-			numericUpDownMinimumLongitudeOfTheAscendingNode.Size = new Size(120, 25);
+			numericUpDownMinimumLongitudeOfTheAscendingNode.Size = new Size(120, 22);
 			numericUpDownMinimumLongitudeOfTheAscendingNode.TabIndex = 13;
 			numericUpDownMinimumLongitudeOfTheAscendingNode.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumLongitudeOfTheAscendingNode, "Minimum of longitude of the ascending node");
@@ -1142,7 +1142,7 @@
 			numericUpDownMinimumArgumentOfPerihelion.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumArgumentOfPerihelion.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumArgumentOfPerihelion.Name = "numericUpDownMinimumArgumentOfPerihelion";
-			numericUpDownMinimumArgumentOfPerihelion.Size = new Size(120, 25);
+			numericUpDownMinimumArgumentOfPerihelion.Size = new Size(120, 22);
 			numericUpDownMinimumArgumentOfPerihelion.TabIndex = 9;
 			numericUpDownMinimumArgumentOfPerihelion.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumArgumentOfPerihelion, "Minimum of argument of perihelion");
@@ -1185,7 +1185,7 @@
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.Name = "numericUpDownMinimumMeanAnomalyAtTheEpoch";
-			numericUpDownMinimumMeanAnomalyAtTheEpoch.Size = new Size(120, 25);
+			numericUpDownMinimumMeanAnomalyAtTheEpoch.Size = new Size(120, 22);
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.TabIndex = 5;
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.ThousandsSeparator = true;
 			toolTip.SetToolTip(numericUpDownMinimumMeanAnomalyAtTheEpoch, "Minimum of mean anomaly at the epoch");
@@ -1479,6 +1479,7 @@
 			Text = "Filter";
 			toolTip.SetToolTip(this, "Filter");
 			FormClosed += FilterForm_FormClosed;
+			Load += FilterForm_Load;
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
