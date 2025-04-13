@@ -89,11 +89,17 @@ namespace Planetoid_DB
 		private static void HandleMissingFile()
 		{
 			using PreloaderForm formPreloader = new();
+			_ = formPreloader.ShowDialog();
 
-			if (formPreloader.ShowDialog() == DialogResult.Cancel)
+			if (string.IsNullOrEmpty(value: formPreloader.MpcOrbDatFilePath))
 			{
 				Environment.Exit(exitCode: Environment.ExitCode);
 			}
+			else
+			{
+				Application.Run(mainForm: new PlanetoidDBForm(mpcorbDatFilePath: formPreloader.MpcOrbDatFilePath));
+			}
+
 		}
 
 		/// <summary>

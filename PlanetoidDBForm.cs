@@ -49,9 +49,25 @@ namespace Planetoid_DB
 			SetStatusbar(text: string.Empty);
 		}
 
+		public PlanetoidDBForm(string mpcorbDatFilePath)
+		{
+			InitializeComponent();
+			this.KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
+			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
+			SetStatusbar(text: string.Empty);
+			MpcOrbDatFilePath = mpcorbDatFilePath;
+		}
+
 		#endregion
 
 		#region Local methods
+
+		/// <summary>
+		/// Gets the file path of the MPCORB.DAT file.
+		/// </summary>
+		private string MpcOrbDatFilePath { get; set; } = string.Empty;
+
 
 		/// <summary>
 		/// Returns a string representation of the object for the debugger.
@@ -719,9 +735,10 @@ namespace Planetoid_DB
 			int lineNum = 0;
 			float percent;
 			string readLine;
-			FileInfo fileInfo = new(fileName: filenameMpcorb);
+			string filename = !string.IsNullOrEmpty(value: MpcOrbDatFilePath) ? MpcOrbDatFilePath : filenameMpcorb;
+			FileInfo fileInfo = new(fileName: filename);
 			long fileSize = fileInfo.Length, fileSizeReaded = 0;
-			using (FileStream fileStream = new(path: filenameMpcorb, mode: FileMode.Open))
+			using (FileStream fileStream = new(path: filename, mode: FileMode.Open))
 			{
 				StreamReader streamReader = new(stream: fileStream);
 				formSplashScreen.Show();
@@ -1403,16 +1420,6 @@ namespace Planetoid_DB
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemRestart_Click(object sender, EventArgs e) => Restart();
-
-		/// <summary>
-		/// Handles the click event for the MenuitemRestartWithDemoData.
-		/// Restarts the application with demo data.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private static void MenuitemRestartWithDemoData_Click(object sender, EventArgs e)
-		{
-		}
 
 		/// <summary>
 		/// Handles the click event for the ToolStripMenuItemDerivatedOrbitElements.
