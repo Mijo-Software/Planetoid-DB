@@ -378,9 +378,26 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				using CheckMpcorbDatForm formCeckMpcorbDat = new();
-				formCeckMpcorbDat.TopMost = TopMost;
-				_ = formCeckMpcorbDat.ShowDialog();
+				using CheckMpcorbDatForm formCheckMpcorbDat = new();
+				formCheckMpcorbDat.TopMost = TopMost;
+				_ = formCheckMpcorbDat.ShowDialog();
+			}
+		}
+
+		/// <summary>
+		/// Shows the MPCORB data check form.
+		/// </summary>
+		private void ShowAstorbDatCheck()
+		{
+			if (!NetworkInterface.GetIsNetworkAvailable())
+			{
+				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			else
+			{
+				using CheckAstorbDatForm formCheckAstorbDat = new();
+				formCheckAstorbDat.TopMost = TopMost;
+				_ = formCheckAstorbDat.ShowDialog();
 			}
 		}
 
@@ -1173,6 +1190,14 @@ namespace Planetoid_DB
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void MenuitemCheckMpcorbDat_Click(object sender, EventArgs e) => ShowMpcorbDatCheck();
+
+		/// <summary>
+		/// Handles the click event for the MenuitemCheckMpcorbDat.
+		/// Shows the ASTORB data check form.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void MenuitemCheckAstorbDat_Click(object sender, EventArgs e) => ShowAstorbDatCheck();
 
 		/// <summary>
 		/// Handles the click event for the ToolStripStatusLabelUpdate.

@@ -563,4 +563,10 @@
     <value>..\Resources\demoset-10000.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>demo database</comment>
   </data>
+  <data name="FilenameAstcorb" xml:space="preserve">
+    <value>astorb.dat</value>
+  </data>
+  <data name="FilenameAstorbTemp" xml:space="preserve">
+    <value>_</value>
+  </data>
 </root>
