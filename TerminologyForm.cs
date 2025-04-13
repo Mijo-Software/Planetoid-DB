@@ -375,7 +375,8 @@ namespace Planetoid_DB
 		#region KeyDown event handler
 
 		/// <summary>
-		/// Called when a control is double-clicked to copy the text to the clipboard.
+		/// Handles the KeyDown event of the TerminologyForm.
+		/// Closes the form when the Escape key is pressed.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
