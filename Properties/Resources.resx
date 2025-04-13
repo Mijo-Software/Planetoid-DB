@@ -532,9 +532,6 @@
   <data name="silk_page_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silk_page_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="demoset-10000" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\demoset-10000.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="fatcow_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fatcow_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -561,5 +558,9 @@
   </data>
   <data name="tabler_folder-open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabler_folder-open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="demoset-10000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\demoset-10000.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>demo database</comment>
   </data>
 </root>
