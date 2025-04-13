@@ -59,29 +59,55 @@ namespace Planetoid_DB.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die mpcorb.dat ähnelt.
-        /// </summary>
-        internal static string FilenameMpcorb {
-            get {
-                return ResourceManager.GetString("FilenameMpcorb", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die _ ähnelt.
-        /// </summary>
-        internal static string FilenameMpcorbTemp {
-            get {
-                return ResourceManager.GetString("FilenameMpcorbTemp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die https://planetoid-db.de ähnelt.
-        /// </summary>
-        internal static string Homepage {
+
+		/// <summary>
+		///   Sucht eine lokalisierte Zeichenfolge, die mpcorb.dat ähnelt.
+		/// </summary>
+		internal static string FilenameMpcorb
+		{
+			get
+			{
+				return ResourceManager.GetString("FilenameMpcorb", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Sucht eine lokalisierte Zeichenfolge, die _ ähnelt.
+		/// </summary>
+		internal static string FilenameMpcorbTemp
+		{
+			get
+			{
+				return ResourceManager.GetString("FilenameMpcorbTemp", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Sucht eine lokalisierte Zeichenfolge, die mpcorb.dat ähnelt.
+		/// </summary>
+		internal static string FilenameAstorb
+		{
+			get
+			{
+				return ResourceManager.GetString("FilenameAstorb", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Sucht eine lokalisierte Zeichenfolge, die _ ähnelt.
+		/// </summary>
+		internal static string FilenameAstorbTemp
+		{
+			get
+			{
+				return ResourceManager.GetString("FilenameAstorbTemp", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Sucht eine lokalisierte Zeichenfolge, die https://planetoid-db.de ähnelt.
+		/// </summary>
+		internal static string Homepage {
             get {
                 return ResourceManager.GetString("Homepage", resourceCulture);
             }

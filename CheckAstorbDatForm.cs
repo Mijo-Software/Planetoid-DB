@@ -6,10 +6,10 @@ using Krypton.Toolkit;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// MPCORB Data Verification Form.
+	/// ASTRORB Data Verification Form.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class CheckMpcorbDatForm : KryptonForm
+	public partial class CheckAstorbDatForm : KryptonForm
 	{
 		/// <summary>
 		/// The HttpClient instance used for making HTTP requests.
@@ -22,12 +22,12 @@ namespace Planetoid_DB
 		#region constructor
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="CheckMpcorbDatForm"/> class.
+		/// Initializes a new instance of the <see cref="CheckAstorbDatForm"/> class.
 		/// </summary>
-		public CheckMpcorbDatForm()
+		public CheckAstorbDatForm()
 		{
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(CheckMpcorbDatForm_KeyDown);
+			this.KeyDown += new KeyEventHandler(CheckAstorbDatForm_KeyDown);
 			this.KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
@@ -130,28 +130,28 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private async void CheckMpcorbDatForm_Load(object sender, EventArgs e)
+		private async void CheckAstorbDatForm_Load(object sender, EventArgs e)
 		{
 			ClearStatusbar();
 			isBusy = true;
-			Uri uriMPCORB = new(uriString: Properties.Settings.Default.systemMpcorbDatUrl);
+			Uri uriASTORB = new(uriString: Properties.Settings.Default.systemAstorbDatUrl);
 			DateTime datetimeFileLocal = DateTime.MinValue;
-			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false);
+			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriASTORB).ConfigureAwait(continueOnCapturedContext: false);
 
-			if (!File.Exists(path: Properties.Resources.FilenameMpcorb))
+			if (!File.Exists(path: Properties.Resources.FilenameAstorb))
 			{
 				labelContentLengthValueLocal.Text = I10nStrings.NoFileFoundText;
 				labelModifiedDateValueLocal.Text = I10nStrings.NoFileFoundText;
 			}
 			else
 			{
-				FileInfo fileInfo = new(fileName: Properties.Resources.FilenameMpcorb);
+				FileInfo fileInfo = new(fileName: Properties.Resources.FilenameAstorb);
 				datetimeFileLocal = fileInfo.LastWriteTime;
 				labelContentLengthValueLocal.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
 				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
 			}
 
-			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false)} {I10nStrings.BytesText}";
+			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriASTORB).ConfigureAwait(continueOnCapturedContext: false)} {I10nStrings.BytesText}";
 			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
 
 			if (datetimeFileOnline > datetimeFileLocal)
@@ -172,7 +172,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
-		private void CheckMpcorbDatForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+		private void CheckAstorbDatForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 
@@ -235,7 +235,7 @@ namespace Planetoid_DB
 			labelModifiedDateValueOnline.Text = string.Empty;
 			labelUpdateNeeded.Text = string.Empty;
 			labelUpdateNeeded.Values.Image = null;
-			CheckMpcorbDatForm_Load(sender: sender, e: e);
+			CheckAstorbDatForm_Load(sender: sender, e: e);
 		}
 
 		#endregion
@@ -248,7 +248,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void CheckMpcorbDatForm_KeyDown(object? sender, KeyEventArgs e)
+		private void CheckAstorbDatForm_KeyDown(object? sender, KeyEventArgs e)
 		{
 			if (!isBusy && e.KeyCode == Keys.Escape)
 			{

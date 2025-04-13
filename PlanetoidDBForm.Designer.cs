@@ -41,10 +41,10 @@ namespace Planetoid_DB
 			menuitemNavigateStep1000 = new ToolStripMenuItem();
 			menuitemNavigateStep10000 = new ToolStripMenuItem();
 			menuitemNavigateStep100000 = new ToolStripMenuItem();
-			menuitemNavigateSomeDataForward = new ToolStripMenuItem();
-			toolStripSplitButtonStepForward = new ToolStripSplitButton();
 			toolStripSplitButtonStepBackward = new ToolStripSplitButton();
 			menuitemNavigateSomeDataBackward = new ToolStripMenuItem();
+			menuitemNavigateSomeDataForward = new ToolStripMenuItem();
+			toolStripSplitButtonStepForward = new ToolStripSplitButton();
 			tableLayoutPanelData = new KryptonTableLayoutPanel();
 			labelIndexData = new KryptonLabel();
 			labelReadableDesignationData = new KryptonLabel();
@@ -178,6 +178,8 @@ namespace Planetoid_DB
 			menuitemUpdate = new ToolStripMenuItem();
 			menuitemCheckMpcorbDat = new ToolStripMenuItem();
 			menuitemDownloadMpcorbDat = new ToolStripMenuItem();
+			toolStripSeparator2 = new ToolStripSeparator();
+			menuitemCheckAstorbDat = new ToolStripMenuItem();
 			menuitemOptions = new ToolStripMenuItem();
 			menuitemSettings = new ToolStripMenuItem();
 			menuitemStyle = new ToolStripMenuItem();
@@ -265,7 +267,7 @@ namespace Planetoid_DB
 			contextMenuNavigationStep.Font = new Font("Segoe UI", 9F);
 			contextMenuNavigationStep.Items.AddRange(new ToolStripItem[] { menuitemNavigateStep10, menuitemNavigateStep100, menuitemNavigateStep1000, menuitemNavigateStep10000, menuitemNavigateStep100000 });
 			contextMenuNavigationStep.Name = "contextMenu";
-			contextMenuNavigationStep.OwnerItem = menuitemNavigateSomeDataBackward;
+			contextMenuNavigationStep.OwnerItem = toolStripSplitButtonStepForward;
 			contextMenuNavigationStep.ShowCheckMargin = true;
 			contextMenuNavigationStep.ShowImageMargin = false;
 			contextMenuNavigationStep.Size = new Size(111, 114);
@@ -347,39 +349,6 @@ namespace Planetoid_DB
 			menuitemNavigateStep100000.MouseEnter += SetStatusbar_Enter;
 			menuitemNavigateStep100000.MouseLeave += ClearStatusbar_Leave;
 			// 
-			// menuitemNavigateSomeDataForward
-			// 
-			menuitemNavigateSomeDataForward.AccessibleDescription = "Navigates some data forward";
-			menuitemNavigateSomeDataForward.AccessibleName = "Navigates some data forward";
-			menuitemNavigateSomeDataForward.AccessibleRole = AccessibleRole.MenuItem;
-			menuitemNavigateSomeDataForward.AutoToolTip = true;
-			menuitemNavigateSomeDataForward.DoubleClickEnabled = true;
-			menuitemNavigateSomeDataForward.DropDown = contextMenuNavigationStep;
-			menuitemNavigateSomeDataForward.Image = Properties.Resources.silk_forward_green;
-			menuitemNavigateSomeDataForward.Name = "menuitemNavigateSomeDataForward";
-			menuitemNavigateSomeDataForward.ShortcutKeys = Keys.Control | Keys.D5;
-			menuitemNavigateSomeDataForward.Size = new Size(275, 22);
-			menuitemNavigateSomeDataForward.Text = "Navigate some data &forward";
-			menuitemNavigateSomeDataForward.Click += ToolStripMenuItemNavigateSomeDataForward_Click;
-			menuitemNavigateSomeDataForward.MouseEnter += SetStatusbar_Enter;
-			menuitemNavigateSomeDataForward.MouseLeave += ClearStatusbar_Leave;
-			// 
-			// toolStripSplitButtonStepForward
-			// 
-			toolStripSplitButtonStepForward.AccessibleDescription = "Navigates some data forward";
-			toolStripSplitButtonStepForward.AccessibleName = "Navigate some data forward";
-			toolStripSplitButtonStepForward.AccessibleRole = AccessibleRole.SplitButton;
-			toolStripSplitButtonStepForward.DisplayStyle = ToolStripItemDisplayStyle.Image;
-			toolStripSplitButtonStepForward.DropDown = contextMenuNavigationStep;
-			toolStripSplitButtonStepForward.Image = Properties.Resources.silk_forward_green;
-			toolStripSplitButtonStepForward.ImageTransparentColor = Color.Magenta;
-			toolStripSplitButtonStepForward.Name = "toolStripSplitButtonStepForward";
-			toolStripSplitButtonStepForward.Size = new Size(32, 22);
-			toolStripSplitButtonStepForward.Text = "Navigate some data forward";
-			toolStripSplitButtonStepForward.ButtonClick += ToolStripButtonStepForward_Click;
-			toolStripSplitButtonStepForward.MouseEnter += SetStatusbar_Enter;
-			toolStripSplitButtonStepForward.MouseLeave += ClearStatusbar_Leave;
-			// 
 			// toolStripSplitButtonStepBackward
 			// 
 			toolStripSplitButtonStepBackward.AccessibleDescription = "Navigates some data backward";
@@ -412,6 +381,39 @@ namespace Planetoid_DB
 			menuitemNavigateSomeDataBackward.Click += ToolStripMenuItemNavigateSomeDataBackward_Click;
 			menuitemNavigateSomeDataBackward.MouseEnter += SetStatusbar_Enter;
 			menuitemNavigateSomeDataBackward.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// menuitemNavigateSomeDataForward
+			// 
+			menuitemNavigateSomeDataForward.AccessibleDescription = "Navigates some data forward";
+			menuitemNavigateSomeDataForward.AccessibleName = "Navigates some data forward";
+			menuitemNavigateSomeDataForward.AccessibleRole = AccessibleRole.MenuItem;
+			menuitemNavigateSomeDataForward.AutoToolTip = true;
+			menuitemNavigateSomeDataForward.DoubleClickEnabled = true;
+			menuitemNavigateSomeDataForward.DropDown = contextMenuNavigationStep;
+			menuitemNavigateSomeDataForward.Image = Properties.Resources.silk_forward_green;
+			menuitemNavigateSomeDataForward.Name = "menuitemNavigateSomeDataForward";
+			menuitemNavigateSomeDataForward.ShortcutKeys = Keys.Control | Keys.D5;
+			menuitemNavigateSomeDataForward.Size = new Size(275, 22);
+			menuitemNavigateSomeDataForward.Text = "Navigate some data &forward";
+			menuitemNavigateSomeDataForward.Click += ToolStripMenuItemNavigateSomeDataForward_Click;
+			menuitemNavigateSomeDataForward.MouseEnter += SetStatusbar_Enter;
+			menuitemNavigateSomeDataForward.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// toolStripSplitButtonStepForward
+			// 
+			toolStripSplitButtonStepForward.AccessibleDescription = "Navigates some data forward";
+			toolStripSplitButtonStepForward.AccessibleName = "Navigate some data forward";
+			toolStripSplitButtonStepForward.AccessibleRole = AccessibleRole.SplitButton;
+			toolStripSplitButtonStepForward.DisplayStyle = ToolStripItemDisplayStyle.Image;
+			toolStripSplitButtonStepForward.DropDown = contextMenuNavigationStep;
+			toolStripSplitButtonStepForward.Image = Properties.Resources.silk_forward_green;
+			toolStripSplitButtonStepForward.ImageTransparentColor = Color.Magenta;
+			toolStripSplitButtonStepForward.Name = "toolStripSplitButtonStepForward";
+			toolStripSplitButtonStepForward.Size = new Size(32, 22);
+			toolStripSplitButtonStepForward.Text = "Navigate some data forward";
+			toolStripSplitButtonStepForward.ButtonClick += ToolStripButtonStepForward_Click;
+			toolStripSplitButtonStepForward.MouseEnter += SetStatusbar_Enter;
+			toolStripSplitButtonStepForward.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// tableLayoutPanelData
 			// 
@@ -2497,7 +2499,7 @@ namespace Planetoid_DB
 			menuitemUpdate.AccessibleDescription = "Opens the menu \"updates\"";
 			menuitemUpdate.AccessibleName = "Update";
 			menuitemUpdate.AccessibleRole = AccessibleRole.MenuPopup;
-			menuitemUpdate.DropDownItems.AddRange(new ToolStripItem[] { menuitemCheckMpcorbDat, menuitemDownloadMpcorbDat });
+			menuitemUpdate.DropDownItems.AddRange(new ToolStripItem[] { menuitemCheckMpcorbDat, menuitemDownloadMpcorbDat, toolStripSeparator2, menuitemCheckAstorbDat });
 			menuitemUpdate.Name = "menuitemUpdate";
 			menuitemUpdate.Size = new Size(57, 24);
 			menuitemUpdate.Text = "&Update";
@@ -2506,7 +2508,7 @@ namespace Planetoid_DB
 			// 
 			// menuitemCheckMpcorbDat
 			// 
-			menuitemCheckMpcorbDat.AccessibleDescription = "Checks for updates of the database";
+			menuitemCheckMpcorbDat.AccessibleDescription = "Checks for updates of the database MPCORB.DAT";
 			menuitemCheckMpcorbDat.AccessibleName = "Check MPCORB.DAT";
 			menuitemCheckMpcorbDat.AccessibleRole = AccessibleRole.MenuItem;
 			menuitemCheckMpcorbDat.AutoToolTip = true;
@@ -2533,6 +2535,26 @@ namespace Planetoid_DB
 			menuitemDownloadMpcorbDat.Click += MenuitemDownloadMpcorbDat_Click;
 			menuitemDownloadMpcorbDat.MouseEnter += SetStatusbar_Enter;
 			menuitemDownloadMpcorbDat.MouseLeave += ClearStatusbar_Leave;
+			// 
+			// toolStripSeparator2
+			// 
+			toolStripSeparator2.Name = "toolStripSeparator2";
+			toolStripSeparator2.Size = new Size(201, 6);
+			// 
+			// menuitemCheckAstorbDat
+			// 
+			menuitemCheckAstorbDat.AccessibleDescription = "Checks for updates of the database ASTORB";
+			menuitemCheckAstorbDat.AccessibleName = "Check ASTORB.DAT";
+			menuitemCheckAstorbDat.AccessibleRole = AccessibleRole.MenuItem;
+			menuitemCheckAstorbDat.AutoToolTip = true;
+			menuitemCheckAstorbDat.DoubleClickEnabled = true;
+			menuitemCheckAstorbDat.Image = Properties.Resources.silk_database_lightning;
+			menuitemCheckAstorbDat.Name = "menuitemCheckAstorbDat";
+			menuitemCheckAstorbDat.Size = new Size(204, 22);
+			menuitemCheckAstorbDat.Text = "&Check ASTORB.DAT";
+			menuitemCheckAstorbDat.Click += MenuitemCheckAstorbDat_Click;
+			menuitemCheckAstorbDat.MouseEnter += SetStatusbar_Enter;
+			menuitemCheckAstorbDat.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// menuitemOptions
 			// 
@@ -3734,6 +3756,8 @@ namespace Planetoid_DB
 		private ToolStripSeparator toolStripSeparator11;
 		private ToolStripMenuItem menuitemListReadableDesignations;
 		private ToolStripButton toolStripButtonSearch;
+		private ToolStripSeparator toolStripSeparator2;
+		private ToolStripMenuItem menuitemCheckAstorbDat;
 	}
 }
 

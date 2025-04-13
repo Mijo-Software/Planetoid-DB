@@ -64,5 +64,47 @@ namespace Planetoid_DB.Properties {
                 this["userMpcorbDatUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string userAstorbDatUrl {
+            get {
+                return ((string)(this["userAstorbDatUrl"]));
+            }
+            set {
+                this["userAstorbDatUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string userAstorbDatGzUrl {
+            get {
+                return ((string)(this["userAstorbDatGzUrl"]));
+            }
+            set {
+                this["userAstorbDatGzUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://ftp.lowell.edu/pub/elgb/astorb.dat")]
+        public string systemAstorbDatUrl {
+            get {
+                return ((string)(this["systemAstorbDatUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://ftp.lowell.edu/pub/elgb/astorb.dat.gz")]
+        public string systemAstorbDatGzUrl {
+            get {
+                return ((string)(this["systemAstorbDatGzUrl"]));
+            }
+        }
     }
 }
