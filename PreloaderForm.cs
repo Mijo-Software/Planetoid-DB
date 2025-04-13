@@ -15,7 +15,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class PreloaderForm : KryptonForm
 	{
-		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
 		#region constructor
 
@@ -81,7 +81,7 @@ namespace Planetoid_DB
 			}
 			catch (Exception ex)
 			{
-				Logger.Error(exception: ex, message: "File not found");
+				logger.Error(exception: ex, message: "File not found");
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 				Environment.ExitCode = 1;
 			}
@@ -200,7 +200,7 @@ namespace Planetoid_DB
 			}
 			else
 			{
-				using DownloadUpdateForm formDownloaderForMpcorbDat = new();
+				using DownloadMpcorbDatForm formDownloaderForMpcorbDat = new();
 				if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
 				{
 					_ = MpcOrbDatFilePath = Resources.FilenameMpcorb;
@@ -245,7 +245,7 @@ namespace Planetoid_DB
 		#region KeyDown event handler
 
 		/// <summary>
-		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Handles the KeyDown event of the PreloaderForm.
 		/// Closes the form when the Escape key is pressed.
 		/// </summary>
 		/// <param name="sender">The event source.</param>

@@ -25,7 +25,10 @@
     <Compile Update="DerivatedOrbitElementsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DownloadUpdateForm.cs">
+    <Compile Update="DownloadAstorbDatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DownloadMpcorbDatForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="EphemeridesForm.cs">

@@ -49,6 +49,10 @@ namespace Planetoid_DB
 			SetStatusbar(text: string.Empty);
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PlanetoidDBForm"/> class with a specified MPCORB.DAT file path.
+		/// </summary>
+		/// <param name="mpcorbDatFilePath">The file path to the MPCORB.DAT file.</param>
 		public PlanetoidDBForm(string mpcorbDatFilePath)
 		{
 			InitializeComponent();
@@ -332,8 +336,11 @@ namespace Planetoid_DB
 		private void OpenTableMode()
 		{
 			using TableModeForm formTableMode = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formTableMode.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			formTableMode.FillArray(arrTemp: planetoidDatabase);
+			// Show the table mode form as a modal dialog
 			_ = formTableMode.ShowDialog();
 		}
 
@@ -343,7 +350,9 @@ namespace Planetoid_DB
 		private void ShowAppInfo()
 		{
 			using AppInfoForm formAppInfo = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formAppInfo.TopMost = TopMost;
+			// Show the application information form as a modal dialog
 			_ = formAppInfo.ShowDialog();
 		}
 
@@ -353,7 +362,9 @@ namespace Planetoid_DB
 		private void ShowRecordsSelection()
 		{
 			using RecordsSelectionForm formRecordsSelection = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formRecordsSelection.TopMost = TopMost;
+			// Show the records selection form as a modal dialog
 			_ = formRecordsSelection.ShowDialog();
 		}
 
@@ -363,7 +374,9 @@ namespace Planetoid_DB
 		private void ShowRecordsMain()
 		{
 			using RecordsMainForm formRecordsMain = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formRecordsMain.TopMost = TopMost;
+			// Show the records form as a modal dialog
 			_ = formRecordsMain.ShowDialog();
 		}
 
@@ -372,14 +385,19 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowMpcorbDatCheck()
 		{
+			// Check if the network is available before proceeding with the download
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
+				// Display an error message if the network is not available
 				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
+				// Create and show the MPCORB data check form
 				using CheckMpcorbDatForm formCheckMpcorbDat = new();
+				// Set the TopMost property to true to keep the form on top of other windows
 				formCheckMpcorbDat.TopMost = TopMost;
+				// Show the MPCORB data check form as a modal dialog
 				_ = formCheckMpcorbDat.ShowDialog();
 			}
 		}
@@ -389,14 +407,19 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowAstorbDatCheck()
 		{
+			// Check if the network is available before proceeding with the download
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
+				// Display an error message if the network is not available
 				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
+				// Create and show the ASTORB data check form
 				using CheckAstorbDatForm formCheckAstorbDat = new();
+				// Set the TopMost property to true to keep the form on top of other windows
 				formCheckAstorbDat.TopMost = TopMost;
+				// Show the ASTORB data check form as a modal dialog
 				_ = formCheckAstorbDat.ShowDialog();
 			}
 		}
@@ -404,20 +427,55 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Shows the downloader form for the MPCORB database.
 		/// </summary>
-		private void ShowDownloader()
+		private void ShowMpcorbDatDownloader()
 		{
+			// Check if the network is available before proceeding with the download
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
+				// Display an error message if the network is not available
 				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			else
 			{
-				using DownloadUpdateForm formDownloaderForMpcorbDat = new();
+				// Create and show the downloader form for the MPCORB database
+				using DownloadMpcorbDatForm formDownloaderForMpcorbDat = new();
+				// Set the TopMost property to true to keep the form on top of other windows
 				formDownloaderForMpcorbDat.TopMost = TopMost;
+				// Show the downloader form as a modal dialog
 				if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
 				{
+					// Ask the user if they want to restart the application after downloading the database
 					AskForRestartAfterDownloadingDatabase();
 				}
+			}
+		}
+
+		/// <summary>
+		/// Shows the downloader form for the ASTORB database.
+		/// </summary>
+		private void ShowAstorbDatDownloader()
+		{
+			// Check if the network is available before proceeding with the download
+			if (!NetworkInterface.GetIsNetworkAvailable())
+			{
+				// Display an error message if the network is not available
+				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+			else
+			{
+				// Create and show the downloader form for the ASTORB database
+				using DownloadAstorbDatForm formDownloaderForAstorbDat = new();
+				// Set the TopMost property to true to keep the form on top of other windows
+				formDownloaderForAstorbDat.TopMost = TopMost;
+				// Show the downloader form as a modal dialog
+				_ = formDownloaderForAstorbDat.ShowDialog();
+				/* Meanwhile not necessary
+				if (formDownloaderForAstorbDat.ShowDialog() == DialogResult.OK)
+				{
+					// Ask the user if they want to restart the application after downloading the database
+					AskForRestartAfterDownloadingDatabase();
+				}
+				*/
 			}
 		}
 
@@ -1181,7 +1239,15 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemDownloadMpcorbDat_Click(object sender, EventArgs e) => ShowDownloader();
+		private void MenuitemDownloadMpcorbDat_Click(object sender, EventArgs e) => ShowMpcorbDatDownloader();
+
+		/// <summary>
+		/// Handles the click event for the MenuitemDownloadAstorbDat.
+		/// Shows the downloader form for the ASTORB database.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void MenuitemDownloadAstorbDat_Click(object sender, EventArgs e) => ShowAstorbDatDownloader();
 
 		/// <summary>
 		/// Handles the click event for the MenuitemCheckMpcorbDat.
@@ -1260,7 +1326,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ToolStripButtonDownloadMpcorbDat_Click(object sender, EventArgs e) => ShowDownloader();
+		private void ToolStripButtonDownloadMpcorbDat_Click(object sender, EventArgs e) => ShowMpcorbDatDownloader();
 
 		/// <summary>
 		/// Handles the click event for the ToolStripButtonAbout.
@@ -2178,7 +2244,7 @@ namespace Planetoid_DB
 		#region KeyDown event handler
 
 		/// <summary>
-		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Handles the KeyDown event of the PlanetoidDBForm.
 		/// Closes the form when the Escape key is pressed.
 		/// </summary>
 		/// <param name="sender">The event source.</param>

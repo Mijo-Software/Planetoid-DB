@@ -256,9 +256,7 @@ namespace Planetoid_DB
 		private ToolStripStatusLabel labelInformation;
 		private KryptonPanel panel;
 		private KryptonDropButton dropButtonSaveList;
-		private KryptonButton buttonLoad;
 		private KryptonCommandLinkButton kryptonCommandLinkButtonOpenLocalFile;
-		private KryptonButton buttonList;
 		private KryptonCommandLinkButton kryptonCommandLinkButtonExit;
 		private KryptonCommandLinkButton kryptonCommandLinkButtonLoadInternalDemoData;
 		private KryptonCommandLinkButton kryptonCommandLinkButtonDownloadMprcorbDat;

@@ -188,7 +188,7 @@ namespace Planetoid_DB
 		#region KeyDown event handler
 
 		/// <summary>
-		/// Handles the KeyDown event of the ExportDataSheetForm.
+		/// Handles the KeyDown event of the DatabaseInformationForm.
 		/// Closes the form when the Escape key is pressed.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
