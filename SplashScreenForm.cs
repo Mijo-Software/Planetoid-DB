@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
@@ -9,6 +10,17 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SplashScreenForm : KryptonForm
 	{
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+
+		#region constructor
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="SplashScreenForm"/> class.
+		/// </summary>
+		public SplashScreenForm() => InitializeComponent();
+
+		#endregion
+
 		#region local methods
 
 		/// <summary>
@@ -18,6 +30,14 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
 		/// Copies the specified text to the clipboard and displays a confirmation message.
 		/// </summary>
 		/// <param name="text">The text to be copied.</param>
@@ -25,12 +45,16 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Copy the text to the clipboard
 				Clipboard.SetText(text: text);
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
-				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
 		}
 
@@ -40,21 +64,19 @@ namespace Planetoid_DB
 		/// <param name="value">The progress value.</param>
 		public void SetProgressbar(int value)
 		{
+			// Validate the value
+			// Check if the value is within the range of the progress bar
+			// If the value is less than the minimum or greater than the maximum, throw an exception
 			if (value < progressBarSplash.Minimum || value > progressBarSplash.Maximum)
 			{
+				// Log the error and throw an exception
+				logger.Error(message: $"Value {value} is out of range for the progress bar. Minimum: {progressBarSplash.Minimum}, Maximum: {progressBarSplash.Maximum}");
+				// Throw an exception indicating that the value is out of range
 				throw new ArgumentOutOfRangeException(paramName: nameof(value), message: I10nStrings.IndexOutOfRange);
 			}
+			// Set the value of the progress bar
 			progressBarSplash.Value = value;
 		}
-
-		#endregion
-
-		#region constructor
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="SplashScreenForm"/> class.
-		/// </summary>
-		public SplashScreenForm() => InitializeComponent();
 
 		#endregion
 

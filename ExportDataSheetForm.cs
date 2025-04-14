@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
@@ -11,10 +12,8 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class ExportDataSheetForm : KryptonForm
 	{
-		/// <summary>
-		/// List of orbit elements to be exported.
-		/// </summary>
-		private List<string> orbitElements = [];
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+		private List<string> orbitElements = []; // List of orbit elements to be exported
 
 		#region Constructor
 
@@ -23,9 +22,10 @@ namespace Planetoid_DB
 		/// </summary>
 		public ExportDataSheetForm()
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(ExportDataSheetForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(ExportDataSheetForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
@@ -39,14 +39,45 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
+		/// Copies the specified text to the clipboard and displays a confirmation message.
+		/// </summary>
+		/// <param name="text">The text to be copied.</param>
+		private static void CopyToClipboard(string text)
+		{
+			try
+			{
+				// Copy the text to the clipboard
+				Clipboard.SetText(text: text);
+				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
+			}
+		}
+
+		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
+			// Check if the text is not null or whitespace
 			if (!string.IsNullOrWhiteSpace(value: text))
 			{
+				// Set the status bar text and enable it
 				labelInformation.Enabled = true;
 				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
@@ -57,6 +88,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ClearStatusbar()
 		{
+			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
 			labelInformation.Text = string.Empty;
 		}
@@ -73,10 +105,15 @@ namespace Planetoid_DB
 		/// <param name="check">True to check all items, false to uncheck all items.</param>
 		private void CheckIt(bool check)
 		{
+			// Check or uncheck all items in the checked list box
+			// based on the provided boolean value
+			// and enable or disable the export buttons accordingly
 			for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 			{
+				// Check or uncheck the item at index i
 				checkedListBoxOrbitalElements.SetItemChecked(index: i, value: check);
 			}
+			// Enable or disable the export buttons based on the check state
 			buttonExportAsTxt.Enabled = buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = check;
 		}
 
@@ -96,18 +133,26 @@ namespace Planetoid_DB
 		/// <returns>True if all items are unmarked, otherwise false.</returns>
 		private bool IsAllUnmarked()
 		{
+			// Check if all items in the checked list box are unmarked
+			// and return true if they are, otherwise return false
 			foreach (object? item in checkedListBoxOrbitalElements.Items)
 			{
+				// Get the index of the item in the checked list box
 				if (item != null)
 				{
+					// Convert the item to a string and check if it is null
 					string itemString = item.ToString() ?? string.Empty;
+					// Check if the item is checked
 					bool isChecked = checkedListBoxOrbitalElements.GetItemChecked(index: checkedListBoxOrbitalElements.FindStringExact(str: itemString));
+					// If the item is checked, return false
 					if (isChecked)
 					{
+						// If any item is checked, return false
 						return false;
 					}
 				}
 			}
+			// If all items are unmarked, return true
 			return true;
 		}
 
@@ -419,7 +464,7 @@ namespace Planetoid_DB
 		{
 			if (e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				Close();
 			}
 		}
 

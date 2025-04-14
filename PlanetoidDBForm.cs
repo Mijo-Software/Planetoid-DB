@@ -8,27 +8,36 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
-	/// Represents the main form of the Planetoid Database application.
-	/// This form provides functionalities to navigate, search, and display data about planetoids.
-	/// It also includes methods to handle database updates, export data, and show various information dialogs.
+	/// <summary>
+	/// Represents a form that displays terminology information.
+	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 
 	public partial class PlanetoidDBForm : KryptonForm
 	{
+		// NLog logger instance
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
 		// Current position in the planetoid database
 		private int currentPosition = 0, stepPosition = 0;
+
 		// Planetoid database
 		private readonly ArrayList planetoidDatabase = [];
+
 		// Web client for downloading data
 		private readonly WebClient webClient = new();
+
 		// Splash screen form
 		private readonly SplashScreenForm formSplashScreen = new();
+
 		// Filenames for the MPCORB database
 		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
 		private readonly string filenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
+
 		// URI for the MPCORB database
 		private readonly Uri uriMpcorb = new(uriString: Properties.Settings.Default.systemMpcorbDatGzUrl);
 
@@ -46,7 +55,6 @@ namespace Planetoid_DB
 			this.KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
 			this.KeyPreview = true; // Ensures the form receives key events before the controls
 			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
-			SetStatusbar(text: string.Empty);
 		}
 
 		/// <summary>
@@ -55,9 +63,10 @@ namespace Planetoid_DB
 		/// <param name="mpcorbDatFilePath">The file path to the MPCORB.DAT file.</param>
 		public PlanetoidDBForm(string mpcorbDatFilePath)
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
 			SetStatusbar(text: string.Empty);
 			MpcOrbDatFilePath = mpcorbDatFilePath;
@@ -80,6 +89,14 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
 		/// Copies the specified text to the clipboard and displays a confirmation message.
 		/// </summary>
 		/// <param name="text">The text to be copied.</param>
@@ -87,31 +104,43 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Copy the text to the clipboard
 				Clipboard.SetText(text: text);
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
-				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
 		}
 
 		/// <summary>
-		/// Sets double buffering for the specified control to reduce flickering.
+		/// Sets the status bar text.
 		/// </summary>
-		/// <param name="control">The control to set double buffering for.</param>
-		private static void SetDoubleBuffered(Control control)
+		/// <param name="text">The main text to be displayed on the status bar.</param>
+		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (SystemInformation.TerminalServerSession)
+			// Check if the text is not null or whitespace
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
-				return;
+				// Set the status bar text and enable it
+				labelInformation.Enabled = true;
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
-#pragma warning disable CS8600 // Das NULL-Literal oder ein möglicher NULL-Wert wird in einen Non-Nullable-Typ konvertiert.
-			PropertyInfo aProp = typeof(Control).GetProperty(name: "DoubleBuffered", bindingAttr: BindingFlags.NonPublic | BindingFlags.Instance);
-#pragma warning restore CS8600 // Das NULL-Literal oder ein möglicher NULL-Wert wird in einen Non-Nullable-Typ konvertiert.
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			aProp.SetValue(obj: control, value: true, index: null);
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
+		}
+
+		/// <summary>
+		/// Clears the status bar text.
+		/// </summary>
+		private void ClearStatusbar()
+		{
+			// Clear the status bar text and disable it
+			labelInformation.Enabled = false;
+			labelInformation.Text = string.Empty;
 		}
 
 		/// <summary>
@@ -119,6 +148,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void Restart()
 		{
+			// Close the current form and start a new instance of the application
 			_ = Process.Start(fileName: Application.ExecutablePath);
 			Close();
 		}
@@ -128,8 +158,15 @@ namespace Planetoid_DB
 		/// </summary>
 		private void AskForRestartAfterDownloadingDatabase()
 		{
+			// Ask the user if they want to restart the application after downloading the database
+			// and show a message box with the option to restart or not
+			// The message box will have the text "Download complete. Do you want to restart the application?"
+			// and the caption "Information"
+			// If the user clicks "Yes", restart the application
+			// If the user clicks "No", do nothing
 			if (MessageBox.Show(text: I10nStrings.DownloadCompleteAndRestartQuestionText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information, defaultButton: MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 			{
+				// Restart the application
 				Restart();
 			}
 		}
@@ -174,8 +211,16 @@ namespace Planetoid_DB
 		/// <returns>The last modified date of the URI.</returns>
 		private static DateTime GetLastModified(Uri uri)
 		{
+			// Create a new HttpWebRequest to the specified URI
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			// Set the method to HEAD to only retrieve headers
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			// Check if the response status code is OK (200)
+			// If so, return the last modified date
+			// Otherwise, return a default DateTime value
+			// Note: The default DateTime value is not a valid date, so it should be handled appropriately
+			// in the calling code
+			// The default DateTime value is 1/1/0001 12:00:00 AM
 			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
 		}
 
@@ -186,8 +231,14 @@ namespace Planetoid_DB
 		/// <returns>The content length of the URI.</returns>
 		private static long GetContentLength(Uri uri)
 		{
+			// Create a new HttpWebRequest to the specified URI
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			// Set the method to HEAD to only retrieve headers
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			// Check if the response status code is OK (200)
+			// If so, return the content length
+			// Otherwise, return 0
+			// Note: The content length is the size of the response body in bytes
 			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
 		}
 
@@ -197,9 +248,19 @@ namespace Planetoid_DB
 		/// <returns>true if an update is available, otherwise false.</returns>
 		private bool IsMpcorbDatUpdateAvailable()
 		{
+			// Get the file information for the local file
 			FileInfo fileInfo = new(fileName: filenameMpcorb);
+			// Get the last modified date of the local file
 			DateTime datetimeFileLocal = fileInfo.LastWriteTime;
+			// Get the last modified date of the online file
 			DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
+			// Get the content length of the online file
+			_ = GetContentLength(uri: uriMpcorb);
+			// Get the content length of the local file
+			_ = fileInfo.Length;
+			// Check if the online file is larger than the local file
+			// If it greater, return true (update available)
+			// Otherwise, return false (no update available)
 			return datetimeFileOnline > datetimeFileLocal;
 		}
 
@@ -218,11 +279,14 @@ namespace Planetoid_DB
 		/// </summary>
 		private void NavigateSomeDataBackward()
 		{
+			// Decrease the current position by the step size
 			currentPosition -= stepPosition;
 			if (currentPosition < 1)
 			{
+				// If the current position is less than 1, wrap around to the end of the database
 				currentPosition += planetoidDatabase.Count;
 			}
+			// Navigate to the current position
 			GotoCurrentPosition(currentPosition: currentPosition);
 		}
 
@@ -231,14 +295,20 @@ namespace Planetoid_DB
 		/// </summary>
 		private void NavigateToThePreviousData()
 		{
+			// If the current position is 0, wrap around to the last entry in the database
 			if (currentPosition == 0)
 			{
+				// Set the current position to the last entry in the database
+				// This ensures that when the user navigates backward from the first entry, they go to the last entry
+				// This is useful for circular navigation
 				currentPosition = planetoidDatabase.Count - 1;
 			}
 			else
 			{
+				// Decrease the current position by 1
 				currentPosition--;
 			}
+			// Navigate to the current position
 			GotoCurrentPosition(currentPosition: currentPosition);
 		}
 
@@ -247,14 +317,20 @@ namespace Planetoid_DB
 		/// </summary>
 		private void NavigateToTheNextData()
 		{
+			// If the current position is the last entry in the database, wrap around to the first entry
 			if (currentPosition == planetoidDatabase.Count - 1)
 			{
+				// Set the current position to 0 (the first entry in the database)
+				// This ensures that when the user navigates forward from the last entry, they go to the first entry
+				// This is useful for circular navigation
 				currentPosition = 0;
 			}
 			else
 			{
+				// Increase the current position by 1
 				currentPosition++;
 			}
+			// Navigate to the current position
 			GotoCurrentPosition(currentPosition: currentPosition);
 		}
 
@@ -263,11 +339,18 @@ namespace Planetoid_DB
 		/// </summary>
 		private void NavigateSomeDataForward()
 		{
+			// Increase the current position by the step size
+			// This allows the user to navigate through the database in larger increments
 			currentPosition += stepPosition;
+			// If the current position exceeds the total number of entries in the database, wrap around to the beginning
 			if (currentPosition > planetoidDatabase.Count)
 			{
+				// Set the current position to the beginning of the database
+				// This ensures that when the user navigates forward from the last entry, they go to the first entry
+				// This is useful for circular navigation
 				currentPosition -= planetoidDatabase.Count;
 			}
+			// Navigate to the current position
 			GotoCurrentPosition(currentPosition: currentPosition);
 		}
 
@@ -282,51 +365,55 @@ namespace Planetoid_DB
 		/// <param name="index">The index to set active in the terminology form.</param>
 		private void OpenTerminology(uint index)
 		{
+			// Create a new instance of the TerminologyForm
 			using TerminologyForm formTerminology = new();
+			// Set the active terminology based on the index
 			switch (index)
 			{
-				case 0: formTerminology.SetIndexNumberActive(); break;
-				case 1: formTerminology.SetReadableDesignationActive(); break;
-				case 2: formTerminology.SetEpochActive(); break;
-				case 3: formTerminology.SetMeanAnomalyAtTheEpochActive(); break;
-				case 4: formTerminology.SetArgumentOfPerihelionActive(); break;
-				case 5: formTerminology.SetLongitudeOfTheAscendingNodeActive(); break;
-				case 6: formTerminology.SetInclinationToTheEclipticActive(); break;
-				case 7: formTerminology.SetOrbitalEccentricityActive(); break;
-				case 8: formTerminology.SetMeanDailyMotionActive(); break;
-				case 9: formTerminology.SetSemiMajorAxisActive(); break;
-				case 10: formTerminology.SetAbsoluteMagnitudeActive(); break;
-				case 11: formTerminology.SetSlopeParamActive(); break;
-				case 12: formTerminology.SetReferenceActive(); break;
-				case 13: formTerminology.SetNumberOfOppositionsActive(); break;
-				case 14: formTerminology.SetNumberOfObservationsActive(); break;
-				case 15: formTerminology.SetObservationSpanActive(); break;
-				case 16: formTerminology.SetRmsResidualActive(); break;
-				case 17: formTerminology.SetComputerNameActive(); break;
-				case 18: formTerminology.SetFlagsActive(); break;
-				case 19: formTerminology.SetDateOfTheLastObservationActive(); break;
-				case 20: formTerminology.SetLinearEccentricityActive(); break;
-				case 21: formTerminology.SetSemiMinorAxisActive(); break;
-				case 22: formTerminology.SetMajorAxisActive(); break;
-				case 23: formTerminology.SetMinorAxisActive(); break;
-				case 24: formTerminology.SetEccenctricAnomalyActive(); break;
-				case 25: formTerminology.SetTrueAnomalyActive(); break;
-				case 26: formTerminology.SetPerihelionDistanceActive(); break;
-				case 27: formTerminology.SetAphelionDistanceActive(); break;
-				case 28: formTerminology.SetLongitudeOfTheDescendingNodeActive(); break;
-				case 29: formTerminology.SetArgumentOfTheAphelionActive(); break;
-				case 30: formTerminology.SetFocalParameterActive(); break;
-				case 31: formTerminology.SetSemiLatusRectumActive(); break;
-				case 32: formTerminology.SetLatusRectumActive(); break;
-				case 33: formTerminology.SetOrbitalPeriodActive(); break;
-				case 34: formTerminology.SetOrbitalAreaActive(); break;
-				case 35: formTerminology.SetOrbitalPerimeterActive(); break;
-				case 36: formTerminology.SetSemiMeanAxisActive(); break;
-				case 37: formTerminology.SetMeanAxisActive(); break;
-				case 38: formTerminology.SetStandardGravitationalParameterActive(); break;
-				default: formTerminology.SetIndexNumberActive(); break;
+				case 0: formTerminology.SetIndexNumberActive(); break; // Index number
+				case 1: formTerminology.SetReadableDesignationActive(); break; // Readable designation
+				case 2: formTerminology.SetEpochActive(); break; // Epoch
+				case 3: formTerminology.SetMeanAnomalyAtTheEpochActive(); break; // Mean anomaly at the epoch
+				case 4: formTerminology.SetArgumentOfPerihelionActive(); break; // Argument of perihelion
+				case 5: formTerminology.SetLongitudeOfTheAscendingNodeActive(); break; // Longitude of the ascending node
+				case 6: formTerminology.SetInclinationToTheEclipticActive(); break; // Inclination to the ecliptic
+				case 7: formTerminology.SetOrbitalEccentricityActive(); break; // Orbital eccentricity
+				case 8: formTerminology.SetMeanDailyMotionActive(); break; // Mean daily motion
+				case 9: formTerminology.SetSemiMajorAxisActive(); break; // Semi-major axis
+				case 10: formTerminology.SetAbsoluteMagnitudeActive(); break; // Absolute magnitude
+				case 11: formTerminology.SetSlopeParamActive(); break; // Slope parameter
+				case 12: formTerminology.SetReferenceActive(); break; // Reference
+				case 13: formTerminology.SetNumberOfOppositionsActive(); break; // Number of oppositions
+				case 14: formTerminology.SetNumberOfObservationsActive(); break; // Number of observations
+				case 15: formTerminology.SetObservationSpanActive(); break; // Observation span
+				case 16: formTerminology.SetRmsResidualActive(); break; // r.m.s. residual
+				case 17: formTerminology.SetComputerNameActive(); break; // Computer name
+				case 18: formTerminology.SetFlagsActive(); break; // 4-hexdigit flags
+				case 19: formTerminology.SetDateOfTheLastObservationActive(); break; // Date of last observation
+				case 20: formTerminology.SetLinearEccentricityActive(); break; // Linear eccentricity
+				case 21: formTerminology.SetSemiMinorAxisActive(); break; // Semi-minor axis
+				case 22: formTerminology.SetMajorAxisActive(); break; // Major axis
+				case 23: formTerminology.SetMinorAxisActive(); break; // Minor axis
+				case 24: formTerminology.SetEccenctricAnomalyActive(); break; // Eccentric anomaly
+				case 25: formTerminology.SetTrueAnomalyActive(); break; // True anomaly
+				case 26: formTerminology.SetPerihelionDistanceActive(); break; // Perihelion distance
+				case 27: formTerminology.SetAphelionDistanceActive(); break; // Aphelion distance
+				case 28: formTerminology.SetLongitudeOfTheDescendingNodeActive(); break; // Longitude of the descending node
+				case 29: formTerminology.SetArgumentOfTheAphelionActive(); break; // Argument of the aphelion
+				case 30: formTerminology.SetFocalParameterActive(); break; // Focal parameter
+				case 31: formTerminology.SetSemiLatusRectumActive(); break; // Semi-latus rectum
+				case 32: formTerminology.SetLatusRectumActive(); break; // Latus rectum
+				case 33: formTerminology.SetOrbitalPeriodActive(); break; // Orbital period
+				case 34: formTerminology.SetOrbitalAreaActive(); break; // Orbital area
+				case 35: formTerminology.SetOrbitalPerimeterActive(); break; // Orbital perimeter
+				case 36: formTerminology.SetSemiMeanAxisActive(); break; // Semi-mean axis
+				case 37: formTerminology.SetMeanAxisActive(); break; // Mean axis
+				case 38: formTerminology.SetStandardGravitationalParameterActive(); break; // Standard gravitational parameter
+				default: formTerminology.SetIndexNumberActive(); break; // Default to index number
 			}
+			// Set the TopMost property to true to keep the form on top of other windows
 			formTerminology.TopMost = TopMost;
+			// Show the terminology form as a modal dialog
 			_ = formTerminology.ShowDialog();
 		}
 
@@ -335,6 +422,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void OpenTableMode()
 		{
+			// Create a new instance of the TableModeForm
 			using TableModeForm formTableMode = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formTableMode.TopMost = TopMost;
@@ -349,6 +437,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowAppInfo()
 		{
+			// Create a new instance of the AppInfoForm
 			using AppInfoForm formAppInfo = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formAppInfo.TopMost = TopMost;
@@ -357,10 +446,24 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
+		/// Shows the license form.
+		/// </summary>
+		private void ShowLicense()
+		{
+			// Create a new instance of the LicenseForm
+			using LicenseForm formLicense = new();
+			// Set the TopMost property to true to keep the form on top of other windows
+			formLicense.TopMost = TopMost;
+			// Show the application information form as a modal dialog
+			_ = formLicense.ShowDialog();
+		}
+
+		/// <summary>
 		/// Shows the records selection form.
 		/// </summary>
 		private void ShowRecordsSelection()
 		{
+			// Create a new instance of the RecordsSelectionForm
 			using RecordsSelectionForm formRecordsSelection = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formRecordsSelection.TopMost = TopMost;
@@ -373,6 +476,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowRecordsMain()
 		{
+			// Create a new instance of the RecordsMainForm
 			using RecordsMainForm formRecordsMain = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formRecordsMain.TopMost = TopMost;
@@ -484,8 +588,11 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowDatabaseInformation()
 		{
+			// Create a new instance of the DatabaseInformationForm
 			using DatabaseInformationForm formDatabaseInformation = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formDatabaseInformation.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			_ = formDatabaseInformation.ShowDialog();
 		}
 
@@ -494,6 +601,10 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowCopyDataToClipboard()
 		{
+			// Create a new ArrayList to store the data to copy
+			// The capacity is set to 0 because we will add items dynamically
+			// The items in the ArrayList are the labels that contain the data to be copied
+			// The labels are accessed using their respective properties
 			ArrayList dataToCopy = new(capacity: 0)
 								   {
 									   labelIndexData.Text,
@@ -517,23 +628,31 @@ namespace Planetoid_DB
 									   labelFlagsData.Text,
 									   labelDateLastObservationData.Text
 								   };
-
+			// Create a new list to store the data to copy
 			List<string> dataToCopyList = [];
+			// Iterate through each item in the dataToCopy array
 			foreach (object? item in dataToCopy)
 			{
+				// Check if the item is not null
 				if (item != null)
 				{
+					// Convert the item to a string representation
 					string? itemString = item.ToString();
+					// Check if the item is not null or empty
 					if (!string.IsNullOrEmpty(value: itemString))
 					{
+						// Add the item to the list if it is not null or empty
 						dataToCopyList.Add(item: itemString);
 					}
 				}
 			}
-
+			// Create a new instance of the CopyDataToClipboardForm
 			using CopyDataToClipboardForm formCopyDataToClipboard = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formCopyDataToClipboard.TopMost = TopMost;
+			// Fill the form with the data to copy
 			formCopyDataToClipboard.SetDatabase(list: dataToCopyList);
+			// Show the copy data to clipboard form as a modal dialog
 			_ = formCopyDataToClipboard.ShowDialog();
 		}
 
@@ -542,14 +661,22 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowSearch()
 		{
+			// Create a new instance of the SearchForm
 			using SearchForm formSearch = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formSearch.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			formSearch.FillArray(arrTemp: planetoidDatabase);
+			// Set the maximum index for the search form
 			formSearch.SetMaxIndex(maxIndex: planetoidDatabase.Count);
+			// Show the search form as a modal dialog
 			_ = formSearch.ShowDialog();
+			// Check if the dialog result is OK and the selected index is greater than 0
 			_ = MessageBox.Show(text: formSearch.GetSelectedIndex().ToString());
+			// If so, navigate to the current position in the database
 			if (formSearch.DialogResult == DialogResult.OK && formSearch.GetSelectedIndex() > 0)
 			{
+				// Navigate to the current position in the database
 				GotoCurrentPosition(currentPosition: formSearch.GetSelectedIndex());
 			}
 		}
@@ -559,8 +686,11 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowFilter()
 		{
+			// Create a new instance of the FilterForm
 			using FilterForm formFilter = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formFilter.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			_ = formFilter.ShowDialog();
 		}
 
@@ -569,8 +699,11 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowSettings()
 		{
+			// Create a new instance of the SettingsForm
 			using SettingsForm formSettings = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formSettings.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			_ = formSettings.ShowDialog();
 		}
 
@@ -579,8 +712,11 @@ namespace Planetoid_DB
 		/// </summary>
 		private void OpenDatabaseDifferences()
 		{
+			// Create a new instance of the DatabaseDifferencesForm
 			using DatabaseDifferencesForm formDatabaseDifferences = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formDatabaseDifferences.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			_ = formDatabaseDifferences.ShowDialog();
 		}
 
@@ -589,13 +725,20 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ListReadableDesignations()
 		{
+			// Create a new instance of the ListReadableDesignationsForm
 			using ListReadableDesignationsForm formListReadableDesignations = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formListReadableDesignations.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			formListReadableDesignations.FillArray(arrTemp: planetoidDatabase);
+			// Set the maximum index for the form
 			formListReadableDesignations.SetMaxIndex(maxIndex: planetoidDatabase.Count);
+			// Show the list readable designations form as a modal dialog
 			_ = formListReadableDesignations.ShowDialog();
+			// Check if the dialog result is OK and the selected index is greater than 0
 			if (formListReadableDesignations.DialogResult == DialogResult.OK && formListReadableDesignations.GetSelectedIndex() > 0)
 			{
+				// Navigate to the current position in the database
 				GotoCurrentPosition(currentPosition: formListReadableDesignations.GetSelectedIndex());
 			}
 		}
@@ -605,7 +748,9 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ExportDataSheet()
 		{
+			// Create a new ArrayList to store the orbital elements
 			ArrayList orbitalElements = [];
+			// Create a specific culture for formatting
 			IFormatProvider provider = CultureInfo.CreateSpecificCulture(name: "en");
 			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisData.Text, provider: provider);
 			double numericalEccentricity = double.Parse(s: labelOrbitalEccentricityData.Text, provider: provider);
@@ -651,9 +796,13 @@ namespace Planetoid_DB
 			_ = orbitalElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			// Create a new instance of the ExportDataSheetForm
 			using ExportDataSheetForm formExportDataSheet = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formExportDataSheet.TopMost = TopMost;
+			// Fill the form with the orbital elements
 			formExportDataSheet.SetDatabase(list: [.. orbitalElements.Cast<string>()]);
+			// Show the export data sheet form as a modal dialog
 			_ = formExportDataSheet.ShowDialog();
 		}
 
@@ -662,8 +811,11 @@ namespace Planetoid_DB
 		/// </summary>
 		private void PrintDataSheet()
 		{
+			// Create a new instance of the PrintDataSheetForm
 			using PrintDataSheetForm formPrintDataSheet = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formPrintDataSheet.TopMost = TopMost;
+			// Fill the form with the planetoid database
 			_ = formPrintDataSheet.ShowDialog();
 		}
 
@@ -672,7 +824,9 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ShowDerivatedOrbitElements()
 		{
+			// Create a new ArrayList to store the derivated orbit elements
 			ArrayList derivatedOrbitElements = [];
+			// Create a specific culture for formatting
 			IFormatProvider provider = CultureInfo.CreateSpecificCulture(name: "en");
 			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisData.Text, provider: provider);
 			double numericalEccentricity = double.Parse(s: labelOrbitalEccentricityData.Text, provider: provider);
@@ -698,33 +852,14 @@ namespace Planetoid_DB
 			_ = derivatedOrbitElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = derivatedOrbitElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = derivatedOrbitElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			// Create a new instance of the DerivatedOrbitElementsForm
 			using DerivatedOrbitElementsForm formDerivatedOrbitElements = new();
+			// Set the TopMost property to true to keep the form on top of other windows
 			formDerivatedOrbitElements.TopMost = TopMost;
+			// Fill the form with the derivated orbit elements
 			formDerivatedOrbitElements.SetDatabase(list: [.. derivatedOrbitElements.Cast<object>()]);
+			// Show the derivated orbit elements form as a modal dialog
 			_ = formDerivatedOrbitElements.ShowDialog();
-		}
-
-		/// <summary>
-		/// Sets the status bar text.
-		/// </summary>
-		/// <param name="text">The main text to be displayed on the status bar.</param>
-		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
-		{
-			if (!string.IsNullOrEmpty(value: text))
-			{
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
-			}
-		}
-
-		/// <summary>
-		/// Clears the status bar text.
-		/// </summary>
-		private void ClearStatusbar()
-		{
-			labelInformation.Enabled = false;
-			labelInformation.Text = string.Empty;
 		}
 
 		/// <summary>
@@ -744,7 +879,6 @@ namespace Planetoid_DB
 		private void PlanetoidDBForm_Load(object sender, EventArgs e)
 		{
 			ClearStatusbar();
-			SetDoubleBuffered(control: tableLayoutPanelData);
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
 			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
 #pragma warning disable CS8622 // The nullability of reference types in type of parameter doesn't match the target delegate.
@@ -1208,6 +1342,14 @@ namespace Planetoid_DB
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void MenuitemAbout_Click(object sender, EventArgs e) => ShowAppInfo();
+
+		/// <summary>
+		/// Handles the click event for the MenuitemLicense.
+		/// Shows the license form.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void MenuitemLicense_Click(object sender, EventArgs e) => ShowLicense();
 
 		/// <summary>
 		/// Handles the click event for the MenuitemOpenWebsitePDB.
@@ -2253,7 +2395,7 @@ namespace Planetoid_DB
 		{
 			if (!isBusy && e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				Close();
 			}
 		}
 

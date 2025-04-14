@@ -1,33 +1,36 @@
 ﻿using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using Krypton.Toolkit;
 using NLog;
 
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// Represents the form for displaying ephemerides.
+	/// A form that displays application information.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class EphemeridesForm : KryptonForm
+	public partial class LicenseForm : KryptonForm
 	{
 		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
-		#region Constructor
+		#region constructor
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="EphemeridesForm"/> class.
+		/// Initializes a new instance of the <see cref="AppInfoForm"/> class.
 		/// </summary>
-		public EphemeridesForm()
+
+		public LicenseForm()
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(EphemeridesForm_KeyDown);
+			KeyDown += new KeyEventHandler(LicenseForm_KeyDown);
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
 
-		#region Local methods
+		#region helper methods
 
 		/// <summary>
 		/// Returns a string representation of the object for the debugger.
@@ -90,64 +93,58 @@ namespace Planetoid_DB
 			labelInformation.Text = string.Empty;
 		}
 
+		/// <summary>
+		/// Extracts an embedded resource from the assembly and writes it to a specified output directory.
+		/// </summary>
+		/// <param name="nameSpace">The namespace where the resource is located.</param>
+		/// <param name="outDir">The output directory where the resource will be written.</param>
+		/// <param name="internFilePath">The internal file path within the namespace (optional).</param>
+		/// <param name="resourceName">The name of the resource to extract.</param>
+		/// <exception cref="FileNotFoundException">Thrown if the specified resource is not found in the assembly.</exception>
+		private static void ExtractResource(string nameSpace, string outDir, string internFilePath, string resourceName)
+		{
+			// Get the assembly and the resource path
+			Assembly assembly = Assembly.GetExecutingAssembly();
+			// Construct the resource path
+			string resourcePath = $"{nameSpace}.{(string.IsNullOrEmpty(value: internFilePath) ? "" : internFilePath + ".")}{resourceName}";
+			// Check if the output directory exists, if not create it
+			if (!Directory.Exists(path: outDir))
+			{
+				_ = Directory.CreateDirectory(path: outDir);
+			}
+			// Open the resource stream and read the bytes
+			using Stream? s = assembly.GetManifestResourceStream(name: resourcePath) ?? throw new FileNotFoundException(message: $"Resource '{resourcePath}' not found in assembly.");
+			// Create the output file stream
+			using BinaryReader r = new(input: s);
+			// Create the output file stream and write the bytes to it
+			using FileStream fs = new(path: Path.Combine(outDir, resourceName), mode: FileMode.OpenOrCreate);
+			// Ensure the file stream is writable
+			using BinaryWriter w = new(output: fs);
+			// Read the bytes from the resource stream and write them to the output file
+			w.Write(buffer: r.ReadBytes(count: (int)s.Length));
+		}
+
 		#endregion
 
-		#region Form event handlers
+		#region form event handler
 
 		/// <summary>
-		/// Handles the Load event of the form.
+		/// Fired when the form loads.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void EphemeridesForm_Load(object sender, EventArgs e)
-		{
-			ClearStatusbar();
-		}
+		private void LicenseForm_Load(object sender, EventArgs e) => ClearStatusbar();
 
 		/// <summary>
-		/// Handles the form closed event.
+		/// Fired when the form closes.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
-		private void EphemeridesForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+		private void LicenseForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 
-		#region BackgroundWorker event handler
-
-		/// <summary>
-		/// Handles the DoWork event of the BackgroundWorker.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="System.ComponentModel.DoWorkEventArgs"/> instance that contains the event data.</param>
-		private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-		{
-			// Implement background work here
-		}
-
-		/// <summary>
-		/// Handles the ProgressChanged event of the BackgroundWorker.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="System.ComponentModel.ProgressChangedEventArgs"/> instance that contains the event data.</param>
-		private void BackgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
-		{
-			progressBar.Value = e.ProgressPercentage;
-		}
-
-		/// <summary>
-		/// Handles the RunWorkerCompleted event of the BackgroundWorker.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
-		private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-		{
-			// Implement completion logic here
-		}
-
-		#endregion
-
-		#region Enter-Handler
+		#region enter event handlers
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
@@ -156,15 +153,17 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
 
 		#endregion
 
-		#region Leave-Handler
+		#region leave event handlers
 
 		/// <summary>
 		/// Called when the mouse pointer leaves a control.
@@ -175,16 +174,27 @@ namespace Planetoid_DB
 
 		#endregion
 
-		#region Click-Handler
+		#region click event handlers
 
 		/// <summary>
-		/// Handles the Click event of the Calculate button.
+		/// Saves the license to a file.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ButtonCalculate_Click(object sender, EventArgs e)
+		private void KryptonButtonSaveLicense_Click(object sender, EventArgs e)
 		{
-			// Implement calculation logic here
+			// Create a SaveFileDialog to prompt the user for a file location
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Get the selected file name
+				string fullFileName = saveFileDialog.FileName;
+				// Extract the LICENSE file from the embedded resources and copy it to the selected file location
+				ExtractResource(nameSpace: "Planetoid_DB", outDir: Path.GetDirectoryName(path: fullFileName) ?? string.Empty, internFilePath: "", resourceName: "LICENSE");
+				// Copy the LICENSE file to the selected file location
+				File.Copy(sourceFileName: Path.Combine(Path.GetDirectoryName(path: fullFileName) ?? string.Empty, "LICENSE"), destFileName: fullFileName, overwrite: true);
+				// Set the status bar text to indicate that the file has been saved
+				File.Delete(path: Path.Combine(Path.GetDirectoryName(path: fullFileName) ?? string.Empty, "LICENSE"));
+			}
 		}
 
 		#endregion
@@ -192,15 +202,19 @@ namespace Planetoid_DB
 		#region KeyDown event handler
 
 		/// <summary>
-		/// Handles the KeyDown event of the EphemeridesForm.
+		/// Handles the KeyDown event of the LicenseForm.
 		/// Closes the form when the Escape key is pressed.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void EphemeridesForm_KeyDown(object? sender, KeyEventArgs e)
+		private void LicenseForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}
