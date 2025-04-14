@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
@@ -9,6 +10,8 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class AppInfoForm : KryptonForm
 	{
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+
 		#region constructor
 
 		/// <summary>
@@ -16,9 +19,10 @@ namespace Planetoid_DB
 		/// </summary>
 		public AppInfoForm()
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(AppInfoForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(AppInfoForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
@@ -32,6 +36,14 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
 		/// Copies the specified text to the clipboard and displays a confirmation message.
 		/// </summary>
 		/// <param name="text">The text to be copied.</param>
@@ -39,12 +51,17 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Copy the text to the clipboard
 				Clipboard.SetText(text: text);
+				// Show a message box to inform the user
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
-				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
 		}
 
@@ -55,8 +72,10 @@ namespace Planetoid_DB
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
+			// Check if the text is not null or whitespace
 			if (!string.IsNullOrWhiteSpace(value: text))
 			{
+				// Set the status bar text and enable it
 				labelInformation.Enabled = true;
 				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
@@ -67,6 +86,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ClearStatusbar()
 		{
+			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
 			labelInformation.Text = string.Empty;
 		}
@@ -107,8 +127,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -137,11 +159,14 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Open the website in the default browser
 				using Process process = new() { StartInfo = new ProcessStartInfo(fileName: "https://planetoid-db.de") { UseShellExecute = true } };
+				// Start the process asynchronously
 				_ = await Task.Run(function: process.Start);
 			}
 			catch (Exception ex)
 			{
+				// Show an error message if the website cannot be opened
 				_ = MessageBox.Show(text: $"Error opening the website: {ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 		}
@@ -155,11 +180,14 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Open the default email client with a new message to the specified email address
 				using Process process = new() { StartInfo = new ProcessStartInfo(fileName: "mailto:info@planetoid-db.de") { UseShellExecute = true } };
+				// Start the process asynchronously
 				_ = await Task.Run(function: process.Start);
 			}
 			catch (Exception ex)
 			{
+				// Show an error message if the email client cannot be opened
 				_ = MessageBox.Show(text: $"Error opening the website: {ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 		}
@@ -175,9 +203,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -194,9 +224,13 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void AppInfoForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				// Close the form
+				Close();
 			}
 		}
 

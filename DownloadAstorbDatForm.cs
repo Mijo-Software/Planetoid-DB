@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
@@ -16,6 +17,8 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class DownloadAstorbDatForm : KryptonForm
 	{
+		// NLog logger instance
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 		// Filename for the ASTORB data file
 		private readonly string strFilenameAstorb = Properties.Resources.FilenameAstorb;
 		// Temporary filename for the ASTORB data file during download
@@ -38,9 +41,10 @@ namespace Planetoid_DB
 		/// </summary>
 		public DownloadAstorbDatForm()
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(DownloadAstorbDatForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(DownloadAstorbDatForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
@@ -54,14 +58,30 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
 		/// Gets the last modified date of the specified URI.
 		/// </summary>
 		/// <param name="uri">The URI to check.</param>
 		/// <returns>The last modified date of the URI.</returns>
 		private static DateTime GetLastModified(Uri uri)
 		{
+			// Create a new HttpWebRequest to the specified URI
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			// Set the method to HEAD to only retrieve headers
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			// Check if the response status code is OK (200)
+			// If so, return the last modified date
+			// Otherwise, return a default DateTime value
+			// Note: The default DateTime value is not a valid date, so it should be handled appropriately
+			// in the calling code
+			// The default DateTime value is 1/1/0001 12:00:00 AM
 			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
 		}
 
@@ -72,45 +92,63 @@ namespace Planetoid_DB
 		/// <returns>The content length of the URI.</returns>
 		private static long GetContentLength(Uri uri)
 		{
+			// Create a new HttpWebRequest to the specified URI
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
+			// Set the method to HEAD to only retrieve headers
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			// Check if the response status code is OK (200)
+			// If so, return the content length
+			// Otherwise, return 0
+			// Note: The content length is the size of the response body in bytes
 			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
 		}
 
 		/// <summary>
-		/// Gets the last modified date of the specified URI.
+		/// Retrieves the last modified date of the specified URI.
 		/// </summary>
-		/// <param name="uri">The URI to check.</param>
-		/// <returns>The last modified date of the URI.</returns>
+		/// <param name="uri">The URI of the resource.</param>
+		/// <returns>The date of the last modification or <see cref="DateTime.MinValue"/> in case of an error.</returns>
 		private static async Task<DateTime> GetLastModifiedAsync(Uri uri)
 		{
 			try
 			{
-				using HttpResponseMessage response = await client.GetAsync(requestUri: uri, completionOption: HttpCompletionOption.ResponseHeadersRead);
+				// Send a HEAD request to the specified URI
+				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
+				// Check if the response is successful and return the last modified date
 				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
 			}
-			catch (Exception ex)
+			catch (HttpRequestException)
 			{
-				Debug.WriteLine(message: $"Error getting last modified date: {ex.Message}");
+				// Log the exception
+				logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
+				// Show an error message
+				ShowErrorMessage(message: new HttpRequestException().Message);
+				// Return DateTime.MinValue to indicate an error
 				return DateTime.MinValue;
 			}
 		}
 
 		/// <summary>
-		/// Gets the content length of the specified URI.
+		/// The content length of the specified URI.
 		/// </summary>
-		/// <param name="uri">The URI to check.</param>
-		/// <returns>The content length of the URI.</returns>
+		/// <param name="uri">The URI of the resource.</param>
+		/// <returns>The content length or 0 in case of error.</returns>
 		private static async Task<long> GetContentLengthAsync(Uri uri)
 		{
 			try
 			{
-				using HttpResponseMessage response = await client.GetAsync(requestUri: uri, completionOption: HttpCompletionOption.ResponseHeadersRead);
+				// Send a HEAD request to the specified URI
+				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
+				// Check if the response is successful and return the content length
 				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
 			}
-			catch (Exception ex)
+			catch (HttpRequestException)
 			{
-				Debug.WriteLine(message: $"Error getting content length: {ex.Message}");
+				// Log the exception
+				logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
+				// Show an error message
+				ShowErrorMessage(message: new HttpRequestException().Message);
+				// Log the exception and return 0
 				return 0;
 			}
 		}
@@ -123,12 +161,16 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Copy the text to the clipboard
 				Clipboard.SetText(text: text);
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
-				_ = MessageBox.Show(text: $"{I10nStrings.CopiedToClipboard}{ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
 		}
 
@@ -139,10 +181,12 @@ namespace Planetoid_DB
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
-			if (!string.IsNullOrEmpty(value: text))
+			// Check if the text is not null or whitespace
+			if (!string.IsNullOrWhiteSpace(value: text))
 			{
+				// Set the status bar text and enable it
 				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
 		}
 
@@ -151,6 +195,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ClearStatusbar()
 		{
+			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
 			labelInformation.Text = string.Empty;
 		}
@@ -160,14 +205,22 @@ namespace Planetoid_DB
 		/// </summary>
 		private static void ShowAstorbDatCheck()
 		{
-			if (!NetworkInterface.GetIsNetworkAvailable())
+			// Check if there is an internet connection available
+			// If there is, create and show the CheckAstorbDatForm
+			// Otherwise, log the error and show an error message
+			if (NetworkInterface.GetIsNetworkAvailable())
 			{
-				_ = MessageBox.Show(text: I10nStrings.NoInternetConnectionText, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Create and show the CheckAstorbDatForm
+				using CheckAstorbDatForm formCheckAstorbDat = new();
+				// Show the form as a dialog
+				_ = formCheckAstorbDat.ShowDialog();
 			}
 			else
 			{
-				using CheckAstorbDatForm formCheckAstorbDat = new();
-				_ = formCheckAstorbDat.ShowDialog();
+				// Log the error if there is no internet connection
+				logger.Error(message: "No internet connection available.");
+				// Show an error message if there is no internet connection
+				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
 			}
 		}
 
@@ -386,7 +439,7 @@ namespace Planetoid_DB
 		{
 			if (!isBusy && e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				Close();
 			}
 		}
 

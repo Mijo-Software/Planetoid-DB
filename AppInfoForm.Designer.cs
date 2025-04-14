@@ -252,6 +252,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Program information");
 			FormClosed += AppInfoForm_FormClosed;
 			Load += AppInfoForm_Load;
+			KeyDown += AppInfoForm_KeyDown;
 			((System.ComponentModel.ISupportInitialize)pictureBoxBanner).EndInit();
 			((System.ComponentModel.ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);

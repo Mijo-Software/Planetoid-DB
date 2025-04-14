@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
@@ -11,21 +12,55 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SearchForm : KryptonForm
 	{
+		// NLog logger instance
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+		// ArrayList to store planetoid data
 		private ArrayList planetoidDatabase = [];
-		private int numberPlanetoids = 0, entriesFound = 0, selectedIndex = 0;
+
+		// Number of planetoids in the database
+		private int
+			numberPlanetoids = 0, // Total number of planetoids
+			entriesFound = 0, // Number of entries found
+			selectedIndex = 0; // Index of the selected planetoid
+
+		// Indicates whether the operation has been cancelled
 		private bool isCancelled = false;
-		private string strIndex, strMagAbs, strSlopeParam, strEpoch, strMeanAnomaly, strArgPeri, strLongAscNode, strIncl, strOrbEcc, strMotion, strSemiMajorAxis, strRef, strNumbObs, strNumbOppos, strObsSpan, strRmsResdiual, strComputerName, strFlags, strDesgnName, strObsLastDate;
+
+		// Strings to store various attributes of the planetoid data
+		private string
+			strIndex,// Index
+			strMagAbs, // Absolute magnitude
+			strSlopeParam, // Slope parameter
+			strEpoch, // Epoch
+			strMeanAnomaly, // Mean anomaly
+			strArgPeri, // Argument of periapsis
+			strLongAscNode, // Longitude of ascending node
+			strIncl, // Inclination
+			strOrbEcc, // Orbital eccentricity
+			strMotion, // Motion
+			strSemiMajorAxis, // Semi-major axis
+			strRef, // Reference
+			strNumbObs, // Number of observations
+			strNumbOppos, // Number of oppositions
+			strObsSpan, // Observation span
+			strRmsResidual, // RMS residual
+			strComputerName, // Computer name
+			strFlags, // Flags
+			strDesgnName, // Designation name
+			strObsLastDate; // Last observation date
 
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// Initializes a new instance of the <see cref="SearchForm"/> class.
 		/// </summary>
 		public SearchForm()
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(SearchForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(SearchForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
@@ -39,14 +74,45 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
+		/// Copies the specified text to the clipboard and displays a confirmation message.
+		/// </summary>
+		/// <param name="text">The text to be copied.</param>
+		private static void CopyToClipboard(string text)
+		{
+			try
+			{
+				// Copy the text to the clipboard
+				Clipboard.SetText(text: text);
+				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
+			}
+		}
+
+		/// <summary>
 		/// Sets the status bar text.
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
+			// Check if the text is not null or whitespace
 			if (!string.IsNullOrWhiteSpace(value: text))
 			{
+				// Set the status bar text and enable it
 				labelInformation.Enabled = true;
 				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
@@ -57,6 +123,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ClearStatusbar()
 		{
+			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
 			labelInformation.Text = string.Empty;
 		}
@@ -115,7 +182,7 @@ namespace Planetoid_DB
 			strNumbObs = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
 			strNumbOppos = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
 			strObsSpan = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			strRmsResdiual = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
+			strRmsResidual = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
 			strComputerName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
 			strFlags = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
 			strDesgnName = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
@@ -385,7 +452,7 @@ namespace Planetoid_DB
 		{
 			if (e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				Close();
 			}
 		}
 

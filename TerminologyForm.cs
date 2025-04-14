@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Krypton.Toolkit;
+using NLog;
 
 namespace Planetoid_DB
 {
@@ -9,10 +10,174 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class TerminologyForm : KryptonForm
 	{
-		/// <summary>
-		/// The currently selected terminology element.
-		/// </summary>
+		// NLog logger instance
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+		// The currently selected terminology element.
 		private TerminologyElement selectedElement = TerminologyElement.IndexNumber;
+
+		/// <summary>
+		/// Enumeration of terminology elements used in the application.
+		/// </summary>
+		public enum TerminologyElement
+		{
+			/// <summary>
+			/// Index number of the element.
+			/// </summary>
+			IndexNumber,
+			/// <summary>
+			/// Readable designation of the element.
+			/// </summary>
+			ReadableDesignation,
+			/// <summary>
+			/// Epoch of the element.
+			/// </summary>
+			Epoch,
+			/// <summary>
+			/// Mean anomaly at the epoch of the element.
+			/// </summary>
+			MeanAnomalyAtTheEpoch,
+			/// <summary>
+			/// Argument of perihelion of the element.
+			/// </summary>
+			ArgumentOfPerihelion,
+			/// <summary>
+			/// Longitude of the ascending node of the element.
+			/// </summary>
+			LongitudeOfTheAscendingNode,
+			/// <summary>
+			/// Inclination to the ecliptic of the element.
+			/// </summary>
+			InclinationToTheEcliptic,
+			/// <summary>
+			/// Orbital eccentricity of the element.
+			/// </summary>
+			OrbitalEccentricity,
+			/// <summary>
+			/// Mean daily motion of the element.
+			/// </summary>
+			MeanDailyMotion,
+			/// <summary>
+			/// Semi-major axis of the element.
+			/// </summary>
+			SemiMajorAxis,
+			/// <summary>
+			/// Absolute magnitude of the element.
+			/// </summary>
+			AbsoluteMagnitude,
+			/// <summary>
+			/// Slope parameter of the element.
+			/// </summary>
+			SlopeParameter,
+			/// <summary>
+			/// Reference of the element.
+			/// </summary>
+			Reference,
+			/// <summary>
+			/// Number of oppositions of the element.
+			/// </summary>
+			NumberOfOppositions,
+			/// <summary>
+			/// Number of observations of the element.
+			/// </summary>
+			NumberOfObservations,
+			/// <summary>
+			/// Observation span of the element.
+			/// </summary>
+			ObservationSpan,
+			/// <summary>
+			/// RMS residual of the element.
+			/// </summary>
+			RmsResidual,
+			/// <summary>
+			/// Computer name of the element.
+			/// </summary>
+			ComputerName,
+			/// <summary>
+			/// Flags of the element.
+			/// </summary>
+			Flags,
+			/// <summary>
+			/// Date of last observation of the element.
+			/// </summary>
+			DateOfLastObservation,
+			/// <summary>
+			/// Linear eccentricity of the element.
+			/// </summary>
+			LinearEccentricity,
+			/// <summary>
+			/// Semi-minor axis of the element.
+			/// </summary>
+			SemiMinorAxis,
+			/// <summary>
+			/// Major axis of the element.
+			/// </summary>
+			MajorAxis,
+			/// <summary>
+			/// Minor axis of the element.
+			/// </summary>
+			MinorAxis,
+			/// <summary>
+			/// Eccentric anomaly of the element.
+			/// </summary>
+			EccentricAnomaly,
+			/// <summary>
+			/// True anomaly of the element.
+			/// </summary>
+			TrueAnomaly,
+			/// <summary>
+			/// Perihelion distance of the element.
+			/// </summary>
+			PerihelionDistance,
+			/// <summary>
+			/// Aphelion distance of the element.
+			/// </summary>
+			AphelionDistance,
+			/// <summary>
+			/// Longitude of the descending node of the element.
+			/// </summary>
+			LongitudeOfTheDescendingNode,
+			/// <summary>
+			/// Argument of aphelion of the element.
+			/// </summary>
+			ArgumentOfAphelion,
+			/// <summary>
+			/// Focal parameter of the element.
+			/// </summary>
+			FocalParameter,
+			/// <summary>
+			/// Semi-latus rectum of the element.
+			/// </summary>
+			SemiLatusRectum,
+			/// <summary>
+			/// Latus rectum of the element.
+			/// </summary>
+			LatusRectum,
+			/// <summary>
+			/// Orbital period of the element.
+			/// </summary>
+			OrbitalPeriod,
+			/// <summary>
+			/// Orbital area of the element.
+			/// </summary>
+			OrbitalArea,
+			/// <summary>
+			/// Orbital perimeter of the element.
+			/// </summary>
+			OrbitalPerimeter,
+			/// <summary>
+			/// Semi-mean axis of the element.
+			/// </summary>
+			SemiMeanAxis,
+			/// <summary>
+			/// Mean axis of the element.
+			/// </summary>
+			MeanAxis,
+			/// <summary>
+			/// Standard gravitational parameter of the element.
+			/// </summary>
+			StandardGravitationalParameter
+		}
 
 		#region constructor
 
@@ -21,9 +186,10 @@ namespace Planetoid_DB
 		/// </summary>
 		public TerminologyForm()
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(TerminologyForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(TerminologyForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
@@ -37,10 +203,66 @@ namespace Planetoid_DB
 		private string GetDebuggerDisplay() => ToString();
 
 		/// <summary>
+		/// Displays an error message.
+		/// </summary>
+		/// <param name="message">The error message.</param>
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
+			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
+		/// Copies the specified text to the clipboard and displays a confirmation message.
+		/// </summary>
+		/// <param name="text">The text to be copied.</param>
+		private static void CopyToClipboard(string text)
+		{
+			try
+			{
+				// Copy the text to the clipboard
+				Clipboard.SetText(text: text);
+				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				// Show an error message
+				ShowErrorMessage(message: $"File not found: {ex.Message}");
+			}
+		}
+
+		/// <summary>
+		/// Sets the status bar text.
+		/// </summary>
+		/// <param name="text">The main text to be displayed on the status bar.</param>
+		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
+		private void SetStatusbar(string text, string additionalInfo = "")
+		{
+			// Check if the text is not null or whitespace
+			if (!string.IsNullOrWhiteSpace(value: text))
+			{
+				// Set the status bar text and enable it
+				labelInformation.Enabled = true;
+				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+			}
+		}
+
+		/// <summary>
+		/// Clears the status bar text.
+		/// </summary>
+		private void ClearStatusbar()
+		{
+			// Clear the status bar text and disable it
+			labelInformation.Enabled = false;
+			labelInformation.Text = string.Empty;
+		}
+
+		/// <summary>
 		/// Sets the active terminology element and updates the web browser content.
 		/// </summary>
 		private void SetActiveElement()
 		{
+			// Set the selected element in the list box
 			webBrowser.DocumentText = selectedElement switch
 			{
 				TerminologyElement.IndexNumber => I10nStrings.terminology_IndexNumber,
@@ -82,31 +304,9 @@ namespace Planetoid_DB
 				TerminologyElement.SemiMeanAxis => I10nStrings.terminology_SemiMeanAxis,
 				TerminologyElement.MeanAxis => I10nStrings.terminology_MeanAxis,
 				TerminologyElement.StandardGravitationalParameter => I10nStrings.terminology_StandardGravitationalParameter,
+				// Default case for unrecognized elements
 				_ => I10nStrings.terminology_IndexNumber,
 			};
-		}
-
-		/// <summary>
-		/// Sets the status bar text.
-		/// </summary>
-		/// <param name="text">The main text to be displayed on the status bar.</param>
-		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
-		{
-			if (!string.IsNullOrEmpty(value: text))
-			{
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrEmpty(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
-			}
-		}
-
-		/// <summary>
-		/// Clears the status bar text.
-		/// </summary>
-		private void ClearStatusbar()
-		{
-			labelInformation.Enabled = false;
-			labelInformation.Text = string.Empty;
 		}
 
 		/// <summary>
@@ -384,173 +584,10 @@ namespace Planetoid_DB
 		{
 			if (e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				Close();
 			}
 		}
 
 		#endregion
-	}
-
-	/// <summary>
-	/// Enumeration of terminology elements used in the application.
-	/// </summary>
-	public enum TerminologyElement
-	{
-		/// <summary>
-		/// Index number of the element.
-		/// </summary>
-		IndexNumber,
-		/// <summary>
-		/// Readable designation of the element.
-		/// </summary>
-		ReadableDesignation,
-		/// <summary>
-		/// Epoch of the element.
-		/// </summary>
-		Epoch,
-		/// <summary>
-		/// Mean anomaly at the epoch of the element.
-		/// </summary>
-		MeanAnomalyAtTheEpoch,
-		/// <summary>
-		/// Argument of perihelion of the element.
-		/// </summary>
-		ArgumentOfPerihelion,
-		/// <summary>
-		/// Longitude of the ascending node of the element.
-		/// </summary>
-		LongitudeOfTheAscendingNode,
-		/// <summary>
-		/// Inclination to the ecliptic of the element.
-		/// </summary>
-		InclinationToTheEcliptic,
-		/// <summary>
-		/// Orbital eccentricity of the element.
-		/// </summary>
-		OrbitalEccentricity,
-		/// <summary>
-		/// Mean daily motion of the element.
-		/// </summary>
-		MeanDailyMotion,
-		/// <summary>
-		/// Semi-major axis of the element.
-		/// </summary>
-		SemiMajorAxis,
-		/// <summary>
-		/// Absolute magnitude of the element.
-		/// </summary>
-		AbsoluteMagnitude,
-		/// <summary>
-		/// Slope parameter of the element.
-		/// </summary>
-		SlopeParameter,
-		/// <summary>
-		/// Reference of the element.
-		/// </summary>
-		Reference,
-		/// <summary>
-		/// Number of oppositions of the element.
-		/// </summary>
-		NumberOfOppositions,
-		/// <summary>
-		/// Number of observations of the element.
-		/// </summary>
-		NumberOfObservations,
-		/// <summary>
-		/// Observation span of the element.
-		/// </summary>
-		ObservationSpan,
-		/// <summary>
-		/// RMS residual of the element.
-		/// </summary>
-		RmsResidual,
-		/// <summary>
-		/// Computer name of the element.
-		/// </summary>
-		ComputerName,
-		/// <summary>
-		/// Flags of the element.
-		/// </summary>
-		Flags,
-		/// <summary>
-		/// Date of last observation of the element.
-		/// </summary>
-		DateOfLastObservation,
-		/// <summary>
-		/// Linear eccentricity of the element.
-		/// </summary>
-		LinearEccentricity,
-		/// <summary>
-		/// Semi-minor axis of the element.
-		/// </summary>
-		SemiMinorAxis,
-		/// <summary>
-		/// Major axis of the element.
-		/// </summary>
-		MajorAxis,
-		/// <summary>
-		/// Minor axis of the element.
-		/// </summary>
-		MinorAxis,
-		/// <summary>
-		/// Eccentric anomaly of the element.
-		/// </summary>
-		EccentricAnomaly,
-		/// <summary>
-		/// True anomaly of the element.
-		/// </summary>
-		TrueAnomaly,
-		/// <summary>
-		/// Perihelion distance of the element.
-		/// </summary>
-		PerihelionDistance,
-		/// <summary>
-		/// Aphelion distance of the element.
-		/// </summary>
-		AphelionDistance,
-		/// <summary>
-		/// Longitude of the descending node of the element.
-		/// </summary>
-		LongitudeOfTheDescendingNode,
-		/// <summary>
-		/// Argument of aphelion of the element.
-		/// </summary>
-		ArgumentOfAphelion,
-		/// <summary>
-		/// Focal parameter of the element.
-		/// </summary>
-		FocalParameter,
-		/// <summary>
-		/// Semi-latus rectum of the element.
-		/// </summary>
-		SemiLatusRectum,
-		/// <summary>
-		/// Latus rectum of the element.
-		/// </summary>
-		LatusRectum,
-		/// <summary>
-		/// Orbital period of the element.
-		/// </summary>
-		OrbitalPeriod,
-		/// <summary>
-		/// Orbital area of the element.
-		/// </summary>
-		OrbitalArea,
-		/// <summary>
-		/// Orbital perimeter of the element.
-		/// </summary>
-		OrbitalPerimeter,
-		/// <summary>
-		/// Semi-mean axis of the element.
-		/// </summary>
-		SemiMeanAxis,
-		/// <summary>
-		/// Mean axis of the element.
-		/// </summary>
-		MeanAxis,
-		/// <summary>
-		/// Standard gravitational parameter of the element.
-		/// </summary>
-		StandardGravitationalParameter
 	}
 }

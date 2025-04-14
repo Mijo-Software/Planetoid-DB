@@ -15,7 +15,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class PreloaderForm : KryptonForm
 	{
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
 		#region constructor
 
@@ -25,9 +25,10 @@ namespace Planetoid_DB
 
 		public PreloaderForm()
 		{
+			// Initialize the form components
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(PreloaderForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += new KeyEventHandler(PreloaderForm_KeyDown);
+			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
 		#endregion
@@ -44,10 +45,9 @@ namespace Planetoid_DB
 		/// Displays an error message.
 		/// </summary>
 		/// <param name="message">The error message.</param>
-		private static void ShowErrorMessage(string message)
-		{
+		private static void ShowErrorMessage(string message) =>
+			// Show an error message box with the specified message
 			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-		}
 
 		/// <summary>
 		/// Extracts an embedded resource from the assembly and writes it to a specified output directory.
@@ -59,12 +59,19 @@ namespace Planetoid_DB
 		/// <exception cref="FileNotFoundException">Thrown if the specified resource is not found in the assembly.</exception>
 		private static void ExtractResource(string nameSpace, string outDir, string internFilePath, string resourceName)
 		{
+			// Get the assembly and the resource path
 			Assembly assembly = Assembly.GetExecutingAssembly();
+			// Construct the resource path
 			string resourcePath = $"{nameSpace}.{(string.IsNullOrEmpty(value: internFilePath) ? "" : internFilePath + ".")}{resourceName}";
+			// Open the resource stream and read the bytes
 			using Stream? s = assembly.GetManifestResourceStream(name: resourcePath) ?? throw new FileNotFoundException(message: $"Resource '{resourcePath}' not found in assembly.");
+			// Create the output file stream
 			using BinaryReader r = new(input: s);
+			// Create the output file stream and write the bytes to it
 			using FileStream fs = new(path: Path.Combine(outDir, resourceName), mode: FileMode.OpenOrCreate);
+			// Ensure the file stream is writable
 			using BinaryWriter w = new(output: fs);
+			// Read the bytes from the resource stream and write them to the output file
 			w.Write(buffer: r.ReadBytes(count: (int)s.Length));
 		}
 
@@ -76,13 +83,17 @@ namespace Planetoid_DB
 		{
 			try
 			{
+				// Copy the text to the clipboard
 				Clipboard.SetText(text: text);
 				_ = MessageBox.Show(text: I10nStrings.CopiedToClipboard, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
+				// Log the exception and show an error message
 				logger.Error(exception: ex, message: "File not found");
+				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
+				// Set the exit code to indicate an error
 				Environment.ExitCode = 1;
 			}
 		}
@@ -94,8 +105,10 @@ namespace Planetoid_DB
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
 		private void SetStatusbar(string text, string additionalInfo = "")
 		{
+			// Check if the text is not null or whitespace
 			if (!string.IsNullOrWhiteSpace(value: text))
 			{
+				// Set the status bar text and enable it
 				labelInformation.Enabled = true;
 				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 			}
@@ -106,6 +119,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ClearStatusbar()
 		{
+			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
 			labelInformation.Text = string.Empty;
 		}
@@ -254,7 +268,6 @@ namespace Planetoid_DB
 		{
 			if (e.KeyCode == Keys.Escape)
 			{
-				DialogResult = DialogResult.Cancel;
 				Close();
 			}
 		}
