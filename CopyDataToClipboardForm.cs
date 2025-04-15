@@ -10,11 +10,10 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class CopyDataToClipboardForm : KryptonForm
 	{
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+		// NLog logger instance
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-		/// <summary>
-		/// The list of data to be copied to the clipboard.
-		/// </summary>
+		// The list of data to be copied to the clipboard.
 		private List<string> dataToCopy = [];
 
 		#region Constructor
@@ -112,7 +111,9 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyDataToClipboardForm_Load(object sender, EventArgs e)
 		{
+			// Set the status bar text
 			ClearStatusbar();
+			// Set the text of the buttons with the data to be copied
 			KryptonButton[] buttons =
 			[
 				buttonIndexNumber, buttonReadableDesignation, buttonEpoch, buttonMeanAnomaly, buttonArgumentOfPerihelion,
@@ -120,7 +121,7 @@ namespace Planetoid_DB
 				buttonSemimajorAxis, buttonAbsoluteMagnitude, buttonSlopeParameter, buttonReference, buttonNumberOfOppositions,
 				buttonNumberOfObservations, buttonObservationSpan, buttonRmsResidual, buttonComputername, buttonFlags, buttonDateOfLastObservation
 			];
-
+			// Set the tag of each button to the corresponding data from the list
 			for (int i = 0; i < buttons.Length; i++)
 			{
 				buttons[i].Tag = dataToCopy.Count > i ? dataToCopy[index: i] : string.Empty;
@@ -145,8 +146,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -318,8 +321,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyDataToClipboardForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

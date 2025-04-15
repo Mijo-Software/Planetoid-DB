@@ -896,23 +896,33 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PlanetoidDBForm_Shown(object sender, EventArgs e)
 		{
+			// Disable the background download label
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
+			// Disable the background download progress bar
 			toolStripProgressBarBackgroundDownload.Enabled = false;
+			// Disable the cancel background download label
 			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
+			// Hide the background download label
 			toolStripStatusLabelBackgroundDownload.Visible = false;
+			// Hide the background download progress bar
 			toolStripProgressBarBackgroundDownload.Visible = false;
+			// Hide the cancel background download label
 			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+			// Check if an update is available for the MPCORB database
+			// and enable the timer for blinking the update label
 			if (IsMpcorbDatUpdateAvailable())
 			{
 				timerBlinkForUpdateAvailable.Enabled = true;
 				toolStripStatusLabelUpdate.Enabled = true;
 			}
+			// Otherwise, disable the timer and hide the update label
 			else
 			{
 				timerBlinkForUpdateAvailable.Enabled = false;
 				toolStripStatusLabelUpdate.Enabled = false;
 				toolStripStatusLabelUpdate.Visible = false;
 			}
+			// Check if the form should stay on top of other windows
 			CheckStayOnTop();
 		}
 
@@ -923,8 +933,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="FormClosingEventArgs"/> instance that contains the event data.</param>
 		private void PlanetoidDBForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			// Check if the file exists before attempting to delete it
 			if (File.Exists(path: filenameMpcorbTemp))
 			{
+				// Delete the temporary file if it exists
 				File.Delete(path: filenameMpcorbTemp);
 			}
 		}
@@ -940,16 +952,19 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorkerLoadingDatabase_DoWork(object sender, DoWorkEventArgs e)
 		{
-			Enabled = false;
-			int lineNum = 0;
-			float percent;
-			string readLine;
-			string filename = !string.IsNullOrEmpty(value: MpcOrbDatFilePath) ? MpcOrbDatFilePath : filenameMpcorb;
+			Enabled = false; // Disable the form while loading the database
+			int lineNum = 0; // Variable to store the line number being read
+			float percent; // Variable to store the percentage of the file read
+			string readLine; // Variable to store the read line from the file
+			string filename = !string.IsNullOrEmpty(value: MpcOrbDatFilePath) ? MpcOrbDatFilePath : filenameMpcorb; // Get the file name from the path
 			FileInfo fileInfo = new(fileName: filename);
-			long fileSize = fileInfo.Length, fileSizeReaded = 0;
+			long fileSize = fileInfo.Length, fileSizeReaded = 0; // Get the size of the file in bytes
+																 // Open the file stream for reading
 			using (FileStream fileStream = new(path: filename, mode: FileMode.Open))
 			{
+				// Create a new instance of the PlanetoidDatabase class
 				StreamReader streamReader = new(stream: fileStream);
+				// Show the splash screen
 				formSplashScreen.Show();
 				while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
 				{
@@ -960,10 +975,13 @@ namespace Planetoid_DB
 					fileSizeReaded += readLine.Length;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 					percent = 100 * fileSizeReaded / fileSize;
+					// Report progress to the background worker
 					formSplashScreen.SetProgressbar(value: (int)percent);
 					lineNum++;
+					// Check if the line number is greater than or equal to 44
 					if ((lineNum >= 44) && (!string.IsNullOrEmpty(value: readLine)))
 					{
+						// Add the read line to the planetoid database
 						_ = planetoidDatabase.Add(value: readLine);
 					}
 				}
@@ -989,12 +1007,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorkerLoadingDatabase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			toolStripTextBoxGotoIndex.Text = 1.ToString();
-			currentPosition = 0;
-			stepPosition = 100;
-			GotoCurrentPosition(currentPosition: currentPosition);
-			Enabled = true;
-			isBusy = false;
+			toolStripTextBoxGotoIndex.Text = 1.ToString(); // Set the initial value of the goto index text box
+			currentPosition = 0; // Set the current position to the first record
+			stepPosition = 100; // Set the step position to 100
+			GotoCurrentPosition(currentPosition: currentPosition); // Navigate to the current position
+			Enabled = true; // Enable the form
+			isBusy = false; // Set the busy state to false
 		}
 
 		#endregion
@@ -1009,15 +1027,21 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="DownloadProgressChangedEventArgs"/> instance that contains the event data.</param>
 		private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
 		{
+			// Update the progress bar value
 			toolStripProgressBarBackgroundDownload.Value = e.ProgressPercentage;
+			// Set the taskbar progress value
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
 		private static void ExtractGzipFile(string gzipFilePath, string outputFilePath)
 		{
+			// Create a new file stream for the gzip file
 			using FileStream originalFileStream = new(path: gzipFilePath, mode: FileMode.Open, access: FileAccess.Read);
+			// Create a new file stream for the output file
 			using FileStream decompressedFileStream = new(path: outputFilePath, mode: FileMode.Create, access: FileAccess.Write);
+			// Create a GZipStream for decompression
 			using GZipStream decompressionStream = new(stream: originalFileStream, mode: CompressionMode.Decompress);
+			// Copy the decompressed data to the output file stream
 			decompressionStream.CopyTo(destination: decompressedFileStream);
 		}
 
@@ -1032,18 +1056,24 @@ namespace Planetoid_DB
 			webClient.Dispose();
 			if (e.Error == null)
 			{
+				// Delete the old file if it exists
 				File.Delete(path: filenameMpcorb);
+				// Set the progress bar style to Marquee
 				toolStripProgressBarBackgroundDownload.Style = ProgressBarStyle.Marquee;
+				// Extract the downloaded gzip file
 				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Properties.Resources.FilenameMpcorb);
-				//File.Copy(sourceFileName: filenameMpcorbTemp, destFileName: Properties.Resources.FilenameMpcorb);
+				// Delete the temporary file after extraction
 				File.Delete(path: filenameMpcorbTemp);
+				// Show a message indicating that the download was successful
 				AskForRestartAfterDownloadingDatabase();
 			}
 			else
 			{
+				// Show an error message if the download was cancelled or failed
 				_ = e.Cancelled
 					? MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning)
 					: MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Delete the temporary file if it exists
 				File.Delete(path: filenameMpcorbTemp);
 			}
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
@@ -1089,6 +1119,7 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ToolStripMenuItem_Clear()
 		{
+			// Clear the checked state of all navigation step menu items
 			menuitemNavigateStep10.Checked = false;
 			menuitemNavigateStep100.Checked = false;
 			menuitemNavigateStep1000.Checked = false;
@@ -1108,12 +1139,16 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="KeyPressEventArgs"/> instance that contains the event data.</param>
 		private void ToolStripTextBoxGotoIndex_KeyPress(object sender, KeyPressEventArgs e)
 		{
+			// Check if the pressed key is a control character or a digit
 			if (!char.IsControl(c: e.KeyChar) && !char.IsDigit(c: e.KeyChar))
 			{
+				// If the pressed key is not a digit or control character, suppress the key event
 				e.Handled = true;
 			}
+			// Check if the pressed key is a digit or control character
 			if (e.KeyChar == Convert.ToChar(value: Keys.Return, provider: CultureInfo.CurrentCulture))
 			{
+				// If the Enter key is pressed, trigger the click event for the ToolStripButtonGoToIndex
 				ToolStripButtonGoToIndex_Click(sender: null, e: null);
 			}
 		}
@@ -1124,14 +1159,15 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
-		/// Sets the status bar text to the control's accessible description.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -1142,7 +1178,6 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer leaves a control.
-		/// Clears the status bar text.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
@@ -1209,20 +1244,33 @@ namespace Planetoid_DB
 		private void ToolStripButtonGoToIndex_Click(object? sender, EventArgs? e)
 		{
 			int pos = 0;
+			// Try to parse the index from the ToolStripTextBoxGotoIndex
 			try
 			{
+				// Parse the index from the text box
 				pos = int.Parse(s: toolStripTextBoxGotoIndex.Text, provider: CultureInfo.CurrentCulture);
 			}
+			// Catch any exceptions that occur during parsing
 			catch (Exception ex)
 			{
+				// Log the error message
+				logger.Error(message: ex.Message);
+				// Show an error message box with the exception message
+				ShowErrorMessage(message: $"{nameof(ToolStripButtonGoToIndex_Click)}  {ex.Message}");
 				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
+			// If the parsed index is out of range, show an error message
+			// Otherwise, navigate to the specified index
 			if (pos <= 0 || pos >= planetoidDatabase.Count + 1)
 			{
-				_ = MessageBox.Show(text: I10nStrings.IndexOutOfRange, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Log the error message
+				logger.Error(message: "Index out of range");
+				// Show an error message if the index is out of range
+				ShowErrorMessage(message: $"{I10nStrings.IndexOutOfRange}");
 			}
 			else
 			{
+				// Navigate to the specified index
 				currentPosition = pos - 1;
 				GotoCurrentPosition(currentPosition: currentPosition);
 			}
@@ -1252,6 +1300,7 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripStatusLabelCancelBackgroundDownload_Click(object sender, EventArgs e)
 		{
+			// Cancel the background download
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Enabled = false;
 			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
@@ -1269,8 +1318,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItem10_Click(object sender, EventArgs e)
 		{
+			// Set the step position to 10
 			stepPosition = 10;
+			// Clear the checked state of all other menu items
 			ToolStripMenuItem_Clear();
+			// Set the checked state of the menu item to true
 			menuitemNavigateStep10.Checked = true;
 		}
 
@@ -1282,8 +1334,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItem100_Click(object sender, EventArgs e)
 		{
+			// Set the step position to 100
 			stepPosition = 100;
+			// Clear the checked state of all other menu items
 			ToolStripMenuItem_Clear();
+			// Set the checked state of the menu item to true
 			menuitemNavigateStep100.Checked = true;
 		}
 
@@ -1295,8 +1350,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItem1000_Click(object sender, EventArgs e)
 		{
+			// Set the step position to 1000
 			stepPosition = 1000;
+			// Clear the checked state of all other menu items
 			ToolStripMenuItem_Clear();
+			// Set the checked state of the menu item to true
 			menuitemNavigateStep1000.Checked = true;
 		}
 
@@ -1308,8 +1366,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItem10000_Click(object sender, EventArgs e)
 		{
+			// Set the step position to 10000
 			stepPosition = 10000;
+			// Clear the checked state of all other menu items
 			ToolStripMenuItem_Clear();
+			// Set the checked state of the menu item to true
 			menuitemNavigateStep10000.Checked = true;
 		}
 
@@ -1321,11 +1382,13 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItem100000_Click(object sender, EventArgs e)
 		{
+			// Set the step position to 100000
 			stepPosition = 100000;
+			// Clear the checked state of all other menu items
 			ToolStripMenuItem_Clear();
+			// Set the checked state of the menu item to true
 			menuitemNavigateStep100000.Checked = true;
 		}
-
 
 		/// <summary>
 		/// Handles the click event for the MenuitemExit.
@@ -2216,6 +2279,15 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void MenuitemListReadableDesignations_Click(object sender, EventArgs e) => ListReadableDesignations();
 
+		/// <summary>
+		/// Handles the click event for the ToolStripButtonLicense.
+		/// Opens th license.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		private void ToolStripButtonLicense_Click(object sender, EventArgs e) => ShowLicense();
+
+
 		#endregion
 
 		#region DoubleClick-Handler
@@ -2227,9 +2299,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -2393,8 +2467,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PlanetoidDBForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (!isBusy && e.KeyCode == Keys.Escape)
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
+			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

@@ -167,8 +167,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ExportDataSheetForm_Load(object sender, EventArgs e)
 		{
-			ClearStatusbar();
-			MarkAll();
+			ClearStatusbar(); // Clear the status bar text
+			MarkAll(); // Mark all items in the list
 		}
 
 		#endregion
@@ -182,9 +182,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
-				SetStatusbar(control.AccessibleDescription);
+				// Set the status bar text to the control's accessible description
+				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
 
@@ -210,18 +212,30 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsTxt_Click(object sender, EventArgs e)
 		{
+			// Set the initial directory for the save file dialog to the user's documents folder
 			saveFileDialogTxt.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the initial directory for the save file dialog to the user's documents folder
 			saveFileDialogTxt.FileName = $"{orbitElements[index: 0]}.{saveFileDialogTxt.DefaultExt}";
+			// Show the save file dialog to select the file path and name
+			// If the user selects a file, proceed with exporting
 			if (saveFileDialogTxt.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new StreamWriter to write the text content to the specified file
 				using StreamWriter streamWriter = new(path: saveFileDialogTxt.FileName);
+				// Write the orbit elements to the text file
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
+					// Check if the item is checked
+					// If it is checked, write the orbit element to the text file
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
 					{
+						// Write the orbit element to the text file
 						streamWriter.Write(value: $"{checkedListBoxOrbitalElements.Items[index: i]}: {orbitElements[index: i]}");
+						// If it is not the last item, write a new line
+						// to separate the elements in the text file
 						if (i < checkedListBoxOrbitalElements.Items.Count - 1)
 						{
+							// Write a new line to separate the elements
 							streamWriter.Write(value: Environment.NewLine);
 						}
 					}
@@ -236,12 +250,18 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsHtml_Click(object sender, EventArgs e)
 		{
+			// Set the initial directory for the save file dialog to the user's documents folder
 			saveFileDialogHtml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the initial directory for the save file dialog to the user's documents folder
 			saveFileDialogHtml.FileName = $"{orbitElements[index: 0]}.{saveFileDialogHtml.DefaultExt}";
+			// Show the save file dialog to select the file path and name
 			if (saveFileDialogHtml.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new StreamWriter to write the HTML content to the specified file
 				using StreamWriter streamWriter = new(path: saveFileDialogHtml.FileName);
+				// Create a StringBuilder to build the HTML content
 				StringBuilder sb = new();
+				// Append the HTML content to the StringBuilder
 				_ = sb.AppendLine(value: "<!DOCTYPE html>");
 				_ = sb.AppendLine(value: "<html lang=\"en\">");
 				_ = sb.AppendLine(value: "\t<head>");
@@ -249,7 +269,7 @@ namespace Planetoid_DB
 				_ = sb.AppendLine(value: "\t\t<meta name=\"description\" content=\"\">");
 				_ = sb.AppendLine(value: "\t\t<meta name=\"keywords\" content=\"\">");
 				_ = sb.AppendLine(value: "\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
-				_ = sb.AppendLine($"\t\t<title>Export for [{orbitElements[index: 0]}] {orbitElements[index: 1]}</title>");
+				_ = sb.AppendLine(handler: $"\t\t<title>Export for [{orbitElements[index: 0]}] {orbitElements[index: 1]}</title>");
 				_ = sb.AppendLine(value: "\t\t<style>");
 				_ = sb.AppendLine(value: "\t\t\t* {font-family: sans-serif;}");
 				_ = sb.AppendLine(value: "\t\t\t.italic {font-style: italic;}");
@@ -261,16 +281,22 @@ namespace Planetoid_DB
 				_ = sb.AppendLine(value: "\t</head>");
 				_ = sb.AppendLine(value: "\t<body>");
 				_ = sb.AppendLine(value: "\t\t<p>");
+				// Append the orbit elements to the HTML content
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
+					// Check if the item is checked
+					// If it is checked, append the orbit element to the HTML content
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
 					{
+						// Append the orbit element to the HTML content
 						_ = sb.AppendLine(handler: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{checkedListBoxOrbitalElements.Items[index: i]}:</span> <span xml:id=\"value-id-{i}\">{orbitElements[index: i]}</span><br />");
 					}
 				}
+				// Append the closing tags for the HTML content
 				_ = sb.AppendLine(value: "\t\t</p>");
 				_ = sb.AppendLine(value: "\t</body>");
 				_ = sb.Append(value: "</html>");
+				// Write the HTML content to the file
 				streamWriter.Write(value: sb.ToString());
 			}
 		}
@@ -282,18 +308,28 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonExportAsXml_Click(object sender, EventArgs e)
 		{
+			// Set the initial directory for the save file dialog to the user's documents folder
 			saveFileDialogXml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the initial directory for the save file dialog to the user's documents folder
 			saveFileDialogXml.FileName = $"{orbitElements[index: 0]}.{saveFileDialogXml.DefaultExt}";
+			// Show the save file dialog to select the file path and name
 			if (saveFileDialogXml.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new StreamWriter to write the XML content to the specified file
 				using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
+				// Create a StringBuilder to build the XML content
 				StringBuilder sb = new();
+				// Append the XML content to the StringBuilder
 				_ = sb.AppendLine(value: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
 				_ = sb.AppendLine(value: "<MinorPlanet xmlns=\"https://planet-db.de\">");
+				// Append the orbit elements to the XML content
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
+					// Check if the item is checked
+					// If it is checked, append the orbit element to the XML content
 					if (checkedListBoxOrbitalElements.GetItemChecked(index: i))
 					{
+						// Append the orbit element to the XML content
 						_ = sb.AppendLine(value: i switch
 						{
 							0 => $"\t<Index value=\"{orbitElements[index: i]}\"/>",
@@ -335,11 +371,13 @@ namespace Planetoid_DB
 							36 => $"\t<SemiMeanAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
 							37 => $"\t<MeanAxis unit=\"astronomical units\" value=\"{orbitElements[index: i]}\"/>",
 							38 => $"\t<StandardGravitationalParameter unit=\"AU³/a²\" value=\"{orbitElements[index: i]}\"/>",
-							_ => string.Empty
+							_ => string.Empty // Default case if no match is found
 						});
 					}
 				}
+				// Append the closing tag for the XML content
 				_ = sb.Append(value: "</MinorPlanet>");
+				// Write the XML content to the file
 				streamWriter.Write(value: sb.ToString());
 			}
 		}
@@ -430,6 +468,8 @@ namespace Planetoid_DB
 
 		#endregion
 
+		#region ItemCheck event handler
+
 		/// <summary>
 		/// Handles the ItemCheck event of the CheckedListBoxOrbitalElements control.
 		/// </summary>
@@ -439,6 +479,10 @@ namespace Planetoid_DB
 		{
 		}
 
+		#endregion
+
+		#region SelectedIndexChanged event handler
+
 		/// <summary>
 		/// Handles the SelectedIndexChanged event of the CheckedListBoxOrbitalElements control.
 		/// Enables or disables export buttons based on whether all items are unmarked.
@@ -447,10 +491,15 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CheckedListBoxOrbitalElements_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			// Enable or disable the export buttons based on whether all items are unmarked
+			// If all items are unmarked, disable the export buttons
+			// If not all items are unmarked, enable the export buttons
 			buttonExportAsTxt.Enabled = IsAllUnmarked()
 				? (buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = false)
 				: (buttonExportAsHtml.Enabled = buttonExportAsXml.Enabled = buttonExportAsJson.Enabled = true);
 		}
+
+		#endregion
 
 		#region KeyDown event handler
 
@@ -462,8 +511,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ExportDataSheetForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

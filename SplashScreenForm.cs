@@ -89,11 +89,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SplashScreenForm_Load(object sender, EventArgs e)
 		{
+			// Set the title label text to the product name
 			labelTitle.Text = AssemblyInfo.AssemblyProduct;
+			// Set the version label text to the assembly version
 			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
-
-			// Asynchronous initialization
-			//await InitializeAsync();
 		}
 
 		/// <summary>
@@ -114,32 +113,28 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the sender is a Label, KryptonLabel, or ToolStripLabel
+			// and if the Text property is not null
+			// If the sender is a Label, KryptonLabel, or ToolStripLabel
+			// and the Text property is not null, copy the text to the clipboard
 			switch (sender)
 			{
 				case Label label when label.Text != null:
+					// Copy the text to the clipboard
 					CopyToClipboard(text: label.Text);
 					break;
 				case KryptonLabel kryptonLabel when kryptonLabel.Text != null:
+					// Copy the text to the clipboard
 					CopyToClipboard(text: kryptonLabel.Text);
 					break;
 				case ToolStripLabel labelToolStripCombo when labelToolStripCombo.Text != null:
+					// Copy the text to the clipboard
 					CopyToClipboard(text: labelToolStripCombo.Text);
 					break;
 			}
-		}
-
-		#endregion
-
-		#region asynchronous initialization
-
-		/// <summary>
-		/// Initializes the application asynchronously.
-		/// </summary>
-		/// <returns>A task that represents the asynchronous initialization.</returns>
-		private async Task InitializeAsync()
-		{
-			await Task.Run(action: static () => Thread.Sleep(millisecondsTimeout: 2000));
-			Invoke(method: new Action(Close));
 		}
 
 		#endregion

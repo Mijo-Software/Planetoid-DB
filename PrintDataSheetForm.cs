@@ -109,11 +109,16 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PrintDataSheetForm_Load(object sender, EventArgs e)
 		{
+			// Clear the status bar text
 			ClearStatusbar();
+			// Check if the checked list box has items
 			if (checkedListBoxOrbitalElements.Items.Count != 0)
 			{
+				// Check all items in the checked list box
+				// Iterate through all items in the checked list box
 				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
 				{
+					// Set the item checked state to true
 					checkedListBoxOrbitalElements.SetItemChecked(index: i, value: true);
 				}
 			}
@@ -133,14 +138,15 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
-		/// Sets the status bar text to the control's accessible description.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -169,20 +175,27 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonPrintDataSheet_Click(object sender, EventArgs e)
 		{
+			// Create a new PrintDialog instance
 			using PrintDialog dialogPrint = new();
+			// Set the printer settings for the print document
 			dialogPrint.Document = printDoc;
 			dialogPrint.AllowSelection = true;
 			dialogPrint.AllowSomePages = true;
 			if (dialogPrint.ShowDialog() == DialogResult.OK)
 			{
+				// Try to print the document
 				try
 				{
+					// Print the document
 					printDoc.Print();
 				}
 				catch (Exception ex)
 				{
-					_ = MessageBox.Show(text: $"Error while printing: {ex.Message}", caption: "Printing error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+					// Log the exception and show an error message
+					logger.Error(exception: ex, message: "Error while printing");
+					ShowErrorMessage(message: $"Error while printing: {ex.Message}");
 				}
+				// Close the form after printing
 				Close();
 			}
 		}
@@ -238,8 +251,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="KeyEventArgs"/> instance that contains the event data.</param>
 		private void PrintDataSheetForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}
@@ -256,13 +273,15 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="PrintPageEventArgs"/> instance that contains the event data.</param>
 		private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
 		{
+			// Check if the sender is null
 			if (e.Graphics != null)
 			{
-				// Example: Draw a simple string on the document
+				// Set the text to be printed
 				string textToPrint = "This is a sample data sheet.";
+				// Set the font for the text
 				Font printFont = new(familyName: "Arial", emSize: 12);
+				// Set the text color to black
 				e.Graphics.DrawString(s: textToPrint, font: printFont, brush: Brushes.Black, point: new PointF(x: 100, y: 100));
-
 				// Indicate that no more pages are to be printed
 				e.HasMorePages = false;
 			}

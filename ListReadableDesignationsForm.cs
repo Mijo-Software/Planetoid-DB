@@ -217,11 +217,15 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_DoWork(object? sender, DoWorkEventArgs? e)
 		{
+			// Set the maximum value of the progress bar
 			progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
 			for (int i = (int)numericUpDownMinimum.Value - 1; i < (int)numericUpDownMaximum.Value; i++)
 			{
+				// Format the row in the list view
 				FormatRow(currentPosition: i);
+				// Report progress to the UI thread
 				backgroundWorker.ReportProgress(percentProgress: i);
+				// Update the taskbar progress
 				TaskbarProgress.SetValue(windowHandle: Handle, progressValue: i, progressMax: (int)numericUpDownMaximum.Value);
 				if (isCancelled)
 				{
@@ -246,16 +250,17 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs? e)
 		{
-			listView.Visible = true;
-			isBusy = false;
+			listView.Visible = true; // Show the list view
+			isBusy = false; // Set the busy flag to false
+							// Enable the numeric up-down controls
 			numericUpDownMinimum.Enabled = true;
 			numericUpDownMaximum.Enabled = true;
-			buttonList.Enabled = true;
-			dropButtonSaveList.Enabled = true;
-			buttonCancel.Enabled = false;
-			buttonLoad.Enabled = false;
-			progressBar.Enabled = false;
-			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
+			buttonList.Enabled = true; // Enable the list button
+			dropButtonSaveList.Enabled = true; // Enable the save button
+			buttonCancel.Enabled = false; // Disable the cancel button
+			buttonLoad.Enabled = false; // Disable the load button
+			progressBar.Enabled = false; // Disable the progress bar
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100); // Reset the taskbar progress
 		}
 
 		#endregion
@@ -269,8 +274,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -300,15 +307,19 @@ namespace Planetoid_DB
 		{
 			if (listView.SelectedIndices.Count > 0)
 			{
+				// Get the selected index from the list view
 				int selectedIndex = listView.SelectedIndices[index: 0];
 				if (selectedIndex >= 0)
 				{
+					// Set the status bar text to show the selected index and designation name
 					SetStatusbar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
 				}
 				if (!buttonLoad.Enabled)
 				{
+					// Enable the load button if it is not already enabled
 					buttonLoad.Enabled = true;
 				}
+				// Set the selected index to the current index
 				this.selectedIndex = selectedIndex;
 			}
 		}
@@ -325,25 +336,28 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonList_Click(object? sender, EventArgs? e)
 		{
+			// Clear the list view
 			listView.Clear();
+			// Add columns to the list view
 			listView.Columns.AddRange(values: [
 				 columnHeaderIndex,
 				 columnHeaderReadableDesignation,]);
-			listView.Visible = false;
+			listView.Visible = false; // Hide the list view
+									  // Disable the numeric up-down controls
 			numericUpDownMinimum.Enabled = false;
 			numericUpDownMaximum.Enabled = false;
-			buttonCancel.Enabled = true;
-			buttonLoad.Enabled = false;
-			buttonList.Enabled = false;
-			dropButtonSaveList.Enabled = false;
-			isCancelled = false;
-			progressBar.Enabled = true;
-			isBusy = true;
-			backgroundWorker.WorkerReportsProgress = true;
-			backgroundWorker.WorkerSupportsCancellation = true;
-			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
-			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
-			backgroundWorker.RunWorkerAsync();
+			buttonCancel.Enabled = true; // Enable the cancel button
+			buttonLoad.Enabled = false; // Disable the load button
+			buttonList.Enabled = false; // Disable the list button
+			dropButtonSaveList.Enabled = false; // Disable the save button
+			isCancelled = false; // Set the cancel flag to false
+			progressBar.Enabled = true; // Set the progress bar to enabled
+			isBusy = true; // Set the progress bar to enabled
+			backgroundWorker.WorkerReportsProgress = true; // Set the worker to report progress
+			backgroundWorker.WorkerSupportsCancellation = true; // Set the worker to support cancellation
+			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged); // Handle progress changes
+			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted); // Handle completion
+			backgroundWorker.RunWorkerAsync(); // Start the background worker
 		}
 
 		/// <summary>
@@ -360,16 +374,25 @@ namespace Planetoid_DB
 		/// </summary>
 		private void ToolStripMenuItemSaveAsCsv_Click(object? sender, EventArgs? e)
 		{
+			// Set the initial directory for the save file dialog
 			saveFileDialogCsv.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the default file name for the CSV file
 			saveFileDialogCsv.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogCsv.DefaultExt}";
+			// Show the save file dialog to select the CSV file location
 			if (saveFileDialogCsv.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new CSV file and write the data to it
 				using StreamWriter streamWriter = new(path: saveFileDialogCsv.FileName);
+				// Write the header line
 				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
 				{
+					// Write the index and designation name to the CSV file
 					streamWriter.Write(value: $"{listView.Items[index: i].SubItems[index: 0].Text}; {listView.Items[index: i].SubItems[index: 1].Text}");
+					// If this is not the last item, write a new line
+					// to separate the items
 					if (i < listView.Items.Count - 1)
 					{
+						// Write a new line to separate the items
 						streamWriter.Write(value: Environment.NewLine);
 					}
 				}
@@ -384,11 +407,16 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemSaveAsHtml_Click(object? sender, EventArgs? e)
 		{
+			// Set the initial directory for the save file dialog
 			saveFileDialogHtml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the default file name for the HTML file
 			saveFileDialogHtml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogHtml.DefaultExt}";
+			// Show the save file dialog to select the HTML file location
 			if (saveFileDialogHtml.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new HTML file and write the data to it
 				using StreamWriter streamWriter = new(path: saveFileDialogHtml.FileName);
+				// Write the HTML header and metadata
 				streamWriter.WriteLine(value: $"<!DOCTYPE html>");
 				streamWriter.WriteLine(value: $"<html lang=\"en\">");
 				streamWriter.WriteLine(value: $"\t<head>");
@@ -410,12 +438,17 @@ namespace Planetoid_DB
 				streamWriter.WriteLine(value: $"\t\t<p>");
 				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
 				{
+					// Write the index and designation name to the HTML file
 					streamWriter.Write(value: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{listView.Items[index: i].SubItems[index: 0].Text}:</span> <span xml:id=\"value-id-{i}\">{listView.Items[index: i].SubItems[index: 1].Text}</span>");
+					// If this is not the last item, write a line break
+					// to separate the items
 					if (i < listView.Items.Count - 1)
 					{
+						// Write a line break to separate the items
 						streamWriter.WriteLine(value: "<br />");
 					}
 				}
+				// Write the closing tags for the paragraph and body
 				streamWriter.WriteLine(value: $"\t\t</p>");
 				streamWriter.WriteLine(value: $"\t</body>");
 				streamWriter.Write(value: $"</html>");
@@ -430,21 +463,31 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemSaveAsXml_Click(object? sender, EventArgs? e)
 		{
+			// Set the initial directory for the save file dialog
 			saveFileDialogXml.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the default file name for the XML file
 			saveFileDialogXml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogXml.DefaultExt}";
+			// Show the save file dialog to select the XML file location
 			if (saveFileDialogXml.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new XML file and write the data to it
 				using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
+				// Write the XML header and root element
 				streamWriter.WriteLine(value: $"<?xml version=\"1.0\" encoding=\"UTF.8\" standalone=\"yes\"?>");
 				streamWriter.WriteLine(value: $"<ListReadableDesignations xmlns=\"https://planet-db.de\">");
 				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
 				{
+					// Write the index and designation name to the XML file
 					streamWriter.Write(value: $"\t<item xml:id=\"element-id-{i}\" index=\"{listView.Items[index: i].SubItems[index: 0].Text}\" name=\"{listView.Items[index: i].SubItems[index: 1].Text}\" />");
+					// If this is not the last item, write a new line
+					// to separate the items
 					if (i < listView.Items.Count - 1)
 					{
+						// Write a new line to separate the items
 						streamWriter.Write(value: Environment.NewLine);
 					}
 				}
+				// Write the closing tag for the root element
 				streamWriter.Write(value: $"</ListReadableDesignations>");
 			}
 		}
@@ -457,20 +500,27 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripMenuItemSaveAsJson_Click(object? sender, EventArgs? e)
 		{
+			// Set the initial directory for the save file dialog
 			saveFileDialogJson.InitialDirectory = Environment.GetFolderPath(folder: Environment.SpecialFolder.MyDocuments);
+			// Set the default file name for the JSON file
 			saveFileDialogJson.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogJson.DefaultExt}";
+			// Show the save file dialog to select the JSON file location
 			if (saveFileDialogJson.ShowDialog() == DialogResult.OK)
 			{
+				// Create a new JSON file and write the data to it
 				using StreamWriter streamWriter = new(path: saveFileDialogJson.FileName);
+				// Write the JSON header and root element
 				streamWriter.WriteLine(value: $"{{");
 				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
 				{
+					// Write the index and designation name to the JSON file
 					streamWriter.WriteLine(value: $"\t\"item\"");
 					streamWriter.WriteLine(value: $"\t{{");
 					streamWriter.WriteLine(value: $"\t\t\"index\": \"{listView.Items[index: i].SubItems[index: 0].Text}\",");
 					streamWriter.WriteLine(value: $"\t\t\"readable designations\": \"{listView.Items[index: i].SubItems[index: 1].Text}\"");
 					streamWriter.WriteLine(value: $"\t}}");
 				}
+				// Write the closing tag for the root element
 				streamWriter.Write(value: $"}}");
 			}
 		}
@@ -486,9 +536,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -505,8 +557,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListReadableDesignationsForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (!isBusy && e.KeyCode == Keys.Escape)
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
+			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

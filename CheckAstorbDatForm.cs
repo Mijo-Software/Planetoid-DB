@@ -14,9 +14,7 @@ namespace Planetoid_DB
 	{
 		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
-		/// <summary>
-		/// The HttpClient instance used for making HTTP requests.
-		/// </summary>
+		// The HttpClient instance used for making HTTP requests.
 		private static readonly HttpClient client = new();
 
 		// Indicates whether the application is currently busy.
@@ -165,38 +163,54 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private async void CheckAstorbDatForm_Load(object sender, EventArgs e)
 		{
+			// Clear the status bar
 			ClearStatusbar();
 			isBusy = true;
+			// URL for the ASTRORB data file
 			Uri uriASTORB = new(uriString: Properties.Settings.Default.systemAstorbDatUrl);
+			// Local file last modified date
 			DateTime datetimeFileLocal = DateTime.MinValue;
+			// Online file last modified date
 			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriASTORB).ConfigureAwait(continueOnCapturedContext: false);
-
+			// Check if the local file exists
 			if (!File.Exists(path: Properties.Resources.FilenameAstorb))
 			{
+				// Set the content length and modified date labels to indicate no file found
 				labelContentLengthValueLocal.Text = I10nStrings.NoFileFoundText;
+				// Set the modified date label to indicate no file found
 				labelModifiedDateValueLocal.Text = I10nStrings.NoFileFoundText;
 			}
 			else
 			{
+				// Get the last modified date of the local file
 				FileInfo fileInfo = new(fileName: Properties.Resources.FilenameAstorb);
+				// Get the file attributes
 				datetimeFileLocal = fileInfo.LastWriteTime;
+				// Set the content length and modified date labels to the local file's information
 				labelContentLengthValueLocal.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
+				// Set the modified date label to the local file's last write time
 				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
 			}
-
+			// Set the content length and modified date labels to the online file's information
 			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriASTORB).ConfigureAwait(continueOnCapturedContext: false)} {I10nStrings.BytesText}";
+			// Set the modified date label to the online file's last modified date
 			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
-
+			// Compare the last modified dates of the local and online files
 			if (datetimeFileOnline > datetimeFileLocal)
 			{
+				// Set the label to indicate an update is needed
 				labelUpdateNeeded.Values.Image = Properties.Resources.silk_new;
+				// Set the label text to indicate an update is recommended
 				labelUpdateNeeded.Text = I10nStrings.UpdateRecommendedText;
 			}
 			else
 			{
+				// Set the label to indicate no update is needed
 				labelUpdateNeeded.Values.Image = Properties.Resources.silk_decline;
+				// Set the label text to indicate no update is needed
 				labelUpdateNeeded.Text = I10nStrings.NoUpdateNeededText;
 			}
+			// Set the status bar text to indicate the form is ready
 			isBusy = false;
 		}
 
@@ -218,8 +232,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -246,9 +262,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>			
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -261,13 +279,16 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void LabelUpdateNeeded_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Reset the displayed information
 			labelContentLengthValueLocal.Text = string.Empty;
 			labelModifiedDateValueLocal.Text = string.Empty;
 			labelContentLengthValueOnline.Text = string.Empty;
 			labelModifiedDateValueOnline.Text = string.Empty;
 			labelUpdateNeeded.Text = string.Empty;
 			labelUpdateNeeded.Values.Image = null;
+			// Reload the form data
 			CheckAstorbDatForm_Load(sender: sender, e: e);
 		}
 
@@ -283,9 +304,13 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CheckAstorbDatForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (!isBusy && e.KeyCode == Keys.Escape)
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
+			if (e.KeyCode == Keys.Escape)
 			{
-				this.Close();
+				// Close the form
+				Close();
 			}
 		}
 
