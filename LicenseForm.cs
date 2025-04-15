@@ -197,6 +197,10 @@ namespace Planetoid_DB
 			}
 		}
 
+		private void KryptonButtonCopyLicenseToClipboard_Click(object sender, EventArgs e) =>
+			// Copy the text from the KryptonTextBox to the clipboard
+			CopyToClipboard(text: kryptonTextBoxLicense.Text);
+
 		#endregion
 
 		#region KeyDown event handler

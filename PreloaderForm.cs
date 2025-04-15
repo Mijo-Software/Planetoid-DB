@@ -163,8 +163,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -192,9 +194,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void KryptonCommandLinkButtonOpenLocalFile_Click(object sender, EventArgs e)
 		{
+			// Create an OpenFileDialog to select a local file
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
+				// Set the file path to the selected file
 				_ = MpcOrbDatFilePath = openFileDialog.FileName.ToString();
+				// Set the dialog result to OK
 				DialogResult = DialogResult.OK;
 			}
 		}
@@ -210,14 +215,20 @@ namespace Planetoid_DB
 		{
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
+				// Log the error and show an error message if there is no internet connection
+				logger.Error(message: "No internet connection");
 				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
 			}
 			else
 			{
+				// Open the download form for MPCORB.DAT
 				using DownloadMpcorbDatForm formDownloaderForMpcorbDat = new();
+				// Show the form as a dialog
 				if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
 				{
+					// Set the file path to the downloaded MPCORB.DAT file
 					_ = MpcOrbDatFilePath = Resources.FilenameMpcorb;
+					// Set the dialog result to OK
 					DialogResult = DialogResult.OK;
 				}
 			}
@@ -231,8 +242,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void KryptonCommandLinkButtonLoadInternalDemoData_Click(object sender, EventArgs e)
 		{
+			// Extract the demo data file from the embedded resources
 			ExtractResource(nameSpace: "Planetoid_DB", outDir: "", internFilePath: "Resources", resourceName: "demoset-10000.txt");
+			// Set the file path to the extracted demo data file
 			_ = MpcOrbDatFilePath = "demoset-10000.txt";
+			// Set the dialog result to OK
 			DialogResult = DialogResult.OK;
 		}
 
@@ -247,9 +261,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -266,8 +282,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PreloaderForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

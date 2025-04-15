@@ -258,10 +258,13 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void TableModeForm_Load(object sender, EventArgs e)
 		{
+			// Clear the status bar text
 			ClearStatusbar();
+			// Disable the status bar, the list view and the cancel button
 			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = false;
 			if (planetoidDatabase.Count > 0)
 			{
+				// Set the minimum and maximum values for the numeric up-down controls
 				numericUpDownMinimum.Minimum = 1;
 				numericUpDownMaximum.Minimum = 1;
 				numericUpDownMinimum.Maximum = planetoidDatabase.Count;
@@ -295,12 +298,17 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
+			// Set the maximum value of the progress bar
 			progressBar.Maximum = (int)numericUpDownMaximum.Value - 1;
 			for (int i = (int)numericUpDownMinimum.Value - 1; i < (int)numericUpDownMaximum.Value; i++)
 			{
+				// Format the row
 				FormatRow(currentPosition: i);
+				// Report progress to the UI thread
 				backgroundWorker.ReportProgress(percentProgress: i);
+				// Update the taskbar progress
 				TaskbarProgress.SetValue(windowHandle: Handle, progressValue: i, progressMax: (int)numericUpDownMaximum.Value);
+				// Check if the operation is cancelled
 				if (isCancelled)
 				{
 					break;
@@ -324,13 +332,20 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
 		{
+			// Set the isBusy flag to false
 			isBusy = false;
+			// Show the list view
 			listView.Visible = true;
+			// Enable the numeric up-down controls
 			numericUpDownMinimum.Enabled = true;
 			numericUpDownMaximum.Enabled = true;
+			// Enable the list button
 			buttonList.Enabled = true;
+			// Disable the cancel button
 			buttonCancel.Enabled = false;
+			// Disable the progress bar
 			progressBar.Enabled = false;
+			// Reset the taskbar progress
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
@@ -340,14 +355,15 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer moves over a control.
-		/// Sets the status bar text to the control's accessible description.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -358,7 +374,6 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Called when the mouse pointer leaves a control.
-		/// Clears the status bar text.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
@@ -378,9 +393,11 @@ namespace Planetoid_DB
 		{
 			if (listView.SelectedIndices.Count > 0)
 			{
+				// Get the selected index from the list view
 				int selectedIndex = listView.SelectedIndices[index: 0];
 				if (selectedIndex >= 0)
 				{
+					// Set the status bar text to the selected planetoid's index and designation name
 					SetStatusbar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
 				}
 			}
@@ -397,7 +414,9 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ButtonList_Click(object sender, EventArgs e)
 		{
+			// Clear the list view
 			listView.Clear();
+			// Add columns to the list view
 			listView.Columns.AddRange(values: [
 				 columnHeaderIndex,
 				 columnHeaderReadableDesignation,
@@ -419,18 +438,30 @@ namespace Planetoid_DB
 				 columnHeaderComputerName,
 				 columnHeaderFlags,
 				 columnHeaderDateLastObservation]);
+			// Hide the list view
 			listView.Visible = false;
+			// Disable the numeric up-down controls
 			numericUpDownMinimum.Enabled = false;
 			numericUpDownMaximum.Enabled = false;
+			// Enable the cancel button
 			buttonCancel.Enabled = true;
+			// Disable the button to prevent multiple clicks
 			buttonList.Enabled = false;
+			// Reset the cancellation flag
 			isCancelled = false;
+			// Enable the progress bar
 			progressBar.Enabled = true;
+			// Set the isBusy flag to true
 			isBusy = true;
+			// Allow progress reporting from the background worker
 			backgroundWorker.WorkerReportsProgress = true;
+			// Allow cancellation of the background worker
 			backgroundWorker.WorkerSupportsCancellation = true;
+			// Handle the ProgressChanged event
 			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
+			// Handle the RunWorkerCompleted event
 			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+			// Start the background worker
 			backgroundWorker.RunWorkerAsync();
 		}
 
@@ -457,9 +488,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -476,8 +509,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void TableModeForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (!isBusy && e.KeyCode == Keys.Escape)
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
+			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

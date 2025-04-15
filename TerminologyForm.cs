@@ -515,7 +515,9 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void TerminologyForm_Load(object sender, EventArgs e)
 		{
+			// Set the active element based on the selected value
 			SetActiveElement();
+			// Clear the status bar text
 			ClearStatusbar();
 		}
 
@@ -537,8 +539,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -566,7 +570,9 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void ListBox_SelectedValueChanged(object sender, EventArgs e)
 		{
+			// Get the selected element from the list box
 			selectedElement = (TerminologyElement)listBox.SelectedIndex;
+			// Set the active element based on the selected value
 			SetActiveElement();
 		}
 
@@ -582,8 +588,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void TerminologyForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

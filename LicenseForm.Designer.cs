@@ -39,6 +39,7 @@
 			labelInformation = new ToolStripStatusLabel();
 			toolTip = new ToolTip(components);
 			saveFileDialog = new SaveFileDialog();
+			kryptonButtonCopyLicenseToClipboard = new Krypton.Toolkit.KryptonButton();
 			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)kryptonPictureBoxLicenseLogo).BeginInit();
@@ -50,6 +51,7 @@
 			panel.AccessibleDescription = "Groups the data";
 			panel.AccessibleName = "pane";
 			panel.AccessibleRole = AccessibleRole.Pane;
+			panel.Controls.Add(kryptonButtonCopyLicenseToClipboard);
 			panel.Controls.Add(kryptonButtonSaveLicense);
 			panel.Controls.Add(kryptonButtonClose);
 			panel.Controls.Add(kryptonPictureBoxLicenseLogo);
@@ -70,11 +72,11 @@
 			kryptonButtonSaveLicense.Location = new Point(439, 136);
 			kryptonButtonSaveLicense.Name = "kryptonButtonSaveLicense";
 			kryptonButtonSaveLicense.Size = new Size(127, 25);
-			kryptonButtonSaveLicense.TabIndex = 1;
+			kryptonButtonSaveLicense.TabIndex = 2;
 			toolTip.SetToolTip(kryptonButtonSaveLicense, "Save the license");
 			kryptonButtonSaveLicense.Values.DropDownArrowColor = Color.Empty;
 			kryptonButtonSaveLicense.Values.Image = Properties.Resources.silk_disk;
-			kryptonButtonSaveLicense.Values.Text = "Save license";
+			kryptonButtonSaveLicense.Values.Text = "&Save license";
 			kryptonButtonSaveLicense.Click += KryptonButtonSaveLicense_Click;
 			kryptonButtonSaveLicense.Enter += SetStatusbar_Enter;
 			kryptonButtonSaveLicense.Leave += ClearStatusbar_Leave;
@@ -90,11 +92,11 @@
 			kryptonButtonClose.Location = new Point(439, 167);
 			kryptonButtonClose.Name = "kryptonButtonClose";
 			kryptonButtonClose.Size = new Size(127, 25);
-			kryptonButtonClose.TabIndex = 2;
+			kryptonButtonClose.TabIndex = 3;
 			toolTip.SetToolTip(kryptonButtonClose, "Close");
 			kryptonButtonClose.Values.DropDownArrowColor = Color.Empty;
 			kryptonButtonClose.Values.Image = Properties.Resources.silk_cancel;
-			kryptonButtonClose.Values.Text = "Close";
+			kryptonButtonClose.Values.Text = "C&lose";
 			kryptonButtonClose.Enter += SetStatusbar_Enter;
 			kryptonButtonClose.Leave += ClearStatusbar_Leave;
 			kryptonButtonClose.MouseEnter += SetStatusbar_Enter;
@@ -149,7 +151,7 @@
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
 			statusStrip.Size = new Size(577, 22);
 			statusStrip.SizingGrip = false;
-			statusStrip.TabIndex = 3;
+			statusStrip.TabIndex = 4;
 			statusStrip.Text = "status bar";
 			// 
 			// labelInformation
@@ -168,6 +170,25 @@
 			// saveFileDialog
 			// 
 			saveFileDialog.Filter = "all files|*.*";
+			// 
+			// kryptonButtonCopyLicenseToClipboard
+			// 
+			kryptonButtonCopyLicenseToClipboard.AccessibleDescription = "Copys the license to the clipboard";
+			kryptonButtonCopyLicenseToClipboard.AccessibleName = "Copy the license to the clipboard";
+			kryptonButtonCopyLicenseToClipboard.AccessibleRole = AccessibleRole.PushButton;
+			kryptonButtonCopyLicenseToClipboard.Location = new Point(438, 105);
+			kryptonButtonCopyLicenseToClipboard.Name = "kryptonButtonCopyLicenseToClipboard";
+			kryptonButtonCopyLicenseToClipboard.Size = new Size(127, 25);
+			kryptonButtonCopyLicenseToClipboard.TabIndex = 1;
+			toolTip.SetToolTip(kryptonButtonCopyLicenseToClipboard, "Copy the license to the clipboard");
+			kryptonButtonCopyLicenseToClipboard.Values.DropDownArrowColor = Color.Empty;
+			kryptonButtonCopyLicenseToClipboard.Values.Image = Properties.Resources.silk_clipboard;
+			kryptonButtonCopyLicenseToClipboard.Values.Text = "&Copy to clipboard";
+			kryptonButtonCopyLicenseToClipboard.Click += KryptonButtonCopyLicenseToClipboard_Click;
+			kryptonButtonCopyLicenseToClipboard.Enter += SetStatusbar_Enter;
+			kryptonButtonCopyLicenseToClipboard.Leave += ClearStatusbar_Leave;
+			kryptonButtonCopyLicenseToClipboard.MouseEnter += SetStatusbar_Enter;
+			kryptonButtonCopyLicenseToClipboard.MouseLeave += ClearStatusbar_Leave;
 			// 
 			// LicenseForm
 			// 
@@ -210,5 +231,6 @@
 		private Krypton.Toolkit.KryptonButton kryptonButtonClose;
 		private Krypton.Toolkit.KryptonButton kryptonButtonSaveLicense;
 		private SaveFileDialog saveFileDialog;
+		private Krypton.Toolkit.KryptonButton kryptonButtonCopyLicenseToClipboard;
 	}
 }

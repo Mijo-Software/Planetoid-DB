@@ -180,13 +180,16 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DerivatedOrbitElementsForm_Load(object sender, EventArgs e)
 		{
+			// Set the status bar text
 			ClearStatusbar();
 			if (derivatedOrbitElements == null || derivatedOrbitElements.Count < 19)
 			{
-				_ = MessageBox.Show(text: "Invalid data", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				// Log the error and show an error message
+				logger.Error(message: "Invalid data");
+				ShowErrorMessage(message: "Invalid data");
 				return;
 			}
-
+			// Set the text of the labels with the derived orbit elements
 			labelLinearEccentricityData.Text = derivatedOrbitElements[index: 0]?.ToString();
 			labelSemiMinorAxisData.Text = derivatedOrbitElements[index: 1]?.ToString();
 			labelMajorAxisData.Text = derivatedOrbitElements[index: 2]?.ToString();
@@ -226,8 +229,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -254,9 +259,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -406,8 +413,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DerivatedOrbitElementsForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

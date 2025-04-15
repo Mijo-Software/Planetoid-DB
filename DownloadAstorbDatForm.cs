@@ -19,12 +19,16 @@ namespace Planetoid_DB
 	{
 		// NLog logger instance
 		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
 		// Filename for the ASTORB data file
 		private readonly string strFilenameAstorb = Properties.Resources.FilenameAstorb;
+
 		// Temporary filename for the ASTORB data file during download
 		private readonly string strFilenameAstorbTemp = Properties.Resources.FilenameAstorbTemp;
+
 		// URI for the ASTORB data file
 		private readonly Uri uriASTORB = new(uriString: Properties.Settings.Default.systemAstorbDatGzUrl);
+
 		// WebClient instance for handling the download
 		private readonly WebClient webClient = new();
 
@@ -64,6 +68,21 @@ namespace Planetoid_DB
 		private static void ShowErrorMessage(string message) =>
 			// Show an error message box with the specified message
 			_ = MessageBox.Show(text: message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+
+		/// <summary>
+		/// Extracts a GZIP-compressed file to a specified output file.
+		/// </summary>
+		private static void ExtractGzipFile(string gzipFilePath, string outputFilePath)
+		{
+			// Open the gzip file and create a new file stream for the output file
+			using FileStream originalFileStream = new(path: gzipFilePath, mode: FileMode.Open, access: FileAccess.Read);
+			// Create a new file stream for the output file
+			using FileStream decompressedFileStream = new(path: outputFilePath, mode: FileMode.Create, access: FileAccess.Write);
+			// Create a new GZipStream for decompression
+			using GZipStream decompressionStream = new(stream: originalFileStream, mode: CompressionMode.Decompress);
+			// Copy the decompressed data to the output file stream
+			decompressionStream.CopyTo(destination: decompressedFileStream);
+		}
 
 		/// <summary>
 		/// Gets the last modified date of the specified URI.
@@ -224,6 +243,68 @@ namespace Planetoid_DB
 			}
 		}
 
+		/// <summary>
+		/// Handles the DownloadProgressChanged event of the WebClient control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="DownloadProgressChangedEventArgs"/> instance containing the event data.</param>
+		private void ProgressChanged(object? sender, DownloadProgressChangedEventArgs e)
+		{
+			// Set the progress bar style to continuous
+			progressBarDownload.Value = e.ProgressPercentage;
+			// Update the label with the current progress percentage
+			labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.PercentSign;
+			// Update the status bar with the current progress
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: e.ProgressPercentage, progressMax: 100);
+		}
+
+		/// <summary>
+		/// Handles the DownloadFileCompleted event of the WebClient control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="AsyncCompletedEventArgs"/> instance containing the event data.</param>
+		private void Completed(object? sender, AsyncCompletedEventArgs e)
+		{
+			// Reset the taskbar progress
+			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
+			if (e.Error == null)
+			{
+				// Set the status to "Refreshing database"
+				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
+				// Delete the existing file if it exists
+				File.Delete(path: strFilenameAstorb);
+				// Set the progress bar style to marquee
+				progressBarDownload.Style = ProgressBarStyle.Marquee;
+				// Extract the downloaded GZIP file
+				ExtractGzipFile(gzipFilePath: strFilenameAstorbTemp, outputFilePath: strFilenameAstorb);
+				// Set the status to "Download complete"
+				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
+				// Enable the download and check for update buttons
+				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
+				// Set the dialog result to OK
+				DialogResult = DialogResult.OK;
+				// Set the busy flag to false
+				isBusy = false;
+			}
+			else
+			{
+				// Handle the error
+				labelStatusValue.Text = e.Cancelled ? I10nStrings.StatusDownloadCancelled : $"{I10nStrings.StatusUnknownError} {e.Error}";
+				// Clear the labels
+				labelSourceValue.Text = labelDateValue.Text = labelSizeValue.Text = string.Empty;
+				// Enable the download button
+				buttonDownload.Enabled = true;
+				// Enable the check for update button
+				buttonCheckForUpdate.Enabled = true;
+				// Disable the cancel button
+				buttonCancelDownload.Enabled = false;
+				// Reset the progress bar
+				progressBarDownload.Value = 0;
+				// Reset the download label
+				labelDownload.Text = $"{progressBarDownload.Value}{I10nStrings.PercentSign}";
+			}
+		}
+
 		#endregion
 
 		#region Form event handler
@@ -236,13 +317,21 @@ namespace Planetoid_DB
 
 		private void DownloadAstorbDatForm_Load(object? sender, EventArgs? e)
 		{
+			// Clear the status bar text
 			ClearStatusbar();
+			// Set the initial status to "Nothing to do"
 			labelStatusValue.Text = I10nStrings.StatusNothingToDoText;
+			// Clear the labels
 			labelDateValue.Text = labelSizeValue.Text = labelSourceValue.Text = "";
+			// Hide the labels and disable the cancel button
 			labelDateValue.Visible = labelSizeValue.Visible = labelSizeValue.Visible = labelSourceValue.Visible = buttonCancelDownload.Enabled = false;
+			// Set the initial download progress to 0%
 			labelDownload.Text = I10nStrings.NumberZero + I10nStrings.PercentSign;
+			// Set the proxy to null to avoid using any proxy settings
 			webClient.Proxy = null;
+			// Event handler for download completion
 			webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+			// Event handler for download progress
 			webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 		}
 
@@ -258,61 +347,6 @@ namespace Planetoid_DB
 			Dispose();
 		}
 
-		/// <summary>
-		/// Handles the DownloadProgressChanged event of the WebClient control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="DownloadProgressChangedEventArgs"/> instance containing the event data.</param>
-		private void ProgressChanged(object? sender, DownloadProgressChangedEventArgs e)
-		{
-			progressBarDownload.Value = e.ProgressPercentage;
-			labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.PercentSign;
-			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: e.ProgressPercentage, progressMax: 100);
-		}
-
-		/// <summary>
-		/// Extracts a GZIP-compressed file to a specified output file.
-		/// </summary>
-		private static void ExtractGzipFile(string gzipFilePath, string outputFilePath)
-		{
-			using FileStream originalFileStream = new(path: gzipFilePath, mode: FileMode.Open, access: FileAccess.Read);
-			using FileStream decompressedFileStream = new(path: outputFilePath, mode: FileMode.Create, access: FileAccess.Write);
-			using GZipStream decompressionStream = new(stream: originalFileStream, mode: CompressionMode.Decompress);
-			decompressionStream.CopyTo(destination: decompressedFileStream);
-		}
-
-		/// <summary>
-		/// Handles the DownloadFileCompleted event of the WebClient control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="AsyncCompletedEventArgs"/> instance containing the event data.</param>
-		private void Completed(object? sender, AsyncCompletedEventArgs e)
-		{
-			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
-			if (e.Error == null)
-			{
-				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
-				File.Delete(path: strFilenameAstorb);
-				progressBarDownload.Style = ProgressBarStyle.Marquee;
-				ExtractGzipFile(gzipFilePath: strFilenameAstorbTemp, outputFilePath: strFilenameAstorb);
-				//File.Copy(sourceFileName: strFilenameAstorbTemp, destFileName: strFilenameAstorb);
-				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
-				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
-				DialogResult = DialogResult.OK;
-				isBusy = false;
-			}
-			else
-			{
-				labelStatusValue.Text = e.Cancelled ? I10nStrings.StatusDownloadCancelled : $"{I10nStrings.StatusUnknownError} {e.Error}";
-				labelSourceValue.Text = labelDateValue.Text = labelSizeValue.Text = string.Empty;
-				buttonDownload.Enabled = true;
-				buttonCheckForUpdate.Enabled = true;
-				buttonCancelDownload.Enabled = false;
-				progressBarDownload.Value = 0;
-				labelDownload.Text = $"{progressBarDownload.Value}{I10nStrings.PercentSign}";
-			}
-		}
-
 		#endregion
 
 		#region Enter event handlers
@@ -324,8 +358,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -352,29 +388,61 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void ButtonDownload_Click(object? sender, EventArgs? e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if there is an internet connection available
+			if (!NetworkInterface.GetIsNetworkAvailable())
+			{
+				// Log the error if there is no internet connection
+				logger.Error(message: "No internet connection available.");
+				// Show an error message if there is no internet connection
+				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
+				return;
+			}
+			// Disable the download button
 			buttonDownload.Enabled = false;
+			// Enable the cancel button
 			buttonCancelDownload.Enabled = true;
+			// Disable the check for update button
 			buttonCheckForUpdate.Enabled = false;
+			// Set the source value to the URI
 			labelSourceValue.Text = uriASTORB.AbsoluteUri;
+			// Make the source value visible
 			labelSourceValue.Visible = true;
+			// Get the last modified date of the URI
 			labelDateValue.Text = GetLastModified(uri: uriASTORB).ToString(provider: CultureInfo.InvariantCulture);
+			// Make the date value visible
 			labelDateValue.Visible = true;
+			// Set the size value to the content length of the URI
 			labelSizeValue.Text = $"{GetContentLength(uri: uriASTORB)} {I10nStrings.BytesText}";
+			// Make the size value visible
 			labelSizeValue.Visible = true;
+			// Set the status value to "Try to connect"
 			labelStatusValue.Text = I10nStrings.StatusTryToConnect;
+			//Try to download the file
 			try
 			{
+				// Set the status value to "Downloading"
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
+				// Start the download asynchronously
 				webClient.DownloadFileAsync(address: uriASTORB, fileName: strFilenameAstorbTemp);
+				// Set the busy flag to true
 				isBusy = true;
 			}
+			// Catch any exceptions that occur during the download
 			catch (Exception ex)
 			{
+				// Set the busy flag to false
 				isBusy = false;
+				// Set the status value to "Unknown error"
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
+				// Enable the download button
 				buttonDownload.Enabled = true;
+				// Enable the check for update button
 				buttonCheckForUpdate.Enabled = true;
-				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+				// Log and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				ShowErrorMessage(message: $"{I10nStrings.StatusUnknownError} {ex.Message}");
 			}
 		}
 
@@ -393,9 +461,13 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
 		private void DownloadAstorbDatForm_FormClosing(object? sender, FormClosingEventArgs? e)
 		{
+			// Check if the form is closing and if a download is in progress
+			// Cancel the download if it is in progress
 			webClient.CancelAsync();
+			// Dispose of the WebClient instance
 			if (File.Exists(path: strFilenameAstorbTemp))
 			{
+				// Delete the temporary file if it exists
 				File.Delete(path: strFilenameAstorbTemp);
 			}
 		}
@@ -418,9 +490,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -437,8 +511,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DownloadAstorbDatForm_KeyDown(object? sender, KeyEventArgs e)
 		{
-			if (!isBusy && e.KeyCode == Keys.Escape)
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
+			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}

@@ -104,48 +104,67 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
 		{
+			// Path to the database file
 			FileInfo fileInfo = new(fileName: Properties.Resources.FilenameMpcorb);
+			// Get the file attributes
 			FileAttributes attributes = File.GetAttributes(path: fileInfo.FullName);
-
+			// Check if the file is an archive
 			bool isArchive = (attributes & FileAttributes.Archive) == FileAttributes.Archive;
+			// Check if the file is compressed
 			bool isCompressed = (attributes & FileAttributes.Compressed) == FileAttributes.Compressed;
+			// Check if the file is hidden
 			bool isHidden = (attributes & FileAttributes.Hidden) == FileAttributes.Hidden;
+			// Check if the file is read-only
 			bool isReadOnly = (attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly;
+			// Check if the file is a system file
 			bool isSystem = (attributes & FileAttributes.System) == FileAttributes.System;
-
+			// Set the file information in the labels
 			labelNameValue.Text = fileInfo.Name;
+			// Set the file name in the label
 			labelDirectoryValue.Text = fileInfo.DirectoryName;
+			// Set the file size in the label
 			labelSizeValue.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
+			// Set the file type in the label
 			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString(provider: CultureInfo.InvariantCulture);
+			// Set the file creation time in the label
 			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString(provider: CultureInfo.InvariantCulture);
+			// Set the file last access time in the label
 			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString(provider: CultureInfo.InvariantCulture);
-
+			// Set the file attributes in the label
 			StringBuilder attributesText = new(value: $"({fileInfo.Attributes})");
+			// Check if the file is an archive, compressed, hidden, read-only, or a system file
+			// and prepend the corresponding attribute name to the attributes text
+			// Check if the file is an archive
 			if (isArchive)
 			{
-				_ = attributesText.Insert(0, value: "archive ");
+				// Prepend "archive" to the attributes text
+				_ = attributesText.Insert(index: 0, value: "archive ");
 			}
-
+			// Check if the file is compressed
 			if (isCompressed)
 			{
-				_ = attributesText.Insert(0, value: "compressed ");
+				// Prepend "compressed" to the attributes text
+				_ = attributesText.Insert(index: 0, value: "compressed ");
 			}
-
+			// Check if the file is hidden
 			if (isHidden)
 			{
-				_ = attributesText.Insert(0, value: "hidden ");
+				// Prepend "hidden" to the attributes text
+				_ = attributesText.Insert(index: 0, value: "hidden ");
 			}
-
+			// Check if the file is read-only
 			if (isReadOnly)
 			{
-				_ = attributesText.Insert(0, value: "readonly ");
+				// Prepend "read-only" to the attributes text
+				_ = attributesText.Insert(index: 0, value: "readonly ");
 			}
-
+			// Check if the file is a system file
 			if (isSystem)
 			{
-				_ = attributesText.Insert(0, value: "system ");
+				// Prepend "system" to the attributes text
+				_ = attributesText.Insert(index: 0, value: "system ");
 			}
-
+			// Set the file attributes text in the label
 			labelAttributesValue.Text = attributesText.ToString();
 		}
 
@@ -167,8 +186,10 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
+			// Check if the sender is a control and has an accessible description
 			if (sender is Control control && control.AccessibleDescription != null)
 			{
+				// Set the status bar text to the control's accessible description
 				SetStatusbar(text: control.AccessibleDescription);
 			}
 		}
@@ -195,9 +216,11 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
 		{
+			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);
 			if (sender is Control control)
 			{
+				// Copy the text to the clipboard
 				CopyToClipboard(text: control.Text);
 			}
 		}
@@ -214,8 +237,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void DatabaseInformationForm_KeyDown(object? sender, KeyEventArgs e)
 		{
+			// Check if the sender is null
+			ArgumentNullException.ThrowIfNull(argument: sender);
+			// Check if the Escape key is pressed
 			if (e.KeyCode == Keys.Escape)
 			{
+				// Close the form
 				Close();
 			}
 		}
