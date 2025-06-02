@@ -25,7 +25,7 @@ namespace Planetoid_DB
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(CopyDataToClipboardForm_KeyDown);
+			KeyDown += CopyDataToClipboardForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 

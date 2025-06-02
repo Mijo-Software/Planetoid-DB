@@ -73,7 +73,7 @@ namespace Planetoid_DB
 		private string strObsSpan = string.Empty;
 
 		// The RMS residual of the planetoid.
-		private string strRmsResdiual = string.Empty;
+		private string strRmsResidual = string.Empty;
 
 		// The name of the computer that processed the planetoid data.
 		private string strComputerName = string.Empty;
@@ -96,7 +96,7 @@ namespace Planetoid_DB
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(TableModeForm_KeyDown);
+			KeyDown += TableModeForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
@@ -207,7 +207,7 @@ namespace Planetoid_DB
 				strNumbObs = planetoid.Substring(startIndex: 117, length: 5).Trim();
 				strNumbOppos = planetoid.Substring(startIndex: 123, length: 3).Trim();
 				strObsSpan = planetoid.Substring(startIndex: 127, length: 9).Trim();
-				strRmsResdiual = planetoid.Substring(startIndex: 137, length: 4).Trim();
+				strRmsResidual = planetoid.Substring(startIndex: 137, length: 4).Trim();
 				strComputerName = planetoid.Substring(startIndex: 150, length: 10).Trim();
 				strFlags = planetoid.Substring(startIndex: 161, length: 4).Trim();
 				strDesgnName = planetoid.Substring(startIndex: 166, length: 28).Trim();
@@ -237,7 +237,7 @@ namespace Planetoid_DB
 				_ = listViewItem.SubItems.Add(text: strNumbOppos); // Add the number of oppositions
 				_ = listViewItem.SubItems.Add(text: strNumbObs); // Add the number of observations
 				_ = listViewItem.SubItems.Add(text: strObsSpan); // Add the observation span
-				_ = listViewItem.SubItems.Add(text: strRmsResdiual); // Add the RMS residual
+				_ = listViewItem.SubItems.Add(text: strRmsResidual); // Add the RMS residual
 				_ = listViewItem.SubItems.Add(text: strComputerName); // Add the computer name
 				_ = listViewItem.SubItems.Add(text: strFlags); // Add the flags
 				_ = listViewItem.SubItems.Add(text: strObsLastDate); // Add the date of last observation

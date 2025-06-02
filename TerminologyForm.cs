@@ -188,7 +188,7 @@ namespace Planetoid_DB
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(TerminologyForm_KeyDown);
+			KeyDown += TerminologyForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
