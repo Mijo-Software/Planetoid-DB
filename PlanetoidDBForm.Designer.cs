@@ -3741,7 +3741,6 @@ namespace Planetoid_DB
 		private KryptonLabel labelComputerNameDesc;
 		private KryptonLabel labelFlagsDesc;
 		private KryptonLabel labelDateLastObservationDesc;
-		private System.Windows.Forms.ToolStripSplitButton splitbuttonSearch;
 		private System.Windows.Forms.ContextMenuStrip contextMenuTopTenRecords;
 		private System.Windows.Forms.ToolStripMenuItem menuitemRecordsSortDirection;
 		private System.Windows.Forms.ToolStripMenuItem menuitemRecordsSortDirectionAscending;

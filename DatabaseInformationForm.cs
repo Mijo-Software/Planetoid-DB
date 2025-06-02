@@ -24,7 +24,7 @@ namespace Planetoid_DB
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(DatabaseInformationForm_KeyDown);
+			KeyDown += DatabaseInformationForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 

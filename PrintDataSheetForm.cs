@@ -26,9 +26,9 @@ namespace Planetoid_DB
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(PrintDataSheetForm_KeyDown);
+			KeyDown += PrintDataSheetForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
-			printDoc = new PrintDocument();
+			printDoc = new ();
 			printDoc.PrintPage += new PrintPageEventHandler(PrintDoc_PrintPage);
 		}
 

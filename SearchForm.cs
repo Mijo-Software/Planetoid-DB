@@ -27,28 +27,65 @@ namespace Planetoid_DB
 		// Indicates whether the operation has been cancelled
 		private bool isCancelled = false;
 
-		// Strings to store various attributes of the planetoid data
-		private string
-			strIndex,// Index
-			strMagAbs, // Absolute magnitude
-			strSlopeParam, // Slope parameter
-			strEpoch, // Epoch
-			strMeanAnomaly, // Mean anomaly
-			strArgPeri, // Argument of periapsis
-			strLongAscNode, // Longitude of ascending node
-			strIncl, // Inclination
-			strOrbEcc, // Orbital eccentricity
-			strMotion, // Motion
-			strSemiMajorAxis, // Semi-major axis
-			strRef, // Reference
-			strNumbObs, // Number of observations
-			strNumbOppos, // Number of oppositions
-			strObsSpan, // Observation span
-			strRmsResidual, // RMS residual
-			strComputerName, // Computer name
-			strFlags, // Flags
-			strDesgnName, // Designation name
-			strObsLastDate; // Last observation date
+		// The index of the planetoid.
+		private string strIndex = string.Empty;
+
+		// The absolute magnitude of the planetoid.
+		private string strMagAbs = string.Empty;
+
+		// The slope parameter of the planetoid.
+		private string strSlopeParam = string.Empty;
+
+		// The epoch of the planetoid.
+		private string strEpoch = string.Empty;
+
+		// The mean anomaly of the planetoid.
+		private string strMeanAnomaly = string.Empty;
+
+		// The argument of perihelion of the planetoid.
+		private string strArgPeri = string.Empty;
+
+		// The longitude of the ascending node of the planetoid.
+		private string strLongAscNode = string.Empty;
+
+		// The inclination of the planetoid.
+		private string strIncl = string.Empty;
+
+		// The orbital eccentricity of the planetoid.
+		private string strOrbEcc = string.Empty;
+
+		// The mean daily motion of the planetoid.
+		private string strMotion = string.Empty;
+
+		// The semi-major axis of the planetoid.
+		private string strSemiMajorAxis = string.Empty;
+
+		// The reference for the planetoid data.
+		private string strRef = string.Empty;
+
+		// The number of observations of the planetoid.
+		private string strNumbObs = string.Empty;
+
+		// The number of oppositions of the planetoid.
+		private string strNumbOppos = string.Empty;
+
+		// The observation span of the planetoid.
+		private string strObsSpan = string.Empty;
+
+		// The RMS residual of the planetoid.
+		private string strRmsResidual = string.Empty;
+
+		// The name of the computer that processed the planetoid data.
+		private string strComputerName = string.Empty;
+
+		// The flags associated with the planetoid.
+		private string strFlags = string.Empty;
+
+		// The designation name of the planetoid.
+		private string strDesgnName = string.Empty;
+
+		// The date of the last observation of the planetoid.
+		private string strObsLastDate = string.Empty;
 
 		#region Constructor
 
@@ -59,7 +96,7 @@ namespace Planetoid_DB
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(SearchForm_KeyDown);
+			KeyDown += SearchForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
