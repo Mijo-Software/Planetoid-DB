@@ -146,11 +146,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
-		private void PreloaderForm_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			Dispose();
-			DialogResult = DialogResult.Cancel;
-		}
+		private void PreloaderForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 
