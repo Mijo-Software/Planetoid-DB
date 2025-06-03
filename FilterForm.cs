@@ -123,11 +123,17 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SetStatusbar_Enter(object sender, EventArgs e)
 		{
-			// Check if the sender is a control and has an accessible description
-			if (sender is Control control && control.AccessibleDescription != null)
+			// Set the status bar text based on the sender's accessible description
+			switch (sender)
 			{
-				// Set the status bar text to the control's accessible description
-				SetStatusbar(text: control.AccessibleDescription);
+				// If the sender is a control with an accessible description, set the status bar text
+				// If the sender is a ToolStripItem with an accessible description, set the status bar text
+				case Control control when control.AccessibleDescription != null:
+					SetStatusbar(text: control.AccessibleDescription);
+					break;
+				case ToolStripItem item when item.AccessibleDescription != null:
+					SetStatusbar(text: item.AccessibleDescription);
+					break;
 			}
 		}
 
