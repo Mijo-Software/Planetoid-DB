@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -416,11 +415,11 @@ namespace Planetoid_DB
 			// Make the source value visible
 			labelSourceValue.Visible = true;
 			// Get the last modified date of the URI
-			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToString(provider: CultureInfo.InvariantCulture);
+			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToUniversalTime().ToString();
 			// Make the date value visible
 			labelDateValue.Visible = true;
 			// Set the size value to the content length of the URI
-			labelSizeValue.Text = $"{GetContentLength(uri: uriMPCORB)} {I10nStrings.BytesText}";
+			labelSizeValue.Text = $"{GetContentLength(uri: uriMPCORB):N0} {I10nStrings.BytesText}";
 			// Make the size value visible
 			labelSizeValue.Visible = true;
 			// Set the status value to "Try to connect"
