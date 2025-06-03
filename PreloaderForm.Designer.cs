@@ -71,7 +71,6 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonExit.StateCommon.Content.ShortText.TextV = PaletteRelativeAlign.Center;
 			kryptonCommandLinkButtonExit.TabIndex = 3;
 			toolTip.SetToolTip(kryptonCommandLinkButtonExit, "Quit the application");
-			kryptonCommandLinkButtonExit.ToolTipValues.EnableToolTips = true;
 			kryptonCommandLinkButtonExit.Enter += SetStatusbar_Enter;
 			kryptonCommandLinkButtonExit.Leave += ClearStatusbar_Leave;
 			kryptonCommandLinkButtonExit.MouseEnter += SetStatusbar_Enter;
@@ -227,6 +226,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Window;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = kryptonCommandLinkButtonExit;
 			ClientSize = new Size(376, 300);
 			Controls.Add(panel);
 			Controls.Add(statusStrip);

@@ -121,6 +121,12 @@ namespace Planetoid_DB
 			using PreloaderForm formPreloader = new();
 			// Show the preloader form
 			_ = formPreloader.ShowDialog();
+			// Check if the form is exited with a cancel result
+			if (formPreloader.DialogResult == DialogResult.Cancel)
+			{
+				// Exit the application with a non-zero exit code
+				Environment.Exit(exitCode: Environment.ExitCode);
+			}
 			// Check if the file path is empty
 			if (string.IsNullOrEmpty(value: formPreloader.MpcOrbDatFilePath))
 			{

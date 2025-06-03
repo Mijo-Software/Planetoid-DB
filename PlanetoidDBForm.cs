@@ -248,20 +248,28 @@ namespace Planetoid_DB
 		/// <returns>true if an update is available, otherwise false.</returns>
 		private bool IsMpcorbDatUpdateAvailable()
 		{
-			// Get the file information for the local file
-			FileInfo fileInfo = new(fileName: filenameMpcorb);
-			// Get the last modified date of the local file
-			DateTime datetimeFileLocal = fileInfo.LastWriteTime;
-			// Get the last modified date of the online file
-			DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
-			// Get the content length of the online file
-			_ = GetContentLength(uri: uriMpcorb);
-			// Get the content length of the local file
-			_ = fileInfo.Length;
-			// Check if the online file is larger than the local file
-			// If it greater, return true (update available)
-			// Otherwise, return false (no update available)
-			return datetimeFileOnline > datetimeFileLocal;
+			// Check if the file exists before attempting to delete it
+			if (File.Exists(path: filenameMpcorb))
+			{
+				// Get the file information for the local file
+				FileInfo fileInfo = new(fileName: filenameMpcorb);
+				// Get the last modified date of the local file
+				DateTime datetimeFileLocal = fileInfo.LastWriteTime;
+				// Get the last modified date of the online file
+				DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
+				// Get the content length of the online file
+				_ = GetContentLength(uri: uriMpcorb);
+				// Get the content length of the local file
+				_ = fileInfo.Length;
+				// Check if the online file is larger than the local file
+				// If it greater, return true (update available)
+				// Otherwise, return false (no update available)
+				return datetimeFileOnline > datetimeFileLocal;
+			}
+			else
+			{
+				return true; // If the file does not exist, return true (update available)
+			}
 		}
 
 		/// <summary>
@@ -2246,22 +2254,6 @@ namespace Planetoid_DB
 		private static void MenuitemDistribution_Click(object sender, EventArgs e)
 		{
 		}
-
-		/// <summary>
-		/// Handles the click event for the MenuitemOpenALocalMpcorbdatFile.
-		/// Opens a local MPCORB data file.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenALocalMpcorbdatFile_Click(object sender, EventArgs e) => OpenDatabaseDifferences();
-
-		/// <summary>
-		/// Handles the click event for the ToolStripButtonOpen.
-		/// Opens a local MPCORB data file.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ToolStripButtonOpen_Click(object sender, EventArgs e) => OpenDatabaseDifferences();
 
 		/// <summary>
 		/// Handles the click event for the ToolStripButtonListReadableDesignations.
