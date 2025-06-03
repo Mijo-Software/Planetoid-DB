@@ -141,7 +141,6 @@ namespace Planetoid_DB
 				// Start the main form with the specified file path
 				Application.Run(mainForm: new PlanetoidDBForm(mpcorbDatFilePath: formPreloader.MpcOrbDatFilePath));
 			}
-
 		}
 
 		/// <summary>
