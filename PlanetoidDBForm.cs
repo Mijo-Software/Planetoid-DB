@@ -201,7 +201,7 @@ namespace Planetoid_DB
 			labelReadableDesignationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
 			labelDateLastObservationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
 #pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			toolStripLabelIndexPosition.Text = $"{I10nStrings.Index}: {currentPosition + 1} / {planetoidDatabase.Count}";
+			toolStripLabelIndexPosition.Text = $"{I10nStrings.Index}: {currentPosition + 1:N0} / {planetoidDatabase.Count:N0}";
 		}
 
 		/// <summary>

@@ -187,12 +187,12 @@ namespace Planetoid_DB
 				// Get the file attributes
 				datetimeFileLocal = fileInfo.LastWriteTime;
 				// Set the content length and modified date labels to the local file's information
-				labelContentLengthValueLocal.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
+				labelContentLengthValueLocal.Text = $"{fileInfo.Length:N0} {I10nStrings.BytesText}";
 				// Set the modified date label to the local file's last write time
 				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
 			}
 			// Set the content length and modified date labels to the online file's information
-			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriASTORB).ConfigureAwait(continueOnCapturedContext: false)} {I10nStrings.BytesText}";
+			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriASTORB).ConfigureAwait(continueOnCapturedContext: false):N0} {I10nStrings.BytesText}";
 			// Set the modified date label to the online file's last modified date
 			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
 			// Compare the last modified dates of the local and online files
