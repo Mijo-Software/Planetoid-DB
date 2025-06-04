@@ -90,17 +90,27 @@ namespace Planetoid_DB
 		/// <returns>The last modified date of the URI.</returns>
 		private static DateTime GetLastModified(Uri uri)
 		{
-			// Create a new HttpWebRequest to the specified URI
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			// Set the method to HEAD to only retrieve headers
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			// Check if the response status code is OK (200)
-			// If so, return the last modified date
-			// Otherwise, return a default DateTime value
-			// Note: The default DateTime value is not a valid date, so it should be handled appropriately
-			// in the calling code
-			// The default DateTime value is 1/1/0001 12:00:00 AM
-			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
+			try
+			{
+				// Create a new HttpRequestMessage with the HEAD method and the specified URI
+				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
+				// Send the request and get the response
+				HttpResponseMessage response = client.Send(request);
+				// Check if the response is successful and return the last modified date
+				// If the response is not successful, return DateTime.MinValue
+				// If the response is successful, return the last modified date or DateTime.MinValue if not available
+				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
+			}
+			// Catch any exceptions that occur during the request
+			catch (Exception ex)
+			{
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: "Error retrieving last modified date.");
+				// Show an error message with the exception message
+				ShowErrorMessage(message: $"Error retrieving last modified date: {ex.Message}");
+				// Return DateTime.MinValue to indicate an error
+				return DateTime.MinValue;
+			}
 		}
 
 		/// <summary>
@@ -110,63 +120,27 @@ namespace Planetoid_DB
 		/// <returns>The content length of the URI.</returns>
 		private static long GetContentLength(Uri uri)
 		{
-			// Create a new HttpWebRequest to the specified URI
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			// Set the method to HEAD to only retrieve headers
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			// Check if the response status code is OK (200)
-			// If so, return the content length
-			// Otherwise, return 0
-			// Note: The content length is the size of the response body in bytes
-			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
-		}
-
-		/// <summary>
-		/// Retrieves the last modified date of the specified URI.
-		/// </summary>
-		/// <param name="uri">The URI of the resource.</param>
-		/// <returns>The date of the last modification or <see cref="DateTime.MinValue"/> in case of an error.</returns>
-		private static async Task<DateTime> GetLastModifiedAsync(Uri uri)
-		{
+			// Use HttpClient instead of HttpWebRequest
 			try
 			{
-				// Send a HEAD request to the specified URI
-				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
-				// Check if the response is successful and return the last modified date
-				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
-			}
-			catch (HttpRequestException)
-			{
-				// Log the exception
-				logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
-				// Show an error message
-				ShowErrorMessage(message: new HttpRequestException().Message);
-				// Return DateTime.MinValue to indicate an error
-				return DateTime.MinValue;
-			}
-		}
-
-		/// <summary>
-		/// The content length of the specified URI.
-		/// </summary>
-		/// <param name="uri">The URI of the resource.</param>
-		/// <returns>The content length or 0 in case of error.</returns>
-		private static async Task<long> GetContentLengthAsync(Uri uri)
-		{
-			try
-			{
-				// Send a HEAD request to the specified URI
-				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
+				// Create a new HttpRequestMessage with the HEAD method and the specified URI
+				// Send the request and get the response
+				// If the response is successful, return the content length or 0 if not available
+				// If the response is not successful, return 0
+				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
+				// Send the request using the HttpClient instance
+				HttpResponseMessage response = client.Send(request);
 				// Check if the response is successful and return the content length
 				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
 			}
-			catch (HttpRequestException)
+			// Catch any exceptions that occur during the request
+			catch (Exception ex)
 			{
-				// Log the exception
-				logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
-				// Show an error message
-				ShowErrorMessage(message: new HttpRequestException().Message);
-				// Log the exception and return 0
+				// Log the exception and show an error message
+				logger.Error(exception: ex, message: "Error retrieving content length.");
+				// Show an error message with the exception message
+				ShowErrorMessage(message: $"Error retrieving content length: {ex.Message}");
+				// Return 0 to indicate an error
 				return 0;
 			}
 		}
