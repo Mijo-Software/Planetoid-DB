@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Text;
 using Krypton.Toolkit;
@@ -123,13 +122,13 @@ namespace Planetoid_DB
 			// Set the file name in the label
 			labelDirectoryValue.Text = fileInfo.DirectoryName;
 			// Set the file size in the label
-			labelSizeValue.Text = $"{fileInfo.Length} {I10nStrings.BytesText}";
+			labelSizeValue.Text = $"{fileInfo.Length:N0} {I10nStrings.BytesText}";
 			// Set the file type in the label
-			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString(provider: CultureInfo.InvariantCulture);
+			labelDateCreatedValue.Text = fileInfo.CreationTime.ToString();
 			// Set the file creation time in the label
-			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString(provider: CultureInfo.InvariantCulture);
+			labelDateAccessedValue.Text = fileInfo.LastAccessTime.ToString();
 			// Set the file last access time in the label
-			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString(provider: CultureInfo.InvariantCulture);
+			labelDateWritedValue.Text = fileInfo.LastWriteTime.ToString();
 			// Set the file attributes in the label
 			StringBuilder attributesText = new(value: $"({fileInfo.Attributes})");
 			// Check if the file is an archive, compressed, hidden, read-only, or a system file
@@ -138,31 +137,31 @@ namespace Planetoid_DB
 			if (isArchive)
 			{
 				// Prepend "archive" to the attributes text
-				_ = attributesText.Insert(index: 0, value: "archive ");
+				_ = attributesText.Insert(index: 0, value: "archive, ");
 			}
 			// Check if the file is compressed
 			if (isCompressed)
 			{
 				// Prepend "compressed" to the attributes text
-				_ = attributesText.Insert(index: 0, value: "compressed ");
+				_ = attributesText.Insert(index: 0, value: "compressed, ");
 			}
 			// Check if the file is hidden
 			if (isHidden)
 			{
 				// Prepend "hidden" to the attributes text
-				_ = attributesText.Insert(index: 0, value: "hidden ");
+				_ = attributesText.Insert(index: 0, value: "hidden, ");
 			}
 			// Check if the file is read-only
 			if (isReadOnly)
 			{
 				// Prepend "read-only" to the attributes text
-				_ = attributesText.Insert(index: 0, value: "readonly ");
+				_ = attributesText.Insert(index: 0, value: "readonly, ");
 			}
 			// Check if the file is a system file
 			if (isSystem)
 			{
 				// Prepend "system" to the attributes text
-				_ = attributesText.Insert(index: 0, value: "system ");
+				_ = attributesText.Insert(index: 0, value: "system, ");
 			}
 			// Set the file attributes text in the label
 			labelAttributesValue.Text = attributesText.ToString();
