@@ -30,6 +30,8 @@ namespace Planetoid_DB
 
 		// WebClient instance for handling the download
 		private readonly WebClient webClient = new();
+		// Replace the WebClient instance with HttpClient and refactor the code accordingly.
+		private static readonly HttpClient httpClient = new();
 
 		// Flag to indicate if a download is in progress
 		private bool isBusy = false;
@@ -120,7 +122,6 @@ namespace Planetoid_DB
 		/// <returns>The content length of the URI.</returns>
 		private static long GetContentLength(Uri uri)
 		{
-			// Use HttpClient instead of HttpWebRequest
 			try
 			{
 				// Create a new HttpRequestMessage with the HEAD method and the specified URI
@@ -422,6 +423,65 @@ namespace Planetoid_DB
 				// Enable the check for update button
 				buttonCheckForUpdate.Enabled = true;
 				// Log and show an error message
+				logger.Error(exception: ex, message: ex.Message);
+				ShowErrorMessage(message: $"{I10nStrings.StatusUnknownError} {ex.Message}");
+			}
+		}
+
+		// Update the ButtonDownload_Click method to use HttpClient for downloading the file.
+		private async void ButtonDownload2_Click(object? sender, EventArgs? e)
+		{
+			ArgumentNullException.ThrowIfNull(argument: sender);
+
+			if (!NetworkInterface.GetIsNetworkAvailable())
+			{
+				logger.Error(message: "No internet connection available.");
+				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
+				return;
+			}
+
+			buttonDownload.Enabled = false;
+			buttonCancelDownload.Enabled = true;
+			buttonCheckForUpdate.Enabled = false;
+
+			labelSourceValue.Text = uriASTORB.AbsoluteUri;
+			labelSourceValue.Visible = true;
+
+			labelDateValue.Text = GetLastModified(uri: uriASTORB).ToUniversalTime().ToString();
+			labelDateValue.Visible = true;
+
+			labelSizeValue.Text = $"{GetContentLength(uri: uriASTORB):N0} {I10nStrings.BytesText}";
+			labelSizeValue.Visible = true;
+
+			labelStatusValue.Text = I10nStrings.StatusTryToConnect;
+
+			try
+			{
+				labelStatusValue.Text = I10nStrings.StatusDownloading;
+
+				using HttpResponseMessage response = await httpClient.GetAsync(uriASTORB, HttpCompletionOption.ResponseHeadersRead);
+				_ = response.EnsureSuccessStatusCode();
+
+				using Stream contentStream = await response.Content.ReadAsStreamAsync();
+				using FileStream fileStream = new(strFilenameAstorbTemp, FileMode.Create, FileAccess.Write, FileShare.None);
+				await contentStream.CopyToAsync(fileStream);
+
+				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
+
+				File.Delete(path: strFilenameAstorb);
+				ExtractGzipFile(gzipFilePath: strFilenameAstorbTemp, outputFilePath: strFilenameAstorb);
+
+				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
+				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
+				DialogResult = DialogResult.OK;
+				isBusy = false;
+			}
+			catch (Exception ex)
+			{
+				isBusy = false;
+				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
+				buttonDownload.Enabled = true;
+				buttonCheckForUpdate.Enabled = true;
 				logger.Error(exception: ex, message: ex.Message);
 				ShowErrorMessage(message: $"{I10nStrings.StatusUnknownError} {ex.Message}");
 			}
