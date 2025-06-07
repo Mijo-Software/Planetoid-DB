@@ -1,4 +1,5 @@
-﻿using Krypton.Toolkit;
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
@@ -7,7 +8,7 @@ namespace Planetoid_DB
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     /// <summary>
     /// Clean up any resources being used.
@@ -124,8 +125,8 @@ namespace Planetoid_DB
 		#endregion
 
 		private KryptonProgressBar progressBarSplash;
-    private System.Windows.Forms.Label labelTitle;
-    private System.Windows.Forms.Label labelVersion;
-		private System.Windows.Forms.ToolTip toolTip;
+    private Label labelTitle;
+    private Label labelVersion;
+		private ToolTip toolTip;
 	}
 }

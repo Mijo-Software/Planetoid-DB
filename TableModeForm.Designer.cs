@@ -1,4 +1,5 @@
-﻿using Krypton.Toolkit;
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
@@ -7,7 +8,7 @@ namespace Planetoid_DB
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     /// <summary>
     /// Clean up any resources being used.
@@ -83,8 +84,8 @@ namespace Planetoid_DB
 			progressBar.TabIndex = 7;
 			toolTip.SetToolTip(progressBar, "Shows the progress");
 			progressBar.Values.Text = "";
-			progressBar.MouseEnter += SetStatusbar_Enter;
-			progressBar.MouseLeave += ClearStatusbar_Leave;
+			progressBar.MouseEnter += SetStatusBar_Enter;
+			progressBar.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMinimum
 			// 
@@ -99,10 +100,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelMinimum, "Minimum");
 			labelMinimum.Values.Text = "M&inimum:";
 			labelMinimum.DoubleClick += CopyToClipboard_DoubleClick;
-			labelMinimum.Enter += SetStatusbar_Enter;
-			labelMinimum.Leave += ClearStatusbar_Leave;
-			labelMinimum.MouseEnter += SetStatusbar_Enter;
-			labelMinimum.MouseLeave += ClearStatusbar_Leave;
+			labelMinimum.Enter += SetStatusBar_Enter;
+			labelMinimum.Leave += ClearStatusBar_Leave;
+			labelMinimum.MouseEnter += SetStatusBar_Enter;
+			labelMinimum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimum
 			// 
@@ -120,8 +121,8 @@ namespace Planetoid_DB
 			numericUpDownMinimum.TabIndex = 1;
 			toolTip.SetToolTip(numericUpDownMinimum, "Minimum value for the list");
 			numericUpDownMinimum.Value = new decimal(new int[] { 0, 0, 0, 0 });
-			numericUpDownMinimum.Enter += SetStatusbar_Enter;
-			numericUpDownMinimum.Leave += ClearStatusbar_Leave;
+			numericUpDownMinimum.Enter += SetStatusBar_Enter;
+			numericUpDownMinimum.Leave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximum
 			// 
@@ -139,8 +140,8 @@ namespace Planetoid_DB
 			numericUpDownMaximum.TabIndex = 3;
 			toolTip.SetToolTip(numericUpDownMaximum, "Maximum value for the list");
 			numericUpDownMaximum.Value = new decimal(new int[] { 0, 0, 0, 0 });
-			numericUpDownMaximum.Enter += SetStatusbar_Enter;
-			numericUpDownMaximum.Leave += ClearStatusbar_Leave;
+			numericUpDownMaximum.Enter += SetStatusBar_Enter;
+			numericUpDownMaximum.Leave += ClearStatusBar_Leave;
 			// 
 			// labelMaximum
 			// 
@@ -155,10 +156,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelMaximum, "Maximum");
 			labelMaximum.Values.Text = "M&aximum:";
 			labelMaximum.DoubleClick += CopyToClipboard_DoubleClick;
-			labelMaximum.Enter += SetStatusbar_Enter;
-			labelMaximum.Leave += ClearStatusbar_Leave;
-			labelMaximum.MouseEnter += SetStatusbar_Enter;
-			labelMaximum.MouseLeave += ClearStatusbar_Leave;
+			labelMaximum.Enter += SetStatusBar_Enter;
+			labelMaximum.Leave += ClearStatusBar_Leave;
+			labelMaximum.MouseEnter += SetStatusBar_Enter;
+			labelMaximum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonList
 			// 
@@ -175,10 +176,10 @@ namespace Planetoid_DB
 			buttonList.Values.Image = Properties.Resources.silk_table;
 			buttonList.Values.Text = "&List";
 			buttonList.Click += ButtonList_Click;
-			buttonList.Enter += SetStatusbar_Enter;
-			buttonList.Leave += ClearStatusbar_Leave;
-			buttonList.MouseEnter += SetStatusbar_Enter;
-			buttonList.MouseLeave += ClearStatusbar_Leave;
+			buttonList.Enter += SetStatusBar_Enter;
+			buttonList.Leave += ClearStatusBar_Leave;
+			buttonList.MouseEnter += SetStatusBar_Enter;
+			buttonList.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelWarning
 			// 
@@ -196,10 +197,10 @@ namespace Planetoid_DB
 			labelWarning.TextAlign = ContentAlignment.MiddleLeft;
 			toolTip.SetToolTip(labelWarning, "Be careful: do not use large ranges between minimum and maximum! This can increase loading time and memory. Use small spans!");
 			labelWarning.DoubleClick += CopyToClipboard_DoubleClick;
-			labelWarning.Enter += SetStatusbar_Enter;
-			labelWarning.Leave += ClearStatusbar_Leave;
-			labelWarning.MouseEnter += SetStatusbar_Enter;
-			labelWarning.MouseLeave += ClearStatusbar_Leave;
+			labelWarning.Enter += SetStatusBar_Enter;
+			labelWarning.Leave += ClearStatusBar_Leave;
+			labelWarning.MouseEnter += SetStatusBar_Enter;
+			labelWarning.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonCancel
 			// 
@@ -216,10 +217,10 @@ namespace Planetoid_DB
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
-			buttonCancel.Enter += SetStatusbar_Enter;
-			buttonCancel.Leave += ClearStatusbar_Leave;
-			buttonCancel.MouseEnter += SetStatusbar_Enter;
-			buttonCancel.MouseLeave += ClearStatusbar_Leave;
+			buttonCancel.Enter += SetStatusBar_Enter;
+			buttonCancel.Leave += ClearStatusBar_Leave;
+			buttonCancel.MouseEnter += SetStatusBar_Enter;
+			buttonCancel.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// listView
 			// 
@@ -241,10 +242,10 @@ namespace Planetoid_DB
 			listView.UseCompatibleStateImageBehavior = false;
 			listView.View = View.Details;
 			listView.SelectedIndexChanged += ListViewTableMode_SelectedIndexChanged;
-			listView.Enter += SetStatusbar_Enter;
-			listView.Leave += ClearStatusbar_Leave;
-			listView.MouseEnter += SetStatusbar_Enter;
-			listView.MouseLeave += ClearStatusbar_Leave;
+			listView.Enter += SetStatusBar_Enter;
+			listView.Leave += ClearStatusBar_Leave;
+			listView.MouseEnter += SetStatusBar_Enter;
+			listView.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// columnHeaderIndex
 			// 
@@ -445,39 +446,39 @@ namespace Planetoid_DB
 
 		#endregion
 
-		private System.Windows.Forms.ToolTip toolTip;
-    private System.Windows.Forms.ListView listView;
-    private System.Windows.Forms.ColumnHeader columnHeaderIndex;
-    private System.Windows.Forms.ColumnHeader columnHeaderReadableDesignation;
-    private System.Windows.Forms.ColumnHeader columnHeaderEpoch;
-    private System.Windows.Forms.ColumnHeader columnHeaderMeanAnomaly;
-    private System.Windows.Forms.ColumnHeader columnHeaderArgumentPerihelion;
-    private System.Windows.Forms.ColumnHeader columnHeaderLongitudeAscendingNode;
-    private System.Windows.Forms.ColumnHeader columnHeaderInclination;
-    private System.Windows.Forms.ColumnHeader columnHeaderOrbitalEccentricity;
-    private System.Windows.Forms.ColumnHeader columnHeaderMeanDailyMotion;
-    private System.Windows.Forms.ColumnHeader columnHeaderSemimajorAxis;
-    private System.Windows.Forms.ColumnHeader columnHeaderAbsoluteMagnitude;
-    private System.Windows.Forms.ColumnHeader columnHeaderSlopeParameter;
-    private System.Windows.Forms.ColumnHeader columnHeaderReference;
-    private System.Windows.Forms.ColumnHeader columnHeaderNumberOppositions;
-    private System.Windows.Forms.ColumnHeader columnHeaderNumberObservations;
-    private System.Windows.Forms.ColumnHeader columnHeaderObservationSpan;
-    private System.Windows.Forms.ColumnHeader columnHeaderRmsResidual;
-    private System.Windows.Forms.ColumnHeader columnHeaderComputerName;
-    private System.Windows.Forms.ColumnHeader columnHeaderFlags;
-    private System.Windows.Forms.ColumnHeader columnHeaderDateLastObservation;
+		private ToolTip toolTip;
+    private ListView listView;
+    private ColumnHeader columnHeaderIndex;
+    private ColumnHeader columnHeaderReadableDesignation;
+    private ColumnHeader columnHeaderEpoch;
+    private ColumnHeader columnHeaderMeanAnomaly;
+    private ColumnHeader columnHeaderArgumentPerihelion;
+    private ColumnHeader columnHeaderLongitudeAscendingNode;
+    private ColumnHeader columnHeaderInclination;
+    private ColumnHeader columnHeaderOrbitalEccentricity;
+    private ColumnHeader columnHeaderMeanDailyMotion;
+    private ColumnHeader columnHeaderSemimajorAxis;
+    private ColumnHeader columnHeaderAbsoluteMagnitude;
+    private ColumnHeader columnHeaderSlopeParameter;
+    private ColumnHeader columnHeaderReference;
+    private ColumnHeader columnHeaderNumberOppositions;
+    private ColumnHeader columnHeaderNumberObservations;
+    private ColumnHeader columnHeaderObservationSpan;
+    private ColumnHeader columnHeaderRmsResidual;
+    private ColumnHeader columnHeaderComputerName;
+    private ColumnHeader columnHeaderFlags;
+    private ColumnHeader columnHeaderDateLastObservation;
     private KryptonProgressBar progressBar;
-    private System.ComponentModel.BackgroundWorker backgroundWorker;
-		private Krypton.Toolkit.KryptonLabel labelMinimum;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimum;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximum;
-		private Krypton.Toolkit.KryptonLabel labelMaximum;
-    private Krypton.Toolkit.KryptonButton buttonList;
-    private System.Windows.Forms.Label labelWarning;
-    private Krypton.Toolkit.KryptonButton buttonCancel;
-        private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+    private BackgroundWorker backgroundWorker;
+		private KryptonLabel labelMinimum;
+		private KryptonNumericUpDown numericUpDownMinimum;
+		private KryptonNumericUpDown numericUpDownMaximum;
+		private KryptonLabel labelMaximum;
+    private KryptonButton buttonList;
+    private Label labelWarning;
+    private KryptonButton buttonCancel;
+        private KryptonPanel panel;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
 	}
 }

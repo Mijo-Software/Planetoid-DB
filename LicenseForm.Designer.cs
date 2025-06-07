@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class LicenseForm
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -78,10 +81,10 @@
 			kryptonButtonSaveLicense.Values.Image = Properties.Resources.silk_disk;
 			kryptonButtonSaveLicense.Values.Text = "&Save license";
 			kryptonButtonSaveLicense.Click += KryptonButtonSaveLicense_Click;
-			kryptonButtonSaveLicense.Enter += SetStatusbar_Enter;
-			kryptonButtonSaveLicense.Leave += ClearStatusbar_Leave;
-			kryptonButtonSaveLicense.MouseEnter += SetStatusbar_Enter;
-			kryptonButtonSaveLicense.MouseLeave += ClearStatusbar_Leave;
+			kryptonButtonSaveLicense.Enter += SetStatusBar_Enter;
+			kryptonButtonSaveLicense.Leave += ClearStatusBar_Leave;
+			kryptonButtonSaveLicense.MouseEnter += SetStatusBar_Enter;
+			kryptonButtonSaveLicense.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// kryptonButtonClose
 			// 
@@ -97,10 +100,10 @@
 			kryptonButtonClose.Values.DropDownArrowColor = Color.Empty;
 			kryptonButtonClose.Values.Image = Properties.Resources.silk_cancel;
 			kryptonButtonClose.Values.Text = "C&lose";
-			kryptonButtonClose.Enter += SetStatusbar_Enter;
-			kryptonButtonClose.Leave += ClearStatusbar_Leave;
-			kryptonButtonClose.MouseEnter += SetStatusbar_Enter;
-			kryptonButtonClose.MouseLeave += ClearStatusbar_Leave;
+			kryptonButtonClose.Enter += SetStatusBar_Enter;
+			kryptonButtonClose.Leave += ClearStatusBar_Leave;
+			kryptonButtonClose.MouseEnter += SetStatusBar_Enter;
+			kryptonButtonClose.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// kryptonPictureBoxLicenseLogo
 			// 
@@ -115,8 +118,8 @@
 			kryptonPictureBoxLicenseLogo.TabIndex = 8;
 			kryptonPictureBoxLicenseLogo.TabStop = false;
 			toolTip.SetToolTip(kryptonPictureBoxLicenseLogo, "GPL v3 Logo");
-			kryptonPictureBoxLicenseLogo.MouseEnter += SetStatusbar_Enter;
-			kryptonPictureBoxLicenseLogo.MouseLeave += ClearStatusbar_Leave;
+			kryptonPictureBoxLicenseLogo.MouseEnter += SetStatusBar_Enter;
+			kryptonPictureBoxLicenseLogo.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// kryptonTextBoxLicense
 			// 
@@ -133,10 +136,10 @@
 			kryptonTextBoxLicense.TabStop = false;
 			kryptonTextBoxLicense.Text = resources.GetString("kryptonTextBoxLicense.Text");
 			toolTip.SetToolTip(kryptonTextBoxLicense, "License");
-			kryptonTextBoxLicense.Enter += SetStatusbar_Enter;
-			kryptonTextBoxLicense.Leave += ClearStatusbar_Leave;
-			kryptonTextBoxLicense.MouseEnter += SetStatusbar_Enter;
-			kryptonTextBoxLicense.MouseLeave += ClearStatusbar_Leave;
+			kryptonTextBoxLicense.Enter += SetStatusBar_Enter;
+			kryptonTextBoxLicense.Leave += ClearStatusBar_Leave;
+			kryptonTextBoxLicense.MouseEnter += SetStatusBar_Enter;
+			kryptonTextBoxLicense.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// statusStrip
 			// 
@@ -185,10 +188,10 @@
 			kryptonButtonCopyLicenseToClipboard.Values.Image = Properties.Resources.silk_clipboard;
 			kryptonButtonCopyLicenseToClipboard.Values.Text = "&Copy to clipboard";
 			kryptonButtonCopyLicenseToClipboard.Click += KryptonButtonCopyLicenseToClipboard_Click;
-			kryptonButtonCopyLicenseToClipboard.Enter += SetStatusbar_Enter;
-			kryptonButtonCopyLicenseToClipboard.Leave += ClearStatusbar_Leave;
-			kryptonButtonCopyLicenseToClipboard.MouseEnter += SetStatusbar_Enter;
-			kryptonButtonCopyLicenseToClipboard.MouseLeave += ClearStatusbar_Leave;
+			kryptonButtonCopyLicenseToClipboard.Enter += SetStatusBar_Enter;
+			kryptonButtonCopyLicenseToClipboard.Leave += ClearStatusBar_Leave;
+			kryptonButtonCopyLicenseToClipboard.MouseEnter += SetStatusBar_Enter;
+			kryptonButtonCopyLicenseToClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// LicenseForm
 			// 
@@ -222,15 +225,15 @@
 
 		#endregion
 
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
+		private KryptonPanel panel;
+		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolTip toolTip;
-		private Krypton.Toolkit.KryptonTextBox kryptonTextBoxLicense;
-		private Krypton.Toolkit.KryptonPictureBox kryptonPictureBoxLicenseLogo;
-		private Krypton.Toolkit.KryptonButton kryptonButtonClose;
-		private Krypton.Toolkit.KryptonButton kryptonButtonSaveLicense;
+		private KryptonTextBox kryptonTextBoxLicense;
+		private KryptonPictureBox kryptonPictureBoxLicenseLogo;
+		private KryptonButton kryptonButtonClose;
+		private KryptonButton kryptonButtonSaveLicense;
 		private SaveFileDialog saveFileDialog;
-		private Krypton.Toolkit.KryptonButton kryptonButtonCopyLicenseToClipboard;
+		private KryptonButton kryptonButtonCopyLicenseToClipboard;
 	}
 }

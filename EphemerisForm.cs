@@ -6,23 +6,23 @@ using NLog;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// Form for displaying and managing database differences.
+	/// Represents the form for displaying ephemeris.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class DatabaseDifferencesForm : KryptonForm
+	public partial class EphemerisForm : KryptonForm
 	{
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
 		#region Constructor
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="DatabaseDifferencesForm"/> class.
+		/// Initializes a new instance of the <see cref="EphemerisForm"/> class.
 		/// </summary>
-		public DatabaseDifferencesForm()
+		public EphemerisForm()
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += DatabaseDifferencesForm_KeyDown;
+			KeyDown += EphemerisForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 		}
 
@@ -101,71 +101,51 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void DatabaseDifferencesForm_Load(object sender, EventArgs e)
+		private void EphemerisForm_Load(object sender, EventArgs e)
 		{
 			ClearStatusBar();
 		}
 
 		/// <summary>
-		/// Handles the FormClosed event of the DatabaseDifferencesForm control.
+		/// Handles the form closed event.
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
-		private void DatabaseDifferencesForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance that contains the event data.</param>
+		private void EphemerisForm_FormClosed(object sender, FormClosedEventArgs e) => Dispose();
 
 		#endregion
 
 		#region BackgroundWorker event handler
 
 		/// <summary>
-		/// Handles the DoWork event of the BackgroundWorker control.
+		/// Handles the DoWork event of the BackgroundWorker.
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="System.ComponentModel.DoWorkEventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="System.ComponentModel.DoWorkEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			// Implement background work here
 		}
 
 		/// <summary>
-		/// Handles the ProgressChanged event of the BackgroundWorker control.
+		/// Handles the ProgressChanged event of the BackgroundWorker.
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="System.ComponentModel.ProgressChangedEventArgs"/> instance containing the event data.</param>
-		private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) => progressBar.Value = e.ProgressPercentage;
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="System.ComponentModel.ProgressChangedEventArgs"/> instance that contains the event data.</param>
+		private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			// Update the progress bar with the percentage
+			progressBar.Value = e.ProgressPercentage;
+		}
 
 		/// <summary>
-		/// Handles the RunWorkerCompleted event of the BackgroundWorker control.
+		/// Handles the RunWorkerCompleted event of the BackgroundWorker.
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="System.ComponentModel.RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			// Implement completion logic here
-		}
-
-		#endregion
-
-		#region DragDrop-Handler
-
-		/// <summary>
-		/// Handles the DragDrop event of the GroupBox1stMpcorbDatFileDatabase control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="DragEventArgs"/> instance containing the event data.</param>
-		private void GroupBox1stMpcorbDatFileDatabase_DragDrop(object sender, DragEventArgs e)
-		{
-			// Implement drag and drop logic here
-		}
-
-		/// <summary>
-		/// Handles the DragDrop event of the GroupBox2ndMpcorbDatFileDatabase control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="DragEventArgs"/> instance containing the event data.</param>
-		private void GroupBox2ndMpcorbDatFileDatabase_DragDrop(object sender, DragEventArgs e)
-		{
-			// Implement drag and drop logic here
 		}
 
 		#endregion
@@ -198,10 +178,10 @@ namespace Planetoid_DB
 		#region Leave-Handler
 
 		/// <summary>
-		/// Handles the Leave event of the control to clear the status bar.
+		/// Called when the mouse pointer leaves a control.
 		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
@@ -209,63 +189,13 @@ namespace Planetoid_DB
 		#region Click-Handler
 
 		/// <summary>
-		/// Handles the Click event of the ButtonOpen1stMpcorbDatFileDatabase control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		private void ButtonOpen1stMpcorbDatFileDatabase_Click(object sender, EventArgs e)
-		{
-			// Implement button click logic here
-		}
-
-		/// <summary>
-		/// Handles the Click event of the ButtonOpen2ndMpcorbDatFileDatabase control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		private void ButtonOpen2ndMpcorbDatFileDatabase_Click(object sender, EventArgs e)
-		{
-			// Implement button click logic here
-		}
-
-		/// <summary>
-		/// Handles the Click event of the ButtonCompare control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		private void ButtonCompare_Click(object sender, EventArgs e)
-		{
-			// Implement button click logic here
-		}
-
-		/// <summary>
-		/// Handles the Click event of the ButtonCancel control.
-		/// </summary>
-		/// <param name="sender">The source of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		private void ButtonCancel_Click(object sender, EventArgs e)
-		{
-			// Implement button click logic here
-		}
-
-		#endregion
-
-		#region DoubleClick-Handler
-
-		/// <summary>
-		/// Called when a control is double-clicked to copy the text to the clipboard.
+		/// Handles the Click event of the Calculate button.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void CopyToClipboard_DoubleClick(object sender, EventArgs e)
+		private void ButtonCalculate_Click(object sender, EventArgs e)
 		{
-			// Check if the sender is null
-			ArgumentNullException.ThrowIfNull(argument: sender);
-			if (sender is Control control)
-			{
-				// Copy the text to the clipboard
-				CopyToClipboard(text: control.Text);
-			}
+			// Implement calculation here
 		}
 
 		#endregion
@@ -273,12 +203,12 @@ namespace Planetoid_DB
 		#region KeyDown event handler
 
 		/// <summary>
-		/// Handles the KeyDown event of the DatabaseDifferencesForm.
+		/// Handles the KeyDown event of the EphemerisForm.
 		/// Closes the form when the Escape key is pressed.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void DatabaseDifferencesForm_KeyDown(object? sender, KeyEventArgs e)
+		private void EphemerisForm_KeyDown(object? sender, KeyEventArgs e)
 		{
 			// Check if the sender is null
 			ArgumentNullException.ThrowIfNull(argument: sender);

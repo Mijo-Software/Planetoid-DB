@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class FilterForm
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -158,10 +161,10 @@
 			buttonReset.Values.Image = Properties.Resources.silk_reload;
 			buttonReset.Values.Text = "&Reset all";
 			buttonReset.Click += ButtonReset_Click;
-			buttonReset.Enter += SetStatusbar_Enter;
-			buttonReset.Leave += ClearStatusbar_Leave;
-			buttonReset.MouseEnter += SetStatusbar_Enter;
-			buttonReset.MouseLeave += ClearStatusbar_Leave;
+			buttonReset.Enter += SetStatusBar_Enter;
+			buttonReset.Leave += ClearStatusBar_Leave;
+			buttonReset.MouseEnter += SetStatusBar_Enter;
+			buttonReset.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonCancel
 			// 
@@ -179,10 +182,10 @@
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
-			buttonCancel.Enter += SetStatusbar_Enter;
-			buttonCancel.Leave += ClearStatusbar_Leave;
-			buttonCancel.MouseEnter += SetStatusbar_Enter;
-			buttonCancel.MouseLeave += ClearStatusbar_Leave;
+			buttonCancel.Enter += SetStatusBar_Enter;
+			buttonCancel.Leave += ClearStatusBar_Leave;
+			buttonCancel.MouseEnter += SetStatusBar_Enter;
+			buttonCancel.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonApply
 			// 
@@ -200,10 +203,10 @@
 			buttonApply.Values.Image = Properties.Resources.silk_accept;
 			buttonApply.Values.Text = "&Apply";
 			buttonApply.Click += ButtonApply_Click;
-			buttonApply.Enter += SetStatusbar_Enter;
-			buttonApply.Leave += ClearStatusbar_Leave;
-			buttonApply.MouseEnter += SetStatusbar_Enter;
-			buttonApply.MouseLeave += ClearStatusbar_Leave;
+			buttonApply.Enter += SetStatusBar_Enter;
+			buttonApply.Leave += ClearStatusBar_Leave;
+			buttonApply.MouseEnter += SetStatusBar_Enter;
+			buttonApply.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanel
 			// 
@@ -305,10 +308,10 @@
 			labelHeaderReset.TabIndex = 3;
 			toolTip.SetToolTip(labelHeaderReset, "Header of the reset buttons");
 			labelHeaderReset.Values.Text = "Reset";
-			labelHeaderReset.Enter += SetStatusbar_Enter;
-			labelHeaderReset.Leave += ClearStatusbar_Leave;
-			labelHeaderReset.MouseEnter += SetStatusbar_Enter;
-			labelHeaderReset.MouseLeave += ClearStatusbar_Leave;
+			labelHeaderReset.Enter += SetStatusBar_Enter;
+			labelHeaderReset.Leave += ClearStatusBar_Leave;
+			labelHeaderReset.MouseEnter += SetStatusBar_Enter;
+			labelHeaderReset.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelHeaderMaximum
 			// 
@@ -324,10 +327,10 @@
 			labelHeaderMaximum.TabIndex = 2;
 			toolTip.SetToolTip(labelHeaderMaximum, "Header of the maximum spin buttons");
 			labelHeaderMaximum.Values.Text = "Maximum";
-			labelHeaderMaximum.Enter += SetStatusbar_Enter;
-			labelHeaderMaximum.Leave += ClearStatusbar_Leave;
-			labelHeaderMaximum.MouseEnter += SetStatusbar_Enter;
-			labelHeaderMaximum.MouseLeave += ClearStatusbar_Leave;
+			labelHeaderMaximum.Enter += SetStatusBar_Enter;
+			labelHeaderMaximum.Leave += ClearStatusBar_Leave;
+			labelHeaderMaximum.MouseEnter += SetStatusBar_Enter;
+			labelHeaderMaximum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelHeaderMinimum
 			// 
@@ -343,10 +346,10 @@
 			labelHeaderMinimum.TabIndex = 1;
 			toolTip.SetToolTip(labelHeaderMinimum, "Header of the minimum spin buttons");
 			labelHeaderMinimum.Values.Text = "Minimum";
-			labelHeaderMinimum.Enter += SetStatusbar_Enter;
-			labelHeaderMinimum.Leave += ClearStatusbar_Leave;
-			labelHeaderMinimum.MouseEnter += SetStatusbar_Enter;
-			labelHeaderMinimum.MouseLeave += ClearStatusbar_Leave;
+			labelHeaderMinimum.Enter += SetStatusBar_Enter;
+			labelHeaderMinimum.Leave += ClearStatusBar_Leave;
+			labelHeaderMinimum.MouseEnter += SetStatusBar_Enter;
+			labelHeaderMinimum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetRmsResidual
 			// 
@@ -366,10 +369,10 @@
 			buttonResetRmsResidual.Values.Image = Properties.Resources.silk_reload;
 			buttonResetRmsResidual.Values.Text = "";
 			buttonResetRmsResidual.Click += ButtonResetRmsResidual_Click;
-			buttonResetRmsResidual.Enter += SetStatusbar_Enter;
-			buttonResetRmsResidual.Leave += ClearStatusbar_Leave;
-			buttonResetRmsResidual.MouseEnter += SetStatusbar_Enter;
-			buttonResetRmsResidual.MouseLeave += ClearStatusbar_Leave;
+			buttonResetRmsResidual.Enter += SetStatusBar_Enter;
+			buttonResetRmsResidual.Leave += ClearStatusBar_Leave;
+			buttonResetRmsResidual.MouseEnter += SetStatusBar_Enter;
+			buttonResetRmsResidual.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetNumberOfObservations
 			// 
@@ -389,10 +392,10 @@
 			buttonResetNumberOfObservations.Values.Image = Properties.Resources.silk_reload;
 			buttonResetNumberOfObservations.Values.Text = "";
 			buttonResetNumberOfObservations.Click += ButtonResetNumberOfObservations_Click;
-			buttonResetNumberOfObservations.Enter += SetStatusbar_Enter;
-			buttonResetNumberOfObservations.Leave += ClearStatusbar_Leave;
-			buttonResetNumberOfObservations.MouseEnter += SetStatusbar_Enter;
-			buttonResetNumberOfObservations.MouseLeave += ClearStatusbar_Leave;
+			buttonResetNumberOfObservations.Enter += SetStatusBar_Enter;
+			buttonResetNumberOfObservations.Leave += ClearStatusBar_Leave;
+			buttonResetNumberOfObservations.MouseEnter += SetStatusBar_Enter;
+			buttonResetNumberOfObservations.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonNumberOfOppositions
 			// 
@@ -412,10 +415,10 @@
 			buttonNumberOfOppositions.Values.Image = Properties.Resources.silk_reload;
 			buttonNumberOfOppositions.Values.Text = "";
 			buttonNumberOfOppositions.Click += ButtonNumberOfOppositions_Click;
-			buttonNumberOfOppositions.Enter += SetStatusbar_Enter;
-			buttonNumberOfOppositions.Leave += ClearStatusbar_Leave;
-			buttonNumberOfOppositions.MouseEnter += SetStatusbar_Enter;
-			buttonNumberOfOppositions.MouseLeave += ClearStatusbar_Leave;
+			buttonNumberOfOppositions.Enter += SetStatusBar_Enter;
+			buttonNumberOfOppositions.Leave += ClearStatusBar_Leave;
+			buttonNumberOfOppositions.MouseEnter += SetStatusBar_Enter;
+			buttonNumberOfOppositions.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetSlopeParameter
 			// 
@@ -435,10 +438,10 @@
 			buttonResetSlopeParameter.Values.Image = Properties.Resources.silk_reload;
 			buttonResetSlopeParameter.Values.Text = "";
 			buttonResetSlopeParameter.Click += ButtonResetSlopeParameter_Click;
-			buttonResetSlopeParameter.Enter += SetStatusbar_Enter;
-			buttonResetSlopeParameter.Leave += ClearStatusbar_Leave;
-			buttonResetSlopeParameter.MouseEnter += SetStatusbar_Enter;
-			buttonResetSlopeParameter.MouseLeave += ClearStatusbar_Leave;
+			buttonResetSlopeParameter.Enter += SetStatusBar_Enter;
+			buttonResetSlopeParameter.Leave += ClearStatusBar_Leave;
+			buttonResetSlopeParameter.MouseEnter += SetStatusBar_Enter;
+			buttonResetSlopeParameter.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetAbsoluteMagnitude
 			// 
@@ -458,10 +461,10 @@
 			buttonResetAbsoluteMagnitude.Values.Image = Properties.Resources.silk_reload;
 			buttonResetAbsoluteMagnitude.Values.Text = "";
 			buttonResetAbsoluteMagnitude.Click += ButtonResetAbsoluteMagnitude_Click;
-			buttonResetAbsoluteMagnitude.Enter += SetStatusbar_Enter;
-			buttonResetAbsoluteMagnitude.Leave += ClearStatusbar_Leave;
-			buttonResetAbsoluteMagnitude.MouseEnter += SetStatusbar_Enter;
-			buttonResetAbsoluteMagnitude.MouseLeave += ClearStatusbar_Leave;
+			buttonResetAbsoluteMagnitude.Enter += SetStatusBar_Enter;
+			buttonResetAbsoluteMagnitude.Leave += ClearStatusBar_Leave;
+			buttonResetAbsoluteMagnitude.MouseEnter += SetStatusBar_Enter;
+			buttonResetAbsoluteMagnitude.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetSemiMajorAxis
 			// 
@@ -481,10 +484,10 @@
 			buttonResetSemiMajorAxis.Values.Image = Properties.Resources.silk_reload;
 			buttonResetSemiMajorAxis.Values.Text = "";
 			buttonResetSemiMajorAxis.Click += ButtonResetSemiMajorAxis_Click;
-			buttonResetSemiMajorAxis.Enter += SetStatusbar_Enter;
-			buttonResetSemiMajorAxis.Leave += ClearStatusbar_Leave;
-			buttonResetSemiMajorAxis.MouseEnter += SetStatusbar_Enter;
-			buttonResetSemiMajorAxis.MouseLeave += ClearStatusbar_Leave;
+			buttonResetSemiMajorAxis.Enter += SetStatusBar_Enter;
+			buttonResetSemiMajorAxis.Leave += ClearStatusBar_Leave;
+			buttonResetSemiMajorAxis.MouseEnter += SetStatusBar_Enter;
+			buttonResetSemiMajorAxis.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetMeanDailyMotion
 			// 
@@ -504,10 +507,10 @@
 			buttonResetMeanDailyMotion.Values.Image = Properties.Resources.silk_reload;
 			buttonResetMeanDailyMotion.Values.Text = "";
 			buttonResetMeanDailyMotion.Click += ButtonResetMeanDailyMotion_Click;
-			buttonResetMeanDailyMotion.Enter += SetStatusbar_Enter;
-			buttonResetMeanDailyMotion.Leave += ClearStatusbar_Leave;
-			buttonResetMeanDailyMotion.MouseEnter += SetStatusbar_Enter;
-			buttonResetMeanDailyMotion.MouseLeave += ClearStatusbar_Leave;
+			buttonResetMeanDailyMotion.Enter += SetStatusBar_Enter;
+			buttonResetMeanDailyMotion.Leave += ClearStatusBar_Leave;
+			buttonResetMeanDailyMotion.MouseEnter += SetStatusBar_Enter;
+			buttonResetMeanDailyMotion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetLongitudeOfTheAscendingNode
 			// 
@@ -527,10 +530,10 @@
 			buttonResetLongitudeOfTheAscendingNode.Values.Image = Properties.Resources.silk_reload;
 			buttonResetLongitudeOfTheAscendingNode.Values.Text = "";
 			buttonResetLongitudeOfTheAscendingNode.Click += ButtonResetLongitudeOfTheAscendingNode_Click;
-			buttonResetLongitudeOfTheAscendingNode.Enter += SetStatusbar_Enter;
-			buttonResetLongitudeOfTheAscendingNode.Leave += ClearStatusbar_Leave;
-			buttonResetLongitudeOfTheAscendingNode.MouseEnter += SetStatusbar_Enter;
-			buttonResetLongitudeOfTheAscendingNode.MouseLeave += ClearStatusbar_Leave;
+			buttonResetLongitudeOfTheAscendingNode.Enter += SetStatusBar_Enter;
+			buttonResetLongitudeOfTheAscendingNode.Leave += ClearStatusBar_Leave;
+			buttonResetLongitudeOfTheAscendingNode.MouseEnter += SetStatusBar_Enter;
+			buttonResetLongitudeOfTheAscendingNode.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetArgumentOfPerihelion
 			// 
@@ -550,10 +553,10 @@
 			buttonResetArgumentOfPerihelion.Values.Image = Properties.Resources.silk_reload;
 			buttonResetArgumentOfPerihelion.Values.Text = "";
 			buttonResetArgumentOfPerihelion.Click += ButtonResetArgumentOfPerihelion_Click;
-			buttonResetArgumentOfPerihelion.Enter += SetStatusbar_Enter;
-			buttonResetArgumentOfPerihelion.Leave += ClearStatusbar_Leave;
-			buttonResetArgumentOfPerihelion.MouseEnter += SetStatusbar_Enter;
-			buttonResetArgumentOfPerihelion.MouseLeave += ClearStatusbar_Leave;
+			buttonResetArgumentOfPerihelion.Enter += SetStatusBar_Enter;
+			buttonResetArgumentOfPerihelion.Leave += ClearStatusBar_Leave;
+			buttonResetArgumentOfPerihelion.MouseEnter += SetStatusBar_Enter;
+			buttonResetArgumentOfPerihelion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetMeanAnomalyAtTheEpoch
 			// 
@@ -573,10 +576,10 @@
 			buttonResetMeanAnomalyAtTheEpoch.Values.Image = Properties.Resources.silk_reload;
 			buttonResetMeanAnomalyAtTheEpoch.Values.Text = "";
 			buttonResetMeanAnomalyAtTheEpoch.Click += ButtonResetMeanAnomalyAtTheEpoch_Click;
-			buttonResetMeanAnomalyAtTheEpoch.Enter += SetStatusbar_Enter;
-			buttonResetMeanAnomalyAtTheEpoch.Leave += ClearStatusbar_Leave;
-			buttonResetMeanAnomalyAtTheEpoch.MouseEnter += SetStatusbar_Enter;
-			buttonResetMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusbar_Leave;
+			buttonResetMeanAnomalyAtTheEpoch.Enter += SetStatusBar_Enter;
+			buttonResetMeanAnomalyAtTheEpoch.Leave += ClearStatusBar_Leave;
+			buttonResetMeanAnomalyAtTheEpoch.MouseEnter += SetStatusBar_Enter;
+			buttonResetMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumRmsResidual
 			// 
@@ -598,10 +601,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumRmsResidual, "Maximum of r.m.s. residual");
 			numericUpDownMaximumRmsResidual.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumRmsResidual.ValueChanged += NumericUpDownMaximumRmsResidual_ValueChanged;
-			numericUpDownMaximumRmsResidual.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumRmsResidual.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumRmsResidual.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumRmsResidual.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumRmsResidual.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumRmsResidual.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumRmsResidual.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumRmsResidual.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumNumberOfObservations
 			// 
@@ -623,10 +626,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumNumberOfObservations, "Maximum of number of observations");
 			numericUpDownMaximumNumberOfObservations.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumNumberOfObservations.ValueChanged += NumericUpDownMaximumNumberOfObservations_ValueChanged;
-			numericUpDownMaximumNumberOfObservations.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumNumberOfObservations.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumNumberOfObservations.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumNumberOfObservations.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumNumberOfObservations.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumNumberOfObservations.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumNumberOfObservations.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumNumberOfObservations.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumNumberOfOppositions
 			// 
@@ -648,10 +651,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumNumberOfOppositions, "Maximum of number of oppositions");
 			numericUpDownMaximumNumberOfOppositions.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumNumberOfOppositions.ValueChanged += NumericUpDownMaximumNumberOfOppositions_ValueChanged;
-			numericUpDownMaximumNumberOfOppositions.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumNumberOfOppositions.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumNumberOfOppositions.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumNumberOfOppositions.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumNumberOfOppositions.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumNumberOfOppositions.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumNumberOfOppositions.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumNumberOfOppositions.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumSlopeParameter
 			// 
@@ -673,10 +676,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumSlopeParameter, "Maximum of slope parameter");
 			numericUpDownMaximumSlopeParameter.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumSlopeParameter.ValueChanged += NumericUpDownMaximumSlopeParameter_ValueChanged;
-			numericUpDownMaximumSlopeParameter.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumSlopeParameter.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumSlopeParameter.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumSlopeParameter.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumSlopeParameter.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumSlopeParameter.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumSlopeParameter.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumSlopeParameter.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumAbsoluteMagnitude
 			// 
@@ -698,10 +701,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumAbsoluteMagnitude, "Maximum of absolute magnitude");
 			numericUpDownMaximumAbsoluteMagnitude.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumAbsoluteMagnitude.ValueChanged += NumericUpDownMaximumAbsoluteMagnitude_ValueChanged;
-			numericUpDownMaximumAbsoluteMagnitude.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumAbsoluteMagnitude.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumAbsoluteMagnitude.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumAbsoluteMagnitude.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumAbsoluteMagnitude.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumAbsoluteMagnitude.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumAbsoluteMagnitude.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumAbsoluteMagnitude.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumSemiMajorAxis
 			// 
@@ -723,10 +726,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumSemiMajorAxis, "Maximum of semi-major axis");
 			numericUpDownMaximumSemiMajorAxis.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumSemiMajorAxis.ValueChanged += NumericUpDownMaximumSemiMajorAxis_ValueChanged;
-			numericUpDownMaximumSemiMajorAxis.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumSemiMajorAxis.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumSemiMajorAxis.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumSemiMajorAxis.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumSemiMajorAxis.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumSemiMajorAxis.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumSemiMajorAxis.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumSemiMajorAxis.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumMeanDailyMotion
 			// 
@@ -748,10 +751,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumMeanDailyMotion, "Maximum of mean daily motion");
 			numericUpDownMaximumMeanDailyMotion.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumMeanDailyMotion.ValueChanged += NumericUpDownMaximumMeanDailyMotion_ValueChanged;
-			numericUpDownMaximumMeanDailyMotion.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumMeanDailyMotion.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumMeanDailyMotion.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumMeanDailyMotion.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumMeanDailyMotion.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumMeanDailyMotion.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumMeanDailyMotion.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumMeanDailyMotion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumOrbitalEccentricity
 			// 
@@ -773,10 +776,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumOrbitalEccentricity, "Maximum of orbital eccentricity");
 			numericUpDownMaximumOrbitalEccentricity.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumOrbitalEccentricity.ValueChanged += NumericUpDownMaximumOrbitalEccentricity_ValueChanged;
-			numericUpDownMaximumOrbitalEccentricity.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumOrbitalEccentricity.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumOrbitalEccentricity.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumOrbitalEccentricity.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumOrbitalEccentricity.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumOrbitalEccentricity.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumOrbitalEccentricity.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumOrbitalEccentricity.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumInclination
 			// 
@@ -798,10 +801,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumInclination, "Maximum of inclination to the ecliptic");
 			numericUpDownMaximumInclination.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumInclination.ValueChanged += NumericUpDownMaximumInclination_ValueChanged;
-			numericUpDownMaximumInclination.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumInclination.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumInclination.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumInclination.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumInclination.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumInclination.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumInclination.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumInclination.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumLongitudeOfTheAscendingNode
 			// 
@@ -823,10 +826,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumLongitudeOfTheAscendingNode, "Maximum of longitude of the ascending node");
 			numericUpDownMaximumLongitudeOfTheAscendingNode.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumLongitudeOfTheAscendingNode.ValueChanged += NumericUpDownMaximumLongitudeOfTheAscendingNode_ValueChanged;
-			numericUpDownMaximumLongitudeOfTheAscendingNode.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumLongitudeOfTheAscendingNode.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumLongitudeOfTheAscendingNode.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumLongitudeOfTheAscendingNode.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumLongitudeOfTheAscendingNode.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumLongitudeOfTheAscendingNode.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumLongitudeOfTheAscendingNode.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumLongitudeOfTheAscendingNode.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumArgumentOfPerihelion
 			// 
@@ -848,10 +851,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumArgumentOfPerihelion, "Maximum of argument of perihelion");
 			numericUpDownMaximumArgumentOfPerihelion.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumArgumentOfPerihelion.ValueChanged += NumericUpDownMaximumArgumentOfPerihelion_ValueChanged;
-			numericUpDownMaximumArgumentOfPerihelion.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumArgumentOfPerihelion.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumArgumentOfPerihelion.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumArgumentOfPerihelion.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumArgumentOfPerihelion.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumArgumentOfPerihelion.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumArgumentOfPerihelion.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumArgumentOfPerihelion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximumMeanAnomalyAtTheEpoch
 			// 
@@ -873,10 +876,10 @@
 			toolTip.SetToolTip(numericUpDownMaximumMeanAnomalyAtTheEpoch, "Maximum of mean anomaly at the epoch");
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximumMeanAnomalyAtTheEpoch.ValueChanged += NumericUpDownMaximumMeanAnomalyAtTheEpoch_ValueChanged;
-			numericUpDownMaximumMeanAnomalyAtTheEpoch.Enter += SetStatusbar_Enter;
-			numericUpDownMaximumMeanAnomalyAtTheEpoch.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximumMeanAnomalyAtTheEpoch.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximumMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximumMeanAnomalyAtTheEpoch.Enter += SetStatusBar_Enter;
+			numericUpDownMaximumMeanAnomalyAtTheEpoch.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximumMeanAnomalyAtTheEpoch.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximumMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumRmsResidual
 			// 
@@ -898,10 +901,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumRmsResidual, "Minimum of r.m.s. residual");
 			numericUpDownMinimumRmsResidual.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumRmsResidual.ValueChanged += NumericUpDownMinimumRmsResidual_ValueChanged;
-			numericUpDownMinimumRmsResidual.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumRmsResidual.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumRmsResidual.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumRmsResidual.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumRmsResidual.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumRmsResidual.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumRmsResidual.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumRmsResidual.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumNumberOfObservations
 			// 
@@ -923,10 +926,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumNumberOfObservations, "Minimum of number of observations");
 			numericUpDownMinimumNumberOfObservations.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumNumberOfObservations.ValueChanged += NumericUpDownMinimumNumberOfObservations_ValueChanged;
-			numericUpDownMinimumNumberOfObservations.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumNumberOfObservations.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumNumberOfObservations.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumNumberOfObservations.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumNumberOfObservations.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumNumberOfObservations.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumNumberOfObservations.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumNumberOfObservations.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumNumberOfOppositions
 			// 
@@ -948,10 +951,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumNumberOfOppositions, "Minimum of number of oppositions");
 			numericUpDownMinimumNumberOfOppositions.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumNumberOfOppositions.ValueChanged += NumericUpDownMinimumNumberOfOppositions_ValueChanged;
-			numericUpDownMinimumNumberOfOppositions.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumNumberOfOppositions.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumNumberOfOppositions.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumNumberOfOppositions.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumNumberOfOppositions.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumNumberOfOppositions.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumNumberOfOppositions.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumNumberOfOppositions.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumSlopeParameter
 			// 
@@ -973,10 +976,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumSlopeParameter, "Minimum of slope parameter");
 			numericUpDownMinimumSlopeParameter.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumSlopeParameter.ValueChanged += NumericUpDownMinimumSlopeParameter_ValueChanged;
-			numericUpDownMinimumSlopeParameter.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumSlopeParameter.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumSlopeParameter.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumSlopeParameter.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumSlopeParameter.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumSlopeParameter.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumSlopeParameter.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumSlopeParameter.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumAbsoluteMagnitude
 			// 
@@ -998,10 +1001,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumAbsoluteMagnitude, "Minimum of absolute magnitude");
 			numericUpDownMinimumAbsoluteMagnitude.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumAbsoluteMagnitude.ValueChanged += NumericUpDownMinimumAbsoluteMagnitude_ValueChanged;
-			numericUpDownMinimumAbsoluteMagnitude.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumAbsoluteMagnitude.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumAbsoluteMagnitude.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumAbsoluteMagnitude.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumAbsoluteMagnitude.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumAbsoluteMagnitude.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumAbsoluteMagnitude.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumAbsoluteMagnitude.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumSemiMajorAxis
 			// 
@@ -1023,10 +1026,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumSemiMajorAxis, "Minimum of semi-major axis");
 			numericUpDownMinimumSemiMajorAxis.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumSemiMajorAxis.ValueChanged += NumericUpDownMinimumSemiMajorAxis_ValueChanged;
-			numericUpDownMinimumSemiMajorAxis.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumSemiMajorAxis.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumSemiMajorAxis.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumSemiMajorAxis.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumSemiMajorAxis.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumSemiMajorAxis.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumSemiMajorAxis.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumSemiMajorAxis.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumMeanDailyMotion
 			// 
@@ -1048,10 +1051,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumMeanDailyMotion, "Minimum of mean daily motion");
 			numericUpDownMinimumMeanDailyMotion.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumMeanDailyMotion.ValueChanged += NumericUpDownMinimumMeanDailyMotion_ValueChanged;
-			numericUpDownMinimumMeanDailyMotion.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumMeanDailyMotion.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumMeanDailyMotion.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumMeanDailyMotion.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumMeanDailyMotion.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumMeanDailyMotion.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumMeanDailyMotion.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumMeanDailyMotion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumOrbitalEccentricity
 			// 
@@ -1073,10 +1076,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumOrbitalEccentricity, "Minimum of orbital eccentricity");
 			numericUpDownMinimumOrbitalEccentricity.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumOrbitalEccentricity.ValueChanged += NumericUpDownMinimumOrbitalEccentricity_ValueChanged;
-			numericUpDownMinimumOrbitalEccentricity.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumOrbitalEccentricity.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumOrbitalEccentricity.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumOrbitalEccentricity.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumOrbitalEccentricity.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumOrbitalEccentricity.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumOrbitalEccentricity.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumOrbitalEccentricity.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumInclination
 			// 
@@ -1098,10 +1101,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumInclination, "Minimum of inclination to the ecliptic");
 			numericUpDownMinimumInclination.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumInclination.ValueChanged += NumericUpDownMinimumInclination_ValueChanged;
-			numericUpDownMinimumInclination.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumInclination.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumInclination.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumInclination.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumInclination.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumInclination.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumInclination.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumInclination.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumLongitudeOfTheAscendingNode
 			// 
@@ -1123,10 +1126,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumLongitudeOfTheAscendingNode, "Minimum of longitude of the ascending node");
 			numericUpDownMinimumLongitudeOfTheAscendingNode.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumLongitudeOfTheAscendingNode.ValueChanged += NumericUpDownMinimumLongitudeOfTheAscendingNode_ValueChanged;
-			numericUpDownMinimumLongitudeOfTheAscendingNode.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumLongitudeOfTheAscendingNode.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumLongitudeOfTheAscendingNode.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumLongitudeOfTheAscendingNode.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumLongitudeOfTheAscendingNode.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumLongitudeOfTheAscendingNode.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumLongitudeOfTheAscendingNode.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumLongitudeOfTheAscendingNode.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumArgumentOfPerihelion
 			// 
@@ -1148,10 +1151,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumArgumentOfPerihelion, "Minimum of argument of perihelion");
 			numericUpDownMinimumArgumentOfPerihelion.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumArgumentOfPerihelion.ValueChanged += NumericUpDownMinimumArgumentOfPerihelion_ValueChanged;
-			numericUpDownMinimumArgumentOfPerihelion.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumArgumentOfPerihelion.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumArgumentOfPerihelion.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumArgumentOfPerihelion.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumArgumentOfPerihelion.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumArgumentOfPerihelion.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumArgumentOfPerihelion.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumArgumentOfPerihelion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelArgumentOfPerihelion
 			// 
@@ -1166,10 +1169,10 @@
 			labelArgumentOfPerihelion.TabIndex = 8;
 			toolTip.SetToolTip(labelArgumentOfPerihelion, "Argument of perihelion, J2000.0");
 			labelArgumentOfPerihelion.Values.Text = "Argument of perihelion, J2000.0";
-			labelArgumentOfPerihelion.Enter += SetStatusbar_Enter;
-			labelArgumentOfPerihelion.Leave += ClearStatusbar_Leave;
-			labelArgumentOfPerihelion.MouseEnter += SetStatusbar_Enter;
-			labelArgumentOfPerihelion.MouseLeave += ClearStatusbar_Leave;
+			labelArgumentOfPerihelion.Enter += SetStatusBar_Enter;
+			labelArgumentOfPerihelion.Leave += ClearStatusBar_Leave;
+			labelArgumentOfPerihelion.MouseEnter += SetStatusBar_Enter;
+			labelArgumentOfPerihelion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimumMeanAnomalyAtTheEpoch
 			// 
@@ -1191,10 +1194,10 @@
 			toolTip.SetToolTip(numericUpDownMinimumMeanAnomalyAtTheEpoch, "Minimum of mean anomaly at the epoch");
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.Value = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimumMeanAnomalyAtTheEpoch.ValueChanged += NumericUpDownMinimumMeanAnomalyAtTheEpoch_ValueChanged;
-			numericUpDownMinimumMeanAnomalyAtTheEpoch.Enter += SetStatusbar_Enter;
-			numericUpDownMinimumMeanAnomalyAtTheEpoch.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimumMeanAnomalyAtTheEpoch.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimumMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimumMeanAnomalyAtTheEpoch.Enter += SetStatusBar_Enter;
+			numericUpDownMinimumMeanAnomalyAtTheEpoch.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimumMeanAnomalyAtTheEpoch.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimumMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelRmsResidual
 			// 
@@ -1209,10 +1212,10 @@
 			labelRmsResidual.TabIndex = 48;
 			toolTip.SetToolTip(labelRmsResidual, "r.m.s. residual");
 			labelRmsResidual.Values.Text = "r.m.s. residual";
-			labelRmsResidual.Enter += SetStatusbar_Enter;
-			labelRmsResidual.Leave += ClearStatusbar_Leave;
-			labelRmsResidual.MouseEnter += SetStatusbar_Enter;
-			labelRmsResidual.MouseLeave += ClearStatusbar_Leave;
+			labelRmsResidual.Enter += SetStatusBar_Enter;
+			labelRmsResidual.Leave += ClearStatusBar_Leave;
+			labelRmsResidual.MouseEnter += SetStatusBar_Enter;
+			labelRmsResidual.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelLongitudeOfTheAscendingNode
 			// 
@@ -1227,10 +1230,10 @@
 			labelLongitudeOfTheAscendingNode.TabIndex = 12;
 			toolTip.SetToolTip(labelLongitudeOfTheAscendingNode, "Longitude of the ascending node, J2000.0");
 			labelLongitudeOfTheAscendingNode.Values.Text = "Longitude of the ascending node, J2000.0";
-			labelLongitudeOfTheAscendingNode.Enter += SetStatusbar_Enter;
-			labelLongitudeOfTheAscendingNode.Leave += ClearStatusbar_Leave;
-			labelLongitudeOfTheAscendingNode.MouseEnter += SetStatusbar_Enter;
-			labelLongitudeOfTheAscendingNode.MouseLeave += ClearStatusbar_Leave;
+			labelLongitudeOfTheAscendingNode.Enter += SetStatusBar_Enter;
+			labelLongitudeOfTheAscendingNode.Leave += ClearStatusBar_Leave;
+			labelLongitudeOfTheAscendingNode.MouseEnter += SetStatusBar_Enter;
+			labelLongitudeOfTheAscendingNode.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelNumberOfObservations
 			// 
@@ -1245,10 +1248,10 @@
 			labelNumberOfObservations.TabIndex = 44;
 			toolTip.SetToolTip(labelNumberOfObservations, "Number of observations");
 			labelNumberOfObservations.Values.Text = "Number of observations";
-			labelNumberOfObservations.Enter += SetStatusbar_Enter;
-			labelNumberOfObservations.Leave += ClearStatusbar_Leave;
-			labelNumberOfObservations.MouseEnter += SetStatusbar_Enter;
-			labelNumberOfObservations.MouseLeave += ClearStatusbar_Leave;
+			labelNumberOfObservations.Enter += SetStatusBar_Enter;
+			labelNumberOfObservations.Leave += ClearStatusBar_Leave;
+			labelNumberOfObservations.MouseEnter += SetStatusBar_Enter;
+			labelNumberOfObservations.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelInclination
 			// 
@@ -1263,10 +1266,10 @@
 			labelInclination.TabIndex = 16;
 			toolTip.SetToolTip(labelInclination, "Inclination to the ecliptic, J2000.0");
 			labelInclination.Values.Text = "Inclination to the ecliptic, J2000.0";
-			labelInclination.Enter += SetStatusbar_Enter;
-			labelInclination.Leave += ClearStatusbar_Leave;
-			labelInclination.MouseEnter += SetStatusbar_Enter;
-			labelInclination.MouseLeave += ClearStatusbar_Leave;
+			labelInclination.Enter += SetStatusBar_Enter;
+			labelInclination.Leave += ClearStatusBar_Leave;
+			labelInclination.MouseEnter += SetStatusBar_Enter;
+			labelInclination.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelNumberOfOppositions
 			// 
@@ -1281,10 +1284,10 @@
 			labelNumberOfOppositions.TabIndex = 40;
 			toolTip.SetToolTip(labelNumberOfOppositions, "Number of oppositions");
 			labelNumberOfOppositions.Values.Text = "Number of oppositions";
-			labelNumberOfOppositions.Enter += SetStatusbar_Enter;
-			labelNumberOfOppositions.Leave += ClearStatusbar_Leave;
-			labelNumberOfOppositions.MouseEnter += SetStatusbar_Enter;
-			labelNumberOfOppositions.MouseLeave += ClearStatusbar_Leave;
+			labelNumberOfOppositions.Enter += SetStatusBar_Enter;
+			labelNumberOfOppositions.Leave += ClearStatusBar_Leave;
+			labelNumberOfOppositions.MouseEnter += SetStatusBar_Enter;
+			labelNumberOfOppositions.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelOrbitalEccentricity
 			// 
@@ -1299,10 +1302,10 @@
 			labelOrbitalEccentricity.TabIndex = 20;
 			toolTip.SetToolTip(labelOrbitalEccentricity, "Orbital eccentricity");
 			labelOrbitalEccentricity.Values.Text = "Orbital eccentricity";
-			labelOrbitalEccentricity.Enter += SetStatusbar_Enter;
-			labelOrbitalEccentricity.Leave += ClearStatusbar_Leave;
-			labelOrbitalEccentricity.MouseEnter += SetStatusbar_Enter;
-			labelOrbitalEccentricity.MouseLeave += ClearStatusbar_Leave;
+			labelOrbitalEccentricity.Enter += SetStatusBar_Enter;
+			labelOrbitalEccentricity.Leave += ClearStatusBar_Leave;
+			labelOrbitalEccentricity.MouseEnter += SetStatusBar_Enter;
+			labelOrbitalEccentricity.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSlopeParameter
 			// 
@@ -1317,10 +1320,10 @@
 			labelSlopeParameter.TabIndex = 36;
 			toolTip.SetToolTip(labelSlopeParameter, "Slope parameter, G");
 			labelSlopeParameter.Values.Text = "Slope parameter, G";
-			labelSlopeParameter.Enter += SetStatusbar_Enter;
-			labelSlopeParameter.Leave += ClearStatusbar_Leave;
-			labelSlopeParameter.MouseEnter += SetStatusbar_Enter;
-			labelSlopeParameter.MouseLeave += ClearStatusbar_Leave;
+			labelSlopeParameter.Enter += SetStatusBar_Enter;
+			labelSlopeParameter.Leave += ClearStatusBar_Leave;
+			labelSlopeParameter.MouseEnter += SetStatusBar_Enter;
+			labelSlopeParameter.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMeanDailyMotion
 			// 
@@ -1335,10 +1338,10 @@
 			labelMeanDailyMotion.TabIndex = 24;
 			toolTip.SetToolTip(labelMeanDailyMotion, "Mean daily motion");
 			labelMeanDailyMotion.Values.Text = "Mean daily motion";
-			labelMeanDailyMotion.Enter += SetStatusbar_Enter;
-			labelMeanDailyMotion.Leave += ClearStatusbar_Leave;
-			labelMeanDailyMotion.MouseEnter += SetStatusbar_Enter;
-			labelMeanDailyMotion.MouseLeave += ClearStatusbar_Leave;
+			labelMeanDailyMotion.Enter += SetStatusBar_Enter;
+			labelMeanDailyMotion.Leave += ClearStatusBar_Leave;
+			labelMeanDailyMotion.MouseEnter += SetStatusBar_Enter;
+			labelMeanDailyMotion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelAbsoluteMagnitude
 			// 
@@ -1353,10 +1356,10 @@
 			labelAbsoluteMagnitude.TabIndex = 32;
 			toolTip.SetToolTip(labelAbsoluteMagnitude, "Absolute magnitude, H");
 			labelAbsoluteMagnitude.Values.Text = "Absolute magnitude, H";
-			labelAbsoluteMagnitude.Enter += SetStatusbar_Enter;
-			labelAbsoluteMagnitude.Leave += ClearStatusbar_Leave;
-			labelAbsoluteMagnitude.MouseEnter += SetStatusbar_Enter;
-			labelAbsoluteMagnitude.MouseLeave += ClearStatusbar_Leave;
+			labelAbsoluteMagnitude.Enter += SetStatusBar_Enter;
+			labelAbsoluteMagnitude.Leave += ClearStatusBar_Leave;
+			labelAbsoluteMagnitude.MouseEnter += SetStatusBar_Enter;
+			labelAbsoluteMagnitude.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSemiMajorAxis
 			// 
@@ -1371,10 +1374,10 @@
 			labelSemiMajorAxis.TabIndex = 28;
 			toolTip.SetToolTip(labelSemiMajorAxis, "Semi-major axis");
 			labelSemiMajorAxis.Values.Text = "Semi-major axis";
-			labelSemiMajorAxis.Enter += SetStatusbar_Enter;
-			labelSemiMajorAxis.Leave += ClearStatusbar_Leave;
-			labelSemiMajorAxis.MouseEnter += SetStatusbar_Enter;
-			labelSemiMajorAxis.MouseLeave += ClearStatusbar_Leave;
+			labelSemiMajorAxis.Enter += SetStatusBar_Enter;
+			labelSemiMajorAxis.Leave += ClearStatusBar_Leave;
+			labelSemiMajorAxis.MouseEnter += SetStatusBar_Enter;
+			labelSemiMajorAxis.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMeanAnomalyAtTheEpoch
 			// 
@@ -1389,10 +1392,10 @@
 			labelMeanAnomalyAtTheEpoch.TabIndex = 4;
 			toolTip.SetToolTip(labelMeanAnomalyAtTheEpoch, "Mean anomaly at the epoch");
 			labelMeanAnomalyAtTheEpoch.Values.Text = "Mean anomaly at the epoch";
-			labelMeanAnomalyAtTheEpoch.Enter += SetStatusbar_Enter;
-			labelMeanAnomalyAtTheEpoch.Leave += ClearStatusbar_Leave;
-			labelMeanAnomalyAtTheEpoch.MouseEnter += SetStatusbar_Enter;
-			labelMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusbar_Leave;
+			labelMeanAnomalyAtTheEpoch.Enter += SetStatusBar_Enter;
+			labelMeanAnomalyAtTheEpoch.Leave += ClearStatusBar_Leave;
+			labelMeanAnomalyAtTheEpoch.MouseEnter += SetStatusBar_Enter;
+			labelMeanAnomalyAtTheEpoch.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetInclination
 			// 
@@ -1412,10 +1415,10 @@
 			buttonResetInclination.Values.Image = Properties.Resources.silk_reload;
 			buttonResetInclination.Values.Text = "";
 			buttonResetInclination.Click += ButtonResetInclination_Click;
-			buttonResetInclination.Enter += SetStatusbar_Enter;
-			buttonResetInclination.Leave += ClearStatusbar_Leave;
-			buttonResetInclination.MouseEnter += SetStatusbar_Enter;
-			buttonResetInclination.MouseLeave += ClearStatusbar_Leave;
+			buttonResetInclination.Enter += SetStatusBar_Enter;
+			buttonResetInclination.Leave += ClearStatusBar_Leave;
+			buttonResetInclination.MouseEnter += SetStatusBar_Enter;
+			buttonResetInclination.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonResetOrbitalEccentricity
 			// 
@@ -1435,10 +1438,10 @@
 			buttonResetOrbitalEccentricity.Values.Image = Properties.Resources.silk_reload;
 			buttonResetOrbitalEccentricity.Values.Text = "";
 			buttonResetOrbitalEccentricity.Click += ButtonResetOrbitalEccentricity_Click;
-			buttonResetOrbitalEccentricity.Enter += SetStatusbar_Enter;
-			buttonResetOrbitalEccentricity.Leave += ClearStatusbar_Leave;
-			buttonResetOrbitalEccentricity.MouseEnter += SetStatusbar_Enter;
-			buttonResetOrbitalEccentricity.MouseLeave += ClearStatusbar_Leave;
+			buttonResetOrbitalEccentricity.Enter += SetStatusBar_Enter;
+			buttonResetOrbitalEccentricity.Leave += ClearStatusBar_Leave;
+			buttonResetOrbitalEccentricity.MouseEnter += SetStatusBar_Enter;
+			buttonResetOrbitalEccentricity.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelHeaderElement
 			// 
@@ -1454,10 +1457,10 @@
 			labelHeaderElement.TabIndex = 0;
 			toolTip.SetToolTip(labelHeaderElement, "Header of the orbital elements");
 			labelHeaderElement.Values.Text = "Element";
-			labelHeaderElement.Enter += SetStatusbar_Enter;
-			labelHeaderElement.Leave += ClearStatusbar_Leave;
-			labelHeaderElement.MouseEnter += SetStatusbar_Enter;
-			labelHeaderElement.MouseLeave += ClearStatusbar_Leave;
+			labelHeaderElement.Enter += SetStatusBar_Enter;
+			labelHeaderElement.Leave += ClearStatusBar_Leave;
+			labelHeaderElement.MouseEnter += SetStatusBar_Enter;
+			labelHeaderElement.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// FilterForm
 			// 
@@ -1492,65 +1495,65 @@
 		}
 
 		#endregion
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonLabel labelMeanAnomalyAtTheEpoch;
-		private Krypton.Toolkit.KryptonLabel labelArgumentOfPerihelion;
-		private Krypton.Toolkit.KryptonLabel labelNumberOfOppositions;
-		private Krypton.Toolkit.KryptonLabel labelSlopeParameter;
-		private Krypton.Toolkit.KryptonLabel labelAbsoluteMagnitude;
-		private Krypton.Toolkit.KryptonLabel labelSemiMajorAxis;
-		private Krypton.Toolkit.KryptonLabel labelMeanDailyMotion;
-		private Krypton.Toolkit.KryptonLabel labelOrbitalEccentricity;
-		private Krypton.Toolkit.KryptonLabel labelInclination;
-		private Krypton.Toolkit.KryptonLabel labelLongitudeOfTheAscendingNode;
-		private Krypton.Toolkit.KryptonLabel labelRmsResidual;
-		private Krypton.Toolkit.KryptonLabel labelNumberOfObservations;
-		private Krypton.Toolkit.KryptonTableLayoutPanel tableLayoutPanel;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumMeanAnomalyAtTheEpoch;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumArgumentOfPerihelion;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumInclination;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumLongitudeOfTheAscendingNode;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumAbsoluteMagnitude;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumSemiMajorAxis;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumMeanDailyMotion;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumOrbitalEccentricity;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumInclination;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumLongitudeOfTheAscendingNode;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumArgumentOfPerihelion;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumMeanAnomalyAtTheEpoch;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumRmsResidual;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumNumberOfObservations;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumNumberOfOppositions;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumSlopeParameter;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumAbsoluteMagnitude;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumSemiMajorAxis;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumMeanDailyMotion;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimumOrbitalEccentricity;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumRmsResidual;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumNumberOfObservations;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumNumberOfOppositions;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximumSlopeParameter;
-		private Krypton.Toolkit.KryptonButton buttonResetMeanAnomalyAtTheEpoch;
-		private Krypton.Toolkit.KryptonButton buttonResetRmsResidual;
-		private Krypton.Toolkit.KryptonButton buttonResetNumberOfObservations;
-		private Krypton.Toolkit.KryptonButton buttonNumberOfOppositions;
-		private Krypton.Toolkit.KryptonButton buttonResetSlopeParameter;
-		private Krypton.Toolkit.KryptonButton buttonResetAbsoluteMagnitude;
-		private Krypton.Toolkit.KryptonButton buttonResetSemiMajorAxis;
-		private Krypton.Toolkit.KryptonButton buttonResetMeanDailyMotion;
-		private Krypton.Toolkit.KryptonButton buttonResetLongitudeOfTheAscendingNode;
-		private Krypton.Toolkit.KryptonButton buttonResetArgumentOfPerihelion;
-		private Krypton.Toolkit.KryptonButton buttonResetInclination;
-		private Krypton.Toolkit.KryptonButton buttonResetOrbitalEccentricity;
-		private Krypton.Toolkit.KryptonLabel labelHeaderReset;
-		private Krypton.Toolkit.KryptonLabel labelHeaderMaximum;
-		private Krypton.Toolkit.KryptonLabel labelHeaderMinimum;
-		private Krypton.Toolkit.KryptonLabel labelHeaderElement;
-		private Krypton.Toolkit.KryptonButton buttonApply;
-		private Krypton.Toolkit.KryptonButton buttonReset;
-		private Krypton.Toolkit.KryptonButton buttonCancel;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolTip toolTip;
+		private KryptonPanel panel;
+		private KryptonLabel labelMeanAnomalyAtTheEpoch;
+		private KryptonLabel labelArgumentOfPerihelion;
+		private KryptonLabel labelNumberOfOppositions;
+		private KryptonLabel labelSlopeParameter;
+		private KryptonLabel labelAbsoluteMagnitude;
+		private KryptonLabel labelSemiMajorAxis;
+		private KryptonLabel labelMeanDailyMotion;
+		private KryptonLabel labelOrbitalEccentricity;
+		private KryptonLabel labelInclination;
+		private KryptonLabel labelLongitudeOfTheAscendingNode;
+		private KryptonLabel labelRmsResidual;
+		private KryptonLabel labelNumberOfObservations;
+		private KryptonTableLayoutPanel tableLayoutPanel;
+		private KryptonNumericUpDown numericUpDownMinimumMeanAnomalyAtTheEpoch;
+		private KryptonNumericUpDown numericUpDownMinimumArgumentOfPerihelion;
+		private KryptonNumericUpDown numericUpDownMinimumInclination;
+		private KryptonNumericUpDown numericUpDownMinimumLongitudeOfTheAscendingNode;
+		private KryptonNumericUpDown numericUpDownMaximumAbsoluteMagnitude;
+		private KryptonNumericUpDown numericUpDownMaximumSemiMajorAxis;
+		private KryptonNumericUpDown numericUpDownMaximumMeanDailyMotion;
+		private KryptonNumericUpDown numericUpDownMaximumOrbitalEccentricity;
+		private KryptonNumericUpDown numericUpDownMaximumInclination;
+		private KryptonNumericUpDown numericUpDownMaximumLongitudeOfTheAscendingNode;
+		private KryptonNumericUpDown numericUpDownMaximumArgumentOfPerihelion;
+		private KryptonNumericUpDown numericUpDownMaximumMeanAnomalyAtTheEpoch;
+		private KryptonNumericUpDown numericUpDownMinimumRmsResidual;
+		private KryptonNumericUpDown numericUpDownMinimumNumberOfObservations;
+		private KryptonNumericUpDown numericUpDownMinimumNumberOfOppositions;
+		private KryptonNumericUpDown numericUpDownMinimumSlopeParameter;
+		private KryptonNumericUpDown numericUpDownMinimumAbsoluteMagnitude;
+		private KryptonNumericUpDown numericUpDownMinimumSemiMajorAxis;
+		private KryptonNumericUpDown numericUpDownMinimumMeanDailyMotion;
+		private KryptonNumericUpDown numericUpDownMinimumOrbitalEccentricity;
+		private KryptonNumericUpDown numericUpDownMaximumRmsResidual;
+		private KryptonNumericUpDown numericUpDownMaximumNumberOfObservations;
+		private KryptonNumericUpDown numericUpDownMaximumNumberOfOppositions;
+		private KryptonNumericUpDown numericUpDownMaximumSlopeParameter;
+		private KryptonButton buttonResetMeanAnomalyAtTheEpoch;
+		private KryptonButton buttonResetRmsResidual;
+		private KryptonButton buttonResetNumberOfObservations;
+		private KryptonButton buttonNumberOfOppositions;
+		private KryptonButton buttonResetSlopeParameter;
+		private KryptonButton buttonResetAbsoluteMagnitude;
+		private KryptonButton buttonResetSemiMajorAxis;
+		private KryptonButton buttonResetMeanDailyMotion;
+		private KryptonButton buttonResetLongitudeOfTheAscendingNode;
+		private KryptonButton buttonResetArgumentOfPerihelion;
+		private KryptonButton buttonResetInclination;
+		private KryptonButton buttonResetOrbitalEccentricity;
+		private KryptonLabel labelHeaderReset;
+		private KryptonLabel labelHeaderMaximum;
+		private KryptonLabel labelHeaderMinimum;
+		private KryptonLabel labelHeaderElement;
+		private KryptonButton buttonApply;
+		private KryptonButton buttonReset;
+		private KryptonButton buttonCancel;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
+		private ToolTip toolTip;
 	}
 }

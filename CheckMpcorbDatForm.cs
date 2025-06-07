@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using Krypton.Toolkit;
 using NLog;
+using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
 {
@@ -12,13 +14,13 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class CheckMpcorbDatForm : KryptonForm
 	{
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
 		// The HttpClient instance used for making HTTP requests.
-		private static readonly HttpClient client = new();
+		private static readonly HttpClient Client = new();
 
 		// Indicates whether the application is currently busy.
-		private bool isBusy = false;
+		private bool isBusy;
 
 		#region constructor
 
@@ -66,7 +68,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -77,21 +79,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -112,14 +115,14 @@ namespace Planetoid_DB
 			try
 			{
 				// Send a HEAD request to the specified URI
-				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
+				HttpResponseMessage response = await Client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
 				// Check if the response is successful and return the last modified date
 				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
 			}
 			catch (HttpRequestException)
 			{
 				// Log the exception
-				logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
+				Logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
 				// Show an error message
 				ShowErrorMessage(message: new HttpRequestException().Message);
 				// Return DateTime.MinValue to indicate an error
@@ -137,14 +140,14 @@ namespace Planetoid_DB
 			try
 			{
 				// Send a HEAD request to the specified URI
-				HttpResponseMessage response = await client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
+				HttpResponseMessage response = await Client.SendAsync(request: new HttpRequestMessage(method: HttpMethod.Head, requestUri: uri)).ConfigureAwait(continueOnCapturedContext: false);
 				// Check if the response is successful and return the content length
 				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
 			}
 			catch (HttpRequestException)
 			{
 				// Log the exception
-				logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
+				Logger.Error(message: "Error retrieving last modified date.", exception: new HttpRequestException());
 				// Show an error message
 				ShowErrorMessage(message: new HttpRequestException().Message);
 				// Log the exception and return 0
@@ -164,16 +167,16 @@ namespace Planetoid_DB
 		private async void CheckMpcorbDatForm_Load(object sender, EventArgs e)
 		{
 			// Clear the status bar
-			ClearStatusbar();
+			ClearStatusBar();
 			isBusy = true;
 			// URL for the MPCORB data file
-			Uri uriMPCORB = new(uriString: Properties.Settings.Default.systemMpcorbDatUrl);
+			Uri uriMpcorb = new(uriString: Settings.Default.systemMpcorbDatUrl);
 			// Local file last modified date
 			DateTime datetimeFileLocal = DateTime.MinValue;
 			// Online file last modified date
-			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false);
+			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriMpcorb).ConfigureAwait(continueOnCapturedContext: false);
 			// Check if the local file exists
-			if (!File.Exists(path: Properties.Resources.FilenameMpcorb))
+			if (!File.Exists(path: Resources.FilenameMpcorb))
 			{
 				// Set the content length and modified date labels to indicate no file found
 				labelContentLengthValueLocal.Text = I10nStrings.NoFileFoundText;
@@ -183,30 +186,30 @@ namespace Planetoid_DB
 			else
 			{
 				// Get the last modified date of the local file
-				FileInfo fileInfo = new(fileName: Properties.Resources.FilenameMpcorb);
+				FileInfo fileInfo = new(fileName: Resources.FilenameMpcorb);
 				// Get the file attributes
 				datetimeFileLocal = fileInfo.LastWriteTime;
 				// Set the content length and modified date labels to the local file's information
 				labelContentLengthValueLocal.Text = $"{fileInfo.Length:N0} {I10nStrings.BytesText}";
 				// Set the modified date label to the local file's last write time
-				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString();
+				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString(CultureInfo.CurrentCulture);
 			}
 			// Set the content length and modified date labels to the online file's information
-			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriMPCORB).ConfigureAwait(continueOnCapturedContext: false):N0} {I10nStrings.BytesText}";
+			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriMpcorb).ConfigureAwait(continueOnCapturedContext: false):N0} {I10nStrings.BytesText}";
 			// Set the modified date label to the online file's last modified date
-			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString();
+			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString(CultureInfo.CurrentCulture);
 			// Compare the last modified dates of the local and online files
 			if (datetimeFileOnline > datetimeFileLocal)
 			{
 				// Set the label to indicate an update is needed
-				labelUpdateNeeded.Values.Image = Properties.Resources.silk_new;
+				labelUpdateNeeded.Values.Image = Resources.silk_new;
 				// Set the label text to indicate an update is recommended
 				labelUpdateNeeded.Text = I10nStrings.UpdateRecommendedText;
 			}
 			else
 			{
 				// Set the label to indicate no update is needed
-				labelUpdateNeeded.Values.Image = Properties.Resources.silk_decline;
+				labelUpdateNeeded.Values.Image = Resources.silk_decline;
 				// Set the label text to indicate no update is needed
 				labelUpdateNeeded.Text = I10nStrings.NoUpdateNeededText;
 			}
@@ -230,18 +233,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -255,7 +258,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 

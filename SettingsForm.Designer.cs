@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
     partial class SettingsForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -543,41 +546,41 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.TabControl tabControlSettings;
-        private System.Windows.Forms.TabPage tabPageNavigator;
-        private System.Windows.Forms.TabPage tabPageUpdate;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.TabPage tabPageLookAndFeel;
-        private System.Windows.Forms.ToolStrip toolStripIcons;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSave;
-        private System.Windows.Forms.ToolStripButton toolStripButtonCancel;
-        private System.Windows.Forms.ToolStripButton toolStripButtonLoadDefaultSettings;
-        private System.Windows.Forms.ToolStripContainer toolStripContainerSettings;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.TabPage tabPageGeneral;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonStatusStrip kryptonStatusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+		private ToolTip toolTip;
+        private TabControl tabControlSettings;
+        private TabPage tabPageNavigator;
+        private TabPage tabPageUpdate;
+        private CheckBox checkBox1;
+        private CheckBox checkBox3;
+        private CheckBox checkBox2;
+        private RadioButton radioButton4;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private NumericUpDown numericUpDown1;
+        private CheckBox checkBox5;
+        private CheckBox checkBox4;
+        private GroupBox groupBox2;
+        private GroupBox groupBox1;
+        private CheckBox checkBox6;
+        private TabPage tabPageLookAndFeel;
+        private ToolStrip toolStripIcons;
+        private ToolStripButton toolStripButtonSave;
+        private ToolStripButton toolStripButtonCancel;
+        private ToolStripButton toolStripButtonLoadDefaultSettings;
+        private ToolStripContainer toolStripContainerSettings;
+        private ToolStripSeparator toolStripSeparator1;
+        private GroupBox groupBox4;
+        private RadioButton radioButton10;
+        private RadioButton radioButton11;
+        private RadioButton radioButton12;
+        private TabPage tabPageGeneral;
+        private CheckBox checkBox10;
+        private CheckBox checkBox9;
+        private CheckBox checkBox8;
+        private RadioButton radioButton9;
+        private KryptonPanel panel;
+		private KryptonStatusStrip kryptonStatusStrip;
+		private ToolStripStatusLabel labelInformation;
 	}
 }

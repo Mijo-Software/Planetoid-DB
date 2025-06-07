@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -7,6 +8,8 @@ using System.Net.Http;
 using System.Net.NetworkInformation;
 using Krypton.Toolkit;
 using NLog;
+using static Planetoid_DB.Properties.Resources;
+using static Planetoid_DB.Properties.Settings;
 
 namespace Planetoid_DB
 {
@@ -17,27 +20,27 @@ namespace Planetoid_DB
 	public partial class DownloadMpcorbDatForm : KryptonForm
 	{
 		// NLog logger instance
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// Filename for the MPCORB data file
-		private readonly string strFilenameMpcorb = Properties.Resources.FilenameMpcorb;
+		private readonly string strFilenameMpcorb = FilenameMpcorb;
 
 		// Temporary filename for the MPCORB data file during download
-		private readonly string strFilenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
+		private readonly string strFilenameMpcorbTemp = FilenameMpcorbTemp;
 
 		// URI for the MPCORB data file
-		private readonly Uri uriMPCORB = new(uriString: Properties.Settings.Default.systemMpcorbDatGzUrl);
+		private readonly Uri strUriMpcorb = new(uriString: Default.systemMpcorbDatGzUrl);
 
 		// WebClient instance for handling the download
-		private readonly WebClient webClient = new();
+		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
 		// Replace the WebClient instance with HttpClient and refactor the code accordingly.
-		private static readonly HttpClient httpClient = new();
+		private static readonly HttpClient HttpClient = new();
 
 		// Flag to indicate if a download is in progress
-		private bool isBusy = false;
+		private bool isBusy;
 
 		// Static HttpClient instance for making HTTP requests
-		private static readonly HttpClient client = new();
+		private static readonly HttpClient Client = new();
 
 		#region Constructor
 
@@ -97,7 +100,7 @@ namespace Planetoid_DB
 				// Create a new HttpRequestMessage with the HEAD method and the specified URI
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request and get the response
-				HttpResponseMessage response = client.Send(request);
+				HttpResponseMessage response = Client.Send(request: request);
 				// Check if the response is successful and return the last modified date
 				// If the response is not successful, return DateTime.MinValue
 				// If the response is successful, return the last modified date or DateTime.MinValue if not available
@@ -107,7 +110,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: "Error retrieving last modified date.");
+				Logger.Error(exception: ex, message: "Error retrieving last modified date.");
 				// Show an error message with the exception message
 				ShowErrorMessage(message: $"Error retrieving last modified date: {ex.Message}");
 				// Return DateTime.MinValue to indicate an error
@@ -130,7 +133,7 @@ namespace Planetoid_DB
 				// If the response is not successful, return 0
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request using the HttpClient instance
-				HttpResponseMessage response = client.Send(request);
+				HttpResponseMessage response = Client.Send(request: request);
 				// Check if the response is successful and return the content length
 				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
 			}
@@ -138,7 +141,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: "Error retrieving content length.");
+				Logger.Error(exception: ex, message: "Error retrieving content length.");
 				// Show an error message with the exception message
 				ShowErrorMessage(message: $"Error retrieving content length: {ex.Message}");
 				// Return 0 to indicate an error
@@ -161,7 +164,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -172,21 +175,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -211,7 +215,7 @@ namespace Planetoid_DB
 			else
 			{
 				// Log the error if there is no internet connection
-				logger.Error(message: "No internet connection available.");
+				Logger.Error(message: "No internet connection available.");
 				// Show an error message if there is no internet connection
 				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
 			}
@@ -227,7 +231,7 @@ namespace Planetoid_DB
 			// Set the progress bar style to continuous
 			progressBarDownload.Value = e.ProgressPercentage;
 			// Update the label with the current progress percentage
-			labelDownload.Text = e.ProgressPercentage.ToString() + I10nStrings.PercentSign;
+			labelDownload.Text = e.ProgressPercentage + I10nStrings.PercentSign;
 			// Update the status bar with the current progress
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: e.ProgressPercentage, progressMax: 100);
 		}
@@ -289,10 +293,11 @@ namespace Planetoid_DB
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 
+		[Obsolete(message: "Obsolete")]
 		private void DownloadMpcorbDatForm_Load(object? sender, EventArgs? e)
 		{
 			// Clear the status bar text
-			ClearStatusbar();
+			ClearStatusBar();
 			// Set the initial status to "Nothing to do"
 			labelStatusValue.Text = I10nStrings.StatusNothingToDoText;
 			// Clear the labels
@@ -304,9 +309,9 @@ namespace Planetoid_DB
 			// Set the proxy to null to avoid using any proxy settings
 			webClient.Proxy = null;
 			// Event handler for download completion
-			webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+			webClient.DownloadFileCompleted += Completed;
 			// Event handler for download progress
-			webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+			webClient.DownloadProgressChanged += ProgressChanged;
 		}
 
 		/// <summary>
@@ -314,6 +319,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void DownloadMpcorbDatForm_FormClosed(object? sender, FormClosedEventArgs? e)
 		{
 			webClient.CancelAsync();
@@ -330,18 +336,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -355,7 +361,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		private void ClearStatusbar_Leave(object? sender, EventArgs? e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object? sender, EventArgs? e) => ClearStatusBar();
 
 		#endregion
 
@@ -366,6 +372,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void ButtonDownload_Click(object? sender, EventArgs? e)
 		{
 			// Check if the sender is null
@@ -374,7 +381,7 @@ namespace Planetoid_DB
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
 				// Log the error if there is no internet connection
-				logger.Error(message: "No internet connection available.");
+				Logger.Error(message: "No internet connection available.");
 				// Show an error message if there is no internet connection
 				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
 				return;
@@ -386,15 +393,15 @@ namespace Planetoid_DB
 			// Disable the check for update button
 			buttonCheckForUpdate.Enabled = false;
 			// Set the source value to the URI
-			labelSourceValue.Text = uriMPCORB.AbsoluteUri;
+			labelSourceValue.Text = strUriMpcorb.AbsoluteUri;
 			// Make the source value visible
 			labelSourceValue.Visible = true;
 			// Get the last modified date of the URI
-			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToUniversalTime().ToString();
+			labelDateValue.Text = GetLastModified(uri: strUriMpcorb).ToUniversalTime().ToString(provider: CultureInfo.CurrentCulture);
 			// Make the date value visible
 			labelDateValue.Visible = true;
 			// Set the size value to the content length of the URI
-			labelSizeValue.Text = $"{GetContentLength(uri: uriMPCORB):N0} {I10nStrings.BytesText}";
+			labelSizeValue.Text = $"{GetContentLength(uri: strUriMpcorb):N0} {I10nStrings.BytesText}";
 			// Make the size value visible
 			labelSizeValue.Visible = true;
 			// Set the status value to "Try to connect"
@@ -405,7 +412,7 @@ namespace Planetoid_DB
 				// Set the status value to "Downloading"
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 				// Start the download asynchronously
-				webClient.DownloadFileAsync(address: uriMPCORB, fileName: strFilenameMpcorbTemp);
+				webClient.DownloadFileAsync(address: strUriMpcorb, fileName: strFilenameMpcorbTemp);
 				// Set the busy flag to true
 				isBusy = true;
 			}
@@ -420,7 +427,7 @@ namespace Planetoid_DB
 				// Enable the check for update button
 				buttonCheckForUpdate.Enabled = true;
 				// Log and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				ShowErrorMessage(message: $"{I10nStrings.StatusUnknownError} {ex.Message}");
 			}
 		}
@@ -432,7 +439,7 @@ namespace Planetoid_DB
 
 			if (!NetworkInterface.GetIsNetworkAvailable())
 			{
-				logger.Error(message: "No internet connection available.");
+				Logger.Error(message: "No internet connection available.");
 				ShowErrorMessage(message: I10nStrings.NoInternetConnectionText);
 				return;
 			}
@@ -441,13 +448,13 @@ namespace Planetoid_DB
 			buttonCancelDownload.Enabled = true;
 			buttonCheckForUpdate.Enabled = false;
 
-			labelSourceValue.Text = uriMPCORB.AbsoluteUri;
+			labelSourceValue.Text = strUriMpcorb.AbsoluteUri;
 			labelSourceValue.Visible = true;
 
-			labelDateValue.Text = GetLastModified(uri: uriMPCORB).ToUniversalTime().ToString();
+			labelDateValue.Text = GetLastModified(uri: strUriMpcorb).ToUniversalTime().ToString(CultureInfo.CurrentCulture);
 			labelDateValue.Visible = true;
 
-			labelSizeValue.Text = $"{GetContentLength(uri: uriMPCORB):N0} {I10nStrings.BytesText}";
+			labelSizeValue.Text = $"{GetContentLength(uri: strUriMpcorb):N0} {I10nStrings.BytesText}";
 			labelSizeValue.Visible = true;
 
 			labelStatusValue.Text = I10nStrings.StatusTryToConnect;
@@ -456,12 +463,12 @@ namespace Planetoid_DB
 			{
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 
-				using HttpResponseMessage response = await httpClient.GetAsync(uriMPCORB, HttpCompletionOption.ResponseHeadersRead);
+				using HttpResponseMessage response = await HttpClient.GetAsync(requestUri: strUriMpcorb, completionOption: HttpCompletionOption.ResponseHeadersRead);
 				_ = response.EnsureSuccessStatusCode();
 
 				using Stream contentStream = await response.Content.ReadAsStreamAsync();
-				using FileStream fileStream = new(strFilenameMpcorbTemp, FileMode.Create, FileAccess.Write, FileShare.None);
-				await contentStream.CopyToAsync(fileStream);
+				using FileStream fileStream = new(path: strFilenameMpcorbTemp, mode: FileMode.Create, access: FileAccess.Write, share: FileShare.None);
+				await contentStream.CopyToAsync(destination: fileStream);
 
 				labelStatusValue.Text = I10nStrings.StatusRefreshingDatabaseText;
 
@@ -479,7 +486,7 @@ namespace Planetoid_DB
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				ShowErrorMessage(message: $"{I10nStrings.StatusUnknownError} {ex.Message}");
 			}
 		}
@@ -490,6 +497,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void ButtonCancelDownload_Click(object? sender, EventArgs? e) => webClient.CancelAsync();
 
 		/// <summary>
@@ -497,6 +505,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void DownloadMpcorbDatForm_FormClosing(object? sender, FormClosingEventArgs? e)
 		{
 			// Check if the form is closing and if a download is in progress

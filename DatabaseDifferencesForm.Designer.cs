@@ -1,4 +1,7 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -8,7 +11,7 @@
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -192,10 +195,10 @@
 			groupBoxResults.Panel.AccessibleRole = AccessibleRole.Grouping;
 			groupBoxResults.Panel.Controls.Add(listBoxResults);
 			groupBoxResults.Panel.UseWaitCursor = true;
-			groupBoxResults.Panel.Enter += SetStatusbar_Enter;
-			groupBoxResults.Panel.Leave += ClearStatusbar_Leave;
-			groupBoxResults.Panel.MouseEnter += SetStatusbar_Enter;
-			groupBoxResults.Panel.MouseLeave += ClearStatusbar_Leave;
+			groupBoxResults.Panel.Enter += SetStatusBar_Enter;
+			groupBoxResults.Panel.Leave += ClearStatusBar_Leave;
+			groupBoxResults.Panel.MouseEnter += SetStatusBar_Enter;
+			groupBoxResults.Panel.MouseLeave += ClearStatusBar_Leave;
 			groupBoxResults.Size = new Size(954, 285);
 			groupBoxResults.TabIndex = 20;
 			toolTip.SetToolTip(groupBoxResults, "Results");
@@ -236,10 +239,10 @@
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "C&ancel";
 			buttonCancel.Click += ButtonCancel_Click;
-			buttonCancel.Enter += SetStatusbar_Enter;
-			buttonCancel.Leave += ClearStatusbar_Leave;
-			buttonCancel.MouseEnter += SetStatusbar_Enter;
-			buttonCancel.MouseLeave += ClearStatusbar_Leave;
+			buttonCancel.Enter += SetStatusBar_Enter;
+			buttonCancel.Leave += ClearStatusBar_Leave;
+			buttonCancel.MouseEnter += SetStatusBar_Enter;
+			buttonCancel.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonCompare
 			// 
@@ -258,10 +261,10 @@
 			buttonCompare.Values.Image = Properties.Resources.silk_go;
 			buttonCompare.Values.Text = "C&ompare";
 			buttonCompare.Click += ButtonCompare_Click;
-			buttonCompare.Enter += SetStatusbar_Enter;
-			buttonCompare.Leave += ClearStatusbar_Leave;
-			buttonCompare.MouseEnter += SetStatusbar_Enter;
-			buttonCompare.MouseLeave += ClearStatusbar_Leave;
+			buttonCompare.Enter += SetStatusBar_Enter;
+			buttonCompare.Leave += ClearStatusBar_Leave;
+			buttonCompare.MouseEnter += SetStatusBar_Enter;
+			buttonCompare.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// groupBoxProgress
 			// 
@@ -279,10 +282,10 @@
 			groupBoxProgress.Panel.AccessibleRole = AccessibleRole.Pane;
 			groupBoxProgress.Panel.Controls.Add(progressBar);
 			groupBoxProgress.Panel.UseWaitCursor = true;
-			groupBoxProgress.Panel.Enter += SetStatusbar_Enter;
-			groupBoxProgress.Panel.Leave += ClearStatusbar_Leave;
-			groupBoxProgress.Panel.MouseEnter += SetStatusbar_Enter;
-			groupBoxProgress.Panel.MouseLeave += ClearStatusbar_Leave;
+			groupBoxProgress.Panel.Enter += SetStatusBar_Enter;
+			groupBoxProgress.Panel.Leave += ClearStatusBar_Leave;
+			groupBoxProgress.Panel.MouseEnter += SetStatusBar_Enter;
+			groupBoxProgress.Panel.MouseLeave += ClearStatusBar_Leave;
 			groupBoxProgress.Size = new Size(754, 36);
 			groupBoxProgress.TabIndex = 17;
 			toolTip.SetToolTip(groupBoxProgress, "Shows the progress status of the comparison");
@@ -290,10 +293,10 @@
 			groupBoxProgress.Values.Description = "100 %";
 			groupBoxProgress.Values.Heading = "Progress";
 			groupBoxProgress.Values.Image = Properties.Resources.silk_time;
-			groupBoxProgress.Enter += SetStatusbar_Enter;
-			groupBoxProgress.Leave += ClearStatusbar_Leave;
-			groupBoxProgress.MouseEnter += SetStatusbar_Enter;
-			groupBoxProgress.MouseLeave += ClearStatusbar_Leave;
+			groupBoxProgress.Enter += SetStatusBar_Enter;
+			groupBoxProgress.Leave += ClearStatusBar_Leave;
+			groupBoxProgress.MouseEnter += SetStatusBar_Enter;
+			groupBoxProgress.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// progressBar
 			// 
@@ -309,8 +312,8 @@
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the comparison");
 			progressBar.UseWaitCursor = true;
 			progressBar.Values.Text = "";
-			progressBar.MouseEnter += SetStatusbar_Enter;
-			progressBar.MouseLeave += ClearStatusbar_Leave;
+			progressBar.MouseEnter += SetStatusBar_Enter;
+			progressBar.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// groupBox2ndMpcorbDatFileDatabase
 			// 
@@ -328,10 +331,10 @@
 			groupBox2ndMpcorbDatFileDatabase.Panel.AccessibleRole = AccessibleRole.Pane;
 			groupBox2ndMpcorbDatFileDatabase.Panel.Controls.Add(kryptonTableLayoutPanel1);
 			groupBox2ndMpcorbDatFileDatabase.Panel.UseWaitCursor = true;
-			groupBox2ndMpcorbDatFileDatabase.Panel.Enter += SetStatusbar_Enter;
-			groupBox2ndMpcorbDatFileDatabase.Panel.Leave += ClearStatusbar_Leave;
-			groupBox2ndMpcorbDatFileDatabase.Panel.MouseEnter += SetStatusbar_Enter;
-			groupBox2ndMpcorbDatFileDatabase.Panel.MouseLeave += ClearStatusbar_Leave;
+			groupBox2ndMpcorbDatFileDatabase.Panel.Enter += SetStatusBar_Enter;
+			groupBox2ndMpcorbDatFileDatabase.Panel.Leave += ClearStatusBar_Leave;
+			groupBox2ndMpcorbDatFileDatabase.Panel.MouseEnter += SetStatusBar_Enter;
+			groupBox2ndMpcorbDatFileDatabase.Panel.MouseLeave += ClearStatusBar_Leave;
 			groupBox2ndMpcorbDatFileDatabase.Size = new Size(475, 158);
 			groupBox2ndMpcorbDatFileDatabase.TabIndex = 16;
 			toolTip.SetToolTip(groupBox2ndMpcorbDatFileDatabase, "Open the 2nd MPCORB.DAT file");
@@ -386,10 +389,10 @@
 			labelSize2ndMpcorbDatFileDatabaseValue.UseWaitCursor = true;
 			labelSize2ndMpcorbDatFileDatabaseValue.Values.Text = "1234567890 bytes";
 			labelSize2ndMpcorbDatFileDatabaseValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelSize2ndMpcorbDatFileDatabaseValue.Enter += SetStatusbar_Enter;
-			labelSize2ndMpcorbDatFileDatabaseValue.Leave += ClearStatusbar_Leave;
-			labelSize2ndMpcorbDatFileDatabaseValue.MouseEnter += SetStatusbar_Enter;
-			labelSize2ndMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusbar_Leave;
+			labelSize2ndMpcorbDatFileDatabaseValue.Enter += SetStatusBar_Enter;
+			labelSize2ndMpcorbDatFileDatabaseValue.Leave += ClearStatusBar_Leave;
+			labelSize2ndMpcorbDatFileDatabaseValue.MouseEnter += SetStatusBar_Enter;
+			labelSize2ndMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPath2ndMpcorbDatFileDatabase
 			// 
@@ -406,10 +409,10 @@
 			toolTip.SetToolTip(labelPath2ndMpcorbDatFileDatabase, "Path");
 			labelPath2ndMpcorbDatFileDatabase.UseWaitCursor = true;
 			labelPath2ndMpcorbDatFileDatabase.Values.Text = "Path";
-			labelPath2ndMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			labelPath2ndMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			labelPath2ndMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			labelPath2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			labelPath2ndMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			labelPath2ndMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			labelPath2ndMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			labelPath2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonOpen2ndMpcorbDatFileDatabase
 			// 
@@ -428,10 +431,10 @@
 			buttonOpen2ndMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_folder;
 			buttonOpen2ndMpcorbDatFileDatabase.Values.Text = "Open &2nd MPRCORB.DAT file";
 			buttonOpen2ndMpcorbDatFileDatabase.Click += ButtonOpen2ndMpcorbDatFileDatabase_Click;
-			buttonOpen2ndMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			buttonOpen2ndMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			buttonOpen2ndMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			buttonOpen2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			buttonOpen2ndMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			buttonOpen2ndMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			buttonOpen2ndMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			buttonOpen2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDate2ndMpcorbDatFileDatabaseValue
 			// 
@@ -448,10 +451,10 @@
 			labelDate2ndMpcorbDatFileDatabaseValue.UseWaitCursor = true;
 			labelDate2ndMpcorbDatFileDatabaseValue.Values.Text = "00.00.0000 00:00:00";
 			labelDate2ndMpcorbDatFileDatabaseValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDate2ndMpcorbDatFileDatabaseValue.Enter += SetStatusbar_Enter;
-			labelDate2ndMpcorbDatFileDatabaseValue.Leave += ClearStatusbar_Leave;
-			labelDate2ndMpcorbDatFileDatabaseValue.MouseEnter += SetStatusbar_Enter;
-			labelDate2ndMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusbar_Leave;
+			labelDate2ndMpcorbDatFileDatabaseValue.Enter += SetStatusBar_Enter;
+			labelDate2ndMpcorbDatFileDatabaseValue.Leave += ClearStatusBar_Leave;
+			labelDate2ndMpcorbDatFileDatabaseValue.MouseEnter += SetStatusBar_Enter;
+			labelDate2ndMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDate2ndMpcorbDatFileDatabase
 			// 
@@ -468,10 +471,10 @@
 			toolTip.SetToolTip(labelDate2ndMpcorbDatFileDatabase, "Date");
 			labelDate2ndMpcorbDatFileDatabase.UseWaitCursor = true;
 			labelDate2ndMpcorbDatFileDatabase.Values.Text = "Date";
-			labelDate2ndMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			labelDate2ndMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			labelDate2ndMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			labelDate2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			labelDate2ndMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			labelDate2ndMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			labelDate2ndMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			labelDate2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPath2ndMpcorbDatFileDatabaseValue
 			// 
@@ -488,10 +491,10 @@
 			labelPath2ndMpcorbDatFileDatabaseValue.UseWaitCursor = true;
 			labelPath2ndMpcorbDatFileDatabaseValue.Values.Text = "C:\\This-can-be-a\\very-very-long\\path\\to-the-file\\MPCORB.DAT";
 			labelPath2ndMpcorbDatFileDatabaseValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelPath2ndMpcorbDatFileDatabaseValue.Enter += SetStatusbar_Enter;
-			labelPath2ndMpcorbDatFileDatabaseValue.Leave += ClearStatusbar_Leave;
-			labelPath2ndMpcorbDatFileDatabaseValue.MouseEnter += SetStatusbar_Enter;
-			labelPath2ndMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusbar_Leave;
+			labelPath2ndMpcorbDatFileDatabaseValue.Enter += SetStatusBar_Enter;
+			labelPath2ndMpcorbDatFileDatabaseValue.Leave += ClearStatusBar_Leave;
+			labelPath2ndMpcorbDatFileDatabaseValue.MouseEnter += SetStatusBar_Enter;
+			labelPath2ndMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSize2ndMpcorbDatFileDatabase
 			// 
@@ -508,10 +511,10 @@
 			toolTip.SetToolTip(labelSize2ndMpcorbDatFileDatabase, "Size");
 			labelSize2ndMpcorbDatFileDatabase.UseWaitCursor = true;
 			labelSize2ndMpcorbDatFileDatabase.Values.Text = "Size";
-			labelSize2ndMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			labelSize2ndMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			labelSize2ndMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			labelSize2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			labelSize2ndMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			labelSize2ndMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			labelSize2ndMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			labelSize2ndMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// groupBox1stMpcorbDatFileDatabase
 			// 
@@ -529,10 +532,10 @@
 			groupBox1stMpcorbDatFileDatabase.Panel.AccessibleRole = AccessibleRole.Pane;
 			groupBox1stMpcorbDatFileDatabase.Panel.Controls.Add(tableLayoutPanel1stMpcorbDatFile);
 			groupBox1stMpcorbDatFileDatabase.Panel.UseWaitCursor = true;
-			groupBox1stMpcorbDatFileDatabase.Panel.Enter += SetStatusbar_Enter;
-			groupBox1stMpcorbDatFileDatabase.Panel.Leave += ClearStatusbar_Leave;
-			groupBox1stMpcorbDatFileDatabase.Panel.MouseEnter += SetStatusbar_Enter;
-			groupBox1stMpcorbDatFileDatabase.Panel.MouseLeave += ClearStatusbar_Leave;
+			groupBox1stMpcorbDatFileDatabase.Panel.Enter += SetStatusBar_Enter;
+			groupBox1stMpcorbDatFileDatabase.Panel.Leave += ClearStatusBar_Leave;
+			groupBox1stMpcorbDatFileDatabase.Panel.MouseEnter += SetStatusBar_Enter;
+			groupBox1stMpcorbDatFileDatabase.Panel.MouseLeave += ClearStatusBar_Leave;
 			groupBox1stMpcorbDatFileDatabase.Size = new Size(475, 158);
 			groupBox1stMpcorbDatFileDatabase.TabIndex = 15;
 			toolTip.SetToolTip(groupBox1stMpcorbDatFileDatabase, "Open the 1st MPCORB.DAT file");
@@ -540,10 +543,10 @@
 			groupBox1stMpcorbDatFileDatabase.Values.Heading = "The first MPCORB.DAT file";
 			groupBox1stMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_database;
 			groupBox1stMpcorbDatFileDatabase.DragDrop += GroupBox1stMpcorbDatFileDatabase_DragDrop;
-			groupBox1stMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			groupBox1stMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			groupBox1stMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			groupBox1stMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			groupBox1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			groupBox1stMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			groupBox1stMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			groupBox1stMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanel1stMpcorbDatFile
 			// 
@@ -575,10 +578,10 @@
 			tableLayoutPanel1stMpcorbDatFile.TabIndex = 13;
 			toolTip.SetToolTip(tableLayoutPanel1stMpcorbDatFile, "Groups the data");
 			tableLayoutPanel1stMpcorbDatFile.UseWaitCursor = true;
-			tableLayoutPanel1stMpcorbDatFile.Enter += ClearStatusbar_Leave;
-			tableLayoutPanel1stMpcorbDatFile.Leave += ClearStatusbar_Leave;
-			tableLayoutPanel1stMpcorbDatFile.MouseEnter += SetStatusbar_Enter;
-			tableLayoutPanel1stMpcorbDatFile.MouseLeave += ClearStatusbar_Leave;
+			tableLayoutPanel1stMpcorbDatFile.Enter += ClearStatusBar_Leave;
+			tableLayoutPanel1stMpcorbDatFile.Leave += ClearStatusBar_Leave;
+			tableLayoutPanel1stMpcorbDatFile.MouseEnter += SetStatusBar_Enter;
+			tableLayoutPanel1stMpcorbDatFile.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSize1stMpcorbDatFileDatabaseValue
 			// 
@@ -595,10 +598,10 @@
 			labelSize1stMpcorbDatFileDatabaseValue.UseWaitCursor = true;
 			labelSize1stMpcorbDatFileDatabaseValue.Values.Text = "1234567890 bytes";
 			labelSize1stMpcorbDatFileDatabaseValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelSize1stMpcorbDatFileDatabaseValue.Enter += SetStatusbar_Enter;
-			labelSize1stMpcorbDatFileDatabaseValue.Leave += ClearStatusbar_Leave;
-			labelSize1stMpcorbDatFileDatabaseValue.MouseEnter += SetStatusbar_Enter;
-			labelSize1stMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusbar_Leave;
+			labelSize1stMpcorbDatFileDatabaseValue.Enter += SetStatusBar_Enter;
+			labelSize1stMpcorbDatFileDatabaseValue.Leave += ClearStatusBar_Leave;
+			labelSize1stMpcorbDatFileDatabaseValue.MouseEnter += SetStatusBar_Enter;
+			labelSize1stMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPath1stMpcorbDatFileDatabase
 			// 
@@ -615,10 +618,10 @@
 			toolTip.SetToolTip(labelPath1stMpcorbDatFileDatabase, "Path");
 			labelPath1stMpcorbDatFileDatabase.UseWaitCursor = true;
 			labelPath1stMpcorbDatFileDatabase.Values.Text = "Path";
-			labelPath1stMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			labelPath1stMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			labelPath1stMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			labelPath1stMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			labelPath1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			labelPath1stMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			labelPath1stMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			labelPath1stMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonOpen1stMpcorbDatFileDatabase
 			// 
@@ -637,10 +640,10 @@
 			buttonOpen1stMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_folder;
 			buttonOpen1stMpcorbDatFileDatabase.Values.Text = "Open &1st MPRCORB.DAT file";
 			buttonOpen1stMpcorbDatFileDatabase.Click += ButtonOpen1stMpcorbDatFileDatabase_Click;
-			buttonOpen1stMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			buttonOpen1stMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			buttonOpen1stMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			buttonOpen1stMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			buttonOpen1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			buttonOpen1stMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			buttonOpen1stMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			buttonOpen1stMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDate1stMpcorbDatFileDatabaseValue
 			// 
@@ -657,10 +660,10 @@
 			labelDate1stMpcorbDatFileDatabaseValue.UseWaitCursor = true;
 			labelDate1stMpcorbDatFileDatabaseValue.Values.Text = "00.00.0000 00:00:00";
 			labelDate1stMpcorbDatFileDatabaseValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDate1stMpcorbDatFileDatabaseValue.Enter += SetStatusbar_Enter;
-			labelDate1stMpcorbDatFileDatabaseValue.Leave += ClearStatusbar_Leave;
-			labelDate1stMpcorbDatFileDatabaseValue.MouseEnter += SetStatusbar_Enter;
-			labelDate1stMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusbar_Leave;
+			labelDate1stMpcorbDatFileDatabaseValue.Enter += SetStatusBar_Enter;
+			labelDate1stMpcorbDatFileDatabaseValue.Leave += ClearStatusBar_Leave;
+			labelDate1stMpcorbDatFileDatabaseValue.MouseEnter += SetStatusBar_Enter;
+			labelDate1stMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDate1stMpcorbDatFileDatabase
 			// 
@@ -677,10 +680,10 @@
 			toolTip.SetToolTip(labelDate1stMpcorbDatFileDatabase, "Date");
 			labelDate1stMpcorbDatFileDatabase.UseWaitCursor = true;
 			labelDate1stMpcorbDatFileDatabase.Values.Text = "Date";
-			labelDate1stMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			labelDate1stMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			labelDate1stMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			labelDate1stMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			labelDate1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			labelDate1stMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			labelDate1stMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			labelDate1stMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPath1stMpcorbDatFileDatabaseValue
 			// 
@@ -697,10 +700,10 @@
 			labelPath1stMpcorbDatFileDatabaseValue.UseWaitCursor = true;
 			labelPath1stMpcorbDatFileDatabaseValue.Values.Text = "C:\\This-can-be-a\\very-very-long\\path\\to-the-file\\MPCORB.DAT";
 			labelPath1stMpcorbDatFileDatabaseValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelPath1stMpcorbDatFileDatabaseValue.Enter += SetStatusbar_Enter;
-			labelPath1stMpcorbDatFileDatabaseValue.Leave += ClearStatusbar_Leave;
-			labelPath1stMpcorbDatFileDatabaseValue.MouseEnter += SetStatusbar_Enter;
-			labelPath1stMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusbar_Leave;
+			labelPath1stMpcorbDatFileDatabaseValue.Enter += SetStatusBar_Enter;
+			labelPath1stMpcorbDatFileDatabaseValue.Leave += ClearStatusBar_Leave;
+			labelPath1stMpcorbDatFileDatabaseValue.MouseEnter += SetStatusBar_Enter;
+			labelPath1stMpcorbDatFileDatabaseValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSize1stMpcorbDatFileDatabase
 			// 
@@ -717,10 +720,10 @@
 			toolTip.SetToolTip(labelSize1stMpcorbDatFileDatabase, "Size");
 			labelSize1stMpcorbDatFileDatabase.UseWaitCursor = true;
 			labelSize1stMpcorbDatFileDatabase.Values.Text = "Size";
-			labelSize1stMpcorbDatFileDatabase.Enter += SetStatusbar_Enter;
-			labelSize1stMpcorbDatFileDatabase.Leave += ClearStatusbar_Leave;
-			labelSize1stMpcorbDatFileDatabase.MouseEnter += SetStatusbar_Enter;
-			labelSize1stMpcorbDatFileDatabase.MouseLeave += ClearStatusbar_Leave;
+			labelSize1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
+			labelSize1stMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
+			labelSize1stMpcorbDatFileDatabase.MouseEnter += SetStatusBar_Enter;
+			labelSize1stMpcorbDatFileDatabase.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// backgroundWorker
 			// 
@@ -793,37 +796,37 @@
 
 		#endregion
 
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolStripContainer toolStripContainer;
-		private Krypton.Toolkit.KryptonPanel panel;
-		private System.Windows.Forms.ToolTip toolTip;
-		private System.ComponentModel.BackgroundWorker backgroundWorker;
-		private Krypton.Toolkit.KryptonProgressBar progressBar;
-		private Krypton.Toolkit.KryptonButton buttonOpen1stMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonLabel labelPath1stMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonTableLayoutPanel tableLayoutPanel1stMpcorbDatFile;
-		private Krypton.Toolkit.KryptonLabel labelSize1stMpcorbDatFileDatabaseValue;
-		private Krypton.Toolkit.KryptonLabel labelDate1stMpcorbDatFileDatabaseValue;
-		private Krypton.Toolkit.KryptonLabel labelDate1stMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonLabel labelPath1stMpcorbDatFileDatabaseValue;
-		private Krypton.Toolkit.KryptonLabel labelSize1stMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonGroupBox groupBox1stMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonGroupBox groupBox2ndMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonTableLayoutPanel kryptonTableLayoutPanel1;
-		private Krypton.Toolkit.KryptonLabel labelSize2ndMpcorbDatFileDatabaseValue;
-		private Krypton.Toolkit.KryptonLabel labelPath2ndMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonButton buttonOpen2ndMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonLabel labelDate2ndMpcorbDatFileDatabaseValue;
-		private Krypton.Toolkit.KryptonLabel labelDate2ndMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonLabel labelPath2ndMpcorbDatFileDatabaseValue;
-		private Krypton.Toolkit.KryptonLabel labelSize2ndMpcorbDatFileDatabase;
-		private System.Windows.Forms.OpenFileDialog openFileDialog1stMpcorbDatFileDatabase;
-		private System.Windows.Forms.OpenFileDialog openFileDialog2ndMpcorbDatFileDatabase;
-		private Krypton.Toolkit.KryptonGroupBox groupBoxProgress;
-		private Krypton.Toolkit.KryptonButton buttonCancel;
-		private Krypton.Toolkit.KryptonButton buttonCompare;
-		private Krypton.Toolkit.KryptonGroupBox groupBoxResults;
-		private Krypton.Toolkit.KryptonListBox listBoxResults;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
+		private ToolStripContainer toolStripContainer;
+		private KryptonPanel panel;
+		private ToolTip toolTip;
+		private BackgroundWorker backgroundWorker;
+		private KryptonProgressBar progressBar;
+		private KryptonButton buttonOpen1stMpcorbDatFileDatabase;
+		private KryptonLabel labelPath1stMpcorbDatFileDatabase;
+		private KryptonTableLayoutPanel tableLayoutPanel1stMpcorbDatFile;
+		private KryptonLabel labelSize1stMpcorbDatFileDatabaseValue;
+		private KryptonLabel labelDate1stMpcorbDatFileDatabaseValue;
+		private KryptonLabel labelDate1stMpcorbDatFileDatabase;
+		private KryptonLabel labelPath1stMpcorbDatFileDatabaseValue;
+		private KryptonLabel labelSize1stMpcorbDatFileDatabase;
+		private KryptonGroupBox groupBox1stMpcorbDatFileDatabase;
+		private KryptonGroupBox groupBox2ndMpcorbDatFileDatabase;
+		private KryptonTableLayoutPanel kryptonTableLayoutPanel1;
+		private KryptonLabel labelSize2ndMpcorbDatFileDatabaseValue;
+		private KryptonLabel labelPath2ndMpcorbDatFileDatabase;
+		private KryptonButton buttonOpen2ndMpcorbDatFileDatabase;
+		private KryptonLabel labelDate2ndMpcorbDatFileDatabaseValue;
+		private KryptonLabel labelDate2ndMpcorbDatFileDatabase;
+		private KryptonLabel labelPath2ndMpcorbDatFileDatabaseValue;
+		private KryptonLabel labelSize2ndMpcorbDatFileDatabase;
+		private OpenFileDialog openFileDialog1stMpcorbDatFileDatabase;
+		private OpenFileDialog openFileDialog2ndMpcorbDatFileDatabase;
+		private KryptonGroupBox groupBoxProgress;
+		private KryptonButton buttonCancel;
+		private KryptonButton buttonCompare;
+		private KryptonGroupBox groupBoxResults;
+		private KryptonListBox listBoxResults;
 	}
 }

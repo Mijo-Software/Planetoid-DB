@@ -10,7 +10,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class AppInfoForm : KryptonForm
 	{
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
 		#region constructor
 
@@ -59,7 +59,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -70,21 +70,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -106,7 +107,7 @@ namespace Planetoid_DB
 			labelVersion.Text = string.Format(format: I10nStrings.VersionTemplate, arg0: AssemblyInfo.AssemblyVersion);
 			labelDescription.Text = AssemblyInfo.AssemblyDescription;
 			labelCopyright.Text = AssemblyInfo.AssemblyCopyright;
-			ClearStatusbar();
+			ClearStatusBar();
 		}
 
 		/// <summary>
@@ -125,18 +126,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -150,7 +151,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -166,14 +167,17 @@ namespace Planetoid_DB
 			try
 			{
 				// Open the website in the default browser
-				using Process process = new() { StartInfo = new ProcessStartInfo(fileName: "https://planetoid-db.de") { UseShellExecute = true } };
+				using Process process = new();
+				process.StartInfo = new ProcessStartInfo(fileName: "https://planetoid-db.de") { UseShellExecute = true };
 				// Start the process asynchronously
 				_ = await Task.Run(function: process.Start);
 			}
 			catch (Exception ex)
 			{
+				// Log the exception and show an error message
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message if the website cannot be opened
-				_ = MessageBox.Show(text: $"Error opening the website: {ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				ShowErrorMessage(message: $"Error opening the website: {ex.Message}");
 			}
 		}
 
@@ -187,14 +191,17 @@ namespace Planetoid_DB
 			try
 			{
 				// Open the default email client with a new message to the specified email address
-				using Process process = new() { StartInfo = new ProcessStartInfo(fileName: "mailto:info@planetoid-db.de") { UseShellExecute = true } };
+				using Process process = new();
+				process.StartInfo = new ProcessStartInfo(fileName: "mailto:info@planetoid-db.de") { UseShellExecute = true };
 				// Start the process asynchronously
 				_ = await Task.Run(function: process.Start);
 			}
 			catch (Exception ex)
 			{
+				// Log the exception and show an error message
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message if the email client cannot be opened
-				_ = MessageBox.Show(text: $"Error opening the website: {ex.Message}", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				ShowErrorMessage(message: $"Error opening the website: {ex.Message}");
 			}
 		}
 

@@ -1,4 +1,7 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	/// <summary>
 	/// 
@@ -8,7 +11,7 @@
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -81,10 +84,10 @@
 			buttonIndexNumber.Values.DropDownArrowColor = Color.Empty;
 			buttonIndexNumber.Values.Text = "Index No.";
 			buttonIndexNumber.Click += ButtonIndexNumber_Click;
-			buttonIndexNumber.Enter += SetStatusbar_Enter;
-			buttonIndexNumber.Leave += ClearStatusbar_Leave;
-			buttonIndexNumber.MouseEnter += SetStatusbar_Enter;
-			buttonIndexNumber.MouseLeave += ClearStatusbar_Leave;
+			buttonIndexNumber.Enter += SetStatusBar_Enter;
+			buttonIndexNumber.Leave += ClearStatusBar_Leave;
+			buttonIndexNumber.MouseEnter += SetStatusBar_Enter;
+			buttonIndexNumber.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonReadableDesignation
 			// 
@@ -101,10 +104,10 @@
 			buttonReadableDesignation.Values.DropDownArrowColor = Color.Empty;
 			buttonReadableDesignation.Values.Text = "Readable designation";
 			buttonReadableDesignation.Click += ButtonReadableDesignation_Click;
-			buttonReadableDesignation.Enter += SetStatusbar_Enter;
-			buttonReadableDesignation.Leave += ClearStatusbar_Leave;
-			buttonReadableDesignation.MouseEnter += SetStatusbar_Enter;
-			buttonReadableDesignation.MouseLeave += ClearStatusbar_Leave;
+			buttonReadableDesignation.Enter += SetStatusBar_Enter;
+			buttonReadableDesignation.Leave += ClearStatusBar_Leave;
+			buttonReadableDesignation.MouseEnter += SetStatusBar_Enter;
+			buttonReadableDesignation.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonEpoch
 			// 
@@ -121,10 +124,10 @@
 			buttonEpoch.Values.DropDownArrowColor = Color.Empty;
 			buttonEpoch.Values.Text = "Epoch (in packed form, .0 TT)";
 			buttonEpoch.Click += ButtonEpoch_Click;
-			buttonEpoch.Enter += SetStatusbar_Enter;
-			buttonEpoch.Leave += ClearStatusbar_Leave;
-			buttonEpoch.MouseEnter += SetStatusbar_Enter;
-			buttonEpoch.MouseLeave += ClearStatusbar_Leave;
+			buttonEpoch.Enter += SetStatusBar_Enter;
+			buttonEpoch.Leave += ClearStatusBar_Leave;
+			buttonEpoch.MouseEnter += SetStatusBar_Enter;
+			buttonEpoch.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonMeanAnomaly
 			// 
@@ -141,10 +144,10 @@
 			buttonMeanAnomaly.Values.DropDownArrowColor = Color.Empty;
 			buttonMeanAnomaly.Values.Text = "Mean anomaly at the epoch (°)";
 			buttonMeanAnomaly.Click += ButtonMeanAnomaly_Click;
-			buttonMeanAnomaly.Enter += SetStatusbar_Enter;
-			buttonMeanAnomaly.Leave += ClearStatusbar_Leave;
-			buttonMeanAnomaly.MouseEnter += SetStatusbar_Enter;
-			buttonMeanAnomaly.MouseLeave += ClearStatusbar_Leave;
+			buttonMeanAnomaly.Enter += SetStatusBar_Enter;
+			buttonMeanAnomaly.Leave += ClearStatusBar_Leave;
+			buttonMeanAnomaly.MouseEnter += SetStatusBar_Enter;
+			buttonMeanAnomaly.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonArgumentOfPerihelion
 			// 
@@ -161,10 +164,10 @@
 			buttonArgumentOfPerihelion.Values.DropDownArrowColor = Color.Empty;
 			buttonArgumentOfPerihelion.Values.Text = "Argument of perihelion, J2000.0 (°)";
 			buttonArgumentOfPerihelion.Click += ButtonArgumentOfPerihelion_Click;
-			buttonArgumentOfPerihelion.Enter += SetStatusbar_Enter;
-			buttonArgumentOfPerihelion.Leave += ClearStatusbar_Leave;
-			buttonArgumentOfPerihelion.MouseEnter += SetStatusbar_Enter;
-			buttonArgumentOfPerihelion.MouseLeave += ClearStatusbar_Leave;
+			buttonArgumentOfPerihelion.Enter += SetStatusBar_Enter;
+			buttonArgumentOfPerihelion.Leave += ClearStatusBar_Leave;
+			buttonArgumentOfPerihelion.MouseEnter += SetStatusBar_Enter;
+			buttonArgumentOfPerihelion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonLongitudeOfTheAscendingNode
 			// 
@@ -181,10 +184,10 @@
 			buttonLongitudeOfTheAscendingNode.Values.DropDownArrowColor = Color.Empty;
 			buttonLongitudeOfTheAscendingNode.Values.Text = "Longitude of the ascending node, J2000.0 (°)";
 			buttonLongitudeOfTheAscendingNode.Click += ButtonLongitudeOfTheAscendingNode_Click;
-			buttonLongitudeOfTheAscendingNode.Enter += SetStatusbar_Enter;
-			buttonLongitudeOfTheAscendingNode.Leave += ClearStatusbar_Leave;
-			buttonLongitudeOfTheAscendingNode.MouseEnter += SetStatusbar_Enter;
-			buttonLongitudeOfTheAscendingNode.MouseLeave += ClearStatusbar_Leave;
+			buttonLongitudeOfTheAscendingNode.Enter += SetStatusBar_Enter;
+			buttonLongitudeOfTheAscendingNode.Leave += ClearStatusBar_Leave;
+			buttonLongitudeOfTheAscendingNode.MouseEnter += SetStatusBar_Enter;
+			buttonLongitudeOfTheAscendingNode.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonInclination
 			// 
@@ -201,10 +204,10 @@
 			buttonInclination.Values.DropDownArrowColor = Color.Empty;
 			buttonInclination.Values.Text = "Inclination to the ecliptic, J2000.0 (°)";
 			buttonInclination.Click += ButtonInclination_Click;
-			buttonInclination.Enter += SetStatusbar_Enter;
-			buttonInclination.Leave += ClearStatusbar_Leave;
-			buttonInclination.MouseEnter += SetStatusbar_Enter;
-			buttonInclination.MouseLeave += ClearStatusbar_Leave;
+			buttonInclination.Enter += SetStatusBar_Enter;
+			buttonInclination.Leave += ClearStatusBar_Leave;
+			buttonInclination.MouseEnter += SetStatusBar_Enter;
+			buttonInclination.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonOrbitalEccentricity
 			// 
@@ -221,10 +224,10 @@
 			buttonOrbitalEccentricity.Values.DropDownArrowColor = Color.Empty;
 			buttonOrbitalEccentricity.Values.Text = "Orbital eccentricity";
 			buttonOrbitalEccentricity.Click += ButtonOrbitalEccentricity_Click;
-			buttonOrbitalEccentricity.Enter += SetStatusbar_Enter;
-			buttonOrbitalEccentricity.Leave += ClearStatusbar_Leave;
-			buttonOrbitalEccentricity.MouseEnter += SetStatusbar_Enter;
-			buttonOrbitalEccentricity.MouseLeave += ClearStatusbar_Leave;
+			buttonOrbitalEccentricity.Enter += SetStatusBar_Enter;
+			buttonOrbitalEccentricity.Leave += ClearStatusBar_Leave;
+			buttonOrbitalEccentricity.MouseEnter += SetStatusBar_Enter;
+			buttonOrbitalEccentricity.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonMeanDailyMotion
 			// 
@@ -241,10 +244,10 @@
 			buttonMeanDailyMotion.Values.DropDownArrowColor = Color.Empty;
 			buttonMeanDailyMotion.Values.Text = "Mean daily motion (°/day)";
 			buttonMeanDailyMotion.Click += ButtonMeanDailyMotion_Click;
-			buttonMeanDailyMotion.Enter += SetStatusbar_Enter;
-			buttonMeanDailyMotion.Leave += ClearStatusbar_Leave;
-			buttonMeanDailyMotion.MouseEnter += SetStatusbar_Enter;
-			buttonMeanDailyMotion.MouseLeave += ClearStatusbar_Leave;
+			buttonMeanDailyMotion.Enter += SetStatusBar_Enter;
+			buttonMeanDailyMotion.Leave += ClearStatusBar_Leave;
+			buttonMeanDailyMotion.MouseEnter += SetStatusBar_Enter;
+			buttonMeanDailyMotion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSemimajorAxis
 			// 
@@ -260,11 +263,11 @@
 			toolTip.SetToolTip(buttonSemimajorAxis, "Semi-major axis (AU)");
 			buttonSemimajorAxis.Values.DropDownArrowColor = Color.Empty;
 			buttonSemimajorAxis.Values.Text = "Semi-major axis (AU)";
-			buttonSemimajorAxis.Click += ButtonSemimajorAxis_Click;
-			buttonSemimajorAxis.Enter += SetStatusbar_Enter;
-			buttonSemimajorAxis.Leave += ClearStatusbar_Leave;
-			buttonSemimajorAxis.MouseEnter += SetStatusbar_Enter;
-			buttonSemimajorAxis.MouseLeave += ClearStatusbar_Leave;
+			buttonSemimajorAxis.Click += ButtonSemiMajorAxis_Click;
+			buttonSemimajorAxis.Enter += SetStatusBar_Enter;
+			buttonSemimajorAxis.Leave += ClearStatusBar_Leave;
+			buttonSemimajorAxis.MouseEnter += SetStatusBar_Enter;
+			buttonSemimajorAxis.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonAbsoluteMagnitude
 			// 
@@ -281,10 +284,10 @@
 			buttonAbsoluteMagnitude.Values.DropDownArrowColor = Color.Empty;
 			buttonAbsoluteMagnitude.Values.Text = "Absolute magnitude, H";
 			buttonAbsoluteMagnitude.Click += ButtonAbsoluteMagnitude_Click;
-			buttonAbsoluteMagnitude.Enter += SetStatusbar_Enter;
-			buttonAbsoluteMagnitude.Leave += ClearStatusbar_Leave;
-			buttonAbsoluteMagnitude.MouseEnter += SetStatusbar_Enter;
-			buttonAbsoluteMagnitude.MouseLeave += ClearStatusbar_Leave;
+			buttonAbsoluteMagnitude.Enter += SetStatusBar_Enter;
+			buttonAbsoluteMagnitude.Leave += ClearStatusBar_Leave;
+			buttonAbsoluteMagnitude.MouseEnter += SetStatusBar_Enter;
+			buttonAbsoluteMagnitude.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSlopeParameter
 			// 
@@ -301,10 +304,10 @@
 			buttonSlopeParameter.Values.DropDownArrowColor = Color.Empty;
 			buttonSlopeParameter.Values.Text = "Slope parameter, G";
 			buttonSlopeParameter.Click += ButtonSlopeParameter_Click;
-			buttonSlopeParameter.Enter += SetStatusbar_Enter;
-			buttonSlopeParameter.Leave += ClearStatusbar_Leave;
-			buttonSlopeParameter.MouseEnter += SetStatusbar_Enter;
-			buttonSlopeParameter.MouseLeave += ClearStatusbar_Leave;
+			buttonSlopeParameter.Enter += SetStatusBar_Enter;
+			buttonSlopeParameter.Leave += ClearStatusBar_Leave;
+			buttonSlopeParameter.MouseEnter += SetStatusBar_Enter;
+			buttonSlopeParameter.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonReference
 			// 
@@ -321,10 +324,10 @@
 			buttonReference.Values.DropDownArrowColor = Color.Empty;
 			buttonReference.Values.Text = "Reference";
 			buttonReference.Click += ButtonReference_Click;
-			buttonReference.Enter += SetStatusbar_Enter;
-			buttonReference.Leave += ClearStatusbar_Leave;
-			buttonReference.MouseEnter += SetStatusbar_Enter;
-			buttonReference.MouseLeave += ClearStatusbar_Leave;
+			buttonReference.Enter += SetStatusBar_Enter;
+			buttonReference.Leave += ClearStatusBar_Leave;
+			buttonReference.MouseEnter += SetStatusBar_Enter;
+			buttonReference.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonObservationSpan
 			// 
@@ -341,10 +344,10 @@
 			buttonObservationSpan.Values.DropDownArrowColor = Color.Empty;
 			buttonObservationSpan.Values.Text = "Observation span";
 			buttonObservationSpan.Click += ButtonObservationSpan_Click;
-			buttonObservationSpan.Enter += SetStatusbar_Enter;
-			buttonObservationSpan.Leave += ClearStatusbar_Leave;
-			buttonObservationSpan.MouseEnter += SetStatusbar_Enter;
-			buttonObservationSpan.MouseLeave += ClearStatusbar_Leave;
+			buttonObservationSpan.Enter += SetStatusBar_Enter;
+			buttonObservationSpan.Leave += ClearStatusBar_Leave;
+			buttonObservationSpan.MouseEnter += SetStatusBar_Enter;
+			buttonObservationSpan.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonNumberOfObservations
 			// 
@@ -361,10 +364,10 @@
 			buttonNumberOfObservations.Values.DropDownArrowColor = Color.Empty;
 			buttonNumberOfObservations.Values.Text = "Number of observations";
 			buttonNumberOfObservations.Click += ButtonNumberOfObservations_Click;
-			buttonNumberOfObservations.Enter += SetStatusbar_Enter;
-			buttonNumberOfObservations.Leave += ClearStatusbar_Leave;
-			buttonNumberOfObservations.MouseEnter += SetStatusbar_Enter;
-			buttonNumberOfObservations.MouseLeave += ClearStatusbar_Leave;
+			buttonNumberOfObservations.Enter += SetStatusBar_Enter;
+			buttonNumberOfObservations.Leave += ClearStatusBar_Leave;
+			buttonNumberOfObservations.MouseEnter += SetStatusBar_Enter;
+			buttonNumberOfObservations.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonNumberOfOppositions
 			// 
@@ -381,10 +384,10 @@
 			buttonNumberOfOppositions.Values.DropDownArrowColor = Color.Empty;
 			buttonNumberOfOppositions.Values.Text = "Number of oppositions";
 			buttonNumberOfOppositions.Click += ButtonNumberOfOppositions_Click;
-			buttonNumberOfOppositions.Enter += SetStatusbar_Enter;
-			buttonNumberOfOppositions.Leave += ClearStatusbar_Leave;
-			buttonNumberOfOppositions.MouseEnter += SetStatusbar_Enter;
-			buttonNumberOfOppositions.MouseLeave += ClearStatusbar_Leave;
+			buttonNumberOfOppositions.Enter += SetStatusBar_Enter;
+			buttonNumberOfOppositions.Leave += ClearStatusBar_Leave;
+			buttonNumberOfOppositions.MouseEnter += SetStatusBar_Enter;
+			buttonNumberOfOppositions.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonFlags
 			// 
@@ -401,10 +404,10 @@
 			buttonFlags.Values.DropDownArrowColor = Color.Empty;
 			buttonFlags.Values.Text = "4-hexdigit flags";
 			buttonFlags.Click += ButtonFlags_Click;
-			buttonFlags.Enter += SetStatusbar_Enter;
-			buttonFlags.Leave += ClearStatusbar_Leave;
-			buttonFlags.MouseEnter += SetStatusbar_Enter;
-			buttonFlags.MouseLeave += ClearStatusbar_Leave;
+			buttonFlags.Enter += SetStatusBar_Enter;
+			buttonFlags.Leave += ClearStatusBar_Leave;
+			buttonFlags.MouseEnter += SetStatusBar_Enter;
+			buttonFlags.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonComputername
 			// 
@@ -420,11 +423,11 @@
 			toolTip.SetToolTip(buttonComputername, "Computer name");
 			buttonComputername.Values.DropDownArrowColor = Color.Empty;
 			buttonComputername.Values.Text = "Computer name";
-			buttonComputername.Click += ButtonComputername_Click;
-			buttonComputername.Enter += SetStatusbar_Enter;
-			buttonComputername.Leave += ClearStatusbar_Leave;
-			buttonComputername.MouseEnter += SetStatusbar_Enter;
-			buttonComputername.MouseLeave += ClearStatusbar_Leave;
+			buttonComputername.Click += ButtonComputerName_Click;
+			buttonComputername.Enter += SetStatusBar_Enter;
+			buttonComputername.Leave += ClearStatusBar_Leave;
+			buttonComputername.MouseEnter += SetStatusBar_Enter;
+			buttonComputername.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonRmsResidual
 			// 
@@ -441,10 +444,10 @@
 			buttonRmsResidual.Values.DropDownArrowColor = Color.Empty;
 			buttonRmsResidual.Values.Text = "r.m.s. residual (\")";
 			buttonRmsResidual.Click += ButtonRmsResidual_Click;
-			buttonRmsResidual.Enter += SetStatusbar_Enter;
-			buttonRmsResidual.Leave += ClearStatusbar_Leave;
-			buttonRmsResidual.MouseEnter += SetStatusbar_Enter;
-			buttonRmsResidual.MouseLeave += ClearStatusbar_Leave;
+			buttonRmsResidual.Enter += SetStatusBar_Enter;
+			buttonRmsResidual.Leave += ClearStatusBar_Leave;
+			buttonRmsResidual.MouseEnter += SetStatusBar_Enter;
+			buttonRmsResidual.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonDateOfLastObservation
 			// 
@@ -461,10 +464,10 @@
 			buttonDateOfLastObservation.Values.DropDownArrowColor = Color.Empty;
 			buttonDateOfLastObservation.Values.Text = "Date of last observation (YYYMMDD)";
 			buttonDateOfLastObservation.Click += ButtonDateOfLastObservation_Click;
-			buttonDateOfLastObservation.Enter += SetStatusbar_Enter;
-			buttonDateOfLastObservation.Leave += ClearStatusbar_Leave;
-			buttonDateOfLastObservation.MouseEnter += SetStatusbar_Enter;
-			buttonDateOfLastObservation.MouseLeave += ClearStatusbar_Leave;
+			buttonDateOfLastObservation.Enter += SetStatusBar_Enter;
+			buttonDateOfLastObservation.Leave += ClearStatusBar_Leave;
+			buttonDateOfLastObservation.MouseEnter += SetStatusBar_Enter;
+			buttonDateOfLastObservation.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// panel
 			// 
@@ -583,29 +586,29 @@
 
 		#endregion
 
-		private Krypton.Toolkit.KryptonButton buttonIndexNumber;
+		private KryptonButton buttonIndexNumber;
 		private ToolTip toolTip;
-		private Krypton.Toolkit.KryptonButton buttonReadableDesignation;
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonButton buttonArgumentOfPerihelion;
-		private Krypton.Toolkit.KryptonButton buttonLongitudeOfTheAscendingNode;
-		private Krypton.Toolkit.KryptonButton buttonEpoch;
-		private Krypton.Toolkit.KryptonButton buttonMeanAnomaly;
-		private Krypton.Toolkit.KryptonButton buttonReference;
-		private Krypton.Toolkit.KryptonButton buttonSlopeParameter;
-		private Krypton.Toolkit.KryptonButton buttonAbsoluteMagnitude;
-		private Krypton.Toolkit.KryptonButton buttonSemimajorAxis;
-		private Krypton.Toolkit.KryptonButton buttonMeanDailyMotion;
-		private Krypton.Toolkit.KryptonButton buttonOrbitalEccentricity;
-		private Krypton.Toolkit.KryptonButton buttonInclination;
-		private Krypton.Toolkit.KryptonButton buttonDateOfLastObservation;
-		private Krypton.Toolkit.KryptonButton buttonFlags;
-		private Krypton.Toolkit.KryptonButton buttonComputername;
-		private Krypton.Toolkit.KryptonButton buttonRmsResidual;
-		private Krypton.Toolkit.KryptonButton buttonObservationSpan;
-		private Krypton.Toolkit.KryptonButton buttonNumberOfObservations;
-		private Krypton.Toolkit.KryptonButton buttonNumberOfOppositions;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
+		private KryptonButton buttonReadableDesignation;
+		private KryptonPanel panel;
+		private KryptonButton buttonArgumentOfPerihelion;
+		private KryptonButton buttonLongitudeOfTheAscendingNode;
+		private KryptonButton buttonEpoch;
+		private KryptonButton buttonMeanAnomaly;
+		private KryptonButton buttonReference;
+		private KryptonButton buttonSlopeParameter;
+		private KryptonButton buttonAbsoluteMagnitude;
+		private KryptonButton buttonSemimajorAxis;
+		private KryptonButton buttonMeanDailyMotion;
+		private KryptonButton buttonOrbitalEccentricity;
+		private KryptonButton buttonInclination;
+		private KryptonButton buttonDateOfLastObservation;
+		private KryptonButton buttonFlags;
+		private KryptonButton buttonComputername;
+		private KryptonButton buttonRmsResidual;
+		private KryptonButton buttonObservationSpan;
+		private KryptonButton buttonNumberOfObservations;
+		private KryptonButton buttonNumberOfOppositions;
+		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolStripContainer toolStripContainer;
 	}

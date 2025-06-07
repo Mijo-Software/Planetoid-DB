@@ -10,7 +10,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class SplashScreenForm : KryptonForm
 	{
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
 		#region constructor
 
@@ -52,7 +52,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -70,7 +70,7 @@ namespace Planetoid_DB
 			if (value < progressBarSplash.Minimum || value > progressBarSplash.Maximum)
 			{
 				// Log the error and throw an exception
-				logger.Error(message: $"Value {value} is out of range for the progress bar. Minimum: {progressBarSplash.Minimum}, Maximum: {progressBarSplash.Maximum}");
+				Logger.Error(message: $"Value {value} is out of range for the progress bar. Minimum: {progressBarSplash.Minimum}, Maximum: {progressBarSplash.Maximum}");
 				// Throw an exception indicating that the value is out of range
 				throw new ArgumentOutOfRangeException(paramName: nameof(value), message: I10nStrings.IndexOutOfRange);
 			}
@@ -122,15 +122,15 @@ namespace Planetoid_DB
 			// and the Text property is not null, copy the text to the clipboard
 			switch (sender)
 			{
-				case Label label when label.Text != null:
+				case Label { Text: not null } label:
 					// Copy the text to the clipboard
 					CopyToClipboard(text: label.Text);
 					break;
-				case KryptonLabel kryptonLabel when kryptonLabel.Text != null:
+				case KryptonLabel { Text: not null } kryptonLabel:
 					// Copy the text to the clipboard
 					CopyToClipboard(text: kryptonLabel.Text);
 					break;
-				case ToolStripLabel labelToolStripCombo when labelToolStripCombo.Text != null:
+				case ToolStripLabel { Text: not null } labelToolStripCombo:
 					// Copy the text to the clipboard
 					CopyToClipboard(text: labelToolStripCombo.Text);
 					break;

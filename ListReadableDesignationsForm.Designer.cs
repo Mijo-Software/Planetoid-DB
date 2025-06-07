@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class ListReadableDesignationsForm
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -115,10 +118,10 @@
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
-			buttonCancel.Enter += SetStatusbar_Enter;
-			buttonCancel.Leave += ClearStatusbar_Leave;
-			buttonCancel.MouseEnter += SetStatusbar_Enter;
-			buttonCancel.MouseLeave += ClearStatusbar_Leave;
+			buttonCancel.Enter += SetStatusBar_Enter;
+			buttonCancel.Leave += ClearStatusBar_Leave;
+			buttonCancel.MouseEnter += SetStatusBar_Enter;
+			buttonCancel.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// progressBar
 			// 
@@ -132,8 +135,8 @@
 			progressBar.TabIndex = 8;
 			toolTip.SetToolTip(progressBar, "Shows the progress");
 			progressBar.Values.Text = "";
-			progressBar.MouseEnter += SetStatusbar_Enter;
-			progressBar.MouseLeave += ClearStatusbar_Leave;
+			progressBar.MouseEnter += SetStatusBar_Enter;
+			progressBar.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonList
 			// 
@@ -150,10 +153,10 @@
 			buttonList.Values.Image = Properties.Resources.silk_page_white_text;
 			buttonList.Values.Text = "&List";
 			buttonList.Click += ButtonList_Click;
-			buttonList.Enter += SetStatusbar_Enter;
-			buttonList.Leave += ClearStatusbar_Leave;
-			buttonList.MouseEnter += SetStatusbar_Enter;
-			buttonList.MouseLeave += ClearStatusbar_Leave;
+			buttonList.Enter += SetStatusBar_Enter;
+			buttonList.Leave += ClearStatusBar_Leave;
+			buttonList.MouseEnter += SetStatusBar_Enter;
+			buttonList.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelWarning
 			// 
@@ -171,10 +174,10 @@
 			labelWarning.TextAlign = ContentAlignment.MiddleLeft;
 			toolTip.SetToolTip(labelWarning, "Be careful: do not use large ranges between minimum and maximum! This can increase loading time and memory. Use small spans!");
 			labelWarning.Click += CopyToClipboard_DoubleClick;
-			labelWarning.Enter += SetStatusbar_Enter;
-			labelWarning.Leave += ClearStatusbar_Leave;
-			labelWarning.MouseEnter += SetStatusbar_Enter;
-			labelWarning.MouseLeave += ClearStatusbar_Leave;
+			labelWarning.Enter += SetStatusBar_Enter;
+			labelWarning.Leave += ClearStatusBar_Leave;
+			labelWarning.MouseEnter += SetStatusBar_Enter;
+			labelWarning.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonLoad
 			// 
@@ -191,10 +194,10 @@
 			buttonLoad.Values.DropDownArrowColor = Color.Empty;
 			buttonLoad.Values.Image = Properties.Resources.silk_go;
 			buttonLoad.Values.Text = "L&oad";
-			buttonLoad.Enter += SetStatusbar_Enter;
-			buttonLoad.Leave += ClearStatusbar_Leave;
-			buttonLoad.MouseEnter += SetStatusbar_Enter;
-			buttonLoad.MouseLeave += ClearStatusbar_Leave;
+			buttonLoad.Enter += SetStatusBar_Enter;
+			buttonLoad.Leave += ClearStatusBar_Leave;
+			buttonLoad.MouseEnter += SetStatusBar_Enter;
+			buttonLoad.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMinimum
 			// 
@@ -209,10 +212,10 @@
 			toolTip.SetToolTip(labelMinimum, "Minimum");
 			labelMinimum.Values.Text = "M&inimum:";
 			labelMinimum.Click += CopyToClipboard_DoubleClick;
-			labelMinimum.Enter += SetStatusbar_Enter;
-			labelMinimum.Leave += ClearStatusbar_Leave;
-			labelMinimum.MouseEnter += SetStatusbar_Enter;
-			labelMinimum.MouseLeave += ClearStatusbar_Leave;
+			labelMinimum.Enter += SetStatusBar_Enter;
+			labelMinimum.Leave += ClearStatusBar_Leave;
+			labelMinimum.MouseEnter += SetStatusBar_Enter;
+			labelMinimum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMinimum
 			// 
@@ -230,10 +233,10 @@
 			numericUpDownMinimum.TabIndex = 1;
 			toolTip.SetToolTip(numericUpDownMinimum, "Minimum value for the list");
 			numericUpDownMinimum.Value = new decimal(new int[] { 0, 0, 0, 0 });
-			numericUpDownMinimum.Enter += SetStatusbar_Enter;
-			numericUpDownMinimum.Leave += ClearStatusbar_Leave;
-			numericUpDownMinimum.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMinimum.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMinimum.Enter += SetStatusBar_Enter;
+			numericUpDownMinimum.Leave += ClearStatusBar_Leave;
+			numericUpDownMinimum.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMinimum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// numericUpDownMaximum
 			// 
@@ -251,10 +254,10 @@
 			numericUpDownMaximum.TabIndex = 3;
 			toolTip.SetToolTip(numericUpDownMaximum, "Maximum value for the list");
 			numericUpDownMaximum.Value = new decimal(new int[] { 0, 0, 0, 0 });
-			numericUpDownMaximum.Enter += SetStatusbar_Enter;
-			numericUpDownMaximum.Leave += ClearStatusbar_Leave;
-			numericUpDownMaximum.MouseEnter += SetStatusbar_Enter;
-			numericUpDownMaximum.MouseLeave += ClearStatusbar_Leave;
+			numericUpDownMaximum.Enter += SetStatusBar_Enter;
+			numericUpDownMaximum.Leave += ClearStatusBar_Leave;
+			numericUpDownMaximum.MouseEnter += SetStatusBar_Enter;
+			numericUpDownMaximum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMaximum
 			// 
@@ -269,10 +272,10 @@
 			toolTip.SetToolTip(labelMaximum, "Maximum");
 			labelMaximum.Values.Text = "M&aximum:";
 			labelMaximum.Click += CopyToClipboard_DoubleClick;
-			labelMaximum.Enter += SetStatusbar_Enter;
-			labelMaximum.Leave += ClearStatusbar_Leave;
-			labelMaximum.MouseEnter += SetStatusbar_Enter;
-			labelMaximum.MouseLeave += ClearStatusbar_Leave;
+			labelMaximum.Enter += SetStatusBar_Enter;
+			labelMaximum.Leave += ClearStatusBar_Leave;
+			labelMaximum.MouseEnter += SetStatusBar_Enter;
+			labelMaximum.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// contextMenuStripSaveList
 			// 
@@ -286,8 +289,8 @@
 			contextMenuStripSaveList.TabStop = true;
 			contextMenuStripSaveList.Text = "&Save List";
 			toolTip.SetToolTip(contextMenuStripSaveList, "Save List");
-			contextMenuStripSaveList.MouseEnter += SetStatusbar_Enter;
-			contextMenuStripSaveList.MouseLeave += ClearStatusbar_Leave;
+			contextMenuStripSaveList.MouseEnter += SetStatusBar_Enter;
+			contextMenuStripSaveList.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripMenuItemSaveAsCsv
 			// 
@@ -300,8 +303,8 @@
 			toolStripMenuItemSaveAsCsv.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsCsv.Text = "Save as &CSV";
 			toolStripMenuItemSaveAsCsv.Click += ToolStripMenuItemSaveAsCsv_Click;
-			toolStripMenuItemSaveAsCsv.MouseEnter += SetStatusbar_Enter;
-			toolStripMenuItemSaveAsCsv.MouseLeave += ClearStatusbar_Leave;
+			toolStripMenuItemSaveAsCsv.MouseEnter += SetStatusBar_Enter;
+			toolStripMenuItemSaveAsCsv.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripMenuItemSaveAsHtml
 			// 
@@ -314,8 +317,8 @@
 			toolStripMenuItemSaveAsHtml.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsHtml.Text = "Save as &HTML";
 			toolStripMenuItemSaveAsHtml.Click += ToolStripMenuItemSaveAsHtml_Click;
-			toolStripMenuItemSaveAsHtml.MouseEnter += SetStatusbar_Enter;
-			toolStripMenuItemSaveAsHtml.MouseLeave += ClearStatusbar_Leave;
+			toolStripMenuItemSaveAsHtml.MouseEnter += SetStatusBar_Enter;
+			toolStripMenuItemSaveAsHtml.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripMenuItemSaveAsXml
 			// 
@@ -328,8 +331,8 @@
 			toolStripMenuItemSaveAsXml.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsXml.Text = "Save as &XML";
 			toolStripMenuItemSaveAsXml.Click += ToolStripMenuItemSaveAsXml_Click;
-			toolStripMenuItemSaveAsXml.MouseEnter += SetStatusbar_Enter;
-			toolStripMenuItemSaveAsXml.MouseLeave += ClearStatusbar_Leave;
+			toolStripMenuItemSaveAsXml.MouseEnter += SetStatusBar_Enter;
+			toolStripMenuItemSaveAsXml.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripMenuItemSaveAsJson
 			// 
@@ -342,8 +345,8 @@
 			toolStripMenuItemSaveAsJson.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsJson.Text = "Save as &JSON";
 			toolStripMenuItemSaveAsJson.Click += ToolStripMenuItemSaveAsJson_Click;
-			toolStripMenuItemSaveAsJson.MouseEnter += SetStatusbar_Enter;
-			toolStripMenuItemSaveAsJson.MouseLeave += ClearStatusbar_Leave;
+			toolStripMenuItemSaveAsJson.MouseEnter += SetStatusBar_Enter;
+			toolStripMenuItemSaveAsJson.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dropButtonSaveList
 			// 
@@ -366,10 +369,10 @@
 			dropButtonSaveList.Values.ImageStates.ImagePressed = Properties.Resources.silk_disk;
 			dropButtonSaveList.Values.ImageStates.ImageTracking = Properties.Resources.silk_disk;
 			dropButtonSaveList.Values.Text = "&Save List";
-			dropButtonSaveList.Enter += SetStatusbar_Enter;
-			dropButtonSaveList.Leave += ClearStatusbar_Leave;
-			dropButtonSaveList.MouseEnter += SetStatusbar_Enter;
-			dropButtonSaveList.MouseLeave += ClearStatusbar_Leave;
+			dropButtonSaveList.Enter += SetStatusBar_Enter;
+			dropButtonSaveList.Leave += ClearStatusBar_Leave;
+			dropButtonSaveList.MouseEnter += SetStatusBar_Enter;
+			dropButtonSaveList.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// panel
 			// 
@@ -415,10 +418,10 @@
 			listView.UseCompatibleStateImageBehavior = false;
 			listView.View = View.Details;
 			listView.SelectedIndexChanged += SelectedIndexChanged;
-			listView.Enter += SetStatusbar_Enter;
-			listView.Leave += ClearStatusbar_Leave;
-			listView.MouseEnter += SetStatusbar_Enter;
-			listView.MouseLeave += ClearStatusbar_Leave;
+			listView.Enter += SetStatusBar_Enter;
+			listView.Leave += ClearStatusBar_Leave;
+			listView.MouseEnter += SetStatusBar_Enter;
+			listView.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// columnHeaderIndex
 			// 
@@ -483,24 +486,24 @@
 
 		#endregion
 
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
+		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
-		private System.ComponentModel.BackgroundWorker backgroundWorker;
+		private BackgroundWorker backgroundWorker;
 		private ToolTip toolTip;
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonButton buttonCancel;
+		private KryptonPanel panel;
+		private KryptonButton buttonCancel;
 		private ListView listView;
 		private ColumnHeader columnHeaderIndex;
 		private ColumnHeader columnHeaderReadableDesignation;
-		private Krypton.Toolkit.KryptonProgressBar progressBar;
-		private Krypton.Toolkit.KryptonButton buttonList;
+		private KryptonProgressBar progressBar;
+		private KryptonButton buttonList;
 		private Label labelWarning;
-		private Krypton.Toolkit.KryptonButton buttonLoad;
-		private Krypton.Toolkit.KryptonLabel labelMinimum;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMinimum;
-		private Krypton.Toolkit.KryptonNumericUpDown numericUpDownMaximum;
-		private Krypton.Toolkit.KryptonLabel labelMaximum;
-		private Krypton.Toolkit.KryptonDropButton dropButtonSaveList;
+		private KryptonButton buttonLoad;
+		private KryptonLabel labelMinimum;
+		private KryptonNumericUpDown numericUpDownMinimum;
+		private KryptonNumericUpDown numericUpDownMaximum;
+		private KryptonLabel labelMaximum;
+		private KryptonDropButton dropButtonSaveList;
 		private ContextMenuStrip contextMenuStripSaveList;
 		private ToolStripMenuItem toolStripMenuItemSaveAsCsv;
 		private ToolStripMenuItem toolStripMenuItemSaveAsHtml;

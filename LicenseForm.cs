@@ -12,7 +12,7 @@ namespace Planetoid_DB
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class LicenseForm : KryptonForm
 	{
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 
 		#region constructor
 
@@ -61,7 +61,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -72,21 +72,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -113,11 +114,11 @@ namespace Planetoid_DB
 				_ = Directory.CreateDirectory(path: outDir);
 			}
 			// Open the resource stream and read the bytes
-			using Stream? s = assembly.GetManifestResourceStream(name: resourcePath) ?? throw new FileNotFoundException(message: $"Resource '{resourcePath}' not found in assembly.");
+			using Stream s = assembly.GetManifestResourceStream(name: resourcePath) ?? throw new FileNotFoundException(message: $"Resource '{resourcePath}' not found in assembly.");
 			// Create the output file stream
 			using BinaryReader r = new(input: s);
 			// Create the output file stream and write the bytes to it
-			using FileStream fs = new(path: Path.Combine(outDir, resourceName), mode: FileMode.OpenOrCreate);
+			using FileStream fs = new(path: Path.Combine(path1: outDir, path2: resourceName), mode: FileMode.OpenOrCreate);
 			// Ensure the file stream is writable
 			using BinaryWriter w = new(output: fs);
 			// Read the bytes from the resource stream and write them to the output file
@@ -133,7 +134,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void LicenseForm_Load(object sender, EventArgs e) => ClearStatusbar();
+		private void LicenseForm_Load(object sender, EventArgs e) => ClearStatusBar();
 
 		/// <summary>
 		/// Fired when the form closes.
@@ -151,18 +152,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -176,7 +177,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -190,17 +191,18 @@ namespace Planetoid_DB
 		private void KryptonButtonSaveLicense_Click(object sender, EventArgs e)
 		{
 			// Create a SaveFileDialog to prompt the user for a file location
-			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			if (saveFileDialog.ShowDialog() != DialogResult.OK)
 			{
-				// Get the selected file name
-				string fullFileName = saveFileDialog.FileName;
-				// Extract the LICENSE file from the embedded resources and copy it to the selected file location
-				ExtractResource(nameSpace: "Planetoid_DB", outDir: Path.GetDirectoryName(path: fullFileName) ?? string.Empty, internFilePath: "", resourceName: "LICENSE");
-				// Copy the LICENSE file to the selected file location
-				File.Copy(sourceFileName: Path.Combine(Path.GetDirectoryName(path: fullFileName) ?? string.Empty, "LICENSE"), destFileName: fullFileName, overwrite: true);
-				// Set the status bar text to indicate that the file has been saved
-				File.Delete(path: Path.Combine(Path.GetDirectoryName(path: fullFileName) ?? string.Empty, "LICENSE"));
+				return;
 			}
+			// Get the selected file name
+			string fullFileName = saveFileDialog.FileName;
+			// Extract the LICENSE file from the embedded resources and copy it to the selected file location
+			ExtractResource(nameSpace: "Planetoid_DB", outDir: Path.GetDirectoryName(path: fullFileName) ?? string.Empty, internFilePath: "", resourceName: "LICENSE");
+			// Copy the LICENSE file to the selected file location
+			File.Copy(sourceFileName: Path.Combine(path1: Path.GetDirectoryName(path: fullFileName) ?? string.Empty, path2: "LICENSE"), destFileName: fullFileName, overwrite: true);
+			// Set the status bar text to indicate that the file has been saved
+			File.Delete(path: Path.Combine(path1: Path.GetDirectoryName(path: fullFileName) ?? string.Empty, path2: "LICENSE"));
 		}
 
 		private void KryptonButtonCopyLicenseToClipboard_Click(object sender, EventArgs e) =>

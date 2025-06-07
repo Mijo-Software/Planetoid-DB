@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class SearchForm
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -73,10 +76,10 @@
 			checkedListBox.Size = new Size(266, 194);
 			checkedListBox.TabIndex = 1;
 			toolTip.SetToolTip(checkedListBox, "Box with selectable orbital elements");
-			checkedListBox.Enter += SetStatusbar_Enter;
-			checkedListBox.Leave += ClearStatusbar_Leave;
-			checkedListBox.MouseEnter += SetStatusbar_Enter;
-			checkedListBox.MouseLeave += ClearStatusbar_Leave;
+			checkedListBox.Enter += SetStatusBar_Enter;
+			checkedListBox.Leave += ClearStatusBar_Leave;
+			checkedListBox.MouseEnter += SetStatusBar_Enter;
+			checkedListBox.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// panel
 			// 
@@ -118,10 +121,10 @@
 			listView.UseCompatibleStateImageBehavior = false;
 			listView.View = View.Details;
 			listView.SelectedIndexChanged += ListView_SelectedIndexChanged;
-			listView.Enter += SetStatusbar_Enter;
-			listView.Leave += ClearStatusbar_Leave;
-			listView.MouseEnter += SetStatusbar_Enter;
-			listView.MouseLeave += ClearStatusbar_Leave;
+			listView.Enter += SetStatusBar_Enter;
+			listView.Leave += ClearStatusBar_Leave;
+			listView.MouseEnter += SetStatusBar_Enter;
+			listView.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// columnHeaderIndex
 			// 
@@ -157,10 +160,10 @@
 			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
-			buttonCancel.Enter += SetStatusbar_Enter;
-			buttonCancel.Leave += ClearStatusbar_Leave;
-			buttonCancel.MouseEnter += SetStatusbar_Enter;
-			buttonCancel.MouseLeave += ClearStatusbar_Leave;
+			buttonCancel.Enter += SetStatusBar_Enter;
+			buttonCancel.Leave += ClearStatusBar_Leave;
+			buttonCancel.MouseEnter += SetStatusBar_Enter;
+			buttonCancel.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// statusStrip
 			// 
@@ -205,10 +208,10 @@
 			labelEntriesFound.TabIndex = 8;
 			toolTip.SetToolTip(labelEntriesFound, "Shows the found entries");
 			labelEntriesFound.Values.Text = "0 entries found";
-			labelEntriesFound.Enter += SetStatusbar_Enter;
-			labelEntriesFound.Leave += ClearStatusbar_Leave;
-			labelEntriesFound.MouseEnter += SetStatusbar_Enter;
-			labelEntriesFound.MouseLeave += ClearStatusbar_Leave;
+			labelEntriesFound.Enter += SetStatusBar_Enter;
+			labelEntriesFound.Leave += ClearStatusBar_Leave;
+			labelEntriesFound.MouseEnter += SetStatusBar_Enter;
+			labelEntriesFound.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// progressBar
 			// 
@@ -222,8 +225,8 @@
 			progressBar.TabIndex = 7;
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the search");
 			progressBar.Values.Text = "";
-			progressBar.MouseEnter += SetStatusbar_Enter;
-			progressBar.MouseLeave += ClearStatusbar_Leave;
+			progressBar.MouseEnter += SetStatusBar_Enter;
+			progressBar.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// groupBox
 			// 
@@ -247,10 +250,10 @@
 			toolTip.SetToolTip(groupBox, "Group the search element");
 			groupBox.Values.Heading = "Word, number, keyword, ...";
 			groupBox.Values.Image = Properties.Resources.silk_pencil;
-			groupBox.Enter += SetStatusbar_Enter;
-			groupBox.Leave += ClearStatusbar_Leave;
-			groupBox.MouseEnter += SetStatusbar_Enter;
-			groupBox.MouseLeave += ClearStatusbar_Leave;
+			groupBox.Enter += SetStatusBar_Enter;
+			groupBox.Leave += ClearStatusBar_Leave;
+			groupBox.MouseEnter += SetStatusBar_Enter;
+			groupBox.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonClear
 			// 
@@ -268,10 +271,10 @@
 			buttonClear.Values.Image = Properties.Resources.silk_cross;
 			buttonClear.Values.Text = "&Clear";
 			buttonClear.Click += ButtonClear_Click;
-			buttonClear.Enter += SetStatusbar_Enter;
-			buttonClear.Leave += ClearStatusbar_Leave;
-			buttonClear.MouseEnter += SetStatusbar_Enter;
-			buttonClear.MouseLeave += ClearStatusbar_Leave;
+			buttonClear.Enter += SetStatusBar_Enter;
+			buttonClear.Leave += ClearStatusBar_Leave;
+			buttonClear.MouseEnter += SetStatusBar_Enter;
+			buttonClear.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// textBox
 			// 
@@ -285,10 +288,10 @@
 			textBox.TabIndex = 0;
 			toolTip.SetToolTip(textBox, "Search box");
 			textBox.TextChanged += TextBox_TextChanged;
-			textBox.Enter += SetStatusbar_Enter;
-			textBox.Leave += ClearStatusbar_Leave;
-			textBox.MouseEnter += SetStatusbar_Enter;
-			textBox.MouseLeave += ClearStatusbar_Leave;
+			textBox.Enter += SetStatusBar_Enter;
+			textBox.Leave += ClearStatusBar_Leave;
+			textBox.MouseEnter += SetStatusBar_Enter;
+			textBox.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonLoad
 			// 
@@ -306,10 +309,10 @@
 			buttonLoad.Values.Image = Properties.Resources.silk_go;
 			buttonLoad.Values.Text = "&Load";
 			buttonLoad.Click += ButtonLoad_Click;
-			buttonLoad.Enter += SetStatusbar_Enter;
-			buttonLoad.Leave += ClearStatusbar_Leave;
-			buttonLoad.MouseEnter += SetStatusbar_Enter;
-			buttonLoad.MouseLeave += ClearStatusbar_Leave;
+			buttonLoad.Enter += SetStatusBar_Enter;
+			buttonLoad.Leave += ClearStatusBar_Leave;
+			buttonLoad.MouseEnter += SetStatusBar_Enter;
+			buttonLoad.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonUnmarkAll
 			// 
@@ -326,10 +329,10 @@
 			buttonUnmarkAll.Values.DropDownArrowColor = Color.Empty;
 			buttonUnmarkAll.Values.Text = "&Unmark all";
 			buttonUnmarkAll.Click += ButtonUnmarkAll_Click;
-			buttonUnmarkAll.Enter += SetStatusbar_Enter;
-			buttonUnmarkAll.Leave += ClearStatusbar_Leave;
-			buttonUnmarkAll.MouseEnter += SetStatusbar_Enter;
-			buttonUnmarkAll.MouseLeave += ClearStatusbar_Leave;
+			buttonUnmarkAll.Enter += SetStatusBar_Enter;
+			buttonUnmarkAll.Leave += ClearStatusBar_Leave;
+			buttonUnmarkAll.MouseEnter += SetStatusBar_Enter;
+			buttonUnmarkAll.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonMarkAll
 			// 
@@ -347,10 +350,10 @@
 			buttonMarkAll.Values.Image = Properties.Resources.silk_asterisk_orange;
 			buttonMarkAll.Values.Text = "&Mark all";
 			buttonMarkAll.Click += ButtonMarkAll_Click;
-			buttonMarkAll.Enter += SetStatusbar_Enter;
-			buttonMarkAll.Leave += ClearStatusbar_Leave;
-			buttonMarkAll.MouseEnter += SetStatusbar_Enter;
-			buttonMarkAll.MouseLeave += ClearStatusbar_Leave;
+			buttonMarkAll.Enter += SetStatusBar_Enter;
+			buttonMarkAll.Leave += ClearStatusBar_Leave;
+			buttonMarkAll.MouseEnter += SetStatusBar_Enter;
+			buttonMarkAll.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSearch
 			// 
@@ -367,10 +370,10 @@
 			buttonSearch.Values.Image = Properties.Resources.silk_magnifier;
 			buttonSearch.Values.Text = "&Search";
 			buttonSearch.Click += ButtonSearch_Click;
-			buttonSearch.Enter += SetStatusbar_Enter;
-			buttonSearch.Leave += ClearStatusbar_Leave;
-			buttonSearch.MouseEnter += SetStatusbar_Enter;
-			buttonSearch.MouseLeave += ClearStatusbar_Leave;
+			buttonSearch.Enter += SetStatusBar_Enter;
+			buttonSearch.Leave += ClearStatusBar_Leave;
+			buttonSearch.MouseEnter += SetStatusBar_Enter;
+			buttonSearch.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// backgroundWorker
 			// 
@@ -414,22 +417,22 @@
 		}
 
 		#endregion
-		private Krypton.Toolkit.KryptonCheckedListBox checkedListBox;
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonButton buttonUnmarkAll;
-		private Krypton.Toolkit.KryptonButton buttonMarkAll;
-		private Krypton.Toolkit.KryptonButton buttonSearch;
-		private Krypton.Toolkit.KryptonButton buttonLoad;
-		private Krypton.Toolkit.KryptonGroupBox groupBox;
-		private Krypton.Toolkit.KryptonTextBox textBox;
-		private Krypton.Toolkit.KryptonButton buttonClear;
-		private Krypton.Toolkit.KryptonLabel labelEntriesFound;
-		private Krypton.Toolkit.KryptonProgressBar progressBar;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolTip toolTip;
-		private System.ComponentModel.BackgroundWorker backgroundWorker;
-		private Krypton.Toolkit.KryptonButton buttonCancel;
+		private KryptonCheckedListBox checkedListBox;
+		private KryptonPanel panel;
+		private KryptonButton buttonUnmarkAll;
+		private KryptonButton buttonMarkAll;
+		private KryptonButton buttonSearch;
+		private KryptonButton buttonLoad;
+		private KryptonGroupBox groupBox;
+		private KryptonTextBox textBox;
+		private KryptonButton buttonClear;
+		private KryptonLabel labelEntriesFound;
+		private KryptonProgressBar progressBar;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
+		private ToolTip toolTip;
+		private BackgroundWorker backgroundWorker;
+		private KryptonButton buttonCancel;
 		private ListView listView;
 		private ColumnHeader columnHeaderIndexNo;
 		private ColumnHeader columnHeaderProperty;
