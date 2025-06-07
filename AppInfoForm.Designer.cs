@@ -1,4 +1,5 @@
-﻿using Krypton.Toolkit;
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
@@ -10,7 +11,7 @@ namespace Planetoid_DB
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     /// <summary>
     /// Clean up any resources being used.
@@ -67,10 +68,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelVersion, "Shows the version number");
 			labelVersion.Values.Text = "Version: X.X.X.X";
 			labelVersion.DoubleClick += CopyToClipboard_DoubleClick;
-			labelVersion.Enter += SetStatusbar_Enter;
-			labelVersion.Leave += ClearStatusbar_Leave;
-			labelVersion.MouseEnter += SetStatusbar_Enter;
-			labelVersion.MouseLeave += ClearStatusbar_Leave;
+			labelVersion.Enter += SetStatusBar_Enter;
+			labelVersion.Leave += ClearStatusBar_Leave;
+			labelVersion.MouseEnter += SetStatusBar_Enter;
+			labelVersion.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelTitle
 			// 
@@ -88,10 +89,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelTitle, "Shows the application name");
 			labelTitle.Values.Text = "Planetoid-DB";
 			labelTitle.DoubleClick += CopyToClipboard_DoubleClick;
-			labelTitle.Enter += SetStatusbar_Enter;
-			labelTitle.Leave += ClearStatusbar_Leave;
-			labelTitle.MouseEnter += SetStatusbar_Enter;
-			labelTitle.MouseLeave += ClearStatusbar_Leave;
+			labelTitle.Enter += SetStatusBar_Enter;
+			labelTitle.Leave += ClearStatusBar_Leave;
+			labelTitle.MouseEnter += SetStatusBar_Enter;
+			labelTitle.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDescription
 			// 
@@ -106,10 +107,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDescription, "Shows the program description");
 			labelDescription.Values.Text = "[Description]";
 			labelDescription.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDescription.Enter += SetStatusbar_Enter;
-			labelDescription.Leave += ClearStatusbar_Leave;
-			labelDescription.MouseEnter += SetStatusbar_Enter;
-			labelDescription.MouseLeave += ClearStatusbar_Leave;
+			labelDescription.Enter += SetStatusBar_Enter;
+			labelDescription.Leave += ClearStatusBar_Leave;
+			labelDescription.MouseEnter += SetStatusBar_Enter;
+			labelDescription.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// pictureBoxBanner
 			// 
@@ -123,8 +124,8 @@ namespace Planetoid_DB
 			pictureBoxBanner.TabIndex = 0;
 			pictureBoxBanner.TabStop = false;
 			toolTip.SetToolTip(pictureBoxBanner, "On the graphic you see the minor planet \"(243) Ida \".");
-			pictureBoxBanner.MouseEnter += SetStatusbar_Enter;
-			pictureBoxBanner.MouseLeave += ClearStatusbar_Leave;
+			pictureBoxBanner.MouseEnter += SetStatusBar_Enter;
+			pictureBoxBanner.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelCopyright
 			// 
@@ -139,10 +140,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelCopyright, "Shows the copyright");
 			labelCopyright.Values.Text = "[Copyright]";
 			labelCopyright.DoubleClick += CopyToClipboard_DoubleClick;
-			labelCopyright.Enter += SetStatusbar_Enter;
-			labelCopyright.Leave += ClearStatusbar_Leave;
-			labelCopyright.MouseEnter += SetStatusbar_Enter;
-			labelCopyright.MouseLeave += ClearStatusbar_Leave;
+			labelCopyright.Enter += SetStatusBar_Enter;
+			labelCopyright.Leave += ClearStatusBar_Leave;
+			labelCopyright.MouseEnter += SetStatusBar_Enter;
+			labelCopyright.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// linkLabelEmail
 			// 
@@ -158,10 +159,10 @@ namespace Planetoid_DB
 			linkLabelEmail.Values.Image = Properties.Resources.silk_email;
 			linkLabelEmail.Values.Text = "E-Mail";
 			linkLabelEmail.LinkClicked += LinkLabelEmail_Clicked;
-			linkLabelEmail.Enter += SetStatusbar_Enter;
-			linkLabelEmail.Leave += ClearStatusbar_Leave;
-			linkLabelEmail.MouseEnter += SetStatusbar_Enter;
-			linkLabelEmail.MouseLeave += ClearStatusbar_Leave;
+			linkLabelEmail.Enter += SetStatusBar_Enter;
+			linkLabelEmail.Leave += ClearStatusBar_Leave;
+			linkLabelEmail.MouseEnter += SetStatusBar_Enter;
+			linkLabelEmail.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// linkLabelWebsite
 			// 
@@ -177,10 +178,10 @@ namespace Planetoid_DB
 			linkLabelWebsite.Values.Image = Properties.Resources.silk_world;
 			linkLabelWebsite.Values.Text = "Website";
 			linkLabelWebsite.LinkClicked += LinkLabelWebsite_Clicked;
-			linkLabelWebsite.Enter += SetStatusbar_Enter;
-			linkLabelWebsite.Leave += ClearStatusbar_Leave;
-			linkLabelWebsite.MouseEnter += SetStatusbar_Enter;
-			linkLabelWebsite.MouseLeave += ClearStatusbar_Leave;
+			linkLabelWebsite.Enter += SetStatusBar_Enter;
+			linkLabelWebsite.Leave += ClearStatusBar_Leave;
+			linkLabelWebsite.MouseEnter += SetStatusBar_Enter;
+			linkLabelWebsite.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// panel
 			// 
@@ -265,15 +266,15 @@ namespace Planetoid_DB
 
 		#endregion
 
-		private System.Windows.Forms.PictureBox pictureBoxBanner;
+		private PictureBox pictureBoxBanner;
     private KryptonLabel labelVersion;
     private KryptonLabel labelTitle;
     private KryptonLabel labelDescription;
-    private System.Windows.Forms.ToolTip toolTip;
+    private ToolTip toolTip;
 		private KryptonLabel labelCopyright;
-        private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+        private KryptonPanel panel;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
 		private KryptonLinkLabel linkLabelWebsite;
 		private KryptonLinkLabel linkLabelEmail;
 	}

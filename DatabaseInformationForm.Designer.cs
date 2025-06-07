@@ -1,4 +1,5 @@
-﻿using Krypton.Toolkit;
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
@@ -7,7 +8,7 @@ namespace Planetoid_DB
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     /// <summary>
     /// Clean up any resources being used.
@@ -73,10 +74,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelName, "Name");
 			labelName.Values.Text = "Name";
 			labelName.DoubleClick += CopyToClipboard_DoubleClick;
-			labelName.Enter += SetStatusbar_Enter;
-			labelName.Leave += ClearStatusbar_Leave;
-			labelName.MouseEnter += SetStatusbar_Enter;
-			labelName.MouseLeave += ClearStatusbar_Leave;
+			labelName.Enter += SetStatusBar_Enter;
+			labelName.Leave += ClearStatusBar_Leave;
+			labelName.MouseEnter += SetStatusBar_Enter;
+			labelName.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDirectory
 			// 
@@ -93,10 +94,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDirectory, "Directory");
 			labelDirectory.Values.Text = "Directory";
 			labelDirectory.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDirectory.Enter += SetStatusbar_Enter;
-			labelDirectory.Leave += ClearStatusbar_Leave;
-			labelDirectory.MouseEnter += SetStatusbar_Enter;
-			labelDirectory.MouseLeave += ClearStatusbar_Leave;
+			labelDirectory.Enter += SetStatusBar_Enter;
+			labelDirectory.Leave += ClearStatusBar_Leave;
+			labelDirectory.MouseEnter += SetStatusBar_Enter;
+			labelDirectory.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSize
 			// 
@@ -113,10 +114,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelSize, "Size");
 			labelSize.Values.Text = "Size";
 			labelSize.DoubleClick += CopyToClipboard_DoubleClick;
-			labelSize.Enter += SetStatusbar_Enter;
-			labelSize.Leave += ClearStatusbar_Leave;
-			labelSize.MouseEnter += SetStatusbar_Enter;
-			labelSize.MouseLeave += ClearStatusbar_Leave;
+			labelSize.Enter += SetStatusBar_Enter;
+			labelSize.Leave += ClearStatusBar_Leave;
+			labelSize.MouseEnter += SetStatusBar_Enter;
+			labelSize.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateCreated
 			// 
@@ -133,10 +134,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDateCreated, "Creation date");
 			labelDateCreated.Values.Text = "Creation date";
 			labelDateCreated.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDateCreated.Enter += SetStatusbar_Enter;
-			labelDateCreated.Leave += ClearStatusbar_Leave;
-			labelDateCreated.MouseEnter += SetStatusbar_Enter;
-			labelDateCreated.MouseLeave += ClearStatusbar_Leave;
+			labelDateCreated.Enter += SetStatusBar_Enter;
+			labelDateCreated.Leave += ClearStatusBar_Leave;
+			labelDateCreated.MouseEnter += SetStatusBar_Enter;
+			labelDateCreated.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateAccessed
 			// 
@@ -153,10 +154,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDateAccessed, "Last access date");
 			labelDateAccessed.Values.Text = "Last access date";
 			labelDateAccessed.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDateAccessed.Enter += SetStatusbar_Enter;
-			labelDateAccessed.Leave += ClearStatusbar_Leave;
-			labelDateAccessed.MouseEnter += SetStatusbar_Enter;
-			labelDateAccessed.MouseLeave += ClearStatusbar_Leave;
+			labelDateAccessed.Enter += SetStatusBar_Enter;
+			labelDateAccessed.Leave += ClearStatusBar_Leave;
+			labelDateAccessed.MouseEnter += SetStatusBar_Enter;
+			labelDateAccessed.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateWrited
 			// 
@@ -173,10 +174,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDateWrited, "Last write date");
 			labelDateWrited.Values.Text = "Last write date";
 			labelDateWrited.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDateWrited.Enter += SetStatusbar_Enter;
-			labelDateWrited.Leave += ClearStatusbar_Leave;
-			labelDateWrited.MouseEnter += SetStatusbar_Enter;
-			labelDateWrited.MouseLeave += ClearStatusbar_Leave;
+			labelDateWrited.Enter += SetStatusBar_Enter;
+			labelDateWrited.Leave += ClearStatusBar_Leave;
+			labelDateWrited.MouseEnter += SetStatusBar_Enter;
+			labelDateWrited.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelAttributes
 			// 
@@ -193,10 +194,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelAttributes, "Attributes");
 			labelAttributes.Values.Text = "Attributes";
 			labelAttributes.DoubleClick += CopyToClipboard_DoubleClick;
-			labelAttributes.Enter += SetStatusbar_Enter;
-			labelAttributes.Leave += ClearStatusbar_Leave;
-			labelAttributes.MouseEnter += SetStatusbar_Enter;
-			labelAttributes.MouseLeave += ClearStatusbar_Leave;
+			labelAttributes.Enter += SetStatusBar_Enter;
+			labelAttributes.Leave += ClearStatusBar_Leave;
+			labelAttributes.MouseEnter += SetStatusBar_Enter;
+			labelAttributes.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelNameValue
 			// 
@@ -212,10 +213,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelNameValue, "Shows the name of the database");
 			labelNameValue.Values.Text = "..........";
 			labelNameValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelNameValue.Enter += SetStatusbar_Enter;
-			labelNameValue.Leave += ClearStatusbar_Leave;
-			labelNameValue.MouseEnter += SetStatusbar_Enter;
-			labelNameValue.MouseLeave += ClearStatusbar_Leave;
+			labelNameValue.Enter += SetStatusBar_Enter;
+			labelNameValue.Leave += ClearStatusBar_Leave;
+			labelNameValue.MouseEnter += SetStatusBar_Enter;
+			labelNameValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDirectoryValue
 			// 
@@ -231,10 +232,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDirectoryValue, "Shows the directory of the database");
 			labelDirectoryValue.Values.Text = "..........";
 			labelDirectoryValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDirectoryValue.Enter += SetStatusbar_Enter;
-			labelDirectoryValue.Leave += ClearStatusbar_Leave;
-			labelDirectoryValue.MouseEnter += SetStatusbar_Enter;
-			labelDirectoryValue.MouseLeave += ClearStatusbar_Leave;
+			labelDirectoryValue.Enter += SetStatusBar_Enter;
+			labelDirectoryValue.Leave += ClearStatusBar_Leave;
+			labelDirectoryValue.MouseEnter += SetStatusBar_Enter;
+			labelDirectoryValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelSizeValue
 			// 
@@ -250,10 +251,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelSizeValue, "Shows the size of the database");
 			labelSizeValue.Values.Text = "..........";
 			labelSizeValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelSizeValue.Enter += SetStatusbar_Enter;
-			labelSizeValue.Leave += ClearStatusbar_Leave;
-			labelSizeValue.MouseEnter += SetStatusbar_Enter;
-			labelSizeValue.MouseLeave += ClearStatusbar_Leave;
+			labelSizeValue.Enter += SetStatusBar_Enter;
+			labelSizeValue.Leave += ClearStatusBar_Leave;
+			labelSizeValue.MouseEnter += SetStatusBar_Enter;
+			labelSizeValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateCreatedValue
 			// 
@@ -269,10 +270,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDateCreatedValue, "Shows the creation date of the database");
 			labelDateCreatedValue.Values.Text = "..........";
 			labelDateCreatedValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDateCreatedValue.Enter += SetStatusbar_Enter;
-			labelDateCreatedValue.Leave += ClearStatusbar_Leave;
-			labelDateCreatedValue.MouseEnter += SetStatusbar_Enter;
-			labelDateCreatedValue.MouseLeave += ClearStatusbar_Leave;
+			labelDateCreatedValue.Enter += SetStatusBar_Enter;
+			labelDateCreatedValue.Leave += ClearStatusBar_Leave;
+			labelDateCreatedValue.MouseEnter += SetStatusBar_Enter;
+			labelDateCreatedValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateAccessedValue
 			// 
@@ -288,10 +289,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDateAccessedValue, "Shows the last access date of the database");
 			labelDateAccessedValue.Values.Text = "..........";
 			labelDateAccessedValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDateAccessedValue.Enter += SetStatusbar_Enter;
-			labelDateAccessedValue.Leave += ClearStatusbar_Leave;
-			labelDateAccessedValue.MouseEnter += SetStatusbar_Enter;
-			labelDateAccessedValue.MouseLeave += ClearStatusbar_Leave;
+			labelDateAccessedValue.Enter += SetStatusBar_Enter;
+			labelDateAccessedValue.Leave += ClearStatusBar_Leave;
+			labelDateAccessedValue.MouseEnter += SetStatusBar_Enter;
+			labelDateAccessedValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelDateWritedValue
 			// 
@@ -307,10 +308,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelDateWritedValue, "Shows the last write date of the database");
 			labelDateWritedValue.Values.Text = "..........";
 			labelDateWritedValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelDateWritedValue.Enter += SetStatusbar_Enter;
-			labelDateWritedValue.Leave += ClearStatusbar_Leave;
-			labelDateWritedValue.MouseEnter += SetStatusbar_Enter;
-			labelDateWritedValue.MouseLeave += ClearStatusbar_Leave;
+			labelDateWritedValue.Enter += SetStatusBar_Enter;
+			labelDateWritedValue.Leave += ClearStatusBar_Leave;
+			labelDateWritedValue.MouseEnter += SetStatusBar_Enter;
+			labelDateWritedValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelAttributesValue
 			// 
@@ -326,10 +327,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelAttributesValue, "Shows the attributes of the database");
 			labelAttributesValue.Values.Text = "..........";
 			labelAttributesValue.DoubleClick += CopyToClipboard_DoubleClick;
-			labelAttributesValue.Enter += SetStatusbar_Enter;
-			labelAttributesValue.Leave += ClearStatusbar_Leave;
-			labelAttributesValue.MouseEnter += SetStatusbar_Enter;
-			labelAttributesValue.MouseLeave += ClearStatusbar_Leave;
+			labelAttributesValue.Enter += SetStatusBar_Enter;
+			labelAttributesValue.Leave += ClearStatusBar_Leave;
+			labelAttributesValue.MouseEnter += SetStatusBar_Enter;
+			labelAttributesValue.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanel
 			// 
@@ -459,7 +460,7 @@ namespace Planetoid_DB
 		}
 
 		#endregion
-		private System.Windows.Forms.ToolTip toolTip;
+		private ToolTip toolTip;
     private KryptonTableLayoutPanel tableLayoutPanel;
     private KryptonLabel labelName;
     private KryptonLabel labelDirectory;
@@ -476,7 +477,7 @@ namespace Planetoid_DB
     private KryptonLabel labelDateWritedValue;
     private KryptonLabel labelAttributesValue;
 	private KryptonStatusStrip statusStrip;
-	private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-	private System.Windows.Forms.ToolStripContainer toolStripContainer;
+	private ToolStripStatusLabel labelInformation;
+	private ToolStripContainer toolStripContainer;
 	}
 }

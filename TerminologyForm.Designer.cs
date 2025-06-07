@@ -1,4 +1,5 @@
-﻿using Krypton.Toolkit;
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
@@ -7,7 +8,7 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -139,10 +140,10 @@ namespace Planetoid_DB
 			listBox.TabIndex = 7;
 			toolTip.SetToolTip(listBox, "Terms that can be looked up");
 			listBox.SelectedValueChanged += ListBox_SelectedValueChanged;
-			listBox.Enter += SetStatusbar_Enter;
-			listBox.Leave += ClearStatusbar_Leave;
-			listBox.MouseEnter += SetStatusbar_Enter;
-			listBox.MouseLeave += ClearStatusbar_Leave;
+			listBox.Enter += SetStatusBar_Enter;
+			listBox.Leave += ClearStatusBar_Leave;
+			listBox.MouseEnter += SetStatusBar_Enter;
+			listBox.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// webBrowser
 			// 
@@ -195,10 +196,10 @@ namespace Planetoid_DB
 
 		#endregion
 
-		private System.Windows.Forms.ToolTip toolTip;
+		private ToolTip toolTip;
 		private KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolStripContainer toolStripContainer;
+		private ToolStripStatusLabel labelInformation;
+		private ToolStripContainer toolStripContainer;
 		private KryptonSplitContainer splitContainer;
 		private KryptonListBox listBox;
 		private KryptonWebBrowser webBrowser;

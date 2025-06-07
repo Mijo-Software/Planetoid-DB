@@ -43,23 +43,23 @@ namespace Planetoid_DB
 			[PreserveSig]
 			void HrInit();
 			[PreserveSig]
-			void AddTab(IntPtr hwnd);
+			void AddTab(IntPtr handleWindow);
 			[PreserveSig]
-			void DeleteTab(IntPtr hwnd);
+			void DeleteTab(IntPtr handleWindow);
 			[PreserveSig]
-			void ActivateTab(IntPtr hwnd);
+			void ActivateTab(IntPtr handleWindow);
 			[PreserveSig]
-			void SetActiveAlt(IntPtr hwnd);
+			void SetActiveAlt(IntPtr handleWindow);
 
 			// ITaskbarList2
 			[PreserveSig]
-			void MarkFullscreenWindow(IntPtr hwnd, [MarshalAs(unmanagedType: UnmanagedType.Bool)] bool fFullscreen);
+			void MarkFullscreenWindow(IntPtr handleWindow, [MarshalAs(unmanagedType: UnmanagedType.Bool)] bool fFullscreen);
 
 			// ITaskbarList3
 			[PreserveSig]
-			void SetProgressValue(IntPtr hwnd, ulong ullCompleted, ulong ullTotal);
+			void SetProgressValue(IntPtr handleWindow, ulong ullCompleted, ulong ullTotal);
 			[PreserveSig]
-			void SetProgressState(IntPtr hwnd, TaskbarStates state);
+			void SetProgressState(IntPtr handleWindow, TaskbarStates state);
 		}
 
 		[Guid(guid: "56FDF344-FD6D-11d0-958A-006097C9A090")]
@@ -79,18 +79,19 @@ namespace Planetoid_DB
 		/// <param name="taskbarState">The new state of the taskbar progress.</param>
 		public static void SetState(IntPtr windowHandle, TaskbarStates taskbarState)
 		{
-			if (taskbarSupported)
+			if (!taskbarSupported)
 			{
-				try
-				{
-					taskbarInstance.SetProgressState(hwnd: windowHandle, state: taskbarState);
-				}
-				catch (Exception ex)
-				{
-					// Fehlerbehandlung hinzufügen
-					string value = $"Error setting taskbar status: {ex.Message}";
-					Console.WriteLine(value: value);
-				}
+				return;
+			}
+
+			try
+			{
+				taskbarInstance.SetProgressState(handleWindow: windowHandle, state: taskbarState);
+			}
+			catch (Exception ex)
+			{
+				// Fehlerbehandlung hinzufügen
+				Console.WriteLine(value: $@"Error setting taskbar progress value: {ex.Message}");
 			}
 		}
 
@@ -102,17 +103,19 @@ namespace Planetoid_DB
 		/// <param name="progressMax">The maximum progress value.</param>
 		public static void SetValue(IntPtr windowHandle, double progressValue, double progressMax)
 		{
-			if (taskbarSupported)
+			if (!taskbarSupported)
 			{
-				try
-				{
-					taskbarInstance.SetProgressValue(hwnd: windowHandle, ullCompleted: (ulong)progressValue, ullTotal: (ulong)progressMax);
-				}
-				catch (Exception ex)
-				{
-					// Fehlerbehandlung hinzufügen
-					Console.WriteLine(value: $"Error setting taskbar progress value: {ex.Message}");
-				}
+				return;
+			}
+
+			try
+			{
+				taskbarInstance.SetProgressValue(handleWindow: windowHandle, ullCompleted: (ulong)progressValue, ullTotal: (ulong)progressMax);
+			}
+			catch (Exception ex)
+			{
+				// Fehlerbehandlung hinzufügen
+				Console.WriteLine(value: $@"Error setting taskbar progress value: {ex.Message}");
 			}
 		}
 	}

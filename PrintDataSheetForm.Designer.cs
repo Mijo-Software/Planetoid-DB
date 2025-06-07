@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
     partial class PrintDataSheetForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -57,10 +60,10 @@
 			checkedListBoxOrbitalElements.Size = new Size(280, 220);
 			checkedListBoxOrbitalElements.TabIndex = 0;
 			toolTip.SetToolTip(checkedListBoxOrbitalElements, "Checks some orbital elements to print on a data sheet");
-			checkedListBoxOrbitalElements.Enter += SetStatusbar_Enter;
-			checkedListBoxOrbitalElements.Leave += ClearStatusbar_Leave;
-			checkedListBoxOrbitalElements.MouseEnter += SetStatusbar_Enter;
-			checkedListBoxOrbitalElements.MouseLeave += ClearStatusbar_Leave;
+			checkedListBoxOrbitalElements.Enter += SetStatusBar_Enter;
+			checkedListBoxOrbitalElements.Leave += ClearStatusBar_Leave;
+			checkedListBoxOrbitalElements.MouseEnter += SetStatusBar_Enter;
+			checkedListBoxOrbitalElements.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonPrintDataSheet
 			// 
@@ -77,10 +80,10 @@
 			buttonPrintDataSheet.Values.Image = Properties.Resources.silk_printer;
 			buttonPrintDataSheet.Values.Text = "&Print the sheet";
 			buttonPrintDataSheet.Click += ButtonPrintDataSheet_Click;
-			buttonPrintDataSheet.Enter += SetStatusbar_Enter;
-			buttonPrintDataSheet.Leave += ClearStatusbar_Leave;
-			buttonPrintDataSheet.MouseEnter += SetStatusbar_Enter;
-			buttonPrintDataSheet.MouseLeave += ClearStatusbar_Leave;
+			buttonPrintDataSheet.Enter += SetStatusBar_Enter;
+			buttonPrintDataSheet.Leave += ClearStatusBar_Leave;
+			buttonPrintDataSheet.MouseEnter += SetStatusBar_Enter;
+			buttonPrintDataSheet.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonCancelPrint
 			// 
@@ -97,10 +100,10 @@
 			buttonCancelPrint.Values.Image = Properties.Resources.silk_cancel;
 			buttonCancelPrint.Values.Text = "&Cancel print";
 			buttonCancelPrint.Click += ButtonCancelPrint_Click;
-			buttonCancelPrint.Enter += SetStatusbar_Enter;
-			buttonCancelPrint.Leave += ClearStatusbar_Leave;
-			buttonCancelPrint.MouseEnter += SetStatusbar_Enter;
-			buttonCancelPrint.MouseLeave += ClearStatusbar_Leave;
+			buttonCancelPrint.Enter += SetStatusBar_Enter;
+			buttonCancelPrint.Leave += ClearStatusBar_Leave;
+			buttonCancelPrint.MouseEnter += SetStatusBar_Enter;
+			buttonCancelPrint.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// panel
 			// 
@@ -180,12 +183,12 @@
 
 		#endregion
 
-		private Krypton.Toolkit.KryptonCheckedListBox checkedListBoxOrbitalElements;
-        private System.Windows.Forms.ToolTip toolTip;
-        private Krypton.Toolkit.KryptonButton buttonPrintDataSheet;
-        private Krypton.Toolkit.KryptonButton buttonCancelPrint;
-        private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
+		private KryptonCheckedListBox checkedListBoxOrbitalElements;
+        private ToolTip toolTip;
+        private KryptonButton buttonPrintDataSheet;
+        private KryptonButton buttonCancelPrint;
+        private KryptonPanel panel;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
 	}
 }

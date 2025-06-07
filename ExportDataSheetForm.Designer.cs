@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class ExportDataSheetForm
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -70,10 +73,10 @@
 			buttonExportAsJson.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsJson.Values.Text = "Export as JSON";
 			buttonExportAsJson.Click += ButtonExportAsJson_Click;
-			buttonExportAsJson.Enter += SetStatusbar_Enter;
-			buttonExportAsJson.Leave += ClearStatusbar_Leave;
-			buttonExportAsJson.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsJson.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsJson.Enter += SetStatusBar_Enter;
+			buttonExportAsJson.Leave += ClearStatusBar_Leave;
+			buttonExportAsJson.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsJson.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsTxt
 			// 
@@ -91,10 +94,10 @@
 			buttonExportAsTxt.Values.Image = Properties.Resources.silk_page_white_text;
 			buttonExportAsTxt.Values.Text = "Export as TXT";
 			buttonExportAsTxt.Click += ButtonExportAsTxt_Click;
-			buttonExportAsTxt.Enter += SetStatusbar_Enter;
-			buttonExportAsTxt.Leave += ClearStatusbar_Leave;
-			buttonExportAsTxt.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsTxt.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsTxt.Enter += SetStatusBar_Enter;
+			buttonExportAsTxt.Leave += ClearStatusBar_Leave;
+			buttonExportAsTxt.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsTxt.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsXml
 			// 
@@ -112,10 +115,10 @@
 			buttonExportAsXml.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsXml.Values.Text = "Export as XML";
 			buttonExportAsXml.Click += ButtonExportAsXml_Click;
-			buttonExportAsXml.Enter += SetStatusbar_Enter;
-			buttonExportAsXml.Leave += ClearStatusbar_Leave;
-			buttonExportAsXml.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsXml.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsXml.Enter += SetStatusBar_Enter;
+			buttonExportAsXml.Leave += ClearStatusBar_Leave;
+			buttonExportAsXml.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsXml.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsHtml
 			// 
@@ -133,10 +136,10 @@
 			buttonExportAsHtml.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsHtml.Values.Text = "Export as HTML";
 			buttonExportAsHtml.Click += ButtonExportAsHtml_Click;
-			buttonExportAsHtml.Enter += SetStatusbar_Enter;
-			buttonExportAsHtml.Leave += ClearStatusbar_Leave;
-			buttonExportAsHtml.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsHtml.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsHtml.Enter += SetStatusBar_Enter;
+			buttonExportAsHtml.Leave += ClearStatusBar_Leave;
+			buttonExportAsHtml.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsHtml.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// statusStrip
 			// 
@@ -183,10 +186,10 @@
 			buttonUnmarkAll.Values.DropDownArrowColor = Color.Empty;
 			buttonUnmarkAll.Values.Text = "&Unmark all";
 			buttonUnmarkAll.Click += ButtonUnmarkAll_Click;
-			buttonUnmarkAll.Enter += SetStatusbar_Enter;
-			buttonUnmarkAll.Leave += ClearStatusbar_Leave;
-			buttonUnmarkAll.MouseEnter += SetStatusbar_Enter;
-			buttonUnmarkAll.MouseLeave += ClearStatusbar_Leave;
+			buttonUnmarkAll.Enter += SetStatusBar_Enter;
+			buttonUnmarkAll.Leave += ClearStatusBar_Leave;
+			buttonUnmarkAll.MouseEnter += SetStatusBar_Enter;
+			buttonUnmarkAll.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonMarkAll
 			// 
@@ -204,10 +207,10 @@
 			buttonMarkAll.Values.Image = Properties.Resources.silk_asterisk_orange;
 			buttonMarkAll.Values.Text = "&Mark all";
 			buttonMarkAll.Click += ButtonMarkAll_Click;
-			buttonMarkAll.Enter += SetStatusbar_Enter;
-			buttonMarkAll.Leave += ClearStatusbar_Leave;
-			buttonMarkAll.MouseEnter += SetStatusbar_Enter;
-			buttonMarkAll.MouseLeave += ClearStatusbar_Leave;
+			buttonMarkAll.Enter += SetStatusBar_Enter;
+			buttonMarkAll.Leave += ClearStatusBar_Leave;
+			buttonMarkAll.MouseEnter += SetStatusBar_Enter;
+			buttonMarkAll.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// toolStripContainer
 			// 
@@ -271,10 +274,10 @@
 			toolTip.SetToolTip(checkedListBoxOrbitalElements, "Check orbital elements");
 			checkedListBoxOrbitalElements.SelectedIndexChanged += CheckedListBoxOrbitalElements_SelectedIndexChanged;
 			checkedListBoxOrbitalElements.ItemCheck += CheckedListBoxOrbitalElements_ItemCheck;
-			checkedListBoxOrbitalElements.Enter += SetStatusbar_Enter;
-			checkedListBoxOrbitalElements.Leave += ClearStatusbar_Leave;
-			checkedListBoxOrbitalElements.MouseEnter += SetStatusbar_Enter;
-			checkedListBoxOrbitalElements.MouseLeave += ClearStatusbar_Leave;
+			checkedListBoxOrbitalElements.Enter += SetStatusBar_Enter;
+			checkedListBoxOrbitalElements.Leave += ClearStatusBar_Leave;
+			checkedListBoxOrbitalElements.MouseEnter += SetStatusBar_Enter;
+			checkedListBoxOrbitalElements.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// saveFileDialogTxt
 			// 
@@ -329,11 +332,11 @@
 		}
 
 		#endregion
-		private Krypton.Toolkit.KryptonButton buttonExportAsHtml;
-		private Krypton.Toolkit.KryptonButton buttonExportAsTxt;
-		private Krypton.Toolkit.KryptonButton buttonExportAsXml;
-		private Krypton.Toolkit.KryptonButton buttonExportAsJson;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
+		private KryptonButton buttonExportAsHtml;
+		private KryptonButton buttonExportAsTxt;
+		private KryptonButton buttonExportAsXml;
+		private KryptonButton buttonExportAsJson;
+		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolTip toolTip;
 		private SaveFileDialog saveFileDialogTxt;
@@ -341,9 +344,9 @@
 		private SaveFileDialog saveFileDialogXml;
 		private SaveFileDialog saveFileDialogJson;
 		private ToolStripContainer toolStripContainer;
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonCheckedListBox checkedListBoxOrbitalElements;
-		private Krypton.Toolkit.KryptonButton buttonUnmarkAll;
-		private Krypton.Toolkit.KryptonButton buttonMarkAll;
+		private KryptonPanel panel;
+		private KryptonCheckedListBox checkedListBoxOrbitalElements;
+		private KryptonButton buttonUnmarkAll;
+		private KryptonButton buttonMarkAll;
 	}
 }

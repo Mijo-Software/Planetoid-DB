@@ -12,7 +12,7 @@ namespace Planetoid_DB
 	public partial class PrintDataSheetForm : KryptonForm
 	{
 		// NLog logger instance
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// The PrintDocument instance used for printing.
 		private readonly PrintDocument printDoc;
@@ -28,8 +28,8 @@ namespace Planetoid_DB
 			InitializeComponent();
 			KeyDown += PrintDataSheetForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
-			printDoc = new();
-			printDoc.PrintPage += new PrintPageEventHandler(PrintDoc_PrintPage);
+			printDoc = new PrintDocument();
+			printDoc.PrintPage += PrintDoc_PrintPage;
 		}
 
 		#endregion
@@ -65,7 +65,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -76,21 +76,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -110,17 +111,18 @@ namespace Planetoid_DB
 		private void PrintDataSheetForm_Load(object sender, EventArgs e)
 		{
 			// Clear the status bar text
-			ClearStatusbar();
+			ClearStatusBar();
 			// Check if the checked list box has items
-			if (checkedListBoxOrbitalElements.Items.Count != 0)
+			if (checkedListBoxOrbitalElements.Items.Count == 0)
 			{
-				// Check all items in the checked list box
-				// Iterate through all items in the checked list box
-				for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
-				{
-					// Set the item checked state to true
-					checkedListBoxOrbitalElements.SetItemChecked(index: i, value: true);
-				}
+				return;
+			}
+			// Check all items in the checked list box
+			// Iterate through all items in the checked list box
+			for (int i = 0; i < checkedListBoxOrbitalElements.Items.Count; i++)
+			{
+				// Set the item checked state to true
+				checkedListBoxOrbitalElements.SetItemChecked(index: i, value: true);
 			}
 		}
 
@@ -141,18 +143,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -167,7 +169,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -187,23 +189,24 @@ namespace Planetoid_DB
 			dialogPrint.Document = printDoc;
 			dialogPrint.AllowSelection = true;
 			dialogPrint.AllowSomePages = true;
-			if (dialogPrint.ShowDialog() == DialogResult.OK)
+			if (dialogPrint.ShowDialog() != DialogResult.OK)
 			{
-				// Try to print the document
-				try
-				{
-					// Print the document
-					printDoc.Print();
-				}
-				catch (Exception ex)
-				{
-					// Log the exception and show an error message
-					logger.Error(exception: ex, message: "Error while printing");
-					ShowErrorMessage(message: $"Error while printing: {ex.Message}");
-				}
-				// Close the form after printing
-				Close();
+				return;
 			}
+			// Try to print the document
+			try
+			{
+				// Print the document
+				printDoc.Print();
+			}
+			catch (Exception ex)
+			{
+				// Log the exception and show an error message
+				Logger.Error(exception: ex, message: "Error while printing");
+				ShowErrorMessage(message: $"Error while printing: {ex.Message}");
+			}
+			// Close the form after printing
+			Close();
 		}
 
 		/// <summary>
@@ -277,20 +280,21 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="PrintPageEventArgs"/> instance that contains the event data.</param>
-		private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
+		private static void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
 		{
 			// Check if the sender is null
-			if (e.Graphics != null)
+			if (e.Graphics == null)
 			{
-				// Set the text to be printed
-				string textToPrint = "This is a sample data sheet.";
-				// Set the font for the text
-				Font printFont = new(familyName: "Arial", emSize: 12);
-				// Set the text color to black
-				e.Graphics.DrawString(s: textToPrint, font: printFont, brush: Brushes.Black, point: new PointF(x: 100, y: 100));
-				// Indicate that no more pages are to be printed
-				e.HasMorePages = false;
+				return;
 			}
+			// Set the text to be printed
+			const string textToPrint = "This is a sample data sheet.";
+			// Set the font for the text
+			Font printFont = new(familyName: "Arial", emSize: 12);
+			// Set the text color to black
+			e.Graphics.DrawString(s: textToPrint, font: printFont, brush: Brushes.Black, point: new PointF(x: 100, y: 100));
+			// Indicate that no more pages are to be printed
+			e.HasMorePages = false;
 		}
 
 		#endregion

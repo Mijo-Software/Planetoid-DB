@@ -9,6 +9,7 @@ using System.Net.NetworkInformation;
 using System.Reflection;
 using Krypton.Toolkit;
 using NLog;
+using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
 {
@@ -17,58 +18,58 @@ namespace Planetoid_DB
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 
-	public partial class PlanetoidDBForm : KryptonForm
+	public partial class PlanetoidDbForm : KryptonForm
 	{
 		// NLog logger instance
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-		// Current position in the planetoid database
-		private int currentPosition = 0, stepPosition = 0;
+		// Current position in the planetoids database
+		private int currentPosition, stepPosition;
 
-		// Planetoid database
-		private readonly ArrayList planetoidDatabase = [];
+		// Planetoids database
+		private readonly ArrayList planetoidsDatabase = [];
 
 		// Web client for downloading data
-		private readonly WebClient webClient = new();
+		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
 
 		// Splash screen form
 		private readonly SplashScreenForm formSplashScreen = new();
 
 		// Filenames for the MPCORB database
-		private readonly string filenameMpcorb = Properties.Resources.FilenameMpcorb;
-		private readonly string filenameMpcorbTemp = Properties.Resources.FilenameMpcorbTemp;
+		private readonly string filenameMpcorb = Resources.FilenameMpcorb;
+		private readonly string filenameMpcorbTemp = Resources.FilenameMpcorbTemp;
 
 		// URI for the MPCORB database
-		private readonly Uri uriMpcorb = new(uriString: Properties.Settings.Default.systemMpcorbDatGzUrl);
+		private readonly Uri uriMpcorb = new(uriString: Settings.Default.systemMpcorbDatGzUrl);
 
 		// Flag to indicate if a download is in progress
-		private bool isBusy = false;
+		private bool isBusy;
 
 		#region Constructor
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="PlanetoidDBForm"/> class.
+		/// Initializes a new instance of the <see cref="PlanetoidDbForm"/> class.
 		/// </summary>
-		public PlanetoidDBForm()
+		public PlanetoidDbForm()
 		{
 			InitializeComponent();
-			this.KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
-			this.KeyPreview = true; // Ensures the form receives key events before the controls
+			KeyDown += PlanetoidDBForm_KeyDown;
+			KeyPreview = true; // Ensures the form receives key events before the controls
 			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="PlanetoidDBForm"/> class with a specified MPCORB.DAT file path.
+		/// Initializes a new instance of the <see cref="PlanetoidDbForm"/> class with a specified MPCORB.DAT file path.
 		/// </summary>
 		/// <param name="mpcorbDatFilePath">The file path to the MPCORB.DAT file.</param>
-		public PlanetoidDBForm(string mpcorbDatFilePath)
+		public PlanetoidDbForm(string mpcorbDatFilePath)
 		{
 			// Initialize the form components
 			InitializeComponent();
-			KeyDown += new KeyEventHandler(PlanetoidDBForm_KeyDown);
+			KeyDown += PlanetoidDBForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
-			SetStatusbar(text: string.Empty);
+			SetStatusBar(text: string.Empty);
 			MpcOrbDatFilePath = mpcorbDatFilePath;
 		}
 
@@ -111,7 +112,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -122,21 +123,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -172,36 +174,36 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// Navigates to the specified position in the planetoid database.
+		/// Navigates to the specified position in the planetoids database.
 		/// </summary>
-		/// <param name="currentPosition">The position to navigate to.</param>
-		private void GotoCurrentPosition(int currentPosition)
+		/// <param name="position">The position to navigate to.</param>
+		private void GotoCurrentPosition(int position)
 		{
 			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Leerstrings sind.
 			// if (teilstring == "0") zahl = 0; ...
 #pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			labelIndexData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 0, length: 7).Trim();
-			labelAbsoluteMagnitudeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 8, length: 5).Trim();
-			labelSlopeParameterData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 14, length: 5).Trim();
-			labelEpochData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 20, length: 5).Trim();
-			labelMeanAnomalyAtTheEpochData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 26, length: 9).Trim();
-			labelArgumentOfPerihelionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 37, length: 9).Trim();
-			labelLongitudeOfTheAscendingNodeData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 48, length: 9).Trim();
-			labelInclinationToTheEclipticData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 59, length: 9).Trim();
-			labelOrbitalEccentricityData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 70, length: 9).Trim();
-			labelMeanDailyMotionData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 80, length: 11).Trim();
-			labelSemiMajorAxisData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 92, length: 11).Trim();
-			labelReferenceData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 107, length: 9).Trim();
-			labelNumberOfObservationsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 117, length: 5).Trim();
-			labelNumberOfOppositionsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 123, length: 3).Trim();
-			labelObservationSpanData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 127, length: 9).Trim();
-			labelRmsResidualData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 137, length: 4).Trim();
-			labelComputerNameData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 150, length: 10).Trim();
-			labelFlagsData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 161, length: 4).Trim();
-			labelReadableDesignationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 166, length: 28).Trim();
-			labelDateLastObservationData.Text = planetoidDatabase[index: currentPosition].ToString().Substring(startIndex: 194, length: 8).Trim();
+			labelIndexData.Text = planetoidsDatabase[index: position].ToString()[..7].Trim();
+			labelAbsoluteMagnitudeData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 8, length: 5).Trim();
+			labelSlopeParameterData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 14, length: 5).Trim();
+			labelEpochData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 20, length: 5).Trim();
+			labelMeanAnomalyAtTheEpochData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 26, length: 9).Trim();
+			labelArgumentOfPerihelionData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 37, length: 9).Trim();
+			labelLongitudeOfTheAscendingNodeData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 48, length: 9).Trim();
+			labelInclinationToTheEclipticData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 59, length: 9).Trim();
+			labelOrbitalEccentricityData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 70, length: 9).Trim();
+			labelMeanDailyMotionData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 80, length: 11).Trim();
+			labelSemiMajorAxisData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 92, length: 11).Trim();
+			labelReferenceData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 107, length: 9).Trim();
+			labelNumberOfObservationsData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 117, length: 5).Trim();
+			labelNumberOfOppositionsData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 123, length: 3).Trim();
+			labelObservationSpanData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 127, length: 9).Trim();
+			labelRmsResidualData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 137, length: 4).Trim();
+			labelComputerNameData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 150, length: 10).Trim();
+			labelFlagsData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 161, length: 4).Trim();
+			labelReadableDesignationData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 166, length: 28).Trim();
+			labelDateLastObservationData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 194, length: 8).Trim();
 #pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			toolStripLabelIndexPosition.Text = $"{I10nStrings.Index}: {currentPosition + 1:N0} / {planetoidDatabase.Count:N0}";
+			toolStripLabelIndexPosition.Text = $@"{I10nStrings.Index}: {position + 1:N0} / {planetoidsDatabase.Count:N0}";
 		}
 
 		/// <summary>
@@ -249,38 +251,36 @@ namespace Planetoid_DB
 		private bool IsMpcorbDatUpdateAvailable()
 		{
 			// Check if the file exists before attempting to delete it
-			if (File.Exists(path: filenameMpcorb))
-			{
-				// Get the file information for the local file
-				FileInfo fileInfo = new(fileName: filenameMpcorb);
-				// Get the last modified date of the local file
-				DateTime datetimeFileLocal = fileInfo.LastWriteTime;
-				// Get the last modified date of the online file
-				DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
-				// Get the content length of the online file
-				_ = GetContentLength(uri: uriMpcorb);
-				// Get the content length of the local file
-				_ = fileInfo.Length;
-				// Check if the online file is larger than the local file
-				// If it greater, return true (update available)
-				// Otherwise, return false (no update available)
-				return datetimeFileOnline > datetimeFileLocal;
-			}
-			else
+			if (!File.Exists(path: filenameMpcorb))
 			{
 				return true; // If the file does not exist, return true (update available)
 			}
+			// Get the file information for the local file
+			FileInfo fileInfo = new(fileName: filenameMpcorb);
+			// Get the last modified date of the local file
+			DateTime datetimeFileLocal = fileInfo.LastWriteTime;
+			// Get the last modified date of the online file
+			DateTime datetimeFileOnline = GetLastModified(uri: uriMpcorb);
+			// Get the content length of the online file
+			_ = GetContentLength(uri: uriMpcorb);
+			// Get the content length of the local file
+			_ = fileInfo.Length;
+			// Check if the online file is larger than the local file
+			// If it greater, return true (update available)
+			// Otherwise, return false (no update available)
+			return datetimeFileOnline > datetimeFileLocal;
+
 		}
 
 		/// <summary>
 		/// Loads a random minor planet from the database.
 		/// </summary>
-		private void LoadRandomMinorPlanet() => GotoCurrentPosition(currentPosition: currentPosition = new Random().Next(maxValue: planetoidDatabase.Count + 1));
+		private void LoadRandomMinorPlanet() => GotoCurrentPosition(position: currentPosition = new Random().Next(maxValue: planetoidsDatabase.Count + 1));
 
 		/// <summary>
 		/// Navigates to the beginning of the data.
 		/// </summary>
-		private void NavigateToTheBeginOfTheData() => GotoCurrentPosition(currentPosition: currentPosition = 0);
+		private void NavigateToTheBeginOfTheData() => GotoCurrentPosition(position: currentPosition = 0);
 
 		/// <summary>
 		/// Navigates backward by a specified step in the data.
@@ -292,10 +292,10 @@ namespace Planetoid_DB
 			if (currentPosition < 1)
 			{
 				// If the current position is less than 1, wrap around to the end of the database
-				currentPosition += planetoidDatabase.Count;
+				currentPosition += planetoidsDatabase.Count;
 			}
 			// Navigate to the current position
-			GotoCurrentPosition(currentPosition: currentPosition);
+			GotoCurrentPosition(position: currentPosition);
 		}
 
 		/// <summary>
@@ -309,7 +309,7 @@ namespace Planetoid_DB
 				// Set the current position to the last entry in the database
 				// This ensures that when the user navigates backward from the first entry, they go to the last entry
 				// This is useful for circular navigation
-				currentPosition = planetoidDatabase.Count - 1;
+				currentPosition = planetoidsDatabase.Count - 1;
 			}
 			else
 			{
@@ -317,7 +317,7 @@ namespace Planetoid_DB
 				currentPosition--;
 			}
 			// Navigate to the current position
-			GotoCurrentPosition(currentPosition: currentPosition);
+			GotoCurrentPosition(position: currentPosition);
 		}
 
 		/// <summary>
@@ -326,7 +326,7 @@ namespace Planetoid_DB
 		private void NavigateToTheNextData()
 		{
 			// If the current position is the last entry in the database, wrap around to the first entry
-			if (currentPosition == planetoidDatabase.Count - 1)
+			if (currentPosition == planetoidsDatabase.Count - 1)
 			{
 				// Set the current position to 0 (the first entry in the database)
 				// This ensures that when the user navigates forward from the last entry, they go to the first entry
@@ -339,7 +339,7 @@ namespace Planetoid_DB
 				currentPosition++;
 			}
 			// Navigate to the current position
-			GotoCurrentPosition(currentPosition: currentPosition);
+			GotoCurrentPosition(position: currentPosition);
 		}
 
 		/// <summary>
@@ -351,21 +351,21 @@ namespace Planetoid_DB
 			// This allows the user to navigate through the database in larger increments
 			currentPosition += stepPosition;
 			// If the current position exceeds the total number of entries in the database, wrap around to the beginning
-			if (currentPosition > planetoidDatabase.Count)
+			if (currentPosition > planetoidsDatabase.Count)
 			{
 				// Set the current position to the beginning of the database
 				// This ensures that when the user navigates forward from the last entry, they go to the first entry
 				// This is useful for circular navigation
-				currentPosition -= planetoidDatabase.Count;
+				currentPosition -= planetoidsDatabase.Count;
 			}
 			// Navigate to the current position
-			GotoCurrentPosition(currentPosition: currentPosition);
+			GotoCurrentPosition(position: currentPosition);
 		}
 
 		/// <summary>
 		/// Navigates to the end of the data.
 		/// </summary>
-		private void NavigateToTheEndOfTheData() => GotoCurrentPosition(currentPosition: currentPosition = planetoidDatabase.Count - 1);
+		private void NavigateToTheEndOfTheData() => GotoCurrentPosition(position: currentPosition = planetoidsDatabase.Count - 1);
 
 		/// <summary>
 		/// Opens the terminology form with the specified index.
@@ -402,7 +402,7 @@ namespace Planetoid_DB
 				case 21: formTerminology.SetSemiMinorAxisActive(); break; // Semi-minor axis
 				case 22: formTerminology.SetMajorAxisActive(); break; // Major axis
 				case 23: formTerminology.SetMinorAxisActive(); break; // Minor axis
-				case 24: formTerminology.SetEccenctricAnomalyActive(); break; // Eccentric anomaly
+				case 24: formTerminology.SetEccentricAnomalyActive(); break; // Eccentric anomaly
 				case 25: formTerminology.SetTrueAnomalyActive(); break; // True anomaly
 				case 26: formTerminology.SetPerihelionDistanceActive(); break; // Perihelion distance
 				case 27: formTerminology.SetAphelionDistanceActive(); break; // Aphelion distance
@@ -434,8 +434,8 @@ namespace Planetoid_DB
 			using TableModeForm formTableMode = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formTableMode.TopMost = TopMost;
-			// Fill the form with the planetoid database
-			formTableMode.FillArray(arrTemp: planetoidDatabase);
+			// Fill the form with the planetoids database
+			formTableMode.FillArray(arrTemp: planetoidsDatabase);
 			// Show the table mode form as a modal dialog
 			_ = formTableMode.ShowDialog();
 		}
@@ -600,7 +600,7 @@ namespace Planetoid_DB
 			using DatabaseInformationForm formDatabaseInformation = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formDatabaseInformation.TopMost = TopMost;
-			// Fill the form with the planetoid database
+			// Fill the form with the planetoids database
 			_ = formDatabaseInformation.ShowDialog();
 		}
 
@@ -638,22 +638,8 @@ namespace Planetoid_DB
 								   };
 			// Create a new list to store the data to copy
 			List<string> dataToCopyList = [];
+			dataToCopyList.AddRange(collection: dataToCopy.OfType<object>().Select(item => item.ToString()).Where(itemString => !string.IsNullOrEmpty(value: itemString))!);
 			// Iterate through each item in the dataToCopy array
-			foreach (object? item in dataToCopy)
-			{
-				// Check if the item is not null
-				if (item != null)
-				{
-					// Convert the item to a string representation
-					string? itemString = item.ToString();
-					// Check if the item is not null or empty
-					if (!string.IsNullOrEmpty(value: itemString))
-					{
-						// Add the item to the list if it is not null or empty
-						dataToCopyList.Add(item: itemString);
-					}
-				}
-			}
 			// Create a new instance of the CopyDataToClipboardForm
 			using CopyDataToClipboardForm formCopyDataToClipboard = new();
 			// Set the TopMost property to true to keep the form on top of other windows
@@ -673,10 +659,10 @@ namespace Planetoid_DB
 			using SearchForm formSearch = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formSearch.TopMost = TopMost;
-			// Fill the form with the planetoid database
-			formSearch.FillArray(arrTemp: planetoidDatabase);
+			// Fill the form with the planetoids database
+			formSearch.FillArray(arrTemp: planetoidsDatabase);
 			// Set the maximum index for the search form
-			formSearch.SetMaxIndex(maxIndex: planetoidDatabase.Count);
+			formSearch.SetMaxIndex(maxIndex: planetoidsDatabase.Count);
 			// Show the search form as a modal dialog
 			_ = formSearch.ShowDialog();
 			// Check if the dialog result is OK and the selected index is greater than 0
@@ -685,7 +671,7 @@ namespace Planetoid_DB
 			if (formSearch.DialogResult == DialogResult.OK && formSearch.GetSelectedIndex() > 0)
 			{
 				// Navigate to the current position in the database
-				GotoCurrentPosition(currentPosition: formSearch.GetSelectedIndex());
+				GotoCurrentPosition(position: formSearch.GetSelectedIndex());
 			}
 		}
 
@@ -698,7 +684,7 @@ namespace Planetoid_DB
 			using FilterForm formFilter = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formFilter.TopMost = TopMost;
-			// Fill the form with the planetoid database
+			// Fill the form with the planetoids database
 			_ = formFilter.ShowDialog();
 		}
 
@@ -711,7 +697,7 @@ namespace Planetoid_DB
 			using SettingsForm formSettings = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formSettings.TopMost = TopMost;
-			// Fill the form with the planetoid database
+			// Fill the form with the planetoids database
 			_ = formSettings.ShowDialog();
 		}
 
@@ -724,7 +710,7 @@ namespace Planetoid_DB
 			using DatabaseDifferencesForm formDatabaseDifferences = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formDatabaseDifferences.TopMost = TopMost;
-			// Fill the form with the planetoid database
+			// Fill the form with the planetoids database
 			_ = formDatabaseDifferences.ShowDialog();
 		}
 
@@ -737,17 +723,17 @@ namespace Planetoid_DB
 			using ListReadableDesignationsForm formListReadableDesignations = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formListReadableDesignations.TopMost = TopMost;
-			// Fill the form with the planetoid database
-			formListReadableDesignations.FillArray(arrTemp: planetoidDatabase);
+			// Fill the form with the planetoids database
+			formListReadableDesignations.FillArray(arrTemp: planetoidsDatabase);
 			// Set the maximum index for the form
-			formListReadableDesignations.SetMaxIndex(maxIndex: planetoidDatabase.Count);
+			formListReadableDesignations.SetMaxIndex(maxIndex: planetoidsDatabase.Count);
 			// Show the list readable designations form as a modal dialog
 			_ = formListReadableDesignations.ShowDialog();
 			// Check if the dialog result is OK and the selected index is greater than 0
 			if (formListReadableDesignations.DialogResult == DialogResult.OK && formListReadableDesignations.GetSelectedIndex() > 0)
 			{
 				// Navigate to the current position in the database
-				GotoCurrentPosition(currentPosition: formListReadableDesignations.GetSelectedIndex());
+				GotoCurrentPosition(position: formListReadableDesignations.GetSelectedIndex());
 			}
 		}
 
@@ -794,7 +780,7 @@ namespace Planetoid_DB
 			_ = orbitalElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
-			_ = orbitalElements.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
+			_ = orbitalElements.Add(value: CalculateArgumentOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
 			_ = orbitalElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
@@ -823,17 +809,17 @@ namespace Planetoid_DB
 			using PrintDataSheetForm formPrintDataSheet = new();
 			// Set the TopMost property to true to keep the form on top of other windows
 			formPrintDataSheet.TopMost = TopMost;
-			// Fill the form with the planetoid database
+			// Fill the form with the planetoids database
 			_ = formPrintDataSheet.ShowDialog();
 		}
 
 		/// <summary>
 		/// Shows the derived orbit elements form.
 		/// </summary>
-		private void ShowDerivatedOrbitElements()
+		private void ShowDerivativeOrbitElements()
 		{
-			// Create a new ArrayList to store the derivated orbit elements
-			ArrayList derivatedOrbitElements = [];
+			// Create a new ArrayList to store the derivative orbit elements
+			ArrayList derivativeOrbitElements = [];
 			// Create a specific culture for formatting
 			IFormatProvider provider = CultureInfo.CreateSpecificCulture(name: "en");
 			double semiMajorAxis = double.Parse(s: labelSemiMajorAxisData.Text, provider: provider);
@@ -841,33 +827,33 @@ namespace Planetoid_DB
 			double meanAnomaly = double.Parse(s: labelMeanAnomalyAtTheEpochData.Text, provider: provider);
 			double longitudeAscendingNode = double.Parse(s: labelLongitudeOfTheAscendingNodeData.Text, provider: provider);
 			double argumentAphelion = double.Parse(s: labelArgumentOfPerihelionData.Text, provider: provider);
-			_ = derivatedOrbitElements.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateArgumenOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
-			_ = derivatedOrbitElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
-			// Create a new instance of the DerivatedOrbitElementsForm
-			using DerivatedOrbitElementsForm formDerivatedOrbitElements = new();
+			_ = derivativeOrbitElements.Add(value: CalculateLinearEccentricity(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateSemiMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateMajorAxis(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateMinorAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateEccentricAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateTrueAnomaly(meanAnomaly: meanAnomaly, numericalEccentricity: numericalEccentricity, numberDecimalPlaces: 8).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculatePerihelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateAphelionDistance(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateLongitudeDescendingNode(longitudeAscendingNode: longitudeAscendingNode).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateArgumentOfAphelion(argumentAphelion: argumentAphelion).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateFocalParameter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateSemiLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateLatusRectum(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculatePeriod(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateOrbitalArea(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateOrbitalPerimeter(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateSemiMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateMeanAxis(semiMajorAxis: semiMajorAxis, numericalEccentricity: numericalEccentricity).ToString(provider: provider));
+			_ = derivativeOrbitElements.Add(value: CalculateStandardGravitationalParameter(semiMajorAxis: semiMajorAxis).ToString(provider: provider));
+			// Create a new instance of the DerivativeOrbitElementsForm
+			using DerivativeOrbitElementsForm formDerivativeOrbitElements = new();
 			// Set the TopMost property to true to keep the form on top of other windows
-			formDerivatedOrbitElements.TopMost = TopMost;
-			// Fill the form with the derivated orbit elements
-			formDerivatedOrbitElements.SetDatabase(list: [.. derivatedOrbitElements.Cast<object>()]);
-			// Show the derivated orbit elements form as a modal dialog
-			_ = formDerivatedOrbitElements.ShowDialog();
+			formDerivativeOrbitElements.TopMost = TopMost;
+			// Fill the form with the derivative orbit elements
+			formDerivativeOrbitElements.SetDatabase(list: [.. derivativeOrbitElements.Cast<object>()]);
+			// Show the derivative orbit elements form as a modal dialog
+			_ = formDerivativeOrbitElements.ShowDialog();
 		}
 
 		/// <summary>
@@ -886,12 +872,12 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void PlanetoidDBForm_Load(object sender, EventArgs e)
 		{
-			ClearStatusbar();
+			ClearStatusBar();
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
 			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
 #pragma warning disable CS8622 // The nullability of reference types in type of parameter doesn't match the target delegate.
-			backgroundWorkerLoadingDatabase.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorkerLoadingDatabase_ProgressChanged);
-			backgroundWorkerLoadingDatabase.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorkerLoadingDatabase_RunWorkerCompleted);
+			backgroundWorkerLoadingDatabase.ProgressChanged += BackgroundWorkerLoadingDatabase_ProgressChanged;
+			backgroundWorkerLoadingDatabase.RunWorkerCompleted += BackgroundWorkerLoadingDatabase_RunWorkerCompleted;
 #pragma warning restore CS8622 // The nullability of reference types in type of parameter doesn't match the target delegate.
 			backgroundWorkerLoadingDatabase.RunWorkerAsync();
 			formSplashScreen.Show();
@@ -962,12 +948,10 @@ namespace Planetoid_DB
 		{
 			Enabled = false; // Disable the form while loading the database
 			int lineNum = 0; // Variable to store the line number being read
-			float percent; // Variable to store the percentage of the file read
-			string readLine; // Variable to store the read line from the file
 			string filename = !string.IsNullOrEmpty(value: MpcOrbDatFilePath) ? MpcOrbDatFilePath : filenameMpcorb; // Get the file name from the path
 			FileInfo fileInfo = new(fileName: filename);
-			long fileSize = fileInfo.Length, fileSizeReaded = 0; // Get the size of the file in bytes
-																 // Open the file stream for reading
+			long fileSize = fileInfo.Length, fileSizeRead = 0; // Get the size of the file in bytes
+															   // Open the file stream for reading
 			using (FileStream fileStream = new(path: filename, mode: FileMode.Open))
 			{
 				// Create a new instance of the PlanetoidDatabase class
@@ -977,20 +961,21 @@ namespace Planetoid_DB
 				while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
 				{
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-					readLine = streamReader.ReadLine();
+					string? readLine = streamReader.ReadLine(); // Variable to store the read line from the file
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-					fileSizeReaded += readLine.Length;
+					fileSizeRead += readLine.Length;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-					percent = 100 * fileSizeReaded / fileSize;
-					// Report progress to the background worker
+					// ReSharper disable once PossibleLossOfFraction
+					float percent = 100 * fileSizeRead / fileSize; // Variable to store the percentage of the file read
+																   // Report progress to the background worker
 					formSplashScreen.SetProgressbar(value: (int)percent);
 					lineNum++;
 					// Check if the line number is greater than or equal to 44
 					if ((lineNum >= 44) && (!string.IsNullOrEmpty(value: readLine)))
 					{
-						// Add the read line to the planetoid database
-						_ = planetoidDatabase.Add(value: readLine);
+						// Add the read line to the planetoids database
+						_ = planetoidsDatabase.Add(value: readLine);
 					}
 				}
 				fileStream.Close();
@@ -1018,7 +1003,7 @@ namespace Planetoid_DB
 			toolStripTextBoxGotoIndex.Text = 1.ToString(); // Set the initial value of the goto index text box
 			currentPosition = 0; // Set the current position to the first record
 			stepPosition = 100; // Set the step position to 100
-			GotoCurrentPosition(currentPosition: currentPosition); // Navigate to the current position
+			GotoCurrentPosition(position: currentPosition); // Navigate to the current position
 			Enabled = true; // Enable the form
 			isBusy = false; // Set the busy state to false
 		}
@@ -1059,6 +1044,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="AsyncCompletedEventArgs"/> instance that contains the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void Completed(object sender, AsyncCompletedEventArgs e)
 		{
 			webClient.Dispose();
@@ -1069,7 +1055,7 @@ namespace Planetoid_DB
 				// Set the progress bar style to Marquee
 				toolStripProgressBarBackgroundDownload.Style = ProgressBarStyle.Marquee;
 				// Extract the downloaded gzip file
-				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Properties.Resources.FilenameMpcorb);
+				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Resources.FilenameMpcorb);
 				// Delete the temporary file after extraction
 				File.Delete(path: filenameMpcorbTemp);
 				// Show a message indicating that the download was successful
@@ -1170,18 +1156,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -1195,7 +1181,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -1268,17 +1254,17 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the error message
-				logger.Error(message: ex.Message);
+				Logger.Error(message: ex.Message);
 				// Show an error message box with the exception message
 				ShowErrorMessage(message: $"{nameof(ToolStripButtonGoToIndex_Click)}  {ex.Message}");
 				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 			// If the parsed index is out of range, show an error message
 			// Otherwise, navigate to the specified index
-			if (pos <= 0 || pos >= planetoidDatabase.Count + 1)
+			if (pos <= 0 || pos >= planetoidsDatabase.Count + 1)
 			{
 				// Log the error message
-				logger.Error(message: "Index out of range");
+				Logger.Error(message: "Index out of range");
 				// Show an error message if the index is out of range
 				ShowErrorMessage(message: $"{I10nStrings.IndexOutOfRange}");
 			}
@@ -1286,7 +1272,7 @@ namespace Planetoid_DB
 			{
 				// Navigate to the specified index
 				currentPosition = pos - 1;
-				GotoCurrentPosition(currentPosition: currentPosition);
+				GotoCurrentPosition(position: currentPosition);
 			}
 		}
 
@@ -1312,6 +1298,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void ToolStripStatusLabelCancelBackgroundDownload_Click(object sender, EventArgs e)
 		{
 			// Cancel the background download
@@ -1434,7 +1421,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.Homepage);
+		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.Homepage);
 
 		/// <summary>
 		/// Handles the click event for the MenuitemOpenWebsiteMPC.
@@ -1442,7 +1429,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.WebsiteMpc);
+		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.WebsiteMpc);
 
 		/// <summary>
 		/// Handles the click event for the MenuitemOpenMPCORBWebsite.
@@ -1450,7 +1437,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.WebsiteMpcorb);
+		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.WebsiteMpcorb);
 
 		/// <summary>
 		/// Handles the click event for the MenuitemDownloadMpcorbDat.
@@ -1490,43 +1477,48 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
+		[Obsolete(message: "Obsolete")]
 		private void ToolStripStatusLabelUpdate_Click(object sender, EventArgs e)
 		{
-			if (MessageBox.Show(text: I10nStrings.AskForDownloadingLatestMpcorbDatFile, caption: I10nStrings.AskForDownloadingLatestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question) == DialogResult.Yes)
+			if (MessageBox.Show(text: I10nStrings.AskForDownloadingLatestMpcorbDatFile,
+					caption: I10nStrings.AskForDownloadingLatestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo,
+					icon: MessageBoxIcon.Question) != DialogResult.Yes)
 			{
-				toolStripStatusLabelUpdate.IsLink = false;
-				toolStripStatusLabelUpdate.Enabled = false;
-				toolStripStatusLabelUpdate.Visible = false;
-				timerBlinkForUpdateAvailable.Enabled = false;
-				toolStripStatusLabelBackgroundDownload.Visible = true;
-				toolStripProgressBarBackgroundDownload.Visible = true;
-				toolStripStatusLabelCancelBackgroundDownload.Visible = true;
-				toolStripStatusLabelBackgroundDownload.Enabled = true;
-				toolStripProgressBarBackgroundDownload.Enabled = true;
-				toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
-				webClient.Proxy = WebRequest.DefaultWebProxy;
+				return;
+			}
+
+			toolStripStatusLabelUpdate.IsLink = false;
+			toolStripStatusLabelUpdate.Enabled = false;
+			toolStripStatusLabelUpdate.Visible = false;
+			timerBlinkForUpdateAvailable.Enabled = false;
+			toolStripStatusLabelBackgroundDownload.Visible = true;
+			toolStripProgressBarBackgroundDownload.Visible = true;
+			toolStripStatusLabelCancelBackgroundDownload.Visible = true;
+			toolStripStatusLabelBackgroundDownload.Enabled = true;
+			toolStripProgressBarBackgroundDownload.Enabled = true;
+			toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
+			webClient.Proxy = WebRequest.DefaultWebProxy;
 #pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
-				webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+			webClient.DownloadFileCompleted += Completed;
 #pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
-				webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-				try
-				{
-					webClient.DownloadFileAsync(address: uriMpcorb, fileName: Properties.Resources.FilenameMpcorbTemp);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
-					toolStripStatusLabelUpdate.IsLink = true;
-					toolStripStatusLabelUpdate.Enabled = true;
-					toolStripStatusLabelUpdate.Visible = true;
-					timerBlinkForUpdateAvailable.Enabled = true;
-					toolStripStatusLabelBackgroundDownload.Visible = false;
-					toolStripProgressBarBackgroundDownload.Visible = false;
-					toolStripStatusLabelCancelBackgroundDownload.Visible = false;
-					toolStripStatusLabelBackgroundDownload.Enabled = false;
-					toolStripProgressBarBackgroundDownload.Enabled = false;
-					toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
-				}
+			webClient.DownloadProgressChanged += ProgressChanged;
+			try
+			{
+				webClient.DownloadFileAsync(address: uriMpcorb, fileName: Resources.FilenameMpcorbTemp);
+			}
+			catch (Exception ex)
+			{
+				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+				toolStripStatusLabelUpdate.IsLink = true;
+				toolStripStatusLabelUpdate.Enabled = true;
+				toolStripStatusLabelUpdate.Visible = true;
+				timerBlinkForUpdateAvailable.Enabled = true;
+				toolStripStatusLabelBackgroundDownload.Visible = false;
+				toolStripProgressBarBackgroundDownload.Visible = false;
+				toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+				toolStripStatusLabelBackgroundDownload.Enabled = false;
+				toolStripProgressBarBackgroundDownload.Enabled = false;
+				toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
 			}
 		}
 
@@ -1561,7 +1553,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Properties.Resources.Homepage);
+		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.Homepage);
 
 		/// <summary>
 		/// Handles the click event for the ToolStripButtonTableMode.
@@ -1716,12 +1708,12 @@ namespace Planetoid_DB
 		private void ToolStripButtonFilter_Click(object sender, EventArgs e) => ShowFilter();
 
 		/// <summary>
-		/// Handles the click event for the ToolStripButtonDerivatedOrbitElements.
+		/// Handles the click event for the ToolStripButtonDerivativeOrbitElements.
 		/// Shows the derived orbit elements form.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ToolStripButtonDerivatedOrbitElements_Click(object sender, EventArgs e) => ShowDerivatedOrbitElements();
+		private void ToolStripButtonDerivativeOrbitElements_Click(object sender, EventArgs e) => ShowDerivativeOrbitElements();
 
 		/// <summary>
 		/// Handles the click event for the ToolStripMenuItemRestart.
@@ -1732,12 +1724,12 @@ namespace Planetoid_DB
 		private void ToolStripMenuItemRestart_Click(object sender, EventArgs e) => Restart();
 
 		/// <summary>
-		/// Handles the click event for the ToolStripMenuItemDerivatedOrbitElements.
+		/// Handles the click event for the ToolStripMenuItemDerivativeOrbitElements.
 		/// Shows the derived orbit elements form.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ToolStripMenuItemDerivatedOrbitElements_Click(object sender, EventArgs e) => ShowDerivatedOrbitElements();
+		private void ToolStripMenuItemDerivativeOrbitElements_Click(object sender, EventArgs e) => ShowDerivativeOrbitElements();
 
 		/// <summary>
 		/// Handles the click event for the ToolStripMenuItemStayOnTop.
@@ -1768,32 +1760,32 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// Handles the click event for the ToolStripMenuItemIconsetSilk.
+		/// Handles the click event for the ToolStripMenuItemIconSetSilk.
 		/// Sets the icon set to Silk.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private static void ToolStripMenuItemIconsetSilk_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemIconSetSilk_Click(object sender, EventArgs e)
 		{
 		}
 
 		/// <summary>
-		/// Handles the click event for the ToolStripMenuItemIconsetFugue.
+		/// Handles the click event for the ToolStripMenuItemIconSetFugue.
 		/// Sets the icon set to Fugue.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private static void ToolStripMenuItemIconsetFugue_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemIconSetFugue_Click(object sender, EventArgs e)
 		{
 		}
 
 		/// <summary>
-		/// Handles the click event for the ToolStripMenuItemIconsetFatcow.
+		/// Handles the click event for the ToolStripMenuItemIconSetFatcow.
 		/// Sets the icon set to Fatcow.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private static void ToolStripMenuItemIconsetFatcow_Click(object sender, EventArgs e)
+		private static void ToolStripMenuItemIconSetFatcow_Click(object sender, EventArgs e)
 		{
 		}
 
@@ -1974,12 +1966,12 @@ namespace Planetoid_DB
 		private void MenuitemTopTenRecords_Click(object sender, EventArgs e) => ShowRecordsSelection();
 
 		/// <summary>
-		/// Handles the button click event for the SplitbuttonTopTenRecords.
+		/// Handles the button click event for the SplitButtonTopTenRecords.
 		/// Shows the records selection form.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SplitbuttonTopTenRecords_ButtonClick(object sender, EventArgs e) => ShowRecordsSelection();
+		private void SplitButtonTopTenRecords_ButtonClick(object sender, EventArgs e) => ShowRecordsSelection();
 
 		/// <summary>
 		/// Handles the click event for the MenuitemRecordsMeanAnomalyAtTheEpoch.
@@ -2086,12 +2078,12 @@ namespace Planetoid_DB
 		private void MenuitemRecordsRmsResidual_Click(object sender, EventArgs e) => ShowRecordsMain();
 
 		/// <summary>
-		/// Handles the click event for the MenuitemRecordsComputername.
+		/// Handles the click event for the MenuitemRecordsComputerName.
 		/// Shows the main records form for computer name.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemRecordsComputername_Click(object sender, EventArgs e) => ShowRecordsMain();
+		private void MenuitemRecordsComputerName_Click(object sender, EventArgs e) => ShowRecordsMain();
 
 		/// <summary>
 		/// Handles the click event for the MenuitemRecordsDateOfTheLastObservation.
@@ -2242,12 +2234,12 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// Handles the button click event for the SplitbuttonDistribution.
+		/// Handles the button click event for the SplitButtonDistribution.
 		/// Shows the distribution form.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private static void SplitbuttonDistribution_ButtonClick(object sender, EventArgs e)
+		private static void SplitButtonDistribution_ButtonClick(object sender, EventArgs e)
 		{
 		}
 

@@ -7,85 +7,85 @@ using NLog;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// Represents the form for displaying planetoid data in table mode.
+	/// Represents the form for displaying planetoids data in table mode.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class TableModeForm : KryptonForm
 	{
 		// NLog logger instance
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// The database of planetoids.
-		private List<string> planetoidDatabase = [];
+		private List<string> planetoidsDatabase = [];
 
 		// Indicates whether the application is currently busy.
-		private bool isBusy = false;
+		private bool isBusy;
 
 		// The number of planetoids in the database.
-		private int numberPlanetoids = 0;
+		private int numberPlanetoids;
 
 		// Indicates whether the operation is cancelled.
-		private bool isCancelled = false;
+		private bool isCancelled;
 
-		// The index of the planetoid.
+		// The index of the planetoids.
 		private string strIndex = string.Empty;
 
-		// The absolute magnitude of the planetoid.
+		// The absolute magnitude of the planetoids.
 		private string strMagAbs = string.Empty;
 
-		// The slope parameter of the planetoid.
+		// The slope parameter of the planetoids.
 		private string strSlopeParam = string.Empty;
 
-		// The epoch of the planetoid.
+		// The epoch of the planetoids.
 		private string strEpoch = string.Empty;
 
-		// The mean anomaly of the planetoid.
+		// The mean anomaly of the planetoids.
 		private string strMeanAnomaly = string.Empty;
 
-		// The argument of perihelion of the planetoid.
+		// The argument of perihelion of the planetoids.
 		private string strArgPeri = string.Empty;
 
-		// The longitude of the ascending node of the planetoid.
+		// The longitude of the ascending node of the planetoids.
 		private string strLongAscNode = string.Empty;
 
-		// The inclination of the planetoid.
+		// The inclination of the planetoids.
 		private string strIncl = string.Empty;
 
-		// The orbital eccentricity of the planetoid.
+		// The orbital eccentricity of the planetoids.
 		private string strOrbEcc = string.Empty;
 
-		// The mean daily motion of the planetoid.
+		// The mean daily motion of the planetoids.
 		private string strMotion = string.Empty;
 
-		// The semi-major axis of the planetoid.
+		// The semi-major axis of the planetoids.
 		private string strSemiMajorAxis = string.Empty;
 
-		// The reference for the planetoid data.
+		// The reference for the planetoids data.
 		private string strRef = string.Empty;
 
-		// The number of observations of the planetoid.
-		private string strNumbObs = string.Empty;
+		// The number of observations of the planetoids.
+		private string strNumberObservation = string.Empty;
 
-		// The number of oppositions of the planetoid.
-		private string strNumbOppos = string.Empty;
+		// The number of oppositions of the planetoids.
+		private string strNumberOpposition = string.Empty;
 
-		// The observation span of the planetoid.
+		// The observation span of the planetoids.
 		private string strObsSpan = string.Empty;
 
-		// The RMS residual of the planetoid.
+		// The RMS residual of the planetoids.
 		private string strRmsResidual = string.Empty;
 
-		// The name of the computer that processed the planetoid data.
+		// The name of the computer that processed the planetoids data.
 		private string strComputerName = string.Empty;
 
-		// The flags associated with the planetoid.
+		// The flags associated with the planetoids.
 		private string strFlags = string.Empty;
 
-		// The designation name of the planetoid.
-		private string strDesgnName = string.Empty;
+		// The designation name of the planetoids.
+		private string strDesignationName = string.Empty;
 
-		// The date of the last observation of the planetoid.
-		private string strObsLastDate = string.Empty;
+		// The date of the last observation of the planetoids.
+		private string strObservationLastDate = string.Empty;
 
 		#region Constructor
 
@@ -133,7 +133,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -144,21 +144,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -166,13 +167,13 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// Fills the planetoid database with the specified array.
+		/// Fills the planetoids database with the specified array.
 		/// </summary>
 		/// <param name="arrTemp">The array to fill the database with.</param>
 		public void FillArray(ArrayList arrTemp)
 		{
-			planetoidDatabase = [.. arrTemp.Cast<string>()];
-			numberPlanetoids = planetoidDatabase.Count;
+			planetoidsDatabase = [.. arrTemp.Cast<string>()];
+			numberPlanetoids = planetoidsDatabase.Count;
 		}
 
 		/// <summary>
@@ -181,69 +182,68 @@ namespace Planetoid_DB
 		/// <param name="currentPosition">The position of the row to format.</param>
 		private void FormatRow(int currentPosition)
 		{
-			string? planetoid = planetoidDatabase[index: currentPosition]?.ToString();
-			// Check if the planetoid is not null
+			// ReSharper disable once IdentifierTypo
+			string planetoid = planetoidsDatabase[index: currentPosition];
+			// Check if the planetoids is not null
 			// and the length is greater than 0
-			if (planetoid == null || planetoid.Length <= 0)
+			if (planetoid.Length <= 0)
 			{
 				return;
 			}
-			if (planetoid != null)
+
+			// Extract planetoids data from the string
+			// and trim the values to remove leading and trailing whitespace
+			strIndex = planetoid[..7].Trim();
+			strMagAbs = planetoid.Substring(startIndex: 8, length: 5).Trim();
+			strSlopeParam = planetoid.Substring(startIndex: 14, length: 5).Trim();
+			strEpoch = planetoid.Substring(startIndex: 20, length: 5).Trim();
+			strMeanAnomaly = planetoid.Substring(startIndex: 26, length: 9).Trim();
+			strArgPeri = planetoid.Substring(startIndex: 37, length: 9).Trim();
+			strLongAscNode = planetoid.Substring(startIndex: 48, length: 9).Trim();
+			strIncl = planetoid.Substring(startIndex: 59, length: 9).Trim();
+			strOrbEcc = planetoid.Substring(startIndex: 70, length: 9).Trim();
+			strMotion = planetoid.Substring(startIndex: 80, length: 11).Trim();
+			strSemiMajorAxis = planetoid.Substring(startIndex: 92, length: 11).Trim();
+			strRef = planetoid.Substring(startIndex: 107, length: 9).Trim();
+			strNumberObservation = planetoid.Substring(startIndex: 117, length: 5).Trim();
+			strNumberOpposition = planetoid.Substring(startIndex: 123, length: 3).Trim();
+			strObsSpan = planetoid.Substring(startIndex: 127, length: 9).Trim();
+			strRmsResidual = planetoid.Substring(startIndex: 137, length: 4).Trim();
+			strComputerName = planetoid.Substring(startIndex: 150, length: 10).Trim();
+			strFlags = planetoid.Substring(startIndex: 161, length: 4).Trim();
+			strDesignationName = planetoid.Substring(startIndex: 166, length: 28).Trim();
+			strObservationLastDate = planetoid.Substring(startIndex: 194, length: 8).Trim();
+			// Add the planetoids data to the list view
+			// and set the tooltip text for the list view item
+			ListViewItem listViewItem = new(text: strIndex)
 			{
-				// Extract planetoid data from the string
-				// and trim the values to remove leading and trailing whitespace
-				strIndex = planetoid[..7].Trim();
-				strMagAbs = planetoid.Substring(startIndex: 8, length: 5).Trim();
-				strSlopeParam = planetoid.Substring(startIndex: 14, length: 5).Trim();
-				strEpoch = planetoid.Substring(startIndex: 20, length: 5).Trim();
-				strMeanAnomaly = planetoid.Substring(startIndex: 26, length: 9).Trim();
-				strArgPeri = planetoid.Substring(startIndex: 37, length: 9).Trim();
-				strLongAscNode = planetoid.Substring(startIndex: 48, length: 9).Trim();
-				strIncl = planetoid.Substring(startIndex: 59, length: 9).Trim();
-				strOrbEcc = planetoid.Substring(startIndex: 70, length: 9).Trim();
-				strMotion = planetoid.Substring(startIndex: 80, length: 11).Trim();
-				strSemiMajorAxis = planetoid.Substring(startIndex: 92, length: 11).Trim();
-				strRef = planetoid.Substring(startIndex: 107, length: 9).Trim();
-				strNumbObs = planetoid.Substring(startIndex: 117, length: 5).Trim();
-				strNumbOppos = planetoid.Substring(startIndex: 123, length: 3).Trim();
-				strObsSpan = planetoid.Substring(startIndex: 127, length: 9).Trim();
-				strRmsResidual = planetoid.Substring(startIndex: 137, length: 4).Trim();
-				strComputerName = planetoid.Substring(startIndex: 150, length: 10).Trim();
-				strFlags = planetoid.Substring(startIndex: 161, length: 4).Trim();
-				strDesgnName = planetoid.Substring(startIndex: 166, length: 28).Trim();
-				strObsLastDate = planetoid.Substring(startIndex: 194, length: 8).Trim();
-				// Add the planetoid data to the list view
-				// and set the tooltip text for the list view item
-				ListViewItem listViewItem = new(text: strIndex)
-				{
-					// Set the tooltip text for the list view item
-					// to display the index and designation name
-					// when the mouse hovers over it
-					ToolTipText = $"{strIndex}: {strDesgnName}"
-				};
-				// Add the planetoid data as subitems to the list view item
-				_ = listViewItem.SubItems.Add(text: strDesgnName); // Add the designation name
-				_ = listViewItem.SubItems.Add(text: strEpoch); // Add the epoch
-				_ = listViewItem.SubItems.Add(text: strMeanAnomaly); // Add the mean anomaly
-				_ = listViewItem.SubItems.Add(text: strArgPeri); // Add the argument of perihelion
-				_ = listViewItem.SubItems.Add(text: strLongAscNode); // Add the longitude of ascending node
-				_ = listViewItem.SubItems.Add(text: strIncl); // Add the inclination
-				_ = listViewItem.SubItems.Add(text: strOrbEcc); // Add the orbital eccentricity
-				_ = listViewItem.SubItems.Add(text: strMotion); // Add the mean daily motion
-				_ = listViewItem.SubItems.Add(text: strSemiMajorAxis); // Add the semi-major axis
-				_ = listViewItem.SubItems.Add(text: strMagAbs); // Add the absolute magnitude
-				_ = listViewItem.SubItems.Add(text: strSlopeParam); // Add the slope parameter
-				_ = listViewItem.SubItems.Add(text: strRef); // Add the reference
-				_ = listViewItem.SubItems.Add(text: strNumbOppos); // Add the number of oppositions
-				_ = listViewItem.SubItems.Add(text: strNumbObs); // Add the number of observations
-				_ = listViewItem.SubItems.Add(text: strObsSpan); // Add the observation span
-				_ = listViewItem.SubItems.Add(text: strRmsResidual); // Add the RMS residual
-				_ = listViewItem.SubItems.Add(text: strComputerName); // Add the computer name
-				_ = listViewItem.SubItems.Add(text: strFlags); // Add the flags
-				_ = listViewItem.SubItems.Add(text: strObsLastDate); // Add the date of last observation
-																	 // Add the list view item to the list view
-				_ = listView.Items.Add(value: listViewItem);
-			}
+				// Set the tooltip text for the list view item
+				// to display the index and designation name
+				// when the mouse hovers over it
+				ToolTipText = $"{strIndex}: {strDesignationName}"
+			};
+			// Add the planetoids data as subitems to the list view item
+			_ = listViewItem.SubItems.Add(text: strDesignationName); // Add the designation name
+			_ = listViewItem.SubItems.Add(text: strEpoch); // Add the epoch
+			_ = listViewItem.SubItems.Add(text: strMeanAnomaly); // Add the mean anomaly
+			_ = listViewItem.SubItems.Add(text: strArgPeri); // Add the argument of perihelion
+			_ = listViewItem.SubItems.Add(text: strLongAscNode); // Add the longitude of ascending node
+			_ = listViewItem.SubItems.Add(text: strIncl); // Add the inclination
+			_ = listViewItem.SubItems.Add(text: strOrbEcc); // Add the orbital eccentricity
+			_ = listViewItem.SubItems.Add(text: strMotion); // Add the mean daily motion
+			_ = listViewItem.SubItems.Add(text: strSemiMajorAxis); // Add the semi-major axis
+			_ = listViewItem.SubItems.Add(text: strMagAbs); // Add the absolute magnitude
+			_ = listViewItem.SubItems.Add(text: strSlopeParam); // Add the slope parameter
+			_ = listViewItem.SubItems.Add(text: strRef); // Add the reference
+			_ = listViewItem.SubItems.Add(text: strNumberOpposition); // Add the number of oppositions
+			_ = listViewItem.SubItems.Add(text: strNumberObservation); // Add the number of observations
+			_ = listViewItem.SubItems.Add(text: strObsSpan); // Add the observation span
+			_ = listViewItem.SubItems.Add(text: strRmsResidual); // Add the RMS residual
+			_ = listViewItem.SubItems.Add(text: strComputerName); // Add the computer name
+			_ = listViewItem.SubItems.Add(text: strFlags); // Add the flags
+			_ = listViewItem.SubItems.Add(text: strObservationLastDate); // Add the date of last observation
+																		 // Add the list view item to the list view
+			_ = listView.Items.Add(value: listViewItem);
 		}
 
 		#endregion
@@ -259,19 +259,20 @@ namespace Planetoid_DB
 		private void TableModeForm_Load(object sender, EventArgs e)
 		{
 			// Clear the status bar text
-			ClearStatusbar();
+			ClearStatusBar();
 			// Disable the status bar, the list view and the cancel button
 			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = false;
-			if (planetoidDatabase.Count > 0)
+			if (planetoidsDatabase.Count <= 0)
 			{
-				// Set the minimum and maximum values for the numeric up-down controls
-				numericUpDownMinimum.Minimum = 1;
-				numericUpDownMaximum.Minimum = 1;
-				numericUpDownMinimum.Maximum = planetoidDatabase.Count;
-				numericUpDownMaximum.Maximum = planetoidDatabase.Count;
-				numericUpDownMinimum.Value = 1;
-				numericUpDownMaximum.Value = planetoidDatabase.Count;
+				return;
 			}
+			// Set the minimum and maximum values for the numeric up-down controls
+			numericUpDownMinimum.Minimum = 1;
+			numericUpDownMaximum.Minimum = 1;
+			numericUpDownMinimum.Maximum = planetoidsDatabase.Count;
+			numericUpDownMaximum.Maximum = planetoidsDatabase.Count;
+			numericUpDownMinimum.Value = 1;
+			numericUpDownMaximum.Value = planetoidsDatabase.Count;
 		}
 
 		/// <summary>
@@ -292,7 +293,7 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Handles the DoWork event of the BackgroundWorker.
-		/// Processes the planetoid data in the background.
+		/// Processes the planetoids data in the background.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
@@ -358,18 +359,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -383,7 +384,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -391,21 +392,22 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Handles the SelectedIndexChanged event of the ListView.
-		/// Updates the status bar with the selected planetoid's index and designation name.
+		/// Updates the status bar with the selected planetoids index and designation name.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListViewTableMode_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listView.SelectedIndices.Count > 0)
+			if (listView.SelectedIndices.Count <= 0)
 			{
-				// Get the selected index from the list view
-				int selectedIndex = listView.SelectedIndices[index: 0];
-				if (selectedIndex >= 0)
-				{
-					// Set the status bar text to the selected planetoid's index and designation name
-					SetStatusbar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
-				}
+				return;
+			}
+			// Get the selected index from the list view
+			int selectedIndex = listView.SelectedIndices[index: 0];
+			if (selectedIndex >= 0)
+			{
+				// Set the status bar text to the selected planetoids index and designation name
+				SetStatusBar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
 			}
 		}
 		#endregion
@@ -414,7 +416,7 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Handles the Click event of the List button.
-		/// Starts the background worker to process the planetoid data.
+		/// Starts the background worker to process the planetoids data.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
@@ -464,9 +466,9 @@ namespace Planetoid_DB
 			// Allow cancellation of the background worker
 			backgroundWorker.WorkerSupportsCancellation = true;
 			// Handle the ProgressChanged event
-			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged);
+			backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
 			// Handle the RunWorkerCompleted event
-			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted);
+			backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 			// Start the background worker
 			backgroundWorker.RunWorkerAsync();
 		}

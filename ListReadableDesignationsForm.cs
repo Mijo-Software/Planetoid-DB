@@ -8,28 +8,28 @@ using NLog;
 namespace Planetoid_DB
 {
 	/// <summary>
-	/// Form to list readable designations from the planetoid database.
+	/// Form to list readable designations from the planetoids database.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 	public partial class ListReadableDesignationsForm : KryptonForm
 	{
 		// NLog logger instance
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// List of the database
-		private List<string> planetoidDatabase = [];
+		private List<string> planetoidsDatabase = [];
 
 		// Number of planetoids and the selected index
-		private int numberPlanetoids = 0, selectedIndex = 0;
+		private int numberPlanetoids, selectedIndex;
 
 		// Indicates whether the operation was aborted
-		private bool isCancelled = false;
+		private bool isCancelled;
 
 		// Index and label name as character strings
-		private string strIndex, strDesgnName;
+		private string strIndex, strDesignationName;
 
 		// Indicates whether the application is currently busy
-		private bool isBusy = false;
+		private bool isBusy;
 
 		#region Constructor
 
@@ -43,7 +43,7 @@ namespace Planetoid_DB
 			KeyDown += ListReadableDesignationsForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
 			strIndex = string.Empty;
-			strDesgnName = string.Empty;
+			strDesignationName = string.Empty;
 		}
 
 		#endregion
@@ -79,7 +79,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -90,21 +90,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -112,52 +113,52 @@ namespace Planetoid_DB
 		}
 
 		/// <summary>
-		/// Formats a row in the list view with the current planetoid data.
+		/// Formats a row in the list view with the current planetoids data.
 		/// </summary>
-		/// <param name="currentPosition">The current position in the planetoid database.</param>
+		/// <param name="currentPosition">The current position in the planetoids database.</param>
 		private void FormatRow(int currentPosition)
 		{
 			// Check if the current position is within the valid range
 			if (currentPosition < 0 || currentPosition >= numberPlanetoids)
 			{
 				// Log an error message and return
-				logger.Error(message: $"Invalid position: {currentPosition}");
+				Logger.Error(message: $"Invalid position: {currentPosition}");
 				// Show an error message
 				ShowErrorMessage(message: $"Invalid position: {currentPosition}");
 				return;
 			}
 			// Format the row in the list view
-			string currentData = planetoidDatabase[index: currentPosition];
+			string currentData = planetoidsDatabase[index: currentPosition];
 			// Extract the index from the current data
 			strIndex = currentData[..7].Trim();
 			// Extract the designation name from the current data
-			strDesgnName = currentData.Substring(startIndex: 166, length: 28).Trim();
+			strDesignationName = currentData.Substring(startIndex: 166, length: 28).Trim();
 			// Add the formatted row to the list view
 			ListViewItem listViewItem = new(text: strIndex)
 			{
 				// Set the tooltip text to show both the index and the designation name
-				ToolTipText = $"{strIndex}: {strDesgnName}"
+				ToolTipText = $"{strIndex}: {strDesignationName}"
 			};
 			// Add the designation name as a subitem
-			_ = listViewItem.SubItems.Add(text: strDesgnName);
+			_ = listViewItem.SubItems.Add(text: strDesignationName);
 			// Add the list view item to the list view
 			_ = listView.Items.Add(value: listViewItem);
 		}
 
 		/// <summary>
-		/// Fills the planetoid database with the provided array list.
+		/// Fills the planetoids database with the provided array list.
 		/// </summary>
 		/// <param name="arrTemp">The array list to fill the database with.</param>
 		public void FillArray(ArrayList arrTemp)
 		{
-			// Fill the planetoid database with the provided array list
-			planetoidDatabase = [.. arrTemp.Cast<string>()];
+			// Fill the planetoids database with the provided array list
+			planetoidsDatabase = [.. arrTemp.Cast<string>()];
 			// Set the number of planetoids
-			numberPlanetoids = planetoidDatabase.Count;
+			numberPlanetoids = planetoidsDatabase.Count;
 		}
 
 		/// <summary>
-		/// Sets the maximum index for the planetoid database.
+		/// Sets the maximum index for the planetoids database.
 		/// </summary>
 		/// <param name="maxIndex">The maximum index.</param>
 		public void SetMaxIndex(int maxIndex) => numberPlanetoids = maxIndex;
@@ -174,23 +175,25 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Handles the Load event of the form.
-		/// Initializes the form controls based on the planetoid database.
+		/// Initializes the form controls based on the planetoids database.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ListReadableDesignationsForm_Load(object? sender, EventArgs? e)
 		{
-			ClearStatusbar();
+			ClearStatusBar();
 			labelInformation.Enabled = listView.Visible = buttonCancel.Enabled = buttonLoad.Enabled = dropButtonSaveList.Enabled = false;
-			if (planetoidDatabase.Count > 0)
+			if (planetoidsDatabase.Count <= 0)
 			{
-				numericUpDownMinimum.Minimum = 1;
-				numericUpDownMaximum.Minimum = 1;
-				numericUpDownMinimum.Maximum = planetoidDatabase.Count;
-				numericUpDownMaximum.Maximum = planetoidDatabase.Count;
-				numericUpDownMinimum.Value = 1;
-				numericUpDownMaximum.Value = planetoidDatabase.Count;
+				return;
 			}
+
+			numericUpDownMinimum.Minimum = 1;
+			numericUpDownMaximum.Minimum = 1;
+			numericUpDownMinimum.Maximum = planetoidsDatabase.Count;
+			numericUpDownMaximum.Maximum = planetoidsDatabase.Count;
+			numericUpDownMinimum.Value = 1;
+			numericUpDownMaximum.Value = planetoidsDatabase.Count;
 		}
 
 		/// <summary>
@@ -211,7 +214,7 @@ namespace Planetoid_DB
 
 		/// <summary>
 		/// Handles the DoWork event of the background worker.
-		/// Formats rows in the list view based on the planetoid database.
+		/// Formats rows in the list view based on the planetoids database.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="DoWorkEventArgs"/> instance that contains the event data.</param>
@@ -272,18 +275,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -297,7 +300,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -311,23 +314,24 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void SelectedIndexChanged(object? sender, EventArgs? e)
 		{
-			if (listView.SelectedIndices.Count > 0)
+			if (listView.SelectedIndices.Count <= 0)
 			{
-				// Get the selected index from the list view
-				int selectedIndex = listView.SelectedIndices[index: 0];
-				if (selectedIndex >= 0)
-				{
-					// Set the status bar text to show the selected index and designation name
-					SetStatusbar(text: $"{I10nStrings.Index}: {listView.Items[index: selectedIndex].Text} - {listView.Items[index: selectedIndex].SubItems[index: 1].Text}");
-				}
-				if (!buttonLoad.Enabled)
-				{
-					// Enable the load button if it is not already enabled
-					buttonLoad.Enabled = true;
-				}
-				// Set the selected index to the current index
-				this.selectedIndex = selectedIndex;
+				return;
 			}
+			// Get the selected index from the list view
+			int listViewSelectedIndex = listView.SelectedIndices[index: 0];
+			if (listViewSelectedIndex >= 0)
+			{
+				// Set the status bar text to show the selected index and designation name
+				SetStatusBar(text: $"{I10nStrings.Index}: {listView.Items[index: listViewSelectedIndex].Text} - {listView.Items[index: listViewSelectedIndex].SubItems[index: 1].Text}");
+			}
+			if (!buttonLoad.Enabled)
+			{
+				// Enable the load button if it is not already enabled
+				buttonLoad.Enabled = true;
+			}
+			// Set the selected index to the current index
+			this.selectedIndex = listViewSelectedIndex;
 		}
 
 		#endregion
@@ -361,8 +365,8 @@ namespace Planetoid_DB
 			isBusy = true; // Set the progress bar to enabled
 			backgroundWorker.WorkerReportsProgress = true; // Set the worker to report progress
 			backgroundWorker.WorkerSupportsCancellation = true; // Set the worker to support cancellation
-			backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ProgressChanged); // Handle progress changes
-			backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BackgroundWorker_RunWorkerCompleted); // Handle completion
+			backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged; // Handle progress changes
+			backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted; // Handle completion
 			backgroundWorker.RunWorkerAsync(); // Start the background worker
 		}
 
@@ -385,22 +389,23 @@ namespace Planetoid_DB
 			// Set the default file name for the CSV file
 			saveFileDialogCsv.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogCsv.DefaultExt}";
 			// Show the save file dialog to select the CSV file location
-			if (saveFileDialogCsv.ShowDialog() == DialogResult.OK)
+			if (saveFileDialogCsv.ShowDialog() != DialogResult.OK)
 			{
-				// Create a new CSV file and write the data to it
-				using StreamWriter streamWriter = new(path: saveFileDialogCsv.FileName);
-				// Write the header line
-				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+				return;
+			}
+			// Create a new CSV file and write the data to it
+			using StreamWriter streamWriter = new(path: saveFileDialogCsv.FileName);
+			// Write the header line
+			for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+			{
+				// Write the index and designation name to the CSV file
+				streamWriter.Write(value: $"{listView.Items[index: i].SubItems[index: 0].Text}; {listView.Items[index: i].SubItems[index: 1].Text}");
+				// If this is not the last item, write a new line
+				// to separate the items
+				if (i < listView.Items.Count - 1)
 				{
-					// Write the index and designation name to the CSV file
-					streamWriter.Write(value: $"{listView.Items[index: i].SubItems[index: 0].Text}; {listView.Items[index: i].SubItems[index: 1].Text}");
-					// If this is not the last item, write a new line
-					// to separate the items
-					if (i < listView.Items.Count - 1)
-					{
-						// Write a new line to separate the items
-						streamWriter.Write(value: Environment.NewLine);
-					}
+					// Write a new line to separate the items
+					streamWriter.Write(value: Environment.NewLine);
 				}
 			}
 		}
@@ -418,47 +423,48 @@ namespace Planetoid_DB
 			// Set the default file name for the HTML file
 			saveFileDialogHtml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogHtml.DefaultExt}";
 			// Show the save file dialog to select the HTML file location
-			if (saveFileDialogHtml.ShowDialog() == DialogResult.OK)
+			if (saveFileDialogHtml.ShowDialog() != DialogResult.OK)
 			{
-				// Create a new HTML file and write the data to it
-				using StreamWriter streamWriter = new(path: saveFileDialogHtml.FileName);
-				// Write the HTML header and metadata
-				streamWriter.WriteLine(value: $"<!DOCTYPE html>");
-				streamWriter.WriteLine(value: $"<html lang=\"en\">");
-				streamWriter.WriteLine(value: $"\t<head>");
-				streamWriter.WriteLine(value: $"\t\t<meta charset=\"utf-8\">");
-				streamWriter.WriteLine(value: $"\t\t<meta name=\"description\" content=\"\">");
-				streamWriter.WriteLine(value: $"\t\t<meta name=\"keywords\" content=\"\">");
-				streamWriter.WriteLine(value: $"\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
-				streamWriter.WriteLine(value: $"\t\t<title>List of readable designations</title>");
-				streamWriter.WriteLine(value: $"\t\t<style>");
-				streamWriter.WriteLine(value: $"\t\t\t* {{font-family: sans-serif;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.italic {{font-style: italic;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.bold {{font-weight: bold;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.sup {{vertical-align: super; font-size: smaller;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.sub {{vertical-align: sub; font-size: smaller;}}");
-				streamWriter.WriteLine(value: $"\t\t\t.block {{width:50px; display: inline-block;}}");
-				streamWriter.WriteLine(value: $"\t\t</style>");
-				streamWriter.WriteLine(value: $"\t</head>");
-				streamWriter.WriteLine(value: $"\t<body>");
-				streamWriter.WriteLine(value: $"\t\t<p>");
-				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
-				{
-					// Write the index and designation name to the HTML file
-					streamWriter.Write(value: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{listView.Items[index: i].SubItems[index: 0].Text}:</span> <span xml:id=\"value-id-{i}\">{listView.Items[index: i].SubItems[index: 1].Text}</span>");
-					// If this is not the last item, write a line break
-					// to separate the items
-					if (i < listView.Items.Count - 1)
-					{
-						// Write a line break to separate the items
-						streamWriter.WriteLine(value: "<br />");
-					}
-				}
-				// Write the closing tags for the paragraph and body
-				streamWriter.WriteLine(value: $"\t\t</p>");
-				streamWriter.WriteLine(value: $"\t</body>");
-				streamWriter.Write(value: $"</html>");
+				return;
 			}
+			// Create a new HTML file and write the data to it
+			using StreamWriter streamWriter = new(path: saveFileDialogHtml.FileName);
+			// Write the HTML header and metadata
+			streamWriter.WriteLine(value: "<!DOCTYPE html>");
+			streamWriter.WriteLine(value: "<html lang=\"en\">");
+			streamWriter.WriteLine(value: "\t<head>");
+			streamWriter.WriteLine(value: "\t\t<meta charset=\"utf-8\">");
+			streamWriter.WriteLine(value: "\t\t<meta name=\"description\" content=\"\">");
+			streamWriter.WriteLine(value: "\t\t<meta name=\"keywords\" content=\"\">");
+			streamWriter.WriteLine(value: "\t\t<meta name=\"generator\" content=\"Planetoid-DB\">");
+			streamWriter.WriteLine(value: "\t\t<title>List of readable designations</title>");
+			streamWriter.WriteLine(value: "\t\t<style>");
+			streamWriter.WriteLine(value: "\t\t\t* {font-family: sans-serif;}");
+			streamWriter.WriteLine(value: "\t\t\t.italic {font-style: italic;}");
+			streamWriter.WriteLine(value: "\t\t\t.bold {font-weight: bold;}");
+			streamWriter.WriteLine(value: "\t\t\t.sup {vertical-align: super; font-size: smaller;}");
+			streamWriter.WriteLine(value: "\t\t\t.sub {vertical-align: sub; font-size: smaller;}");
+			streamWriter.WriteLine(value: "\t\t\t.block {width:50px; display: inline-block;}");
+			streamWriter.WriteLine(value: "\t\t</style>");
+			streamWriter.WriteLine(value: "\t</head>");
+			streamWriter.WriteLine(value: "\t<body>");
+			streamWriter.WriteLine(value: "\t\t<p>");
+			for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+			{
+				// Write the index and designation name to the HTML file
+				streamWriter.Write(value: $"\t\t\t<span class=\"bold block\" xml:id=\"element-id-{i}\">{listView.Items[index: i].SubItems[index: 0].Text}:</span> <span xml:id=\"value-id-{i}\">{listView.Items[index: i].SubItems[index: 1].Text}</span>");
+				// If this is not the last item, write a line break
+				// to separate the items
+				if (i < listView.Items.Count - 1)
+				{
+					// Write a line break to separate the items
+					streamWriter.WriteLine(value: "<br />");
+				}
+			}
+			// Write the closing tags for the paragraph and body
+			streamWriter.WriteLine(value: "\t\t</p>");
+			streamWriter.WriteLine(value: "\t</body>");
+			streamWriter.Write(value: "</html>");
 		}
 
 		/// <summary>
@@ -474,33 +480,34 @@ namespace Planetoid_DB
 			// Set the default file name for the XML file
 			saveFileDialogXml.FileName = $"Readable-Designation-List_{numericUpDownMinimum.Value}-{numericUpDownMaximum.Value}.{saveFileDialogXml.DefaultExt}";
 			// Show the save file dialog to select the XML file location
-			if (saveFileDialogXml.ShowDialog() == DialogResult.OK)
+			if (saveFileDialogXml.ShowDialog() != DialogResult.OK)
 			{
-				// Create a new XML file and write the data to it
-				using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
-				// Write the XML header and root element
-				streamWriter.WriteLine(value: $"<?xml version=\"1.0\" encoding=\"UTF.8\" standalone=\"yes\"?>");
-				streamWriter.WriteLine(value: $"<ListReadableDesignations xmlns=\"https://planet-db.de\">");
-				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
-				{
-					// Write the index and designation name to the XML file
-					streamWriter.Write(value: $"\t<item xml:id=\"element-id-{i}\" index=\"{listView.Items[index: i].SubItems[index: 0].Text}\" name=\"{listView.Items[index: i].SubItems[index: 1].Text}\" />");
-					// If this is not the last item, write a new line
-					// to separate the items
-					if (i < listView.Items.Count - 1)
-					{
-						// Write a new line to separate the items
-						streamWriter.Write(value: Environment.NewLine);
-					}
-				}
-				// Write the closing tag for the root element
-				streamWriter.Write(value: $"</ListReadableDesignations>");
+				return;
 			}
+			// Create a new XML file and write the data to it
+			using StreamWriter streamWriter = new(path: saveFileDialogXml.FileName);
+			// Write the XML header and root element
+			streamWriter.WriteLine(value: "<?xml version=\"1.0\" encoding=\"UTF.8\" standalone=\"yes\"?>");
+			streamWriter.WriteLine(value: "<ListReadableDesignations xmlns=\"https://planet-db.de\">");
+			for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
+			{
+				// Write the index and designation name to the XML file
+				streamWriter.Write(value: $"\t<item xml:id=\"element-id-{i}\" index=\"{listView.Items[index: i].SubItems[index: 0].Text}\" name=\"{listView.Items[index: i].SubItems[index: 1].Text}\" />");
+				// If this is not the last item, write a new line
+				// to separate the items
+				if (i < listView.Items.Count - 1)
+				{
+					// Write a new line to separate the items
+					streamWriter.Write(value: Environment.NewLine);
+				}
+			}
+			// Write the closing tag for the root element
+			streamWriter.Write(value: "</ListReadableDesignations>");
 		}
 
 		/// <summary>
 		/// Handles the Click event of the Save As Json menu item.
-		/// Saves the list view data as an Json file.
+		/// Saves the list view data as a Json file.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
@@ -516,18 +523,18 @@ namespace Planetoid_DB
 				// Create a new JSON file and write the data to it
 				using StreamWriter streamWriter = new(path: saveFileDialogJson.FileName);
 				// Write the JSON header and root element
-				streamWriter.WriteLine(value: $"{{");
+				streamWriter.WriteLine(value: "{");
 				for (int i = (int)numericUpDownMinimum.Value - 1; i < listView.Items.Count; i++)
 				{
 					// Write the index and designation name to the JSON file
-					streamWriter.WriteLine(value: $"\t\"item\"");
-					streamWriter.WriteLine(value: $"\t{{");
+					streamWriter.WriteLine(value: "\t\"item\"");
+					streamWriter.WriteLine(value: "\t{");
 					streamWriter.WriteLine(value: $"\t\t\"index\": \"{listView.Items[index: i].SubItems[index: 0].Text}\",");
 					streamWriter.WriteLine(value: $"\t\t\"readable designations\": \"{listView.Items[index: i].SubItems[index: 1].Text}\"");
-					streamWriter.WriteLine(value: $"\t}}");
+					streamWriter.WriteLine(value: "\t}");
 				}
 				// Write the closing tag for the root element
-				streamWriter.Write(value: $"}}");
+				streamWriter.Write(value: "}");
 			}
 		}
 

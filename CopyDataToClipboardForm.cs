@@ -11,7 +11,7 @@ namespace Planetoid_DB
 	public partial class CopyDataToClipboardForm : KryptonForm
 	{
 		// NLog logger instance
-		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// The list of data to be copied to the clipboard.
 		private List<string> dataToCopy = [];
@@ -62,7 +62,7 @@ namespace Planetoid_DB
 			catch (Exception ex)
 			{
 				// Log the exception and show an error message
-				logger.Error(exception: ex, message: ex.Message);
+				Logger.Error(exception: ex, message: ex.Message);
 				// Show an error message
 				ShowErrorMessage(message: $"File not found: {ex.Message}");
 			}
@@ -73,21 +73,22 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="text">The main text to be displayed on the status bar.</param>
 		/// <param name="additionalInfo">Additional information to be displayed alongside the main text.</param>
-		private void SetStatusbar(string text, string additionalInfo = "")
+		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (!string.IsNullOrWhiteSpace(value: text))
+			if (string.IsNullOrWhiteSpace(value: text))
 			{
-				// Set the status bar text and enable it
-				labelInformation.Enabled = true;
-				labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
+				return;
 			}
+			// Set the status bar text and enable it
+			labelInformation.Enabled = true;
+			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
 		}
 
 		/// <summary>
 		/// Clears the status bar text.
 		/// </summary>
-		private void ClearStatusbar()
+		private void ClearStatusBar()
 		{
 			// Clear the status bar text and disable it
 			labelInformation.Enabled = false;
@@ -112,7 +113,7 @@ namespace Planetoid_DB
 		private void CopyDataToClipboardForm_Load(object sender, EventArgs e)
 		{
 			// Set the status bar text
-			ClearStatusbar();
+			ClearStatusBar();
 			// Set the text of the buttons with the data to be copied
 			KryptonButton[] buttons =
 			[
@@ -144,18 +145,18 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void SetStatusbar_Enter(object sender, EventArgs e)
+		private void SetStatusBar_Enter(object sender, EventArgs e)
 		{
 			// Set the status bar text based on the sender's accessible description
 			switch (sender)
 			{
 				// If the sender is a control with an accessible description, set the status bar text
 				// If the sender is a ToolStripItem with an accessible description, set the status bar text
-				case Control control when control.AccessibleDescription != null:
-					SetStatusbar(text: control.AccessibleDescription);
+				case Control { AccessibleDescription: not null } control:
+					SetStatusBar(text: control.AccessibleDescription);
 					break;
-				case ToolStripItem item when item.AccessibleDescription != null:
-					SetStatusbar(text: item.AccessibleDescription);
+				case ToolStripItem { AccessibleDescription: not null } item:
+					SetStatusBar(text: item.AccessibleDescription);
 					break;
 			}
 		}
@@ -169,7 +170,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ClearStatusbar_Leave(object sender, EventArgs e) => ClearStatusbar();
+		private void ClearStatusBar_Leave(object sender, EventArgs e) => ClearStatusBar();
 
 		#endregion
 
@@ -239,11 +240,11 @@ namespace Planetoid_DB
 		private void ButtonMeanDailyMotion_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonMeanDailyMotion.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// Handles the Click event of the buttonSemimajorAxis control.
+		/// Handles the Click event of the buttonSemiMajorAxis control.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ButtonSemimajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSemimajorAxis.Tag?.ToString() ?? string.Empty);
+		private void ButtonSemiMajorAxis_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonSemimajorAxis.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
 		/// Handles the Click event of the buttonAbsoluteMagnitude control.
@@ -295,11 +296,11 @@ namespace Planetoid_DB
 		private void ButtonRmsResidual_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonRmsResidual.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
-		/// Handles the Click event of the buttonComputername control.
+		/// Handles the Click event of the buttonComputerName control.
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ButtonComputername_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonComputername.Tag?.ToString() ?? string.Empty);
+		private void ButtonComputerName_Click(object sender, EventArgs e) => CopyToClipboard(text: buttonComputername.Tag?.ToString() ?? string.Empty);
 
 		/// <summary>
 		/// Handles the Click event of the buttonFlags control.

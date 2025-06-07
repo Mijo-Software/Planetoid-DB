@@ -1,11 +1,14 @@
-﻿namespace Planetoid_DB
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
+
+namespace Planetoid_DB
 {
 	partial class RecordsMainForm
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -137,10 +140,10 @@
 			toolTip.SetToolTip(groupBoxExport, "Groups the export buttons");
 			groupBoxExport.Values.Heading = "Export list";
 			groupBoxExport.Values.Image = Properties.Resources.silk_page_save;
-			groupBoxExport.Enter += SetStatusbar_Enter;
-			groupBoxExport.Leave += ClearStatusbar_Leave;
-			groupBoxExport.MouseEnter += SetStatusbar_Enter;
-			groupBoxExport.MouseLeave += ClearStatusbar_Leave;
+			groupBoxExport.Enter += SetStatusBar_Enter;
+			groupBoxExport.Leave += ClearStatusBar_Leave;
+			groupBoxExport.MouseEnter += SetStatusBar_Enter;
+			groupBoxExport.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsJson
 			// 
@@ -158,10 +161,10 @@
 			buttonExportAsJson.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsJson.Values.Text = "Export as JSON";
 			buttonExportAsJson.Click += ButtonExportAsJson_Click;
-			buttonExportAsJson.Enter += SetStatusbar_Enter;
-			buttonExportAsJson.Leave += ClearStatusbar_Leave;
-			buttonExportAsJson.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsJson.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsJson.Enter += SetStatusBar_Enter;
+			buttonExportAsJson.Leave += ClearStatusBar_Leave;
+			buttonExportAsJson.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsJson.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsXml
 			// 
@@ -179,10 +182,10 @@
 			buttonExportAsXml.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsXml.Values.Text = "Export as XML";
 			buttonExportAsXml.Click += ButtonExportAsXml_Click;
-			buttonExportAsXml.Enter += SetStatusbar_Enter;
-			buttonExportAsXml.Leave += ClearStatusbar_Leave;
-			buttonExportAsXml.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsXml.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsXml.Enter += SetStatusBar_Enter;
+			buttonExportAsXml.Leave += ClearStatusBar_Leave;
+			buttonExportAsXml.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsXml.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsTxt
 			// 
@@ -200,10 +203,10 @@
 			buttonExportAsTxt.Values.Image = Properties.Resources.silk_page_white_text;
 			buttonExportAsTxt.Values.Text = "Export as TXT";
 			buttonExportAsTxt.Click += ButtonExportAsTxt_Click;
-			buttonExportAsTxt.Enter += SetStatusbar_Enter;
-			buttonExportAsTxt.Leave += ClearStatusbar_Leave;
-			buttonExportAsTxt.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsTxt.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsTxt.Enter += SetStatusBar_Enter;
+			buttonExportAsTxt.Leave += ClearStatusBar_Leave;
+			buttonExportAsTxt.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsTxt.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonExportAsHtml
 			// 
@@ -221,10 +224,10 @@
 			buttonExportAsHtml.Values.Image = Properties.Resources.silk_page_white_code;
 			buttonExportAsHtml.Values.Text = "Export as HTML";
 			buttonExportAsHtml.Click += ButtonExportAsHtml_Click;
-			buttonExportAsHtml.Enter += SetStatusbar_Enter;
-			buttonExportAsHtml.Leave += ClearStatusbar_Leave;
-			buttonExportAsHtml.MouseEnter += SetStatusbar_Enter;
-			buttonExportAsHtml.MouseLeave += ClearStatusbar_Leave;
+			buttonExportAsHtml.Enter += SetStatusBar_Enter;
+			buttonExportAsHtml.Leave += ClearStatusBar_Leave;
+			buttonExportAsHtml.MouseEnter += SetStatusBar_Enter;
+			buttonExportAsHtml.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanel
 			// 
@@ -315,10 +318,10 @@
 			buttonGoto09.Values.Image = Properties.Resources.silk_go;
 			buttonGoto09.Values.Text = "Goto";
 			buttonGoto09.Click += ButtonGoto09_Click;
-			buttonGoto09.Enter += SetStatusbar_Enter;
-			buttonGoto09.Leave += ClearStatusbar_Leave;
-			buttonGoto09.MouseEnter += SetStatusbar_Enter;
-			buttonGoto09.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto09.Enter += SetStatusBar_Enter;
+			buttonGoto09.Leave += ClearStatusBar_Leave;
+			buttonGoto09.MouseEnter += SetStatusBar_Enter;
+			buttonGoto09.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto08
 			// 
@@ -336,10 +339,10 @@
 			buttonGoto08.Values.Image = Properties.Resources.silk_go;
 			buttonGoto08.Values.Text = "Goto";
 			buttonGoto08.Click += ButtonGoto08_Click;
-			buttonGoto08.Enter += SetStatusbar_Enter;
-			buttonGoto08.Leave += ClearStatusbar_Leave;
-			buttonGoto08.MouseEnter += SetStatusbar_Enter;
-			buttonGoto08.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto08.Enter += SetStatusBar_Enter;
+			buttonGoto08.Leave += ClearStatusBar_Leave;
+			buttonGoto08.MouseEnter += SetStatusBar_Enter;
+			buttonGoto08.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto07
 			// 
@@ -357,10 +360,10 @@
 			buttonGoto07.Values.Image = Properties.Resources.silk_go;
 			buttonGoto07.Values.Text = "Goto";
 			buttonGoto07.Click += ButtonGoto07_Click;
-			buttonGoto07.Enter += SetStatusbar_Enter;
-			buttonGoto07.Leave += ClearStatusbar_Leave;
-			buttonGoto07.MouseEnter += SetStatusbar_Enter;
-			buttonGoto07.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto07.Enter += SetStatusBar_Enter;
+			buttonGoto07.Leave += ClearStatusBar_Leave;
+			buttonGoto07.MouseEnter += SetStatusBar_Enter;
+			buttonGoto07.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto06
 			// 
@@ -378,10 +381,10 @@
 			buttonGoto06.Values.Image = Properties.Resources.silk_go;
 			buttonGoto06.Values.Text = "Goto";
 			buttonGoto06.Click += ButtonGoto06_Click;
-			buttonGoto06.Enter += SetStatusbar_Enter;
-			buttonGoto06.Leave += ClearStatusbar_Leave;
-			buttonGoto06.MouseEnter += SetStatusbar_Enter;
-			buttonGoto06.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto06.Enter += SetStatusBar_Enter;
+			buttonGoto06.Leave += ClearStatusBar_Leave;
+			buttonGoto06.MouseEnter += SetStatusBar_Enter;
+			buttonGoto06.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto05
 			// 
@@ -399,10 +402,10 @@
 			buttonGoto05.Values.Image = Properties.Resources.silk_go;
 			buttonGoto05.Values.Text = "Goto";
 			buttonGoto05.Click += ButtonGoto05_Click;
-			buttonGoto05.Enter += SetStatusbar_Enter;
-			buttonGoto05.Leave += ClearStatusbar_Leave;
-			buttonGoto05.MouseEnter += SetStatusbar_Enter;
-			buttonGoto05.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto05.Enter += SetStatusBar_Enter;
+			buttonGoto05.Leave += ClearStatusBar_Leave;
+			buttonGoto05.MouseEnter += SetStatusBar_Enter;
+			buttonGoto05.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto04
 			// 
@@ -420,10 +423,10 @@
 			buttonGoto04.Values.Image = Properties.Resources.silk_go;
 			buttonGoto04.Values.Text = "Goto";
 			buttonGoto04.Click += ButtonGoto04_Click;
-			buttonGoto04.Enter += SetStatusbar_Enter;
-			buttonGoto04.Leave += ClearStatusbar_Leave;
-			buttonGoto04.MouseEnter += SetStatusbar_Enter;
-			buttonGoto04.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto04.Enter += SetStatusBar_Enter;
+			buttonGoto04.Leave += ClearStatusBar_Leave;
+			buttonGoto04.MouseEnter += SetStatusBar_Enter;
+			buttonGoto04.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto03
 			// 
@@ -441,10 +444,10 @@
 			buttonGoto03.Values.Image = Properties.Resources.silk_go;
 			buttonGoto03.Values.Text = "Goto";
 			buttonGoto03.Click += ButtonGoto03_Click;
-			buttonGoto03.Enter += SetStatusbar_Enter;
-			buttonGoto03.Leave += ClearStatusbar_Leave;
-			buttonGoto03.MouseEnter += SetStatusbar_Enter;
-			buttonGoto03.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto03.Enter += SetStatusBar_Enter;
+			buttonGoto03.Leave += ClearStatusBar_Leave;
+			buttonGoto03.MouseEnter += SetStatusBar_Enter;
+			buttonGoto03.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto02
 			// 
@@ -462,10 +465,10 @@
 			buttonGoto02.Values.Image = Properties.Resources.silk_go;
 			buttonGoto02.Values.Text = "Goto";
 			buttonGoto02.Click += ButtonGoto02_Click;
-			buttonGoto02.Enter += SetStatusbar_Enter;
-			buttonGoto02.Leave += ClearStatusbar_Leave;
-			buttonGoto02.MouseEnter += SetStatusbar_Enter;
-			buttonGoto02.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto02.Enter += SetStatusBar_Enter;
+			buttonGoto02.Leave += ClearStatusBar_Leave;
+			buttonGoto02.MouseEnter += SetStatusBar_Enter;
+			buttonGoto02.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace10
 			// 
@@ -481,10 +484,10 @@
 			labelPlace10.TabIndex = 38;
 			toolTip.SetToolTip(labelPlace10, "Record place no. 10");
 			labelPlace10.Values.Text = "10";
-			labelPlace10.Enter += SetStatusbar_Enter;
-			labelPlace10.Leave += ClearStatusbar_Leave;
-			labelPlace10.MouseEnter += SetStatusbar_Enter;
-			labelPlace10.MouseLeave += ClearStatusbar_Leave;
+			labelPlace10.Enter += SetStatusBar_Enter;
+			labelPlace10.Leave += ClearStatusBar_Leave;
+			labelPlace10.MouseEnter += SetStatusBar_Enter;
+			labelPlace10.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace05
 			// 
@@ -500,10 +503,10 @@
 			labelPlace05.TabIndex = 18;
 			toolTip.SetToolTip(labelPlace05, "Record place no. 5");
 			labelPlace05.Values.Text = "5";
-			labelPlace05.Enter += SetStatusbar_Enter;
-			labelPlace05.Leave += ClearStatusbar_Leave;
-			labelPlace05.MouseEnter += SetStatusbar_Enter;
-			labelPlace05.MouseLeave += ClearStatusbar_Leave;
+			labelPlace05.Enter += SetStatusBar_Enter;
+			labelPlace05.Leave += ClearStatusBar_Leave;
+			labelPlace05.MouseEnter += SetStatusBar_Enter;
+			labelPlace05.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace04
 			// 
@@ -519,10 +522,10 @@
 			labelPlace04.TabIndex = 14;
 			toolTip.SetToolTip(labelPlace04, "Record place no. 4");
 			labelPlace04.Values.Text = "4";
-			labelPlace04.Enter += SetStatusbar_Enter;
-			labelPlace04.Leave += ClearStatusbar_Leave;
-			labelPlace04.MouseEnter += SetStatusbar_Enter;
-			labelPlace04.MouseLeave += ClearStatusbar_Leave;
+			labelPlace04.Enter += SetStatusBar_Enter;
+			labelPlace04.Leave += ClearStatusBar_Leave;
+			labelPlace04.MouseEnter += SetStatusBar_Enter;
+			labelPlace04.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace03
 			// 
@@ -538,10 +541,10 @@
 			labelPlace03.TabIndex = 10;
 			toolTip.SetToolTip(labelPlace03, "Record place no. 3");
 			labelPlace03.Values.Text = "3";
-			labelPlace03.Enter += SetStatusbar_Enter;
-			labelPlace03.Leave += ClearStatusbar_Leave;
-			labelPlace03.MouseEnter += SetStatusbar_Enter;
-			labelPlace03.MouseLeave += ClearStatusbar_Leave;
+			labelPlace03.Enter += SetStatusBar_Enter;
+			labelPlace03.Leave += ClearStatusBar_Leave;
+			labelPlace03.MouseEnter += SetStatusBar_Enter;
+			labelPlace03.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace01
 			// 
@@ -557,10 +560,10 @@
 			labelPlace01.TabIndex = 2;
 			toolTip.SetToolTip(labelPlace01, "Record place no. ");
 			labelPlace01.Values.Text = "1";
-			labelPlace01.Enter += SetStatusbar_Enter;
-			labelPlace01.Leave += ClearStatusbar_Leave;
-			labelPlace01.MouseEnter += SetStatusbar_Enter;
-			labelPlace01.MouseLeave += ClearStatusbar_Leave;
+			labelPlace01.Enter += SetStatusBar_Enter;
+			labelPlace01.Leave += ClearStatusBar_Leave;
+			labelPlace01.MouseEnter += SetStatusBar_Enter;
+			labelPlace01.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace02
 			// 
@@ -576,10 +579,10 @@
 			labelPlace02.TabIndex = 6;
 			toolTip.SetToolTip(labelPlace02, "Record place no. 2");
 			labelPlace02.Values.Text = "2";
-			labelPlace02.Enter += SetStatusbar_Enter;
-			labelPlace02.Leave += ClearStatusbar_Leave;
-			labelPlace02.MouseEnter += SetStatusbar_Enter;
-			labelPlace02.MouseLeave += ClearStatusbar_Leave;
+			labelPlace02.Enter += SetStatusBar_Enter;
+			labelPlace02.Leave += ClearStatusBar_Leave;
+			labelPlace02.MouseEnter += SetStatusBar_Enter;
+			labelPlace02.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace06
 			// 
@@ -595,10 +598,10 @@
 			labelPlace06.TabIndex = 22;
 			toolTip.SetToolTip(labelPlace06, "Record place no. 6");
 			labelPlace06.Values.Text = "6";
-			labelPlace06.Enter += SetStatusbar_Enter;
-			labelPlace06.Leave += ClearStatusbar_Leave;
-			labelPlace06.MouseEnter += SetStatusbar_Enter;
-			labelPlace06.MouseLeave += ClearStatusbar_Leave;
+			labelPlace06.Enter += SetStatusBar_Enter;
+			labelPlace06.Leave += ClearStatusBar_Leave;
+			labelPlace06.MouseEnter += SetStatusBar_Enter;
+			labelPlace06.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace07
 			// 
@@ -614,10 +617,10 @@
 			labelPlace07.TabIndex = 26;
 			toolTip.SetToolTip(labelPlace07, "Record place no. 7");
 			labelPlace07.Values.Text = "7";
-			labelPlace07.Enter += SetStatusbar_Enter;
-			labelPlace07.Leave += ClearStatusbar_Leave;
-			labelPlace07.MouseEnter += SetStatusbar_Enter;
-			labelPlace07.MouseLeave += ClearStatusbar_Leave;
+			labelPlace07.Enter += SetStatusBar_Enter;
+			labelPlace07.Leave += ClearStatusBar_Leave;
+			labelPlace07.MouseEnter += SetStatusBar_Enter;
+			labelPlace07.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace08
 			// 
@@ -633,10 +636,10 @@
 			labelPlace08.TabIndex = 30;
 			toolTip.SetToolTip(labelPlace08, "Record place no. 8");
 			labelPlace08.Values.Text = "8";
-			labelPlace08.Enter += SetStatusbar_Enter;
-			labelPlace08.Leave += ClearStatusbar_Leave;
-			labelPlace08.MouseEnter += SetStatusbar_Enter;
-			labelPlace08.MouseLeave += ClearStatusbar_Leave;
+			labelPlace08.Enter += SetStatusBar_Enter;
+			labelPlace08.Leave += ClearStatusBar_Leave;
+			labelPlace08.MouseEnter += SetStatusBar_Enter;
+			labelPlace08.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPlace09
 			// 
@@ -652,10 +655,10 @@
 			labelPlace09.TabIndex = 34;
 			toolTip.SetToolTip(labelPlace09, "Record place no. 9");
 			labelPlace09.Values.Text = "9";
-			labelPlace09.Enter += SetStatusbar_Enter;
-			labelPlace09.Leave += ClearStatusbar_Leave;
-			labelPlace09.MouseEnter += SetStatusbar_Enter;
-			labelPlace09.MouseLeave += ClearStatusbar_Leave;
+			labelPlace09.Enter += SetStatusBar_Enter;
+			labelPlace09.Leave += ClearStatusBar_Leave;
+			labelPlace09.MouseEnter += SetStatusBar_Enter;
+			labelPlace09.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto01
 			// 
@@ -673,10 +676,10 @@
 			buttonGoto01.Values.Image = Properties.Resources.silk_go;
 			buttonGoto01.Values.Text = "Goto";
 			buttonGoto01.Click += ButtonGoto01_Click;
-			buttonGoto01.Enter += SetStatusbar_Enter;
-			buttonGoto01.Leave += ClearStatusbar_Leave;
-			buttonGoto01.MouseEnter += SetStatusbar_Enter;
-			buttonGoto01.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto01.Enter += SetStatusBar_Enter;
+			buttonGoto01.Leave += ClearStatusBar_Leave;
+			buttonGoto01.MouseEnter += SetStatusBar_Enter;
+			buttonGoto01.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignationHeader
 			// 
@@ -692,10 +695,10 @@
 			labelReadableDesignationHeader.TabIndex = 0;
 			toolTip.SetToolTip(labelReadableDesignationHeader, "Readable  designation header");
 			labelReadableDesignationHeader.Values.Text = "Readable \r\ndesignation";
-			labelReadableDesignationHeader.Enter += SetStatusbar_Enter;
-			labelReadableDesignationHeader.Leave += ClearStatusbar_Leave;
-			labelReadableDesignationHeader.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignationHeader.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignationHeader.Enter += SetStatusBar_Enter;
+			labelReadableDesignationHeader.Leave += ClearStatusBar_Leave;
+			labelReadableDesignationHeader.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignationHeader.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValueHeader
 			// 
@@ -711,10 +714,10 @@
 			labelValueHeader.TabIndex = 1;
 			toolTip.SetToolTip(labelValueHeader, "Value header");
 			labelValueHeader.Values.Text = "Value";
-			labelValueHeader.Enter += SetStatusbar_Enter;
-			labelValueHeader.Leave += ClearStatusbar_Leave;
-			labelValueHeader.MouseEnter += SetStatusbar_Enter;
-			labelValueHeader.MouseLeave += ClearStatusbar_Leave;
+			labelValueHeader.Enter += SetStatusBar_Enter;
+			labelValueHeader.Leave += ClearStatusBar_Leave;
+			labelValueHeader.MouseEnter += SetStatusBar_Enter;
+			labelValueHeader.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation01
 			// 
@@ -730,10 +733,10 @@
 			toolTip.SetToolTip(labelReadableDesignation01, "Readable designation no. 1");
 			labelReadableDesignation01.Values.Text = "designation 01";
 			labelReadableDesignation01.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation01.Enter += SetStatusbar_Enter;
-			labelReadableDesignation01.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation01.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation01.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation01.Enter += SetStatusBar_Enter;
+			labelReadableDesignation01.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation01.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation01.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation02
 			// 
@@ -749,10 +752,10 @@
 			toolTip.SetToolTip(labelReadableDesignation02, "Readable designation no. 2");
 			labelReadableDesignation02.Values.Text = "designation 02";
 			labelReadableDesignation02.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation02.Enter += SetStatusbar_Enter;
-			labelReadableDesignation02.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation02.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation02.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation02.Enter += SetStatusBar_Enter;
+			labelReadableDesignation02.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation02.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation02.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation03
 			// 
@@ -768,10 +771,10 @@
 			toolTip.SetToolTip(labelReadableDesignation03, "Readable designation no. 3");
 			labelReadableDesignation03.Values.Text = "designation 03";
 			labelReadableDesignation03.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation03.Enter += SetStatusbar_Enter;
-			labelReadableDesignation03.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation03.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation03.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation03.Enter += SetStatusBar_Enter;
+			labelReadableDesignation03.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation03.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation03.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation04
 			// 
@@ -787,10 +790,10 @@
 			toolTip.SetToolTip(labelReadableDesignation04, "Readable designation no. 4");
 			labelReadableDesignation04.Values.Text = "designation 04";
 			labelReadableDesignation04.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation04.Enter += SetStatusbar_Enter;
-			labelReadableDesignation04.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation04.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation04.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation04.Enter += SetStatusBar_Enter;
+			labelReadableDesignation04.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation04.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation04.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation05
 			// 
@@ -806,10 +809,10 @@
 			toolTip.SetToolTip(labelReadableDesignation05, "Readable designation no. 5");
 			labelReadableDesignation05.Values.Text = "designation 05";
 			labelReadableDesignation05.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation05.Enter += SetStatusbar_Enter;
-			labelReadableDesignation05.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation05.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation05.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation05.Enter += SetStatusBar_Enter;
+			labelReadableDesignation05.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation05.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation05.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation06
 			// 
@@ -825,10 +828,10 @@
 			toolTip.SetToolTip(labelReadableDesignation06, "Readable designation no. 6");
 			labelReadableDesignation06.Values.Text = "designation 06";
 			labelReadableDesignation06.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation06.Enter += SetStatusbar_Enter;
-			labelReadableDesignation06.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation06.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation06.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation06.Enter += SetStatusBar_Enter;
+			labelReadableDesignation06.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation06.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation06.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation07
 			// 
@@ -844,10 +847,10 @@
 			toolTip.SetToolTip(labelReadableDesignation07, "Readable designation no. 7");
 			labelReadableDesignation07.Values.Text = "designation 07";
 			labelReadableDesignation07.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation07.Enter += SetStatusbar_Enter;
-			labelReadableDesignation07.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation07.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation07.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation07.Enter += SetStatusBar_Enter;
+			labelReadableDesignation07.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation07.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation07.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation08
 			// 
@@ -863,10 +866,10 @@
 			toolTip.SetToolTip(labelReadableDesignation08, "Readable designation no. 8");
 			labelReadableDesignation08.Values.Text = "designation 08";
 			labelReadableDesignation08.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation08.Enter += SetStatusbar_Enter;
-			labelReadableDesignation08.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation08.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation08.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation08.Enter += SetStatusBar_Enter;
+			labelReadableDesignation08.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation08.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation08.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation09
 			// 
@@ -882,10 +885,10 @@
 			toolTip.SetToolTip(labelReadableDesignation09, "Readable designation no. 9");
 			labelReadableDesignation09.Values.Text = "designation 09";
 			labelReadableDesignation09.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation09.Enter += SetStatusbar_Enter;
-			labelReadableDesignation09.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation09.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation09.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation09.Enter += SetStatusBar_Enter;
+			labelReadableDesignation09.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation09.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation09.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelReadableDesignation10
 			// 
@@ -901,10 +904,10 @@
 			toolTip.SetToolTip(labelReadableDesignation10, "Readable designation no. 10");
 			labelReadableDesignation10.Values.Text = "designation 10";
 			labelReadableDesignation10.DoubleClick += CopyToClipboard_DoubleClick;
-			labelReadableDesignation10.Enter += SetStatusbar_Enter;
-			labelReadableDesignation10.Leave += ClearStatusbar_Leave;
-			labelReadableDesignation10.MouseEnter += SetStatusbar_Enter;
-			labelReadableDesignation10.MouseLeave += ClearStatusbar_Leave;
+			labelReadableDesignation10.Enter += SetStatusBar_Enter;
+			labelReadableDesignation10.Leave += ClearStatusBar_Leave;
+			labelReadableDesignation10.MouseEnter += SetStatusBar_Enter;
+			labelReadableDesignation10.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue01
 			// 
@@ -920,10 +923,10 @@
 			toolTip.SetToolTip(labelValue01, "Value no. 1");
 			labelValue01.Values.Text = "value 01";
 			labelValue01.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue01.Enter += SetStatusbar_Enter;
-			labelValue01.Leave += ClearStatusbar_Leave;
-			labelValue01.MouseEnter += SetStatusbar_Enter;
-			labelValue01.MouseLeave += ClearStatusbar_Leave;
+			labelValue01.Enter += SetStatusBar_Enter;
+			labelValue01.Leave += ClearStatusBar_Leave;
+			labelValue01.MouseEnter += SetStatusBar_Enter;
+			labelValue01.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue02
 			// 
@@ -939,10 +942,10 @@
 			toolTip.SetToolTip(labelValue02, "Value no. 2");
 			labelValue02.Values.Text = "value 02";
 			labelValue02.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue02.Enter += SetStatusbar_Enter;
-			labelValue02.Leave += ClearStatusbar_Leave;
-			labelValue02.MouseEnter += SetStatusbar_Enter;
-			labelValue02.MouseLeave += ClearStatusbar_Leave;
+			labelValue02.Enter += SetStatusBar_Enter;
+			labelValue02.Leave += ClearStatusBar_Leave;
+			labelValue02.MouseEnter += SetStatusBar_Enter;
+			labelValue02.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue03
 			// 
@@ -958,10 +961,10 @@
 			toolTip.SetToolTip(labelValue03, "Value no. 3");
 			labelValue03.Values.Text = "value 03";
 			labelValue03.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue03.Enter += SetStatusbar_Enter;
-			labelValue03.Leave += ClearStatusbar_Leave;
-			labelValue03.MouseEnter += SetStatusbar_Enter;
-			labelValue03.MouseLeave += ClearStatusbar_Leave;
+			labelValue03.Enter += SetStatusBar_Enter;
+			labelValue03.Leave += ClearStatusBar_Leave;
+			labelValue03.MouseEnter += SetStatusBar_Enter;
+			labelValue03.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue04
 			// 
@@ -977,10 +980,10 @@
 			toolTip.SetToolTip(labelValue04, "Value no. 4");
 			labelValue04.Values.Text = "value 04";
 			labelValue04.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue04.Enter += SetStatusbar_Enter;
-			labelValue04.Leave += ClearStatusbar_Leave;
-			labelValue04.MouseEnter += SetStatusbar_Enter;
-			labelValue04.MouseLeave += ClearStatusbar_Leave;
+			labelValue04.Enter += SetStatusBar_Enter;
+			labelValue04.Leave += ClearStatusBar_Leave;
+			labelValue04.MouseEnter += SetStatusBar_Enter;
+			labelValue04.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue05
 			// 
@@ -996,10 +999,10 @@
 			toolTip.SetToolTip(labelValue05, "Value no. 5");
 			labelValue05.Values.Text = "value 05";
 			labelValue05.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue05.Enter += SetStatusbar_Enter;
-			labelValue05.Leave += ClearStatusbar_Leave;
-			labelValue05.MouseEnter += SetStatusbar_Enter;
-			labelValue05.MouseLeave += ClearStatusbar_Leave;
+			labelValue05.Enter += SetStatusBar_Enter;
+			labelValue05.Leave += ClearStatusBar_Leave;
+			labelValue05.MouseEnter += SetStatusBar_Enter;
+			labelValue05.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue06
 			// 
@@ -1015,10 +1018,10 @@
 			toolTip.SetToolTip(labelValue06, "Value no. 6");
 			labelValue06.Values.Text = "value 06";
 			labelValue06.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue06.Enter += SetStatusbar_Enter;
-			labelValue06.Leave += ClearStatusbar_Leave;
-			labelValue06.MouseEnter += SetStatusbar_Enter;
-			labelValue06.MouseLeave += ClearStatusbar_Leave;
+			labelValue06.Enter += SetStatusBar_Enter;
+			labelValue06.Leave += ClearStatusBar_Leave;
+			labelValue06.MouseEnter += SetStatusBar_Enter;
+			labelValue06.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue07
 			// 
@@ -1034,10 +1037,10 @@
 			toolTip.SetToolTip(labelValue07, "Value no. 7");
 			labelValue07.Values.Text = "value 07";
 			labelValue07.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue07.Enter += SetStatusbar_Enter;
-			labelValue07.Leave += ClearStatusbar_Leave;
-			labelValue07.MouseEnter += SetStatusbar_Enter;
-			labelValue07.MouseLeave += ClearStatusbar_Leave;
+			labelValue07.Enter += SetStatusBar_Enter;
+			labelValue07.Leave += ClearStatusBar_Leave;
+			labelValue07.MouseEnter += SetStatusBar_Enter;
+			labelValue07.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue08
 			// 
@@ -1053,10 +1056,10 @@
 			toolTip.SetToolTip(labelValue08, "Value no. 8");
 			labelValue08.Values.Text = "value 08";
 			labelValue08.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue08.Enter += SetStatusbar_Enter;
-			labelValue08.Leave += ClearStatusbar_Leave;
-			labelValue08.MouseEnter += SetStatusbar_Enter;
-			labelValue08.MouseLeave += ClearStatusbar_Leave;
+			labelValue08.Enter += SetStatusBar_Enter;
+			labelValue08.Leave += ClearStatusBar_Leave;
+			labelValue08.MouseEnter += SetStatusBar_Enter;
+			labelValue08.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue09
 			// 
@@ -1072,10 +1075,10 @@
 			toolTip.SetToolTip(labelValue09, "Value no. 9");
 			labelValue09.Values.Text = "value 09";
 			labelValue09.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue09.Enter += SetStatusbar_Enter;
-			labelValue09.Leave += ClearStatusbar_Leave;
-			labelValue09.MouseEnter += SetStatusbar_Enter;
-			labelValue09.MouseLeave += ClearStatusbar_Leave;
+			labelValue09.Enter += SetStatusBar_Enter;
+			labelValue09.Leave += ClearStatusBar_Leave;
+			labelValue09.MouseEnter += SetStatusBar_Enter;
+			labelValue09.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelValue10
 			// 
@@ -1091,10 +1094,10 @@
 			toolTip.SetToolTip(labelValue10, "Value no. 10");
 			labelValue10.Values.Text = "value 10";
 			labelValue10.DoubleClick += CopyToClipboard_DoubleClick;
-			labelValue10.Enter += SetStatusbar_Enter;
-			labelValue10.Leave += ClearStatusbar_Leave;
-			labelValue10.MouseEnter += SetStatusbar_Enter;
-			labelValue10.MouseLeave += ClearStatusbar_Leave;
+			labelValue10.Enter += SetStatusBar_Enter;
+			labelValue10.Leave += ClearStatusBar_Leave;
+			labelValue10.MouseEnter += SetStatusBar_Enter;
+			labelValue10.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonGoto10
 			// 
@@ -1112,10 +1115,10 @@
 			buttonGoto10.Values.Image = Properties.Resources.silk_go;
 			buttonGoto10.Values.Text = "Goto";
 			buttonGoto10.Click += ButtonGoto10_Click;
-			buttonGoto10.Enter += SetStatusbar_Enter;
-			buttonGoto10.Leave += ClearStatusbar_Leave;
-			buttonGoto10.MouseEnter += SetStatusbar_Enter;
-			buttonGoto10.MouseLeave += ClearStatusbar_Leave;
+			buttonGoto10.Enter += SetStatusBar_Enter;
+			buttonGoto10.Leave += ClearStatusBar_Leave;
+			buttonGoto10.MouseEnter += SetStatusBar_Enter;
+			buttonGoto10.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonStart
 			// 
@@ -1132,10 +1135,10 @@
 			buttonStart.Values.Image = Properties.Resources.silk_control_forward_blue;
 			buttonStart.Values.Text = "&Start";
 			buttonStart.Click += ButtonStart_Click;
-			buttonStart.Enter += SetStatusbar_Enter;
-			buttonStart.Leave += ClearStatusbar_Leave;
-			buttonStart.MouseEnter += SetStatusbar_Enter;
-			buttonStart.MouseLeave += ClearStatusbar_Leave;
+			buttonStart.Enter += SetStatusBar_Enter;
+			buttonStart.Leave += ClearStatusBar_Leave;
+			buttonStart.MouseEnter += SetStatusBar_Enter;
+			buttonStart.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelPercent
 			// 
@@ -1149,10 +1152,10 @@
 			labelPercent.TabIndex = 2;
 			toolTip.SetToolTip(labelPercent, "Percent status of the record detection");
 			labelPercent.Values.Text = "100 %";
-			labelPercent.Enter += SetStatusbar_Enter;
-			labelPercent.Leave += ClearStatusbar_Leave;
-			labelPercent.MouseEnter += SetStatusbar_Enter;
-			labelPercent.MouseLeave += ClearStatusbar_Leave;
+			labelPercent.Enter += SetStatusBar_Enter;
+			labelPercent.Leave += ClearStatusBar_Leave;
+			labelPercent.MouseEnter += SetStatusBar_Enter;
+			labelPercent.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// progressBar
 			// 
@@ -1166,8 +1169,8 @@
 			progressBar.TabIndex = 1;
 			progressBar.Text = "Label";
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the record detection");
-			progressBar.MouseEnter += SetStatusbar_Enter;
-			progressBar.MouseLeave += ClearStatusbar_Leave;
+			progressBar.MouseEnter += SetStatusBar_Enter;
+			progressBar.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// statusStrip
 			// 
@@ -1237,60 +1240,60 @@
 		}
 
 		#endregion
-		private Krypton.Toolkit.KryptonPanel panel;
-		private Krypton.Toolkit.KryptonLabel labelPercent;
-		private Krypton.Toolkit.KryptonProgressBar progressBar;
-		private Krypton.Toolkit.KryptonButton buttonStart;
-		private Krypton.Toolkit.KryptonTableLayoutPanel tableLayoutPanel;
-		private Krypton.Toolkit.KryptonLabel labelPlace10;
-		private Krypton.Toolkit.KryptonLabel labelPlace05;
-		private Krypton.Toolkit.KryptonLabel labelPlace04;
-		private Krypton.Toolkit.KryptonLabel labelPlace03;
-		private Krypton.Toolkit.KryptonLabel labelPlace01;
-		private Krypton.Toolkit.KryptonLabel labelPlace02;
-		private Krypton.Toolkit.KryptonLabel labelPlace06;
-		private Krypton.Toolkit.KryptonLabel labelPlace07;
-		private Krypton.Toolkit.KryptonLabel labelPlace08;
-		private Krypton.Toolkit.KryptonLabel labelPlace09;
-		private Krypton.Toolkit.KryptonButton buttonGoto03;
-		private Krypton.Toolkit.KryptonButton buttonGoto02;
-		private Krypton.Toolkit.KryptonButton buttonGoto01;
-		private Krypton.Toolkit.KryptonButton buttonGoto10;
-		private Krypton.Toolkit.KryptonButton buttonGoto09;
-		private Krypton.Toolkit.KryptonButton buttonGoto08;
-		private Krypton.Toolkit.KryptonButton buttonGoto07;
-		private Krypton.Toolkit.KryptonButton buttonGoto06;
-		private Krypton.Toolkit.KryptonButton buttonGoto05;
-		private Krypton.Toolkit.KryptonButton buttonGoto04;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignationHeader;
-		private Krypton.Toolkit.KryptonLabel labelValueHeader;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation01;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation02;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation03;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation04;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation05;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation06;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation07;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation08;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation09;
-		private Krypton.Toolkit.KryptonLabel labelReadableDesignation10;
-		private Krypton.Toolkit.KryptonLabel labelValue01;
-		private Krypton.Toolkit.KryptonLabel labelValue02;
-		private Krypton.Toolkit.KryptonLabel labelValue03;
-		private Krypton.Toolkit.KryptonLabel labelValue04;
-		private Krypton.Toolkit.KryptonLabel labelValue05;
-		private Krypton.Toolkit.KryptonLabel labelValue06;
-		private Krypton.Toolkit.KryptonLabel labelValue07;
-		private Krypton.Toolkit.KryptonLabel labelValue08;
-		private Krypton.Toolkit.KryptonLabel labelValue09;
-		private Krypton.Toolkit.KryptonLabel labelValue10;
-		private Krypton.Toolkit.KryptonGroupBox groupBoxExport;
-		private Krypton.Toolkit.KryptonButton buttonExportAsJson;
-		private Krypton.Toolkit.KryptonButton buttonExportAsTxt;
-		private Krypton.Toolkit.KryptonButton buttonExportAsXml;
-		private Krypton.Toolkit.KryptonButton buttonExportAsHtml;
-		private Krypton.Toolkit.KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolTip toolTip;
+		private KryptonPanel panel;
+		private KryptonLabel labelPercent;
+		private KryptonProgressBar progressBar;
+		private KryptonButton buttonStart;
+		private KryptonTableLayoutPanel tableLayoutPanel;
+		private KryptonLabel labelPlace10;
+		private KryptonLabel labelPlace05;
+		private KryptonLabel labelPlace04;
+		private KryptonLabel labelPlace03;
+		private KryptonLabel labelPlace01;
+		private KryptonLabel labelPlace02;
+		private KryptonLabel labelPlace06;
+		private KryptonLabel labelPlace07;
+		private KryptonLabel labelPlace08;
+		private KryptonLabel labelPlace09;
+		private KryptonButton buttonGoto03;
+		private KryptonButton buttonGoto02;
+		private KryptonButton buttonGoto01;
+		private KryptonButton buttonGoto10;
+		private KryptonButton buttonGoto09;
+		private KryptonButton buttonGoto08;
+		private KryptonButton buttonGoto07;
+		private KryptonButton buttonGoto06;
+		private KryptonButton buttonGoto05;
+		private KryptonButton buttonGoto04;
+		private KryptonLabel labelReadableDesignationHeader;
+		private KryptonLabel labelValueHeader;
+		private KryptonLabel labelReadableDesignation01;
+		private KryptonLabel labelReadableDesignation02;
+		private KryptonLabel labelReadableDesignation03;
+		private KryptonLabel labelReadableDesignation04;
+		private KryptonLabel labelReadableDesignation05;
+		private KryptonLabel labelReadableDesignation06;
+		private KryptonLabel labelReadableDesignation07;
+		private KryptonLabel labelReadableDesignation08;
+		private KryptonLabel labelReadableDesignation09;
+		private KryptonLabel labelReadableDesignation10;
+		private KryptonLabel labelValue01;
+		private KryptonLabel labelValue02;
+		private KryptonLabel labelValue03;
+		private KryptonLabel labelValue04;
+		private KryptonLabel labelValue05;
+		private KryptonLabel labelValue06;
+		private KryptonLabel labelValue07;
+		private KryptonLabel labelValue08;
+		private KryptonLabel labelValue09;
+		private KryptonLabel labelValue10;
+		private KryptonGroupBox groupBoxExport;
+		private KryptonButton buttonExportAsJson;
+		private KryptonButton buttonExportAsTxt;
+		private KryptonButton buttonExportAsXml;
+		private KryptonButton buttonExportAsHtml;
+		private KryptonStatusStrip statusStrip;
+		private ToolStripStatusLabel labelInformation;
+		private ToolTip toolTip;
 	}
 }

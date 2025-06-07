@@ -1,4 +1,5 @@
-﻿using Krypton.Toolkit;
+﻿using System.ComponentModel;
+using Krypton.Toolkit;
 
 namespace Planetoid_DB
 {
@@ -7,7 +8,7 @@ namespace Planetoid_DB
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -70,10 +71,10 @@ namespace Planetoid_DB
 			labelUpdateNeeded.Values.Image = Properties.Resources.silk_help;
 			labelUpdateNeeded.Values.Text = "Update needed?";
 			labelUpdateNeeded.DoubleClick += LabelUpdateNeeded_DoubleClick;
-			labelUpdateNeeded.Enter += SetStatusbar_Enter;
-			labelUpdateNeeded.Leave += ClearStatusbar_Leave;
-			labelUpdateNeeded.MouseEnter += SetStatusbar_Enter;
-			labelUpdateNeeded.MouseLeave += ClearStatusbar_Leave;
+			labelUpdateNeeded.Enter += SetStatusBar_Enter;
+			labelUpdateNeeded.Leave += ClearStatusBar_Leave;
+			labelUpdateNeeded.MouseEnter += SetStatusBar_Enter;
+			labelUpdateNeeded.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMpcorbDatLocal
 			// 
@@ -89,10 +90,10 @@ namespace Planetoid_DB
 			labelMpcorbDatLocal.TabIndex = 0;
 			toolTip.SetToolTip(labelMpcorbDatLocal, "Information about the local MPCORB.DAT file");
 			labelMpcorbDatLocal.Values.Text = "MPCORB.DAT local";
-			labelMpcorbDatLocal.Enter += SetStatusbar_Enter;
-			labelMpcorbDatLocal.Leave += ClearStatusbar_Leave;
-			labelMpcorbDatLocal.MouseEnter += SetStatusbar_Enter;
-			labelMpcorbDatLocal.MouseLeave += ClearStatusbar_Leave;
+			labelMpcorbDatLocal.Enter += SetStatusBar_Enter;
+			labelMpcorbDatLocal.Leave += ClearStatusBar_Leave;
+			labelMpcorbDatLocal.MouseEnter += SetStatusBar_Enter;
+			labelMpcorbDatLocal.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelMpcorbDatOnline
 			// 
@@ -108,10 +109,10 @@ namespace Planetoid_DB
 			labelMpcorbDatOnline.TabIndex = 1;
 			toolTip.SetToolTip(labelMpcorbDatOnline, "Information about the online MPCORB.DAT file");
 			labelMpcorbDatOnline.Values.Text = "MPCORB.DAT online";
-			labelMpcorbDatOnline.Enter += SetStatusbar_Enter;
-			labelMpcorbDatOnline.Leave += ClearStatusbar_Leave;
-			labelMpcorbDatOnline.MouseEnter += SetStatusbar_Enter;
-			labelMpcorbDatOnline.MouseLeave += ClearStatusbar_Leave;
+			labelMpcorbDatOnline.Enter += SetStatusBar_Enter;
+			labelMpcorbDatOnline.Leave += ClearStatusBar_Leave;
+			labelMpcorbDatOnline.MouseEnter += SetStatusBar_Enter;
+			labelMpcorbDatOnline.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelContentLengthText
 			// 
@@ -126,10 +127,10 @@ namespace Planetoid_DB
 			labelContentLengthText.TabIndex = 2;
 			toolTip.SetToolTip(labelContentLengthText, "Shows the content length");
 			labelContentLengthText.Values.Text = "Content length:";
-			labelContentLengthText.Enter += SetStatusbar_Enter;
-			labelContentLengthText.Leave += ClearStatusbar_Leave;
-			labelContentLengthText.MouseEnter += SetStatusbar_Enter;
-			labelContentLengthText.MouseLeave += ClearStatusbar_Leave;
+			labelContentLengthText.Enter += SetStatusBar_Enter;
+			labelContentLengthText.Leave += ClearStatusBar_Leave;
+			labelContentLengthText.MouseEnter += SetStatusBar_Enter;
+			labelContentLengthText.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelModifiedDateText
 			// 
@@ -145,10 +146,10 @@ namespace Planetoid_DB
 			labelModifiedDateText.TabIndex = 5;
 			toolTip.SetToolTip(labelModifiedDateText, "Shows the modified date");
 			labelModifiedDateText.Values.Text = "Modified date:";
-			labelModifiedDateText.Enter += SetStatusbar_Enter;
-			labelModifiedDateText.Leave += ClearStatusbar_Leave;
-			labelModifiedDateText.MouseEnter += SetStatusbar_Enter;
-			labelModifiedDateText.MouseLeave += ClearStatusbar_Leave;
+			labelModifiedDateText.Enter += SetStatusBar_Enter;
+			labelModifiedDateText.Leave += ClearStatusBar_Leave;
+			labelModifiedDateText.MouseEnter += SetStatusBar_Enter;
+			labelModifiedDateText.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelContentLengthValueLocal
 			// 
@@ -163,10 +164,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelContentLengthValueLocal, "Shows the local content length");
 			labelContentLengthValueLocal.Values.Text = "123456789 bytes";
 			labelContentLengthValueLocal.DoubleClick += CopyToClipboard_DoubleClick;
-			labelContentLengthValueLocal.Enter += SetStatusbar_Enter;
-			labelContentLengthValueLocal.Leave += ClearStatusbar_Leave;
-			labelContentLengthValueLocal.MouseEnter += SetStatusbar_Enter;
-			labelContentLengthValueLocal.MouseLeave += ClearStatusbar_Leave;
+			labelContentLengthValueLocal.Enter += SetStatusBar_Enter;
+			labelContentLengthValueLocal.Leave += ClearStatusBar_Leave;
+			labelContentLengthValueLocal.MouseEnter += SetStatusBar_Enter;
+			labelContentLengthValueLocal.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelModifiedDateValueLocal
 			// 
@@ -181,10 +182,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelModifiedDateValueLocal, "Shows the local modified date");
 			labelModifiedDateValueLocal.Values.Text = "00.00.0000 00:00";
 			labelModifiedDateValueLocal.DoubleClick += CopyToClipboard_DoubleClick;
-			labelModifiedDateValueLocal.Enter += SetStatusbar_Enter;
-			labelModifiedDateValueLocal.Leave += ClearStatusbar_Leave;
-			labelModifiedDateValueLocal.MouseEnter += SetStatusbar_Enter;
-			labelModifiedDateValueLocal.MouseLeave += ClearStatusbar_Leave;
+			labelModifiedDateValueLocal.Enter += SetStatusBar_Enter;
+			labelModifiedDateValueLocal.Leave += ClearStatusBar_Leave;
+			labelModifiedDateValueLocal.MouseEnter += SetStatusBar_Enter;
+			labelModifiedDateValueLocal.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelContentLengthValueOnline
 			// 
@@ -199,10 +200,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelContentLengthValueOnline, "Shows the online content length");
 			labelContentLengthValueOnline.Values.Text = "123456789 bytes";
 			labelContentLengthValueOnline.DoubleClick += CopyToClipboard_DoubleClick;
-			labelContentLengthValueOnline.Enter += SetStatusbar_Enter;
-			labelContentLengthValueOnline.Leave += ClearStatusbar_Leave;
-			labelContentLengthValueOnline.MouseEnter += SetStatusbar_Enter;
-			labelContentLengthValueOnline.MouseLeave += ClearStatusbar_Leave;
+			labelContentLengthValueOnline.Enter += SetStatusBar_Enter;
+			labelContentLengthValueOnline.Leave += ClearStatusBar_Leave;
+			labelContentLengthValueOnline.MouseEnter += SetStatusBar_Enter;
+			labelContentLengthValueOnline.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelModifiedDateValueOnline
 			// 
@@ -217,10 +218,10 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(labelModifiedDateValueOnline, "Shows the online modified date");
 			labelModifiedDateValueOnline.Values.Text = "00.00.0000 00:00";
 			labelModifiedDateValueOnline.DoubleClick += CopyToClipboard_DoubleClick;
-			labelModifiedDateValueOnline.Enter += SetStatusbar_Enter;
-			labelModifiedDateValueOnline.Leave += ClearStatusbar_Leave;
-			labelModifiedDateValueOnline.MouseEnter += SetStatusbar_Enter;
-			labelModifiedDateValueOnline.MouseLeave += ClearStatusbar_Leave;
+			labelModifiedDateValueOnline.Enter += SetStatusBar_Enter;
+			labelModifiedDateValueOnline.Leave += ClearStatusBar_Leave;
+			labelModifiedDateValueOnline.MouseEnter += SetStatusBar_Enter;
+			labelModifiedDateValueOnline.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanel
 			// 
@@ -342,7 +343,7 @@ namespace Planetoid_DB
 
 		#endregion
 
-		private System.Windows.Forms.ToolTip toolTip;
+		private ToolTip toolTip;
 		private KryptonTableLayoutPanel tableLayoutPanel;
 		private KryptonLabel labelUpdateNeeded;
 		private KryptonLabel labelMpcorbDatLocal;
@@ -354,7 +355,7 @@ namespace Planetoid_DB
 		private KryptonLabel labelContentLengthValueOnline;
 		private KryptonLabel labelModifiedDateValueOnline;
 		private KryptonStatusStrip statusStrip;
-		private System.Windows.Forms.ToolStripStatusLabel labelInformation;
-		private System.Windows.Forms.ToolStripContainer toolStripContainer;
+		private ToolStripStatusLabel labelInformation;
+		private ToolStripContainer toolStripContainer;
 	}
 }
