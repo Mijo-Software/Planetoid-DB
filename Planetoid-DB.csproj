@@ -10,7 +10,7 @@
     <StartupObject>Planetoid_DB.Program</StartupObject>
     <ApplicationIcon>Planetoid-DB-3.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>0.7.11.36</Version>
+    <Version>0.7.12.37</Version>
     <Company>Mijo Software</Company>
     <Description>Viewer for the MPC Orbit (MPCORB) Database</Description>
     <Copyright>2010-2025 Michael Johne</Copyright>
@@ -830,7 +830,12 @@ Public License instead of this License.  But first, please read
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Krypton.Docking" Version="90.24.11.317" />
+    <PackageReference Include="Krypton.Navigator" Version="90.24.11.317" />
+    <PackageReference Include="Krypton.Ribbon" Version="90.24.11.317" />
     <PackageReference Include="Krypton.Toolkit" Version="90.24.11.317" />
+    <PackageReference Include="Krypton.Toolkit.Suite.Extended.Ultimate" Version="95.25.5.145" />
+    <PackageReference Include="Krypton.Workspace" Version="90.24.11.317" />
     <PackageReference Include="NLog" Version="5.5.0" />
   </ItemGroup>
 
