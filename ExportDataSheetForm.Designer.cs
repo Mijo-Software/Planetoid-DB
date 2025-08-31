@@ -31,29 +31,30 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportDataSheetForm));
-			buttonExportAsJson = new Krypton.Toolkit.KryptonButton();
-			buttonExportAsTxt = new Krypton.Toolkit.KryptonButton();
-			buttonExportAsXml = new Krypton.Toolkit.KryptonButton();
-			buttonExportAsHtml = new Krypton.Toolkit.KryptonButton();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(ExportDataSheetForm));
+			buttonExportAsJson = new KryptonButton();
+			buttonExportAsTxt = new KryptonButton();
+			buttonExportAsXml = new KryptonButton();
+			buttonExportAsHtml = new KryptonButton();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolTip = new ToolTip(components);
-			buttonUnmarkAll = new Krypton.Toolkit.KryptonButton();
-			buttonMarkAll = new Krypton.Toolkit.KryptonButton();
+			buttonUnmarkAll = new KryptonButton();
+			buttonMarkAll = new KryptonButton();
 			toolStripContainer = new ToolStripContainer();
-			panel = new Krypton.Toolkit.KryptonPanel();
-			checkedListBoxOrbitalElements = new Krypton.Toolkit.KryptonCheckedListBox();
+			panel = new KryptonPanel();
+			checkedListBoxOrbitalElements = new KryptonCheckedListBox();
 			saveFileDialogTxt = new SaveFileDialog();
 			saveFileDialogHtml = new SaveFileDialog();
 			saveFileDialogXml = new SaveFileDialog();
 			saveFileDialogJson = new SaveFileDialog();
+			kryptonManager = new KryptonManager(components);
 			statusStrip.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
 			toolStripContainer.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -66,7 +67,7 @@ namespace Planetoid_DB
 			buttonExportAsJson.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsJson.Name = "buttonExportAsJson";
 			buttonExportAsJson.Size = new Size(111, 46);
-			buttonExportAsJson.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsJson.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsJson.TabIndex = 6;
 			toolTip.SetToolTip(buttonExportAsJson, "Export as JSON");
 			buttonExportAsJson.Values.DropDownArrowColor = Color.Empty;
@@ -87,7 +88,7 @@ namespace Planetoid_DB
 			buttonExportAsTxt.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsTxt.Name = "buttonExportAsTxt";
 			buttonExportAsTxt.Size = new Size(112, 46);
-			buttonExportAsTxt.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsTxt.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsTxt.TabIndex = 3;
 			toolTip.SetToolTip(buttonExportAsTxt, "Export as TXT");
 			buttonExportAsTxt.Values.DropDownArrowColor = Color.Empty;
@@ -108,7 +109,7 @@ namespace Planetoid_DB
 			buttonExportAsXml.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsXml.Name = "buttonExportAsXml";
 			buttonExportAsXml.Size = new Size(111, 46);
-			buttonExportAsXml.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsXml.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsXml.TabIndex = 5;
 			toolTip.SetToolTip(buttonExportAsXml, "Export as XML");
 			buttonExportAsXml.Values.DropDownArrowColor = Color.Empty;
@@ -129,7 +130,7 @@ namespace Planetoid_DB
 			buttonExportAsHtml.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsHtml.Name = "buttonExportAsHtml";
 			buttonExportAsHtml.Size = new Size(111, 46);
-			buttonExportAsHtml.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsHtml.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsHtml.TabIndex = 4;
 			toolTip.SetToolTip(buttonExportAsHtml, "Export as HTML");
 			buttonExportAsHtml.Values.DropDownArrowColor = Color.Empty;
@@ -176,7 +177,7 @@ namespace Planetoid_DB
 			buttonUnmarkAll.AccessibleDescription = "Umarks all orbital elements";
 			buttonUnmarkAll.AccessibleName = "Umark all orbital elements";
 			buttonUnmarkAll.AccessibleRole = AccessibleRole.PushButton;
-			buttonUnmarkAll.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonUnmarkAll.ButtonStyle = ButtonStyle.Form;
 			buttonUnmarkAll.Location = new Point(349, 50);
 			buttonUnmarkAll.Margin = new Padding(4, 3, 4, 3);
 			buttonUnmarkAll.Name = "buttonUnmarkAll";
@@ -196,7 +197,7 @@ namespace Planetoid_DB
 			buttonMarkAll.AccessibleDescription = "Marks all orbital elements";
 			buttonMarkAll.AccessibleName = "Mark all orbital elements";
 			buttonMarkAll.AccessibleRole = AccessibleRole.PushButton;
-			buttonMarkAll.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonMarkAll.ButtonStyle = ButtonStyle.Form;
 			buttonMarkAll.Location = new Point(349, 14);
 			buttonMarkAll.Margin = new Padding(4, 3, 4, 3);
 			buttonMarkAll.Name = "buttonMarkAll";
@@ -251,7 +252,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(474, 283);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
@@ -261,7 +262,7 @@ namespace Planetoid_DB
 			checkedListBoxOrbitalElements.AccessibleDescription = "Checks some orbital elements to print on a data sheet";
 			checkedListBoxOrbitalElements.AccessibleName = "Check orbital elements";
 			checkedListBoxOrbitalElements.AccessibleRole = AccessibleRole.List;
-			checkedListBoxOrbitalElements.BackStyle = Krypton.Toolkit.PaletteBackStyle.InputControlRibbon;
+			checkedListBoxOrbitalElements.BackStyle = PaletteBackStyle.InputControlRibbon;
 			checkedListBoxOrbitalElements.CheckOnClick = true;
 			checkedListBoxOrbitalElements.FormattingEnabled = true;
 			checkedListBoxOrbitalElements.HorizontalScrollbar = true;
@@ -299,6 +300,10 @@ namespace Planetoid_DB
 			saveFileDialogJson.DefaultExt = "json";
 			saveFileDialogJson.Filter = "JSON files|*.json|all files|*.*";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// ExportDataSheetForm
 			// 
 			AccessibleDescription = "Exports data sheet";
@@ -326,7 +331,7 @@ namespace Planetoid_DB
 			toolStripContainer.ContentPanel.ResumeLayout(false);
 			toolStripContainer.ResumeLayout(false);
 			toolStripContainer.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			ResumeLayout(false);
 		}
@@ -348,5 +353,6 @@ namespace Planetoid_DB
 		private KryptonCheckedListBox checkedListBoxOrbitalElements;
 		private KryptonButton buttonUnmarkAll;
 		private KryptonButton buttonMarkAll;
+		private KryptonManager kryptonManager;
 	}
 }

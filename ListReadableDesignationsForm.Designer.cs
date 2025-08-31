@@ -31,28 +31,28 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListReadableDesignationsForm));
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(ListReadableDesignationsForm));
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			backgroundWorker = new System.ComponentModel.BackgroundWorker();
+			backgroundWorker = new BackgroundWorker();
 			toolTip = new ToolTip(components);
-			buttonCancel = new Krypton.Toolkit.KryptonButton();
-			progressBar = new Krypton.Toolkit.KryptonProgressBar();
-			buttonList = new Krypton.Toolkit.KryptonButton();
+			buttonCancel = new KryptonButton();
+			progressBar = new KryptonProgressBar();
+			buttonList = new KryptonButton();
 			labelWarning = new Label();
-			buttonLoad = new Krypton.Toolkit.KryptonButton();
-			labelMinimum = new Krypton.Toolkit.KryptonLabel();
-			numericUpDownMinimum = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximum = new Krypton.Toolkit.KryptonNumericUpDown();
-			labelMaximum = new Krypton.Toolkit.KryptonLabel();
+			buttonLoad = new KryptonButton();
+			labelMinimum = new KryptonLabel();
+			numericUpDownMinimum = new KryptonNumericUpDown();
+			numericUpDownMaximum = new KryptonNumericUpDown();
+			labelMaximum = new KryptonLabel();
 			contextMenuStripSaveList = new ContextMenuStrip(components);
 			toolStripMenuItemSaveAsCsv = new ToolStripMenuItem();
 			toolStripMenuItemSaveAsHtml = new ToolStripMenuItem();
 			toolStripMenuItemSaveAsXml = new ToolStripMenuItem();
 			toolStripMenuItemSaveAsJson = new ToolStripMenuItem();
-			dropButtonSaveList = new Krypton.Toolkit.KryptonDropButton();
-			panel = new Krypton.Toolkit.KryptonPanel();
+			dropButtonSaveList = new KryptonDropButton();
+			panel = new KryptonPanel();
 			listView = new ListView();
 			columnHeaderIndex = new ColumnHeader();
 			columnHeaderReadableDesignation = new ColumnHeader();
@@ -60,9 +60,10 @@ namespace Planetoid_DB
 			saveFileDialogJson = new SaveFileDialog();
 			saveFileDialogHtml = new SaveFileDialog();
 			saveFileDialogXml = new SaveFileDialog();
+			kryptonManager = new KryptonManager(components);
 			statusStrip.SuspendLayout();
 			contextMenuStripSaveList.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -229,7 +230,7 @@ namespace Planetoid_DB
 			numericUpDownMinimum.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMinimum.Name = "numericUpDownMinimum";
 			numericUpDownMinimum.Size = new Size(64, 22);
-			numericUpDownMinimum.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+			numericUpDownMinimum.StateCommon.Content.TextH = PaletteRelativeAlign.Center;
 			numericUpDownMinimum.TabIndex = 1;
 			toolTip.SetToolTip(numericUpDownMinimum, "Minimum value for the list");
 			numericUpDownMinimum.Value = new decimal(new int[] { 0, 0, 0, 0 });
@@ -250,7 +251,7 @@ namespace Planetoid_DB
 			numericUpDownMaximum.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
 			numericUpDownMaximum.Name = "numericUpDownMaximum";
 			numericUpDownMaximum.Size = new Size(64, 22);
-			numericUpDownMaximum.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+			numericUpDownMaximum.StateCommon.Content.TextH = PaletteRelativeAlign.Center;
 			numericUpDownMaximum.TabIndex = 3;
 			toolTip.SetToolTip(numericUpDownMaximum, "Maximum value for the list");
 			numericUpDownMaximum.Value = new decimal(new int[] { 0, 0, 0, 0 });
@@ -393,7 +394,7 @@ namespace Planetoid_DB
 			panel.Dock = DockStyle.Fill;
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(312, 393);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
@@ -453,6 +454,10 @@ namespace Planetoid_DB
 			saveFileDialogXml.DefaultExt = "xml";
 			saveFileDialogXml.Filter = "XML files|*.xml|all files|*.*";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// ListReadableDesignationsForm
 			// 
 			AccessibleDescription = "List readable designations";
@@ -477,7 +482,7 @@ namespace Planetoid_DB
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
 			contextMenuStripSaveList.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			ResumeLayout(false);
@@ -513,5 +518,6 @@ namespace Planetoid_DB
 		private SaveFileDialog saveFileDialogJson;
 		private SaveFileDialog saveFileDialogHtml;
 		private SaveFileDialog saveFileDialogXml;
+		private KryptonManager kryptonManager;
 	}
 }

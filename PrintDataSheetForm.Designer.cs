@@ -31,16 +31,17 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintDataSheetForm));
-			checkedListBoxOrbitalElements = new Krypton.Toolkit.KryptonCheckedListBox();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(PrintDataSheetForm));
+			checkedListBoxOrbitalElements = new KryptonCheckedListBox();
 			toolTip = new ToolTip(components);
-			buttonPrintDataSheet = new Krypton.Toolkit.KryptonButton();
-			buttonCancelPrint = new Krypton.Toolkit.KryptonButton();
-			panel = new Krypton.Toolkit.KryptonPanel();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			buttonPrintDataSheet = new KryptonButton();
+			buttonCancelPrint = new KryptonButton();
+			panel = new KryptonPanel();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			SuspendLayout();
@@ -50,7 +51,7 @@ namespace Planetoid_DB
 			checkedListBoxOrbitalElements.AccessibleDescription = "Checks some orbital elements to print on a data sheet";
 			checkedListBoxOrbitalElements.AccessibleName = "Checks orbital elements";
 			checkedListBoxOrbitalElements.AccessibleRole = AccessibleRole.List;
-			checkedListBoxOrbitalElements.BackStyle = Krypton.Toolkit.PaletteBackStyle.InputControlRibbon;
+			checkedListBoxOrbitalElements.BackStyle = PaletteBackStyle.InputControlRibbon;
 			checkedListBoxOrbitalElements.CheckOnClick = true;
 			checkedListBoxOrbitalElements.FormattingEnabled = true;
 			checkedListBoxOrbitalElements.HorizontalScrollbar = true;
@@ -117,7 +118,7 @@ namespace Planetoid_DB
 			panel.Dock = DockStyle.Fill;
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(306, 308);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
@@ -151,6 +152,10 @@ namespace Planetoid_DB
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Shows some information";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// PrintDataSheetForm
 			// 
 			AccessibleDescription = "Prints a data sheet with some orbit elements";
@@ -172,7 +177,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Print data sheet");
 			FormClosed += PrintDataSheetForm_FormClosed;
 			Load += PrintDataSheetForm_Load;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -190,5 +195,6 @@ namespace Planetoid_DB
         private KryptonPanel panel;
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
+		private KryptonManager kryptonManager;
 	}
 }

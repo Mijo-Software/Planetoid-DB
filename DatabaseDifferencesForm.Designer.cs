@@ -34,58 +34,59 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseDifferencesForm));
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(DatabaseDifferencesForm));
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolStripContainer = new ToolStripContainer();
-			panel = new Krypton.Toolkit.KryptonPanel();
-			groupBoxResults = new Krypton.Toolkit.KryptonGroupBox();
-			listBoxResults = new Krypton.Toolkit.KryptonListBox();
-			buttonCancel = new Krypton.Toolkit.KryptonButton();
-			buttonCompare = new Krypton.Toolkit.KryptonButton();
-			groupBoxProgress = new Krypton.Toolkit.KryptonGroupBox();
-			progressBar = new Krypton.Toolkit.KryptonProgressBar();
-			groupBox2ndMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonGroupBox();
-			kryptonTableLayoutPanel1 = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			labelSize2ndMpcorbDatFileDatabaseValue = new Krypton.Toolkit.KryptonLabel();
-			labelPath2ndMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonLabel();
-			buttonOpen2ndMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonButton();
-			labelDate2ndMpcorbDatFileDatabaseValue = new Krypton.Toolkit.KryptonLabel();
-			labelDate2ndMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonLabel();
-			labelPath2ndMpcorbDatFileDatabaseValue = new Krypton.Toolkit.KryptonLabel();
-			labelSize2ndMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonLabel();
-			groupBox1stMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonGroupBox();
-			tableLayoutPanel1stMpcorbDatFile = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			labelSize1stMpcorbDatFileDatabaseValue = new Krypton.Toolkit.KryptonLabel();
-			labelPath1stMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonLabel();
-			buttonOpen1stMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonButton();
-			labelDate1stMpcorbDatFileDatabaseValue = new Krypton.Toolkit.KryptonLabel();
-			labelDate1stMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonLabel();
-			labelPath1stMpcorbDatFileDatabaseValue = new Krypton.Toolkit.KryptonLabel();
-			labelSize1stMpcorbDatFileDatabase = new Krypton.Toolkit.KryptonLabel();
+			panel = new KryptonPanel();
+			groupBoxResults = new KryptonGroupBox();
+			listBoxResults = new KryptonListBox();
+			buttonCancel = new KryptonButton();
+			buttonCompare = new KryptonButton();
+			groupBoxProgress = new KryptonGroupBox();
+			progressBar = new KryptonProgressBar();
+			groupBox2ndMpcorbDatFileDatabase = new KryptonGroupBox();
+			kryptonTableLayoutPanel1 = new KryptonTableLayoutPanel();
+			labelSize2ndMpcorbDatFileDatabaseValue = new KryptonLabel();
+			labelPath2ndMpcorbDatFileDatabase = new KryptonLabel();
+			buttonOpen2ndMpcorbDatFileDatabase = new KryptonButton();
+			labelDate2ndMpcorbDatFileDatabaseValue = new KryptonLabel();
+			labelDate2ndMpcorbDatFileDatabase = new KryptonLabel();
+			labelPath2ndMpcorbDatFileDatabaseValue = new KryptonLabel();
+			labelSize2ndMpcorbDatFileDatabase = new KryptonLabel();
+			groupBox1stMpcorbDatFileDatabase = new KryptonGroupBox();
+			tableLayoutPanel1stMpcorbDatFile = new KryptonTableLayoutPanel();
+			labelSize1stMpcorbDatFileDatabaseValue = new KryptonLabel();
+			labelPath1stMpcorbDatFileDatabase = new KryptonLabel();
+			buttonOpen1stMpcorbDatFileDatabase = new KryptonButton();
+			labelDate1stMpcorbDatFileDatabaseValue = new KryptonLabel();
+			labelDate1stMpcorbDatFileDatabase = new KryptonLabel();
+			labelPath1stMpcorbDatFileDatabaseValue = new KryptonLabel();
+			labelSize1stMpcorbDatFileDatabase = new KryptonLabel();
 			toolTip = new ToolTip(components);
-			backgroundWorker = new System.ComponentModel.BackgroundWorker();
+			backgroundWorker = new BackgroundWorker();
 			openFileDialog1stMpcorbDatFileDatabase = new OpenFileDialog();
 			openFileDialog2ndMpcorbDatFileDatabase = new OpenFileDialog();
+			kryptonManager = new KryptonManager(components);
 			statusStrip.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
 			toolStripContainer.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)groupBoxResults).BeginInit();
-			((System.ComponentModel.ISupportInitialize)groupBoxResults.Panel).BeginInit();
+			((ISupportInitialize)groupBoxResults).BeginInit();
+			((ISupportInitialize)groupBoxResults.Panel).BeginInit();
 			groupBoxResults.Panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)groupBoxProgress).BeginInit();
-			((System.ComponentModel.ISupportInitialize)groupBoxProgress.Panel).BeginInit();
+			((ISupportInitialize)groupBoxProgress).BeginInit();
+			((ISupportInitialize)groupBoxProgress.Panel).BeginInit();
 			groupBoxProgress.Panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)groupBox2ndMpcorbDatFileDatabase).BeginInit();
-			((System.ComponentModel.ISupportInitialize)groupBox2ndMpcorbDatFileDatabase.Panel).BeginInit();
+			((ISupportInitialize)groupBox2ndMpcorbDatFileDatabase).BeginInit();
+			((ISupportInitialize)groupBox2ndMpcorbDatFileDatabase.Panel).BeginInit();
 			groupBox2ndMpcorbDatFileDatabase.Panel.SuspendLayout();
 			kryptonTableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)groupBox1stMpcorbDatFileDatabase).BeginInit();
-			((System.ComponentModel.ISupportInitialize)groupBox1stMpcorbDatFileDatabase.Panel).BeginInit();
+			((ISupportInitialize)groupBox1stMpcorbDatFileDatabase).BeginInit();
+			((ISupportInitialize)groupBox1stMpcorbDatFileDatabase.Panel).BeginInit();
 			groupBox1stMpcorbDatFileDatabase.Panel.SuspendLayout();
 			tableLayoutPanel1stMpcorbDatFile.SuspendLayout();
 			SuspendLayout();
@@ -400,7 +401,7 @@ namespace Planetoid_DB
 			labelPath2ndMpcorbDatFileDatabase.AccessibleName = "Header of the path";
 			labelPath2ndMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.StaticText;
 			labelPath2ndMpcorbDatFileDatabase.Dock = DockStyle.Fill;
-			labelPath2ndMpcorbDatFileDatabase.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelPath2ndMpcorbDatFileDatabase.LabelStyle = LabelStyle.BoldPanel;
 			labelPath2ndMpcorbDatFileDatabase.Location = new Point(4, 38);
 			labelPath2ndMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
 			labelPath2ndMpcorbDatFileDatabase.Name = "labelPath2ndMpcorbDatFileDatabase";
@@ -462,7 +463,7 @@ namespace Planetoid_DB
 			labelDate2ndMpcorbDatFileDatabase.AccessibleName = "Header of the date";
 			labelDate2ndMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.StaticText;
 			labelDate2ndMpcorbDatFileDatabase.Dock = DockStyle.Fill;
-			labelDate2ndMpcorbDatFileDatabase.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelDate2ndMpcorbDatFileDatabase.LabelStyle = LabelStyle.BoldPanel;
 			labelDate2ndMpcorbDatFileDatabase.Location = new Point(4, 64);
 			labelDate2ndMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
 			labelDate2ndMpcorbDatFileDatabase.Name = "labelDate2ndMpcorbDatFileDatabase";
@@ -502,7 +503,7 @@ namespace Planetoid_DB
 			labelSize2ndMpcorbDatFileDatabase.AccessibleName = "Header of the size";
 			labelSize2ndMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.StaticText;
 			labelSize2ndMpcorbDatFileDatabase.Dock = DockStyle.Fill;
-			labelSize2ndMpcorbDatFileDatabase.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelSize2ndMpcorbDatFileDatabase.LabelStyle = LabelStyle.BoldPanel;
 			labelSize2ndMpcorbDatFileDatabase.Location = new Point(4, 90);
 			labelSize2ndMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
 			labelSize2ndMpcorbDatFileDatabase.Name = "labelSize2ndMpcorbDatFileDatabase";
@@ -609,7 +610,7 @@ namespace Planetoid_DB
 			labelPath1stMpcorbDatFileDatabase.AccessibleName = "Header of the path";
 			labelPath1stMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.StaticText;
 			labelPath1stMpcorbDatFileDatabase.Dock = DockStyle.Fill;
-			labelPath1stMpcorbDatFileDatabase.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelPath1stMpcorbDatFileDatabase.LabelStyle = LabelStyle.BoldPanel;
 			labelPath1stMpcorbDatFileDatabase.Location = new Point(4, 38);
 			labelPath1stMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
 			labelPath1stMpcorbDatFileDatabase.Name = "labelPath1stMpcorbDatFileDatabase";
@@ -671,7 +672,7 @@ namespace Planetoid_DB
 			labelDate1stMpcorbDatFileDatabase.AccessibleName = "Header of the date";
 			labelDate1stMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.StaticText;
 			labelDate1stMpcorbDatFileDatabase.Dock = DockStyle.Fill;
-			labelDate1stMpcorbDatFileDatabase.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelDate1stMpcorbDatFileDatabase.LabelStyle = LabelStyle.BoldPanel;
 			labelDate1stMpcorbDatFileDatabase.Location = new Point(4, 64);
 			labelDate1stMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
 			labelDate1stMpcorbDatFileDatabase.Name = "labelDate1stMpcorbDatFileDatabase";
@@ -711,7 +712,7 @@ namespace Planetoid_DB
 			labelSize1stMpcorbDatFileDatabase.AccessibleName = "Header of the size";
 			labelSize1stMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.StaticText;
 			labelSize1stMpcorbDatFileDatabase.Dock = DockStyle.Fill;
-			labelSize1stMpcorbDatFileDatabase.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelSize1stMpcorbDatFileDatabase.LabelStyle = LabelStyle.BoldPanel;
 			labelSize1stMpcorbDatFileDatabase.Location = new Point(4, 90);
 			labelSize1stMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
 			labelSize1stMpcorbDatFileDatabase.Name = "labelSize1stMpcorbDatFileDatabase";
@@ -743,6 +744,10 @@ namespace Planetoid_DB
 			openFileDialog2ndMpcorbDatFileDatabase.DefaultExt = "dat";
 			openFileDialog2ndMpcorbDatFileDatabase.Filter = "DAT files|*.dat|all files|*.*";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// DatabaseDifferencesForm
 			// 
 			AccessibleDescription = "Compares two MPCORVB.DAT files";
@@ -772,22 +777,22 @@ namespace Planetoid_DB
 			toolStripContainer.ContentPanel.ResumeLayout(false);
 			toolStripContainer.ResumeLayout(false);
 			toolStripContainer.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)groupBoxResults.Panel).EndInit();
+			((ISupportInitialize)groupBoxResults.Panel).EndInit();
 			groupBoxResults.Panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)groupBoxResults).EndInit();
-			((System.ComponentModel.ISupportInitialize)groupBoxProgress.Panel).EndInit();
+			((ISupportInitialize)groupBoxResults).EndInit();
+			((ISupportInitialize)groupBoxProgress.Panel).EndInit();
 			groupBoxProgress.Panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)groupBoxProgress).EndInit();
-			((System.ComponentModel.ISupportInitialize)groupBox2ndMpcorbDatFileDatabase.Panel).EndInit();
+			((ISupportInitialize)groupBoxProgress).EndInit();
+			((ISupportInitialize)groupBox2ndMpcorbDatFileDatabase.Panel).EndInit();
 			groupBox2ndMpcorbDatFileDatabase.Panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)groupBox2ndMpcorbDatFileDatabase).EndInit();
+			((ISupportInitialize)groupBox2ndMpcorbDatFileDatabase).EndInit();
 			kryptonTableLayoutPanel1.ResumeLayout(false);
 			kryptonTableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)groupBox1stMpcorbDatFileDatabase.Panel).EndInit();
+			((ISupportInitialize)groupBox1stMpcorbDatFileDatabase.Panel).EndInit();
 			groupBox1stMpcorbDatFileDatabase.Panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)groupBox1stMpcorbDatFileDatabase).EndInit();
+			((ISupportInitialize)groupBox1stMpcorbDatFileDatabase).EndInit();
 			tableLayoutPanel1stMpcorbDatFile.ResumeLayout(false);
 			tableLayoutPanel1stMpcorbDatFile.PerformLayout();
 			ResumeLayout(false);
@@ -828,5 +833,6 @@ namespace Planetoid_DB
 		private KryptonButton buttonCompare;
 		private KryptonGroupBox groupBoxResults;
 		private KryptonListBox listBoxResults;
+		private KryptonManager kryptonManager;
 	}
 }

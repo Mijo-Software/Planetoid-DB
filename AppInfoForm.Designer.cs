@@ -34,8 +34,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppInfoForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(AppInfoForm));
 			labelVersion = new KryptonLabel();
 			labelTitle = new KryptonLabel();
 			labelDescription = new KryptonLabel();
@@ -47,8 +47,9 @@ namespace Planetoid_DB
 			panel = new KryptonPanel();
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			((System.ComponentModel.ISupportInitialize)pictureBoxBanner).BeginInit();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)pictureBoxBanner).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			SuspendLayout();
@@ -158,6 +159,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(linkLabelEmail, "E-Mail");
 			linkLabelEmail.Values.Image = Properties.Resources.silk_email;
 			linkLabelEmail.Values.Text = "E-Mail";
+			linkLabelEmail.Visible = false;
 			linkLabelEmail.LinkClicked += LinkLabelEmail_Clicked;
 			linkLabelEmail.Enter += SetStatusBar_Enter;
 			linkLabelEmail.Leave += ClearStatusBar_Leave;
@@ -177,6 +179,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(linkLabelWebsite, "Website");
 			linkLabelWebsite.Values.Image = Properties.Resources.silk_world;
 			linkLabelWebsite.Values.Text = "Website";
+			linkLabelWebsite.Visible = false;
 			linkLabelWebsite.LinkClicked += LinkLabelWebsite_Clicked;
 			linkLabelWebsite.Enter += SetStatusBar_Enter;
 			linkLabelWebsite.Leave += ClearStatusBar_Leave;
@@ -232,6 +235,10 @@ namespace Planetoid_DB
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Shows some information";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// AppInfoForm
 			// 
 			AccessibleDescription = "Shows the program information";
@@ -254,8 +261,8 @@ namespace Planetoid_DB
 			FormClosed += AppInfoForm_FormClosed;
 			Load += AppInfoForm_Load;
 			KeyDown += AppInfoForm_KeyDown;
-			((System.ComponentModel.ISupportInitialize)pictureBoxBanner).EndInit();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)pictureBoxBanner).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -277,5 +284,6 @@ namespace Planetoid_DB
 		private ToolStripStatusLabel labelInformation;
 		private KryptonLinkLabel linkLabelWebsite;
 		private KryptonLinkLabel linkLabelEmail;
+		private KryptonManager kryptonManager;
 	}
 }

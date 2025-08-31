@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseInformationForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(DatabaseInformationForm));
 			toolTip = new ToolTip(components);
 			labelName = new KryptonLabel();
 			labelDirectory = new KryptonLabel();
@@ -52,6 +52,7 @@ namespace Planetoid_DB
 			toolStripContainer = new ToolStripContainer();
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
+			kryptonManager = new KryptonManager(components);
 			tableLayoutPanel.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
@@ -425,6 +426,10 @@ namespace Planetoid_DB
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Shows some information";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// DatabaseInformationForm
 			// 
 			AccessibleDescription = "Shows the informations about the MPCORB.DAT database";
@@ -479,5 +484,6 @@ namespace Planetoid_DB
 	private KryptonStatusStrip statusStrip;
 	private ToolStripStatusLabel labelInformation;
 	private ToolStripContainer toolStripContainer;
+		private KryptonManager kryptonManager;
 	}
 }

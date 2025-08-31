@@ -124,7 +124,7 @@
   <data name="tableLayoutPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAekAAAFfCAYAAABqXTT/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAACIBJREFUeF7t27FtXUEUQ8HtvyX3oDJ+G7ISZhScrYnFPGCSewogNnjn5/v+8/X5
+        wQAADsEBuJFr7QAACIBJREFUeF7t27FtXUEUQ8HtvyX3oDJ+G7ISZhScrYnFPGCSewogNnjn5/v+8/X5
         la63e+h6u4eut3vo/+6nBQDg/zPSADDKSAPAKCMNAKOMNACMMtIAMMpIA8Coc+M/r3YPXW/30PV2D11v
         93ihe0kDwCgjDQCjjDQAjDLSADDKSAPAKCMNAKOMNACMOjf+82r30PV2D11v99D1do8Xupc0AIwy0gAw
         ykgDwCgjDQCjjDQAjDLSADDKSAPAqHPjP692D11v99D1dg9db/d4oXtJA8AoIw0Ao4w0AIwy0gAwykgD
@@ -165,6 +165,9 @@
   </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="kryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>108, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>49</value>

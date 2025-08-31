@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+
 using Krypton.Toolkit;
+
 using NLog;
 
 namespace Planetoid_DB
@@ -27,9 +29,6 @@ namespace Planetoid_DB
 
 		// Index and label name as character strings
 		private string strIndex, strDesignationName;
-
-		// Indicates whether the application is currently busy
-		private bool isBusy;
 
 		#region Constructor
 
@@ -254,8 +253,7 @@ namespace Planetoid_DB
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs? e)
 		{
 			listView.Visible = true; // Show the list view
-			isBusy = false; // Set the busy flag to false
-							// Enable the numeric up-down controls
+									 // Enable the numeric up-down controls
 			numericUpDownMinimum.Enabled = true;
 			numericUpDownMaximum.Enabled = true;
 			buttonList.Enabled = true; // Enable the list button
@@ -362,7 +360,6 @@ namespace Planetoid_DB
 			dropButtonSaveList.Enabled = false; // Disable the save button
 			isCancelled = false; // Set the cancel flag to false
 			progressBar.Enabled = true; // Set the progress bar to enabled
-			isBusy = true; // Set the progress bar to enabled
 			backgroundWorker.WorkerReportsProgress = true; // Set the worker to report progress
 			backgroundWorker.WorkerSupportsCancellation = true; // Set the worker to support cancellation
 			backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged; // Handle progress changes

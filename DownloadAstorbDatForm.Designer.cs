@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadAstorbDatForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(DownloadAstorbDatForm));
 			progressBarDownload = new KryptonProgressBar();
 			labelStatusValue = new KryptonLabel();
 			labelDownload = new KryptonLabel();
@@ -52,8 +52,9 @@ namespace Planetoid_DB
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolStripContainer = new ToolStripContainer();
+			kryptonManager = new KryptonManager(components);
 			tableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
@@ -389,6 +390,10 @@ namespace Planetoid_DB
 			toolStripContainer.Size = new Size(477, 221);
 			toolStripContainer.TabIndex = 1;
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// DownloadAstorbDatForm
 			// 
 			AccessibleDescription = "Downloads the ASTORB.DAT";
@@ -413,7 +418,7 @@ namespace Planetoid_DB
 			Load += DownloadAstorbDatForm_Load;
 			tableLayoutPanel.ResumeLayout(false);
 			tableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -447,5 +452,6 @@ namespace Planetoid_DB
 		private ToolStripStatusLabel labelInformation;
 		private KryptonProgressBar progressBarDownload;
 		private ToolStripContainer toolStripContainer;
+		private KryptonManager kryptonManager;
 	}
 }

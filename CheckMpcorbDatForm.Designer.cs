@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckMpcorbDatForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(CheckMpcorbDatForm));
 			toolTip = new ToolTip(components);
 			labelUpdateNeeded = new KryptonLabel();
 			labelMpcorbDatLocal = new KryptonLabel();
@@ -47,6 +47,7 @@ namespace Planetoid_DB
 			toolStripContainer = new ToolStripContainer();
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
+			kryptonManager = new KryptonManager(components);
 			tableLayoutPanel.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
@@ -61,11 +62,10 @@ namespace Planetoid_DB
 			labelUpdateNeeded.AccessibleRole = AccessibleRole.Text;
 			tableLayoutPanel.SetColumnSpan(labelUpdateNeeded, 3);
 			labelUpdateNeeded.Dock = DockStyle.Fill;
-			labelUpdateNeeded.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			labelUpdateNeeded.LabelStyle = LabelStyle.TitleControl;
 			labelUpdateNeeded.Location = new Point(3, 81);
 			labelUpdateNeeded.Name = "labelUpdateNeeded";
-			labelUpdateNeeded.Size = new Size(366, 29);
+			labelUpdateNeeded.Size = new Size(370, 29);
 			labelUpdateNeeded.TabIndex = 8;
 			toolTip.SetToolTip(labelUpdateNeeded, "Informs if an update is recommended");
 			labelUpdateNeeded.Values.Image = Properties.Resources.silk_help;
@@ -82,7 +82,6 @@ namespace Planetoid_DB
 			labelMpcorbDatLocal.AccessibleName = "Local MPCORB.DAT file";
 			labelMpcorbDatLocal.AccessibleRole = AccessibleRole.Text;
 			labelMpcorbDatLocal.Dock = DockStyle.Fill;
-			labelMpcorbDatLocal.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
 			labelMpcorbDatLocal.LabelStyle = LabelStyle.BoldControl;
 			labelMpcorbDatLocal.Location = new Point(110, 3);
 			labelMpcorbDatLocal.Name = "labelMpcorbDatLocal";
@@ -101,11 +100,10 @@ namespace Planetoid_DB
 			labelMpcorbDatOnline.AccessibleName = "Online MPCORB.DAT file";
 			labelMpcorbDatOnline.AccessibleRole = AccessibleRole.Text;
 			labelMpcorbDatOnline.Dock = DockStyle.Fill;
-			labelMpcorbDatOnline.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
 			labelMpcorbDatOnline.LabelStyle = LabelStyle.BoldControl;
 			labelMpcorbDatOnline.Location = new Point(238, 3);
 			labelMpcorbDatOnline.Name = "labelMpcorbDatOnline";
-			labelMpcorbDatOnline.Size = new Size(131, 20);
+			labelMpcorbDatOnline.Size = new Size(135, 20);
 			labelMpcorbDatOnline.TabIndex = 1;
 			toolTip.SetToolTip(labelMpcorbDatOnline, "Information about the online MPCORB.DAT file");
 			labelMpcorbDatOnline.Values.Text = "MPCORB.DAT online";
@@ -119,7 +117,6 @@ namespace Planetoid_DB
 			labelContentLengthText.AccessibleDescription = "Shows the content length";
 			labelContentLengthText.AccessibleName = "Content length";
 			labelContentLengthText.AccessibleRole = AccessibleRole.Text;
-			labelContentLengthText.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
 			labelContentLengthText.LabelStyle = LabelStyle.BoldControl;
 			labelContentLengthText.Location = new Point(3, 29);
 			labelContentLengthText.Name = "labelContentLengthText";
@@ -138,7 +135,6 @@ namespace Planetoid_DB
 			labelModifiedDateText.AccessibleName = "Modified date";
 			labelModifiedDateText.AccessibleRole = AccessibleRole.Text;
 			labelModifiedDateText.Dock = DockStyle.Left;
-			labelModifiedDateText.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
 			labelModifiedDateText.LabelStyle = LabelStyle.BoldControl;
 			labelModifiedDateText.Location = new Point(3, 55);
 			labelModifiedDateText.Name = "labelModifiedDateText";
@@ -195,7 +191,7 @@ namespace Planetoid_DB
 			labelContentLengthValueOnline.Dock = DockStyle.Fill;
 			labelContentLengthValueOnline.Location = new Point(238, 29);
 			labelContentLengthValueOnline.Name = "labelContentLengthValueOnline";
-			labelContentLengthValueOnline.Size = new Size(131, 20);
+			labelContentLengthValueOnline.Size = new Size(135, 20);
 			labelContentLengthValueOnline.TabIndex = 4;
 			toolTip.SetToolTip(labelContentLengthValueOnline, "Shows the online content length");
 			labelContentLengthValueOnline.Values.Text = "123456789 bytes";
@@ -213,7 +209,7 @@ namespace Planetoid_DB
 			labelModifiedDateValueOnline.Dock = DockStyle.Fill;
 			labelModifiedDateValueOnline.Location = new Point(238, 55);
 			labelModifiedDateValueOnline.Name = "labelModifiedDateValueOnline";
-			labelModifiedDateValueOnline.Size = new Size(131, 20);
+			labelModifiedDateValueOnline.Size = new Size(135, 20);
 			labelModifiedDateValueOnline.TabIndex = 7;
 			toolTip.SetToolTip(labelModifiedDateValueOnline, "Shows the online modified date");
 			labelModifiedDateValueOnline.Values.Text = "00.00.0000 00:00";
@@ -228,8 +224,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Groups the data";
 			tableLayoutPanel.AccessibleName = "Group pane";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Pane;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 3;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
@@ -252,7 +246,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(372, 111);
+			tableLayoutPanel.Size = new Size(376, 111);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -269,14 +263,15 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanel);
-			toolStripContainer.ContentPanel.Size = new Size(372, 111);
+			toolStripContainer.ContentPanel.Size = new Size(376, 111);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
-			toolStripContainer.Size = new Size(372, 133);
+			toolStripContainer.Size = new Size(376, 133);
 			toolStripContainer.TabIndex = 3;
 			toolStripContainer.Text = "toolStripContainer";
 			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// statusStrip
 			// 
@@ -290,7 +285,7 @@ namespace Planetoid_DB
 			statusStrip.Name = "statusStrip";
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(372, 22);
+			statusStrip.Size = new Size(376, 22);
 			statusStrip.TabIndex = 0;
 			statusStrip.Text = "status bar";
 			// 
@@ -307,6 +302,10 @@ namespace Planetoid_DB
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Shows some information";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// CheckMpcorbDatForm
 			// 
 			AccessibleDescription = "Shows the informations about the MPCORB.DAT database local and online";
@@ -314,7 +313,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(372, 133);
+			ClientSize = new Size(376, 133);
 			Controls.Add(toolStripContainer);
 			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.SizableToolWindow;
@@ -357,5 +356,6 @@ namespace Planetoid_DB
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolStripContainer toolStripContainer;
+		private KryptonManager kryptonManager;
 	}
 }

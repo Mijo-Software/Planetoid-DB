@@ -31,67 +31,68 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordsMainForm));
-			panel = new Krypton.Toolkit.KryptonPanel();
-			groupBoxExport = new Krypton.Toolkit.KryptonGroupBox();
-			buttonExportAsJson = new Krypton.Toolkit.KryptonButton();
-			buttonExportAsXml = new Krypton.Toolkit.KryptonButton();
-			buttonExportAsTxt = new Krypton.Toolkit.KryptonButton();
-			buttonExportAsHtml = new Krypton.Toolkit.KryptonButton();
-			tableLayoutPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			buttonGoto09 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto08 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto07 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto06 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto05 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto04 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto03 = new Krypton.Toolkit.KryptonButton();
-			buttonGoto02 = new Krypton.Toolkit.KryptonButton();
-			labelPlace10 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace05 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace04 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace03 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace01 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace02 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace06 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace07 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace08 = new Krypton.Toolkit.KryptonLabel();
-			labelPlace09 = new Krypton.Toolkit.KryptonLabel();
-			buttonGoto01 = new Krypton.Toolkit.KryptonButton();
-			labelReadableDesignationHeader = new Krypton.Toolkit.KryptonLabel();
-			labelValueHeader = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation01 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation02 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation03 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation04 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation05 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation06 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation07 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation08 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation09 = new Krypton.Toolkit.KryptonLabel();
-			labelReadableDesignation10 = new Krypton.Toolkit.KryptonLabel();
-			labelValue01 = new Krypton.Toolkit.KryptonLabel();
-			labelValue02 = new Krypton.Toolkit.KryptonLabel();
-			labelValue03 = new Krypton.Toolkit.KryptonLabel();
-			labelValue04 = new Krypton.Toolkit.KryptonLabel();
-			labelValue05 = new Krypton.Toolkit.KryptonLabel();
-			labelValue06 = new Krypton.Toolkit.KryptonLabel();
-			labelValue07 = new Krypton.Toolkit.KryptonLabel();
-			labelValue08 = new Krypton.Toolkit.KryptonLabel();
-			labelValue09 = new Krypton.Toolkit.KryptonLabel();
-			labelValue10 = new Krypton.Toolkit.KryptonLabel();
-			buttonGoto10 = new Krypton.Toolkit.KryptonButton();
-			buttonStart = new Krypton.Toolkit.KryptonButton();
-			labelPercent = new Krypton.Toolkit.KryptonLabel();
-			progressBar = new Krypton.Toolkit.KryptonProgressBar();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(RecordsMainForm));
+			panel = new KryptonPanel();
+			groupBoxExport = new KryptonGroupBox();
+			buttonExportAsJson = new KryptonButton();
+			buttonExportAsXml = new KryptonButton();
+			buttonExportAsTxt = new KryptonButton();
+			buttonExportAsHtml = new KryptonButton();
+			tableLayoutPanel = new KryptonTableLayoutPanel();
+			buttonGoto09 = new KryptonButton();
+			buttonGoto08 = new KryptonButton();
+			buttonGoto07 = new KryptonButton();
+			buttonGoto06 = new KryptonButton();
+			buttonGoto05 = new KryptonButton();
+			buttonGoto04 = new KryptonButton();
+			buttonGoto03 = new KryptonButton();
+			buttonGoto02 = new KryptonButton();
+			labelPlace10 = new KryptonLabel();
+			labelPlace05 = new KryptonLabel();
+			labelPlace04 = new KryptonLabel();
+			labelPlace03 = new KryptonLabel();
+			labelPlace01 = new KryptonLabel();
+			labelPlace02 = new KryptonLabel();
+			labelPlace06 = new KryptonLabel();
+			labelPlace07 = new KryptonLabel();
+			labelPlace08 = new KryptonLabel();
+			labelPlace09 = new KryptonLabel();
+			buttonGoto01 = new KryptonButton();
+			labelReadableDesignationHeader = new KryptonLabel();
+			labelValueHeader = new KryptonLabel();
+			labelReadableDesignation01 = new KryptonLabel();
+			labelReadableDesignation02 = new KryptonLabel();
+			labelReadableDesignation03 = new KryptonLabel();
+			labelReadableDesignation04 = new KryptonLabel();
+			labelReadableDesignation05 = new KryptonLabel();
+			labelReadableDesignation06 = new KryptonLabel();
+			labelReadableDesignation07 = new KryptonLabel();
+			labelReadableDesignation08 = new KryptonLabel();
+			labelReadableDesignation09 = new KryptonLabel();
+			labelReadableDesignation10 = new KryptonLabel();
+			labelValue01 = new KryptonLabel();
+			labelValue02 = new KryptonLabel();
+			labelValue03 = new KryptonLabel();
+			labelValue04 = new KryptonLabel();
+			labelValue05 = new KryptonLabel();
+			labelValue06 = new KryptonLabel();
+			labelValue07 = new KryptonLabel();
+			labelValue08 = new KryptonLabel();
+			labelValue09 = new KryptonLabel();
+			labelValue10 = new KryptonLabel();
+			buttonGoto10 = new KryptonButton();
+			buttonStart = new KryptonButton();
+			labelPercent = new KryptonLabel();
+			progressBar = new KryptonProgressBar();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolTip = new ToolTip(components);
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)groupBoxExport).BeginInit();
-			((System.ComponentModel.ISupportInitialize)groupBoxExport.Panel).BeginInit();
+			((ISupportInitialize)groupBoxExport).BeginInit();
+			((ISupportInitialize)groupBoxExport.Panel).BeginInit();
 			groupBoxExport.Panel.SuspendLayout();
 			tableLayoutPanel.SuspendLayout();
 			statusStrip.SuspendLayout();
@@ -111,7 +112,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(517, 532);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
@@ -154,7 +155,7 @@ namespace Planetoid_DB
 			buttonExportAsJson.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsJson.Name = "buttonExportAsJson";
 			buttonExportAsJson.Size = new Size(113, 46);
-			buttonExportAsJson.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsJson.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsJson.TabIndex = 3;
 			toolTip.SetToolTip(buttonExportAsJson, "Export as JSON");
 			buttonExportAsJson.Values.DropDownArrowColor = Color.Empty;
@@ -175,7 +176,7 @@ namespace Planetoid_DB
 			buttonExportAsXml.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsXml.Name = "buttonExportAsXml";
 			buttonExportAsXml.Size = new Size(111, 46);
-			buttonExportAsXml.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsXml.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsXml.TabIndex = 2;
 			toolTip.SetToolTip(buttonExportAsXml, "Export as XML");
 			buttonExportAsXml.Values.DropDownArrowColor = Color.Empty;
@@ -196,7 +197,7 @@ namespace Planetoid_DB
 			buttonExportAsTxt.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsTxt.Name = "buttonExportAsTxt";
 			buttonExportAsTxt.Size = new Size(111, 46);
-			buttonExportAsTxt.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsTxt.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsTxt.TabIndex = 0;
 			toolTip.SetToolTip(buttonExportAsTxt, "Export as TXT");
 			buttonExportAsTxt.Values.DropDownArrowColor = Color.Empty;
@@ -217,7 +218,7 @@ namespace Planetoid_DB
 			buttonExportAsHtml.Margin = new Padding(4, 3, 4, 3);
 			buttonExportAsHtml.Name = "buttonExportAsHtml";
 			buttonExportAsHtml.Size = new Size(111, 46);
-			buttonExportAsHtml.StateCommon.Content.Image.ImageV = Krypton.Toolkit.PaletteRelativeAlign.Near;
+			buttonExportAsHtml.StateCommon.Content.Image.ImageV = PaletteRelativeAlign.Near;
 			buttonExportAsHtml.TabIndex = 1;
 			toolTip.SetToolTip(buttonExportAsHtml, "Export as HTML");
 			buttonExportAsHtml.Values.DropDownArrowColor = Color.Empty;
@@ -307,7 +308,7 @@ namespace Planetoid_DB
 			buttonGoto09.AccessibleDescription = "Goes to the element of the place no. 9";
 			buttonGoto09.AccessibleName = "Go to the element of the place no. 9";
 			buttonGoto09.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto09.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto09.ButtonStyle = ButtonStyle.Form;
 			buttonGoto09.Location = new Point(415, 277);
 			buttonGoto09.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto09.Name = "buttonGoto09";
@@ -328,7 +329,7 @@ namespace Planetoid_DB
 			buttonGoto08.AccessibleDescription = "Goes to the element of the place no. 8";
 			buttonGoto08.AccessibleName = "Go to the element of the place no. 8";
 			buttonGoto08.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto08.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto08.ButtonStyle = ButtonStyle.Form;
 			buttonGoto08.Location = new Point(415, 248);
 			buttonGoto08.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto08.Name = "buttonGoto08";
@@ -349,7 +350,7 @@ namespace Planetoid_DB
 			buttonGoto07.AccessibleDescription = "Goes to the element of the place no. 7";
 			buttonGoto07.AccessibleName = "Go to the element of the place no. 7";
 			buttonGoto07.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto07.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto07.ButtonStyle = ButtonStyle.Form;
 			buttonGoto07.Location = new Point(415, 219);
 			buttonGoto07.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto07.Name = "buttonGoto07";
@@ -370,7 +371,7 @@ namespace Planetoid_DB
 			buttonGoto06.AccessibleDescription = "Goes to the element of the place no. 6";
 			buttonGoto06.AccessibleName = "Go to the element of the place no. 6";
 			buttonGoto06.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto06.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto06.ButtonStyle = ButtonStyle.Form;
 			buttonGoto06.Location = new Point(415, 190);
 			buttonGoto06.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto06.Name = "buttonGoto06";
@@ -391,7 +392,7 @@ namespace Planetoid_DB
 			buttonGoto05.AccessibleDescription = "Goes to the element of the place no. 5";
 			buttonGoto05.AccessibleName = "Go to the element of the place no. 5";
 			buttonGoto05.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto05.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto05.ButtonStyle = ButtonStyle.Form;
 			buttonGoto05.Location = new Point(415, 161);
 			buttonGoto05.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto05.Name = "buttonGoto05";
@@ -412,7 +413,7 @@ namespace Planetoid_DB
 			buttonGoto04.AccessibleDescription = "Goes to the element of the place no. 4";
 			buttonGoto04.AccessibleName = "Go to the element of the place no. 4";
 			buttonGoto04.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto04.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto04.ButtonStyle = ButtonStyle.Form;
 			buttonGoto04.Location = new Point(415, 132);
 			buttonGoto04.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto04.Name = "buttonGoto04";
@@ -433,7 +434,7 @@ namespace Planetoid_DB
 			buttonGoto03.AccessibleDescription = "Goes to the element of the place no. 3";
 			buttonGoto03.AccessibleName = "Go to the element of the place no. 3";
 			buttonGoto03.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto03.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto03.ButtonStyle = ButtonStyle.Form;
 			buttonGoto03.Location = new Point(415, 103);
 			buttonGoto03.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto03.Name = "buttonGoto03";
@@ -454,7 +455,7 @@ namespace Planetoid_DB
 			buttonGoto02.AccessibleDescription = "Goes to the element of the place no. 2";
 			buttonGoto02.AccessibleName = "Go to the element of the place no. 2";
 			buttonGoto02.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto02.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto02.ButtonStyle = ButtonStyle.Form;
 			buttonGoto02.Location = new Point(415, 74);
 			buttonGoto02.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto02.Name = "buttonGoto02";
@@ -476,7 +477,7 @@ namespace Planetoid_DB
 			labelPlace10.AccessibleName = "Record place no. 10";
 			labelPlace10.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace10.Dock = DockStyle.Fill;
-			labelPlace10.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace10.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace10.Location = new Point(4, 306);
 			labelPlace10.Margin = new Padding(4, 3, 4, 3);
 			labelPlace10.Name = "labelPlace10";
@@ -495,7 +496,7 @@ namespace Planetoid_DB
 			labelPlace05.AccessibleName = "Record place no. 5";
 			labelPlace05.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace05.Dock = DockStyle.Fill;
-			labelPlace05.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace05.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace05.Location = new Point(4, 161);
 			labelPlace05.Margin = new Padding(4, 3, 4, 3);
 			labelPlace05.Name = "labelPlace05";
@@ -514,7 +515,7 @@ namespace Planetoid_DB
 			labelPlace04.AccessibleName = "Record place no. 4";
 			labelPlace04.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace04.Dock = DockStyle.Fill;
-			labelPlace04.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace04.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace04.Location = new Point(4, 132);
 			labelPlace04.Margin = new Padding(4, 3, 4, 3);
 			labelPlace04.Name = "labelPlace04";
@@ -533,7 +534,7 @@ namespace Planetoid_DB
 			labelPlace03.AccessibleName = "Record place no. 3";
 			labelPlace03.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace03.Dock = DockStyle.Fill;
-			labelPlace03.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace03.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace03.Location = new Point(4, 103);
 			labelPlace03.Margin = new Padding(4, 3, 4, 3);
 			labelPlace03.Name = "labelPlace03";
@@ -552,7 +553,7 @@ namespace Planetoid_DB
 			labelPlace01.AccessibleName = "Record place no. ";
 			labelPlace01.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace01.Dock = DockStyle.Fill;
-			labelPlace01.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace01.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace01.Location = new Point(4, 45);
 			labelPlace01.Margin = new Padding(4, 3, 4, 3);
 			labelPlace01.Name = "labelPlace01";
@@ -571,7 +572,7 @@ namespace Planetoid_DB
 			labelPlace02.AccessibleName = "Record place no. 2";
 			labelPlace02.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace02.Dock = DockStyle.Fill;
-			labelPlace02.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace02.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace02.Location = new Point(4, 74);
 			labelPlace02.Margin = new Padding(4, 3, 4, 3);
 			labelPlace02.Name = "labelPlace02";
@@ -590,7 +591,7 @@ namespace Planetoid_DB
 			labelPlace06.AccessibleName = "Record place no. 6";
 			labelPlace06.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace06.Dock = DockStyle.Fill;
-			labelPlace06.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace06.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace06.Location = new Point(4, 190);
 			labelPlace06.Margin = new Padding(4, 3, 4, 3);
 			labelPlace06.Name = "labelPlace06";
@@ -609,7 +610,7 @@ namespace Planetoid_DB
 			labelPlace07.AccessibleName = "Record place no. 7";
 			labelPlace07.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace07.Dock = DockStyle.Fill;
-			labelPlace07.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace07.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace07.Location = new Point(4, 219);
 			labelPlace07.Margin = new Padding(4, 3, 4, 3);
 			labelPlace07.Name = "labelPlace07";
@@ -628,7 +629,7 @@ namespace Planetoid_DB
 			labelPlace08.AccessibleName = "Record place no. 8";
 			labelPlace08.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace08.Dock = DockStyle.Fill;
-			labelPlace08.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace08.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace08.Location = new Point(4, 248);
 			labelPlace08.Margin = new Padding(4, 3, 4, 3);
 			labelPlace08.Name = "labelPlace08";
@@ -647,7 +648,7 @@ namespace Planetoid_DB
 			labelPlace09.AccessibleName = "Record place no. 9";
 			labelPlace09.AccessibleRole = AccessibleRole.StaticText;
 			labelPlace09.Dock = DockStyle.Fill;
-			labelPlace09.LabelStyle = Krypton.Toolkit.LabelStyle.ItalicPanel;
+			labelPlace09.LabelStyle = LabelStyle.ItalicPanel;
 			labelPlace09.Location = new Point(4, 277);
 			labelPlace09.Margin = new Padding(4, 3, 4, 3);
 			labelPlace09.Name = "labelPlace09";
@@ -665,7 +666,7 @@ namespace Planetoid_DB
 			buttonGoto01.AccessibleDescription = "Goes to the element of the place no. 1";
 			buttonGoto01.AccessibleName = "Go to the element of the place no. 1";
 			buttonGoto01.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto01.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto01.ButtonStyle = ButtonStyle.Form;
 			buttonGoto01.Location = new Point(415, 45);
 			buttonGoto01.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto01.Name = "buttonGoto01";
@@ -687,7 +688,7 @@ namespace Planetoid_DB
 			labelReadableDesignationHeader.AccessibleName = "Readable  designation header";
 			labelReadableDesignationHeader.AccessibleRole = AccessibleRole.StaticText;
 			labelReadableDesignationHeader.Dock = DockStyle.Fill;
-			labelReadableDesignationHeader.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelReadableDesignationHeader.LabelStyle = LabelStyle.BoldPanel;
 			labelReadableDesignationHeader.Location = new Point(36, 3);
 			labelReadableDesignationHeader.Margin = new Padding(4, 3, 4, 3);
 			labelReadableDesignationHeader.Name = "labelReadableDesignationHeader";
@@ -706,7 +707,7 @@ namespace Planetoid_DB
 			labelValueHeader.AccessibleName = "Value header";
 			labelValueHeader.AccessibleRole = AccessibleRole.StaticText;
 			labelValueHeader.Dock = DockStyle.Fill;
-			labelValueHeader.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelValueHeader.LabelStyle = LabelStyle.BoldPanel;
 			labelValueHeader.Location = new Point(182, 3);
 			labelValueHeader.Margin = new Padding(4, 3, 4, 3);
 			labelValueHeader.Name = "labelValueHeader";
@@ -1104,7 +1105,7 @@ namespace Planetoid_DB
 			buttonGoto10.AccessibleDescription = "Goes to the element of the place no. 10";
 			buttonGoto10.AccessibleName = "Go to the element of the place no. 10";
 			buttonGoto10.AccessibleRole = AccessibleRole.PushButton;
-			buttonGoto10.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonGoto10.ButtonStyle = ButtonStyle.Form;
 			buttonGoto10.Location = new Point(415, 306);
 			buttonGoto10.Margin = new Padding(4, 3, 4, 3);
 			buttonGoto10.Name = "buttonGoto10";
@@ -1202,6 +1203,10 @@ namespace Planetoid_DB
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Show some information";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// RecordsMainForm
 			// 
 			AccessibleDescription = "Shows the top ten records";
@@ -1224,12 +1229,12 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Top ten records");
 			FormClosed += RecordsMainForm_FormClosed;
 			Load += RecordsMainForm_Load;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)groupBoxExport.Panel).EndInit();
+			((ISupportInitialize)groupBoxExport.Panel).EndInit();
 			groupBoxExport.Panel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)groupBoxExport).EndInit();
+			((ISupportInitialize)groupBoxExport).EndInit();
 			tableLayoutPanel.ResumeLayout(false);
 			tableLayoutPanel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -1295,5 +1300,6 @@ namespace Planetoid_DB
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolTip toolTip;
+		private KryptonManager kryptonManager;
 	}
 }

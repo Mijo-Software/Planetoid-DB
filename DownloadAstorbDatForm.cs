@@ -6,8 +6,11 @@ using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
+
 using Krypton.Toolkit;
+
 using NLog;
+
 using static Planetoid_DB.Properties.Resources;
 using static Planetoid_DB.Properties.Settings;
 
@@ -35,9 +38,6 @@ namespace Planetoid_DB
 		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
 		// Replace the WebClient instance with HttpClient and refactor the code accordingly.
 		private static readonly HttpClient HttpClient = new();
-
-		// Flag to indicate if a download is in progress
-		private bool isBusy;
 
 		// Static HttpClient instance for making HTTP requests
 		private static readonly HttpClient Client = new();
@@ -100,7 +100,7 @@ namespace Planetoid_DB
 				// Create a new HttpRequestMessage with the HEAD method and the specified URI
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request and get the response
-				var response = Client.Send(request: request);
+				HttpResponseMessage response = Client.Send(request: request);
 				// Check if the response is successful and return the last modified date
 				// If the response is not successful, return DateTime.MinValue
 				// If the response is successful, return the last modified date or DateTime.MinValue if not available
@@ -133,7 +133,7 @@ namespace Planetoid_DB
 				// If the response is not successful, return 0
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request using the HttpClient instance
-				var response = Client.Send(request: request);
+				HttpResponseMessage response = Client.Send(request: request);
 				// Check if the response is successful and return the content length
 				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
 			}
@@ -178,7 +178,10 @@ namespace Planetoid_DB
 		private void SetStatusBar(string text, string additionalInfo = "")
 		{
 			// Check if the text is not null or whitespace
-			if (string.IsNullOrWhiteSpace(value: text)) return;
+			if (string.IsNullOrWhiteSpace(value: text))
+			{
+				return;
+			}
 			// Set the status bar text and enable it
 			labelInformation.Enabled = true;
 			labelInformation.Text = string.IsNullOrWhiteSpace(value: additionalInfo) ? text : $"{text} - {additionalInfo}";
@@ -258,8 +261,6 @@ namespace Planetoid_DB
 				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
 				// Set the dialog result to OK
 				DialogResult = DialogResult.OK;
-				// Set the busy flag to false
-				isBusy = false;
 				// Show a message box indicating that the download is complete
 				_ = MessageBox.Show(text: I10nStrings.DownloadCompleteText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 			}
@@ -412,14 +413,10 @@ namespace Planetoid_DB
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 				// Start the download asynchronously
 				webClient.DownloadFileAsync(address: strUriAstorb, fileName: strFilenameAstorbTemp);
-				// Set the busy flag to true
-				isBusy = true;
 			}
 			// Catch any exceptions that occur during the download
 			catch (Exception ex)
 			{
-				// Set the busy flag to false
-				isBusy = false;
 				// Set the status value to "Unknown error"
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
 				// Enable the download button
@@ -463,10 +460,10 @@ namespace Planetoid_DB
 			{
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 
-				using var response = await HttpClient.GetAsync(requestUri: strUriAstorb, completionOption: HttpCompletionOption.ResponseHeadersRead);
+				using HttpResponseMessage response = await HttpClient.GetAsync(requestUri: strUriAstorb, completionOption: HttpCompletionOption.ResponseHeadersRead);
 				_ = response.EnsureSuccessStatusCode();
 
-				using var contentStream = await response.Content.ReadAsStreamAsync();
+				using Stream contentStream = await response.Content.ReadAsStreamAsync();
 				using FileStream fileStream = new(path: strFilenameAstorbTemp, mode: FileMode.Create, access: FileAccess.Write, share: FileShare.None);
 				await contentStream.CopyToAsync(destination: fileStream);
 
@@ -478,11 +475,9 @@ namespace Planetoid_DB
 				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
 				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
 				DialogResult = DialogResult.OK;
-				isBusy = false;
 			}
 			catch (Exception ex)
 			{
-				isBusy = false;
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;

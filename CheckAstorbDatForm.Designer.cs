@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckAstorbDatForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(CheckAstorbDatForm));
 			toolTip = new ToolTip(components);
 			labelUpdateNeeded = new KryptonLabel();
 			labelAstorbDatLocal = new KryptonLabel();
@@ -47,6 +47,7 @@ namespace Planetoid_DB
 			toolStripContainer = new ToolStripContainer();
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
+			kryptonManager = new KryptonManager(components);
 			tableLayoutPanel.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
@@ -252,7 +253,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(372, 111);
+			tableLayoutPanel.Size = new Size(372, 86);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -269,7 +270,7 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanel);
-			toolStripContainer.ContentPanel.Size = new Size(372, 111);
+			toolStripContainer.ContentPanel.Size = new Size(372, 86);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
@@ -306,6 +307,10 @@ namespace Planetoid_DB
 			labelInformation.Size = new Size(144, 17);
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Shows some information";
+			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
 			// 
 			// CheckAstorbDatForm
 			// 
@@ -357,5 +362,6 @@ namespace Planetoid_DB
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolStripContainer toolStripContainer;
+		private KryptonManager kryptonManager;
 	}
 }

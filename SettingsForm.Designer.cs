@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
+using Krypton.Toolkit.Suite.Extended.Navigator;
 
 namespace Planetoid_DB
 {
@@ -31,58 +32,63 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(SettingsForm));
 			toolTip = new ToolTip(components);
 			tabControlSettings = new TabControl();
 			tabPageGeneral = new TabPage();
-			checkBox10 = new CheckBox();
-			checkBox9 = new CheckBox();
-			checkBox8 = new CheckBox();
+			checkBox10 = new KryptonCheckBox();
+			checkBox9 = new KryptonCheckBox();
+			checkBox8 = new KryptonCheckBox();
 			tabPageNavigator = new TabPage();
-			radioButton9 = new RadioButton();
+			radioButton9 = new KryptonRadioButton();
 			numericUpDown1 = new NumericUpDown();
-			radioButton4 = new RadioButton();
-			radioButton3 = new RadioButton();
-			radioButton2 = new RadioButton();
-			radioButton1 = new RadioButton();
+			radioButton4 = new KryptonRadioButton();
+			radioButton3 = new KryptonRadioButton();
+			radioButton2 = new KryptonRadioButton();
+			radioButton1 = new KryptonRadioButton();
 			tabPageUpdate = new TabPage();
-			groupBox2 = new GroupBox();
-			checkBox6 = new CheckBox();
-			checkBox4 = new CheckBox();
-			checkBox5 = new CheckBox();
-			groupBox1 = new GroupBox();
-			checkBox1 = new CheckBox();
-			checkBox2 = new CheckBox();
-			checkBox3 = new CheckBox();
+			groupBox1 = new KryptonGroupBox();
+			groupBox2 = new KryptonGroupBox();
 			tabPageLookAndFeel = new TabPage();
-			groupBox4 = new GroupBox();
-			radioButton10 = new RadioButton();
-			radioButton11 = new RadioButton();
-			radioButton12 = new RadioButton();
-			toolStripIcons = new ToolStrip();
+			kryptonRadioButton1 = new KryptonRadioButton();
+			groupBox4 = new KryptonGroupBox();
+			checkBox6 = new KryptonCheckBox();
+			checkBox4 = new KryptonCheckBox();
+			checkBox5 = new KryptonCheckBox();
+			checkBox1 = new KryptonCheckBox();
+			checkBox2 = new KryptonCheckBox();
+			checkBox3 = new KryptonCheckBox();
+			radioButton10 = new KryptonRadioButton();
+			radioButton11 = new KryptonRadioButton();
+			radioButton12 = new KryptonRadioButton();
+			kryptonToolStripIcons = new KryptonToolStrip();
 			toolStripButtonSave = new ToolStripButton();
 			toolStripButtonCancel = new ToolStripButton();
 			toolStripSeparator1 = new ToolStripSeparator();
 			toolStripButtonLoadDefaultSettings = new ToolStripButton();
 			toolStripContainerSettings = new ToolStripContainer();
-			panel = new Krypton.Toolkit.KryptonPanel();
-			kryptonStatusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			panel = new KryptonPanel();
+			kryptonStatusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
+			kryptonManager = new KryptonManager(components);
 			tabControlSettings.SuspendLayout();
 			tabPageGeneral.SuspendLayout();
 			tabPageNavigator.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+			((ISupportInitialize)numericUpDown1).BeginInit();
 			tabPageUpdate.SuspendLayout();
-			groupBox2.SuspendLayout();
-			groupBox1.SuspendLayout();
+			((ISupportInitialize)groupBox1).BeginInit();
+			((ISupportInitialize)groupBox1.Panel).BeginInit();
+			((ISupportInitialize)groupBox2).BeginInit();
+			((ISupportInitialize)groupBox2.Panel).BeginInit();
 			tabPageLookAndFeel.SuspendLayout();
-			groupBox4.SuspendLayout();
-			toolStripIcons.SuspendLayout();
+			((ISupportInitialize)groupBox4).BeginInit();
+			((ISupportInitialize)groupBox4.Panel).BeginInit();
+			kryptonToolStripIcons.SuspendLayout();
 			toolStripContainerSettings.ContentPanel.SuspendLayout();
 			toolStripContainerSettings.TopToolStripPanel.SuspendLayout();
 			toolStripContainerSettings.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			kryptonStatusStrip.SuspendLayout();
 			SuspendLayout();
@@ -93,11 +99,12 @@ namespace Planetoid_DB
 			tabControlSettings.Controls.Add(tabPageNavigator);
 			tabControlSettings.Controls.Add(tabPageUpdate);
 			tabControlSettings.Controls.Add(tabPageLookAndFeel);
-			tabControlSettings.Location = new Point(3, 3);
+			tabControlSettings.Dock = DockStyle.Fill;
+			tabControlSettings.Location = new Point(0, 0);
 			tabControlSettings.Name = "tabControlSettings";
 			tabControlSettings.SelectedIndex = 0;
 			tabControlSettings.ShowToolTips = true;
-			tabControlSettings.Size = new Size(415, 252);
+			tabControlSettings.Size = new Size(431, 225);
 			tabControlSettings.TabIndex = 0;
 			// 
 			// tabPageGeneral
@@ -108,40 +115,34 @@ namespace Planetoid_DB
 			tabPageGeneral.Location = new Point(4, 22);
 			tabPageGeneral.Name = "tabPageGeneral";
 			tabPageGeneral.Padding = new Padding(3);
-			tabPageGeneral.Size = new Size(407, 226);
+			tabPageGeneral.Size = new Size(423, 199);
 			tabPageGeneral.TabIndex = 3;
 			tabPageGeneral.Text = "General";
 			tabPageGeneral.UseVisualStyleBackColor = true;
 			// 
 			// checkBox10
 			// 
-			checkBox10.AutoSize = true;
 			checkBox10.Location = new Point(8, 56);
 			checkBox10.Name = "checkBox10";
-			checkBox10.Size = new Size(182, 19);
+			checkBox10.Size = new Size(184, 20);
 			checkBox10.TabIndex = 2;
-			checkBox10.Text = "Enable linking to terminology";
-			checkBox10.UseVisualStyleBackColor = true;
+			checkBox10.Values.Text = "Enable linking to terminology";
 			// 
 			// checkBox9
 			// 
-			checkBox9.AutoSize = true;
 			checkBox9.Location = new Point(8, 31);
 			checkBox9.Name = "checkBox9";
-			checkBox9.Size = new Size(283, 19);
+			checkBox9.Size = new Size(287, 20);
 			checkBox9.TabIndex = 1;
-			checkBox9.Text = "Enabled copying to clipboard by double-clicking";
-			checkBox9.UseVisualStyleBackColor = true;
+			checkBox9.Values.Text = "Enabled copying to clipboard by double-clicking";
 			// 
 			// checkBox8
 			// 
-			checkBox8.AutoSize = true;
 			checkBox8.Location = new Point(8, 6);
 			checkBox8.Name = "checkBox8";
-			checkBox8.Size = new Size(124, 19);
+			checkBox8.Size = new Size(125, 20);
 			checkBox8.TabIndex = 0;
-			checkBox8.Text = "Stay always on top";
-			checkBox8.UseVisualStyleBackColor = true;
+			checkBox8.Values.Text = "Stay always on top";
 			// 
 			// tabPageNavigator
 			// 
@@ -154,21 +155,18 @@ namespace Planetoid_DB
 			tabPageNavigator.Location = new Point(4, 24);
 			tabPageNavigator.Name = "tabPageNavigator";
 			tabPageNavigator.Padding = new Padding(3);
-			tabPageNavigator.Size = new Size(407, 224);
+			tabPageNavigator.Size = new Size(419, 209);
 			tabPageNavigator.TabIndex = 0;
 			tabPageNavigator.Text = "Navigator";
 			tabPageNavigator.UseVisualStyleBackColor = true;
 			// 
 			// radioButton9
 			// 
-			radioButton9.AutoSize = true;
 			radioButton9.Location = new Point(8, 6);
 			radioButton9.Name = "radioButton9";
-			radioButton9.Size = new Size(171, 19);
+			radioButton9.Size = new Size(175, 20);
 			radioButton9.TabIndex = 5;
-			radioButton9.TabStop = true;
-			radioButton9.Text = "Start with the last used item";
-			radioButton9.UseVisualStyleBackColor = true;
+			radioButton9.Values.Text = "Start with the last used item";
 			// 
 			// numericUpDown1
 			// 
@@ -179,218 +177,179 @@ namespace Planetoid_DB
 			// 
 			// radioButton4
 			// 
-			radioButton4.AutoSize = true;
 			radioButton4.Location = new Point(8, 106);
 			radioButton4.Name = "radioButton4";
-			radioButton4.Size = new Size(154, 19);
+			radioButton4.Size = new Size(156, 20);
 			radioButton4.TabIndex = 3;
-			radioButton4.TabStop = true;
-			radioButton4.Text = "Start with a specific item";
-			radioButton4.UseVisualStyleBackColor = true;
+			radioButton4.Values.Text = "Start with a specific item";
 			// 
 			// radioButton3
 			// 
-			radioButton3.AutoSize = true;
 			radioButton3.Location = new Point(8, 81);
 			radioButton3.Name = "radioButton3";
-			radioButton3.Size = new Size(156, 19);
+			radioButton3.Size = new Size(158, 20);
 			radioButton3.TabIndex = 2;
-			radioButton3.TabStop = true;
-			radioButton3.Text = "Start with a random item";
-			radioButton3.UseVisualStyleBackColor = true;
+			radioButton3.Values.Text = "Start with a random item";
 			// 
 			// radioButton2
 			// 
-			radioButton2.AutoSize = true;
 			radioButton2.Location = new Point(8, 56);
 			radioButton2.Name = "radioButton2";
-			radioButton2.Size = new Size(143, 19);
+			radioButton2.Size = new Size(145, 20);
 			radioButton2.TabIndex = 1;
-			radioButton2.TabStop = true;
-			radioButton2.Text = "Start with the last item";
-			radioButton2.UseVisualStyleBackColor = true;
+			radioButton2.Values.Text = "Start with the last item";
 			// 
 			// radioButton1
 			// 
-			radioButton1.AutoSize = true;
 			radioButton1.Location = new Point(8, 31);
 			radioButton1.Name = "radioButton1";
-			radioButton1.Size = new Size(145, 19);
+			radioButton1.Size = new Size(147, 20);
 			radioButton1.TabIndex = 0;
-			radioButton1.TabStop = true;
-			radioButton1.Text = "Start with the first item";
-			radioButton1.UseVisualStyleBackColor = true;
+			radioButton1.Values.Text = "Start with the first item";
 			// 
 			// tabPageUpdate
 			// 
-			tabPageUpdate.Controls.Add(groupBox2);
 			tabPageUpdate.Controls.Add(groupBox1);
+			tabPageUpdate.Controls.Add(groupBox2);
 			tabPageUpdate.Location = new Point(4, 24);
 			tabPageUpdate.Name = "tabPageUpdate";
 			tabPageUpdate.Padding = new Padding(3);
-			tabPageUpdate.Size = new Size(407, 224);
+			tabPageUpdate.Size = new Size(419, 209);
 			tabPageUpdate.TabIndex = 1;
 			tabPageUpdate.Text = "MPCORB.DAT Update";
 			tabPageUpdate.UseVisualStyleBackColor = true;
 			// 
-			// groupBox2
-			// 
-			groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			groupBox2.Controls.Add(checkBox6);
-			groupBox2.Controls.Add(checkBox4);
-			groupBox2.Controls.Add(checkBox5);
-			groupBox2.Location = new Point(8, 112);
-			groupBox2.Name = "groupBox2";
-			groupBox2.Size = new Size(391, 101);
-			groupBox2.TabIndex = 7;
-			groupBox2.TabStop = false;
-			groupBox2.Text = "Background update";
-			// 
-			// checkBox6
-			// 
-			checkBox6.AutoSize = true;
-			checkBox6.Location = new Point(6, 72);
-			checkBox6.Name = "checkBox6";
-			checkBox6.Size = new Size(262, 19);
-			checkBox6.TabIndex = 5;
-			checkBox6.Text = "Ask for restart after the MPCORB.DAT update";
-			checkBox6.UseVisualStyleBackColor = true;
-			// 
-			// checkBox4
-			// 
-			checkBox4.AutoSize = true;
-			checkBox4.Location = new Point(6, 22);
-			checkBox4.Name = "checkBox4";
-			checkBox4.Size = new Size(337, 19);
-			checkBox4.TabIndex = 3;
-			checkBox4.Text = "Check the MPCORB.DAT update every hour in background ";
-			checkBox4.UseVisualStyleBackColor = true;
-			// 
-			// checkBox5
-			// 
-			checkBox5.AutoSize = true;
-			checkBox5.Location = new Point(6, 47);
-			checkBox5.Name = "checkBox5";
-			checkBox5.Size = new Size(371, 19);
-			checkBox5.TabIndex = 4;
-			checkBox5.Text = "Download automatically the MPCORB.DAT update in background";
-			checkBox5.UseVisualStyleBackColor = true;
-			// 
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			groupBox1.Controls.Add(checkBox1);
-			groupBox1.Controls.Add(checkBox2);
-			groupBox1.Controls.Add(checkBox3);
 			groupBox1.Location = new Point(8, 6);
-			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(391, 100);
+			groupBox1.Size = new Size(403, 100);
 			groupBox1.TabIndex = 6;
-			groupBox1.TabStop = false;
-			groupBox1.Text = "Startup update";
+			groupBox1.Values.Heading = "Startup update";
 			// 
-			// checkBox1
+			// groupBox2
 			// 
-			checkBox1.AutoSize = true;
-			checkBox1.Location = new Point(6, 22);
-			checkBox1.Name = "checkBox1";
-			checkBox1.Size = new Size(252, 19);
-			checkBox1.TabIndex = 0;
-			checkBox1.Text = "Check the MPCORB.DAT update on startup";
-			checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// checkBox2
-			// 
-			checkBox2.AutoSize = true;
-			checkBox2.Location = new Point(6, 47);
-			checkBox2.Name = "checkBox2";
-			checkBox2.Size = new Size(348, 19);
-			checkBox2.TabIndex = 1;
-			checkBox2.Text = "Download automatically the MPCORB.DAT update on startup";
-			checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// checkBox3
-			// 
-			checkBox3.AutoSize = true;
-			checkBox3.Location = new Point(6, 72);
-			checkBox3.Name = "checkBox3";
-			checkBox3.Size = new Size(262, 19);
-			checkBox3.TabIndex = 2;
-			checkBox3.Text = "Ask for restart after the MPCORB.DAT update";
-			checkBox3.UseVisualStyleBackColor = true;
+			groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox2.Location = new Point(8, 112);
+			groupBox2.Size = new Size(403, 101);
+			groupBox2.TabIndex = 7;
+			groupBox2.Values.Heading = "Background update";
 			// 
 			// tabPageLookAndFeel
 			// 
+			tabPageLookAndFeel.Controls.Add(kryptonRadioButton1);
 			tabPageLookAndFeel.Controls.Add(groupBox4);
 			tabPageLookAndFeel.Location = new Point(4, 24);
 			tabPageLookAndFeel.Name = "tabPageLookAndFeel";
 			tabPageLookAndFeel.Padding = new Padding(3);
-			tabPageLookAndFeel.Size = new Size(407, 224);
+			tabPageLookAndFeel.Size = new Size(419, 209);
 			tabPageLookAndFeel.TabIndex = 2;
 			tabPageLookAndFeel.Text = "Look and feel";
 			tabPageLookAndFeel.UseVisualStyleBackColor = true;
 			// 
+			// kryptonRadioButton1
+			// 
+			kryptonRadioButton1.Location = new Point(278, 6);
+			kryptonRadioButton1.Name = "kryptonRadioButton1";
+			kryptonRadioButton1.Size = new Size(43, 20);
+			kryptonRadioButton1.TabIndex = 6;
+			kryptonRadioButton1.Values.Text = "test";
+			// 
 			// groupBox4
 			// 
-			groupBox4.Controls.Add(radioButton10);
-			groupBox4.Controls.Add(radioButton11);
-			groupBox4.Controls.Add(radioButton12);
-			groupBox4.Location = new Point(145, 6);
-			groupBox4.Name = "groupBox4";
+			groupBox4.Location = new Point(334, 155);
 			groupBox4.Size = new Size(131, 137);
 			groupBox4.TabIndex = 3;
-			groupBox4.TabStop = false;
-			groupBox4.Text = "Icons";
+			groupBox4.Values.Heading = "Icons";
+			// 
+			// checkBox6
+			// 
+			checkBox6.Location = new Point(6, 72);
+			checkBox6.Name = "checkBox6";
+			checkBox6.Size = new Size(262, 19);
+			checkBox6.TabIndex = 5;
+			checkBox6.Values.Text = "Ask for restart after the MPCORB.DAT update";
+			// 
+			// checkBox4
+			// 
+			checkBox4.Location = new Point(6, 22);
+			checkBox4.Name = "checkBox4";
+			checkBox4.Size = new Size(337, 19);
+			checkBox4.TabIndex = 3;
+			checkBox4.Values.Text = "Check the MPCORB.DAT update every hour in background ";
+			// 
+			// checkBox5
+			// 
+			checkBox5.Location = new Point(6, 47);
+			checkBox5.Name = "checkBox5";
+			checkBox5.Size = new Size(371, 19);
+			checkBox5.TabIndex = 4;
+			checkBox5.Values.Text = "Download automatically the MPCORB.DAT update in background";
+			// 
+			// checkBox1
+			// 
+			checkBox1.Location = new Point(6, 22);
+			checkBox1.Name = "checkBox1";
+			checkBox1.Size = new Size(252, 19);
+			checkBox1.TabIndex = 0;
+			checkBox1.Values.Text = "Check the MPCORB.DAT update on startup";
+			// 
+			// checkBox2
+			// 
+			checkBox2.Location = new Point(6, 47);
+			checkBox2.Name = "checkBox2";
+			checkBox2.Size = new Size(348, 19);
+			checkBox2.TabIndex = 1;
+			checkBox2.Values.Text = "Download automatically the MPCORB.DAT update on startup";
+			// 
+			// checkBox3
+			// 
+			checkBox3.Location = new Point(6, 72);
+			checkBox3.Name = "checkBox3";
+			checkBox3.Size = new Size(262, 19);
+			checkBox3.TabIndex = 2;
+			checkBox3.Values.Text = "Ask for restart after the MPCORB.DAT update";
 			// 
 			// radioButton10
 			// 
-			radioButton10.AutoSize = true;
-			radioButton10.Location = new Point(6, 72);
+			radioButton10.Location = new Point(1, 1);
 			radioButton10.Name = "radioButton10";
 			radioButton10.Size = new Size(89, 19);
 			radioButton10.TabIndex = 3;
-			radioButton10.TabStop = true;
-			radioButton10.Text = "Fugue icons";
-			radioButton10.UseVisualStyleBackColor = true;
+			radioButton10.Values.Text = "Fugue icons";
 			// 
 			// radioButton11
 			// 
-			radioButton11.AutoSize = true;
 			radioButton11.Location = new Point(6, 47);
 			radioButton11.Name = "radioButton11";
 			radioButton11.Size = new Size(96, 19);
 			radioButton11.TabIndex = 2;
-			radioButton11.TabStop = true;
-			radioButton11.Text = "FatCow icons";
-			radioButton11.UseVisualStyleBackColor = true;
+			radioButton11.Values.Text = "FatCow icons";
 			// 
 			// radioButton12
 			// 
-			radioButton12.AutoSize = true;
 			radioButton12.Location = new Point(6, 22);
 			radioButton12.Name = "radioButton12";
 			radioButton12.Size = new Size(74, 19);
 			radioButton12.TabIndex = 1;
-			radioButton12.TabStop = true;
-			radioButton12.Text = "Silk icons";
-			radioButton12.UseVisualStyleBackColor = true;
+			radioButton12.Values.Text = "Silk icons";
 			// 
-			// toolStripIcons
+			// kryptonToolStripIcons
 			// 
-			toolStripIcons.AccessibleDescription = "Toolbar of main functions";
-			toolStripIcons.AccessibleName = "Toolbar of main functions";
-			toolStripIcons.AccessibleRole = AccessibleRole.ToolBar;
-			toolStripIcons.Dock = DockStyle.None;
-			toolStripIcons.Font = new Font("Segoe UI", 9F);
-			toolStripIcons.Items.AddRange(new ToolStripItem[] { toolStripButtonSave, toolStripButtonCancel, toolStripSeparator1, toolStripButtonLoadDefaultSettings });
-			toolStripIcons.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-			toolStripIcons.Location = new Point(0, 0);
-			toolStripIcons.Name = "toolStripIcons";
-			toolStripIcons.Size = new Size(415, 25);
-			toolStripIcons.Stretch = true;
-			toolStripIcons.TabIndex = 0;
-			toolStripIcons.TabStop = true;
-			toolStripIcons.Text = "Toolbar of main functions";
+			kryptonToolStripIcons.AccessibleDescription = "Toolbar of main functions";
+			kryptonToolStripIcons.AccessibleName = "Toolbar of main functions";
+			kryptonToolStripIcons.AccessibleRole = AccessibleRole.ToolBar;
+			kryptonToolStripIcons.Dock = DockStyle.None;
+			kryptonToolStripIcons.Font = new Font("Segoe UI", 9F);
+			kryptonToolStripIcons.Items.AddRange(new ToolStripItem[] { toolStripButtonSave, toolStripButtonCancel, toolStripSeparator1, toolStripButtonLoadDefaultSettings });
+			kryptonToolStripIcons.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+			kryptonToolStripIcons.Location = new Point(0, 0);
+			kryptonToolStripIcons.Name = "kryptonToolStripIcons";
+			kryptonToolStripIcons.Size = new Size(431, 25);
+			kryptonToolStripIcons.Stretch = true;
+			kryptonToolStripIcons.TabIndex = 0;
+			kryptonToolStripIcons.TabStop = true;
+			kryptonToolStripIcons.Text = "Toolbar of main functions";
 			// 
 			// toolStripButtonSave
 			// 
@@ -442,17 +401,17 @@ namespace Planetoid_DB
 			// toolStripContainerSettings.ContentPanel
 			// 
 			toolStripContainerSettings.ContentPanel.Controls.Add(panel);
-			toolStripContainerSettings.ContentPanel.Size = new Size(415, 273);
+			toolStripContainerSettings.ContentPanel.Size = new Size(431, 225);
 			toolStripContainerSettings.Dock = DockStyle.Fill;
 			toolStripContainerSettings.Location = new Point(0, 0);
 			toolStripContainerSettings.Name = "toolStripContainerSettings";
-			toolStripContainerSettings.Size = new Size(415, 298);
+			toolStripContainerSettings.Size = new Size(431, 250);
 			toolStripContainerSettings.TabIndex = 7;
 			toolStripContainerSettings.Text = "Settings";
 			// 
 			// toolStripContainerSettings.TopToolStripPanel
 			// 
-			toolStripContainerSettings.TopToolStripPanel.Controls.Add(toolStripIcons);
+			toolStripContainerSettings.TopToolStripPanel.Controls.Add(kryptonToolStripIcons);
 			// 
 			// panel
 			// 
@@ -460,8 +419,8 @@ namespace Planetoid_DB
 			panel.Dock = DockStyle.Fill;
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
-			panel.Size = new Size(415, 273);
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
+			panel.Size = new Size(431, 225);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -472,11 +431,11 @@ namespace Planetoid_DB
 			kryptonStatusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			kryptonStatusStrip.Font = new Font("Segoe UI", 9F);
 			kryptonStatusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
-			kryptonStatusStrip.Location = new Point(0, 276);
+			kryptonStatusStrip.Location = new Point(0, 228);
 			kryptonStatusStrip.Name = "kryptonStatusStrip";
 			kryptonStatusStrip.ProgressBars = null;
 			kryptonStatusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			kryptonStatusStrip.Size = new Size(415, 22);
+			kryptonStatusStrip.Size = new Size(431, 22);
 			kryptonStatusStrip.SizingGrip = false;
 			kryptonStatusStrip.TabIndex = 8;
 			kryptonStatusStrip.Text = "status bar";
@@ -501,7 +460,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(415, 298);
+			ClientSize = new Size(431, 250);
 			Controls.Add(kryptonStatusStrip);
 			Controls.Add(toolStripContainerSettings);
 			Font = new Font("Segoe UI", 8.5F);
@@ -520,23 +479,24 @@ namespace Planetoid_DB
 			tabPageGeneral.PerformLayout();
 			tabPageNavigator.ResumeLayout(false);
 			tabPageNavigator.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+			((ISupportInitialize)numericUpDown1).EndInit();
 			tabPageUpdate.ResumeLayout(false);
-			groupBox2.ResumeLayout(false);
-			groupBox2.PerformLayout();
-			groupBox1.ResumeLayout(false);
-			groupBox1.PerformLayout();
+			((ISupportInitialize)groupBox1.Panel).EndInit();
+			((ISupportInitialize)groupBox1).EndInit();
+			((ISupportInitialize)groupBox2.Panel).EndInit();
+			((ISupportInitialize)groupBox2).EndInit();
 			tabPageLookAndFeel.ResumeLayout(false);
-			groupBox4.ResumeLayout(false);
-			groupBox4.PerformLayout();
-			toolStripIcons.ResumeLayout(false);
-			toolStripIcons.PerformLayout();
+			tabPageLookAndFeel.PerformLayout();
+			((ISupportInitialize)groupBox4.Panel).EndInit();
+			((ISupportInitialize)groupBox4).EndInit();
+			kryptonToolStripIcons.ResumeLayout(false);
+			kryptonToolStripIcons.PerformLayout();
 			toolStripContainerSettings.ContentPanel.ResumeLayout(false);
 			toolStripContainerSettings.TopToolStripPanel.ResumeLayout(false);
 			toolStripContainerSettings.TopToolStripPanel.PerformLayout();
 			toolStripContainerSettings.ResumeLayout(false);
 			toolStripContainerSettings.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			kryptonStatusStrip.ResumeLayout(false);
 			kryptonStatusStrip.PerformLayout();
@@ -550,37 +510,39 @@ namespace Planetoid_DB
         private TabControl tabControlSettings;
         private TabPage tabPageNavigator;
         private TabPage tabPageUpdate;
-        private CheckBox checkBox1;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private KryptonCheckBox checkBox1;
+        private KryptonCheckBox checkBox3;
+        private KryptonCheckBox checkBox2;
+        private KryptonRadioButton radioButton4;
+        private KryptonRadioButton radioButton3;
+        private KryptonRadioButton radioButton2;
+        private KryptonRadioButton radioButton1;
         private NumericUpDown numericUpDown1;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private GroupBox groupBox2;
-        private GroupBox groupBox1;
-        private CheckBox checkBox6;
+        private KryptonCheckBox checkBox5;
+        private KryptonCheckBox checkBox4;
+        private KryptonGroupBox groupBox2;
+        private KryptonGroupBox groupBox1;
+        private KryptonCheckBox checkBox6;
         private TabPage tabPageLookAndFeel;
-        private ToolStrip toolStripIcons;
+        private KryptonToolStrip kryptonToolStripIcons;
         private ToolStripButton toolStripButtonSave;
         private ToolStripButton toolStripButtonCancel;
         private ToolStripButton toolStripButtonLoadDefaultSettings;
         private ToolStripContainer toolStripContainerSettings;
         private ToolStripSeparator toolStripSeparator1;
-        private GroupBox groupBox4;
-        private RadioButton radioButton10;
-        private RadioButton radioButton11;
-        private RadioButton radioButton12;
+        private KryptonGroupBox groupBox4;
+        private KryptonRadioButton radioButton10;
+        private KryptonRadioButton radioButton11;
+        private KryptonRadioButton radioButton12;
         private TabPage tabPageGeneral;
-        private CheckBox checkBox10;
-        private CheckBox checkBox9;
-        private CheckBox checkBox8;
-        private RadioButton radioButton9;
+        private KryptonCheckBox checkBox10;
+        private KryptonCheckBox checkBox9;
+        private KryptonCheckBox checkBox8;
+        private KryptonRadioButton radioButton9;
         private KryptonPanel panel;
 		private KryptonStatusStrip kryptonStatusStrip;
 		private ToolStripStatusLabel labelInformation;
+		private KryptonManager kryptonManager;
+		private KryptonRadioButton kryptonRadioButton1;
 	}
 }

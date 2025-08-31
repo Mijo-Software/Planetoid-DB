@@ -31,12 +31,13 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreenForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(SplashScreenForm));
 			progressBarSplash = new KryptonProgressBar();
 			labelTitle = new Label();
 			labelVersion = new Label();
 			toolTip = new ToolTip(components);
+			kryptonManager = new KryptonManager(components);
 			SuspendLayout();
 			// 
 			// progressBarSplash
@@ -128,5 +129,6 @@ namespace Planetoid_DB
     private Label labelTitle;
     private Label labelVersion;
 		private ToolTip toolTip;
+		private KryptonManager kryptonManager;
 	}
 }

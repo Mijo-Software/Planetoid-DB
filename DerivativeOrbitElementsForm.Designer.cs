@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DerivativeOrbitElementsForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(DerivativeOrbitElementsForm));
 			toolTip = new ToolTip(components);
 			labelLinearEccentricityDesc = new KryptonLabel();
 			labelLinearEccentricityData = new KryptonLabel();
@@ -76,6 +76,7 @@ namespace Planetoid_DB
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			tableLayoutPanel = new KryptonTableLayoutPanel();
+			kryptonManager = new KryptonManager(components);
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
 			toolStripContainer.SuspendLayout();
@@ -953,7 +954,11 @@ namespace Planetoid_DB
 			tableLayoutPanel.TabIndex = 0;
 			tableLayoutPanel.TabStop = true;
 			// 
-			// DerivatedOrbitElementsForm
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
+			// DerivativeOrbitElementsForm
 			// 
 			AccessibleDescription = "Calculates some derivated orbit elements";
 			AccessibleName = "Derivated orbit elements";
@@ -967,7 +972,7 @@ namespace Planetoid_DB
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			MaximizeBox = false;
 			MinimizeBox = false;
-			Name = "DerivatedOrbitElementsForm";
+			Name = "DerivativeOrbitElementsForm";
 			ShowInTaskbar = false;
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Derivated orbit elements";
@@ -1031,5 +1036,6 @@ namespace Planetoid_DB
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolStripContainer toolStripContainer;
+		private KryptonManager kryptonManager;
 	}
 }

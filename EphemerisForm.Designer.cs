@@ -31,29 +31,30 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EphemerisForm));
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(EphemerisForm));
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolStripContainer = new ToolStripContainer();
-			panel = new Krypton.Toolkit.KryptonPanel();
-			buttonCalculate = new Krypton.Toolkit.KryptonButton();
-			listView = new Krypton.Toolkit.KryptonListView();
-			labelPercent = new Krypton.Toolkit.KryptonLabel();
-			progressBar = new Krypton.Toolkit.KryptonProgressBar();
-			labelEphemeridesStepsInDays = new Krypton.Toolkit.KryptonLabel();
-			numericUpDownStepsInDays = new Krypton.Toolkit.KryptonNumericUpDown();
-			labelEphemeridesEnd = new Krypton.Toolkit.KryptonLabel();
-			dateTimePickerEphemeridesEnd = new Krypton.Toolkit.KryptonDateTimePicker();
-			labelEphemeridesBegin = new Krypton.Toolkit.KryptonLabel();
-			dateTimePickerEphemeridesBegin = new Krypton.Toolkit.KryptonDateTimePicker();
+			panel = new KryptonPanel();
+			buttonCalculate = new KryptonButton();
+			listView = new KryptonListView();
+			labelPercent = new KryptonLabel();
+			progressBar = new KryptonProgressBar();
+			labelEphemeridesStepsInDays = new KryptonLabel();
+			numericUpDownStepsInDays = new KryptonNumericUpDown();
+			labelEphemeridesEnd = new KryptonLabel();
+			dateTimePickerEphemeridesEnd = new KryptonDateTimePicker();
+			labelEphemeridesBegin = new KryptonLabel();
+			dateTimePickerEphemeridesBegin = new KryptonDateTimePicker();
 			toolTip = new ToolTip(components);
-			backgroundWorker = new System.ComponentModel.BackgroundWorker();
+			backgroundWorker = new BackgroundWorker();
+			kryptonManager = new KryptonManager(components);
 			statusStrip.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
 			toolStripContainer.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -307,6 +308,10 @@ namespace Planetoid_DB
 			backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
 			backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// EphemerisForm
 			// 
 			AccessibleDescription = "Calculates the ephemerides";
@@ -334,7 +339,7 @@ namespace Planetoid_DB
 			toolStripContainer.ContentPanel.ResumeLayout(false);
 			toolStripContainer.ResumeLayout(false);
 			toolStripContainer.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			ResumeLayout(false);
@@ -359,5 +364,6 @@ namespace Planetoid_DB
 		private KryptonProgressBar progressBar;
 		private KryptonButton buttonCalculate;
 		private KryptonListView listView;
+		private KryptonManager kryptonManager;
 	}
 }
