@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreloadForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(PreloadForm));
 			toolTip = new ToolTip(components);
 			kryptonCommandLinkButtonExit = new KryptonCommandLinkButton();
 			kryptonCommandLinkButtonLoadInternalDemoData = new KryptonCommandLinkButton();
@@ -42,8 +42,9 @@ namespace Planetoid_DB
 			labelInformation = new ToolStripStatusLabel();
 			panel = new KryptonPanel();
 			openFileDialog = new OpenFileDialog();
+			kryptonManager = new KryptonManager(components);
 			statusStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -220,6 +221,10 @@ namespace Planetoid_DB
 			openFileDialog.Filter = "DAT files|*.dat|all files|*.*";
 			openFileDialog.Title = "Open MPCORB.DAT";
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// PreloadForm
 			// 
 			AccessibleDescription = "Handles of the file MPCORB.DAT ist missing";
@@ -244,7 +249,7 @@ namespace Planetoid_DB
 			KeyDown += PreloadForm_KeyDown;
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
@@ -261,5 +266,6 @@ namespace Planetoid_DB
 		private KryptonCommandLinkButton kryptonCommandLinkButtonLoadInternalDemoData;
 		private KryptonCommandLinkButton kryptonCommandLinkButtonDownloadMprcorbDat;
 		private OpenFileDialog openFileDialog;
+		private KryptonManager kryptonManager;
 	}
 }

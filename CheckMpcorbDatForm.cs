@@ -2,8 +2,11 @@
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
+
 using Krypton.Toolkit;
+
 using NLog;
+
 using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
@@ -18,9 +21,6 @@ namespace Planetoid_DB
 
 		// The HttpClient instance used for making HTTP requests.
 		private static readonly HttpClient Client = new();
-
-		// Indicates whether the application is currently busy.
-		private bool isBusy;
 
 		#region constructor
 
@@ -168,7 +168,6 @@ namespace Planetoid_DB
 		{
 			// Clear the status bar
 			ClearStatusBar();
-			isBusy = true;
 			// URL for the MPCORB data file
 			Uri uriMpcorb = new(uriString: Settings.Default.systemMpcorbDatUrl);
 			// Local file last modified date
@@ -213,8 +212,6 @@ namespace Planetoid_DB
 				// Set the label text to indicate no update is needed
 				labelUpdateNeeded.Text = I10nStrings.NoUpdateNeededText;
 			}
-			// Set the status bar text to indicate the form is ready
-			isBusy = false;
 		}
 
 		/// <summary>

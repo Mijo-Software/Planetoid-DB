@@ -31,69 +31,70 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FilterForm));
-			panel = new Krypton.Toolkit.KryptonPanel();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(FilterForm));
+			panel = new KryptonPanel();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			buttonReset = new Krypton.Toolkit.KryptonButton();
-			buttonCancel = new Krypton.Toolkit.KryptonButton();
-			buttonApply = new Krypton.Toolkit.KryptonButton();
-			tableLayoutPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
-			labelHeaderReset = new Krypton.Toolkit.KryptonLabel();
-			labelHeaderMaximum = new Krypton.Toolkit.KryptonLabel();
-			labelHeaderMinimum = new Krypton.Toolkit.KryptonLabel();
-			buttonResetRmsResidual = new Krypton.Toolkit.KryptonButton();
-			buttonResetNumberOfObservations = new Krypton.Toolkit.KryptonButton();
-			buttonNumberOfOppositions = new Krypton.Toolkit.KryptonButton();
-			buttonResetSlopeParameter = new Krypton.Toolkit.KryptonButton();
-			buttonResetAbsoluteMagnitude = new Krypton.Toolkit.KryptonButton();
-			buttonResetSemiMajorAxis = new Krypton.Toolkit.KryptonButton();
-			buttonResetMeanDailyMotion = new Krypton.Toolkit.KryptonButton();
-			buttonResetLongitudeOfTheAscendingNode = new Krypton.Toolkit.KryptonButton();
-			buttonResetArgumentOfPerihelion = new Krypton.Toolkit.KryptonButton();
-			buttonResetMeanAnomalyAtTheEpoch = new Krypton.Toolkit.KryptonButton();
-			numericUpDownMaximumRmsResidual = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumNumberOfObservations = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumNumberOfOppositions = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumSlopeParameter = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumAbsoluteMagnitude = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumSemiMajorAxis = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumMeanDailyMotion = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumOrbitalEccentricity = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumInclination = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumLongitudeOfTheAscendingNode = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumArgumentOfPerihelion = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMaximumMeanAnomalyAtTheEpoch = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumRmsResidual = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumNumberOfObservations = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumNumberOfOppositions = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumSlopeParameter = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumAbsoluteMagnitude = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumSemiMajorAxis = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumMeanDailyMotion = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumOrbitalEccentricity = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumInclination = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumLongitudeOfTheAscendingNode = new Krypton.Toolkit.KryptonNumericUpDown();
-			numericUpDownMinimumArgumentOfPerihelion = new Krypton.Toolkit.KryptonNumericUpDown();
-			labelArgumentOfPerihelion = new Krypton.Toolkit.KryptonLabel();
-			numericUpDownMinimumMeanAnomalyAtTheEpoch = new Krypton.Toolkit.KryptonNumericUpDown();
-			labelRmsResidual = new Krypton.Toolkit.KryptonLabel();
-			labelLongitudeOfTheAscendingNode = new Krypton.Toolkit.KryptonLabel();
-			labelNumberOfObservations = new Krypton.Toolkit.KryptonLabel();
-			labelInclination = new Krypton.Toolkit.KryptonLabel();
-			labelNumberOfOppositions = new Krypton.Toolkit.KryptonLabel();
-			labelOrbitalEccentricity = new Krypton.Toolkit.KryptonLabel();
-			labelSlopeParameter = new Krypton.Toolkit.KryptonLabel();
-			labelMeanDailyMotion = new Krypton.Toolkit.KryptonLabel();
-			labelAbsoluteMagnitude = new Krypton.Toolkit.KryptonLabel();
-			labelSemiMajorAxis = new Krypton.Toolkit.KryptonLabel();
-			labelMeanAnomalyAtTheEpoch = new Krypton.Toolkit.KryptonLabel();
-			buttonResetInclination = new Krypton.Toolkit.KryptonButton();
-			buttonResetOrbitalEccentricity = new Krypton.Toolkit.KryptonButton();
-			labelHeaderElement = new Krypton.Toolkit.KryptonLabel();
+			buttonReset = new KryptonButton();
+			buttonCancel = new KryptonButton();
+			buttonApply = new KryptonButton();
+			tableLayoutPanel = new KryptonTableLayoutPanel();
+			labelHeaderReset = new KryptonLabel();
+			labelHeaderMaximum = new KryptonLabel();
+			labelHeaderMinimum = new KryptonLabel();
+			buttonResetRmsResidual = new KryptonButton();
+			buttonResetNumberOfObservations = new KryptonButton();
+			buttonNumberOfOppositions = new KryptonButton();
+			buttonResetSlopeParameter = new KryptonButton();
+			buttonResetAbsoluteMagnitude = new KryptonButton();
+			buttonResetSemiMajorAxis = new KryptonButton();
+			buttonResetMeanDailyMotion = new KryptonButton();
+			buttonResetLongitudeOfTheAscendingNode = new KryptonButton();
+			buttonResetArgumentOfPerihelion = new KryptonButton();
+			buttonResetMeanAnomalyAtTheEpoch = new KryptonButton();
+			numericUpDownMaximumRmsResidual = new KryptonNumericUpDown();
+			numericUpDownMaximumNumberOfObservations = new KryptonNumericUpDown();
+			numericUpDownMaximumNumberOfOppositions = new KryptonNumericUpDown();
+			numericUpDownMaximumSlopeParameter = new KryptonNumericUpDown();
+			numericUpDownMaximumAbsoluteMagnitude = new KryptonNumericUpDown();
+			numericUpDownMaximumSemiMajorAxis = new KryptonNumericUpDown();
+			numericUpDownMaximumMeanDailyMotion = new KryptonNumericUpDown();
+			numericUpDownMaximumOrbitalEccentricity = new KryptonNumericUpDown();
+			numericUpDownMaximumInclination = new KryptonNumericUpDown();
+			numericUpDownMaximumLongitudeOfTheAscendingNode = new KryptonNumericUpDown();
+			numericUpDownMaximumArgumentOfPerihelion = new KryptonNumericUpDown();
+			numericUpDownMaximumMeanAnomalyAtTheEpoch = new KryptonNumericUpDown();
+			numericUpDownMinimumRmsResidual = new KryptonNumericUpDown();
+			numericUpDownMinimumNumberOfObservations = new KryptonNumericUpDown();
+			numericUpDownMinimumNumberOfOppositions = new KryptonNumericUpDown();
+			numericUpDownMinimumSlopeParameter = new KryptonNumericUpDown();
+			numericUpDownMinimumAbsoluteMagnitude = new KryptonNumericUpDown();
+			numericUpDownMinimumSemiMajorAxis = new KryptonNumericUpDown();
+			numericUpDownMinimumMeanDailyMotion = new KryptonNumericUpDown();
+			numericUpDownMinimumOrbitalEccentricity = new KryptonNumericUpDown();
+			numericUpDownMinimumInclination = new KryptonNumericUpDown();
+			numericUpDownMinimumLongitudeOfTheAscendingNode = new KryptonNumericUpDown();
+			numericUpDownMinimumArgumentOfPerihelion = new KryptonNumericUpDown();
+			labelArgumentOfPerihelion = new KryptonLabel();
+			numericUpDownMinimumMeanAnomalyAtTheEpoch = new KryptonNumericUpDown();
+			labelRmsResidual = new KryptonLabel();
+			labelLongitudeOfTheAscendingNode = new KryptonLabel();
+			labelNumberOfObservations = new KryptonLabel();
+			labelInclination = new KryptonLabel();
+			labelNumberOfOppositions = new KryptonLabel();
+			labelOrbitalEccentricity = new KryptonLabel();
+			labelSlopeParameter = new KryptonLabel();
+			labelMeanDailyMotion = new KryptonLabel();
+			labelAbsoluteMagnitude = new KryptonLabel();
+			labelSemiMajorAxis = new KryptonLabel();
+			labelMeanAnomalyAtTheEpoch = new KryptonLabel();
+			buttonResetInclination = new KryptonButton();
+			buttonResetOrbitalEccentricity = new KryptonButton();
+			labelHeaderElement = new KryptonLabel();
 			toolTip = new ToolTip(components);
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			tableLayoutPanel.SuspendLayout();
@@ -275,7 +276,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.Location = new Point(4, 3);
 			tableLayoutPanel.Margin = new Padding(4, 3, 4, 3);
 			tableLayoutPanel.Name = "tableLayoutPanel";
-			tableLayoutPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			tableLayoutPanel.PanelBackStyle = PaletteBackStyle.FormMain;
 			tableLayoutPanel.RowCount = 14;
 			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
@@ -300,7 +301,7 @@ namespace Planetoid_DB
 			labelHeaderReset.AccessibleName = "Header of the reset buttons";
 			labelHeaderReset.AccessibleRole = AccessibleRole.StaticText;
 			labelHeaderReset.Dock = DockStyle.Fill;
-			labelHeaderReset.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelHeaderReset.LabelStyle = LabelStyle.BoldPanel;
 			labelHeaderReset.Location = new Point(506, 3);
 			labelHeaderReset.Margin = new Padding(4, 3, 4, 3);
 			labelHeaderReset.Name = "labelHeaderReset";
@@ -319,7 +320,7 @@ namespace Planetoid_DB
 			labelHeaderMaximum.AccessibleName = "Header of the maximum spin buttons";
 			labelHeaderMaximum.AccessibleRole = AccessibleRole.StaticText;
 			labelHeaderMaximum.Dock = DockStyle.Fill;
-			labelHeaderMaximum.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelHeaderMaximum.LabelStyle = LabelStyle.BoldPanel;
 			labelHeaderMaximum.Location = new Point(378, 3);
 			labelHeaderMaximum.Margin = new Padding(4, 3, 4, 3);
 			labelHeaderMaximum.Name = "labelHeaderMaximum";
@@ -338,7 +339,7 @@ namespace Planetoid_DB
 			labelHeaderMinimum.AccessibleName = "Header of the minimum spin buttons";
 			labelHeaderMinimum.AccessibleRole = AccessibleRole.StaticText;
 			labelHeaderMinimum.Dock = DockStyle.Fill;
-			labelHeaderMinimum.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelHeaderMinimum.LabelStyle = LabelStyle.BoldPanel;
 			labelHeaderMinimum.Location = new Point(250, 3);
 			labelHeaderMinimum.Margin = new Padding(4, 3, 4, 3);
 			labelHeaderMinimum.Name = "labelHeaderMinimum";
@@ -356,7 +357,7 @@ namespace Planetoid_DB
 			buttonResetRmsResidual.AccessibleDescription = "Resets the minimum and maximum of ";
 			buttonResetRmsResidual.AccessibleName = "Reset the minimum and maximum of ";
 			buttonResetRmsResidual.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetRmsResidual.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetRmsResidual.ButtonStyle = ButtonStyle.Form;
 			buttonResetRmsResidual.Dock = DockStyle.Fill;
 			buttonResetRmsResidual.Location = new Point(506, 367);
 			buttonResetRmsResidual.Margin = new Padding(4, 3, 4, 3);
@@ -379,7 +380,7 @@ namespace Planetoid_DB
 			buttonResetNumberOfObservations.AccessibleDescription = "Resets the minimum and maximum of number of observations";
 			buttonResetNumberOfObservations.AccessibleName = "Reset the minimum and maximum of number of observations";
 			buttonResetNumberOfObservations.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetNumberOfObservations.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetNumberOfObservations.ButtonStyle = ButtonStyle.Form;
 			buttonResetNumberOfObservations.Dock = DockStyle.Fill;
 			buttonResetNumberOfObservations.Location = new Point(506, 336);
 			buttonResetNumberOfObservations.Margin = new Padding(4, 3, 4, 3);
@@ -402,7 +403,7 @@ namespace Planetoid_DB
 			buttonNumberOfOppositions.AccessibleDescription = "Resets the minimum and maximum of number of oppositions";
 			buttonNumberOfOppositions.AccessibleName = "Reset the minimum and maximum of number of oppositions";
 			buttonNumberOfOppositions.AccessibleRole = AccessibleRole.PushButton;
-			buttonNumberOfOppositions.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonNumberOfOppositions.ButtonStyle = ButtonStyle.Form;
 			buttonNumberOfOppositions.Dock = DockStyle.Fill;
 			buttonNumberOfOppositions.Location = new Point(506, 305);
 			buttonNumberOfOppositions.Margin = new Padding(4, 3, 4, 3);
@@ -425,7 +426,7 @@ namespace Planetoid_DB
 			buttonResetSlopeParameter.AccessibleDescription = "Resets the minimum and maximum of slope parameter";
 			buttonResetSlopeParameter.AccessibleName = "Reset the minimum and maximum of slope parameter";
 			buttonResetSlopeParameter.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetSlopeParameter.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetSlopeParameter.ButtonStyle = ButtonStyle.Form;
 			buttonResetSlopeParameter.Dock = DockStyle.Fill;
 			buttonResetSlopeParameter.Location = new Point(506, 274);
 			buttonResetSlopeParameter.Margin = new Padding(4, 3, 4, 3);
@@ -448,7 +449,7 @@ namespace Planetoid_DB
 			buttonResetAbsoluteMagnitude.AccessibleDescription = "Resets the minimum and maximum of absolute magnitude";
 			buttonResetAbsoluteMagnitude.AccessibleName = "Reset the minimum and maximum of absolute magnitude";
 			buttonResetAbsoluteMagnitude.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetAbsoluteMagnitude.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetAbsoluteMagnitude.ButtonStyle = ButtonStyle.Form;
 			buttonResetAbsoluteMagnitude.Dock = DockStyle.Fill;
 			buttonResetAbsoluteMagnitude.Location = new Point(506, 243);
 			buttonResetAbsoluteMagnitude.Margin = new Padding(4, 3, 4, 3);
@@ -471,7 +472,7 @@ namespace Planetoid_DB
 			buttonResetSemiMajorAxis.AccessibleDescription = "Resets the minimum and maximum of semi-major axis";
 			buttonResetSemiMajorAxis.AccessibleName = "Reset the minimum and maximum of semi-major axis";
 			buttonResetSemiMajorAxis.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetSemiMajorAxis.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetSemiMajorAxis.ButtonStyle = ButtonStyle.Form;
 			buttonResetSemiMajorAxis.Dock = DockStyle.Fill;
 			buttonResetSemiMajorAxis.Location = new Point(506, 212);
 			buttonResetSemiMajorAxis.Margin = new Padding(4, 3, 4, 3);
@@ -494,7 +495,7 @@ namespace Planetoid_DB
 			buttonResetMeanDailyMotion.AccessibleDescription = "Resets the minimum and maximum of mean daily motion";
 			buttonResetMeanDailyMotion.AccessibleName = "Reset the minimum and maximum of mean daily motion";
 			buttonResetMeanDailyMotion.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetMeanDailyMotion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetMeanDailyMotion.ButtonStyle = ButtonStyle.Form;
 			buttonResetMeanDailyMotion.Dock = DockStyle.Fill;
 			buttonResetMeanDailyMotion.Location = new Point(506, 181);
 			buttonResetMeanDailyMotion.Margin = new Padding(4, 3, 4, 3);
@@ -517,7 +518,7 @@ namespace Planetoid_DB
 			buttonResetLongitudeOfTheAscendingNode.AccessibleDescription = "Resets the minimum and maximum of longitude of the ascending node";
 			buttonResetLongitudeOfTheAscendingNode.AccessibleName = "Reset the minimum and maximum of longitude of the ascending node";
 			buttonResetLongitudeOfTheAscendingNode.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetLongitudeOfTheAscendingNode.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetLongitudeOfTheAscendingNode.ButtonStyle = ButtonStyle.Form;
 			buttonResetLongitudeOfTheAscendingNode.Dock = DockStyle.Fill;
 			buttonResetLongitudeOfTheAscendingNode.Location = new Point(506, 88);
 			buttonResetLongitudeOfTheAscendingNode.Margin = new Padding(4, 3, 4, 3);
@@ -540,7 +541,7 @@ namespace Planetoid_DB
 			buttonResetArgumentOfPerihelion.AccessibleDescription = "Resets the minimum and maximum of argument of perihelion";
 			buttonResetArgumentOfPerihelion.AccessibleName = "Reset the minimum and maximum of argument of perihelion";
 			buttonResetArgumentOfPerihelion.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetArgumentOfPerihelion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetArgumentOfPerihelion.ButtonStyle = ButtonStyle.Form;
 			buttonResetArgumentOfPerihelion.Dock = DockStyle.Fill;
 			buttonResetArgumentOfPerihelion.Location = new Point(506, 57);
 			buttonResetArgumentOfPerihelion.Margin = new Padding(4, 3, 4, 3);
@@ -563,7 +564,7 @@ namespace Planetoid_DB
 			buttonResetMeanAnomalyAtTheEpoch.AccessibleDescription = "Resets the minimum and maximum of mean anomaly at the epoch";
 			buttonResetMeanAnomalyAtTheEpoch.AccessibleName = "Reset the minimum and maximum of mean anomaly at the epoch";
 			buttonResetMeanAnomalyAtTheEpoch.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetMeanAnomalyAtTheEpoch.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetMeanAnomalyAtTheEpoch.ButtonStyle = ButtonStyle.Form;
 			buttonResetMeanAnomalyAtTheEpoch.Dock = DockStyle.Fill;
 			buttonResetMeanAnomalyAtTheEpoch.Location = new Point(506, 26);
 			buttonResetMeanAnomalyAtTheEpoch.Margin = new Padding(4, 3, 4, 3);
@@ -1402,7 +1403,7 @@ namespace Planetoid_DB
 			buttonResetInclination.AccessibleDescription = "Resets the minimum and maximum of inclination to the ecliptic";
 			buttonResetInclination.AccessibleName = "Reset the minimum and maximum of inclination to the ecliptic";
 			buttonResetInclination.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetInclination.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetInclination.ButtonStyle = ButtonStyle.Form;
 			buttonResetInclination.Dock = DockStyle.Fill;
 			buttonResetInclination.Location = new Point(506, 119);
 			buttonResetInclination.Margin = new Padding(4, 3, 4, 3);
@@ -1425,7 +1426,7 @@ namespace Planetoid_DB
 			buttonResetOrbitalEccentricity.AccessibleDescription = "Resets the minimum and maximum of orbital eccentricity";
 			buttonResetOrbitalEccentricity.AccessibleName = "Reset the minimum and maximum of orbital eccentricity";
 			buttonResetOrbitalEccentricity.AccessibleRole = AccessibleRole.PushButton;
-			buttonResetOrbitalEccentricity.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonResetOrbitalEccentricity.ButtonStyle = ButtonStyle.Form;
 			buttonResetOrbitalEccentricity.Dock = DockStyle.Fill;
 			buttonResetOrbitalEccentricity.Location = new Point(506, 150);
 			buttonResetOrbitalEccentricity.Margin = new Padding(4, 3, 4, 3);
@@ -1449,7 +1450,7 @@ namespace Planetoid_DB
 			labelHeaderElement.AccessibleName = "Header of the orbital elements";
 			labelHeaderElement.AccessibleRole = AccessibleRole.StaticText;
 			labelHeaderElement.Dock = DockStyle.Fill;
-			labelHeaderElement.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+			labelHeaderElement.LabelStyle = LabelStyle.BoldPanel;
 			labelHeaderElement.Location = new Point(4, 3);
 			labelHeaderElement.Margin = new Padding(4, 3, 4, 3);
 			labelHeaderElement.Name = "labelHeaderElement";
@@ -1461,6 +1462,10 @@ namespace Planetoid_DB
 			labelHeaderElement.Leave += ClearStatusBar_Leave;
 			labelHeaderElement.MouseEnter += SetStatusBar_Enter;
 			labelHeaderElement.MouseLeave += ClearStatusBar_Leave;
+			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
 			// 
 			// FilterForm
 			// 
@@ -1483,7 +1488,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Filter");
 			FormClosed += FilterForm_FormClosed;
 			Load += FilterForm_Load;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -1555,5 +1560,6 @@ namespace Planetoid_DB
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolTip toolTip;
+		private KryptonManager kryptonManager;
 	}
 }

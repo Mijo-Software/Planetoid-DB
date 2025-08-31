@@ -31,21 +31,22 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LicenseForm));
-			panel = new Krypton.Toolkit.KryptonPanel();
-			kryptonButtonSaveLicense = new Krypton.Toolkit.KryptonButton();
-			kryptonButtonClose = new Krypton.Toolkit.KryptonButton();
-			kryptonPictureBoxLicenseLogo = new Krypton.Toolkit.KryptonPictureBox();
-			kryptonTextBoxLicense = new Krypton.Toolkit.KryptonTextBox();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(LicenseForm));
+			panel = new KryptonPanel();
+			kryptonButtonCopyLicenseToClipboard = new KryptonButton();
+			kryptonButtonSaveLicense = new KryptonButton();
+			kryptonButtonClose = new KryptonButton();
+			kryptonPictureBoxLicenseLogo = new KryptonPictureBox();
+			kryptonTextBoxLicense = new KryptonTextBox();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolTip = new ToolTip(components);
 			saveFileDialog = new SaveFileDialog();
-			kryptonButtonCopyLicenseToClipboard = new Krypton.Toolkit.KryptonButton();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)kryptonPictureBoxLicenseLogo).BeginInit();
+			((ISupportInitialize)kryptonPictureBoxLicenseLogo).BeginInit();
 			statusStrip.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -63,9 +64,28 @@ namespace Planetoid_DB
 			panel.Dock = DockStyle.Fill;
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(577, 225);
 			panel.TabIndex = 0;
+			// 
+			// kryptonButtonCopyLicenseToClipboard
+			// 
+			kryptonButtonCopyLicenseToClipboard.AccessibleDescription = "Copys the license to the clipboard";
+			kryptonButtonCopyLicenseToClipboard.AccessibleName = "Copy the license to the clipboard";
+			kryptonButtonCopyLicenseToClipboard.AccessibleRole = AccessibleRole.PushButton;
+			kryptonButtonCopyLicenseToClipboard.Location = new Point(438, 105);
+			kryptonButtonCopyLicenseToClipboard.Name = "kryptonButtonCopyLicenseToClipboard";
+			kryptonButtonCopyLicenseToClipboard.Size = new Size(127, 25);
+			kryptonButtonCopyLicenseToClipboard.TabIndex = 1;
+			toolTip.SetToolTip(kryptonButtonCopyLicenseToClipboard, "Copy the license to the clipboard");
+			kryptonButtonCopyLicenseToClipboard.Values.DropDownArrowColor = Color.Empty;
+			kryptonButtonCopyLicenseToClipboard.Values.Image = Properties.Resources.silk_clipboard;
+			kryptonButtonCopyLicenseToClipboard.Values.Text = "&Copy to clipboard";
+			kryptonButtonCopyLicenseToClipboard.Click += KryptonButtonCopyLicenseToClipboard_Click;
+			kryptonButtonCopyLicenseToClipboard.Enter += SetStatusBar_Enter;
+			kryptonButtonCopyLicenseToClipboard.Leave += ClearStatusBar_Leave;
+			kryptonButtonCopyLicenseToClipboard.MouseEnter += SetStatusBar_Enter;
+			kryptonButtonCopyLicenseToClipboard.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// kryptonButtonSaveLicense
 			// 
@@ -126,6 +146,7 @@ namespace Planetoid_DB
 			kryptonTextBoxLicense.AccessibleDescription = "Show the license";
 			kryptonTextBoxLicense.AccessibleName = "License";
 			kryptonTextBoxLicense.AccessibleRole = AccessibleRole.Text;
+			kryptonTextBoxLicense.InputControlStyle = InputControlStyle.PanelAlternate;
 			kryptonTextBoxLicense.Location = new Point(12, 12);
 			kryptonTextBoxLicense.Multiline = true;
 			kryptonTextBoxLicense.Name = "kryptonTextBoxLicense";
@@ -174,24 +195,9 @@ namespace Planetoid_DB
 			// 
 			saveFileDialog.Filter = "all files|*.*";
 			// 
-			// kryptonButtonCopyLicenseToClipboard
+			// kryptonManager
 			// 
-			kryptonButtonCopyLicenseToClipboard.AccessibleDescription = "Copys the license to the clipboard";
-			kryptonButtonCopyLicenseToClipboard.AccessibleName = "Copy the license to the clipboard";
-			kryptonButtonCopyLicenseToClipboard.AccessibleRole = AccessibleRole.PushButton;
-			kryptonButtonCopyLicenseToClipboard.Location = new Point(438, 105);
-			kryptonButtonCopyLicenseToClipboard.Name = "kryptonButtonCopyLicenseToClipboard";
-			kryptonButtonCopyLicenseToClipboard.Size = new Size(127, 25);
-			kryptonButtonCopyLicenseToClipboard.TabIndex = 1;
-			toolTip.SetToolTip(kryptonButtonCopyLicenseToClipboard, "Copy the license to the clipboard");
-			kryptonButtonCopyLicenseToClipboard.Values.DropDownArrowColor = Color.Empty;
-			kryptonButtonCopyLicenseToClipboard.Values.Image = Properties.Resources.silk_clipboard;
-			kryptonButtonCopyLicenseToClipboard.Values.Text = "&Copy to clipboard";
-			kryptonButtonCopyLicenseToClipboard.Click += KryptonButtonCopyLicenseToClipboard_Click;
-			kryptonButtonCopyLicenseToClipboard.Enter += SetStatusBar_Enter;
-			kryptonButtonCopyLicenseToClipboard.Leave += ClearStatusBar_Leave;
-			kryptonButtonCopyLicenseToClipboard.MouseEnter += SetStatusBar_Enter;
-			kryptonButtonCopyLicenseToClipboard.MouseLeave += ClearStatusBar_Leave;
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
 			// 
 			// LicenseForm
 			// 
@@ -214,10 +220,10 @@ namespace Planetoid_DB
 			FormClosed += LicenseForm_FormClosed;
 			Load += LicenseForm_Load;
 			KeyDown += LicenseForm_KeyDown;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)kryptonPictureBoxLicenseLogo).EndInit();
+			((ISupportInitialize)kryptonPictureBoxLicenseLogo).EndInit();
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
 			ResumeLayout(false);
@@ -235,5 +241,6 @@ namespace Planetoid_DB
 		private KryptonButton kryptonButtonSaveLicense;
 		private SaveFileDialog saveFileDialog;
 		private KryptonButton kryptonButtonCopyLicenseToClipboard;
+		private KryptonManager kryptonManager;
 	}
 }

@@ -31,34 +31,35 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
-			checkedListBox = new Krypton.Toolkit.KryptonCheckedListBox();
-			panel = new Krypton.Toolkit.KryptonPanel();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(SearchForm));
+			checkedListBox = new KryptonCheckedListBox();
+			panel = new KryptonPanel();
 			listView = new ListView();
 			columnHeaderIndex = new ColumnHeader();
 			columnHeaderIndexNo = new ColumnHeader();
 			columnHeaderProperty = new ColumnHeader();
 			columnHeaderValue = new ColumnHeader();
-			buttonCancel = new Krypton.Toolkit.KryptonButton();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			buttonCancel = new KryptonButton();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			labelEntriesFound = new Krypton.Toolkit.KryptonLabel();
-			progressBar = new Krypton.Toolkit.KryptonProgressBar();
-			groupBox = new Krypton.Toolkit.KryptonGroupBox();
-			buttonClear = new Krypton.Toolkit.KryptonButton();
-			textBox = new Krypton.Toolkit.KryptonTextBox();
-			buttonLoad = new Krypton.Toolkit.KryptonButton();
-			buttonUnmarkAll = new Krypton.Toolkit.KryptonButton();
-			buttonMarkAll = new Krypton.Toolkit.KryptonButton();
-			buttonSearch = new Krypton.Toolkit.KryptonButton();
+			labelEntriesFound = new KryptonLabel();
+			progressBar = new KryptonProgressBar();
+			groupBox = new KryptonGroupBox();
+			buttonClear = new KryptonButton();
+			textBox = new KryptonTextBox();
+			buttonLoad = new KryptonButton();
+			buttonUnmarkAll = new KryptonButton();
+			buttonMarkAll = new KryptonButton();
+			buttonSearch = new KryptonButton();
 			toolTip = new ToolTip(components);
-			backgroundWorker = new System.ComponentModel.BackgroundWorker();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			backgroundWorker = new BackgroundWorker();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)groupBox).BeginInit();
-			((System.ComponentModel.ISupportInitialize)groupBox.Panel).BeginInit();
+			((ISupportInitialize)groupBox).BeginInit();
+			((ISupportInitialize)groupBox.Panel).BeginInit();
 			groupBox.Panel.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -67,7 +68,7 @@ namespace Planetoid_DB
 			checkedListBox.AccessibleDescription = "Box with selectable orbital elements to search";
 			checkedListBox.AccessibleName = "Box with selectable orbital elements";
 			checkedListBox.AccessibleRole = AccessibleRole.CheckButton;
-			checkedListBox.BackStyle = Krypton.Toolkit.PaletteBackStyle.ControlRibbon;
+			checkedListBox.BackStyle = PaletteBackStyle.ControlRibbon;
 			checkedListBox.CheckOnClick = true;
 			checkedListBox.Items.AddRange(new object[] { "Index No.", "Readable designation", "Epoch (in packed form, .0 TT)", "Mean anomaly at the epoch (°)", "Argument of perihelion, J2000.0 (°)", "Longitude of the ascending node, J2000.0 (°)", "Inclination to the ecliptic, J2000.0 (°)", "Orbital eccentricity", "Mean daily motion (°/day)", "Semi-major axis (AU)", "Absolute magnitude, H", "Slope parameter, G", "Reference", "Number of oppositions", "Number of observations", "Observation span", "r.m.s. residual (\")", "Computer name", "4-hexdigit flags", "Date of last observation (YYYMMDD)" });
 			checkedListBox.Location = new Point(4, 74);
@@ -101,7 +102,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(387, 525);
 			panel.TabIndex = 0;
 			// 
@@ -260,7 +261,7 @@ namespace Planetoid_DB
 			buttonClear.AccessibleDescription = "Clears the search box";
 			buttonClear.AccessibleName = "Clear the search box";
 			buttonClear.AccessibleRole = AccessibleRole.PushButton;
-			buttonClear.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonClear.ButtonStyle = ButtonStyle.Form;
 			buttonClear.Location = new Point(300, 5);
 			buttonClear.Margin = new Padding(4, 3, 4, 3);
 			buttonClear.Name = "buttonClear";
@@ -319,7 +320,7 @@ namespace Planetoid_DB
 			buttonUnmarkAll.AccessibleDescription = "Umarks all orbital elements";
 			buttonUnmarkAll.AccessibleName = "Umark all orbital elements";
 			buttonUnmarkAll.AccessibleRole = AccessibleRole.PushButton;
-			buttonUnmarkAll.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonUnmarkAll.ButtonStyle = ButtonStyle.Form;
 			buttonUnmarkAll.Location = new Point(276, 110);
 			buttonUnmarkAll.Margin = new Padding(4, 3, 4, 3);
 			buttonUnmarkAll.Name = "buttonUnmarkAll";
@@ -339,7 +340,7 @@ namespace Planetoid_DB
 			buttonMarkAll.AccessibleDescription = "Marks all orbital elements to search";
 			buttonMarkAll.AccessibleName = "Mark all orbital elements";
 			buttonMarkAll.AccessibleRole = AccessibleRole.PushButton;
-			buttonMarkAll.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonMarkAll.ButtonStyle = ButtonStyle.Form;
 			buttonMarkAll.Location = new Point(276, 74);
 			buttonMarkAll.Margin = new Padding(4, 3, 4, 3);
 			buttonMarkAll.Name = "buttonMarkAll";
@@ -383,6 +384,10 @@ namespace Planetoid_DB
 			backgroundWorker.ProgressChanged += BackgroundWorker_ProgressChanged;
 			backgroundWorker.RunWorkerCompleted += BackgroundWorker_RunWorkerCompleted;
 			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			// 
 			// SearchForm
 			// 
 			AccessibleDescription = "Dialog to search a word, a keyword or a number";
@@ -404,15 +409,15 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Search");
 			FormClosed += SearchForm_FormClosed;
 			Load += SearchForm_Load;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
 			statusStrip.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)groupBox.Panel).EndInit();
+			((ISupportInitialize)groupBox.Panel).EndInit();
 			groupBox.Panel.ResumeLayout(false);
 			groupBox.Panel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)groupBox).EndInit();
+			((ISupportInitialize)groupBox).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -438,5 +443,6 @@ namespace Planetoid_DB
 		private ColumnHeader columnHeaderProperty;
 		private ColumnHeader columnHeaderValue;
 		private ColumnHeader columnHeaderIndex;
+		private KryptonManager kryptonManager;
 	}
 }

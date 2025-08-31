@@ -6,8 +6,11 @@ using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
+
 using Krypton.Toolkit;
+
 using NLog;
+
 using static Planetoid_DB.Properties.Resources;
 using static Planetoid_DB.Properties.Settings;
 
@@ -35,9 +38,6 @@ namespace Planetoid_DB
 		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
 		// Replace the WebClient instance with HttpClient and refactor the code accordingly.
 		private static readonly HttpClient HttpClient = new();
-
-		// Flag to indicate if a download is in progress
-		private bool isBusy;
 
 		// Static HttpClient instance for making HTTP requests
 		private static readonly HttpClient Client = new();
@@ -261,8 +261,6 @@ namespace Planetoid_DB
 				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
 				// Set the dialog result to OK
 				DialogResult = DialogResult.OK;
-				// Set the busy flag to false
-				isBusy = false;
 			}
 			else
 			{
@@ -413,13 +411,9 @@ namespace Planetoid_DB
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 				// Start the download asynchronously
 				webClient.DownloadFileAsync(address: strUriMpcorb, fileName: strFilenameMpcorbTemp);
-				// Set the busy flag to true
-				isBusy = true;
 			}
 			catch (Exception ex)
 			{
-				// Set the busy flag to false
-				isBusy = false;
 				// Set the status value to "Unknown error"
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
 				// Enable the download button
@@ -478,11 +472,9 @@ namespace Planetoid_DB
 				labelStatusValue.Text = I10nStrings.StatusDownloadCompleteText;
 				buttonDownload.Enabled = buttonCheckForUpdate.Enabled = true;
 				DialogResult = DialogResult.OK;
-				isBusy = false;
 			}
 			catch (Exception ex)
 			{
-				isBusy = false;
 				labelStatusValue.Text = $"{I10nStrings.StatusUnknownError} {ex.Message}";
 				buttonDownload.Enabled = true;
 				buttonCheckForUpdate.Enabled = true;

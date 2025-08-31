@@ -118,25 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="contextMenuNavigationStep.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>477, 55</value>
+    <value>466, 56</value>
   </metadata>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>94, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tableLayoutPanelData.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD9SURBVHhe7dExEcAgAAAx/FuqB6ZqwAEz3HWohh8yREHG
-        u/ah4wt55iJASIyQGCExQmKExAiJERIjJEZIjJAYITFCYoTECIkREiMkRkiMkBghMUJihMQIiRESIyRG
-        SIyQGCExQmKExAiJERIjJEZIjJAYITFCYoTECIkREiMkRkiMkBghMUJihMQIiRESIyRGSIyQGCExQmKE
-        xAiJERIjJEZIjJAYITFCYoTECIkREiMkRkiMkBghMUJihMQIiRESIyRGSIyQGCExQmKExAiJERIjJEZI
-        jJAYITFCYoTECIkREiMkRkiMkBghMUJihMQIiRESIyRGSMwfQsU+F97NY7tsJq17AAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="contextMenuTopTenRecords.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 55</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="menuitemRecordsMeanAnomalyAtTheEpoch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
@@ -303,7 +293,7 @@
 </value>
   </data>
   <metadata name="contextMenuDistributions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>684, 55</value>
+    <value>672, 56</value>
   </metadata>
   <data name="menuitemDistributionMeanAnomalyAtTheEpoch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -544,7 +534,7 @@
 </value>
   </data>
   <metadata name="contextMenuCopyToClipboardOrbitalElements.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>877, 55</value>
+    <value>864, 56</value>
   </metadata>
   <data name="menuitemCopyToClipboardIndexNumber.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -886,6 +876,23 @@
         93PYBwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="contextMenuCopyToClipboardOrbitalElements.Name" xml:space="preserve">
+    <value>contry
+        {
+            // Ask the user for a valid palette definition file
+            kryptonPalette1.Import();
+
+            // Set the krypton manager's GlobalPalette to kryptonPalette1
+            kryptonManager1.GlobalPalette = kryptonPalette1;
+
+            // Finally, set the krypton manager's GlobalPaletteMode to custom
+            kryptonManager1.GlobalPaletteMode = PaletteModeManager.Custom;
+        }
+        catch (Exception exc)
+        {
+            // TODO: Handle the exception
+        }textMenuCopyToClipboardOrbitalElements</value>
+  </data>
   <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 15</value>
   </metadata>
@@ -902,13 +909,16 @@
     <value>219, 56</value>
   </metadata>
   <metadata name="timerBlinkForUpdateAvailable.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>557, 18</value>
+    <value>567, 16</value>
   </metadata>
   <metadata name="timerCheckForNewMpcorbDatFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>770, 18</value>
   </metadata>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>995, 22</value>
+    <value>1004, 18</value>
+  </metadata>
+  <metadata name="kryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 93</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>96</value>

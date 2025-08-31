@@ -10,7 +10,7 @@
     <StartupObject>Planetoid_DB.Program</StartupObject>
     <ApplicationIcon>Planetoid-DB-3.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>0.7.12.37</Version>
+    <Version>0.7.13.38</Version>
     <Company>Mijo Software</Company>
     <Description>Viewer for the MPC Orbit (MPCORB) Database</Description>
     <Copyright>2010-2025 Michael Johne</Copyright>
@@ -27,7 +27,6 @@
     <SignAssembly>False</SignAssembly>
     <Title>$(AssemblyName)</Title>
     <Authors>Michael Johne @ Mijo Software</Authors>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>                    GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
@@ -705,6 +704,8 @@ Public License instead of this License.  But first, please read
 &lt;https://www.gnu.org/licenses/why-not-lgpl.html&gt;.</PackageReleaseNotes>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <TargetFrameworks>net9.0-windows</TargetFrameworks>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -758,43 +759,63 @@ Public License instead of this License.  But first, please read
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|AnyCPU'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|ARM32'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|ARM64'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|x64'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|x86'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows|AnyCPU'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows|ARM32'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows|ARM64'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows|x64'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows|x86'">
-    <IsTrimmable>False</IsTrimmable>
+    <IsTrimmable>True</IsTrimmable>
+    <PreferNativeArm64>False</PreferNativeArm64>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
 
   <ItemGroup>
@@ -830,13 +851,13 @@ Public License instead of this License.  But first, please read
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Krypton.Docking" Version="90.24.11.317" />
-    <PackageReference Include="Krypton.Navigator" Version="90.24.11.317" />
-    <PackageReference Include="Krypton.Ribbon" Version="90.24.11.317" />
-    <PackageReference Include="Krypton.Toolkit" Version="90.24.11.317" />
+    <PackageReference Include="Krypton.Docking" Version="95.25.8.235" />
+    <PackageReference Include="Krypton.Navigator" Version="95.25.8.235" />
+    <PackageReference Include="Krypton.Ribbon" Version="95.25.8.235" />
+    <PackageReference Include="Krypton.Toolkit" Version="95.25.8.235" />
     <PackageReference Include="Krypton.Toolkit.Suite.Extended.Ultimate" Version="95.25.5.145" />
-    <PackageReference Include="Krypton.Workspace" Version="90.24.11.317" />
-    <PackageReference Include="NLog" Version="5.5.0" />
+    <PackageReference Include="Krypton.Workspace" Version="95.25.8.235" />
+    <PackageReference Include="NLog" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>

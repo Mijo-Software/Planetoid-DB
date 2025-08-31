@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
+
 using Krypton.Toolkit;
+
 using NLog;
 
 namespace Planetoid_DB
@@ -17,9 +19,6 @@ namespace Planetoid_DB
 
 		// The database of planetoids.
 		private List<string> planetoidsDatabase = [];
-
-		// Indicates whether the application is currently busy.
-		private bool isBusy;
 
 		// The number of planetoids in the database.
 		private int numberPlanetoids;
@@ -333,8 +332,6 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
 		private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
 		{
-			// Set the isBusy flag to false
-			isBusy = false;
 			// Show the list view
 			listView.Visible = true;
 			// Enable the numeric up-down controls
@@ -459,8 +456,6 @@ namespace Planetoid_DB
 			isCancelled = false;
 			// Enable the progress bar
 			progressBar.Enabled = true;
-			// Set the isBusy flag to true
-			isBusy = true;
 			// Allow progress reporting from the background worker
 			backgroundWorker.WorkerReportsProgress = true;
 			// Allow cancellation of the background worker
@@ -482,7 +477,6 @@ namespace Planetoid_DB
 		private void ButtonCancel_Click(object sender, EventArgs e)
 		{
 			isCancelled = true;
-			isBusy = false;
 		}
 
 		#endregion

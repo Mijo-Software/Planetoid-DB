@@ -5,10 +5,14 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Reflection;
+
 using Krypton.Toolkit;
+
 using NLog;
+
 using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
@@ -29,9 +33,6 @@ namespace Planetoid_DB
 		// Planetoids database
 		private readonly ArrayList planetoidsDatabase = [];
 
-		// Web client for downloading data
-		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
-
 		// Splash screen form
 		private readonly SplashScreenForm formSplashScreen = new();
 
@@ -42,8 +43,56 @@ namespace Planetoid_DB
 		// URI for the MPCORB database
 		private readonly Uri uriMpcorb = new(uriString: Settings.Default.systemMpcorbDatGzUrl);
 
-		// Flag to indicate if a download is in progress
-		private bool isBusy;
+		// Cancellation token source for download operations
+		private CancellationTokenSource? downloadCancellationTokenSource;
+
+		// HttpClient instance for making HTTP requests
+		private static readonly HttpClient httpClient = new();
+
+		/*
+		private readonly IProgress<int>? downloadProgress;
+		private const int bufferSize = 81920; // 80 KB buffer size for downloading
+		private const int defaultStepPosition = 10; // Default step position for navigation
+		private const int maxRetries = 3; // Maximum number of retries for downloading
+		private const int delayBetweenRetries = 2000; // Delay between retries in milliseconds
+		private const int downloadTimeoutInSeconds = 300; // Timeout for download in seconds (5 minutes)
+		private const int minFileSizeInBytes = 500_000; // Minimum file size in bytes (500 KB)
+		private const int maxFileSizeInBytes = 50_000_000; // Maximum file size in bytes (50 MB)
+		private const int mpcorbDatExpectedFileSizeInBytes = 12_000_000; // Expected file size for MPCORB.DAT (12 MB)
+		private const int mpcorbDatGzExpectedFileSizeInBytes = 3_000_000; // Expected file size for MPCORB.DAT.GZ (3 MB)
+		private const int minPlanetoidDatabaseEntries = 100_000; // Minimum number of entries in the planetoid database
+		private const int maxPlanetoidDatabaseEntries = 1_000_000; // Maximum number of entries in the planetoid database
+		private const int connectionTimeoutInSeconds = 10; // Timeout for connection in seconds
+		private const int readWriteTimeoutInSeconds = 30; // Timeout for read/write operations in seconds
+		private const int maxNetworkRetries = 3; // Maximum number of retries for network operations
+		private const int delayBetweenNetworkRetries = 2000; // Delay between network retries in milliseconds
+		private const string userAgentString = "PlanetoidDB/1.0"; // User-Agent string for HTTP requests
+		private const string mpcorbDatGzFileExtension = ".gz"; // File extension for gzipped files
+		private const string mpcorbDatFileExtension = ".dat"; // File extension for dat files
+		private const string mpcorbDatBackupFileExtension = ".bak"; // File extension for backup files
+		private const string mpcorbDatTempFileExtension = ".tmp"; // File extension for temporary files
+		private const string mpcorbDatUrl = "https://minorplanetcenter.net/iau/MPCORB/MPCORB.DAT.gz"; // URL for the MPCORB.DAT.GZ file
+		private const string mpcorbDatLocalFileName = "MPCORB.DAT"; // Local filename for the MPCORB.DAT file
+		private const string mpcorbDatGzLocalFileName = "MPCORB.DAT.gz"; // Local filename for the MPCORB.DAT.GZ file
+		private const string mpcorbDatBackupFileName = "MPCORB.DAT.bak"; // Local filename for the backup file
+		private const string mpcorbDatTempFileName = "MPCORB.DAT.tmp"; // Local filename for the temporary file
+		private const string dateFormat = "yyyy-MM-dd HH:mm:ss"; // Date format for displaying dates
+		private const string isoDateFormat = "yyyy-MM-dd"; // ISO date format for parsing dates
+		private const string timeFormat = "HH:mm:ss"; // Time format for displaying times
+		private const string dateTimeFormat = "yyyy-MM-dd HH:mm:ss"; // DateTime format for displaying date and time
+		private const string gZipMimeType = "application/gzip"; // MIME type for gzip files
+		private const string octetStreamMimeType = "application/octet-stream"; // MIME type for binary files
+		private const string textPlainMimeType = "text/plain"; // MIME type for plain text files
+		private const string httpScheme = "http"; // HTTP scheme
+		private const string httpsScheme = "https"; // HTTPS scheme
+		private const string ftpScheme = "ftp"; // FTP scheme
+		private const string fileScheme = "file"; // File scheme
+		private const string localFilePrefix = "file://"; // Prefix for local file paths
+		private const string tempFolderPath = "Temp"; // Temporary folder path
+		private const string backupFolderPath = "Backup"; // Backup folder path
+		private const string mpcorbDatFileHeader = "MPCORB"; // Expected header in the MPCORB.DAT file
+		private const string mpcorbDatGzFileHeader = "\x1F\x8B"; // Expected header in the MPCORB.DAT.GZ file
+		*/
 
 		#region Constructor
 
@@ -179,10 +228,82 @@ namespace Planetoid_DB
 		/// <param name="position">The position to navigate to.</param>
 		private void GotoCurrentPosition(int position)
 		{
+			// Validate the position
+			if (position < 0 || position >= planetoidsDatabase.Count)
+			{
+				return;
+			}
+			else if (planetoidsDatabase.Count == 0)
+			{
+				return;
+			}
+			// Extract and display the data for the specified position
+			// Each field is extracted using substring operations based on fixed positions
+			// The extracted strings are trimmed to remove leading and trailing whitespace
+			// Example for extracting a field:
+			// string teilstring = planetoidsDatabase[position].ToString().Substring(startIndex: 0, length: 7).Trim();
+			// int zahl = int.Parse(s: teilstring, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture);
+			// The above example extracts a substring from the database entry at the specified position,
+			// trims it, and converts it to an integer using invariant culture
+			// The same approach is used for all other fields, adjusting the start index and length as needed
+			// Note: The field lengths and positions are based on the MPCORB.DAT file format specification
+			// The following fields are extracted:
+			// Index number (positions 0-6)
+			// Absolute magnitude (positions 8-12)
+			// Slope parameter (positions 14-18)
+			// Epoch (positions 20-24)
+			// Mean anomaly at the epoch (positions 26-34)
+			// Argument of perihelion (positions 37-45)
+			// Longitude of the ascending node (positions 48-56)
+			// Inclination to the ecliptic (positions 59-67)
+			// Orbital eccentricity (positions 70-78)
+			// Mean daily motion (positions 80-90)
+			// Semi-major axis (positions 92-102)
+			// Reference (positions 107-115)
+			// Number of observations (positions 117-121)
+			// Number of oppositions (positions 123-125)
+			// Observation span (positions 127-135)
+			// r.m.s. residual (positions 137-140)
+			// Computer name (positions 150-159)
+			// Flags (positions 161-164)
+			// Readable designation (positions 166-193)
+			// Date of last observation (positions 194-201)
+			// Note: The substring method uses zero-based indexing
+			// The lengths are inclusive of the start index
+			// Example: Substring(startIndex: 0, length: 7) extracts characters from index 0 to 6
+			// The extracted strings are trimmed to remove any leading or trailing whitespace
+			// The extracted values are then displayed in the corresponding labels on the form
+			// Example: labelIndexData.Text = extractedIndexString;
+			// The above example sets the text of the label to the extracted index string
+			// This process is repeated for all other fields
+			// Note: Error handling is not included in this method
+			// It is assumed that the data in the database is well-formed and follows the expected format
 			//Achtung: Wenn später die Teilstrings in Zahlen konvertiert werden, dann muss darauf geachtet werden, dass die eingelesenen Zeichenketten keine Leerstrings sind.
 			// if (teilstring == "0") zahl = 0; ...
-#pragma warning disable CS8602 // Dereferenzierung eines möglichen Nullverweises.
-			labelIndexData.Text = planetoidsDatabase[index: position].ToString()[..7].Trim();
+
+			object? entry = planetoidsDatabase[index: position];
+			labelIndexData.Text = entry?.ToString() is string entryStr ? entryStr[..7].Trim() : string.Empty;
+			labelAbsoluteMagnitudeData.Text = entry?.ToString() is string entryStr1 ? entryStr1.Substring(startIndex: 8, length: 5).Trim() : string.Empty;
+			labelSlopeParameterData.Text = entry?.ToString() is string entryStr2 ? entryStr2.Substring(startIndex: 14, length: 5).Trim() : string.Empty;
+			labelEpochData.Text = entry?.ToString() is string entryStr3 ? entryStr3.Substring(startIndex: 20, length: 5).Trim() : string.Empty;
+			labelMeanAnomalyAtTheEpochData.Text = entry?.ToString() is string entryStr4 ? entryStr4.Substring(startIndex: 26, length: 9).Trim() : string.Empty;
+			labelArgumentOfPerihelionData.Text = entry?.ToString() is string entryStr5 ? entryStr5.Substring(startIndex: 37, length: 9).Trim() : string.Empty;
+			labelLongitudeOfTheAscendingNodeData.Text = entry?.ToString() is string entryStr6 ? entryStr6.Substring(startIndex: 48, length: 9).Trim() : string.Empty;
+			labelInclinationToTheEclipticData.Text = entry?.ToString() is string entryStr7 ? entryStr7.Substring(startIndex: 59, length: 9).Trim() : string.Empty;
+			labelOrbitalEccentricityData.Text = entry?.ToString() is string entryStr8 ? entryStr8.Substring(startIndex: 70, length: 9).Trim() : string.Empty;
+			labelMeanDailyMotionData.Text = entry?.ToString() is string entryStr9 ? entryStr9.Substring(startIndex: 80, length: 11).Trim() : string.Empty;
+			labelSemiMajorAxisData.Text = entry?.ToString() is string entryStr10 ? entryStr10.Substring(startIndex: 92, length: 11).Trim() : string.Empty;
+			labelReferenceData.Text = entry?.ToString() is string entryStr11 ? entryStr11.Substring(startIndex: 107, length: 9).Trim() : string.Empty;
+			labelNumberOfObservationsData.Text = entry?.ToString() is string entryStr12 ? entryStr12.Substring(startIndex: 117, length: 5).Trim() : string.Empty;
+			labelNumberOfOppositionsData.Text = entry?.ToString() is string entryStr13 ? entryStr13.Substring(startIndex: 123, length: 3).Trim() : string.Empty;
+			labelObservationSpanData.Text = entry?.ToString() is string entryStr14 ? entryStr14.Substring(startIndex: 127, length: 9).Trim() : string.Empty;
+			labelRmsResidualData.Text = entry?.ToString() is string entryStr15 ? entryStr15.Substring(startIndex: 137, length: 4).Trim() : string.Empty;
+			labelComputerNameData.Text = entry?.ToString() is string entryStr16 ? entryStr16.Substring(startIndex: 150, length: 10).Trim() : string.Empty;
+			labelFlagsData.Text = entry?.ToString() is string entryStr17 ? entryStr17.Substring(startIndex: 161, length: 4).Trim() : string.Empty;
+			labelReadableDesignationData.Text = entry?.ToString() is string entryStr18 ? entryStr18.Substring(startIndex: 166, length: 28).Trim() : string.Empty;
+			labelDateLastObservationData.Text = entry?.ToString() is string entryStr19 ? entryStr19.Substring(startIndex: 194, length: 8).Trim() : string.Empty;
+			toolStripLabelIndexPosition.Text = $@"{I10nStrings.Index}: {position + 1:N0} / {planetoidsDatabase.Count:N0}";
+			/* Original code:
 			labelAbsoluteMagnitudeData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 8, length: 5).Trim();
 			labelSlopeParameterData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 14, length: 5).Trim();
 			labelEpochData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 20, length: 5).Trim();
@@ -202,28 +323,40 @@ namespace Planetoid_DB
 			labelFlagsData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 161, length: 4).Trim();
 			labelReadableDesignationData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 166, length: 28).Trim();
 			labelDateLastObservationData.Text = planetoidsDatabase[index: position].ToString().Substring(startIndex: 194, length: 8).Trim();
-#pragma warning restore CS8602 // Dereferenzierung eines möglichen Nullverweises.
 			toolStripLabelIndexPosition.Text = $@"{I10nStrings.Index}: {position + 1:N0} / {planetoidsDatabase.Count:N0}";
+			*/
 		}
 
 		/// <summary>
-		/// Gets the last modified date of the specified URI.
+		/// Retrieves the last modified date and time (in UTC) of the resource at the specified URI.
 		/// </summary>
-		/// <param name="uri">The URI to check.</param>
-		/// <returns>The last modified date of the URI.</returns>
+		/// <param name="uri">The URI of the resource to check.</param>
+		/// <returns>
+		/// The <see cref="DateTime"/> representing the last modified date and time in UTC if available; 
+		/// otherwise, <see cref="DateTime.MinValue"/>.
+		/// </returns>
 		private static DateTime GetLastModified(Uri uri)
 		{
-			// Create a new HttpWebRequest to the specified URI
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			// Set the method to HEAD to only retrieve headers
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			// Check if the response status code is OK (200)
-			// If so, return the last modified date
-			// Otherwise, return a default DateTime value
-			// Note: The default DateTime value is not a valid date, so it should be handled appropriately
-			// in the calling code
-			// The default DateTime value is 1/1/0001 12:00:00 AM
-			return response.StatusCode == HttpStatusCode.OK ? response.LastModified : new DateTime(year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0);
+			// Validate the input URI
+			ArgumentNullException.ThrowIfNull(argument: uri);
+			// Use HttpClient to retrieve only the headers (HEAD request)
+			using HttpClient client = new();
+			// Create a HEAD request to get only the headers
+			using HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
+			// Send the request and get the response
+			using HttpResponseMessage response = client.Send(request);
+			// Check if the request was successful
+			if (response.IsSuccessStatusCode)
+			{
+				// Check if the Last-Modified header is present and return its value
+				if (response.Content.Headers.LastModified.HasValue)
+				{
+					// Return the last modified date in UTC
+					return response.Content.Headers.LastModified.Value.UtcDateTime;
+				}
+			}
+			// If the Last-Modified header is not present or the request failed, return DateTime.MinValue
+			return DateTime.MinValue;
 		}
 
 		/// <summary>
@@ -233,15 +366,26 @@ namespace Planetoid_DB
 		/// <returns>The content length of the URI.</returns>
 		private static long GetContentLength(Uri uri)
 		{
-			// Create a new HttpWebRequest to the specified URI
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUri: uri);
-			// Set the method to HEAD to only retrieve headers
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			// Check if the response status code is OK (200)
-			// If so, return the content length
-			// Otherwise, return 0
-			// Note: The content length is the size of the response body in bytes
-			return response.StatusCode == HttpStatusCode.OK ? Convert.ToInt64(value: response.ContentLength) : 0;
+			// Validate the input URI
+			ArgumentNullException.ThrowIfNull(argument: uri);
+			// Use HttpClient to retrieve only the headers (HEAD request)
+			using HttpClient client = new();
+			// Create a HEAD request to get only the headers
+			using HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
+			// Send the request and get the response
+			using HttpResponseMessage response = client.Send(request);
+			// Check if the request was successful
+			if (response.IsSuccessStatusCode)
+			{
+				// Check if the Content-Length header is present and return its value
+				if (response.Content.Headers.ContentLength.HasValue)
+				{
+					// Return the content length
+					return response.Content.Headers.ContentLength.Value;
+				}
+			}
+			// If the Content-Length header is not present or the request failed, return 0
+			return 0;
 		}
 
 		/// <summary>
@@ -638,7 +782,7 @@ namespace Planetoid_DB
 								   };
 			// Create a new list to store the data to copy
 			List<string> dataToCopyList = [];
-			dataToCopyList.AddRange(collection: dataToCopy.OfType<object>().Select(item => item.ToString()).Where(itemString => !string.IsNullOrEmpty(value: itemString))!);
+			dataToCopyList.AddRange(collection: dataToCopy.OfType<object>().Select(selector: static item => item.ToString()).Where(predicate: static itemString => !string.IsNullOrEmpty(value: itemString))!);
 			// Iterate through each item in the dataToCopy array
 			// Create a new instance of the CopyDataToClipboardForm
 			using CopyDataToClipboardForm formCopyDataToClipboard = new();
@@ -875,10 +1019,8 @@ namespace Planetoid_DB
 			ClearStatusBar();
 			backgroundWorkerLoadingDatabase.WorkerReportsProgress = true;
 			backgroundWorkerLoadingDatabase.WorkerSupportsCancellation = true;
-#pragma warning disable CS8622 // The nullability of reference types in type of parameter doesn't match the target delegate.
 			backgroundWorkerLoadingDatabase.ProgressChanged += BackgroundWorkerLoadingDatabase_ProgressChanged;
 			backgroundWorkerLoadingDatabase.RunWorkerCompleted += BackgroundWorkerLoadingDatabase_RunWorkerCompleted;
-#pragma warning restore CS8622 // The nullability of reference types in type of parameter doesn't match the target delegate.
 			backgroundWorkerLoadingDatabase.RunWorkerAsync();
 			formSplashScreen.Show();
 		}
@@ -960,12 +1102,11 @@ namespace Planetoid_DB
 				formSplashScreen.Show();
 				while (streamReader.Peek() != -1 && !backgroundWorkerLoadingDatabase.CancellationPending)
 				{
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
 					string? readLine = streamReader.ReadLine(); // Variable to store the read line from the file
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-					fileSizeRead += readLine.Length;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+					if (readLine != null)
+					{
+						fileSizeRead += readLine.Length;
+					}
 					// ReSharper disable once PossibleLossOfFraction
 					float percent = 100 * fileSizeRead / fileSize; // Variable to store the percentage of the file read
 																   // Report progress to the background worker
@@ -989,7 +1130,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="ProgressChangedEventArgs"/> instance that contains the event data.</param>
-		private static void BackgroundWorkerLoadingDatabase_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		private static void BackgroundWorkerLoadingDatabase_ProgressChanged(object? sender, ProgressChangedEventArgs e)
 		{
 		}
 
@@ -998,14 +1139,13 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance that contains the event data.</param>
-		private void BackgroundWorkerLoadingDatabase_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		private void BackgroundWorkerLoadingDatabase_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
 		{
 			toolStripTextBoxGotoIndex.Text = 1.ToString(); // Set the initial value of the goto index text box
 			currentPosition = 0; // Set the current position to the first record
 			stepPosition = 100; // Set the step position to 100
 			GotoCurrentPosition(position: currentPosition); // Navigate to the current position
 			Enabled = true; // Enable the form
-			isBusy = false; // Set the busy state to false
 		}
 
 		#endregion
@@ -1044,32 +1184,109 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="AsyncCompletedEventArgs"/> instance that contains the event data.</param>
-		[Obsolete(message: "Obsolete")]
-		private void Completed(object sender, AsyncCompletedEventArgs e)
+		private async void ToolStripStatusLabelUpdate_Click(object sender, EventArgs e)
 		{
-			webClient.Dispose();
-			if (e.Error == null)
+			// Check if the user wants to download the latest MPCORB.DAT file
+			if (MessageBox.Show(text: I10nStrings.AskForDownloadingLatestMpcorbDatFile,
+					caption: I10nStrings.AskForDownloadingLatestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo,
+					icon: MessageBoxIcon.Question) != DialogResult.Yes)
 			{
-				// Delete the old file if it exists
+				// User chose not to download the file, so we exit the method
+				return;
+			}
+
+			// Start the download process
+			toolStripStatusLabelUpdate.IsLink = false;
+			toolStripStatusLabelUpdate.Enabled = false;
+			toolStripStatusLabelUpdate.Visible = false;
+			timerBlinkForUpdateAvailable.Enabled = false;
+			toolStripStatusLabelBackgroundDownload.Visible = true;
+			toolStripProgressBarBackgroundDownload.Visible = true;
+			toolStripStatusLabelCancelBackgroundDownload.Visible = true;
+			toolStripStatusLabelBackgroundDownload.Enabled = true;
+			toolStripProgressBarBackgroundDownload.Enabled = true;
+			toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
+
+			downloadCancellationTokenSource = new CancellationTokenSource();
+
+			try
+			{
+				// Define the URI for the MPCORB.DAT.gz file
+				// Use HttpClient to download the file asynchronously
+				using (HttpResponseMessage response = await httpClient.GetAsync(requestUri: uriMpcorb, completionOption: HttpCompletionOption.ResponseHeadersRead))
+				{
+					// Ensure the response indicates success
+					_ = response.EnsureSuccessStatusCode();
+					// Get the total number of bytes to download
+					long totalBytes = response.Content.Headers.ContentLength ?? -1L;
+					// Open the content stream for reading
+					using Stream contentStream = await response.Content.ReadAsStreamAsync();
+					// Create a file stream for writing the downloaded file
+					using FileStream fileStream = new(path: Resources.FilenameMpcorbTemp, mode: FileMode.Create, access: FileAccess.Write, share: FileShare.None, bufferSize: 8192, useAsync: true);
+					// Buffer for reading data
+					byte[] buffer = new byte[8192];
+					// Variables to track progress
+					long totalRead = 0;
+					int read;
+					// Set the progress bar style based on whether totalBytes is known
+					toolStripProgressBarBackgroundDownload.Style = totalBytes > 0 ? ProgressBarStyle.Continuous : ProgressBarStyle.Marquee;
+					// Read the content stream in chunks and write to the file stream
+					while ((read = await contentStream.ReadAsync(buffer)) > 0)
+					{
+						// Check if the download has been cancelled
+						await fileStream.WriteAsync(buffer: buffer.AsMemory(start: 0, length: read));
+						totalRead += read;
+						// Update progress if totalBytes is known
+						if (totalBytes > 0)
+						{
+							int percent = (int)(totalRead * 100 / totalBytes);
+							// Update the progress bar value
+							toolStripProgressBarBackgroundDownload.Value = Math.Min(percent, 100);
+							// Set the taskbar progress value
+							TaskbarProgress.SetValue(windowHandle: Handle, progressValue: percent, progressMax: 100);
+						}
+					}
+				}
+				// Replace the old MPCORB.DAT file with the newly downloaded one
 				File.Delete(path: filenameMpcorb);
-				// Set the progress bar style to Marquee
+				// Set the progress bar style to Marquee to indicate processing
 				toolStripProgressBarBackgroundDownload.Style = ProgressBarStyle.Marquee;
-				// Extract the downloaded gzip file
+				// Extract the downloaded GZIP file
 				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Resources.FilenameMpcorb);
-				// Delete the temporary file after extraction
+				// Delete the temporary GZIP file
 				File.Delete(path: filenameMpcorbTemp);
-				// Show a message indicating that the download was successful
+				// Notify the user that the update was successful
 				AskForRestartAfterDownloadingDatabase();
 			}
-			else
+			catch (OperationCanceledException)
 			{
-				// Show an error message if the download was cancelled or failed
-				_ = e.Cancelled
-					? MessageBox.Show(text: I10nStrings.DownloadCancelledText, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning)
-					: MessageBox.Show(text: I10nStrings.DownloadUnknownError + "\n\r" + e.Error, caption: I10nStrings.InformationCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				// Delete the temporary file if it exists
+				// Handle the cancellation of the download process
+				toolStripStatusLabelBackgroundDownload.Enabled = false;
+				toolStripProgressBarBackgroundDownload.Enabled = false;
+				toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
+				toolStripStatusLabelBackgroundDownload.Visible = false;
+				toolStripProgressBarBackgroundDownload.Visible = false;
+				toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+				File.Delete(path: filenameMpcorbTemp);
+				_ = MessageBox.Show(text: "Download cancelled", caption: "Cancel", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				// Handle any errors that occur during the download process
+				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
+				toolStripStatusLabelUpdate.IsLink = true;
+				toolStripStatusLabelUpdate.Enabled = true;
+				toolStripStatusLabelUpdate.Visible = true;
+				timerBlinkForUpdateAvailable.Enabled = true;
+				toolStripStatusLabelBackgroundDownload.Visible = false;
+				toolStripProgressBarBackgroundDownload.Visible = false;
+				toolStripStatusLabelCancelBackgroundDownload.Visible = false;
+				toolStripStatusLabelBackgroundDownload.Enabled = false;
+				toolStripProgressBarBackgroundDownload.Enabled = false;
+				toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
 				File.Delete(path: filenameMpcorbTemp);
 			}
+			// Reset the UI elements after the download process
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Enabled = false;
 			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
@@ -1081,6 +1298,7 @@ namespace Planetoid_DB
 			toolStripStatusLabelUpdate.Visible = false;
 			timerBlinkForUpdateAvailable.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Value = toolStripProgressBarBackgroundDownload.Minimum;
+			// Reset the taskbar progress
 			TaskbarProgress.SetValue(windowHandle: Handle, progressValue: 0, progressMax: 100);
 		}
 
@@ -1292,23 +1510,16 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonTerminology_Click(object sender, EventArgs e) => OpenTerminology(index: 0);
 
-		/// <summary>
-		/// Handles the click event for the ToolStripStatusLabelCancelBackgroundDownload.
-		/// Cancels the ongoing download process.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		[Obsolete(message: "Obsolete")]
 		private void ToolStripStatusLabelCancelBackgroundDownload_Click(object sender, EventArgs e)
 		{
-			// Cancel the background download
+			// Download abbrechen
 			toolStripStatusLabelBackgroundDownload.Enabled = false;
 			toolStripProgressBarBackgroundDownload.Enabled = false;
 			toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
 			toolStripStatusLabelBackgroundDownload.Visible = false;
 			toolStripProgressBarBackgroundDownload.Visible = false;
 			toolStripStatusLabelCancelBackgroundDownload.Visible = false;
-			webClient.CancelAsync();
+			downloadCancellationTokenSource?.Cancel();
 		}
 
 		/// <summary>
@@ -1470,58 +1681,6 @@ namespace Planetoid_DB
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void MenuitemCheckAstorbDat_Click(object sender, EventArgs e) => ShowAstorbDatCheck();
-
-		/// <summary>
-		/// Handles the click event for the ToolStripStatusLabelUpdate.
-		/// Asks the user if they want to download the latest MPCORB data file and manages the download process.
-		/// </summary>
-		/// <param name="sender">The event source.</param>
-		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		[Obsolete(message: "Obsolete")]
-		private void ToolStripStatusLabelUpdate_Click(object sender, EventArgs e)
-		{
-			if (MessageBox.Show(text: I10nStrings.AskForDownloadingLatestMpcorbDatFile,
-					caption: I10nStrings.AskForDownloadingLatestMpcorbDatFileCaption, buttons: MessageBoxButtons.YesNo,
-					icon: MessageBoxIcon.Question) != DialogResult.Yes)
-			{
-				return;
-			}
-
-			toolStripStatusLabelUpdate.IsLink = false;
-			toolStripStatusLabelUpdate.Enabled = false;
-			toolStripStatusLabelUpdate.Visible = false;
-			timerBlinkForUpdateAvailable.Enabled = false;
-			toolStripStatusLabelBackgroundDownload.Visible = true;
-			toolStripProgressBarBackgroundDownload.Visible = true;
-			toolStripStatusLabelCancelBackgroundDownload.Visible = true;
-			toolStripStatusLabelBackgroundDownload.Enabled = true;
-			toolStripProgressBarBackgroundDownload.Enabled = true;
-			toolStripStatusLabelCancelBackgroundDownload.Enabled = true;
-			webClient.Proxy = WebRequest.DefaultWebProxy;
-#pragma warning disable CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
-			webClient.DownloadFileCompleted += Completed;
-#pragma warning restore CS8622 // Die NULL-Zulässigkeit von Verweistypen im Typ des Parameters entspricht (möglicherweise aufgrund von Attributen für die NULL-Zulässigkeit) nicht dem Zieldelegaten.
-			webClient.DownloadProgressChanged += ProgressChanged;
-			try
-			{
-				webClient.DownloadFileAsync(address: uriMpcorb, fileName: Resources.FilenameMpcorbTemp);
-			}
-			catch (Exception ex)
-			{
-				_ = MessageBox.Show(text: ex.Message, caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error, defaultButton: MessageBoxDefaultButton.Button1);
-				toolStripStatusLabelUpdate.IsLink = true;
-				toolStripStatusLabelUpdate.Enabled = true;
-				toolStripStatusLabelUpdate.Visible = true;
-				timerBlinkForUpdateAvailable.Enabled = true;
-				toolStripStatusLabelBackgroundDownload.Visible = false;
-				toolStripProgressBarBackgroundDownload.Visible = false;
-				toolStripStatusLabelCancelBackgroundDownload.Visible = false;
-				toolStripStatusLabelBackgroundDownload.Enabled = false;
-				toolStripProgressBarBackgroundDownload.Enabled = false;
-				toolStripStatusLabelCancelBackgroundDownload.Enabled = false;
-			}
-		}
-
 
 		/// <summary>
 		/// Handles the click event for the ToolStripButtonCheckMpcorbDat.

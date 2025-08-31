@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DownloadMpcorbDatForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(DownloadMpcorbDatForm));
 			progressBarDownload = new KryptonProgressBar();
 			labelStatusValue = new KryptonLabel();
 			labelDownload = new KryptonLabel();
@@ -52,8 +52,9 @@ namespace Planetoid_DB
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
 			toolStripContainer = new ToolStripContainer();
+			kryptonManager = new KryptonManager(components);
 			tableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
@@ -83,7 +84,7 @@ namespace Planetoid_DB
 			labelStatusValue.Dock = DockStyle.Fill;
 			labelStatusValue.Location = new Point(59, 3);
 			labelStatusValue.Name = "labelStatusValue";
-			labelStatusValue.Size = new Size(415, 20);
+			labelStatusValue.Size = new Size(427, 20);
 			labelStatusValue.TabIndex = 1;
 			toolTip.SetToolTip(labelStatusValue, "Shows the status of the download");
 			labelStatusValue.Values.Text = "...";
@@ -156,7 +157,7 @@ namespace Planetoid_DB
 			labelSourceValue.Dock = DockStyle.Fill;
 			labelSourceValue.Location = new Point(59, 55);
 			labelSourceValue.Name = "labelSourceValue";
-			labelSourceValue.Size = new Size(415, 20);
+			labelSourceValue.Size = new Size(427, 20);
 			labelSourceValue.TabIndex = 5;
 			toolTip.SetToolTip(labelSourceValue, "Shows the download source");
 			labelSourceValue.Values.Text = "...";
@@ -193,7 +194,7 @@ namespace Planetoid_DB
 			labelDateValue.Dock = DockStyle.Fill;
 			labelDateValue.Location = new Point(59, 29);
 			labelDateValue.Name = "labelDateValue";
-			labelDateValue.Size = new Size(415, 20);
+			labelDateValue.Size = new Size(427, 20);
 			labelDateValue.TabIndex = 3;
 			toolTip.SetToolTip(labelDateValue, "Shows the last modified date of the download");
 			labelDateValue.Values.Text = "...";
@@ -211,7 +212,7 @@ namespace Planetoid_DB
 			labelSizeValue.Dock = DockStyle.Fill;
 			labelSizeValue.Location = new Point(59, 81);
 			labelSizeValue.Name = "labelSizeValue";
-			labelSizeValue.Size = new Size(415, 22);
+			labelSizeValue.Size = new Size(427, 22);
 			labelSizeValue.TabIndex = 7;
 			toolTip.SetToolTip(labelSizeValue, "Shows the file size of the download");
 			labelSizeValue.Values.Text = "...";
@@ -298,8 +299,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Groups the data";
 			tableLayoutPanel.AccessibleName = "Information";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Pane;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 2;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
@@ -319,7 +318,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(477, 106);
+			tableLayoutPanel.Size = new Size(489, 106);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -338,7 +337,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(477, 199);
+			panel.Size = new Size(489, 209);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -354,7 +353,7 @@ namespace Planetoid_DB
 			statusStrip.Name = "statusStrip";
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(477, 22);
+			statusStrip.Size = new Size(489, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 6;
 			statusStrip.Text = "status bar";
@@ -382,12 +381,16 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
-			toolStripContainer.ContentPanel.Size = new Size(477, 199);
+			toolStripContainer.ContentPanel.Size = new Size(489, 209);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
-			toolStripContainer.Size = new Size(477, 221);
+			toolStripContainer.Size = new Size(489, 231);
 			toolStripContainer.TabIndex = 1;
+			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.Microsoft365BlackDarkModeAlternate;
 			// 
 			// DownloadMpcorbDatForm
 			// 
@@ -396,7 +399,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(477, 221);
+			ClientSize = new Size(489, 231);
 			Controls.Add(toolStripContainer);
 			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -413,7 +416,7 @@ namespace Planetoid_DB
 			Load += DownloadMpcorbDatForm_Load;
 			tableLayoutPanel.ResumeLayout(false);
 			tableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -447,5 +450,6 @@ namespace Planetoid_DB
 		private ToolStripStatusLabel labelInformation;
 		private KryptonProgressBar progressBarDownload;
 		private ToolStripContainer toolStripContainer;
+		private KryptonManager kryptonManager;
 	}
 }

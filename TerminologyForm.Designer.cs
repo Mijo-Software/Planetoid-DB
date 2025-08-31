@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TerminologyForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(TerminologyForm));
 			toolTip = new ToolTip(components);
 			toolStripContainer = new ToolStripContainer();
 			statusStrip = new KryptonStatusStrip();
@@ -40,11 +40,12 @@ namespace Planetoid_DB
 			splitContainer = new KryptonSplitContainer();
 			listBox = new KryptonListBox();
 			webBrowser = new KryptonWebBrowser();
+			kryptonManager = new KryptonManager(components);
 			toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			toolStripContainer.ContentPanel.SuspendLayout();
 			toolStripContainer.SuspendLayout();
 			statusStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+			((ISupportInitialize)splitContainer).BeginInit();
 			(splitContainer.Panel1).BeginInit();
 			splitContainer.Panel1.SuspendLayout();
 			(splitContainer.Panel2).BeginInit();
@@ -189,7 +190,7 @@ namespace Planetoid_DB
 			splitContainer.Panel1.ResumeLayout(false);
 			(splitContainer.Panel2).EndInit();
 			splitContainer.Panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
+			((ISupportInitialize)splitContainer).EndInit();
 			ResumeLayout(false);
 
 		}
@@ -203,5 +204,6 @@ namespace Planetoid_DB
 		private KryptonSplitContainer splitContainer;
 		private KryptonListBox listBox;
 		private KryptonWebBrowser webBrowser;
+		private KryptonManager kryptonManager;
 	}
 }

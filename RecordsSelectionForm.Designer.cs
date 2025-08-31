@@ -31,30 +31,31 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordsSelectionForm));
-			panel = new Krypton.Toolkit.KryptonPanel();
-			statusStrip = new Krypton.Toolkit.KryptonStatusStrip();
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(RecordsSelectionForm));
+			panel = new KryptonPanel();
+			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			checkButtonRecordSortDirectionDescending = new Krypton.Toolkit.KryptonCheckButton();
-			checkButtonRecordSortDirectionAscending = new Krypton.Toolkit.KryptonCheckButton();
-			buttonDateOfLastObservation = new Krypton.Toolkit.KryptonButton();
-			buttonComputerName = new Krypton.Toolkit.KryptonButton();
-			buttonRmsResidual = new Krypton.Toolkit.KryptonButton();
-			buttonObservationSpan = new Krypton.Toolkit.KryptonButton();
-			buttonNumberOfObservations = new Krypton.Toolkit.KryptonButton();
-			buttonNumberOfOppositions = new Krypton.Toolkit.KryptonButton();
-			buttonSlopeParameter = new Krypton.Toolkit.KryptonButton();
-			buttonAbsoluteMagnitude = new Krypton.Toolkit.KryptonButton();
-			buttonSemiMajorAxis = new Krypton.Toolkit.KryptonButton();
-			buttonMeanDailyMotion = new Krypton.Toolkit.KryptonButton();
-			buttonOrbitalEccentricity = new Krypton.Toolkit.KryptonButton();
-			buttonInclination = new Krypton.Toolkit.KryptonButton();
-			buttonArgumentOfPerihelion = new Krypton.Toolkit.KryptonButton();
-			buttonLongitudeOfTheAscendingNode = new Krypton.Toolkit.KryptonButton();
-			buttonMeanAnomaly = new Krypton.Toolkit.KryptonButton();
+			checkButtonRecordSortDirectionDescending = new KryptonCheckButton();
+			checkButtonRecordSortDirectionAscending = new KryptonCheckButton();
+			buttonDateOfLastObservation = new KryptonButton();
+			buttonComputerName = new KryptonButton();
+			buttonRmsResidual = new KryptonButton();
+			buttonObservationSpan = new KryptonButton();
+			buttonNumberOfObservations = new KryptonButton();
+			buttonNumberOfOppositions = new KryptonButton();
+			buttonSlopeParameter = new KryptonButton();
+			buttonAbsoluteMagnitude = new KryptonButton();
+			buttonSemiMajorAxis = new KryptonButton();
+			buttonMeanDailyMotion = new KryptonButton();
+			buttonOrbitalEccentricity = new KryptonButton();
+			buttonInclination = new KryptonButton();
+			buttonArgumentOfPerihelion = new KryptonButton();
+			buttonLongitudeOfTheAscendingNode = new KryptonButton();
+			buttonMeanAnomaly = new KryptonButton();
 			toolTip = new ToolTip(components);
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			SuspendLayout();
@@ -86,7 +87,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.FormMain;
+			panel.PanelBackStyle = PaletteBackStyle.FormMain;
 			panel.Size = new Size(649, 329);
 			panel.TabIndex = 3;
 			panel.TabStop = true;
@@ -126,7 +127,7 @@ namespace Planetoid_DB
 			checkButtonRecordSortDirectionDescending.AccessibleDescription = "Selects the descending sort direction";
 			checkButtonRecordSortDirectionDescending.AccessibleName = "Sorted descending";
 			checkButtonRecordSortDirectionDescending.AccessibleRole = AccessibleRole.PushButton;
-			checkButtonRecordSortDirectionDescending.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			checkButtonRecordSortDirectionDescending.ButtonStyle = ButtonStyle.Form;
 			checkButtonRecordSortDirectionDescending.Location = new Point(486, 264);
 			checkButtonRecordSortDirectionDescending.Margin = new Padding(4, 3, 4, 3);
 			checkButtonRecordSortDirectionDescending.Name = "checkButtonRecordSortDirectionDescending";
@@ -146,7 +147,7 @@ namespace Planetoid_DB
 			checkButtonRecordSortDirectionAscending.AccessibleDescription = "Selects the ascending sort direction";
 			checkButtonRecordSortDirectionAscending.AccessibleName = "Sorted ascending";
 			checkButtonRecordSortDirectionAscending.AccessibleRole = AccessibleRole.PushButton;
-			checkButtonRecordSortDirectionAscending.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			checkButtonRecordSortDirectionAscending.ButtonStyle = ButtonStyle.Form;
 			checkButtonRecordSortDirectionAscending.Checked = true;
 			checkButtonRecordSortDirectionAscending.Location = new Point(327, 264);
 			checkButtonRecordSortDirectionAscending.Margin = new Padding(4, 3, 4, 3);
@@ -167,7 +168,7 @@ namespace Planetoid_DB
 			buttonDateOfLastObservation.AccessibleDescription = "Copy to clipboard: Date of last observation (YYYMMDD)";
 			buttonDateOfLastObservation.AccessibleName = "Copy to clipboard: Date of last observation (YYYMMDD)";
 			buttonDateOfLastObservation.AccessibleRole = AccessibleRole.PushButton;
-			buttonDateOfLastObservation.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonDateOfLastObservation.ButtonStyle = ButtonStyle.Form;
 			buttonDateOfLastObservation.Location = new Point(327, 228);
 			buttonDateOfLastObservation.Margin = new Padding(4, 3, 4, 3);
 			buttonDateOfLastObservation.Name = "buttonDateOfLastObservation";
@@ -187,7 +188,7 @@ namespace Planetoid_DB
 			buttonComputerName.AccessibleDescription = "Copy to clipboard: Computer name";
 			buttonComputerName.AccessibleName = "Copy to clipboard: Computer name";
 			buttonComputerName.AccessibleRole = AccessibleRole.PushButton;
-			buttonComputerName.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonComputerName.ButtonStyle = ButtonStyle.Form;
 			buttonComputerName.Location = new Point(327, 193);
 			buttonComputerName.Margin = new Padding(4, 3, 4, 3);
 			buttonComputerName.Name = "buttonComputerName";
@@ -207,7 +208,7 @@ namespace Planetoid_DB
 			buttonRmsResidual.AccessibleDescription = "Copy to clipboard: r.m.s. residual (\")";
 			buttonRmsResidual.AccessibleName = "Copy to clipboard: r.m.s. residual (\")";
 			buttonRmsResidual.AccessibleRole = AccessibleRole.PushButton;
-			buttonRmsResidual.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonRmsResidual.ButtonStyle = ButtonStyle.Form;
 			buttonRmsResidual.Location = new Point(327, 157);
 			buttonRmsResidual.Margin = new Padding(4, 3, 4, 3);
 			buttonRmsResidual.Name = "buttonRmsResidual";
@@ -227,7 +228,7 @@ namespace Planetoid_DB
 			buttonObservationSpan.AccessibleDescription = "Copy to clipboard: Observation span";
 			buttonObservationSpan.AccessibleName = "Copy to clipboard: Observation span";
 			buttonObservationSpan.AccessibleRole = AccessibleRole.PushButton;
-			buttonObservationSpan.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonObservationSpan.ButtonStyle = ButtonStyle.Form;
 			buttonObservationSpan.Location = new Point(327, 121);
 			buttonObservationSpan.Margin = new Padding(4, 3, 4, 3);
 			buttonObservationSpan.Name = "buttonObservationSpan";
@@ -247,7 +248,7 @@ namespace Planetoid_DB
 			buttonNumberOfObservations.AccessibleDescription = "Copy to clipboard: Number of observations";
 			buttonNumberOfObservations.AccessibleName = "Copy to clipboard: Number of observations";
 			buttonNumberOfObservations.AccessibleRole = AccessibleRole.PushButton;
-			buttonNumberOfObservations.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonNumberOfObservations.ButtonStyle = ButtonStyle.Form;
 			buttonNumberOfObservations.Location = new Point(327, 85);
 			buttonNumberOfObservations.Margin = new Padding(4, 3, 4, 3);
 			buttonNumberOfObservations.Name = "buttonNumberOfObservations";
@@ -267,7 +268,7 @@ namespace Planetoid_DB
 			buttonNumberOfOppositions.AccessibleDescription = "Copy to clipboard: Number of oppositions";
 			buttonNumberOfOppositions.AccessibleName = "Copy to clipboard: Number of oppositions";
 			buttonNumberOfOppositions.AccessibleRole = AccessibleRole.PushButton;
-			buttonNumberOfOppositions.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonNumberOfOppositions.ButtonStyle = ButtonStyle.Form;
 			buttonNumberOfOppositions.Location = new Point(327, 50);
 			buttonNumberOfOppositions.Margin = new Padding(4, 3, 4, 3);
 			buttonNumberOfOppositions.Name = "buttonNumberOfOppositions";
@@ -287,7 +288,7 @@ namespace Planetoid_DB
 			buttonSlopeParameter.AccessibleDescription = "Copy to clipboard: Slope parameter, G";
 			buttonSlopeParameter.AccessibleName = "Copy to clipboard: Slope parameter, G";
 			buttonSlopeParameter.AccessibleRole = AccessibleRole.PushButton;
-			buttonSlopeParameter.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonSlopeParameter.ButtonStyle = ButtonStyle.Form;
 			buttonSlopeParameter.Location = new Point(327, 14);
 			buttonSlopeParameter.Margin = new Padding(4, 3, 4, 3);
 			buttonSlopeParameter.Name = "buttonSlopeParameter";
@@ -307,7 +308,7 @@ namespace Planetoid_DB
 			buttonAbsoluteMagnitude.AccessibleDescription = "Copy to clipboard: Absolute magnitude, H";
 			buttonAbsoluteMagnitude.AccessibleName = "Copy to clipboard: Absolute magnitude, H";
 			buttonAbsoluteMagnitude.AccessibleRole = AccessibleRole.PushButton;
-			buttonAbsoluteMagnitude.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonAbsoluteMagnitude.ButtonStyle = ButtonStyle.Form;
 			buttonAbsoluteMagnitude.Location = new Point(14, 264);
 			buttonAbsoluteMagnitude.Margin = new Padding(4, 3, 4, 3);
 			buttonAbsoluteMagnitude.Name = "buttonAbsoluteMagnitude";
@@ -327,7 +328,7 @@ namespace Planetoid_DB
 			buttonSemiMajorAxis.AccessibleDescription = "Copy to clipboard: Semi-major axis (AU)";
 			buttonSemiMajorAxis.AccessibleName = "Copy to clipboard: Semi-major axis (AU)";
 			buttonSemiMajorAxis.AccessibleRole = AccessibleRole.PushButton;
-			buttonSemiMajorAxis.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonSemiMajorAxis.ButtonStyle = ButtonStyle.Form;
 			buttonSemiMajorAxis.Location = new Point(14, 228);
 			buttonSemiMajorAxis.Margin = new Padding(4, 3, 4, 3);
 			buttonSemiMajorAxis.Name = "buttonSemiMajorAxis";
@@ -347,7 +348,7 @@ namespace Planetoid_DB
 			buttonMeanDailyMotion.AccessibleDescription = "Copy to clipboard: Mean daily motion (degrees per day)";
 			buttonMeanDailyMotion.AccessibleName = "Copy to clipboard: Mean daily motion (degrees per day)";
 			buttonMeanDailyMotion.AccessibleRole = AccessibleRole.PushButton;
-			buttonMeanDailyMotion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonMeanDailyMotion.ButtonStyle = ButtonStyle.Form;
 			buttonMeanDailyMotion.Location = new Point(14, 193);
 			buttonMeanDailyMotion.Margin = new Padding(4, 3, 4, 3);
 			buttonMeanDailyMotion.Name = "buttonMeanDailyMotion";
@@ -367,7 +368,7 @@ namespace Planetoid_DB
 			buttonOrbitalEccentricity.AccessibleDescription = "Copy to clipboard: Orbital eccentricity";
 			buttonOrbitalEccentricity.AccessibleName = "Copy to clipboard: Orbital eccentricity";
 			buttonOrbitalEccentricity.AccessibleRole = AccessibleRole.PushButton;
-			buttonOrbitalEccentricity.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonOrbitalEccentricity.ButtonStyle = ButtonStyle.Form;
 			buttonOrbitalEccentricity.Location = new Point(14, 157);
 			buttonOrbitalEccentricity.Margin = new Padding(4, 3, 4, 3);
 			buttonOrbitalEccentricity.Name = "buttonOrbitalEccentricity";
@@ -387,7 +388,7 @@ namespace Planetoid_DB
 			buttonInclination.AccessibleDescription = "Copy to clipboard: Inclination to the ecliptic, J2000.0 (degrees)";
 			buttonInclination.AccessibleName = "Copy to clipboard: Inclination to the ecliptic, J2000.0 (degrees)";
 			buttonInclination.AccessibleRole = AccessibleRole.PushButton;
-			buttonInclination.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonInclination.ButtonStyle = ButtonStyle.Form;
 			buttonInclination.Location = new Point(14, 121);
 			buttonInclination.Margin = new Padding(4, 3, 4, 3);
 			buttonInclination.Name = "buttonInclination";
@@ -407,7 +408,7 @@ namespace Planetoid_DB
 			buttonArgumentOfPerihelion.AccessibleDescription = "Copy to clipboard: Argument of perihelion, J2000.0 (degrees)";
 			buttonArgumentOfPerihelion.AccessibleName = "Copy to clipboard: Argument of perihelion, J2000.0 (degrees)";
 			buttonArgumentOfPerihelion.AccessibleRole = AccessibleRole.PushButton;
-			buttonArgumentOfPerihelion.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonArgumentOfPerihelion.ButtonStyle = ButtonStyle.Form;
 			buttonArgumentOfPerihelion.Location = new Point(14, 50);
 			buttonArgumentOfPerihelion.Margin = new Padding(4, 3, 4, 3);
 			buttonArgumentOfPerihelion.Name = "buttonArgumentOfPerihelion";
@@ -427,7 +428,7 @@ namespace Planetoid_DB
 			buttonLongitudeOfTheAscendingNode.AccessibleDescription = "Copy to clipboard: Longitude of the ascending node, J2000.0 (degrees)";
 			buttonLongitudeOfTheAscendingNode.AccessibleName = "Copy to clipboard: Longitude of the ascending node, J2000.0 (degrees)";
 			buttonLongitudeOfTheAscendingNode.AccessibleRole = AccessibleRole.PushButton;
-			buttonLongitudeOfTheAscendingNode.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonLongitudeOfTheAscendingNode.ButtonStyle = ButtonStyle.Form;
 			buttonLongitudeOfTheAscendingNode.Location = new Point(14, 85);
 			buttonLongitudeOfTheAscendingNode.Margin = new Padding(4, 3, 4, 3);
 			buttonLongitudeOfTheAscendingNode.Name = "buttonLongitudeOfTheAscendingNode";
@@ -447,7 +448,7 @@ namespace Planetoid_DB
 			buttonMeanAnomaly.AccessibleDescription = "Copy to clipboard: Mean anomaly at the epoch (degrees)";
 			buttonMeanAnomaly.AccessibleName = "Copy to clipboard: Mean anomaly at the epoch (degrees)";
 			buttonMeanAnomaly.AccessibleRole = AccessibleRole.PushButton;
-			buttonMeanAnomaly.ButtonStyle = Krypton.Toolkit.ButtonStyle.Form;
+			buttonMeanAnomaly.ButtonStyle = ButtonStyle.Form;
 			buttonMeanAnomaly.Location = new Point(14, 14);
 			buttonMeanAnomaly.Margin = new Padding(4, 3, 4, 3);
 			buttonMeanAnomaly.Name = "buttonMeanAnomaly";
@@ -461,6 +462,10 @@ namespace Planetoid_DB
 			buttonMeanAnomaly.Leave += ClearStatusBar_Leave;
 			buttonMeanAnomaly.MouseEnter += SetStatusBar_Enter;
 			buttonMeanAnomaly.MouseLeave += ClearStatusBar_Leave;
+			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
 			// 
 			// RecordsSelectionForm
 			// 
@@ -483,7 +488,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Top ten records");
 			FormClosed += RecordsSelectionForm_FormClosed;
 			Load += RecordsSelectionForm_Load;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -514,5 +519,6 @@ namespace Planetoid_DB
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
 		private ToolTip toolTip;
+		private KryptonManager kryptonManager;
 	}
 }

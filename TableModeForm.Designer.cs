@@ -31,8 +31,8 @@ namespace Planetoid_DB
 		/// </summary>
 		private void InitializeComponent()
 		{
-			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableModeForm));
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(TableModeForm));
 			toolTip = new ToolTip(components);
 			progressBar = new KryptonProgressBar();
 			labelMinimum = new KryptonLabel();
@@ -63,11 +63,12 @@ namespace Planetoid_DB
 			columnHeaderComputerName = new ColumnHeader();
 			columnHeaderFlags = new ColumnHeader();
 			columnHeaderDateLastObservation = new ColumnHeader();
-			backgroundWorker = new System.ComponentModel.BackgroundWorker();
+			backgroundWorker = new BackgroundWorker();
 			panel = new KryptonPanel();
 			statusStrip = new KryptonStatusStrip();
 			labelInformation = new ToolStripStatusLabel();
-			((System.ComponentModel.ISupportInitialize)panel).BeginInit();
+			kryptonManager = new KryptonManager(components);
+			((ISupportInitialize)panel).BeginInit();
 			panel.SuspendLayout();
 			statusStrip.SuspendLayout();
 			SuspendLayout();
@@ -436,7 +437,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(this, "Table Mode");
 			FormClosed += TableModeForm_FormClosed;
 			Load += TableModeForm_Load;
-			((System.ComponentModel.ISupportInitialize)panel).EndInit();
+			((ISupportInitialize)panel).EndInit();
 			panel.ResumeLayout(false);
 			panel.PerformLayout();
 			statusStrip.ResumeLayout(false);
@@ -480,5 +481,6 @@ namespace Planetoid_DB
         private KryptonPanel panel;
 		private KryptonStatusStrip statusStrip;
 		private ToolStripStatusLabel labelInformation;
+		private KryptonManager kryptonManager;
 	}
 }
