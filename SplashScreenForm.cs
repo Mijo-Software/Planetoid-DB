@@ -8,7 +8,7 @@ namespace Planetoid_DB
 	/// Represents the splash screen form of the application.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class SplashScreenForm : KryptonForm
+	public partial class SplashScreenForm : Form
 	{
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 

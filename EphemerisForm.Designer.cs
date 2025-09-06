@@ -102,7 +102,7 @@ namespace Planetoid_DB
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(406, 406);
+			toolStripContainer.ContentPanel.Size = new Size(406, 431);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Margin = new Padding(4, 3, 4, 3);
@@ -110,6 +110,7 @@ namespace Planetoid_DB
 			toolStripContainer.Size = new Size(406, 453);
 			toolStripContainer.TabIndex = 11;
 			toolStripContainer.Text = "toolStripContainer";
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// panel
 			// 
@@ -130,7 +131,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.Size = new Size(406, 406);
+			panel.Size = new Size(406, 431);
 			panel.TabIndex = 0;
 			// 
 			// buttonCalculate
@@ -199,6 +200,8 @@ namespace Planetoid_DB
 			progressBar.Name = "progressBar";
 			progressBar.Size = new Size(320, 20);
 			progressBar.TabIndex = 7;
+			progressBar.TextBackdropColor = Color.Empty;
+			progressBar.TextShadowColor = Color.Empty;
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the search");
 			progressBar.Values.Text = "";
 			progressBar.MouseEnter += SetStatusBar_Enter;
@@ -310,7 +313,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// EphemerisForm
 			// 

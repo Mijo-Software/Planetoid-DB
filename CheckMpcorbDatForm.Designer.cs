@@ -304,7 +304,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// CheckMpcorbDatForm
 			// 

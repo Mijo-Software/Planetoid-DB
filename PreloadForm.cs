@@ -3,8 +3,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Reflection;
-using Krypton.Toolkit;
+
 using NLog;
+
 using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
@@ -13,7 +14,7 @@ namespace Planetoid_DB
 	/// A form that gets the file MPCORB.DAT.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class PreloadForm : KryptonForm
+	public partial class PreloadForm : Form
 	{
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 

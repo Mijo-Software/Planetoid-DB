@@ -155,7 +155,7 @@ namespace Planetoid_DB
 			tabPageNavigator.Location = new Point(4, 24);
 			tabPageNavigator.Name = "tabPageNavigator";
 			tabPageNavigator.Padding = new Padding(3);
-			tabPageNavigator.Size = new Size(419, 209);
+			tabPageNavigator.Size = new Size(423, 197);
 			tabPageNavigator.TabIndex = 0;
 			tabPageNavigator.Text = "Navigator";
 			tabPageNavigator.UseVisualStyleBackColor = true;
@@ -214,7 +214,7 @@ namespace Planetoid_DB
 			tabPageUpdate.Location = new Point(4, 24);
 			tabPageUpdate.Name = "tabPageUpdate";
 			tabPageUpdate.Padding = new Padding(3);
-			tabPageUpdate.Size = new Size(419, 209);
+			tabPageUpdate.Size = new Size(423, 197);
 			tabPageUpdate.TabIndex = 1;
 			tabPageUpdate.Text = "MPCORB.DAT Update";
 			tabPageUpdate.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@ namespace Planetoid_DB
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			groupBox1.Location = new Point(8, 6);
-			groupBox1.Size = new Size(403, 100);
+			groupBox1.Size = new Size(407, 100);
 			groupBox1.TabIndex = 6;
 			groupBox1.Values.Heading = "Startup update";
 			// 
@@ -231,7 +231,7 @@ namespace Planetoid_DB
 			// 
 			groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 			groupBox2.Location = new Point(8, 112);
-			groupBox2.Size = new Size(403, 101);
+			groupBox2.Size = new Size(407, 101);
 			groupBox2.TabIndex = 7;
 			groupBox2.Values.Heading = "Background update";
 			// 
@@ -242,7 +242,7 @@ namespace Planetoid_DB
 			tabPageLookAndFeel.Location = new Point(4, 24);
 			tabPageLookAndFeel.Name = "tabPageLookAndFeel";
 			tabPageLookAndFeel.Padding = new Padding(3);
-			tabPageLookAndFeel.Size = new Size(419, 209);
+			tabPageLookAndFeel.Size = new Size(423, 197);
 			tabPageLookAndFeel.TabIndex = 2;
 			tabPageLookAndFeel.Text = "Look and feel";
 			tabPageLookAndFeel.UseVisualStyleBackColor = true;
@@ -452,6 +452,10 @@ namespace Planetoid_DB
 			labelInformation.Size = new Size(144, 17);
 			labelInformation.Text = "some information here";
 			labelInformation.ToolTipText = "Show some information";
+			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// SettingsForm
 			// 

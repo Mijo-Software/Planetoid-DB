@@ -59,9 +59,6 @@ namespace Planetoid_DB
 			labelVersion.AccessibleDescription = "Shows the version number";
 			labelVersion.AccessibleName = "Version";
 			labelVersion.AccessibleRole = AccessibleRole.StaticText;
-			labelVersion.BackColor = Color.Black;
-			labelVersion.Font = new Font("Segoe UI", 8.5F);
-			labelVersion.ForeColor = Color.White;
 			labelVersion.Location = new Point(12, 154);
 			labelVersion.Name = "labelVersion";
 			labelVersion.Size = new Size(95, 20);
@@ -79,9 +76,6 @@ namespace Planetoid_DB
 			labelTitle.AccessibleDescription = "Shows the application name";
 			labelTitle.AccessibleName = "Application Name";
 			labelTitle.AccessibleRole = AccessibleRole.StaticText;
-			labelTitle.BackColor = Color.Black;
-			labelTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-			labelTitle.ForeColor = Color.LightCyan;
 			labelTitle.LabelStyle = LabelStyle.TitlePanel;
 			labelTitle.Location = new Point(12, 129);
 			labelTitle.Name = "labelTitle";
@@ -100,7 +94,6 @@ namespace Planetoid_DB
 			labelDescription.AccessibleDescription = "Shows the program description";
 			labelDescription.AccessibleName = "Program descripton";
 			labelDescription.AccessibleRole = AccessibleRole.StaticText;
-			labelDescription.Font = new Font("Segoe UI", 8.5F);
 			labelDescription.Location = new Point(12, 180);
 			labelDescription.Name = "labelDescription";
 			labelDescription.Size = new Size(80, 20);
@@ -133,7 +126,6 @@ namespace Planetoid_DB
 			labelCopyright.AccessibleDescription = "Shows the copyright";
 			labelCopyright.AccessibleName = "Copyright";
 			labelCopyright.AccessibleRole = AccessibleRole.StaticText;
-			labelCopyright.Font = new Font("Segoe UI", 8.5F);
 			labelCopyright.Location = new Point(12, 200);
 			labelCopyright.Name = "labelCopyright";
 			labelCopyright.Size = new Size(72, 20);
@@ -203,7 +195,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(504, 245);
+			panel.Size = new Size(512, 221);
 			panel.TabIndex = 0;
 			// 
 			// statusStrip
@@ -213,11 +205,11 @@ namespace Planetoid_DB
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
-			statusStrip.Location = new Point(0, 223);
+			statusStrip.Location = new Point(0, 199);
 			statusStrip.Name = "statusStrip";
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(504, 22);
+			statusStrip.Size = new Size(512, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 6;
 			statusStrip.Text = "status bar";
@@ -237,7 +229,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// AppInfoForm
 			// 
@@ -246,7 +238,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(504, 245);
+			ClientSize = new Size(512, 221);
 			Controls.Add(panel);
 			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;

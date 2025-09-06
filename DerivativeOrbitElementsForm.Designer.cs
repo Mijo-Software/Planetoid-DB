@@ -110,7 +110,6 @@ namespace Planetoid_DB
 			labelLinearEccentricityData.AccessibleName = "Shows the information of \"Linear eccentricity\"";
 			labelLinearEccentricityData.AccessibleRole = AccessibleRole.StaticText;
 			labelLinearEccentricityData.Dock = DockStyle.Fill;
-			labelLinearEccentricityData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelLinearEccentricityData.Location = new Point(263, 3);
 			labelLinearEccentricityData.Name = "labelLinearEccentricityData";
 			labelLinearEccentricityData.Size = new Size(209, 20);
@@ -389,7 +388,6 @@ namespace Planetoid_DB
 			labelSemiMinorAxisData.AccessibleName = "Shows the information of \"Semi-minor axis\"";
 			labelSemiMinorAxisData.AccessibleRole = AccessibleRole.StaticText;
 			labelSemiMinorAxisData.Dock = DockStyle.Fill;
-			labelSemiMinorAxisData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelSemiMinorAxisData.Location = new Point(263, 29);
 			labelSemiMinorAxisData.Name = "labelSemiMinorAxisData";
 			labelSemiMinorAxisData.Size = new Size(209, 20);
@@ -408,7 +406,6 @@ namespace Planetoid_DB
 			labelMajorAxisData.AccessibleName = "Shows the information of \"Major axis\"";
 			labelMajorAxisData.AccessibleRole = AccessibleRole.StaticText;
 			labelMajorAxisData.Dock = DockStyle.Fill;
-			labelMajorAxisData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelMajorAxisData.Location = new Point(263, 55);
 			labelMajorAxisData.Name = "labelMajorAxisData";
 			labelMajorAxisData.Size = new Size(209, 20);
@@ -427,7 +424,6 @@ namespace Planetoid_DB
 			labelMinorAxisData.AccessibleName = "Shows the information of \"Minor axis\"";
 			labelMinorAxisData.AccessibleRole = AccessibleRole.StaticText;
 			labelMinorAxisData.Dock = DockStyle.Fill;
-			labelMinorAxisData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelMinorAxisData.Location = new Point(263, 81);
 			labelMinorAxisData.Name = "labelMinorAxisData";
 			labelMinorAxisData.Size = new Size(209, 20);
@@ -446,7 +442,6 @@ namespace Planetoid_DB
 			labelEccentricAnomalyData.AccessibleName = "Shows the information of \"Eccentric anomaly\"";
 			labelEccentricAnomalyData.AccessibleRole = AccessibleRole.StaticText;
 			labelEccentricAnomalyData.Dock = DockStyle.Fill;
-			labelEccentricAnomalyData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelEccentricAnomalyData.Location = new Point(263, 107);
 			labelEccentricAnomalyData.Name = "labelEccentricAnomalyData";
 			labelEccentricAnomalyData.Size = new Size(209, 20);
@@ -465,7 +460,6 @@ namespace Planetoid_DB
 			labelTrueAnomalyData.AccessibleName = "Shows the information of \"True anomaly\"";
 			labelTrueAnomalyData.AccessibleRole = AccessibleRole.StaticText;
 			labelTrueAnomalyData.Dock = DockStyle.Fill;
-			labelTrueAnomalyData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelTrueAnomalyData.Location = new Point(263, 133);
 			labelTrueAnomalyData.Name = "labelTrueAnomalyData";
 			labelTrueAnomalyData.Size = new Size(209, 20);
@@ -484,7 +478,6 @@ namespace Planetoid_DB
 			labelPerihelionDistanceData.AccessibleName = "Shows the information of \"Perihelion distance\"";
 			labelPerihelionDistanceData.AccessibleRole = AccessibleRole.StaticText;
 			labelPerihelionDistanceData.Dock = DockStyle.Fill;
-			labelPerihelionDistanceData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelPerihelionDistanceData.Location = new Point(263, 159);
 			labelPerihelionDistanceData.Name = "labelPerihelionDistanceData";
 			labelPerihelionDistanceData.Size = new Size(209, 20);
@@ -503,7 +496,6 @@ namespace Planetoid_DB
 			labelAphelionDistanceData.AccessibleName = "Shows the information of \"Aphelion distance\"";
 			labelAphelionDistanceData.AccessibleRole = AccessibleRole.StaticText;
 			labelAphelionDistanceData.Dock = DockStyle.Fill;
-			labelAphelionDistanceData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelAphelionDistanceData.Location = new Point(263, 185);
 			labelAphelionDistanceData.Name = "labelAphelionDistanceData";
 			labelAphelionDistanceData.Size = new Size(209, 20);
@@ -522,7 +514,6 @@ namespace Planetoid_DB
 			labelLongitudeDescendingNodeData.AccessibleName = "Shows the information of \"Longitude of descending node\"";
 			labelLongitudeDescendingNodeData.AccessibleRole = AccessibleRole.StaticText;
 			labelLongitudeDescendingNodeData.Dock = DockStyle.Fill;
-			labelLongitudeDescendingNodeData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelLongitudeDescendingNodeData.Location = new Point(263, 211);
 			labelLongitudeDescendingNodeData.Name = "labelLongitudeDescendingNodeData";
 			labelLongitudeDescendingNodeData.Size = new Size(209, 20);
@@ -541,7 +532,6 @@ namespace Planetoid_DB
 			labelArgumentAphelionData.AccessibleName = "Shows the information of \"Argument of aphelion\"";
 			labelArgumentAphelionData.AccessibleRole = AccessibleRole.StaticText;
 			labelArgumentAphelionData.Dock = DockStyle.Fill;
-			labelArgumentAphelionData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelArgumentAphelionData.Location = new Point(263, 237);
 			labelArgumentAphelionData.Name = "labelArgumentAphelionData";
 			labelArgumentAphelionData.Size = new Size(209, 20);
@@ -560,7 +550,6 @@ namespace Planetoid_DB
 			labelFocalParameterData.AccessibleName = "Shows the information of \"Focal parameter\"";
 			labelFocalParameterData.AccessibleRole = AccessibleRole.StaticText;
 			labelFocalParameterData.Dock = DockStyle.Fill;
-			labelFocalParameterData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelFocalParameterData.Location = new Point(263, 263);
 			labelFocalParameterData.Name = "labelFocalParameterData";
 			labelFocalParameterData.Size = new Size(209, 20);
@@ -579,7 +568,6 @@ namespace Planetoid_DB
 			labelSemiLatusRectumData.AccessibleName = "Shows the information of \"Semi-latus rectum\"";
 			labelSemiLatusRectumData.AccessibleRole = AccessibleRole.StaticText;
 			labelSemiLatusRectumData.Dock = DockStyle.Fill;
-			labelSemiLatusRectumData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelSemiLatusRectumData.Location = new Point(263, 289);
 			labelSemiLatusRectumData.Name = "labelSemiLatusRectumData";
 			labelSemiLatusRectumData.Size = new Size(209, 20);
@@ -598,7 +586,6 @@ namespace Planetoid_DB
 			labelLatusRectumData.AccessibleName = "Shows the information of \"Latus rectum\"";
 			labelLatusRectumData.AccessibleRole = AccessibleRole.StaticText;
 			labelLatusRectumData.Dock = DockStyle.Fill;
-			labelLatusRectumData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelLatusRectumData.Location = new Point(263, 315);
 			labelLatusRectumData.Name = "labelLatusRectumData";
 			labelLatusRectumData.Size = new Size(209, 20);
@@ -617,7 +604,6 @@ namespace Planetoid_DB
 			labelPeriodData.AccessibleName = "Shows the information of \"Period\"";
 			labelPeriodData.AccessibleRole = AccessibleRole.StaticText;
 			labelPeriodData.Dock = DockStyle.Fill;
-			labelPeriodData.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			labelPeriodData.Location = new Point(263, 341);
 			labelPeriodData.Name = "labelPeriodData";
 			labelPeriodData.Size = new Size(209, 20);
@@ -716,7 +702,6 @@ namespace Planetoid_DB
 			labelOrbitalAreaData.AccessibleName = "Shows the information of \"Orbital area\"";
 			labelOrbitalAreaData.AccessibleRole = AccessibleRole.StaticText;
 			labelOrbitalAreaData.Dock = DockStyle.Fill;
-			labelOrbitalAreaData.Font = new Font("Consolas", 8.25F);
 			labelOrbitalAreaData.Location = new Point(263, 367);
 			labelOrbitalAreaData.Name = "labelOrbitalAreaData";
 			labelOrbitalAreaData.Size = new Size(209, 20);
@@ -735,7 +720,6 @@ namespace Planetoid_DB
 			labelOrbitalPerimeterData.AccessibleName = "Shows the information of \"Orbital perimeter\"";
 			labelOrbitalPerimeterData.AccessibleRole = AccessibleRole.StaticText;
 			labelOrbitalPerimeterData.Dock = DockStyle.Fill;
-			labelOrbitalPerimeterData.Font = new Font("Consolas", 8.25F);
 			labelOrbitalPerimeterData.Location = new Point(263, 393);
 			labelOrbitalPerimeterData.Name = "labelOrbitalPerimeterData";
 			labelOrbitalPerimeterData.Size = new Size(209, 20);
@@ -754,7 +738,6 @@ namespace Planetoid_DB
 			labelSemiMeanAxisData.AccessibleName = "Shows the information of \"Semi-mean axis\"";
 			labelSemiMeanAxisData.AccessibleRole = AccessibleRole.StaticText;
 			labelSemiMeanAxisData.Dock = DockStyle.Fill;
-			labelSemiMeanAxisData.Font = new Font("Consolas", 8.25F);
 			labelSemiMeanAxisData.Location = new Point(263, 419);
 			labelSemiMeanAxisData.Name = "labelSemiMeanAxisData";
 			labelSemiMeanAxisData.Size = new Size(209, 20);
@@ -776,7 +759,7 @@ namespace Planetoid_DB
 			labelStandardGravitationalParameterDesc.LabelStyle = LabelStyle.BoldPanel;
 			labelStandardGravitationalParameterDesc.Location = new Point(3, 471);
 			labelStandardGravitationalParameterDesc.Name = "labelStandardGravitationalParameterDesc";
-			labelStandardGravitationalParameterDesc.Size = new Size(254, 20);
+			labelStandardGravitationalParameterDesc.Size = new Size(254, 22);
 			labelStandardGravitationalParameterDesc.TabIndex = 36;
 			toolTip.SetToolTip(labelStandardGravitationalParameterDesc, "Standard gravitational parameter (AU³/a²)");
 			labelStandardGravitationalParameterDesc.Values.ExtraText = "AU³/a²";
@@ -793,7 +776,6 @@ namespace Planetoid_DB
 			labelMeanAxisData.AccessibleName = "Shows the information of \"Mean axis\"";
 			labelMeanAxisData.AccessibleRole = AccessibleRole.StaticText;
 			labelMeanAxisData.Dock = DockStyle.Fill;
-			labelMeanAxisData.Font = new Font("Consolas", 8.25F);
 			labelMeanAxisData.Location = new Point(263, 445);
 			labelMeanAxisData.Name = "labelMeanAxisData";
 			labelMeanAxisData.Size = new Size(209, 20);
@@ -812,10 +794,9 @@ namespace Planetoid_DB
 			labelStandardGravitationalParameterData.AccessibleName = "Shows the information of \"Standard gravitational parameter\"";
 			labelStandardGravitationalParameterData.AccessibleRole = AccessibleRole.StaticText;
 			labelStandardGravitationalParameterData.Dock = DockStyle.Fill;
-			labelStandardGravitationalParameterData.Font = new Font("Consolas", 8.25F);
 			labelStandardGravitationalParameterData.Location = new Point(263, 471);
 			labelStandardGravitationalParameterData.Name = "labelStandardGravitationalParameterData";
-			labelStandardGravitationalParameterData.Size = new Size(209, 20);
+			labelStandardGravitationalParameterData.Size = new Size(209, 22);
 			labelStandardGravitationalParameterData.TabIndex = 37;
 			toolTip.SetToolTip(labelStandardGravitationalParameterData, "Shows the information of \"Standard gravitational parameter\"");
 			labelStandardGravitationalParameterData.Values.Text = "..................";
@@ -838,7 +819,7 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanel);
-			toolStripContainer.ContentPanel.Size = new Size(475, 471);
+			toolStripContainer.ContentPanel.Size = new Size(475, 496);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
@@ -846,6 +827,7 @@ namespace Planetoid_DB
 			toolStripContainer.TabIndex = 3;
 			toolStripContainer.Text = "toolStripContainer";
 			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// statusStrip
 			// 
@@ -882,8 +864,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Group the data";
 			tableLayoutPanel.AccessibleName = "Table pane";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Grouping;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 2;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.75687F));
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.24313F));
@@ -950,13 +930,13 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-			tableLayoutPanel.Size = new Size(475, 471);
+			tableLayoutPanel.Size = new Size(475, 496);
 			tableLayoutPanel.TabIndex = 0;
 			tableLayoutPanel.TabStop = true;
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// DerivativeOrbitElementsForm
 			// 

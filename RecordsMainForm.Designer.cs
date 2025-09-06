@@ -124,7 +124,6 @@ namespace Planetoid_DB
 			groupBoxExport.AccessibleRole = AccessibleRole.Grouping;
 			groupBoxExport.Location = new Point(14, 407);
 			groupBoxExport.Margin = new Padding(4, 3, 4, 3);
-			groupBoxExport.Name = "groupBoxExport";
 			// 
 			// 
 			// 
@@ -235,8 +234,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Groups the data";
 			tableLayoutPanel.AccessibleName = "Table panel";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Grouping;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 4;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 146F));
@@ -1169,6 +1166,8 @@ namespace Planetoid_DB
 			progressBar.Size = new Size(345, 29);
 			progressBar.TabIndex = 1;
 			progressBar.Text = "Label";
+			progressBar.TextBackdropColor = Color.Empty;
+			progressBar.TextShadowColor = Color.Empty;
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the record detection");
 			progressBar.MouseEnter += SetStatusBar_Enter;
 			progressBar.MouseLeave += ClearStatusBar_Leave;
@@ -1205,7 +1204,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// RecordsMainForm
 			// 

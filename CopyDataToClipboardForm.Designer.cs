@@ -500,7 +500,7 @@ namespace Planetoid_DB
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(644, 352);
+			panel.Size = new Size(644, 377);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -545,16 +545,17 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
-			toolStripContainer.ContentPanel.Size = new Size(644, 352);
+			toolStripContainer.ContentPanel.Size = new Size(644, 377);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
 			toolStripContainer.Size = new Size(644, 399);
 			toolStripContainer.TabIndex = 1;
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// CopyDataToClipboardForm
 			// 

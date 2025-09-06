@@ -227,7 +227,7 @@ namespace Planetoid_DB
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(474, 283);
+			toolStripContainer.ContentPanel.Size = new Size(474, 308);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Margin = new Padding(4, 3, 4, 3);
@@ -235,6 +235,7 @@ namespace Planetoid_DB
 			toolStripContainer.Size = new Size(474, 330);
 			toolStripContainer.TabIndex = 3;
 			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// panel
 			// 
@@ -253,7 +254,7 @@ namespace Planetoid_DB
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(474, 283);
+			panel.Size = new Size(474, 308);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -302,7 +303,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// ExportDataSheetForm
 			// 

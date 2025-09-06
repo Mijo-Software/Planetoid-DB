@@ -224,6 +224,8 @@ namespace Planetoid_DB
 			progressBar.Name = "progressBar";
 			progressBar.Size = new Size(243, 20);
 			progressBar.TabIndex = 7;
+			progressBar.TextBackdropColor = Color.Empty;
+			progressBar.TextShadowColor = Color.Empty;
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the search");
 			progressBar.Values.Text = "";
 			progressBar.MouseEnter += SetStatusBar_Enter;
@@ -236,7 +238,6 @@ namespace Planetoid_DB
 			groupBox.AccessibleRole = AccessibleRole.Grouping;
 			groupBox.Location = new Point(4, 3);
 			groupBox.Margin = new Padding(4, 3, 4, 3);
-			groupBox.Name = "groupBox";
 			// 
 			// 
 			// 
@@ -386,7 +387,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// SearchForm
 			// 

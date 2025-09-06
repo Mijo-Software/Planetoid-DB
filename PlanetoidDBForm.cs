@@ -7,9 +7,6 @@ using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
-using System.Reflection;
-
-using Krypton.Toolkit;
 
 using NLog;
 
@@ -22,7 +19,7 @@ namespace Planetoid_DB
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 
-	public partial class PlanetoidDbForm : KryptonForm
+	public partial class PlanetoidDbForm : Form
 	{
 		// NLog logger instance
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -104,7 +101,7 @@ namespace Planetoid_DB
 			InitializeComponent();
 			KeyDown += PlanetoidDBForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
-			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
+							   //TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
 		}
 
 		/// <summary>
@@ -117,7 +114,7 @@ namespace Planetoid_DB
 			InitializeComponent();
 			KeyDown += PlanetoidDBForm_KeyDown;
 			KeyPreview = true; // Ensures the form receives key events before the controls
-			TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
+							   //TextExtra = $"{Assembly.GetExecutingAssembly().GetName().Version}";
 			SetStatusBar(text: string.Empty);
 			MpcOrbDatFilePath = mpcorbDatFilePath;
 		}

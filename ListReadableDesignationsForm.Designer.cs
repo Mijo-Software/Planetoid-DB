@@ -109,7 +109,6 @@ namespace Planetoid_DB
 			buttonCancel.AccessibleDescription = "Cancels the progress";
 			buttonCancel.AccessibleName = "Cancel";
 			buttonCancel.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancel.Font = new Font("Segoe UI", 8.5F);
 			buttonCancel.Location = new Point(70, 38);
 			buttonCancel.Name = "buttonCancel";
 			buttonCancel.Size = new Size(69, 31);
@@ -134,6 +133,8 @@ namespace Planetoid_DB
 			progressBar.Size = new Size(288, 19);
 			progressBar.Step = 1;
 			progressBar.TabIndex = 8;
+			progressBar.TextBackdropColor = Color.Empty;
+			progressBar.TextShadowColor = Color.Empty;
 			toolTip.SetToolTip(progressBar, "Shows the progress");
 			progressBar.Values.Text = "";
 			progressBar.MouseEnter += SetStatusBar_Enter;
@@ -144,7 +145,6 @@ namespace Planetoid_DB
 			buttonList.AccessibleDescription = "Starts the progress and list";
 			buttonList.AccessibleName = "List";
 			buttonList.AccessibleRole = AccessibleRole.PushButton;
-			buttonList.Font = new Font("Segoe UI", 8.5F);
 			buttonList.Location = new Point(12, 38);
 			buttonList.Name = "buttonList";
 			buttonList.Size = new Size(52, 31);
@@ -186,7 +186,6 @@ namespace Planetoid_DB
 			buttonLoad.AccessibleName = "Load";
 			buttonLoad.AccessibleRole = AccessibleRole.PushButton;
 			buttonLoad.DialogResult = DialogResult.OK;
-			buttonLoad.Font = new Font("Segoe UI", 8.5F);
 			buttonLoad.Location = new Point(145, 38);
 			buttonLoad.Name = "buttonLoad";
 			buttonLoad.Size = new Size(56, 31);
@@ -205,7 +204,6 @@ namespace Planetoid_DB
 			labelMinimum.AccessibleDescription = "Shows the minimum";
 			labelMinimum.AccessibleName = "Minimum";
 			labelMinimum.AccessibleRole = AccessibleRole.Text;
-			labelMinimum.Font = new Font("Segoe UI", 8.5F);
 			labelMinimum.Location = new Point(12, 12);
 			labelMinimum.Name = "labelMinimum";
 			labelMinimum.Size = new Size(66, 20);
@@ -223,7 +221,6 @@ namespace Planetoid_DB
 			numericUpDownMinimum.AccessibleDescription = "Shows the minimum value";
 			numericUpDownMinimum.AccessibleName = "Minimum value";
 			numericUpDownMinimum.AccessibleRole = AccessibleRole.SpinButton;
-			numericUpDownMinimum.Font = new Font("Segoe UI", 8.5F);
 			numericUpDownMinimum.Increment = new decimal(new int[] { 1, 0, 0, 0 });
 			numericUpDownMinimum.Location = new Point(84, 10);
 			numericUpDownMinimum.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
@@ -244,7 +241,6 @@ namespace Planetoid_DB
 			numericUpDownMaximum.AccessibleDescription = "Shows the maximum value";
 			numericUpDownMaximum.AccessibleName = "Maximum value";
 			numericUpDownMaximum.AccessibleRole = AccessibleRole.SpinButton;
-			numericUpDownMaximum.Font = new Font("Segoe UI", 8.5F);
 			numericUpDownMaximum.Increment = new decimal(new int[] { 1, 0, 0, 0 });
 			numericUpDownMaximum.Location = new Point(226, 10);
 			numericUpDownMaximum.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
@@ -265,7 +261,6 @@ namespace Planetoid_DB
 			labelMaximum.AccessibleDescription = "Shows the maximum";
 			labelMaximum.AccessibleName = "Maximum";
 			labelMaximum.AccessibleRole = AccessibleRole.Text;
-			labelMaximum.Font = new Font("Segoe UI", 8.5F);
 			labelMaximum.Location = new Point(154, 12);
 			labelMaximum.Name = "labelMaximum";
 			labelMaximum.Size = new Size(68, 20);
@@ -456,7 +451,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// ListReadableDesignationsForm
 			// 
