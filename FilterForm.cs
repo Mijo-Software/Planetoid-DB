@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using Krypton.Toolkit;
 using NLog;
 
 namespace Planetoid_DB
@@ -8,7 +7,7 @@ namespace Planetoid_DB
 	/// Represents a form for filtering data in the Planetoid database.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class FilterForm : KryptonForm
+	public partial class FilterForm : Form
 	{
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 

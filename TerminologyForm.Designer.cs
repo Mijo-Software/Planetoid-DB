@@ -65,7 +65,7 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(splitContainer);
-			toolStripContainer.ContentPanel.Size = new Size(609, 478);
+			toolStripContainer.ContentPanel.Size = new Size(609, 503);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
@@ -73,6 +73,7 @@ namespace Planetoid_DB
 			toolStripContainer.TabIndex = 5;
 			toolStripContainer.Text = "toolStripContainer";
 			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// statusStrip
 			// 
@@ -112,7 +113,6 @@ namespace Planetoid_DB
 			splitContainer.ContainerBackStyle = PaletteBackStyle.FormMain;
 			splitContainer.Dock = DockStyle.Fill;
 			splitContainer.Location = new Point(0, 0);
-			splitContainer.Name = "splitContainer";
 			// 
 			// 
 			// 
@@ -122,7 +122,7 @@ namespace Planetoid_DB
 			// 
 			splitContainer.Panel2.Controls.Add(webBrowser);
 			splitContainer.SeparatorStyle = SeparatorStyle.HighProfile;
-			splitContainer.Size = new Size(609, 478);
+			splitContainer.Size = new Size(609, 503);
 			splitContainer.SplitterDistance = 263;
 			splitContainer.TabIndex = 8;
 			toolTip.SetToolTip(splitContainer, "Splits the pane in half with the list of terms you can look up and in the other half with the web browser");
@@ -137,7 +137,7 @@ namespace Planetoid_DB
 			listBox.Items.AddRange(new object[] { "Index No.", "Readable designation", "Epoch (in packed form, .0 TT)", "Mean anomaly at the epoch", "Argument of perihelion, J2000.0", "Longitude of the ascending node, J2000.0", "Inclination to the ecliptic, J2000.0", "Orbital eccentricity", "Mean daily motion", "Semi-major axis", "Absolute magnitude, H", "Slope parameter, G", "Reference", "Number of oppositions", "Number of observations", "Observation span", "r.m.s. residual", "Computer name", "4-hexdigit flags", "Date of last observation", "Linear eccentricity", "Semi-minor axis", "Major axis", "Minor axis", "Eccenctric anomaly", "True anomaly", "Perihelion distance", "Aphelion distance", "Longitude of the descending node", "Argument of aphelion", "Focal parameter", "Semi-latus rectum", "Latus rectum", "Orbital period", "Orbital area", "Orbital perimeter", "Semi-mean axis", "Mean axis", "Standard gravitational parameter" });
 			listBox.Location = new Point(0, 0);
 			listBox.Name = "listBox";
-			listBox.Size = new Size(263, 478);
+			listBox.Size = new Size(263, 503);
 			listBox.TabIndex = 7;
 			toolTip.SetToolTip(listBox, "Terms that can be looked up");
 			listBox.SelectedValueChanged += ListBox_SelectedValueChanged;
@@ -154,9 +154,13 @@ namespace Planetoid_DB
 			webBrowser.Dock = DockStyle.Fill;
 			webBrowser.Location = new Point(0, 0);
 			webBrowser.Name = "webBrowser";
-			webBrowser.Size = new Size(341, 478);
+			webBrowser.Size = new Size(341, 503);
 			webBrowser.TabIndex = 1;
 			toolTip.SetToolTip(webBrowser, "Webbrowser");
+			// 
+			// kryptonManager
+			// 
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// TerminologyForm
 			// 
@@ -175,7 +179,6 @@ namespace Planetoid_DB
 			Name = "TerminologyForm";
 			ShowInTaskbar = false;
 			StartPosition = FormStartPosition.CenterParent;
-			StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
 			Text = "Terminology";
 			FormClosed += TerminologyForm_FormClosed;
 			Load += TerminologyForm_Load;

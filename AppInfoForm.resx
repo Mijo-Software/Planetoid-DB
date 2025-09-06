@@ -124,7 +124,7 @@
   <data name="pictureBoxBanner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAB4CAIAAACLsZfKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAA6B5JREFUeF7s/QV42zz7vw+3Sco0ZmZmZu7KzMzMzJRymzKnkDIzMzOsuBXHzMzr
+        vAAADrwBlbxySQAA6B5JREFUeF7s/QV42zz7vw+3Sco0ZmZmZu7KzMzMzJRymzKnkDIzMzOsuBXHzMzr
         K9tJmqbd/dwP/d7vnn+u43N4iizJciedvizLMh3NaPa/YihYNPsnjJ5kxN80+w8Z+ItSaMaIu/9tm10+
         pf6TR6EZzf6PGA3u/7TRWEAzmtHs/7IhWKfBHbH/9l+DsnxIyBUCMWISms1j4G9FM5rR7J8zStb8f9wo
         /xSI/pbNy+X5IqkKB2RHw1QnGjEVtOt/bPvvGyjnP1UUzWj2v29Ih6HU/3ujqgClqIxqL1mURrXrnxVm
@@ -1121,7 +1121,7 @@
     <value>107, 13</value>
   </metadata>
   <metadata name="kryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>210, 19</value>
+    <value>217, 7</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>71</value>

@@ -71,7 +71,6 @@ namespace Planetoid_DB
 			buttonPrintDataSheet.AccessibleDescription = "Prints a data sheet with some orbit elements";
 			buttonPrintDataSheet.AccessibleName = "Print data sheet";
 			buttonPrintDataSheet.AccessibleRole = AccessibleRole.PushButton;
-			buttonPrintDataSheet.Font = new Font("Segoe UI", 8.5F);
 			buttonPrintDataSheet.Location = new Point(12, 238);
 			buttonPrintDataSheet.Name = "buttonPrintDataSheet";
 			buttonPrintDataSheet.Size = new Size(132, 36);
@@ -91,7 +90,6 @@ namespace Planetoid_DB
 			buttonCancelPrint.AccessibleDescription = "Cancels the print";
 			buttonCancelPrint.AccessibleName = "Cancel print";
 			buttonCancelPrint.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancelPrint.Font = new Font("Segoe UI", 8.5F);
 			buttonCancelPrint.Location = new Point(164, 238);
 			buttonCancelPrint.Name = "buttonCancelPrint";
 			buttonCancelPrint.Size = new Size(128, 36);
@@ -154,7 +152,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// PrintDataSheetForm
 			// 

@@ -2,8 +2,6 @@
 using System.ComponentModel;
 using System.Diagnostics;
 
-using Krypton.Toolkit;
-
 using NLog;
 
 namespace Planetoid_DB
@@ -12,7 +10,7 @@ namespace Planetoid_DB
 	/// Represents the form for displaying planetoids data in table mode.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class TableModeForm : KryptonForm
+	public partial class TableModeForm : Form
 	{
 		// NLog logger instance
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();

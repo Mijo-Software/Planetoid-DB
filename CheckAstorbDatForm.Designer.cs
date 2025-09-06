@@ -62,7 +62,6 @@ namespace Planetoid_DB
 			labelUpdateNeeded.AccessibleRole = AccessibleRole.Text;
 			tableLayoutPanel.SetColumnSpan(labelUpdateNeeded, 3);
 			labelUpdateNeeded.Dock = DockStyle.Fill;
-			labelUpdateNeeded.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			labelUpdateNeeded.LabelStyle = LabelStyle.TitleControl;
 			labelUpdateNeeded.Location = new Point(3, 81);
 			labelUpdateNeeded.Name = "labelUpdateNeeded";
@@ -83,7 +82,6 @@ namespace Planetoid_DB
 			labelAstorbDatLocal.AccessibleName = "Local ASTORB.DAT file";
 			labelAstorbDatLocal.AccessibleRole = AccessibleRole.Text;
 			labelAstorbDatLocal.Dock = DockStyle.Fill;
-			labelAstorbDatLocal.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
 			labelAstorbDatLocal.LabelStyle = LabelStyle.BoldControl;
 			labelAstorbDatLocal.Location = new Point(110, 3);
 			labelAstorbDatLocal.Name = "labelAstorbDatLocal";
@@ -102,7 +100,6 @@ namespace Planetoid_DB
 			labelAstorbDatOnline.AccessibleName = "Online ASTORB.DAT file";
 			labelAstorbDatOnline.AccessibleRole = AccessibleRole.Text;
 			labelAstorbDatOnline.Dock = DockStyle.Fill;
-			labelAstorbDatOnline.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
 			labelAstorbDatOnline.LabelStyle = LabelStyle.BoldControl;
 			labelAstorbDatOnline.Location = new Point(234, 3);
 			labelAstorbDatOnline.Name = "labelAstorbDatOnline";
@@ -120,7 +117,6 @@ namespace Planetoid_DB
 			labelContentLengthText.AccessibleDescription = "Shows the content length";
 			labelContentLengthText.AccessibleName = "Content length";
 			labelContentLengthText.AccessibleRole = AccessibleRole.Text;
-			labelContentLengthText.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
 			labelContentLengthText.LabelStyle = LabelStyle.BoldControl;
 			labelContentLengthText.Location = new Point(3, 29);
 			labelContentLengthText.Name = "labelContentLengthText";
@@ -139,7 +135,6 @@ namespace Planetoid_DB
 			labelModifiedDateText.AccessibleName = "Modified date";
 			labelModifiedDateText.AccessibleRole = AccessibleRole.Text;
 			labelModifiedDateText.Dock = DockStyle.Left;
-			labelModifiedDateText.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
 			labelModifiedDateText.LabelStyle = LabelStyle.BoldControl;
 			labelModifiedDateText.Location = new Point(3, 55);
 			labelModifiedDateText.Name = "labelModifiedDateText";
@@ -229,8 +224,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Groups the data";
 			tableLayoutPanel.AccessibleName = "Group pane";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Pane;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 3;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
@@ -253,7 +246,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(372, 86);
+			tableLayoutPanel.Size = new Size(372, 111);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -270,7 +263,7 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(tableLayoutPanel);
-			toolStripContainer.ContentPanel.Size = new Size(372, 86);
+			toolStripContainer.ContentPanel.Size = new Size(372, 111);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
@@ -278,6 +271,7 @@ namespace Planetoid_DB
 			toolStripContainer.TabIndex = 3;
 			toolStripContainer.Text = "toolStripContainer";
 			toolTip.SetToolTip(toolStripContainer, "Container to arrange the toolbars");
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// statusStrip
 			// 
@@ -310,7 +304,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// CheckAstorbDatForm
 			// 

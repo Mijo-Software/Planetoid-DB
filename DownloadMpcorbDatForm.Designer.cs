@@ -71,6 +71,8 @@ namespace Planetoid_DB
 			progressBarDownload.Name = "progressBarDownload";
 			progressBarDownload.Size = new Size(408, 18);
 			progressBarDownload.TabIndex = 1;
+			progressBarDownload.TextBackdropColor = Color.Empty;
+			progressBarDownload.TextShadowColor = Color.Empty;
 			toolTip.SetToolTip(progressBarDownload, "Shows the progress of the download");
 			progressBarDownload.Values.Text = "";
 			progressBarDownload.MouseEnter += SetStatusBar_Enter;
@@ -84,7 +86,7 @@ namespace Planetoid_DB
 			labelStatusValue.Dock = DockStyle.Fill;
 			labelStatusValue.Location = new Point(59, 3);
 			labelStatusValue.Name = "labelStatusValue";
-			labelStatusValue.Size = new Size(427, 20);
+			labelStatusValue.Size = new Size(431, 20);
 			labelStatusValue.TabIndex = 1;
 			toolTip.SetToolTip(labelStatusValue, "Shows the status of the download");
 			labelStatusValue.Values.Text = "...";
@@ -157,7 +159,7 @@ namespace Planetoid_DB
 			labelSourceValue.Dock = DockStyle.Fill;
 			labelSourceValue.Location = new Point(59, 55);
 			labelSourceValue.Name = "labelSourceValue";
-			labelSourceValue.Size = new Size(427, 20);
+			labelSourceValue.Size = new Size(431, 20);
 			labelSourceValue.TabIndex = 5;
 			toolTip.SetToolTip(labelSourceValue, "Shows the download source");
 			labelSourceValue.Values.Text = "...";
@@ -194,7 +196,7 @@ namespace Planetoid_DB
 			labelDateValue.Dock = DockStyle.Fill;
 			labelDateValue.Location = new Point(59, 29);
 			labelDateValue.Name = "labelDateValue";
-			labelDateValue.Size = new Size(427, 20);
+			labelDateValue.Size = new Size(431, 20);
 			labelDateValue.TabIndex = 3;
 			toolTip.SetToolTip(labelDateValue, "Shows the last modified date of the download");
 			labelDateValue.Values.Text = "...";
@@ -212,7 +214,7 @@ namespace Planetoid_DB
 			labelSizeValue.Dock = DockStyle.Fill;
 			labelSizeValue.Location = new Point(59, 81);
 			labelSizeValue.Name = "labelSizeValue";
-			labelSizeValue.Size = new Size(427, 22);
+			labelSizeValue.Size = new Size(431, 22);
 			labelSizeValue.TabIndex = 7;
 			toolTip.SetToolTip(labelSizeValue, "Shows the file size of the download");
 			labelSizeValue.Values.Text = "...";
@@ -318,7 +320,7 @@ namespace Planetoid_DB
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
 			tableLayoutPanel.RowStyles.Add(new RowStyle());
-			tableLayoutPanel.Size = new Size(489, 106);
+			tableLayoutPanel.Size = new Size(493, 106);
 			tableLayoutPanel.TabIndex = 0;
 			toolTip.SetToolTip(tableLayoutPanel, "Groups the data");
 			// 
@@ -337,7 +339,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Name = "panel";
 			panel.PanelBackStyle = PaletteBackStyle.FormMain;
-			panel.Size = new Size(489, 209);
+			panel.Size = new Size(493, 203);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			// 
@@ -353,7 +355,7 @@ namespace Planetoid_DB
 			statusStrip.Name = "statusStrip";
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(489, 22);
+			statusStrip.Size = new Size(493, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 6;
 			statusStrip.Text = "status bar";
@@ -381,16 +383,13 @@ namespace Planetoid_DB
 			// toolStripContainer.ContentPanel
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
-			toolStripContainer.ContentPanel.Size = new Size(489, 209);
+			toolStripContainer.ContentPanel.Size = new Size(493, 203);
 			toolStripContainer.Dock = DockStyle.Fill;
 			toolStripContainer.Location = new Point(0, 0);
 			toolStripContainer.Name = "toolStripContainer";
-			toolStripContainer.Size = new Size(489, 231);
+			toolStripContainer.Size = new Size(493, 225);
 			toolStripContainer.TabIndex = 1;
-			// 
-			// kryptonManager
-			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.Microsoft365BlackDarkModeAlternate;
+			toolStripContainer.TopToolStripPanelVisible = false;
 			// 
 			// DownloadMpcorbDatForm
 			// 
@@ -399,7 +398,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(489, 231);
+			ClientSize = new Size(493, 225);
 			Controls.Add(toolStripContainer);
 			Font = new Font("Segoe UI", 8.5F);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;

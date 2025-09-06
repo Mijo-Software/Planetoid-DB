@@ -7,8 +7,6 @@ using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 
-using Krypton.Toolkit;
-
 using NLog;
 
 using static Planetoid_DB.Properties.Resources;
@@ -20,7 +18,7 @@ namespace Planetoid_DB
 	/// Form to handle downloading updates for the application.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class DownloadAstorbDatForm : KryptonForm
+	public partial class DownloadAstorbDatForm : Form
 	{
 		// NLog logger instance
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();

@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
 using NLog;
 
 namespace Planetoid_DB
@@ -9,7 +8,7 @@ namespace Planetoid_DB
 	/// Represents the form for displaying ephemeris.
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class EphemerisForm : KryptonForm
+	public partial class EphemerisForm : Form
 	{
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger(); // NLog logger instance
 

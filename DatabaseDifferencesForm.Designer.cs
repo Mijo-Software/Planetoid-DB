@@ -137,7 +137,7 @@ namespace Planetoid_DB
 			// 
 			toolStripContainer.ContentPanel.Controls.Add(panel);
 			toolStripContainer.ContentPanel.Margin = new Padding(4, 3, 4, 3);
-			toolStripContainer.ContentPanel.Size = new Size(981, 498);
+			toolStripContainer.ContentPanel.Size = new Size(981, 523);
 			toolStripContainer.ContentPanel.UseWaitCursor = true;
 			toolStripContainer.Dock = DockStyle.Fill;
 			// 
@@ -158,6 +158,7 @@ namespace Planetoid_DB
 			// toolStripContainer.TopToolStripPanel
 			// 
 			toolStripContainer.TopToolStripPanel.UseWaitCursor = true;
+			toolStripContainer.TopToolStripPanelVisible = false;
 			toolStripContainer.UseWaitCursor = true;
 			// 
 			// panel
@@ -175,7 +176,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.Size = new Size(981, 498);
+			panel.Size = new Size(981, 523);
 			panel.TabIndex = 0;
 			panel.TabStop = true;
 			panel.UseWaitCursor = true;
@@ -187,7 +188,6 @@ namespace Planetoid_DB
 			groupBoxResults.AccessibleRole = AccessibleRole.Grouping;
 			groupBoxResults.Location = new Point(16, 222);
 			groupBoxResults.Margin = new Padding(4, 3, 4, 3);
-			groupBoxResults.Name = "groupBoxResults";
 			// 
 			// 
 			// 
@@ -228,7 +228,6 @@ namespace Planetoid_DB
 			buttonCancel.AccessibleDescription = "Cancels the progress";
 			buttonCancel.AccessibleName = "Cancel";
 			buttonCancel.AccessibleRole = AccessibleRole.PushButton;
-			buttonCancel.Font = new Font("Segoe UI", 8.5F);
 			buttonCancel.Location = new Point(115, 179);
 			buttonCancel.Margin = new Padding(4, 3, 4, 3);
 			buttonCancel.Name = "buttonCancel";
@@ -250,7 +249,6 @@ namespace Planetoid_DB
 			buttonCompare.AccessibleDescription = "Starts the progress and compare";
 			buttonCompare.AccessibleName = "Compare";
 			buttonCompare.AccessibleRole = AccessibleRole.PushButton;
-			buttonCompare.Font = new Font("Segoe UI", 8.5F);
 			buttonCompare.Location = new Point(14, 179);
 			buttonCompare.Margin = new Padding(4, 3, 4, 3);
 			buttonCompare.Name = "buttonCompare";
@@ -274,7 +272,6 @@ namespace Planetoid_DB
 			groupBoxProgress.AccessibleRole = AccessibleRole.Grouping;
 			groupBoxProgress.Location = new Point(217, 179);
 			groupBoxProgress.Margin = new Padding(4, 3, 4, 3);
-			groupBoxProgress.Name = "groupBoxProgress";
 			// 
 			// 
 			// 
@@ -310,6 +307,8 @@ namespace Planetoid_DB
 			progressBar.Name = "progressBar";
 			progressBar.Size = new Size(750, 12);
 			progressBar.TabIndex = 8;
+			progressBar.TextBackdropColor = Color.Empty;
+			progressBar.TextShadowColor = Color.Empty;
 			toolTip.SetToolTip(progressBar, "Shows the progress status of the comparison");
 			progressBar.UseWaitCursor = true;
 			progressBar.Values.Text = "";
@@ -323,7 +322,6 @@ namespace Planetoid_DB
 			groupBox2ndMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.Grouping;
 			groupBox2ndMpcorbDatFileDatabase.Location = new Point(496, 14);
 			groupBox2ndMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
-			groupBox2ndMpcorbDatFileDatabase.Name = "groupBox2ndMpcorbDatFileDatabase";
 			// 
 			// 
 			// 
@@ -349,8 +347,6 @@ namespace Planetoid_DB
 			kryptonTableLayoutPanel1.AccessibleDescription = "Groups the data";
 			kryptonTableLayoutPanel1.AccessibleName = "Panel";
 			kryptonTableLayoutPanel1.AccessibleRole = AccessibleRole.Grouping;
-			kryptonTableLayoutPanel1.BackgroundImage = (Image)resources.GetObject("kryptonTableLayoutPanel1.BackgroundImage");
-			kryptonTableLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
 			kryptonTableLayoutPanel1.ColumnCount = 2;
 			kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
 			kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
@@ -524,7 +520,6 @@ namespace Planetoid_DB
 			groupBox1stMpcorbDatFileDatabase.AccessibleRole = AccessibleRole.Grouping;
 			groupBox1stMpcorbDatFileDatabase.Location = new Point(14, 14);
 			groupBox1stMpcorbDatFileDatabase.Margin = new Padding(4, 3, 4, 3);
-			groupBox1stMpcorbDatFileDatabase.Name = "groupBox1stMpcorbDatFileDatabase";
 			// 
 			// 
 			// 
@@ -554,8 +549,6 @@ namespace Planetoid_DB
 			tableLayoutPanel1stMpcorbDatFile.AccessibleDescription = "Groups the data";
 			tableLayoutPanel1stMpcorbDatFile.AccessibleName = "Panel";
 			tableLayoutPanel1stMpcorbDatFile.AccessibleRole = AccessibleRole.Grouping;
-			tableLayoutPanel1stMpcorbDatFile.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel1stMpcorbDatFile.BackgroundImage");
-			tableLayoutPanel1stMpcorbDatFile.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel1stMpcorbDatFile.ColumnCount = 2;
 			tableLayoutPanel1stMpcorbDatFile.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel1stMpcorbDatFile.ColumnStyles.Add(new ColumnStyle());
@@ -746,7 +739,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// DatabaseDifferencesForm
 			// 

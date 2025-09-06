@@ -101,7 +101,6 @@ namespace Planetoid_DB
 			BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
 			BackgroundImageLayout = ImageLayout.Stretch;
 			ClientSize = new Size(487, 314);
-			CloseBox = false;
 			Controls.Add(labelVersion);
 			Controls.Add(labelTitle);
 			Controls.Add(progressBarSplash);

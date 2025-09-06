@@ -118,60 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>166, 18</value>
+    <value>268, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tableLayoutPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="kryptonManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>108, 17</value>
+    <value>126, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>49</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAoAICAQAAEABADoAgAApgAAABgYEAABAAQA6AEAAI4DAAAQEBAAAQAEACgBAAB2BQAAICAAAAEA

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
-using Krypton.Toolkit;
 using NLog;
 
 namespace Planetoid_DB
@@ -10,7 +9,7 @@ namespace Planetoid_DB
 	/// 
 	/// </summary>
 	[DebuggerDisplay(value: "{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-	public partial class SearchForm : KryptonForm
+	public partial class SearchForm : Form
 	{
 		// NLog logger instance
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();

@@ -114,7 +114,7 @@ namespace Planetoid_DB
 			panel.Location = new Point(0, 0);
 			panel.Margin = new Padding(4, 3, 4, 3);
 			panel.Name = "panel";
-			panel.Size = new Size(603, 482);
+			panel.Size = new Size(607, 470);
 			panel.TabIndex = 0;
 			// 
 			// statusStrip
@@ -124,12 +124,12 @@ namespace Planetoid_DB
 			statusStrip.AccessibleRole = AccessibleRole.StatusBar;
 			statusStrip.Font = new Font("Segoe UI", 9F);
 			statusStrip.Items.AddRange(new ToolStripItem[] { labelInformation });
-			statusStrip.Location = new Point(0, 460);
+			statusStrip.Location = new Point(0, 448);
 			statusStrip.Name = "statusStrip";
 			statusStrip.Padding = new Padding(1, 0, 16, 0);
 			statusStrip.ProgressBars = null;
 			statusStrip.RenderMode = ToolStripRenderMode.ManagerRenderMode;
-			statusStrip.Size = new Size(603, 22);
+			statusStrip.Size = new Size(607, 22);
 			statusStrip.SizingGrip = false;
 			statusStrip.TabIndex = 4;
 			statusStrip.Text = "status bar";
@@ -214,8 +214,6 @@ namespace Planetoid_DB
 			tableLayoutPanel.AccessibleDescription = "Groups the data";
 			tableLayoutPanel.AccessibleName = "pane";
 			tableLayoutPanel.AccessibleRole = AccessibleRole.Grouping;
-			tableLayoutPanel.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel.BackgroundImage");
-			tableLayoutPanel.BackgroundImageLayout = ImageLayout.None;
 			tableLayoutPanel.ColumnCount = 4;
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
 			tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
@@ -1465,7 +1463,7 @@ namespace Planetoid_DB
 			// 
 			// kryptonManager
 			// 
-			kryptonManager.GlobalPaletteMode = PaletteMode.SparkleBlue;
+			kryptonManager.GlobalPaletteMode = PaletteMode.Global;
 			// 
 			// FilterForm
 			// 
@@ -1474,7 +1472,7 @@ namespace Planetoid_DB
 			AccessibleRole = AccessibleRole.Dialog;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(603, 482);
+			ClientSize = new Size(607, 470);
 			Controls.Add(panel);
 			FormBorderStyle = FormBorderStyle.FixedToolWindow;
 			Icon = (Icon)resources.GetObject("$this.Icon");
