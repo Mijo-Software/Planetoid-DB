@@ -34,8 +34,8 @@ namespace Planetoid_DB
 		private readonly SplashScreenForm formSplashScreen = new();
 
 		// Filenames for the MPCORB database
-		private readonly string filenameMpcorb = Resources.FilenameMpcorb;
-		private readonly string filenameMpcorbTemp = Resources.FilenameMpcorbTemp;
+		private readonly string filenameMpcorb = Settings.Default.systemFilenameMpcorb;
+		private readonly string filenameMpcorbTemp = Settings.Default.systemFilenameMpcorbTemp;
 
 		// URI for the MPCORB database
 		private readonly Uri uriMpcorb = new(uriString: Settings.Default.systemMpcorbDatGzUrl);
@@ -1129,6 +1129,9 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="ProgressChangedEventArgs"/> instance that contains the event data.</param>
 		private static void BackgroundWorkerLoadingDatabase_ProgressChanged(object? sender, ProgressChangedEventArgs e)
 		{
+			//MessageBox.Show(text: e.ProgressPercentage.ToString());
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -1219,7 +1222,7 @@ namespace Planetoid_DB
 					// Open the content stream for reading
 					using Stream contentStream = await response.Content.ReadAsStreamAsync();
 					// Create a file stream for writing the downloaded file
-					using FileStream fileStream = new(path: Resources.FilenameMpcorbTemp, mode: FileMode.Create, access: FileAccess.Write, share: FileShare.None, bufferSize: 8192, useAsync: true);
+					using FileStream fileStream = new(path: Settings.Default.systemFilenameMpcorbTemp, mode: FileMode.Create, access: FileAccess.Write, share: FileShare.None, bufferSize: 8192, useAsync: true);
 					// Buffer for reading data
 					byte[] buffer = new byte[8192];
 					// Variables to track progress
@@ -1249,7 +1252,7 @@ namespace Planetoid_DB
 				// Set the progress bar style to Marquee to indicate processing
 				toolStripProgressBarBackgroundDownload.Style = ProgressBarStyle.Marquee;
 				// Extract the downloaded GZIP file
-				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Resources.FilenameMpcorb);
+				ExtractGzipFile(gzipFilePath: filenameMpcorbTemp, outputFilePath: Settings.Default.systemFilenameMpcorb);
 				// Delete the temporary GZIP file
 				File.Delete(path: filenameMpcorbTemp);
 				// Notify the user that the update was successful
@@ -1629,7 +1632,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.Homepage);
+		private void MenuitemOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Settings.Default.systemHomepage);
 
 		/// <summary>
 		/// Handles the click event for the MenuitemOpenWebsiteMPC.
@@ -1637,7 +1640,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.WebsiteMpc);
+		private void MenuitemOpenWebsiteMPC_Click(object sender, EventArgs e) => Process.Start(fileName: Settings.Default.systemWebsiteMpc);
 
 		/// <summary>
 		/// Handles the click event for the MenuitemOpenMPCORBWebsite.
@@ -1645,7 +1648,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.WebsiteMpcorb);
+		private void MenuitemOpenMPCORBWebsite_Click(object sender, EventArgs e) => Process.Start(fileName: Settings.Default.systemWebsiteMpcorb);
 
 		/// <summary>
 		/// Handles the click event for the MenuitemDownloadMpcorbDat.
@@ -1709,7 +1712,7 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
-		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Resources.Homepage);
+		private void ToolStripButtonOpenWebsitePDB_Click(object sender, EventArgs e) => Process.Start(fileName: Settings.Default.systemHomepage);
 
 		/// <summary>
 		/// Handles the click event for the ToolStripButtonTableMode.
@@ -1903,6 +1906,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void ToolStripMenuItemEnableCopyingByDoubleClicking_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -1913,6 +1918,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void ToolStripMenuItemEnableLinkingToTerminology_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -1923,6 +1930,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void ToolStripMenuItemIconSetSilk_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -1933,6 +1942,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void ToolStripMenuItemIconSetFugue_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -1943,6 +1954,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void ToolStripMenuItemIconSetFatcow_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2257,6 +2270,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionMeanAnomalyAtTheEpoch_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2267,6 +2282,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionArgumentOfPerihelion_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2277,6 +2294,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionLongitudeOfTheAscendingNode_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2287,6 +2306,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionInclination_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2297,6 +2318,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionOrbitalEccentricity_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2307,6 +2330,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionMeanDailyMotion_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2317,6 +2342,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionSemiMajorAxis_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2327,6 +2354,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionAbsoluteMagnitude_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2337,6 +2366,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionSlopeParameter_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2347,6 +2378,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionNumberOfOppositions_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2357,6 +2390,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionNumberOfObservations_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2367,6 +2402,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionObservationSpan_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2377,6 +2414,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionRmsResidual_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2387,6 +2426,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistributionComputerName_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2397,6 +2438,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void SplitButtonDistribution_ButtonClick(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2407,6 +2450,8 @@ namespace Planetoid_DB
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private static void MenuitemDistribution_Click(object sender, EventArgs e)
 		{
+			// TODO: Not implemented yet
+			MessageBox.Show(text: "Not implemented yet", caption: I10nStrings.ErrorCaption, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 		}
 
 		/// <summary>
@@ -2432,7 +2477,6 @@ namespace Planetoid_DB
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance that contains the event data.</param>
 		private void ToolStripButtonLicense_Click(object sender, EventArgs e) => ShowLicense();
-
 
 		#endregion
 

@@ -9,8 +9,7 @@ using System.Net.NetworkInformation;
 
 using NLog;
 
-using static Planetoid_DB.Properties.Resources;
-using static Planetoid_DB.Properties.Settings;
+using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
 {
@@ -24,21 +23,19 @@ namespace Planetoid_DB
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// Filename for the MPCORB data file
-		private readonly string strFilenameMpcorb = FilenameMpcorb;
+		private readonly string strFilenameMpcorb = Settings.Default.systemFilenameMpcorb;
 
 		// Temporary filename for the MPCORB data file during download
-		private readonly string strFilenameMpcorbTemp = FilenameMpcorbTemp;
+		private readonly string strFilenameMpcorbTemp = Settings.Default.systemFilenameMpcorbTemp;
 
 		// URI for the MPCORB data file
-		private readonly Uri strUriMpcorb = new(uriString: Default.systemMpcorbDatGzUrl);
+		private readonly Uri strUriMpcorb = new(uriString: Settings.Default.systemMpcorbDatGzUrl);
 
 		// WebClient instance for handling the download
-		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
-		// Replace the WebClient instance with HttpClient and refactor the code accordingly.
-		private static readonly HttpClient HttpClient = new();
+		private readonly WebClient webClient = new();
 
 		// Static HttpClient instance for making HTTP requests
-		private static readonly HttpClient Client = new();
+		private static readonly HttpClient httpClient = new();
 
 		#region Constructor
 
@@ -98,11 +95,20 @@ namespace Planetoid_DB
 				// Create a new HttpRequestMessage with the HEAD method and the specified URI
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request and get the response
-				HttpResponseMessage response = Client.Send(request: request);
+				HttpResponseMessage response = httpClient.Send(request: request);
 				// Check if the response is successful and return the last modified date
 				// If the response is not successful, return DateTime.MinValue
 				// If the response is successful, return the last modified date or DateTime.MinValue if not available
-				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
+				if (response.IsSuccessStatusCode)
+				{
+					// Return the last modified date or DateTime.MinValue if not available
+					return response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue;
+				}
+				else
+				{
+					// Return DateTime.MinValue to indicate an error
+					return DateTime.MinValue;
+				}
 			}
 			// Catch any exceptions that occur during the request
 			catch (Exception ex)
@@ -131,9 +137,18 @@ namespace Planetoid_DB
 				// If the response is not successful, return 0
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request using the HttpClient instance
-				HttpResponseMessage response = Client.Send(request: request);
+				HttpResponseMessage response = httpClient.Send(request: request);
 				// Check if the response is successful and return the content length
-				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
+				if (response.IsSuccessStatusCode)
+				{
+					// Return the content length or 0 if not available
+					return response.Content.Headers.ContentLength ?? 0;
+				}
+				else
+				{
+					// Return 0 to indicate an error
+					return 0;
+				}
 			}
 			// Catch any exceptions that occur during the request
 			catch (Exception ex)

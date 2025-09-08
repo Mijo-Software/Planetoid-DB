@@ -162,6 +162,9 @@
   <data name="NoUpdateNeededText" xml:space="preserve">
     <value>No update needed!</value>
   </data>
+  <data name="NotImplementedYet" xml:space="preserve">
+    <value>Not implemented yet</value>
+  </data>
   <data name="NumberZero" xml:space="preserve">
     <value>0</value>
   </data>

@@ -8,19 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.CodeDom.Compiler;
-using System.Configuration;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-
 namespace Planetoid_DB.Properties {
     
     
-    [CompilerGenerated()]
-    [GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.13.0.0")]
-    internal sealed partial class Settings : ApplicationSettingsBase {
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Settings defaultInstance = ((Settings)(Synchronized(new Settings())));
+        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
         public static Settings Default {
             get {
@@ -28,18 +23,18 @@ namespace Planetoid_DB.Properties {
             }
         }
         
-        [ApplicationScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT.gz")]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT.gz")]
         public string systemMpcorbDatGzUrl {
             get {
                 return ((string)(this["systemMpcorbDatGzUrl"]));
             }
         }
         
-        [UserScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("")]
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string userMpcorbDatGzUrl {
             get {
                 return ((string)(this["userMpcorbDatGzUrl"]));
@@ -49,18 +44,18 @@ namespace Planetoid_DB.Properties {
             }
         }
         
-        [ApplicationScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT")]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.minorplanetcenter.org/iau/MPCORB/MPCORB.DAT")]
         public string systemMpcorbDatUrl {
             get {
                 return ((string)(this["systemMpcorbDatUrl"]));
             }
         }
         
-        [UserScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("")]
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string userMpcorbDatUrl {
             get {
                 return ((string)(this["userMpcorbDatUrl"]));
@@ -70,9 +65,9 @@ namespace Planetoid_DB.Properties {
             }
         }
         
-        [UserScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("")]
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string userAstorbDatUrl {
             get {
                 return ((string)(this["userAstorbDatUrl"]));
@@ -82,9 +77,9 @@ namespace Planetoid_DB.Properties {
             }
         }
         
-        [UserScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("")]
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string userAstorbDatGzUrl {
             get {
                 return ((string)(this["userAstorbDatGzUrl"]));
@@ -94,21 +89,102 @@ namespace Planetoid_DB.Properties {
             }
         }
         
-        [ApplicationScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("https://ftp.lowell.edu/pub/elgb/astorb.dat")]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://ftp.lowell.edu/pub/elgb/astorb.dat")]
         public string systemAstorbDatUrl {
             get {
                 return ((string)(this["systemAstorbDatUrl"]));
             }
         }
         
-        [ApplicationScopedSetting()]
-        [DebuggerNonUserCode()]
-        [DefaultSettingValue("https://ftp.lowell.edu/pub/elgb/astorb.dat.gz")]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://ftp.lowell.edu/pub/elgb/astorb.dat.gz")]
         public string systemAstorbDatGzUrl {
             get {
                 return ((string)(this["systemAstorbDatGzUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mpcorb.dat")]
+        public string systemFilenameMpcorb {
+            get {
+                return ((string)(this["systemFilenameMpcorb"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("_")]
+        public string systemFilenameMpcorbTemp {
+            get {
+                return ((string)(this["systemFilenameMpcorbTemp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("astorb.dat")]
+        public string systemFilenameAstorb {
+            get {
+                return ((string)(this["systemFilenameAstorb"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("_")]
+        public string systemFilenameAstorbTemp {
+            get {
+                return ((string)(this["systemFilenameAstorbTemp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://planetoid-db.de")]
+        public string systemHomepage {
+            get {
+                return ((string)(this["systemHomepage"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("info@planetoid-db.de")]
+        public string systemHomepageMailExtern {
+            get {
+                return ((string)(this["systemHomepageMailExtern"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mailto:info@planetoid-db.de")]
+        public string systemHomepageMailIntern {
+            get {
+                return ((string)(this["systemHomepageMailIntern"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.minorplanetcenter.org/iau/mpc.html")]
+        public string systemWebsiteMpc {
+            get {
+                return ((string)(this["systemWebsiteMpc"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.minorplanetcenter.org/iau/MPCORB.html")]
+        public string systemWebsiteMpcorb {
+            get {
+                return ((string)(this["systemWebsiteMpcorb"]));
             }
         }
     }

@@ -1,7 +1,9 @@
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
+
 using NLog;
+
 using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
@@ -47,7 +49,7 @@ namespace Planetoid_DB
 				// Initialize the application configuration
 				ApplicationConfiguration.Initialize();
 
-				if (!File.Exists(path: Resources.FilenameMpcorb))
+				if (!File.Exists(path: Settings.Default.systemFilenameMpcorb))
 				{
 					// Show the PreLoadForm if the file is missing
 					HandleMissingFile();

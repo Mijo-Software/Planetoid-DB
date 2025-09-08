@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class LicenseForm
@@ -79,7 +81,7 @@ namespace Planetoid_DB
 			kryptonButtonCopyLicenseToClipboard.TabIndex = 1;
 			toolTip.SetToolTip(kryptonButtonCopyLicenseToClipboard, "Copy the license to the clipboard");
 			kryptonButtonCopyLicenseToClipboard.Values.DropDownArrowColor = Color.Empty;
-			kryptonButtonCopyLicenseToClipboard.Values.Image = Properties.Resources.silk_clipboard;
+			kryptonButtonCopyLicenseToClipboard.Values.Image = FatcowIcons16px.fatcow_clipboard_empty_16px;
 			kryptonButtonCopyLicenseToClipboard.Values.Text = "&Copy to clipboard";
 			kryptonButtonCopyLicenseToClipboard.Click += KryptonButtonCopyLicenseToClipboard_Click;
 			kryptonButtonCopyLicenseToClipboard.Enter += SetStatusBar_Enter;
@@ -98,7 +100,7 @@ namespace Planetoid_DB
 			kryptonButtonSaveLicense.TabIndex = 2;
 			toolTip.SetToolTip(kryptonButtonSaveLicense, "Save the license");
 			kryptonButtonSaveLicense.Values.DropDownArrowColor = Color.Empty;
-			kryptonButtonSaveLicense.Values.Image = Properties.Resources.silk_disk;
+			kryptonButtonSaveLicense.Values.Image = FatcowIcons16px.fatcow_diskette_16px;
 			kryptonButtonSaveLicense.Values.Text = "&Save license";
 			kryptonButtonSaveLicense.Click += KryptonButtonSaveLicense_Click;
 			kryptonButtonSaveLicense.Enter += SetStatusBar_Enter;
@@ -118,7 +120,7 @@ namespace Planetoid_DB
 			kryptonButtonClose.TabIndex = 3;
 			toolTip.SetToolTip(kryptonButtonClose, "Close");
 			kryptonButtonClose.Values.DropDownArrowColor = Color.Empty;
-			kryptonButtonClose.Values.Image = Properties.Resources.silk_cancel;
+			kryptonButtonClose.Values.Image = FatcowIcons16px.fatcow_cancel_16px;
 			kryptonButtonClose.Values.Text = "C&lose";
 			kryptonButtonClose.Enter += SetStatusBar_Enter;
 			kryptonButtonClose.Leave += ClearStatusBar_Leave;
@@ -184,7 +186,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

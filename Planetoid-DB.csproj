@@ -866,6 +866,16 @@ Public License instead of this License.  But first, please read
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="Resources\FatcowIcons16px.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FatcowIcons16px.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\FugueIcons16px.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FugueIcons16px.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -881,6 +891,21 @@ Public License instead of this License.  But first, please read
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\FugueIcons\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\FatcowIcons16px.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FatcowIcons16px.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\FugueIcons16px.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FugueIcons16px.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

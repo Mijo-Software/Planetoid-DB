@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class RecordsMainForm
@@ -139,7 +141,7 @@ namespace Planetoid_DB
 			groupBoxExport.TabIndex = 4;
 			toolTip.SetToolTip(groupBoxExport, "Groups the export buttons");
 			groupBoxExport.Values.Heading = "Export list";
-			groupBoxExport.Values.Image = Properties.Resources.silk_page_save;
+			groupBoxExport.Values.Image = FatcowIcons16px.fatcow_page_save_16px;
 			groupBoxExport.Enter += SetStatusBar_Enter;
 			groupBoxExport.Leave += ClearStatusBar_Leave;
 			groupBoxExport.MouseEnter += SetStatusBar_Enter;
@@ -158,7 +160,7 @@ namespace Planetoid_DB
 			buttonExportAsJson.TabIndex = 3;
 			toolTip.SetToolTip(buttonExportAsJson, "Export as JSON");
 			buttonExportAsJson.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsJson.Values.Image = Properties.Resources.silk_page_white_code;
+			buttonExportAsJson.Values.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			buttonExportAsJson.Values.Text = "Export as JSON";
 			buttonExportAsJson.Click += ButtonExportAsJson_Click;
 			buttonExportAsJson.Enter += SetStatusBar_Enter;
@@ -179,7 +181,7 @@ namespace Planetoid_DB
 			buttonExportAsXml.TabIndex = 2;
 			toolTip.SetToolTip(buttonExportAsXml, "Export as XML");
 			buttonExportAsXml.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsXml.Values.Image = Properties.Resources.silk_page_white_code;
+			buttonExportAsXml.Values.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			buttonExportAsXml.Values.Text = "Export as XML";
 			buttonExportAsXml.Click += ButtonExportAsXml_Click;
 			buttonExportAsXml.Enter += SetStatusBar_Enter;
@@ -200,7 +202,7 @@ namespace Planetoid_DB
 			buttonExportAsTxt.TabIndex = 0;
 			toolTip.SetToolTip(buttonExportAsTxt, "Export as TXT");
 			buttonExportAsTxt.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsTxt.Values.Image = Properties.Resources.silk_page_white_text;
+			buttonExportAsTxt.Values.Image = FatcowIcons16px.fatcow_page_white_text_16px;
 			buttonExportAsTxt.Values.Text = "Export as TXT";
 			buttonExportAsTxt.Click += ButtonExportAsTxt_Click;
 			buttonExportAsTxt.Enter += SetStatusBar_Enter;
@@ -221,7 +223,7 @@ namespace Planetoid_DB
 			buttonExportAsHtml.TabIndex = 1;
 			toolTip.SetToolTip(buttonExportAsHtml, "Export as HTML");
 			buttonExportAsHtml.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsHtml.Values.Image = Properties.Resources.silk_page_white_code;
+			buttonExportAsHtml.Values.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			buttonExportAsHtml.Values.Text = "Export as HTML";
 			buttonExportAsHtml.Click += ButtonExportAsHtml_Click;
 			buttonExportAsHtml.Enter += SetStatusBar_Enter;
@@ -313,7 +315,7 @@ namespace Planetoid_DB
 			buttonGoto09.TabIndex = 37;
 			toolTip.SetToolTip(buttonGoto09, "Go to the element of the place no. 9 ");
 			buttonGoto09.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto09.Values.Image = Properties.Resources.silk_go;
+			buttonGoto09.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto09.Values.Text = "Goto";
 			buttonGoto09.Click += ButtonGoto09_Click;
 			buttonGoto09.Enter += SetStatusBar_Enter;
@@ -334,7 +336,7 @@ namespace Planetoid_DB
 			buttonGoto08.TabIndex = 33;
 			toolTip.SetToolTip(buttonGoto08, "Go to the element of the place no. 8");
 			buttonGoto08.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto08.Values.Image = Properties.Resources.silk_go;
+			buttonGoto08.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto08.Values.Text = "Goto";
 			buttonGoto08.Click += ButtonGoto08_Click;
 			buttonGoto08.Enter += SetStatusBar_Enter;
@@ -355,7 +357,7 @@ namespace Planetoid_DB
 			buttonGoto07.TabIndex = 29;
 			toolTip.SetToolTip(buttonGoto07, "Go to the element of the place no. 7");
 			buttonGoto07.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto07.Values.Image = Properties.Resources.silk_go;
+			buttonGoto07.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto07.Values.Text = "Goto";
 			buttonGoto07.Click += ButtonGoto07_Click;
 			buttonGoto07.Enter += SetStatusBar_Enter;
@@ -376,7 +378,7 @@ namespace Planetoid_DB
 			buttonGoto06.TabIndex = 25;
 			toolTip.SetToolTip(buttonGoto06, "Go to the element of the place no. 6");
 			buttonGoto06.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto06.Values.Image = Properties.Resources.silk_go;
+			buttonGoto06.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto06.Values.Text = "Goto";
 			buttonGoto06.Click += ButtonGoto06_Click;
 			buttonGoto06.Enter += SetStatusBar_Enter;
@@ -397,7 +399,7 @@ namespace Planetoid_DB
 			buttonGoto05.TabIndex = 21;
 			toolTip.SetToolTip(buttonGoto05, "Go to the element of the place no. 5");
 			buttonGoto05.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto05.Values.Image = Properties.Resources.silk_go;
+			buttonGoto05.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto05.Values.Text = "Goto";
 			buttonGoto05.Click += ButtonGoto05_Click;
 			buttonGoto05.Enter += SetStatusBar_Enter;
@@ -418,7 +420,7 @@ namespace Planetoid_DB
 			buttonGoto04.TabIndex = 17;
 			toolTip.SetToolTip(buttonGoto04, "Go to the element of the place no. 4");
 			buttonGoto04.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto04.Values.Image = Properties.Resources.silk_go;
+			buttonGoto04.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto04.Values.Text = "Goto";
 			buttonGoto04.Click += ButtonGoto04_Click;
 			buttonGoto04.Enter += SetStatusBar_Enter;
@@ -439,7 +441,7 @@ namespace Planetoid_DB
 			buttonGoto03.TabIndex = 13;
 			toolTip.SetToolTip(buttonGoto03, "Go to the element of the place no. 3");
 			buttonGoto03.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto03.Values.Image = Properties.Resources.silk_go;
+			buttonGoto03.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto03.Values.Text = "Goto";
 			buttonGoto03.Click += ButtonGoto03_Click;
 			buttonGoto03.Enter += SetStatusBar_Enter;
@@ -460,7 +462,7 @@ namespace Planetoid_DB
 			buttonGoto02.TabIndex = 9;
 			toolTip.SetToolTip(buttonGoto02, "Go to the element of the place no. 2");
 			buttonGoto02.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto02.Values.Image = Properties.Resources.silk_go;
+			buttonGoto02.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto02.Values.Text = "Goto";
 			buttonGoto02.Click += ButtonGoto02_Click;
 			buttonGoto02.Enter += SetStatusBar_Enter;
@@ -671,7 +673,7 @@ namespace Planetoid_DB
 			buttonGoto01.TabIndex = 5;
 			toolTip.SetToolTip(buttonGoto01, "Go to the element of the place no. 1");
 			buttonGoto01.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto01.Values.Image = Properties.Resources.silk_go;
+			buttonGoto01.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto01.Values.Text = "Goto";
 			buttonGoto01.Click += ButtonGoto01_Click;
 			buttonGoto01.Enter += SetStatusBar_Enter;
@@ -1110,7 +1112,7 @@ namespace Planetoid_DB
 			buttonGoto10.TabIndex = 41;
 			toolTip.SetToolTip(buttonGoto10, "Go to the element of the place no. 10");
 			buttonGoto10.Values.DropDownArrowColor = Color.Empty;
-			buttonGoto10.Values.Image = Properties.Resources.silk_go;
+			buttonGoto10.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonGoto10.Values.Text = "Goto";
 			buttonGoto10.Click += ButtonGoto10_Click;
 			buttonGoto10.Enter += SetStatusBar_Enter;
@@ -1130,7 +1132,7 @@ namespace Planetoid_DB
 			buttonStart.TabIndex = 0;
 			toolTip.SetToolTip(buttonStart, "Detect the records");
 			buttonStart.Values.DropDownArrowColor = Color.Empty;
-			buttonStart.Values.Image = Properties.Resources.silk_control_forward_blue;
+			buttonStart.Values.Image = FatcowIcons16px.fatcow_resultset_next_16px;
 			buttonStart.Values.Text = "&Start";
 			buttonStart.Click += ButtonStart_Click;
 			buttonStart.Enter += SetStatusBar_Enter;
@@ -1195,7 +1197,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class DownloadMpcorbDatForm
@@ -124,7 +126,7 @@ namespace Planetoid_DB
 			buttonCancelDownload.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancelDownload, "Cancel download");
 			buttonCancelDownload.Values.DropDownArrowColor = Color.Empty;
-			buttonCancelDownload.Values.Image = Properties.Resources.silk_cancel;
+			buttonCancelDownload.Values.Image = FatcowIcons16px.fatcow_cancel_16px;
 			buttonCancelDownload.Values.Text = "&Cancel download";
 			buttonCancelDownload.Click += ButtonCancelDownload_Click;
 			buttonCancelDownload.Enter += SetStatusBar_Enter;
@@ -143,7 +145,7 @@ namespace Planetoid_DB
 			buttonDownload.TabIndex = 4;
 			toolTip.SetToolTip(buttonDownload, "Download MPCORB.DAT");
 			buttonDownload.Values.DropDownArrowColor = Color.Empty;
-			buttonDownload.Values.Image = Properties.Resources.silk_package_go;
+			buttonDownload.Values.Image = FatcowIcons16px.fatcow_package_go_16px;
 			buttonDownload.Values.Text = "&Download MPCORB.DAT";
 			buttonDownload.Click += ButtonDownload_Click;
 			buttonDownload.Enter += SetStatusBar_Enter;
@@ -180,7 +182,7 @@ namespace Planetoid_DB
 			buttonCheckForUpdate.TabIndex = 3;
 			toolTip.SetToolTip(buttonCheckForUpdate, "Check updates");
 			buttonCheckForUpdate.Values.DropDownArrowColor = Color.Empty;
-			buttonCheckForUpdate.Values.Image = Properties.Resources.silk_lightning;
+			buttonCheckForUpdate.Values.Image = FatcowIcons16px.fatcow_lightning_16px;
 			buttonCheckForUpdate.Values.Text = "C&heck for update";
 			buttonCheckForUpdate.Click += ButtonCheckForUpdate_Click;
 			buttonCheckForUpdate.Enter += SetStatusBar_Enter;
@@ -366,7 +368,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

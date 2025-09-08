@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class ListReadableDesignationsForm
@@ -89,7 +91,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);
@@ -115,7 +117,7 @@ namespace Planetoid_DB
 			buttonCancel.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancel, "Cancel the progress");
 			buttonCancel.Values.DropDownArrowColor = Color.Empty;
-			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
+			buttonCancel.Values.Image = FatcowIcons16px.fatcow_cancel_16px;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
 			buttonCancel.Enter += SetStatusBar_Enter;
@@ -151,7 +153,7 @@ namespace Planetoid_DB
 			buttonList.TabIndex = 4;
 			toolTip.SetToolTip(buttonList, "Start the progress and list");
 			buttonList.Values.DropDownArrowColor = Color.Empty;
-			buttonList.Values.Image = Properties.Resources.silk_page_white_text;
+			buttonList.Values.Image = FatcowIcons16px.fatcow_page_white_text_16px;
 			buttonList.Values.Text = "&List";
 			buttonList.Click += ButtonList_Click;
 			buttonList.Enter += SetStatusBar_Enter;
@@ -192,7 +194,7 @@ namespace Planetoid_DB
 			buttonLoad.TabIndex = 6;
 			toolTip.SetToolTip(buttonLoad, "Load the selected planetoid");
 			buttonLoad.Values.DropDownArrowColor = Color.Empty;
-			buttonLoad.Values.Image = Properties.Resources.silk_go;
+			buttonLoad.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonLoad.Values.Text = "L&oad";
 			buttonLoad.Enter += SetStatusBar_Enter;
 			buttonLoad.Leave += ClearStatusBar_Leave;
@@ -294,7 +296,7 @@ namespace Planetoid_DB
 			toolStripMenuItemSaveAsCsv.AccessibleName = "Save as CSV";
 			toolStripMenuItemSaveAsCsv.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSaveAsCsv.AutoToolTip = true;
-			toolStripMenuItemSaveAsCsv.Image = Properties.Resources.silk_page_white_text;
+			toolStripMenuItemSaveAsCsv.Image = FatcowIcons16px.fatcow_page_white_text_16px;
 			toolStripMenuItemSaveAsCsv.Name = "toolStripMenuItemSaveAsCsv";
 			toolStripMenuItemSaveAsCsv.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsCsv.Text = "Save as &CSV";
@@ -308,7 +310,7 @@ namespace Planetoid_DB
 			toolStripMenuItemSaveAsHtml.AccessibleName = "Save as HTML";
 			toolStripMenuItemSaveAsHtml.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSaveAsHtml.AutoToolTip = true;
-			toolStripMenuItemSaveAsHtml.Image = Properties.Resources.silk_page_white_code;
+			toolStripMenuItemSaveAsHtml.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			toolStripMenuItemSaveAsHtml.Name = "toolStripMenuItemSaveAsHtml";
 			toolStripMenuItemSaveAsHtml.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsHtml.Text = "Save as &HTML";
@@ -322,7 +324,7 @@ namespace Planetoid_DB
 			toolStripMenuItemSaveAsXml.AccessibleName = "Save as XML";
 			toolStripMenuItemSaveAsXml.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSaveAsXml.AutoToolTip = true;
-			toolStripMenuItemSaveAsXml.Image = Properties.Resources.silk_page_white_code;
+			toolStripMenuItemSaveAsXml.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			toolStripMenuItemSaveAsXml.Name = "toolStripMenuItemSaveAsXml";
 			toolStripMenuItemSaveAsXml.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsXml.Text = "Save as &XML";
@@ -336,7 +338,7 @@ namespace Planetoid_DB
 			toolStripMenuItemSaveAsJson.AccessibleName = "Save as JSON";
 			toolStripMenuItemSaveAsJson.AccessibleRole = AccessibleRole.MenuItem;
 			toolStripMenuItemSaveAsJson.AutoToolTip = true;
-			toolStripMenuItemSaveAsJson.Image = Properties.Resources.silk_page_white_code;
+			toolStripMenuItemSaveAsJson.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			toolStripMenuItemSaveAsJson.Name = "toolStripMenuItemSaveAsJson";
 			toolStripMenuItemSaveAsJson.Size = new Size(147, 22);
 			toolStripMenuItemSaveAsJson.Text = "Save as &JSON";
@@ -360,10 +362,10 @@ namespace Planetoid_DB
 			dropButtonSaveList.Values.ImageStates.ImageCheckedNormal = null;
 			dropButtonSaveList.Values.ImageStates.ImageCheckedPressed = null;
 			dropButtonSaveList.Values.ImageStates.ImageCheckedTracking = null;
-			dropButtonSaveList.Values.ImageStates.ImageDisabled = Properties.Resources.silk_disk;
-			dropButtonSaveList.Values.ImageStates.ImageNormal = Properties.Resources.silk_disk;
-			dropButtonSaveList.Values.ImageStates.ImagePressed = Properties.Resources.silk_disk;
-			dropButtonSaveList.Values.ImageStates.ImageTracking = Properties.Resources.silk_disk;
+			dropButtonSaveList.Values.ImageStates.ImageDisabled = FatcowIcons16px.fatcow_diskette_16px;
+			dropButtonSaveList.Values.ImageStates.ImageNormal = FatcowIcons16px.fatcow_diskette_16px;
+			dropButtonSaveList.Values.ImageStates.ImagePressed = FatcowIcons16px.fatcow_diskette_16px;
+			dropButtonSaveList.Values.ImageStates.ImageTracking = FatcowIcons16px.fatcow_diskette_16px;
 			dropButtonSaveList.Values.Text = "&Save List";
 			dropButtonSaveList.Enter += SetStatusBar_Enter;
 			dropButtonSaveList.Leave += ClearStatusBar_Leave;

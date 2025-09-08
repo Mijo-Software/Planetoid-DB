@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel;
+
 using Krypton.Toolkit;
 using Krypton.Toolkit.Suite.Extended.Navigator;
+
+using Planetoid_DB.Resources;
 
 namespace Planetoid_DB
 {
@@ -357,7 +360,7 @@ namespace Planetoid_DB
 			toolStripButtonSave.AccessibleName = "Save";
 			toolStripButtonSave.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonSave.DoubleClickEnabled = true;
-			toolStripButtonSave.Image = Properties.Resources.silk_disk;
+			toolStripButtonSave.Image = FatcowIcons16px.fatcow_diskette_16px;
 			toolStripButtonSave.ImageTransparentColor = Color.Magenta;
 			toolStripButtonSave.Name = "toolStripButtonSave";
 			toolStripButtonSave.Size = new Size(51, 22);
@@ -370,7 +373,7 @@ namespace Planetoid_DB
 			toolStripButtonCancel.AccessibleName = "Cancel";
 			toolStripButtonCancel.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonCancel.DoubleClickEnabled = true;
-			toolStripButtonCancel.Image = Properties.Resources.silk_cancel;
+			toolStripButtonCancel.Image = FatcowIcons16px.fatcow_cancel_16px;
 			toolStripButtonCancel.ImageTransparentColor = Color.Magenta;
 			toolStripButtonCancel.Name = "toolStripButtonCancel";
 			toolStripButtonCancel.Size = new Size(63, 22);
@@ -388,7 +391,7 @@ namespace Planetoid_DB
 			toolStripButtonLoadDefaultSettings.AccessibleName = "Default settings";
 			toolStripButtonLoadDefaultSettings.AccessibleRole = AccessibleRole.PushButton;
 			toolStripButtonLoadDefaultSettings.DoubleClickEnabled = true;
-			toolStripButtonLoadDefaultSettings.Image = Properties.Resources.silk_cog;
+			toolStripButtonLoadDefaultSettings.Image = FatcowIcons16px.fatcow_cog_16px;
 			toolStripButtonLoadDefaultSettings.ImageTransparentColor = Color.Magenta;
 			toolStripButtonLoadDefaultSettings.Name = "toolStripButtonLoadDefaultSettings";
 			toolStripButtonLoadDefaultSettings.Size = new Size(109, 22);
@@ -446,7 +449,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Show some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

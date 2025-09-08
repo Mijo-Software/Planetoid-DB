@@ -173,7 +173,7 @@ namespace Planetoid_DB
 			// Online file last modified date
 			DateTime datetimeFileOnline = await GetLastModifiedAsync(uri: uriAstorb).ConfigureAwait(continueOnCapturedContext: false);
 			// Check if the local file exists
-			if (!File.Exists(path: Resources.FilenameAstorb))
+			if (!File.Exists(path: Settings.Default.systemFilenameAstorb))
 			{
 				// Set the content length and modified date labels to indicate no file found
 				labelContentLengthValueLocal.Text = I10nStrings.NoFileFoundText;
@@ -183,30 +183,30 @@ namespace Planetoid_DB
 			else
 			{
 				// Get the last modified date of the local file
-				FileInfo fileInfo = new(fileName: Resources.FilenameAstorb);
+				FileInfo fileInfo = new(fileName: Settings.Default.systemFilenameAstorb);
 				// Get the file attributes
 				datetimeFileLocal = fileInfo.LastWriteTime;
 				// Set the content length and modified date labels to the local file's information
 				labelContentLengthValueLocal.Text = $"{fileInfo.Length:N0} {I10nStrings.BytesText}";
 				// Set the modified date label to the local file's last write time
-				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString(CultureInfo.CurrentCulture);
+				labelModifiedDateValueLocal.Text = datetimeFileLocal.ToString(provider: CultureInfo.CurrentCulture);
 			}
 			// Set the content length and modified date labels to the online file's information
 			labelContentLengthValueOnline.Text = $"{await GetContentLengthAsync(uri: uriAstorb).ConfigureAwait(continueOnCapturedContext: false):N0} {I10nStrings.BytesText}";
 			// Set the modified date label to the online file's last modified date
-			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString(CultureInfo.CurrentCulture);
+			labelModifiedDateValueOnline.Text = datetimeFileOnline.ToString(provider: CultureInfo.CurrentCulture);
 			// Compare the last modified dates of the local and online files
 			if (datetimeFileOnline > datetimeFileLocal)
 			{
 				// Set the label to indicate an update is needed
-				labelUpdateNeeded.Values.Image = Resources.silk_new;
+				labelUpdateNeeded.Values.Image = Resources.FatcowIcons16px.fatcow_new_16px;
 				// Set the label text to indicate an update is recommended
 				labelUpdateNeeded.Text = I10nStrings.UpdateRecommendedText;
 			}
 			else
 			{
 				// Set the label to indicate no update is needed
-				labelUpdateNeeded.Values.Image = Resources.silk_decline;
+				labelUpdateNeeded.Values.Image = Resources.FatcowIcons16px.fatcow_cancel_16px;
 				// Set the label text to indicate no update is needed
 				labelUpdateNeeded.Text = I10nStrings.NoUpdateNeededText;
 			}

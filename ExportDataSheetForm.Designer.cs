@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class ExportDataSheetForm
@@ -71,7 +73,7 @@ namespace Planetoid_DB
 			buttonExportAsJson.TabIndex = 6;
 			toolTip.SetToolTip(buttonExportAsJson, "Export as JSON");
 			buttonExportAsJson.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsJson.Values.Image = Properties.Resources.silk_page_white_code;
+			buttonExportAsJson.Values.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			buttonExportAsJson.Values.Text = "Export as JSON";
 			buttonExportAsJson.Click += ButtonExportAsJson_Click;
 			buttonExportAsJson.Enter += SetStatusBar_Enter;
@@ -92,7 +94,7 @@ namespace Planetoid_DB
 			buttonExportAsTxt.TabIndex = 3;
 			toolTip.SetToolTip(buttonExportAsTxt, "Export as TXT");
 			buttonExportAsTxt.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsTxt.Values.Image = Properties.Resources.silk_page_white_text;
+			buttonExportAsTxt.Values.Image = FatcowIcons16px.fatcow_page_white_text_16px;
 			buttonExportAsTxt.Values.Text = "Export as TXT";
 			buttonExportAsTxt.Click += ButtonExportAsTxt_Click;
 			buttonExportAsTxt.Enter += SetStatusBar_Enter;
@@ -113,7 +115,7 @@ namespace Planetoid_DB
 			buttonExportAsXml.TabIndex = 5;
 			toolTip.SetToolTip(buttonExportAsXml, "Export as XML");
 			buttonExportAsXml.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsXml.Values.Image = Properties.Resources.silk_page_white_code;
+			buttonExportAsXml.Values.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			buttonExportAsXml.Values.Text = "Export as XML";
 			buttonExportAsXml.Click += ButtonExportAsXml_Click;
 			buttonExportAsXml.Enter += SetStatusBar_Enter;
@@ -134,7 +136,7 @@ namespace Planetoid_DB
 			buttonExportAsHtml.TabIndex = 4;
 			toolTip.SetToolTip(buttonExportAsHtml, "Export as HTML");
 			buttonExportAsHtml.Values.DropDownArrowColor = Color.Empty;
-			buttonExportAsHtml.Values.Image = Properties.Resources.silk_page_white_code;
+			buttonExportAsHtml.Values.Image = FatcowIcons16px.fatcow_page_white_code_16px;
 			buttonExportAsHtml.Values.Text = "Export as HTML";
 			buttonExportAsHtml.Click += ButtonExportAsHtml_Click;
 			buttonExportAsHtml.Enter += SetStatusBar_Enter;
@@ -165,7 +167,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);
@@ -205,7 +207,7 @@ namespace Planetoid_DB
 			buttonMarkAll.TabIndex = 1;
 			toolTip.SetToolTip(buttonMarkAll, "Mark all orbital elements");
 			buttonMarkAll.Values.DropDownArrowColor = Color.Empty;
-			buttonMarkAll.Values.Image = Properties.Resources.silk_asterisk_orange;
+			buttonMarkAll.Values.Image = FatcowIcons16px.fatcow_asterisk_orange_16px;
 			buttonMarkAll.Values.Text = "&Mark all";
 			buttonMarkAll.Click += ButtonMarkAll_Click;
 			buttonMarkAll.Enter += SetStatusBar_Enter;

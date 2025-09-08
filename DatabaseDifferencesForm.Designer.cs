@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	/// <summary>
@@ -115,7 +117,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);
@@ -206,7 +208,7 @@ namespace Planetoid_DB
 			groupBoxResults.UseWaitCursor = true;
 			groupBoxResults.Values.Description = "300 items added, 200 items edited, 100 items removed";
 			groupBoxResults.Values.Heading = "Results";
-			groupBoxResults.Values.Image = Properties.Resources.silk_table;
+			groupBoxResults.Values.Image = FatcowIcons16px.fatcow_table_16px;
 			// 
 			// listBoxResults
 			// 
@@ -236,7 +238,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(buttonCancel, "Cancel the progress");
 			buttonCancel.UseWaitCursor = true;
 			buttonCancel.Values.DropDownArrowColor = Color.Empty;
-			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
+			buttonCancel.Values.Image = FatcowIcons16px.fatcow_cancel_16px;
 			buttonCancel.Values.Text = "C&ancel";
 			buttonCancel.Click += ButtonCancel_Click;
 			buttonCancel.Enter += SetStatusBar_Enter;
@@ -257,7 +259,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(buttonCompare, "Start the progress and list");
 			buttonCompare.UseWaitCursor = true;
 			buttonCompare.Values.DropDownArrowColor = Color.Empty;
-			buttonCompare.Values.Image = Properties.Resources.silk_go;
+			buttonCompare.Values.Image = FatcowIcons16px.fatcow_bullet_go_16px;
 			buttonCompare.Values.Text = "C&ompare";
 			buttonCompare.Click += ButtonCompare_Click;
 			buttonCompare.Enter += SetStatusBar_Enter;
@@ -290,7 +292,7 @@ namespace Planetoid_DB
 			groupBoxProgress.UseWaitCursor = true;
 			groupBoxProgress.Values.Description = "100 %";
 			groupBoxProgress.Values.Heading = "Progress";
-			groupBoxProgress.Values.Image = Properties.Resources.silk_time;
+			groupBoxProgress.Values.Image = FatcowIcons16px.fatcow_time_16px;
 			groupBoxProgress.Enter += SetStatusBar_Enter;
 			groupBoxProgress.Leave += ClearStatusBar_Leave;
 			groupBoxProgress.MouseEnter += SetStatusBar_Enter;
@@ -339,7 +341,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(groupBox2ndMpcorbDatFileDatabase, "Open the 2nd MPCORB.DAT file");
 			groupBox2ndMpcorbDatFileDatabase.UseWaitCursor = true;
 			groupBox2ndMpcorbDatFileDatabase.Values.Heading = "The second MPCORB.DAT file";
-			groupBox2ndMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_database;
+			groupBox2ndMpcorbDatFileDatabase.Values.Image = FatcowIcons16px.fatcow_database_16px;
 			groupBox2ndMpcorbDatFileDatabase.DragDrop += GroupBox2ndMpcorbDatFileDatabase_DragDrop;
 			// 
 			// kryptonTableLayoutPanel1
@@ -425,7 +427,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(buttonOpen2ndMpcorbDatFileDatabase, "Open 2nd MPRCORB.DAT file");
 			buttonOpen2ndMpcorbDatFileDatabase.UseWaitCursor = true;
 			buttonOpen2ndMpcorbDatFileDatabase.Values.DropDownArrowColor = Color.Empty;
-			buttonOpen2ndMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_folder;
+			buttonOpen2ndMpcorbDatFileDatabase.Values.Image = FatcowIcons16px.fatcow_folder_16px;
 			buttonOpen2ndMpcorbDatFileDatabase.Values.Text = "Open &2nd MPRCORB.DAT file";
 			buttonOpen2ndMpcorbDatFileDatabase.Click += ButtonOpen2ndMpcorbDatFileDatabase_Click;
 			buttonOpen2ndMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
@@ -537,7 +539,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(groupBox1stMpcorbDatFileDatabase, "Open the 1st MPCORB.DAT file");
 			groupBox1stMpcorbDatFileDatabase.UseWaitCursor = true;
 			groupBox1stMpcorbDatFileDatabase.Values.Heading = "The first MPCORB.DAT file";
-			groupBox1stMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_database;
+			groupBox1stMpcorbDatFileDatabase.Values.Image = FatcowIcons16px.fatcow_database_16px;
 			groupBox1stMpcorbDatFileDatabase.DragDrop += GroupBox1stMpcorbDatFileDatabase_DragDrop;
 			groupBox1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;
 			groupBox1stMpcorbDatFileDatabase.Leave += ClearStatusBar_Leave;
@@ -631,7 +633,7 @@ namespace Planetoid_DB
 			toolTip.SetToolTip(buttonOpen1stMpcorbDatFileDatabase, "Open 1st MPRCORB.DAT file");
 			buttonOpen1stMpcorbDatFileDatabase.UseWaitCursor = true;
 			buttonOpen1stMpcorbDatFileDatabase.Values.DropDownArrowColor = Color.Empty;
-			buttonOpen1stMpcorbDatFileDatabase.Values.Image = Properties.Resources.silk_folder;
+			buttonOpen1stMpcorbDatFileDatabase.Values.Image = FatcowIcons16px.fatcow_folder_16px;
 			buttonOpen1stMpcorbDatFileDatabase.Values.Text = "Open &1st MPRCORB.DAT file";
 			buttonOpen1stMpcorbDatFileDatabase.Click += ButtonOpen1stMpcorbDatFileDatabase_Click;
 			buttonOpen1stMpcorbDatFileDatabase.Enter += SetStatusBar_Enter;

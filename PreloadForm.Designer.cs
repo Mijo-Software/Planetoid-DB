@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class PreloadForm
@@ -53,7 +55,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonExit.AccessibleDescription = "Cancels und quits the application";
 			kryptonCommandLinkButtonExit.AccessibleName = "Quit the application";
 			kryptonCommandLinkButtonExit.AccessibleRole = AccessibleRole.PushButton;
-			kryptonCommandLinkButtonExit.CommandLinkImageValues.Image = Properties.Resources.silk_door_in;
+			kryptonCommandLinkButtonExit.CommandLinkImageValues.Image = FatcowIcons16px.fatcow_door_in_16px;
 			kryptonCommandLinkButtonExit.CommandLinkTextValues.Description = "Cancel and quit the application";
 			kryptonCommandLinkButtonExit.CommandLinkTextValues.DescriptionTextHAlignment = PaletteRelativeAlign.Near;
 			kryptonCommandLinkButtonExit.CommandLinkTextValues.DescriptionTextVAlignment = PaletteRelativeAlign.Far;
@@ -83,7 +85,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonLoadInternalDemoData.AccessibleDescription = "Loads internal demo data";
 			kryptonCommandLinkButtonLoadInternalDemoData.AccessibleName = "Load internal demo data";
 			kryptonCommandLinkButtonLoadInternalDemoData.AccessibleRole = AccessibleRole.PushButton;
-			kryptonCommandLinkButtonLoadInternalDemoData.CommandLinkImageValues.Image = Properties.Resources.silk_database;
+			kryptonCommandLinkButtonLoadInternalDemoData.CommandLinkImageValues.Image = FatcowIcons16px.fatcow_database_16px;
 			kryptonCommandLinkButtonLoadInternalDemoData.CommandLinkTextValues.Description = "The internal demo data contains 10'000 minor planets";
 			kryptonCommandLinkButtonLoadInternalDemoData.CommandLinkTextValues.DescriptionTextHAlignment = PaletteRelativeAlign.Near;
 			kryptonCommandLinkButtonLoadInternalDemoData.CommandLinkTextValues.DescriptionTextVAlignment = PaletteRelativeAlign.Far;
@@ -113,7 +115,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonDownloadMprcorbDat.AccessibleDescription = "Downloads MPCORB.DAT from the IAU Minor Planet Center";
 			kryptonCommandLinkButtonDownloadMprcorbDat.AccessibleName = "Download MPCORB.DAT";
 			kryptonCommandLinkButtonDownloadMprcorbDat.AccessibleRole = AccessibleRole.PushButton;
-			kryptonCommandLinkButtonDownloadMprcorbDat.CommandLinkImageValues.Image = Properties.Resources.silk_world;
+			kryptonCommandLinkButtonDownloadMprcorbDat.CommandLinkImageValues.Image = FatcowIcons16px.fatcow_world_16px;
 			kryptonCommandLinkButtonDownloadMprcorbDat.CommandLinkTextValues.Description = "Download MPCORB.DAT from the IAU Minor Planet Center";
 			kryptonCommandLinkButtonDownloadMprcorbDat.CommandLinkTextValues.DescriptionTextHAlignment = PaletteRelativeAlign.Near;
 			kryptonCommandLinkButtonDownloadMprcorbDat.CommandLinkTextValues.DescriptionTextVAlignment = PaletteRelativeAlign.Far;
@@ -143,7 +145,7 @@ namespace Planetoid_DB
 			kryptonCommandLinkButtonOpenLocalFile.AccessibleDescription = "Opens a local MPCORB.DAT file from hard drive";
 			kryptonCommandLinkButtonOpenLocalFile.AccessibleName = "Open a local MPCORB.DAT file";
 			kryptonCommandLinkButtonOpenLocalFile.AccessibleRole = AccessibleRole.PushButton;
-			kryptonCommandLinkButtonOpenLocalFile.CommandLinkImageValues.Image = Properties.Resources.silk_folder;
+			kryptonCommandLinkButtonOpenLocalFile.CommandLinkImageValues.Image = FatcowIcons16px.fatcow_folder_16px;
 			kryptonCommandLinkButtonOpenLocalFile.CommandLinkTextValues.Description = "Open a local MPCORB.DAT file from hard drive";
 			kryptonCommandLinkButtonOpenLocalFile.CommandLinkTextValues.DescriptionTextHAlignment = PaletteRelativeAlign.Near;
 			kryptonCommandLinkButtonOpenLocalFile.CommandLinkTextValues.DescriptionTextVAlignment = PaletteRelativeAlign.Far;
@@ -190,7 +192,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

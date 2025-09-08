@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
+
 using Krypton.Toolkit;
+
+using Planetoid_DB.Resources;
 
 namespace Planetoid_DB
 {
@@ -68,7 +71,7 @@ namespace Planetoid_DB
 			labelUpdateNeeded.Size = new Size(370, 29);
 			labelUpdateNeeded.TabIndex = 8;
 			toolTip.SetToolTip(labelUpdateNeeded, "Informs if an update is recommended");
-			labelUpdateNeeded.Values.Image = Properties.Resources.silk_help;
+			labelUpdateNeeded.Values.Image = FatcowIcons16px.fatcow_help_16px;
 			labelUpdateNeeded.Values.Text = "Update needed?";
 			labelUpdateNeeded.DoubleClick += LabelUpdateNeeded_DoubleClick;
 			labelUpdateNeeded.Enter += SetStatusBar_Enter;
@@ -295,7 +298,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

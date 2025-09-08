@@ -26,5 +26,32 @@
     <Setting Name="systemAstorbDatGzUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://ftp.lowell.edu/pub/elgb/astorb.dat.gz</Value>
     </Setting>
+    <Setting Name="systemFilenameMpcorb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mpcorb.dat</Value>
+    </Setting>
+    <Setting Name="systemFilenameMpcorbTemp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">_</Value>
+    </Setting>
+    <Setting Name="systemFilenameAstorb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">astorb.dat</Value>
+    </Setting>
+    <Setting Name="systemFilenameAstorbTemp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">_</Value>
+    </Setting>
+    <Setting Name="systemHomepage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://planetoid-db.de</Value>
+    </Setting>
+    <Setting Name="systemHomepageMailExtern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@planetoid-db.de</Value>
+    </Setting>
+    <Setting Name="systemHomepageMailIntern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mailto:info@planetoid-db.de</Value>
+    </Setting>
+    <Setting Name="systemWebsiteMpc" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.minorplanetcenter.org/iau/mpc.html</Value>
+    </Setting>
+    <Setting Name="systemWebsiteMpcorb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.minorplanetcenter.org/iau/MPCORB.html</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

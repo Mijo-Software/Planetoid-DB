@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
 
-using Krypton.Toolkit;
-
 using NLog;
 
 namespace Planetoid_DB

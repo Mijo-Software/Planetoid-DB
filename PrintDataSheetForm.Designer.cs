@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
     partial class PrintDataSheetForm
@@ -77,7 +79,7 @@ namespace Planetoid_DB
 			buttonPrintDataSheet.TabIndex = 1;
 			toolTip.SetToolTip(buttonPrintDataSheet, "Print a data sheet with some orbit elements");
 			buttonPrintDataSheet.Values.DropDownArrowColor = Color.Empty;
-			buttonPrintDataSheet.Values.Image = Properties.Resources.silk_printer;
+			buttonPrintDataSheet.Values.Image = FatcowIcons16px.fatcow_printer_16px;
 			buttonPrintDataSheet.Values.Text = "&Print the sheet";
 			buttonPrintDataSheet.Click += ButtonPrintDataSheet_Click;
 			buttonPrintDataSheet.Enter += SetStatusBar_Enter;
@@ -96,7 +98,7 @@ namespace Planetoid_DB
 			buttonCancelPrint.TabIndex = 2;
 			toolTip.SetToolTip(buttonCancelPrint, "Cancel the print");
 			buttonCancelPrint.Values.DropDownArrowColor = Color.Empty;
-			buttonCancelPrint.Values.Image = Properties.Resources.silk_cancel;
+			buttonCancelPrint.Values.Image = FatcowIcons16px.fatcow_cancel_16px;
 			buttonCancelPrint.Values.Text = "&Cancel print";
 			buttonCancelPrint.Click += ButtonCancelPrint_Click;
 			buttonCancelPrint.Enter += SetStatusBar_Enter;
@@ -143,7 +145,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);

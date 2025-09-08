@@ -232,7 +232,7 @@ namespace Planetoid_DB
 				if (formDownloaderForMpcorbDat.ShowDialog() == DialogResult.OK)
 				{
 					// Set the file path to the downloaded MPCORB.DAT file
-					_ = MpcOrbDatFilePath = Resources.FilenameMpcorb;
+					_ = MpcOrbDatFilePath = Settings.Default.systemFilenameMpcorb;
 					// Set the dialog result to OK
 					DialogResult = DialogResult.OK;
 				}

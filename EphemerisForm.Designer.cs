@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
 	partial class EphemerisForm
@@ -81,7 +83,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);
@@ -146,7 +148,7 @@ namespace Planetoid_DB
 			buttonCalculate.TabIndex = 6;
 			toolTip.SetToolTip(buttonCalculate, "Calculate the ephemerides");
 			buttonCalculate.Values.DropDownArrowColor = Color.Empty;
-			buttonCalculate.Values.Image = Properties.Resources.silk_calculator;
+			buttonCalculate.Values.Image = FatcowIcons16px.fatcow_calculator_16px;
 			buttonCalculate.Values.Text = "&Calculate";
 			buttonCalculate.Click += ButtonCalculate_Click;
 			buttonCalculate.Enter += SetStatusBar_Enter;

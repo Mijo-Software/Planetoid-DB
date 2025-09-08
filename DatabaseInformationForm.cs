@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Text;
+
 using NLog;
+
 using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
@@ -105,7 +107,7 @@ namespace Planetoid_DB
 		private void DatabaseInformationForm_Load(object sender, EventArgs e)
 		{
 			// Path to the database file
-			FileInfo fileInfo = new(fileName: Resources.FilenameMpcorb);
+			FileInfo fileInfo = new(fileName: Settings.Default.systemFilenameMpcorb);
 			// Get the file attributes
 			FileAttributes attributes = File.GetAttributes(path: fileInfo.FullName);
 			// Check if the file is an archive

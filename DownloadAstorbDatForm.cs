@@ -9,8 +9,7 @@ using System.Net.NetworkInformation;
 
 using NLog;
 
-using static Planetoid_DB.Properties.Resources;
-using static Planetoid_DB.Properties.Settings;
+using Planetoid_DB.Properties;
 
 namespace Planetoid_DB
 {
@@ -24,21 +23,19 @@ namespace Planetoid_DB
 		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		// Filename for the ASTORB data file
-		private readonly string strFilenameAstorb = FilenameAstorb;
+		private readonly string strFilenameAstorb = Settings.Default.systemFilenameAstorb;
 
 		// Temporary filename for the ASTORB data file during download
-		private readonly string strFilenameAstorbTemp = FilenameAstorbTemp;
+		private readonly string strFilenameAstorbTemp = Settings.Default.systemFilenameAstorbTemp;
 
 		// URI for the ASTORB data file
-		private readonly Uri strUriAstorb = new(uriString: Default.systemAstorbDatGzUrl);
+		private readonly Uri strUriAstorb = new(uriString: Settings.Default.systemAstorbDatGzUrl);
 
 		// WebClient instance for handling the download
-		[Obsolete(message: "Obsolete")] private readonly WebClient webClient = new();
-		// Replace the WebClient instance with HttpClient and refactor the code accordingly.
-		private static readonly HttpClient HttpClient = new();
+		private readonly WebClient webClient = new();
 
 		// Static HttpClient instance for making HTTP requests
-		private static readonly HttpClient Client = new();
+		private static readonly HttpClient httpClient = new();
 
 		#region Constructor
 
@@ -98,11 +95,20 @@ namespace Planetoid_DB
 				// Create a new HttpRequestMessage with the HEAD method and the specified URI
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request and get the response
-				HttpResponseMessage response = Client.Send(request: request);
+				HttpResponseMessage response = httpClient.Send(request: request);
 				// Check if the response is successful and return the last modified date
 				// If the response is not successful, return DateTime.MinValue
 				// If the response is successful, return the last modified date or DateTime.MinValue if not available
-				return response.IsSuccessStatusCode ? response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue : DateTime.MinValue;
+				if (response.IsSuccessStatusCode)
+				{
+					// Return the last modified date or DateTime.MinValue if not available
+					return response.Content.Headers.LastModified?.UtcDateTime ?? DateTime.MinValue;
+				}
+				else
+				{
+					// Return DateTime.MinValue to indicate an error
+					return DateTime.MinValue;
+				}
 			}
 			// Catch any exceptions that occur during the request
 			catch (Exception ex)
@@ -131,9 +137,18 @@ namespace Planetoid_DB
 				// If the response is not successful, return 0
 				HttpRequestMessage request = new(method: HttpMethod.Head, requestUri: uri);
 				// Send the request using the HttpClient instance
-				HttpResponseMessage response = Client.Send(request: request);
+				HttpResponseMessage response = httpClient.Send(request: request);
 				// Check if the response is successful and return the content length
-				return response.IsSuccessStatusCode ? response.Content.Headers.ContentLength ?? 0 : 0;
+				if (response.IsSuccessStatusCode)
+				{
+					// Return the content length or 0 if not available
+					return response.Content.Headers.ContentLength ?? 0;
+				}
+				else
+				{
+					// Return 0 to indicate an error
+					return 0;
+				}
 			}
 			// Catch any exceptions that occur during the request
 			catch (Exception ex)
@@ -290,8 +305,6 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-
-		[Obsolete(message: "Obsolete")]
 		private void DownloadAstorbDatForm_Load(object? sender, EventArgs? e)
 		{
 			// Clear the status bar text
@@ -305,11 +318,11 @@ namespace Planetoid_DB
 			// Set the initial download progress to 0%
 			labelDownload.Text = I10nStrings.NumberZero + I10nStrings.PercentSign;
 			// Set the proxy to null to avoid using any proxy settings
-			webClient.Proxy = null;
+			httpClient.DefaultProxy = null;
 			// Event handler for download completion
-			webClient.DownloadFileCompleted += Completed;
+			httpClient.DownloadFileCompleted += Completed;
 			// Event handler for download progress
-			webClient.DownloadProgressChanged += ProgressChanged;
+			httpClient.DownloadProgressChanged += ProgressChanged;
 		}
 
 		/// <summary>
@@ -317,11 +330,10 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
-		[Obsolete(message: "Obsolete")]
 		private void DownloadAstorbDatForm_FormClosed(object? sender, FormClosedEventArgs? e)
 		{
-			webClient.CancelAsync();
-			webClient.Dispose();
+			httpClient.CancelPendingRequests();
+			httpClient.Dispose();
 			Dispose();
 		}
 
@@ -370,7 +382,6 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		[Obsolete(message: "Obsolete")]
 		private void ButtonDownload_Click(object? sender, EventArgs? e)
 		{
 			// Check if the sender is null
@@ -395,7 +406,7 @@ namespace Planetoid_DB
 			// Make the source value visible
 			labelSourceValue.Visible = true;
 			// Get the last modified date of the URI
-			labelDateValue.Text = GetLastModified(uri: strUriAstorb).ToUniversalTime().ToString(CultureInfo.CurrentCulture);
+			labelDateValue.Text = GetLastModified(uri: strUriAstorb).ToUniversalTime().ToString(provider: CultureInfo.CurrentCulture);
 			// Make the date value visible
 			labelDateValue.Visible = true;
 			// Set the size value to the content length of the URI
@@ -410,7 +421,7 @@ namespace Planetoid_DB
 				// Set the status value to "Downloading"
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 				// Start the download asynchronously
-				webClient.DownloadFileAsync(address: strUriAstorb, fileName: strFilenameAstorbTemp);
+				_ = httpClient.GetAsync(requestUri: strUriAstorb);
 			}
 			// Catch any exceptions that occur during the download
 			catch (Exception ex)
@@ -458,7 +469,7 @@ namespace Planetoid_DB
 			{
 				labelStatusValue.Text = I10nStrings.StatusDownloading;
 
-				using HttpResponseMessage response = await HttpClient.GetAsync(requestUri: strUriAstorb, completionOption: HttpCompletionOption.ResponseHeadersRead);
+				using HttpResponseMessage response = await httpClient.GetAsync(requestUri: strUriAstorb, completionOption: HttpCompletionOption.ResponseHeadersRead);
 				_ = response.EnsureSuccessStatusCode();
 
 				using Stream contentStream = await response.Content.ReadAsStreamAsync();
@@ -490,21 +501,20 @@ namespace Planetoid_DB
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-		[Obsolete(message: "Obsolete")]
-		private void ButtonCancelDownload_Click(object? sender, EventArgs? e) => webClient.CancelAsync();
+		private void ButtonCancelDownload_Click(object? sender, EventArgs? e) => httpClient.CancelPendingRequests();
 
 		/// <summary>
 		/// Handles the FormClosing event of the DownloadAstorbDatForm control.
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
-		[Obsolete(message: "Obsolete")]
 		private void DownloadAstorbDatForm_FormClosing(object? sender, FormClosingEventArgs? e)
 		{
 			// Check if the form is closing and if a download is in progress
 			// Cancel the download if it is in progress
-			webClient.CancelAsync();
-			// Dispose of the WebClient instance
+			httpClient.CancelPendingRequests();
+			// Dispose of the HttpClient instance
+			httpClient.Dispose();
 			if (File.Exists(path: strFilenameAstorbTemp))
 			{
 				// Delete the temporary file if it exists

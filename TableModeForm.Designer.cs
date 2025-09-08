@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using Krypton.Toolkit;
 
+using Planetoid_DB.Resources;
+
 namespace Planetoid_DB
 {
   partial class TableModeForm
@@ -174,7 +176,7 @@ namespace Planetoid_DB
 			buttonList.TabIndex = 4;
 			toolTip.SetToolTip(buttonList, "Start the progress and list");
 			buttonList.Values.DropDownArrowColor = Color.Empty;
-			buttonList.Values.Image = Properties.Resources.silk_table;
+			buttonList.Values.Image = FatcowIcons16px.fatcow_table_16px;
 			buttonList.Values.Text = "&List";
 			buttonList.Click += ButtonList_Click;
 			buttonList.Enter += SetStatusBar_Enter;
@@ -215,7 +217,7 @@ namespace Planetoid_DB
 			buttonCancel.TabIndex = 5;
 			toolTip.SetToolTip(buttonCancel, "Cancel the progress");
 			buttonCancel.Values.DropDownArrowColor = Color.Empty;
-			buttonCancel.Values.Image = Properties.Resources.silk_cancel;
+			buttonCancel.Values.Image = FatcowIcons16px.fatcow_cancel_16px;
 			buttonCancel.Values.Text = "&Cancel";
 			buttonCancel.Click += ButtonCancel_Click;
 			buttonCancel.Enter += SetStatusBar_Enter;
@@ -409,7 +411,7 @@ namespace Planetoid_DB
 			labelInformation.AccessibleName = "Shows some information";
 			labelInformation.AccessibleRole = AccessibleRole.StaticText;
 			labelInformation.AutoToolTip = true;
-			labelInformation.Image = Properties.Resources.silk_lightbulb;
+			labelInformation.Image = FatcowIcons16px.fatcow_lightbulb_16px;
 			labelInformation.Margin = new Padding(5, 3, 0, 2);
 			labelInformation.Name = "labelInformation";
 			labelInformation.Size = new Size(144, 17);
